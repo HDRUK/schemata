@@ -588,7 +588,10 @@ definitions:
           that describes the dataset. Additional information can be recorded and included
           using media. Notes: A WYSIWYG editor will be available through the onboarding
           portal.'
-        "$ref": "#/definitions/shortDescription"
+        anyOf:
+        - "$ref": "#/definitions/shortDescription"
+        - type: string
+          format: uri
       isPartOf:
         title: Group
         "$comment": "https://schema.org/isPartOf NOTE: we may make Groups first
