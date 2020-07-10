@@ -111,7 +111,7 @@ properties:
           Notes: An employee’s email address can only be provided on a temporary basis
           and if one is provided an explicit consent must be obtained for this purpose.'
       allOf:
-       - "$ref": "#/definitions/email"
+       - "$ref": "#/definitions/emailAddress"
     keywords:
       "$id": "#/properties/summary/keywords"
       "$comment": dcat:keyword. May be an array of strings or comma seperated list.
