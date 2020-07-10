@@ -31,9 +31,9 @@ properties:
     identifier:
       "$id": "#/properties/summary/identifier"
       title: Dataset identifier
-      "$comment": "http://purl.org/dc/terms/identifier",
+      "$comment": "http://purl.org/dc/terms/identifier"
       examples:
-        - ["226fb3f1-4471-400a-8c39-2b66d46a39b6"],
+        - ["226fb3f1-4471-400a-8c39-2b66d46a39b6"]
       description: System dataset identifier
       anyOf:
       - "$ref": "#/definitions/uuidv4"
@@ -62,9 +62,9 @@ properties:
         to differentiate it from other datasets within the Gateway. Please avoid acronyms
         wherever possible. Good titles should summarise the content of the dataset and
         if relevant, the region the dataset covers.
-       examples:
+      examples:
         - ["North West London COVID-19 Patient Level Situation Report"]
-       allOf:
+      allOf:
         - "$ref": "#/definitions/eightycharacters"
     abstract:
       "$id": "#/properties/summary/abstract"
@@ -76,12 +76,12 @@ properties:
         and effective abstracts should avoid long sentences and abbreviations where
         possible
       "$comment": dct:abstract
-       examples:
+      examples:
         - CPRD Aurum contains primary care data contributed by General Practitioner
           (GP) practices using EMIS Web® including patient registration information
           and all care events that GPs have chosen to record as part of their usual
           medical practice.
-       allOf:
+      allOf:
         - "$ref": "#/definitions/abstractText"
     publisher:
       "$id": "#/properties/summary/publisher"
