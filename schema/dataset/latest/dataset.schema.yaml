@@ -45,7 +45,7 @@ properties:
       title: Alternate dataset identifiers
       description: Alternate dataset identifiers or local identifiers
       anyOf:
-        - "$ref": "#/properties/summary/commaSeparatedValues"
+        - "$ref": "#/definitions/commaSeparatedValues"
         - type: array
           contains:
             type: string
@@ -65,7 +65,7 @@ properties:
       examples:
         - ["North West London COVID-19 Patient Level Situation Report"]
       allOf:
-        - "$ref": "#/definitions/eightycharacters"
+        - "$ref": "#/definitions/eightyCharacters"
     abstract:
       "$id": "#/properties/summary/abstract"
       title: Dataset Abstract
@@ -97,7 +97,7 @@ properties:
         UK Gateway organisation but coordinate activities across a number of data publishers
         i.e. Cambridge Blood and Stem Cell Biobank.
       allOf:
-        - "$ref": "#/definitions/eightycharacters"
+        - "$ref": "#/definitions/eightyCharacters"
     contact-point:
       "$id": "#/properties/summary/contactPoint"
       title: Contact Point
@@ -122,7 +122,7 @@ properties:
           a standardised list of keywords and synonyms across datasets to make filtering
           easier for users.'
       anyOf:
-        - "$ref": "#/properties/summary/commaSeparatedValues"
+        - "$ref": "#/definitions/commaSeparatedValues"
         - type: array
           contains:
             type: string
