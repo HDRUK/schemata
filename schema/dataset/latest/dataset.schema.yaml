@@ -594,6 +594,10 @@ definitions:
       minLength: 5
       maxLength: 3000
 
+  numericRange:
+    type: string
+    pattern: "/(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])/"
+
   semver:
     title: Semantic Version
     description: Semantic versioning of the using a dotted numeric format
