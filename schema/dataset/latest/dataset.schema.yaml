@@ -87,7 +87,7 @@ properties:
       "$id": "#/properties/summary/contactPoint"
       type: string
       format: email
-      title: The contactPoint schema  
+      title: The contactPoint schema
       description: An explanation about the purpose of this instance.
     keywords:
       "$id": "#/properties/summary/keywords"
@@ -114,7 +114,7 @@ properties:
         title: Digital Object Identifier
         description: All HDR UK registered datasets should either have a Digital Object
             Identifier (DOI) or be working towards obtaining one. If a DOI is available,
-            please provide the DOI.         
+            please provide the DOI.
     accessRights:
       "$id": "#/properties/accessRights"
       "$comment": 'FIXME: Conforms to spec, but this SHOULD be an array or URIs as cardinality'
@@ -148,7 +148,7 @@ properties:
       title: Digital Object Identifier
       description: All HDR UK registered datasets should either have a Digital Object
               Identifier (DOI) or be working towards obtaining one. If a DOI is available,
-              please provide the DOI.         
+              please provide the DOI.
     additionalMedia:
       "$id": "#/properties/documentation/additionalMedia"
       "$comment": 'FIXME: Conforms to spec, but this SHOULD to be an array of URIs as
@@ -171,77 +171,68 @@ properties:
       "$comment": Conforms to spec, but this MAY be an array of groups
       type: string
       title: The group schema
-      description: An explanation about the purpose of this instance.  
+      description: An explanation about the purpose of this instance.
   coverage:
     spatial:
       "$id": "#/properties/coverage/spatial"
-      "$comment": 'FIXME: Update to geoname pattern'
-      type: string
-      format: uri
-      title: The Coverage schema
-      description: The geographical area covered by the dataset.
+      title: Geographic Coverage
+      "$comment": dct:spatial
+      description: The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.
       default: ''
       examples:
-      - GB  
+      - GB
+      anyOf:
+      - "$ref": "#/definitions/url"
+      - type: string
     typicalAgeRange:
       "$id": "#/properties/coverage/TypicalAgeRange"
-      "$comment": 'FIXME: Rename MDC response to ageRange according to spec'
-      type: string
-      pattern: "\\d{1,3}-\\d{1,3}"
-      title: TypicalAgeRange
+      "$comment": https://schema.org/typicalAgeRange
+      title: Age Range
       description: Please indicate the age range in whole years of participants in the
         dataset. Please provide range in the following format ‘[min age] – [max age]’
         where both the minimum and maximum are whole numbers (integers).
+      allOf:
+      - "$ref": "#/definitions/ageRange"
     physicalSampleAvailability:
-        "$id": "#/properties/coverage/physicalSampleAvailability"
-        type: string
-        enum:
-        - Not Available
-        - Bone Marrow
-        - Cancer Cell Lines
-        - Core Biopsy
-        - CDNA/MRNA
-        - DNA
-        - Faeces
-        - Immortalized Cel Lines
-        - MicroRNA
-        - Peripheral Blood Cells
-        - Plasma
-        - PM Tissue
-        - Primary Cells
-        - RNA
-        - Saliva
-        - Serum
-        - Swabs
-        - Tissue
-        - Urine
-        - Whole Blood
-        - Availability To Be Confirmed
-        title: The physicalSampleAvailability schema
-        description: Availability of physical samples associated with the dataset. If
-          samples are available, please indicate the types of samples that are available.
-        default: ''
-        examples:
-        - Not Available 
-    followUp:
       "$id": "#/properties/coverage/physicalSampleAvailability"
-      type: string
-      enum:
-        - 0 - 6 MONTHS
-        - 6 - 12 MONTHS
-        - 1 - 10 YEARS	
-        - Greater than 10 YEARS	
-        - UNKNOWN
-      title: Follow Up
-      description: If known, what is the typical time span that a patient appears in the dataset (follow up period)
+      title: Physical Sample Availability
+      "$comment": No standard identified. Used enumeration from the UK Tissue Directory.
+      examples:
+      - BONE MARROW
+      items:
+      description: Availability of physical samples associated with the dataset.
+        If samples are available, please indicate the types of samples that are
+        available. More than one type may be provided. If sample are not yet available,
+        please provide “AVAILABILITY TO BE CONFIRMED”. If samples are not available,
+        then please provide “NOT AVAILABLE”.
+      anyOf:
+      - "$ref": "#/definitions/commaSeparatedValues"
+      - type: array
+        contains:
+          "$ref": "#/definitions/physicalSampleAvailability"
+        uniqueItems: true
+        minItems: 1
+    followUp:
+      "$id": "#/properties/coverage/followUp"
+      title: Followup
+      "$comment": No standard identified
+      default: UNKNOWN
+      description: If known, what is the typical time span that a patient appears
+        in the dataset (follow up period)
+      allOf:
+      - "$ref": "#/definitions/followup"
     pathway:
-        "$id": "#/properties/coverage/pathway"
-        type: string
-        minLength: 5
-        maxLength: 3000
-        pattern: "/^.{5,3000}$"
-        title: The short description
-        description: A free-text description of the record.
+      "$id": "#/properties/coverage/pathway"
+      title: Pathway
+      "$comment": No standard identified
+      description: Please indicate if the dataset is representative of the patient
+          pathway and any limitations the dataset may have with respect to pathway
+          coverage. This could include if the dataset is from a single speciality
+          or area, a single tier of care, linked across two tiers (e.g. primary and
+          secondary care), or an integrated care record covering the whole patient
+          pathway.
+      allOf:
+      - "$ref": "#/definitions/description"
   purpose:
     "$id": "#/properties/purpose"
     "$comment": 'FIXME: Mandatory, but cardinality 0:* Possibly deprecate.'
@@ -522,7 +513,7 @@ properties:
         type: string
     title: The statisticalPopulation schema
     description: An explanation about the purpose of this instance.
-  
+
   conformsTo:
     "$id": "#/properties/conformsTo"
     type: string
@@ -688,33 +679,33 @@ definitions:
     pattern: "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
     minLength: 36
     maxLength: 36
-  
+
   eightyCharacters:
     type: string
     minLength: 2
     maxLength: 80
-  
+
   abstractText:
     type: string
     minLength: 5
     maxLength: 255
-  
+
   emailAddress:
     type: string
     format: email
-  
+
   commaSeparatedValues:
     type: string
     pattern: "([^,]+)"
-  
-  numericRange:
+
+  ageRange:
     type: string
-    pattern: "\\d{1,3}-\\d{1,3}"
-  
+    pattern: "/(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])/"
+
   doi:
     type: string
     pattern: "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$"
-  
+
   controlledVocabulary:
     type: string
     enum:
@@ -753,7 +744,7 @@ definitions:
     - 'RXNORM EXTENSION'
     - 'SPL'
     - 'OTHER'
-  
+
   conformsTo:
     type: string
     enum:
@@ -772,7 +763,7 @@ definitions:
     - 'CDISC'
     - 'LOCAL'
     - 'OTHER'
-  
+
   physicalSampleAvailability:
     type: string
     enum:
@@ -797,7 +788,16 @@ definitions:
     - 'URINE'
     - 'WHOLE BLOOD'
     - 'AVAILABILITY TO BE CONFIRMED'
-  
+
+  followup:
+    type: string
+    enum:
+    - 0-6 MONTHS
+    - 6-12 MONTHS
+    - 1-10 YEARS
+    - MORE 10 YEARS
+    - UNKNOWN
+
   periodicity:
     type: string
     enum:
@@ -815,3 +815,7 @@ definitions:
     - IRREGULAR
     - CONTINUOUS
 
+  description:
+    type: string
+    minLength: 5
+    maxLength: 3000
