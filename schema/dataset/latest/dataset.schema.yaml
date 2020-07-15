@@ -819,3 +819,8 @@ definitions:
     type: string
     minLength: 5
     maxLength: 3000
+
+  url:
+    type: string
+    format: uri
+
