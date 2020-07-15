@@ -39,252 +39,185 @@ properties:
   accessibility:
     usage:
       dataUseLimitation:
-          "$id": "#/properties/accessibility/usage/dataUseLimitation"
-          type: string
-          enum:
-            - GENERAL RESEARCH USE
-            - GENETIC STUDIES ONLY
-            - NO GENERAL METHODS RESEARCH
-            - NO RESTRICTION
-            - RESEARCH SPECIFIC RESTRICTIONS
-            - RESEARCH USE ONLY
-            - NO LINKAGE
-          title: Data Use Limitation
-          description: An indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.
+        "$id": "#/properties/accessibility/usage/dataUseLimitation"
+        title: Data Use Limitation
+        "$comment": https://www.ebi.ac.uk/ols/ontologies/duo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDUO_0000001
+        description: 'Please provide an indication of consent permissions for datasets
+          and/or materials, and relates to the purposes for which datasets and/or
+          material might be removed, stored or used. NOTE: we have extended the DUO
+          to include a value for NO LINKAGE'
+        anyOf:
+        - "$ref": "#/definitions/commaSeparatedValues"
+        - type: array
+          contains:
+            "$ref": "#/definitions/datauseLimitation"
+          uniqueItems: true
+          minItems: 1
       dataUseRequirements:
-          "$id": "#/properties/accessibility/usage/dataUseRequirements"
-          type: string
-          enum:
-            - COLLABORATION REQUIRED
-            - ETHICS APPROVAL REQUIRED
-            - GEOGRAPHICAL RESTRICTIONS
-            - INSTITUTION SPECIFIC RESTRICTIONS
-            - NOT FOR PROFIT USE
-            - PROJECT SPECIFIC RESTRICTIONS
-            - PUBLICATION MORATORIUM
-            - PUBLICATION REQUIRED
-            - RETURN TO DATABASE OR RESOURCE
-            - TIME LIMIT ON USE
-            - USER SPECIFIC RESTRICTION
-          title: Data Use Limitation
-          description: An indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.
+        "$id": "#/properties/accessibility/usage/dataUseRequirements"
+        title: Data Use Requirements
+        description: Please indicate fit here are any additional conditions set
+            for use if any, multiple requirements may be provided. Please ensure that
+            these restrictions are documented in access rights information.
+        "$comment": https://www.ebi.ac.uk/ols/ontologies/duo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDUO_0000001
+        anyOf:
+        - "$ref": "#/definitions/commaSeparatedValues"
+        - type: array
+          contains:
+            "$ref": "#/definitions/datauseRequirements"
+          uniqueItems: true
+          minItems: 1
       resourceCreator:
-          "$id": "#/properties/accessibility/usage/resourceCreator"
-          type: string
-          title: The creator schema
-          description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.
+        "$id": "#/properties/accessibility/usage/resourceCreator"
+        type: string
+        title: Citation Requirements
+        "$comment": dct:creator
+        description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.
       investigations:
-          type: string
-          pattern: '^\\((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(:[0-9]+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)'
-          title: Investigations
-          description: Please provide a link to any active projects that are using the dataset.
+        title: Investigations
+        "$comment": No standard identified
+        type: array
+        items:
+          description: Please provide a link to any active projects that are using
+            the dataset.
+          allOf:
+          - "$ref": "#/definitions/url"
       isReferencedBy:
-          anyOf:
-            - type: string
-              pattern: '^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$'
-            - type: array
-              items:
-                type: string
-                pattern: '^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$'
-          title: Is Referenced By
-          description: The keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. 
+        title: Citations
+        "$comment": 'dct:isReferencedBy '
+        description: Please provide the keystone paper associated with the dataset.
+            Also include a list of known citations, if available and should be links
+            to existing resources where the dataset has been used or referenced. Please
+            provide multiple entries, or if you are using a csv upload please provide
+            them as a tab separated list. [Author] ([Year]) [Title] . [DOI] . [Source]
+        anyOf:
+          - "$ref": "#/definitions/doi"
+          - type: array
+            items:
+            - "$ref": "#/definitions/doi"
     access:
       accessRights:
-          "$id": "#/properties/accessibility/access/accessRights"
-          "$comment": 'FIXME: Conforms to spec, but this SHOULD be an array or URIs as cardinality
-          is 1:*'
-          anyOf:
-            - type: string
-              pattern: "^In Progress$"
-            - type: string
+        "$id": "#/properties/accessibility/access/accessRights"
+        title: Access Rights
+        "$comment": 'dct:access_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info'
+        anyOf:
+          - type: string
+            pattern: "^In Progress$"
+          - type: string
+            format: uri
+          - type: array
+            items:
+              type: string
               format: uri
-            - type: array
-              items:
-                type: string
-                format: uri
-          title: The accessRights schema
-          description: The URL of a webpage where the data access request process and/or
-            guidance is provided. If there is more than one access process i.e. industry
-            vs academic please provide both. If such a resource or the underlying process
-            doesn’t exist, please provide “In Progress”, until both the process and the
-            documentation are ready.
       accessService:
-          "$id": "#/properties/accessibility/access/accessService"
-          type: string
-          pattern: "^.{5,5000}$"
-          title: Access Service
-          description: Please provide a brief description of the environment where data can be accessed by researchers. If no environment is currently available, please indicate the current plans and timelines when the data will be made available through an access environment or process.
+        "$id": "#/properties/accessibility/access/accessService"
+        title: Access Service
+        "$comment": 'dcat:accessService '
+        examples:
+        - https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide
+        description: 'Please provide a brief description of the environment where
+          data can be accessed by researchers. If no environment is currently available,
+          please indicate the current plans and timelines when the data will be made
+          available through an access environment or process. Note: This value will
+          be used as default access environment for all datasets submitted by the
+          organisation. However, there will be the opportunity to overwrite his value
+          for each dataset.'
+        allOf:
+        - "$ref": "#/definitions/longDescription"
       deliveryLeadTime:
-          "$id": "#/properties/accessibility/access/deliveryLeadTime"
-          type: string
-          enum:
-            - "less than 1 Week"
-            - 1-2 Weeks
-            - 2-4 Weeks
-            - 1-2 Months
-            - 2-6 Months
-            - "greater than 6 Months"
-            - Other
-          title: The accessRequestDuration schema
-          description: Please provide an indication of the typical processing times based
-            on the types of requests typically received.
-      accessRequests:
-          "$id": "#/properties/accessibility/access/accessRequests"
-          type: integer
-          title: Access Requests
-          description: Please indicate the number of data access requests that have been received for the dataset.
+        "$id": "#/properties/accessibility/access/deliveryLeadTime"
+        title: Access Request Duration
+        "$comment": https://schema.org/deliveryLeadTime
+        description: Please provide an indication of the typical processing times based on the types of requests typically received.
+        allOf:
+        - "$ref": "#/definitions/accessrequestduration"
       jurisdiction:
-          "$id": "#/properties/jurisdiction"
-          "$comment": 'FIXME: Add ISO 3166-2 Subdivision code pattern'
-          type: string
-          pattern: '^[A-Z]{2}(-[A-Z]{2,3})?$'
-          title: The jurisdiction schema
-          description: Please use country code from ISO 3166-1 country codes and the associated
+        "$id": "#/properties/jurisdiction"
+        title: Jurisdiction
+        default: GB-ENG
+        "$comment": 'http://purl.org/dc/terms/Jurisdiction FIXME: Add ISO 3166-2 Subdivision code pattern'
+        description: 'Please use country code from ISO 3166-1 country codes and the associated
             ISO 3166-2 for regions, cities, states etc. for the country/state under whose
-            laws the data subjects’ data is collected, processed and stored.
+            laws the data subjects’ data is collected, processed and stored.'
+        type: array
+        items:
+          allOf:
+          - "$ref": "#/definitions/isocountrycode"
       dataController:
-          "$id": "#/properties/accessibility/access/dataController"
-          type: string
-          title: Data Controller
-          description: Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.
+        "$id": "#/properties/accessibility/access/dataController"
+        title: Data Controller
+        "$comment": " dpv:DataController"
+        description: Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.
+        allOf:
+        - "$ref": "#/definitions/longDescription"
       dataProcessor:
-          "$id": "#/properties/accessibility/access/dataProcessor"
-          type: string
-          title: Data Processor
-          description: A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.
+        "$id": "#/properties/accessibility/access/dataProcessor"
+        title: Data Processor
+        "$comment": dpv:DataProcessor
+        description: A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.
+        allOf:
+        - "$ref": "#/definitions/longDescription"
       formatAndStandards:
         vocabularyEncodingScheme:
           "$id": "#/properties/properties/accessibility/formatAndStandards/vocabularyEncodingScheme"
-          "$comment": 'FIXME: Confroms to spec, but MAY be a list of strings'
-          anyOf:
-            - type: string
-              enum:
-                - LOCAL
-                - OPCS4
-                - READ
-                - SNOMED CT
-                - SNOMED RT
-                - DM+D
-                - NHS NATIONAL CODES
-                - ODS
-                - LOINC
-                - ICD10
-                - ICD10CM
-                - ICD10PCS
-                - ICD9CM
-                - ICD9
-                - ICDO3
-                - AMT
-                - APC
-                - ATC
-                - CIEL
-                - HPO
-                - CPT4
-                - DPD
-                - DRG
-                - HEMONIC
-                - JMDC
-                - KCD7
-                - MULTUM
-                - NAACCR
-                - NDC
-                - NDFRT
-                - OXMIS
-                - RXNORM
-                - RXNORM EXTENSION
-                - SPL
-                - OTHER
-            - type: array
-              items:
-                type: string
-                enum:
-                    - LOCAL
-                    - OPCS4
-                    - READ
-                    - SNOMED CT
-                    - SNOMED RT
-                    - DM+D
-                    - NHS NATIONAL CODES
-                    - ODS
-                    - LOINC
-                    - ICD10
-                    - ICD10CM
-                    - ICD10PCS
-                    - ICD9CM
-                    - ICD9
-                    - ICDO3
-                    - AMT
-                    - APC
-                    - ATC
-                    - CIEL
-                    - HPO
-                    - CPT4
-                    - DPD
-                    - DRG
-                    - HEMONIC
-                    - JMDC
-                    - KCD7
-                    - MULTUM
-                    - NAACCR
-                    - NDC
-                    - NDFRT
-                    - OXMIS
-                    - RXNORM
-                    - RXNORM EXTENSION
-                    - SPL
-                    - OTHER
-          title: The controlledVocabulary schema
-          description: List any relevant terminologies / ontologies / controlled vocabularies,
-                such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International,
-                that are being used by the dataset.
-          default: ''
-          examples:
-              - See ConformsTo
+          title: Controlled Vocabulary
+          "$comment": https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/dcam/VocabularyEncodingScheme
+          default: LOCAL
+          description: 'List any relevant terminologies / ontologies / controlled
+                      vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes
+                      or SNOMED CT International, that are being used by the dataset. If the
+                      controlled vocabularies are local standards, please make that explicit.
+                      If you are using a standard that has not been included in the list, please
+                      use “other” and contact support desk to ask for an addition. Notes: More
+                      than one vocabulary may be provided.'
+          type: array
+          items:
+            allOf:
+            - "$ref": "#/definitions/controlledvocabulary"
+          minItems: 0
         conformsTo:
           "$id": "#/properties/conformsTo"
-          type: string
-          enum:
-          - HL7 FHIR
-          - HL7 V2
-          - HL7 CDA
-          - HL7 CCOW
-          - LOINC
-          - DICOM
-          - I2B2
-          - IHE
-          - OMOP
-          - OPENEHR
-          - SENTINEL
-          - PCORNET
-          - LOCAL
-          - CDISC 
-          - OTHER
-          title: The conformsTo schema
-          description: An explanation about the purpose of this instance.
+          title: Conforms To
+          "$comment": dct:conformsTo
+          default: LOCAL
+          description: 'List standardised data models that the dataset has been stored
+          in or transformed to, such as OMOP or FHIR. If the data is only available
+          in a local format, please make that explicit. If you are using a standard
+          that has not been included in the list, please use “other” and contact support
+          desk to ask for an addition.'
+          type: array
+          items:
+          - "$ref": "#/definitions/standardiseddatamodels"
         language:
           "$id": "#/properties/language"
-          "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
+          title: Language
+          description: This should list all the languages in which the dataset metadata
+                      and underlying data is made available.
+          default: en
+          "$comment": 'dct:language. FIXME: Conforms to spec, but may be a list of strings given cardinality
             1:*. Validate against external list of languages. Resources defined by the Library
             of Congress (ISO 639-1, ISO 639-2) SHOULD be used.'
-          anyOf:
-          - type: string
-          - type: array
-            items:
-              type: string
-          title: The language schema
-          description: This should list all the languages in which the dataset metadata
-            and underlying data is made available.
+          type: array
+          items:
+            allOf:
+            - "$ref": "#/definitions/language"
+          minItems: 1
         format:
           "$id": "#/properties/format"
-          "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
-            1:*. Validate against external list of formats, e.g. https://www.iana.org/assignments/media-types/media-types.xhtml'
-          anyOf:
-          - type: string
-          - type: array
-            items:
-              type: string
-          title: The format schema
-          description: If multiple formats are available please specify.
+          title: Format
+          description: 'If multiple formats are available please specify. See application,
+            audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml
+            Note: If your file format is not included in the current list of formats,
+            please indicate other. If you are using the HOP you will be directed to
+            a service desk page where you can request your additional format. If not
+            please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4
+            to request your format.'
+          "$comment": 'http://purl.org/dc/terms/format '
+          type: array
+          items:
+            allOf:
+            - "$ref": "#/definitions/format"
+          minItems: 1
 
   id:
     "$id": "#/properties/id"
@@ -294,7 +227,7 @@ properties:
     maxLength: 36
     title: Dataset identifier
     description: Dataset identifier
-  
+
   version:
     "$id": "#/properties/version"
     title: Dataset Version
@@ -302,13 +235,13 @@ properties:
     "$ref": "#/definitions/semver"
     examples:
     - "1.1.0"
-  
+
   revisions:
     "$id": "#/properties/revisions"
     title: Dataset Revisions
     description: Revisions of Dataset metadata
     "$ref": "#/definitions/revisions"
-  
+
   issued:
     "$id": "#/properties/issued"
     title: Creation Date
@@ -316,7 +249,7 @@ properties:
     description: Dataset Metadata Creation Date
     type: string
     format: date-time
-  
+
   modified:
     "$id": "#/properties/modified"
     title: Modification Date
@@ -324,7 +257,7 @@ properties:
     description: Dataset Metadata Creation Date
     type: string
     format: date-time
-  
+
   identifier:
     "$id": "#/properties/identifier"
     "$comment": 'FIX SPEC: Conforms to spec, but this MAY be an array of strings.
@@ -336,7 +269,7 @@ properties:
     - type: array
       items:
         type: string
-  
+
   title:
     "$id": "#/properties/title"
     title: Dataset title
@@ -349,7 +282,7 @@ properties:
     type: string
     minLength: 2
     maxLength: 80
-  
+
   abstract:
     "$id": "#/properties/abstract"
     title: Dataset abstract
@@ -362,7 +295,7 @@ properties:
     type: string
     minLength: 5
     maxLength: 255
-  
+
   publisher:
     "$id": "#/properties/publisher"
     "$comment": Conforms to spec, but this MAY be an an object of organisation
@@ -376,14 +309,14 @@ properties:
     type: string
     minLength: 2
     maxLength: 80
-  
+
   contactPoint:
     "$id": "#/properties/contactPoint"
     title: The contactPoint schema
     description: An explanation about the purpose of this instance.
     type: string
     format: email
-  
+
   accessRights:
     "$id": "#/properties/accessRights"
     "$comment": 'FIXME: Conforms to spec, but this SHOULD be an array or URIs as cardinality
@@ -403,14 +336,14 @@ properties:
       items:
         type: string
         format: uri
-        
+
   group:
     "$id": "#/properties/group"
     "$comment": Conforms to spec, but this MAY be an array of groups
     title: The group schema
     description: An explanation about the purpose of this instance.
     type: string
-  
+
   description:
     "$id": "#/properties/description"
     title: The description schema
@@ -423,7 +356,7 @@ properties:
       maxLength: 50000
     - type: string
       format: uri
-  
+
   media:
     "$id": "#/properties/media"
     "$comment": 'FIXME: Conforms to spec, but this SHOULD to be an array of URIs as
@@ -441,7 +374,7 @@ properties:
       items:
         type: string
         format: uri
-  
+
   purpose:
     "$id": "#/properties/purpose"
     "$comment": 'FIXME: Mandatory, but cardinality 0:* Possibly deprecate.'
@@ -469,7 +402,7 @@ properties:
         - Audit
         - Administrative
         - Financial
-  
+
   source:
     "$id": "#/properties/source"
     "$comment": 'FIXME: Mandatory, but cardinality 0:* Possibly deprecate.'
@@ -495,8 +428,7 @@ properties:
         - Paper Based
         - Freetext Nlp
         - Machine Generated
-  
-  
+
   setting:
     "$id": "#/properties/setting"
     "$comment": 'FIXME: Mandatory, but cardinality 0:*. Possibly deprecate.'
@@ -530,21 +462,21 @@ properties:
         - Home
         - Private
         - Pharmacy
-  
+
   releaseDate:
     "$id": "#/properties/releaseDate"
     title: The releaseDate schema
     description: An explanation about the purpose of this instance.
     type: string
     format: date-time
-  
+
   accessRequestCost:
     "$id": "#/properties/accessRequestCost"
     title: The accessRequestCost schema
     description: An explanation about the purpose of this instance.
     type: string
- 
-  
+
+
   dataController:
     "$id": "#/properties/dataController"
     title: The dataController schema
@@ -554,7 +486,7 @@ properties:
     type: string
     minLength: 5
     maxLength: 5000
-  
+
   dataProcessor:
     "$id": "#/properties/dataProcessor"
     title: The dataProcessor schema
@@ -568,13 +500,13 @@ properties:
     - type: string
       enum:
       - Not Applicable
-  
+
   license:
     "$id": "#/properties/license"
     title: The license schema
     description: An explanation about the purpose of this instance.
     type: string
-  
+
   derivedDatasets:
     "$id": "#/properties/derivedDatasets"
     "$comment": 'FIXME: Conforms to spec, but this SHOULD to be an array of datasets
@@ -593,7 +525,7 @@ properties:
       enum:
       - Not Known
       - Not Available
-  
+
   linkedDataset:
     "$id": "#/properties/linkedDataset"
     "$comment": 'FIXME: If linked $title must start with ''Linked''. FIXME: Conforms
@@ -614,7 +546,7 @@ properties:
       enum:
       - Not Known
       - Not Available
-  
+
   linkageOpportunity:
     "$id": "#/properties/linkageOpportunity"
     title: The linkageOpportunity schema
@@ -631,7 +563,7 @@ properties:
       - Not Known
       - Not Available
     type: string
-  
+
   geographicCoverage:
     "$id": "#/properties/geographicCoverage"
     "$comment": 'FIXME: Update to geoname pattern'
@@ -642,28 +574,28 @@ properties:
     default: ''
     examples:
     - GB
-  
+
   periodicity:
     "$id": "#/properties/periodicity"
     title: The periodicity schema
     description: The frequency at which dataset is published.
     "$ref": "#/definitions/periodicity"
-  
+
   datasetEndDate:
     "$id": "#/properties/datasetEndDate"
     title: The datasetEndDate schema
     description: The end of the time period that the dataset provides coverage for.
     type: string
     format: date
-  
+
   datasetStartDate:
     "$id": "#/properties/datasetStartDate"
     title: The datasetStartDate schema
     description: The start of the time period that the dataset provides coverage for.
     type: string
     format: date
-    
-  
+
+
   jurisdiction:
     "$id": "#/properties/jurisdiction"
     "$comment": 'FIXME: Add ISO 3166-2 Subdivision code pattern'
@@ -673,7 +605,7 @@ properties:
       laws the data subjects’ data is collected, processed and stored.
     type: string
     pattern: "^[A-Z]{2}(-[A-Z]{2,3})?$"
-  
+
   populationType:
     "$id": "#/properties/populationType"
     "$comment": 'FIXME: Check against SNOMED-CT TERMS. Conforms to spec but MAY be
@@ -687,7 +619,7 @@ properties:
     - type: array
       items:
         type: string
-    
+
   disabmiguatingDescription:
     "$id": "#/properties/disabmiguatingDescription"
     "$comment": 'FIXME: MDC is not populated with this value'
@@ -695,8 +627,8 @@ properties:
     description: If SNOMED CT term does not provide sufficient detail, please provide
       a description that disambiguates the population type.
     type: string
-    
-  
+
+
   statisticalPopulation:
     "$id": "#/properties/statisticalPopulation"
     "$comment": 'FIXME: Spec calls this Measured Value'
@@ -707,8 +639,8 @@ properties:
     - type: array
       items:
         type: string
-    
-  
+
+
   ageBand:
     "$id": "#/properties/ageBand"
     "$comment": 'FIXME: Rename MDC response to ageRange according to spec'
@@ -717,7 +649,7 @@ properties:
       dataset. Please provide range in the following format ‘[min age] – [max age]’
       where both the minimum and maximum are whole numbers (integers).
     "$ref": "#/definitions/numericRange"
-  
+
   physicalSampleAvailability:
     "$id": "#/properties/physicalSampleAvailability"
     "$comment": Conforms to spec, but this MAY be an array of strings
@@ -732,7 +664,7 @@ properties:
     default: ''
     examples:
     - Not Available
-  
+
   keywords:
     "$id": "#/properties/keywords"
     "$comment": Conforms to spec, but this MAY be an array of strings
@@ -743,41 +675,7 @@ properties:
     - type: array
       items:
         "$ref": "#/definitions/commaSeparatedValues"
-  
-  conformsTo:
-    title: The conformsTo schema
-    description: An explanation about the purpose of this instance.
-    "$id": "#/properties/conformsTo"
-    "$ref": "#/definitions/conformsTo"
-  
 
-  
-  language:
-    "$id": "#/properties/language"
-    "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
-      1:*. Validate against external list of languages. Resources defined by the Library
-      of Congress (ISO 639-1, ISO 639-2) SHOULD be used.'
-    title: The language schema
-    description: This should list all the languages in which the dataset metadata
-      and underlying data is made available.
-    anyOf:
-    - type: string
-    - type: array
-      items:
-        type: string
-  
-  format:
-    "$id": "#/properties/format"
-    "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
-      1:*. Validate against external list of formats, e.g. https://www.iana.org/assignments/media-types/media-types.xhtml'
-    title: The format schema
-    description: If multiple formats are available please specify.
-    anyOf:
-    - type: string
-    - type: array
-      items:
-        type: string
-  
   fileSize:
     "$id": "#/properties/fileSize"
     title: The fileSize schema
@@ -786,9 +684,7 @@ properties:
     default: ''
     examples:
     - 301MB
-  
-  
-  
+
   doi:
     "$id": "#/properties/doi"
     title: Digital Object Identifier
@@ -806,18 +702,18 @@ definitions:
   commaSeparatedValues:
     type: string
     pattern: "([^,]+)"
-  
+
   numericRange:
     type: string
     pattern: "\\d{1,3}-\\d{1,3}"
-  
+
   semver:
     title: Semantic Version
-    description: Semantic versioning of the using a dotted numeric format 
+    description: Semantic versioning of the using a dotted numeric format
       MAJOR.MINOR.PATCH
     type: string
     pattern: "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
-  
+
   revisions:
     type: array
     items:
@@ -833,65 +729,7 @@ definitions:
           description: URL endpoint to obtain the version
           type: string
           format: uri
-  
-  controlledVocabulary:
-    type: string
-    enum:
-    - 'LOCAL'
-    - 'OPCS4'
-    - 'READ'
-    - 'SNOMED CT'
-    - 'SNOMED RT'
-    - 'DM+D'
-    - 'NHS NATIONAL CODES'
-    - 'ODS'
-    - 'LOINC'
-    - 'ICD10'
-    - 'ICD10CM'
-    - 'ICD10PCS'
-    - 'ICD9CM'
-    - 'ICD9'
-    - 'ICDO3'
-    - 'AMT'
-    - 'APC'
-    - 'ATC'
-    - 'CIEL'
-    - 'HPO'
-    - 'CPT4'
-    - 'DPD'
-    - 'DRG'
-    - 'HEMONC'
-    - 'JMDC'
-    - 'KCD7'
-    - 'MULTUM'
-    - 'NAACCR'
-    - 'NDC'
-    - 'NDFRT'
-    - 'OXMIS'
-    - 'RXNORM'
-    - 'RXNORM EXTENSION'
-    - 'SPL'
-    - 'OTHER'
-  
-  conformsTo:
-    type: string
-    enum:
-    - 'HL7 FHIR'
-    - 'HL7 V2'
-    - 'HL7 CDA'
-    - 'HL7 CCOW'
-    - 'LOINC'
-    - 'DICOM'
-    - 'I2B2'
-    - 'IHE'
-    - 'OMOP'
-    - 'OPENEHR'
-    - 'SENTINEL'
-    - 'PCORNET'
-    - 'CDISC'
-    - 'LOCAL'
-    - 'OTHER'
-  
+
   physicalSampleAvailability:
     type: string
     enum:
@@ -916,7 +754,7 @@ definitions:
     - 'URINE'
     - 'WHOLE BLOOD'
     - 'AVAILABILITY TO BE CONFIRMED'
-  
+
   periodicity:
     type: string
     enum:
@@ -932,3 +770,330 @@ definitions:
     - DAILY
     - IRREGULAR
     - CONTINUOUS
+
+  datauseLimitation:
+    type: string
+    enum:
+    - GENERAL RESEARCH USE
+    - GENETIC STUDIES ONLY
+    - NO GENERAL METHODS RESEARCH
+    - NO RESTRICTION
+    - RESEARCH SPECIFIC RESTRICTIONS
+    - RESEARCH USE ONLY
+    - NO LINKAGE
+
+  datauseRequirements:
+    type: string
+    enum:
+    - COLLABORATION REQUIRED
+    - ETHICS APPROVAL REQUIRED
+    - GEOGRAPHICAL RESTRICTIONS
+    - INSTITUTION SPECIFIC RESTRICTIONS
+    - NOT FOR PROFIT USE
+    - PROJECT SPECIFIC RESTRICTIONS
+    - PUBLICATION MORATORIUM
+    - PUBLICATION REQUIRED
+    - RETURN TO DATABASE OR RESOURCE
+    - TIME LIMIT ON USE
+    - USER SPECIFIC RESTRICTION
+
+  url:
+    type: string
+    format: uri
+
+  doi:
+    type: string
+    pattern: "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$"
+
+  longDescription:
+    type: string
+    minLength: 5
+    maxLength: 5000
+
+  accessrequestduration:
+    type: string
+    enum:
+    - LESS 1 WEEK
+    - 1-2 WEEKS
+    - 2-4 WEEKS
+    - 1-2 MONTHS
+    - 2-6 MONTHS
+    - MORE 6 MONTHS
+    - OTHER
+
+  isocountrycode:
+    "$comment": 'FIXME: Add ISO 3166-2 Subdivision code pattern'
+    type: string
+    pattern: "^[A-Z]{2}(-[A-Z]{2,3})?$"
+
+  standardiseddatamodels:
+    type: string
+    enum:
+    - HL7 FHIR
+    - HL7 V2
+    - HL7 CDA
+    - HL7 CCOW
+    - LOINC
+    - DICOM
+    - I2B2
+    - IHE
+    - OMOP
+    - OPENEHR
+    - SENTINEL
+    - PCORNET
+    - CDISC
+    - LOCAL
+    - OTHER
+
+  controlledvocabulary:
+    type: string
+    enum:
+    - LOCAL
+    - OPCS4
+    - READ
+    - SNOMED CT
+    - SNOMED RT
+    - 'DM+D'
+    - NHS NATIONAL CODES
+    - ODS
+    - LOINC
+    - ICD10
+    - ICD10CM
+    - ICD10PCS
+    - ICD9CM
+    - ICD9
+    - ICDO3
+    - AMT
+    - APC
+    - ATC
+    - CIEL
+    - HPO
+    - CPT4
+    - DPD
+    - DRG
+    - HEMONC
+    - JMDC
+    - KCD7
+    - MULTUM
+    - NAACCR
+    - NDC
+    - NDFRT
+    - OXMIS
+    - RXNORM
+    - RXNORM EXTENSION
+    - SPL
+    - OTHER
+
+  language:
+    type: string
+    enum:
+    - aa
+    - ab
+    - af
+    - ak
+    - sq
+    - am
+    - ar
+    - an
+    - hy
+    - as
+    - av
+    - ae
+    - ay
+    - az
+    - ba
+    - bm
+    - eu
+    - be
+    - bn
+    - bh
+    - bi
+    - bo
+    - bs
+    - br
+    - bg
+    - my
+    - ca
+    - cs
+    - ch
+    - ce
+    - zh
+    - cu
+    - cv
+    - kw
+    - co
+    - cr
+    - cy
+    - cs
+    - da
+    - de
+    - dv
+    - nl
+    - dz
+    - el
+    - en
+    - eo
+    - et
+    - eu
+    - ee
+    - fo
+    - fa
+    - fj
+    - fi
+    - fr
+    - fr
+    - fy
+    - ff
+    - ka
+    - de
+    - gd
+    - ga
+    - gl
+    - gv
+    - el
+    - gn
+    - gu
+    - ht
+    - ha
+    - he
+    - hz
+    - hi
+    - ho
+    - hr
+    - hu
+    - hy
+    - ig
+    - is
+    - io
+    - ii
+    - iu
+    - ie
+    - ia
+    - id
+    - ik
+    - is
+    - it
+    - jv
+    - ja
+    - kl
+    - kn
+    - ks
+    - ka
+    - kr
+    - kk
+    - km
+    - ki
+    - rw
+    - ky
+    - kv
+    - kg
+    - ko
+    - kj
+    - ku
+    - lo
+    - la
+    - lv
+    - li
+    - ln
+    - lt
+    - lb
+    - lu
+    - lg
+    - mk
+    - mh
+    - ml
+    - mi
+    - mr
+    - ms
+    - mk
+    - mg
+    - mt
+    - mn
+    - mi
+    - ms
+    - my
+    - na
+    - nv
+    - nr
+    - nd
+    - ng
+    - ne
+    - nl
+    - nn
+    - nb
+    - no
+    - ny
+    - oc
+    - oj
+    - or
+    - om
+    - os
+    - pa
+    - fa
+    - pi
+    - pl
+    - pt
+    - ps
+    - qu
+    - rm
+    - ro
+    - ro
+    - rn
+    - ru
+    - sg
+    - sa
+    - si
+    - sk
+    - sk
+    - sl
+    - se
+    - sm
+    - sn
+    - sd
+    - so
+    - st
+    - es
+    - sq
+    - sc
+    - sr
+    - ss
+    - su
+    - sw
+    - sv
+    - ty
+    - ta
+    - tt
+    - te
+    - tg
+    - tl
+    - th
+    - bo
+    - ti
+    - to
+    - tn
+    - ts
+    - tk
+    - tr
+    - tw
+    - ug
+    - uk
+    - ur
+    - uz
+    - ve
+    - vi
+    - vo
+    - cy
+    - wa
+    - wo
+    - xh
+    - yi
+    - yo
+    - za
+    - zh
+    - zu
+
+  format:
+    "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
+      1:*. Validate against external list of formats, e.g. https://www.iana.org/assignments/media-types/media-types.xhtml'
+    type: string
+    minLength: 1
