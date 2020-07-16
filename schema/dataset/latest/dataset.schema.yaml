@@ -740,3 +740,12 @@ definitions:
   linkeddatasets:
     allOf:
     - "$ref": "#/definitions/url"
+
+  abstract:
+    type: string
+    minLength: 1
+    maxLength: 255
+
+  url:
+    type: string
+    format: uri
