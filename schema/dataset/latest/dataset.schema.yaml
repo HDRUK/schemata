@@ -11,6 +11,7 @@ required:
 - abstract
 - publisher
 - contactPoint
+- documentation
 - accessRights
 - accessRequestCost
 - dataController
@@ -40,7 +41,7 @@ properties:
     maxLength: 36
     title: Dataset identifier
     description: Dataset identifier
-
+  
   identifier:
     "$id": "#/properties/identifier"
     "$comment": 'FIX SPEC: Conforms to spec, but this MAY be an array of strings.
@@ -52,7 +53,7 @@ properties:
     - type: array
       items:
         type: string
-
+  
   title:
     "$id": "#/properties/title"
     title: Dataset title
@@ -65,7 +66,7 @@ properties:
     type: string
     minLength: 2
     maxLength: 80
-
+  
   abstract:
     "$id": "#/properties/abstract"
     title: Dataset abstract
@@ -78,7 +79,7 @@ properties:
     type: string
     minLength: 5
     maxLength: 255
-
+  
   publisher:
     "$id": "#/properties/publisher"
     "$comment": Conforms to spec, but this MAY be an an object of organisation
@@ -92,14 +93,23 @@ properties:
     type: string
     minLength: 2
     maxLength: 80
-
+  
   contactPoint:
     "$id": "#/properties/contactPoint"
     title: The contactPoint schema
     description: An explanation about the purpose of this instance.
     type: string
     format: email
-
+  
+  documentation:
+    "$id": "#/properties/documentation"
+    title: The contactPoint schema
+    description: Documentation can include a rich text description of the dataset
+      or links to media such as documents, images, presentations, videos or links
+      to data dictionaries, profiles or dashboards. Organisations are required
+      to confirm that they have permission to distribute any additional media.
+    "$ref": "#/definitions/documentation"
+  
   accessRights:
     "$id": "#/properties/accessRights"
     "$comment": 'FIXME: Conforms to spec, but this SHOULD be an array or URIs as cardinality
@@ -119,41 +129,7 @@ properties:
       items:
         type: string
         format: uri
-
-documentation:
-  description:
-      "$id": "#/properties/documentation/description"
-      "$comment": dc:description, https://schema.org/description
-      title: The description
-      description: A free-text description of the record.
-      allOf:
-      - "$ref": "#/definitions/description"
-
-  associatedMedia:
-      "$id": "#/properties/documentation/associatedMedia"
-      title: Associated Media
-      "$comment": https://schema.org/associatedMedia
-      examples:
-       - PDF Document that describes study protocol
-      description: 'Please provide any media associated with the Gateway Organisation
-              using a valid URI for the content. This is an opportunity to provide additional
-              context that could be useful for researchers wanting to understand more
-              about the dataset and its relevance to their research question. The following
-              formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note:
-              media asset can be hosted by the organisation or uploaded using the onboarding
-              portal.'
-      type: array
-      items:
-       allOf:
-        - "$ref": "#/definitions/url"
-  isPartOf:
-      "$id": "#/properties/documentation/isPartOf"
-      "$comment": "https://schema.org/isPartOf NOTE: we may make Groups first
-              class citizens so the are navigable"
-      type: string
-      title: The group schema
-      default: Not Applicable
-      description: Please complete only if the dataset is part of a group or family
+  
   purpose:
     "$id": "#/properties/purpose"
     "$comment": 'FIXME: Mandatory, but cardinality 0:* Possibly deprecate.'
@@ -181,7 +157,7 @@ documentation:
         - Audit
         - Administrative
         - Financial
-
+  
   source:
     "$id": "#/properties/source"
     "$comment": 'FIXME: Mandatory, but cardinality 0:* Possibly deprecate.'
@@ -207,8 +183,8 @@ documentation:
         - Paper Based
         - Freetext Nlp
         - Machine Generated
-
-
+  
+  
   setting:
     "$id": "#/properties/setting"
     "$comment": 'FIXME: Mandatory, but cardinality 0:*. Possibly deprecate.'
@@ -242,20 +218,20 @@ documentation:
         - Home
         - Private
         - Pharmacy
-
+  
   releaseDate:
     "$id": "#/properties/releaseDate"
     title: The releaseDate schema
     description: An explanation about the purpose of this instance.
     type: string
     format: date-time
-
+  
   accessRequestCost:
     "$id": "#/properties/accessRequestCost"
     title: The accessRequestCost schema
     description: An explanation about the purpose of this instance.
     type: string
-
+  
   accessRequestDuration:
     "$id": "#/properties/accessRequestDuration"
     title: The accessRequestDuration schema
@@ -270,7 +246,7 @@ documentation:
     - 2-6 Months
     - ">6 Months"
     - Other
-
+  
   accessEnvironment:
     "$id": "#/properties/accessEnvironment"
     title: The accessEnvironment schema
@@ -279,7 +255,7 @@ documentation:
     type: string
     minLength: 5
     maxLength: 5000
-
+  
   usageRestrictions:
     "$id": "#/properties/usageRestrictions"
     "$comment": 'FIXME: Missing from Onboarding tool, so not captured'
@@ -293,7 +269,7 @@ documentation:
     - type: string
       enum:
       - In Progress
-
+  
   dataController:
     "$id": "#/properties/dataController"
     title: The dataController schema
@@ -303,7 +279,7 @@ documentation:
     type: string
     minLength: 5
     maxLength: 5000
-
+  
   dataProcessor:
     "$id": "#/properties/dataProcessor"
     title: The dataProcessor schema
@@ -317,13 +293,13 @@ documentation:
     - type: string
       enum:
       - Not Applicable
-
+  
   license:
     "$id": "#/properties/license"
     title: The license schema
     description: An explanation about the purpose of this instance.
     type: string
-
+  
   derivedDatasets:
     "$id": "#/properties/derivedDatasets"
     "$comment": 'FIXME: Conforms to spec, but this SHOULD to be an array of datasets
@@ -342,7 +318,7 @@ documentation:
       enum:
       - Not Known
       - Not Available
-
+  
   linkedDataset:
     "$id": "#/properties/linkedDataset"
     "$comment": 'FIXME: If linked $title must start with ''Linked''. FIXME: Conforms
@@ -363,7 +339,7 @@ documentation:
       enum:
       - Not Known
       - Not Available
-
+  
   linkageOpportunity:
     "$id": "#/properties/linkageOpportunity"
     title: The linkageOpportunity schema
@@ -380,7 +356,7 @@ documentation:
       - Not Known
       - Not Available
     type: string
-
+  
   geographicCoverage:
     "$id": "#/properties/geographicCoverage"
     "$comment": 'FIXME: Update to geoname pattern'
@@ -391,28 +367,28 @@ documentation:
     default: ''
     examples:
     - GB
-
+  
   periodicity:
     "$id": "#/properties/periodicity"
     title: The periodicity schema
     description: The frequency at which dataset is published.
     "$ref": "#/definitions/periodicity"
-
+  
   datasetEndDate:
     "$id": "#/properties/datasetEndDate"
     title: The datasetEndDate schema
     description: The end of the time period that the dataset provides coverage for.
     type: string
     format: date
-
+  
   datasetStartDate:
     "$id": "#/properties/datasetStartDate"
     title: The datasetStartDate schema
     description: The start of the time period that the dataset provides coverage for.
     type: string
     format: date
-
-
+    
+  
   jurisdiction:
     "$id": "#/properties/jurisdiction"
     "$comment": 'FIXME: Add ISO 3166-2 Subdivision code pattern'
@@ -422,7 +398,7 @@ documentation:
       laws the data subjects’ data is collected, processed and stored.
     type: string
     pattern: "^[A-Z]{2}(-[A-Z]{2,3})?$"
-
+  
   populationType:
     "$id": "#/properties/populationType"
     "$comment": 'FIXME: Check against SNOMED-CT TERMS. Conforms to spec but MAY be
@@ -436,7 +412,7 @@ documentation:
     - type: array
       items:
         type: string
-
+    
   disabmiguatingDescription:
     "$id": "#/properties/disabmiguatingDescription"
     "$comment": 'FIXME: MDC is not populated with this value'
@@ -444,8 +420,8 @@ documentation:
     description: If SNOMED CT term does not provide sufficient detail, please provide
       a description that disambiguates the population type.
     type: string
-
-
+    
+  
   statisticalPopulation:
     "$id": "#/properties/statisticalPopulation"
     "$comment": 'FIXME: Spec calls this Measured Value'
@@ -456,8 +432,8 @@ documentation:
     - type: array
       items:
         type: string
-
-
+    
+  
   ageBand:
     "$id": "#/properties/ageBand"
     "$comment": 'FIXME: Rename MDC response to ageRange according to spec'
@@ -466,7 +442,7 @@ documentation:
       dataset. Please provide range in the following format ‘[min age] – [max age]’
       where both the minimum and maximum are whole numbers (integers).
     "$ref": "#/definitions/numericRange"
-
+  
   physicalSampleAvailability:
     "$id": "#/properties/physicalSampleAvailability"
     "$comment": Conforms to spec, but this MAY be an array of strings
@@ -481,7 +457,7 @@ documentation:
     default: ''
     examples:
     - Not Available
-
+  
   keywords:
     "$id": "#/properties/keywords"
     "$comment": Conforms to spec, but this MAY be an array of strings
@@ -492,20 +468,20 @@ documentation:
     - type: array
       items:
         "$ref": "#/definitions/commaSeparatedValues"
-
+  
   conformsTo:
     title: The conformsTo schema
     description: An explanation about the purpose of this instance.
     "$id": "#/properties/conformsTo"
     "$ref": "#/definitions/conformsTo"
-
+  
   controlledVocabulary:
     "$id": "#/properties/controlledVocabulary"
     "$comment": 'FIXME: Confroms to spec, but MAY be a list of strings'
     title: The controlledVocabulary schema
     description: List any relevant terminologies / ontologies / controlled vocabularies,
       such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International,
-      that are being used by the dataset.
+      that are being used by the dataset.    
     anyOf:
     - "$ref": "#/definitions/controlledVocabulary"
     - type: array
@@ -514,7 +490,7 @@ documentation:
     default: ''
     examples:
     - See ConformsTo
-
+  
   language:
     "$id": "#/properties/language"
     "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
@@ -528,7 +504,7 @@ documentation:
     - type: array
       items:
         type: string
-
+  
   format:
     "$id": "#/properties/format"
     "$comment": 'FIXME: Conforms to spec, but may be a list of strings given cardinality
@@ -540,7 +516,7 @@ documentation:
     - type: array
       items:
         type: string
-
+  
   fileSize:
     "$id": "#/properties/fileSize"
     title: The fileSize schema
@@ -549,7 +525,7 @@ documentation:
     default: ''
     examples:
     - 301MB
-
+  
   creator:
     "$id": "#/properties/creator"
     title: The creator schema
@@ -557,7 +533,7 @@ documentation:
       citation that credits this dataset. This is typically just the name of the publisher.
       No employee details should be provided.
     type: string
-
+  
   citations:
     "$id": "#/properties/citations"
     "$comment": 'FIXME: Conforms to spec, but may be a list of citation strings'
@@ -570,7 +546,7 @@ documentation:
     - type: array
       items:
         type: string
-
+  
   doi:
     "$id": "#/properties/doi"
     title: Digital Object Identifier
@@ -588,24 +564,15 @@ definitions:
   commaSeparatedValues:
     type: string
     pattern: "([^,]+)"
-
-  description:
-      type: string
-      minLength: 5
-      maxLength: 3000
-
+  
   numericRange:
     type: string
-    pattern: "/(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])/"
-
-  semver:
-    title: Semantic Version
-    description: Semantic versioning of the using a dotted numeric format
-      MAJOR.MINOR.PATCH
+    pattern: "\\d{1,3}-\\d{1,3}"
+  
+  shortDescription:
     type: string
     minLength: 5
     maxLength: 3000
-    pattern: "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
   
   documentation:
     type: object
@@ -655,27 +622,11 @@ definitions:
             portal.'
         type: array
         items:
-
-  revisions:
-    type: array
-    items:
-      type: object
-      required:
-      - version
-      - url
-      properties:
-        version:
-          description: Semantic Version
-          "$ref": "#/definitions/semver"
-        url:
-          description: URL endpoint to obtain the version
           type: string
           format: uri
-
-  url:
-    type: string
-    format: uri
-
+        examples:
+        - PDF Document that describes study protocol
+  
   controlledVocabulary:
     type: string
     enum:
@@ -714,7 +665,7 @@ definitions:
     - 'RXNORM EXTENSION'
     - 'SPL'
     - 'OTHER'
-
+  
   conformsTo:
     type: string
     enum:
@@ -733,7 +684,7 @@ definitions:
     - 'CDISC'
     - 'LOCAL'
     - 'OTHER'
-
+  
   physicalSampleAvailability:
     type: string
     enum:
@@ -758,7 +709,7 @@ definitions:
     - 'URINE'
     - 'WHOLE BLOOD'
     - 'AVAILABILITY TO BE CONFIRMED'
-
+  
   periodicity:
     type: string
     enum:
