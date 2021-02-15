@@ -3,7 +3,7 @@
 type: object
 title: HDR UK Dataset
 description: HDR UK Dataset Schema
-version: "2.0.0"
+version: "2.0.1"
 
 required:
 - identifier
@@ -27,8 +27,7 @@ properties:
     description: System dataset identifier
     anyOf:
     - "$ref": "#/definitions/uuidv4"
-    - type: string
-      format: uri
+    - "$ref": "#/definitions/url"
 
   version:
     "$id": "#/properties/version"
@@ -230,8 +229,7 @@ definitions:
               will suggest keywords based on title, abstract and description. We are compiling
               a standardised list of keywords and synonyms across datasets to make filtering
               easier for users.'
-          anyOf:
-          - "$ref": "#/definitions/commaSeparatedValues"
+          allOf:
           - type: array
             items:
               allOf:
@@ -244,8 +242,7 @@ definitions:
           "$comment": 'DATA-CITE alternate-identifiers used. Note, will support comma separated list for backwards compatibility with other systems'
           title: Alternate dataset identifiers
           description: Alternate dataset identifiers or local identifiers
-          anyOf:
-          - "$ref": "#/definitions/commaSeparatedValues"
+          allOf:
           - type: array
             items:
               allOf:
@@ -259,8 +256,9 @@ definitions:
           description: All HDR UK registered datasets should either have a Digital Object
               Identifier (DOI) or be working towards obtaining one. If a DOI is available,
               please provide the DOI.
-          allOf:
+          anyOf:
             - "$ref": "#/definitions/doi"
+            - "$ref": "#/definitions/gatewaypid"
           "$comment": 'Vocabulary: DOI Data Dictionary '
           examples:
             - 10.3399/bjgp17X692645
@@ -336,13 +334,10 @@ definitions:
         description: The URL of a webpage where the data access request process and/or
             guidance is provided. If there is more than one access process i.e. industry
             vs academic please provide both.
-        anyOf:
-          - type: string
-            format: uri
+        allOf:
           - type: array
             items:
-              type: string
-              format: uri
+              "$ref": "#/definitions/url"
 
       deliveryLeadTime:
         "$id": "#/member/deliveryLeadTime"
@@ -372,9 +367,9 @@ definitions:
         "$id": "#/member/accessRequestCost"
         title: Organisation Access Request Cost
         "$comment": No standard identified
-        description: "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian."
+        description: "Please provide link(s) to a webpage or a short description detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian."
         allOf:
-          - "$ref": "#/definitions/longDescription"
+          - "$ref": "#/definitions/shortDescription"
 
       dataUseLimitation:
         "$id": "#/member/dataUseLimitation"
@@ -387,8 +382,7 @@ definitions:
               this should be indicated within access rights. This value will be used as terms for
               all datasets submitted by the organisation. However, there will be the opportunity
               to overwrite this value for each dataset."
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -403,8 +397,7 @@ definitions:
               for use if any, multiple requirements may be provided. Please ensure that
               these restrictions are documented in access rights information.
         "$comment": https://www.ebi.ac.uk/ols/ontologies/duo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDUO_0000001
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -437,12 +430,12 @@ definitions:
                 formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note:
                 media asset can be hosted by the organisation or uploaded using the onboarding
                 portal.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-           allOf:
+           anyOf:
             - "$ref": "#/definitions/url"
+            - "$ref": "#/definitions/notapplicable"
           uniqueItems: true
           minItems: 1
 
@@ -454,16 +447,13 @@ definitions:
         examples:
         - Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS).
         description: Please complete only if the dataset is part of a group or family
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
            anyOf:
             - "$ref": "#/definitions/url"
             - "$ref": "#/definitions/eightyCharacters"
-            - type: string
-              enum:
-              - NOT APPLICABLE
+            - "$ref": "#/definitions/notapplicable"
           uniqueItems: true
           minItems: 1
 
@@ -480,7 +470,11 @@ definitions:
         examples:
         - 'https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html'
         allOf:
-        - "$ref": "#/definitions/url"
+        - type: array
+          contains:
+            "$ref": "#/definitions/url"
+          uniqueItems: true
+          minItems: 1
 
       typicalAgeRange:
         "$id": "#/properties/coverage/typicalAgeRange"
@@ -503,11 +497,12 @@ definitions:
           available. More than one type may be provided. If sample are not yet available,
           please provide “AVAILABILITY TO BE CONFIRMED”. If samples are not available,
           then please provide “NOT AVAILABLE”.
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
-          contains:
-            "$ref": "#/definitions/physicalSampleAvailability"
+          items:
+            anyOf:
+            - "$ref": "#/definitions/physicalSampleAvailability"
+            - "$ref": "#/definitions/notapplicable"
           uniqueItems: true
           minItems: 1
 
@@ -518,8 +513,9 @@ definitions:
         default: UNKNOWN
         description: If known, what is the typical time span that a patient appears
           in the dataset (follow up period)
-        allOf:
+        anyOf:
         - "$ref": "#/definitions/followup"
+        - "$ref": "#/definitions/notapplicable"
 
       pathway:
         "$id": "#/properties/coverage/pathway"
@@ -531,8 +527,9 @@ definitions:
             or area, a single tier of care, linked across two tiers (e.g. primary and
             secondary care), or an integrated care record covering the whole patient
             pathway.
-        allOf:
+        anyOf:
         - "$ref": "#/definitions/description"
+        - "$ref": "#/definitions/notapplicable"
 
   provenance:
     "$id": "#/definitions/provenance"
@@ -558,11 +555,12 @@ definitions:
         title: Purpose
         "$comment": https://ddialliance.org/Specification/DDI-Lifecycle/3.3/XMLSchema/FieldLevelDocumentation/
         description: Pleases indicate the purpose(s) that the dataset was collected.
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-          - "$ref": "#/definitions/purpose"
+            anyOf:
+            - "$ref": "#/definitions/purpose"
+            - "$ref": "#/definitions/notapplicable"
           uniqueItems: true
           minItems: 1
 
@@ -571,11 +569,12 @@ definitions:
         title: Source
         "$comment": https://dublincore.org/specifications/dublin-core/dcmi-terms/#source
         description: Pleases indicate the source of the data extraction
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-          - "$ref": "#/definitions/source"
+            anyOf:
+            - "$ref": "#/definitions/source"
+            - "$ref": "#/definitions/notapplicable"
           uniqueItems: true
           minItems: 1
 
@@ -585,11 +584,12 @@ definitions:
         "$comment": https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/
         description: Pleases indicate the setting(s) where data was collected. Multiple
               settings may be provided
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-          - "$ref": "#/definitions/setting"
+            anyOf:
+            - "$ref": "#/definitions/setting"
+            - "$ref": "#/definitions/notapplicable"
           uniqueItems: true
           minItems: 1
 
@@ -606,8 +606,8 @@ definitions:
         title: Periodicity
         "$comment": dct:accrualPeriodicity
         default: ''
-        description: 'Please indicate the frequency of publishing. If a dataset is
-            published regularly please choose a publishing periodicity from the constrained
+        description: 'Please indicate the frequency of distribution release. If a dataset is
+            distributed regularly please choose a distribution release periodicity from the constrained
             list and indicate the next release date. When the release date becomes historical,
             a new release date will be calculated based on the publishing periodicity.
             If a dataset has been published and will remain static please indicate that
@@ -655,8 +655,8 @@ definitions:
         title: End Date
         "$comment": dcat:endDate
         description: The end of the time period that the dataset provides coverage
-            for. If the dataset is “Continuous” and has no known end date, please leave
-            blank. If there are multiple cohorts in the dataset with varying end dates,
+            for. If the dataset is “Continuous” and has no known end date, please state
+            continuous. If there are multiple cohorts in the dataset with varying end dates,
             please provide the latest date and use the description or the media attribute
             to provide more information.
         anyOf:
@@ -666,7 +666,7 @@ definitions:
           format: date-time
         - type: string
           enum:
-          - NOT APPLICABLE
+          - CONTINUOUS
 
       timeLag:
         "$id": "#/properties/provenance/temporal/timeLag"
@@ -711,8 +711,7 @@ definitions:
         and/or materials, and relates to the purposes for which datasets and/or
         material might be removed, stored or used. NOTE: we have extended the DUO
         to include a value for NO LINKAGE'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -727,8 +726,7 @@ definitions:
           for use if any, multiple requirements may be provided. Please ensure that
           these restrictions are documented in access rights information.
         "$comment": https://www.ebi.ac.uk/ols/ontologies/duo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDUO_0000001
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -747,12 +745,12 @@ definitions:
       investigations:
         title: Investigations
         "$comment": No standard identified
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-            allOf:
+            anyOf:
             - "$ref": "#/definitions/url"
+            - "$ref": "#/definitions/notapplicable"
 
       isReferencedBy:
         title: Citations
@@ -761,12 +759,13 @@ definitions:
           Also include a list of known citations, if available and should be links
           to existing resources where the dataset has been used or referenced. Please
           provide multiple entries, or if you are using a csv upload please provide
-          them as a tab separated list. [Author] ([Year]) [Title] . [DOI] . [Source]
-        anyOf:
-          - "$ref": "#/definitions/doi"
+          them as a tab separated list. 
+        allOf:
           - type: array
             items:
-            - "$ref": "#/definitions/doi"
+              anyOf:
+              - "$ref": "#/definitions/doi"
+              - "$ref": "#/definitions/notapplicable"
 
   access:
     "$id": "#/definitions/access"
@@ -780,15 +779,12 @@ definitions:
         "$id": "#/properties/accessibility/access/accessRights"
         title: Access Rights
         "$comment": 'dct:access_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info'
-        anyOf:
-        - type: string
-          pattern: "^In Progress$"
-        - type: string
-          format: uri
+        allOf:
         - type: array
           items:
-            type: string
-            format: uri
+            anyOf:
+            - "$ref": "#/definitions/url"
+            - "$ref": "#/definitions/inprogress"
 
       accessService:
         "$id": "#/properties/accessibility/access/accessService"
@@ -826,8 +822,7 @@ definitions:
         description: 'Please use country code from ISO 3166-1 country codes and the associated
               ISO 3166-2 for regions, cities, states etc. for the country/state under whose
               laws the data subjects’ data is collected, processed and stored.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -870,12 +865,12 @@ definitions:
                   If you are using a standard that has not been included in the list, please
                   use “other” and contact support desk to ask for an addition. Notes: More
                   than one vocabulary may be provided.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-            allOf:
+            anyOf:
             - "$ref": "#/definitions/controlledVocabulary"
+            - "$ref": "#/definitions/notapplicable"
           minItems: 0
 
 
@@ -890,11 +885,12 @@ definitions:
         in a local format, please make that explicit. If you are using a standard
         that has not been included in the list, please use “other” and contact support
         desk to ask for an addition.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-           - "$ref": "#/definitions/standardisedDataModels"
+            anyOf:
+            - "$ref": "#/definitions/standardisedDataModels"
+            - "$ref": "#/definitions/notapplicable"
 
       language:
         "$id": "#/properties/accessibility/formatAndStandards/language"
@@ -905,8 +901,7 @@ definitions:
         "$comment": 'dct:language. FIXME: Conforms to spec, but may be a list of strings given cardinality
         1:*. Validate against external list of languages. Resources defined by the Library
         of Congress (ISO 639-1, ISO 639-2) SHOULD be used.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -926,8 +921,7 @@ definitions:
         please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4
         to request your format.'
         "$comment": 'http://purl.org/dc/terms/format'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
             allOf:
@@ -949,12 +943,22 @@ definitions:
               onboarded to the HOP. Note: If all the datasets from Gateway organisation
               can be linked please indicate “ALL” and the onboarding portal will automate
               linkage across the datasets submitted.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-            allOf:
+            anyOf:
             - "$ref": "#/definitions/url"
+            - "$ref": "#/definitions/notapplicable"
+
+      linkageOpportunity:
+        title: linkageOpportunity
+        "$comment": 'no standard identified'
+        description: 'If applicable, please provide the a description of further linkage opportunities for the datasets and 
+                      if possible the specific variables that can be used to link to other datasets.'
+        anyOf:
+        - "$ref": "#/definitions/shortDescription"
+        - "$ref": "#/definitions/notapplicable"
+            
 
       derivation:
         title: Derivations
@@ -962,12 +966,12 @@ definitions:
         description: 'Indicate if derived datasets or predefined extracts are available
           and the type of derivation available. Notes. Single or multiple dimensions
           can be provided as a derived extract alongside the dataset.'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-            allOf:
+            anyOf:
             - "$ref": "#/definitions/abstractText"
+            - "$ref": "#/definitions/notapplicable"
 
 
       tools:
@@ -979,12 +983,12 @@ definitions:
                     have been created for this dataset and are available for further use.
                     Multiple tools may be provided. Note: We encourage users to adopt a model
                     along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/'
-        anyOf:
-        - "$ref": "#/definitions/commaSeparatedValues"
+        allOf:
         - type: array
           items:
-            allOf:
+            anyOf:
              - "$ref": "#/definitions/url"
+             - "$ref": "#/definitions/notapplicable"
           minItems: 0
 
   observation:
@@ -1031,7 +1035,8 @@ definitions:
         title: Observation Date
         "$comment": https://schema.org/observationDate
         default: release date
-        description: Please provide the date of the observation
+        description: 'Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation.
+                Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.'
         anyOf:
         - type: string
           format: date
@@ -1092,13 +1097,13 @@ definitions:
     minLength: 2
     maxLength: 5000
 
-  commaSeparatedValues:
-    type: string
-    pattern: "([^,]+)"
-
   doi:
     type: string
     pattern: "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$"
+
+  gatewaypid:
+    type: string
+    pattern: "^https:\/\/web\.www\.healthdatagateway\.org\/dataset\/[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
 
   ageRange:
     type: string
@@ -1114,6 +1119,16 @@ definitions:
     "$comment": 'FIXME: Add ISO 3166-2 Subdivision code pattern'
     type: string
     pattern: "^[A-Z]{2}(-[A-Z]{2,3})?$"
+
+  notapplicable:
+    type: string
+    enum:
+    - NOT APPLICABLE
+  
+  inprogress:
+    type: string
+    enum:
+    - IN PROGRESS
 
   memberOf:
     type: string
@@ -1156,6 +1171,7 @@ definitions:
     - 1-10 YEARS
     - MORE 10 YEARS
     - UNKNOWN
+    - CONTINUOUS
     - OTHER
 
   periodicity:
@@ -1186,6 +1202,7 @@ definitions:
     - AUDIT
     - ADMINISTRATIVE
     - FINANCIAL
+    - STATUTORY
     - OTHER
 
   source:
@@ -1194,6 +1211,7 @@ definitions:
     - EPR
     - ELECTRONIC SURVEY
     - LIMS
+    - OTHER INFORMATION SYSTEM
     - PAPER BASED
     - FREETEXT NLP
     - MACHINE GENERATED
@@ -1212,6 +1230,9 @@ definitions:
     - HOME
     - PRIVATE
     - PHARMACY
+    - SOCIAL CARE
+    - LOCAL AUTHORITY
+    - NATIONAL GOVERNMENT
     - OTHER
 
   timeLag:
@@ -1224,6 +1245,7 @@ definitions:
     - 2-6 MONTHS
     - MORE 6 MONTHS
     - VARIABLE
+    - NO TIMELAG
     - NOT APPLICABLE
     - OTHER
 
@@ -1231,10 +1253,16 @@ definitions:
     type: string
     enum:
     - GENERAL RESEARCH USE
+    - COMMERCIAL RESEARCH USE
     - GENETIC STUDIES ONLY
     - NO GENERAL METHODS RESEARCH
     - NO RESTRICTION
+    - GEOGRAPHICAL RESTRICTIONS
+    - INSTITUTION SPECIFIC RESTRICTIONS
+    - NOT FOR PROFIT USE
+    - PROJECT SPECIFIC RESTRICTIONS
     - RESEARCH SPECIFIC RESTRICTIONS
+    - USER SPECIFIC RESTRICTION    
     - RESEARCH USE ONLY
     - NO LINKAGE
 
@@ -1243,15 +1271,11 @@ definitions:
     enum:
     - COLLABORATION REQUIRED
     - ETHICS APPROVAL REQUIRED
-    - GEOGRAPHICAL RESTRICTIONS
-    - INSTITUTION SPECIFIC RESTRICTIONS
-    - NOT FOR PROFIT USE
-    - PROJECT SPECIFIC RESTRICTIONS
     - PUBLICATION MORATORIUM
     - PUBLICATION REQUIRED
     - RETURN TO DATABASE OR RESOURCE
     - TIME LIMIT ON USE
-    - USER SPECIFIC RESTRICTION
+    - DISCLOSURE CONTROL
 
   deliveryLeadTime:
     type: string
@@ -1523,4 +1547,3 @@ definitions:
     - PERSONS
     - EVENTS
     - FINDINGS
-
