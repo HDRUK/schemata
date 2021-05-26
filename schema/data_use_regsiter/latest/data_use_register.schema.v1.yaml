@@ -1,4 +1,4 @@
-zztitle: Data Use Register
+title: Data Use Register
 type: object
 properties:
   pid:
