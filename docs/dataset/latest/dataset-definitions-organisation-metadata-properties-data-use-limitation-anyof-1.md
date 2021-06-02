@@ -1,7 +1,7 @@
 # Untitled array in HDR UK Dataset Schema Schema
 
 ```txt
-#/member/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation/anyOf/1
+#/organisation/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation/anyOf/1
 ```
 
 

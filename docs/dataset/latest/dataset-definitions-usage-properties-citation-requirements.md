@@ -16,6 +16,8 @@ Please provide the text that you would like included as part of any citation tha
 
 merged type ([Citation Requirements](dataset-definitions-usage-properties-citation-requirements.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-usage-properties-citation-requirements-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-usage-properties-citation-requirements-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-usage-properties-citation-requirements-anyof-1.md "check type definition")

@@ -1,7 +1,7 @@
 # Untitled undefined type in HDR UK Dataset Schema Schema
 
 ```txt
-#/member/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime/allOf/0
+#/organisation/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime/allOf/0
 ```
 
 

@@ -1,10 +1,10 @@
 # Organisation Access Request Cost Schema
 
 ```txt
-#/organisation/accessRequestCost#/definitions/organisation/properties/accessRequestCost
+#/properties/accessibility/access/accessRequestCost#/definitions/access/properties/accessRequestCost
 ```
 
-Please provide link(s) to a webpage or a short description detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.
+Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.
 
 > No standard identified
 
@@ -14,10 +14,10 @@ Please provide link(s) to a webpage or a short description detailing the commerc
 
 ## accessRequestCost Type
 
-merged type ([Organisation Access Request Cost](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost.md))
+merged type ([Organisation Access Request Cost](dataset-definitions-access-properties-organisation-access-request-cost.md))
 
 any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost-anyof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-anyof-0.md "check type definition")
 
-*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost-anyof-1.md "check type definition")
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-anyof-1.md "check type definition")

@@ -1,7 +1,7 @@
 # Untitled undefined type in HDR UK Dataset Schema Schema
 
 ```txt
-#/organisation/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation/anyOf/0
+#/properties/accessibility/usage/resourceCreator#/definitions/usage/properties/resourceCreator/anyOf/0
 ```
 
 

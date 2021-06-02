@@ -16,15 +16,15 @@ unknown
 
 # access Properties
 
-| Property                                | Type   | Required | Nullable       | Defined by                                                                                                                                                                                     |
-| :-------------------------------------- | :----- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [accessRights](#accessrights)           | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-rights.md "#/properties/accessibility/access/accessRights#/definitions/access/properties/accessRights")                   |
-| [accessService](#accessservice)         | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-service.md "#/properties/accessibility/access/accessService#/definitions/access/properties/accessService")                |
-| [accessRequestCost](#accessrequestcost) | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/member/accessRequestCost#/definitions/access/properties/accessRequestCost")               |
-| [deliveryLeadTime](#deliveryleadtime)   | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-request-duration.md "#/properties/accessibility/access/deliveryLeadTime#/definitions/access/properties/deliveryLeadTime") |
-| [jurisdiction](#jurisdiction)           | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-jurisdiction.md "#/properties/accessibility/access/jurisdiction#/definitions/access/properties/jurisdiction")                    |
-| [dataController](#datacontroller)       | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-controller.md "#/properties/accessibility/access/dataController#/definitions/access/properties/dataController")             |
-| [dataProcessor](#dataprocessor)         | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-processor.md "#/properties/accessibility/access/dataProcessor#/definitions/access/properties/dataProcessor")                |
+| Property                                | Type   | Required | Nullable       | Defined by                                                                                                                                                                                                |
+| :-------------------------------------- | :----- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [accessRights](#accessrights)           | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-rights.md "#/properties/accessibility/access/accessRights#/definitions/access/properties/accessRights")                              |
+| [accessService](#accessservice)         | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-service.md "#/properties/accessibility/access/accessService#/definitions/access/properties/accessService")                           |
+| [accessRequestCost](#accessrequestcost) | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/properties/accessibility/access/accessRequestCost#/definitions/access/properties/accessRequestCost") |
+| [deliveryLeadTime](#deliveryleadtime)   | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-request-duration.md "#/properties/accessibility/access/deliveryLeadTime#/definitions/access/properties/deliveryLeadTime")            |
+| [jurisdiction](#jurisdiction)           | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-jurisdiction.md "#/properties/accessibility/access/jurisdiction#/definitions/access/properties/jurisdiction")                               |
+| [dataController](#datacontroller)       | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-controller.md "#/properties/accessibility/access/dataController#/definitions/access/properties/dataController")                        |
+| [dataProcessor](#dataprocessor)         | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-processor.md "#/properties/accessibility/access/dataProcessor#/definitions/access/properties/dataProcessor")                           |
 
 ## accessRights
 
@@ -98,15 +98,17 @@ Please provide link(s) to a webpage detailing the commercial model for processin
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/member/accessRequestCost#/definitions/access/properties/accessRequestCost")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/properties/accessibility/access/accessRequestCost#/definitions/access/properties/accessRequestCost")
 
 ### accessRequestCost Type
 
 merged type ([Organisation Access Request Cost](dataset-definitions-access-properties-organisation-access-request-cost.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-anyof-1.md "check type definition")
 
 ## deliveryLeadTime
 

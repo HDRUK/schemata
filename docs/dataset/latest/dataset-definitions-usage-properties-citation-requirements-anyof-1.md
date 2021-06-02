@@ -1,7 +1,7 @@
-# Untitled undefined type in HDR UK Dataset Schema Schema
+# Untitled array in HDR UK Dataset Schema Schema
 
 ```txt
-#/organisation/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation/anyOf/0
+#/properties/accessibility/usage/resourceCreator#/definitions/usage/properties/resourceCreator/anyOf/1
 ```
 
 
@@ -10,6 +10,6 @@
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## 0 Type
+## 1 Type
 
-unknown
+unknown\[]

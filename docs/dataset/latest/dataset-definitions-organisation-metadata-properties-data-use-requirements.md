@@ -1,7 +1,7 @@
 # Data Use Requirements Schema
 
 ```txt
-#/member/dataUseRequirements#/definitions/organisation/properties/dataUseRequirements
+#/organisation/dataUseRequirements#/definitions/organisation/properties/dataUseRequirements
 ```
 
 Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.

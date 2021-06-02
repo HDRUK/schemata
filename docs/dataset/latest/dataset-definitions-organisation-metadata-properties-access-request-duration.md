@@ -1,7 +1,7 @@
 # Access Request Duration Schema
 
 ```txt
-#/member/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime
+#/organisation/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime
 ```
 
 Please provide an indication of the typical processing times based on the types of requests typically received. Note: This value will be used as default access request duration for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.

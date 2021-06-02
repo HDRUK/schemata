@@ -1,7 +1,7 @@
 # Documentation Schema
 
 ```txt
-#/definitions/member#/properties/documentation
+#/definitions/documentation#/properties/documentation
 ```
 
 Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.

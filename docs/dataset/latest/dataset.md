@@ -24,7 +24,7 @@ HDR UK Dataset Metadata JSONSchema
 | [issued](#issued)                             | `string`      | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-creation-date.md "#/properties/issued#/properties/issued")                                       |
 | [modified](#modified)                         | `string`      | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-modification-date.md "#/properties/modified#/properties/modified")                               |
 | [summary](#summary)                           | Not specified | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-summary.md "#/definitions/summary#/properties/summary")                                          |
-| [documentation](#documentation)               | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-documentation.md "#/definitions/member#/properties/documentation")                               |
+| [documentation](#documentation)               | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-documentation.md "#/definitions/documentation#/properties/documentation")                        |
 | [coverage](#coverage)                         | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-coverage.md "#/definitions/coverage#/properties/coverage")                                       |
 | [provenance](#provenance)                     | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-provenance.md "#/definitions/provenance#/properties/provenance")                                 |
 | [accessibility](#accessibility)               | Not specified | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-accessibility.md "#/definitions/accessibility#/properties/accessibility")                        |
@@ -196,7 +196,7 @@ Documentation can include a rich text description of the dataset or links to med
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-properties-documentation.md "#/definitions/member#/properties/documentation")
+*   defined in: [HDR UK Dataset Schema](dataset-properties-documentation.md "#/definitions/documentation#/properties/documentation")
 
 ### documentation Type
 
@@ -577,20 +577,20 @@ Reference this group by using
 {"$ref":"#/definitions/organisation#/definitions/organisation"}
 ```
 
-| Property                                    | Type   | Required | Nullable       | Defined by                                                                                                                                                                                            |
-| :------------------------------------------ | :----- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [identifier](#identifier-1)                 | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-identifier.md "#/organisation/identifier#/definitions/organisation/properties/identifier")                  |
-| [name](#name)                               | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-name.md "#/organisation/name#/definitions/organisation/properties/name")                                    |
-| [logo](#logo)                               | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-logo.md "#/organisation/logo#/definitions/organisation/properties/logo")                                    |
-| [description](#description)                 | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-description.md "#/organisation/description#/definitions/organisation/properties/description")               |
-| [contactPoint](#contactpoint-1)             | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-contact-point.md "#/organisation/contactPoint#/definitions/organisation/properties/contactPoint")           |
-| [memberOf](#memberof)                       | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-membership.md "#/organisation/memberOf#/definitions/organisation/properties/memberOf")                      |
-| [accessRights](#accessrights)               | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-default-access-rights.md "#/organisation/accessRights#/definitions/organisation/properties/accessRights")   |
-| [deliveryLeadTime](#deliveryleadtime)       | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-access-request-duration.md "#/member/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime")            |
-| [accessService](#accessservice)             | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-service.md "#/member/accessService#/definitions/organisation/properties/accessService")              |
-| [accessRequestCost](#accessrequestcost)     | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost.md "#/member/accessRequestCost#/definitions/organisation/properties/accessRequestCost") |
-| [dataUseLimitation](#datauselimitation)     | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-limitation.md "#/member/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation")              |
-| [dataUseRequirements](#datauserequirements) | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-requirements.md "#/member/dataUseRequirements#/definitions/organisation/properties/dataUseRequirements")        |
+| Property                                    | Type   | Required | Nullable       | Defined by                                                                                                                                                                                                  |
+| :------------------------------------------ | :----- | :------- | :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [identifier](#identifier-1)                 | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-identifier.md "#/organisation/identifier#/definitions/organisation/properties/identifier")                        |
+| [name](#name)                               | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-name.md "#/organisation/name#/definitions/organisation/properties/name")                                          |
+| [logo](#logo)                               | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-logo.md "#/organisation/logo#/definitions/organisation/properties/logo")                                          |
+| [description](#description)                 | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-description.md "#/organisation/description#/definitions/organisation/properties/description")                     |
+| [contactPoint](#contactpoint-1)             | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-contact-point.md "#/organisation/contactPoint#/definitions/organisation/properties/contactPoint")                 |
+| [memberOf](#memberof)                       | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-membership.md "#/organisation/memberOf#/definitions/organisation/properties/memberOf")                            |
+| [accessRights](#accessrights)               | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-default-access-rights.md "#/organisation/accessRights#/definitions/organisation/properties/accessRights")         |
+| [deliveryLeadTime](#deliveryleadtime)       | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-access-request-duration.md "#/organisation/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime")            |
+| [accessService](#accessservice)             | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-service.md "#/organisation/accessService#/definitions/organisation/properties/accessService")              |
+| [accessRequestCost](#accessrequestcost)     | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost.md "#/organisation/accessRequestCost#/definitions/organisation/properties/accessRequestCost") |
+| [dataUseLimitation](#datauselimitation)     | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-limitation.md "#/organisation/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation")              |
+| [dataUseRequirements](#datauserequirements) | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-requirements.md "#/organisation/dataUseRequirements#/definitions/organisation/properties/dataUseRequirements")        |
 
 ### identifier
 
@@ -778,7 +778,7 @@ Please provide an indication of the typical processing times based on the types 
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-access-request-duration.md "#/member/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-access-request-duration.md "#/organisation/deliveryLeadTime#/definitions/organisation/properties/deliveryLeadTime")
 
 #### deliveryLeadTime Type
 
@@ -802,7 +802,7 @@ Please provide a brief description of the data access services that are availabl
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-service.md "#/member/accessService#/definitions/organisation/properties/accessService")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-service.md "#/organisation/accessService#/definitions/organisation/properties/accessService")
 
 #### accessService Type
 
@@ -832,15 +832,17 @@ Please provide link(s) to a webpage or a short description detailing the commerc
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost.md "#/member/accessRequestCost#/definitions/organisation/properties/accessRequestCost")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost.md "#/organisation/accessRequestCost#/definitions/organisation/properties/accessRequestCost")
 
 #### accessRequestCost Type
 
 merged type ([Organisation Access Request Cost](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-organisation-access-request-cost-anyof-1.md "check type definition")
 
 ### dataUseLimitation
 
@@ -856,7 +858,7 @@ Please provide an indication of consent permissions for datasets and/or material
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-limitation.md "#/member/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-limitation.md "#/organisation/dataUseLimitation#/definitions/organisation/properties/dataUseLimitation")
 
 #### dataUseLimitation Type
 
@@ -882,7 +884,7 @@ Please indicate fit here are any additional conditions set for use if any, multi
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-requirements.md "#/member/dataUseRequirements#/definitions/organisation/properties/dataUseRequirements")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-organisation-metadata-properties-data-use-requirements.md "#/organisation/dataUseRequirements#/definitions/organisation/properties/dataUseRequirements")
 
 #### dataUseRequirements Type
 
@@ -899,7 +901,7 @@ any of
 Reference this group by using
 
 ```json
-{"$ref":"#/definitions/member#/definitions/documentation"}
+{"$ref":"#/definitions/documentation#/definitions/documentation"}
 ```
 
 | Property                            | Type   | Required | Nullable       | Defined by                                                                                                                                                                                   |
@@ -1611,9 +1613,11 @@ Please provide the text that you would like included as part of any citation tha
 
 merged type ([Citation Requirements](dataset-definitions-usage-properties-citation-requirements.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-usage-properties-citation-requirements-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-usage-properties-citation-requirements-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-usage-properties-citation-requirements-anyof-1.md "check type definition")
 
 ### investigations
 
@@ -1675,15 +1679,15 @@ Reference this group by using
 {"$ref":"#/definitions/access#/definitions/access"}
 ```
 
-| Property                                  | Type   | Required | Nullable       | Defined by                                                                                                                                                                                     |
-| :---------------------------------------- | :----- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [accessRights](#accessrights-1)           | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-rights.md "#/properties/accessibility/access/accessRights#/definitions/access/properties/accessRights")                   |
-| [accessService](#accessservice-1)         | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-service.md "#/properties/accessibility/access/accessService#/definitions/access/properties/accessService")                |
-| [accessRequestCost](#accessrequestcost-1) | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/member/accessRequestCost#/definitions/access/properties/accessRequestCost")               |
-| [deliveryLeadTime](#deliveryleadtime-1)   | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-request-duration.md "#/properties/accessibility/access/deliveryLeadTime#/definitions/access/properties/deliveryLeadTime") |
-| [jurisdiction](#jurisdiction)             | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-jurisdiction.md "#/properties/accessibility/access/jurisdiction#/definitions/access/properties/jurisdiction")                    |
-| [dataController](#datacontroller)         | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-controller.md "#/properties/accessibility/access/dataController#/definitions/access/properties/dataController")             |
-| [dataProcessor](#dataprocessor)           | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-processor.md "#/properties/accessibility/access/dataProcessor#/definitions/access/properties/dataProcessor")                |
+| Property                                  | Type   | Required | Nullable       | Defined by                                                                                                                                                                                                |
+| :---------------------------------------- | :----- | :------- | :------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [accessRights](#accessrights-1)           | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-rights.md "#/properties/accessibility/access/accessRights#/definitions/access/properties/accessRights")                              |
+| [accessService](#accessservice-1)         | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-service.md "#/properties/accessibility/access/accessService#/definitions/access/properties/accessService")                           |
+| [accessRequestCost](#accessrequestcost-1) | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/properties/accessibility/access/accessRequestCost#/definitions/access/properties/accessRequestCost") |
+| [deliveryLeadTime](#deliveryleadtime-1)   | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-access-request-duration.md "#/properties/accessibility/access/deliveryLeadTime#/definitions/access/properties/deliveryLeadTime")            |
+| [jurisdiction](#jurisdiction)             | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-jurisdiction.md "#/properties/accessibility/access/jurisdiction#/definitions/access/properties/jurisdiction")                               |
+| [dataController](#datacontroller)         | Merged | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-controller.md "#/properties/accessibility/access/dataController#/definitions/access/properties/dataController")                        |
+| [dataProcessor](#dataprocessor)           | Merged | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-access-properties-data-processor.md "#/properties/accessibility/access/dataProcessor#/definitions/access/properties/dataProcessor")                           |
 
 ### accessRights
 
@@ -1757,15 +1761,17 @@ Please provide link(s) to a webpage detailing the commercial model for processin
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/member/accessRequestCost#/definitions/access/properties/accessRequestCost")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost.md "#/properties/accessibility/access/accessRequestCost#/definitions/access/properties/accessRequestCost")
 
 #### accessRequestCost Type
 
 merged type ([Organisation Access Request Cost](dataset-definitions-access-properties-organisation-access-request-cost.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-access-properties-organisation-access-request-cost-anyof-1.md "check type definition")
 
 ### deliveryLeadTime
 
