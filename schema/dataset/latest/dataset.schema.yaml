@@ -348,7 +348,7 @@ definitions:
             "$ref": "#/definitions/url"
 
       deliveryLeadTime:
-        "$id": "#/member/deliveryLeadTime"
+        "$id": "#/organisation/deliveryLeadTime"
         title: Access Request Duration
         "$comment": https://schema.org/deliveryLeadTime
         description: 'Please provide an indication of the typical processing times
@@ -360,7 +360,7 @@ definitions:
         - "$ref": "#/definitions/deliveryLeadTime"
 
       accessService:
-        "$id": "#/member/accessService"
+        "$id": "#/organisation/accessService"
         title: Organisation Access Service
         "$comment": dcat:accessService
         examples:
@@ -377,18 +377,21 @@ definitions:
         - "$ref": "#/definitions/longDescription"
 
       accessRequestCost:
-        "$id": "#/member/accessRequestCost"
+        "$id": "#/organisation/accessRequestCost"
         title: Organisation Access Request Cost
         "$comment": No standard identified
         description: 'Please provide link(s) to a webpage or a short description detailing
           the commercial model for processing data access requests for the organisation
           (if available) Definition: Indication of commercial model or cost (in GBP)
           for processing each data access request by the data custodian.'
-        allOf:
-        - "$ref": "#/definitions/shortDescription"
+        anyOf:
+          - "$ref": "#/definitions/shortDescription"
+          - type: array
+            items:
+              $ref: '#/definitions/url'
 
       dataUseLimitation:
-        "$id": "#/member/dataUseLimitation"
+        "$id": "#/organisation/dataUseLimitation"
         title: Data Use Limitation
         "$comment": https://www.ebi.ac.uk/ols/ontologies/duo/terms?iri=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2FDUO_0000001
         description: 'Please provide an indication of consent permissions for datasets
@@ -409,7 +412,7 @@ definitions:
           minItems: 1
 
       dataUseRequirements:
-        "$id": "#/member/dataUseRequirements"
+        "$id": "#/organisation/dataUseRequirements"
         title: Data Use Requirements
         description: Please indicate fit here are any additional conditions set for
           use if any, multiple requirements may be provided. Please ensure that these
@@ -425,7 +428,7 @@ definitions:
           minItems: 1
 
   documentation:
-    "$id": "#/definitions/member"
+    "$id": "#/definitions/documentation"
     additionalProperties: false
     properties:
       description:
@@ -762,8 +765,11 @@ definitions:
         description: Please provide the text that you would like included as part
           of any citation that credits this dataset. This is typically just the name
           of the publisher.   No employee details should be provided.
-        allOf:
-        - "$ref": "#/definitions/shortDescription"
+        anyOf:
+          - "$ref": "#/definitions/shortDescription"
+          - type: array
+            items:
+              $ref: '#/definitions/shortDescription'
 
       investigations:
         title: Investigations
@@ -828,15 +834,18 @@ definitions:
         - "$ref": "#/definitions/longDescription"
 
       accessRequestCost:
-        "$id": "#/member/accessRequestCost"
+        "$id": "#/properties/accessibility/access/accessRequestCost"
         title: Organisation Access Request Cost
         "$comment": No standard identified
         description: 'Please provide link(s) to a webpage detailing the commercial
           model for processing data access requests for the organisation (if available)
           Definition: Indication of commercial model or cost (in GBP) for processing
           each data access request by the data custodian.'
-        allOf:
-        - "$ref": "#/definitions/longDescription"
+        anyOf:
+          - "$ref": "#/definitions/longDescription"
+          - type: array
+            items:
+              $ref: '#/definitions/url'
 
       deliveryLeadTime:
         "$id": "#/properties/accessibility/access/deliveryLeadTime"
