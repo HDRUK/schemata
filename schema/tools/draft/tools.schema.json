@@ -1,0 +1,62 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/dataset/latest/tools.schema.json",
+    "title": "HDR UK Tools Schema",
+    "description": "HDR UK Tools Metadata JSONSchema",
+    "type": "object",
+    "required": [
+        "identifier",
+        "name",
+        "type",
+        "description",
+        "resultsInsights",
+        "authors",
+        "implementation"
+    ],
+    "properties": {
+        "identifier": {
+            "description": "System tool identifier",
+            "type": "integer"
+        },
+        "link": {
+            "description": "URL endpoint to where can we find this tool or resource",
+            "type": "uri"
+        },
+        "name": {
+            "description": "Name of the tool or resource",
+            "type": "uri"
+        },
+        "type": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "description": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "resultsInsights": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "authors": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "implementation": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "license": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "keywords": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        },
+        "domain": {
+            "description": "URL endpoint to obtain the version",
+            "type": "uri"
+        }
+    }
+}

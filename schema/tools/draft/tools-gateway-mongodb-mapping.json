@@ -1,0 +1,23 @@
+{
+    "link": "link",
+    "name": "name",
+    "type": {"categories": "category"},
+    "description": "description",
+    "results/insights": "resultsInsights",
+    "authors_on_the_gateway": "authors",
+    "implementation": [
+        {
+            "programmingLanguage": {"implementation": "programmingLanguage"},
+            "version":  {"implementation": "version"}
+        }
+    ],
+    "license": "license",
+    "keywords": {"tags": "features"},
+    "domain": {"tags": "topics"},
+    "relatedObjects": [
+        {
+            "resource": {"relatedObjects": "objectId"},
+            "relationship": {"relatedObjects": "reason"}
+        }
+    ]
+}
