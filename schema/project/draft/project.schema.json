@@ -1,0 +1,36 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/project/draft/project.schema.json",
+    "title": "HDR UK Project Schema",
+    "description": "HDR UK Project Metadata JSONSchema",
+    "type": "object",
+    "version": "0.0.1",
+    "required": [
+        "identifier",
+        "link"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "identifier": {},
+        "link": {
+            "$id": "",
+            "title": "",
+            "$comment": "",
+            "description": "",
+            "examples": [],
+            "allOf": [
+                {
+                    "$ref": "#/definitions/url"
+                }
+            ]
+        },
+        "name": "",
+        "type": ""
+    },
+    "definitions": {
+        "url": {
+            "type": "string",
+            "format": "uri"
+        }
+    }
+}
