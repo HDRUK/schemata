@@ -1,9 +1,10 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://hdruk.github.io/schemata/schema/dataset/latest/tools.schema.json",
+    "$id": "https://hdruk.github.io/schemata/schema/tools/draft/tools.schema.json",
     "title": "HDR UK Tools Schema",
     "description": "HDR UK Tools Metadata JSONSchema",
     "type": "object",
+    "version": "0.0.1",
     "required": [
         "identifier",
         "name",
@@ -13,50 +14,289 @@
         "authors",
         "implementation"
     ],
+    "additionalProperties": false,
     "properties": {
         "identifier": {
+            "$id": "#/properties/identifier",
+            "title": "Tool Identifier",
+            "$comment": "",
             "description": "System tool identifier",
-            "type": "integer"
+            "examples": [],
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/uuidv4"
+                },
+                {
+                    "$ref": "#/definitions/url"
+                }
+            ]
         },
         "link": {
+            "$id": "#/properties/link",
+            "title": "Tool Link",
+            "$comment": "",
+            "examples": [],
             "description": "URL endpoint to where can we find this tool or resource",
-            "type": "uri"
+            "allOf": [
+                {
+                    "$ref": "#/definitions/url"
+                }
+            ]
         },
         "name": {
-            "description": "Name of the tool or resource",
-            "type": "uri"
+            "$id": "#/properties/name",
+            "title": "Tool Name",
+            "$comment": "",
+            "examples": [],
+            "description": "Name of the tool/resource limited to 80 characters. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
         },
         "type": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/type",
+            "title": "Tool Type",
+            "$comment": "",
+            "examples": [],
+            "description": "The type of the tool/resource you are adding.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
         },
         "description": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/description",
+            "title": "Tool Description",
+            "$comment": "",
+            "examples": [],
+            "description": "Please provide a clear and brief descriptive signpost for researchers who are searching for the tool/resource that may be relevant to their research",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/shortDescription"
+                }
+            ]
         },
         "resultsInsights": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/resultsInsights",
+            "title": "Tool Results/Insights",
+            "$comment": "",
+            "examples": [],
+            "description": "Please provide any results or insights about the tool.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/description"
+                }
+            ]
         },
         "authors": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/authors",
+            "title": "Tool Authors",
+            "$comment": "",
+            "examples": [],
+            "description": "",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/commaSeparatedValues"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/eightyCharacters"
+                            }
+                        ]
+                    },
+                    "uniqueItems": true,
+                    "minItems": 1
+                }
+            ]
         },
         "implementation": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/implementation",
+            "title": "Tool Implementation",
+            "$comment": "",
+            "examples": [],
+            "description": "Programming languages, formalisms or frameworks. E.g. Python, RDF, GATE",
+            "type": "array",
+            "items": {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/implementation"
+                    }
+                ]
+            },
+            "minItems": 1
         },
         "license": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/license",
+            "title": "Tool License",
+            "$comment": "",
+            "examples": [],
+            "description": "",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
         },
         "keywords": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/keywords",
+            "title": "Tool Keywords",
+            "$comment": "",
+            "examples": [],
+            "description": "",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/commaSeparatedValues"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/eightyCharacters"
+                            }
+                        ]
+                    },
+                    "uniqueItems": true
+                }
+            ]
         },
         "domain": {
-            "description": "URL endpoint to obtain the version",
-            "type": "uri"
+            "$id": "#/properties/domain",
+            "title": "Tool Domain",
+            "$comment": "",
+            "examples": [],
+            "description": "",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/commaSeparatedValues"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/eightyCharacters"
+                            }
+                        ]
+                    },
+                    "uniqueItems": true
+                }
+            ]
+        },
+        "relatedObjects": {
+            "$id": "#/properties/relatedObjects",
+            "title": "",
+            "$comment": "",
+            "examples": [],
+            "description": "",
+            "type": "array",
+            "items": {
+                "allOf": [
+                    {
+                        "$ref": "#/definitions/relatedObjects"
+                    }
+                ]
+            },
+            "minItems": 1
+        }
+    },
+    "definitions": {
+        "uuidv4": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "eightyCharacters": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+        },
+        "shortDescription": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 1500
+        },
+        "description": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 3000
+        },
+        "commaSeparatedValues": {
+            "type": "string",
+            "pattern": "([^,]+)"
+        },
+        "implementation": {
+            "$id": "#/definitions/implementation",
+            "required": [
+                "implementation"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "implementation": {
+                    "$id": "#/properties/implementation/implementation",
+                    "title": "Tool Implementation",
+                    "$comment": "",
+                    "examples": [],
+                    "description": "Programming languages, formalisms or frameworks. E.g. Python, RDF, GATE",
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/eightyCharacters"
+                        }
+                    ]
+                },
+                "version": {
+                    "$id": "#/properties/implementation/version",
+                    "title": "Tool Version",
+                    "$comment": "",
+                    "examples": [
+                        "1.1.0"
+                    ],
+                    "description": "Please provide the tool/resource version i.e. 3.6.1",
+                    "$ref": "#/definitions/semver"
+                }
+            }
+        },
+        "semver": {
+            "type": "string",
+            "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
+        },
+        "relatedObjects": {
+            "$id": "#/definitions/relatedObjects",
+            "required": [
+                "resource"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "resource": {
+                    "$id": "#/properties/relatedObjects/resource",
+                    "title": "Tool Related Resource",
+                    "$comment": "",
+                    "examples": [],
+                    "description": "",
+                    "allOf": [
+                        {}
+                    ]
+                },
+                "relationship": {
+                    "$id": "#/properties/relatedObjects/relationship",
+                    "title": "Tool Relationship Between Resources",
+                    "$comment": "",
+                    "examples": [],
+                    "description": "",
+                    "$ref": "#/definitions/shortDescription"
+                }
+            }
         }
     }
 }
