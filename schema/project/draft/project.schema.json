@@ -7,7 +7,12 @@
     "version": "0.0.1",
     "required": [
         "identifier",
-        "link"
+        "link",
+        "projecName",
+        "type",
+        "description",
+        "resultsInsights",
+        "Collaborators"
     ],
     "additionalProperties": false,
     "properties": {
@@ -24,7 +29,18 @@
                 }
             ]
         },
-        "name": "",
+        "projecName": {
+            "$id": "#/properties/name",
+            "title": "Project Name",
+            "$comment": "",
+            "examples": [],
+            "description": "Name of the tool/resource limited to 80 characters. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
+        },
         "type": ""
     },
     "definitions": {
