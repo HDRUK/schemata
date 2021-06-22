@@ -285,7 +285,9 @@
                     "examples": [],
                     "description": "",
                     "allOf": [
-                        {}
+                        {
+                            "$ref": "#/definitions/url"
+                        }
                     ]
                 },
                 "relationship": {
