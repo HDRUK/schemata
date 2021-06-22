@@ -51,7 +51,7 @@
             "description": "Name of the project. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
             "allOf": [
                 {
-                    "$ref": "#/definitions/projectName"
+                    "$ref": "#/definitions/eightyCharacters"
                 }
             ]
         },
@@ -63,7 +63,7 @@
             "description": "The type of the project. Select or add a new one",
             "allOf": [
                 {
-                    "$ref": "#/definitions/projectType"
+                    "$ref": "#/definitions/eightyCharacters"
                 }
             ]
         },
@@ -91,7 +91,7 @@
                 }
             ]
         },
-        "Collaborators": {
+        "collaborators": {
             "$id": "#/properties/collaborators",
             "title": "Project Collaborators",
             "$comment": "",
@@ -208,44 +208,31 @@
             "type": "string",
             "pattern": "([^,]+)"
         },
-        "additionalProperties": false,
-        "properties": {
-            "version": {
-                "$id": "#/properties/implementation/version",
-                "title": "Tool Version",
-                "$comment": "",
-                "examples": [
-                    "1.1.0"
-                ],
-                "description": "Please provide the tool/resource version i.e. 3.6.1",
-                "$ref": "#/definitions/semver"
-            }
-        }
-    },
-    "relatedObjects": {
-        "$id": "#/definitions/relatedObjects",
-        "required": [
-            "resource"
-        ],
-        "additionalProperties": false,
-        "properties": {
-            "resource": {
-                "$id": "#/properties/relatedObjects/resource",
-                "title": "Project Related Resource",
-                "$comment": "",
-                "examples": [],
-                "description": "",
-                "allOf": [
-                    {}
-                ]
-            },
-            "relationship": {
-                "$id": "#/properties/relatedObjects/relationship",
-                "title": "Project Relationship Between Resources",
-                "$comment": "",
-                "examples": [],
-                "description": "",
-                "$ref": "#/definitions/shortDescription"
+        "relatedObjects": {
+            "$id": "#/definitions/relatedObjects",
+            "required": [
+                "resource"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "resource": {
+                    "$id": "#/properties/relatedObjects/resource",
+                    "title": "Project Related Resource",
+                    "$comment": "",
+                    "examples": [],
+                    "description": "",
+                    "allOf": [
+                        {}
+                    ]
+                },
+                "relationship": {
+                    "$id": "#/properties/relatedObjects/relationship",
+                    "title": "Project Relationship Between Resources",
+                    "$comment": "",
+                    "examples": [],
+                    "description": "",
+                    "$ref": "#/definitions/shortDescription"
+                }
             }
         }
     }
