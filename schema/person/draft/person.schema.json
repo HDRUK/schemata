@@ -1,0 +1,231 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/person/draft/person.schema.json",
+    "title": "HDR UK People Schema",
+    "description": "HDR UK People Metadata JSONSchema",
+    "type": "object",
+    "version": "0.0.1",
+    "required": [
+        "identifier",
+        "firstName",
+        "lastName",
+        "email",
+        "sector"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "identifier": {
+            "$id": "#/properties/identifier",
+            "title": "People Identifier",
+            "$comment": "",
+            "description": "System People identifier",
+            "examples": [
+                "Shahriar Kabir Khan",
+                "https://web.www.healthdatagateway.org/person/4941491924034871"
+            ],
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/uuidv4"
+                },
+                {
+                    "$ref": "#/definitions/url"
+                }
+            ]
+        },
+        "firstName": {
+            "$id": "#/properties/firstName",
+            "title": "People First Name",
+            "$comment": "",
+            "examples": [
+                "Kabir"
+            ],
+            "description": "First Name of the people limited to 80 characters.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
+        },
+        "lastName": {
+            "$id": "#/properties/lastName",
+            "title": "People Last Name",
+            "$comment": "",
+            "examples": [
+                "Khan"
+            ],
+            "description": "Last Name of the people limited to 80 characters.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
+        },
+        "email": {
+            "$id": "#/properties/email",
+            "title": "People email",
+            "$comment": "",
+            "examples": [
+                "kabir.khan@hdruk.ac.uk"
+            ],
+            "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes: An employee’s email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/emailAddress"
+                }
+            ]
+        },
+        "sector": {
+            "$id": "#/properties/sector",
+            "title": "People Sector",
+            "$comment": "",
+            "examples": [
+                "NHS"
+            ],
+            "description": "A list of related sector people works in",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/commaSeparatedValues"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/sector"
+                            }
+                        ]
+                    },
+                    "uniqueItems": true,
+                    "minItems": 1
+                }
+            ]
+        },
+        "organisation ": {
+            "$id": "#/properties/organisation",
+            "title": "People Organisation",
+            "$comment": "",
+            "examples": [
+                "HDRUK"
+            ],
+            "description": "Please provide your affiliation or company, if applicable.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/eightyCharacters"
+                }
+            ]
+        },
+        "bio": {
+            "$id": "#/properties/bio",
+            "title": "People Bio",
+            "$comment": "",
+            "examples": [
+                "I am a Data Engineer intern at HDRUK."
+            ],
+            "description": "Please provide a short description of who you are",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/shortDescription"
+                }
+            ]
+        },
+        "domain": {
+            "$id": "#/properties/domain",
+            "title": "People Domain",
+            "$comment": "",
+            "examples": [
+                "Clinical Research",
+                "Data Engineering",
+                "Artificial Intelligence"
+            ],
+            "description": "The different areas/fields the people mainly works.",
+            "anyOf": [
+                {
+                    "$ref": "#/definitions/commaSeparatedValues"
+                },
+                {
+                    "type": "array",
+                    "items": {
+                        "allOf": [
+                            {
+                                "$ref": "#/definitions/eightyCharacters"
+                            }
+                        ]
+                    },
+                    "uniqueItems": true
+                }
+            ]
+        },
+        "link": {
+            "$id": "#/properties/link",
+            "title": "People Link",
+            "$comment": "",
+            "examples": [
+                "https://stackoverflow.com/users/9453613/shahriar-kabir-khan"
+            ],
+            "description": "URL endpoint to where people can find you on Social media, research gate, anywhere that people can go to find out more about you",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/url"
+                }
+            ]
+        },
+        "orcid": {
+            "$id": "#/properties/orcid",
+            "title": "People Orcid",
+            "$comment": "",
+            "examples": [
+                "0000-0003-2897-3739"
+            ],
+            "description": "Please provide unique ORCID identifier.",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/semver"
+                }
+            ]
+        },
+        "definitions": {
+            "uuidv4": {
+                "type": "string",
+                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                "minLength": 36,
+                "maxLength": 36
+            },
+            "url": {
+                "type": "string",
+                "format": "uri"
+            },
+            "eightyCharacters": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 80
+            },
+            "shortDescription": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 1500
+            },
+            "emailAddress": {
+                "type": "string",
+                "format": "email"
+            },
+            "commaSeparatedValues": {
+                "type": "string",
+                "pattern": "([^,]+)"
+            },
+            "semver": {
+                "type": "string",
+                "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
+            },
+            "sector":{
+                "type": "string",
+                "enum": [
+                    "NHS",
+                    "Industry",
+                    "Academia",
+                    "Public",
+                    "Charity/Non-profit"
+                ]
+            }
+        }
+    }
+}
