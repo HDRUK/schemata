@@ -8,11 +8,11 @@
     "required": [
         "identifier",
         "link",
-        "projecName",
+        "projectName",
         "type",
         "description",
         "resultsInsights",
-        "Collaborators"
+        "collaborators"
     ],
     "additionalProperties": false,
     "properties": {
@@ -21,7 +21,10 @@
             "title": "Project Identifier",
             "$comment": "",
             "description": "System project identifier",
-            "examples": [],
+            "examples": [
+                "7527250949367925",
+                "https://web.www.healthdatagateway.org/project/7527250949367925"
+            ],
             "anyOf": [
                 {
                     "$ref": "#/definitions/uuidv4"
@@ -36,7 +39,9 @@
             "title": "Project Link",
             "$comment": "",
             "description": "URL endpoint to where can we find the research project",
-            "examples": [],
+            "examples": [
+                "https://hdruk.ac.uk/covid-19"
+            ],
             "allOf": [
                 {
                     "$ref": "#/definitions/url"
@@ -47,8 +52,10 @@
             "$id": "#/properties/name",
             "title": "Project Name",
             "$comment": "",
-            "examples": [],
-            "description": "Name of the project. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
+            "examples": [
+                "CO-CONNECT"
+            ],
+            "description": "Name of the project limited to 80 characters. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
             "allOf": [
                 {
                     "$ref": "#/definitions/eightyCharacters"
@@ -59,7 +66,9 @@
             "$id": "#/properties/type",
             "title": "Project Type",
             "$comment": "",
-            "examples": [],
+            "examples": [
+                "National Core Study"
+            ],
             "description": "The type of the project. Select or add a new one",
             "allOf": [
                 {
@@ -71,11 +80,13 @@
             "$id": "#/properties/description",
             "title": "Project Description",
             "$comment": "",
-            "examples": [],
+            "examples": [
+                "The current COVID-19 pandemic has caused hundreds of thousands of deaths, severely strained health systems and damaged economies across the world. At this time there is limited evidence that people who have recovered from COVID-19 and have antibodies are protected from a second infection and if so, how long that lasts. Understanding who is immune is vital to protect vulnerable individuals, to safely scale back population-based interventions and for managing disease transmission..."
+            ],
             "description": "Please provide a brief description of project purpose and objective",
             "allOf": [
                 {
-                    "$ref": "#/definitions/shortDescription"
+                    "$ref": "#/definitions/description"
                 }
             ]
         },
@@ -83,7 +94,9 @@
             "$id": "#/properties/resultsInsights",
             "title": "Project Results/Insights",
             "$comment": "",
-            "examples": [],
+            "examples": [
+                "-**11/05/2020**: Gut Reaction: The NIHR BioResource are contributing to questions around asymptomatic carriers: do they exist, through their support of staff testing at Cambridge University Hospitals (CUH)"
+            ],
             "description": "Please provide any results or insights about the project.",
             "allOf": [
                 {
@@ -94,9 +107,11 @@
         "collaborators": {
             "$id": "#/properties/collaborators",
             "title": "Project Collaborators",
-            "$comment": "",
-            "examples": [],
-            "description": "",
+            "$comment": "Collaborators must be listed as a person on the Gateway",
+            "examples": [
+                "Jake Barrett"
+            ],
+            "description": "Collaborators on the Gateway.",
             "anyOf": [
                 {
                     "$ref": "#/definitions/commaSeparatedValues"
@@ -119,8 +134,12 @@
             "$id": "#/properties/keywords",
             "title": "Project Keywords",
             "$comment": "",
-            "examples": [],
-            "description": "",
+            "examples": [
+                "accute care",
+                "database",
+                "imaging"
+            ],
+            "description": "Please provide relevant and specific keywords that can improve the SEO of the project as a comma separated list.",
             "anyOf": [
                 {
                     "$ref": "#/definitions/commaSeparatedValues"
@@ -142,8 +161,12 @@
             "$id": "#/properties/domain",
             "title": "Project Domain",
             "$comment": "",
-            "examples": [],
-            "description": "",
+            "examples": [
+                "COVID-19",
+                "EHR",
+                "Theraputics"
+            ],
+            "description": "The different areas/fields the project covers.",
             "anyOf": [
                 {
                     "$ref": "#/definitions/commaSeparatedValues"
@@ -163,10 +186,10 @@
         },
         "relatedObjects": {
             "$id": "#/properties/relatedObjects",
-            "title": "",
+            "title": "Project Related Objects",
             "$comment": "",
             "examples": [],
-            "description": "",
+            "description": "The relationships to papers, projects, datasets and tools on the Gateway.",
             "type": "array",
             "items": {
                 "allOf": [
@@ -219,8 +242,10 @@
                     "$id": "#/properties/relatedObjects/resource",
                     "title": "Project Related Resource",
                     "$comment": "",
-                    "examples": [],
-                    "description": "",
+                    "examples": [
+                        "https://web.www.healthdatagateway.org/paper/4099570634860128"
+                    ],
+                    "description": "The identifier of the related resource.",
                     "allOf": [
                         {
                             "$ref": "#/definitions/url"
@@ -231,8 +256,10 @@
                     "$id": "#/properties/relatedObjects/relationship",
                     "title": "Project Relationship Between Resources",
                     "$comment": "",
-                    "examples": [],
-                    "description": "",
+                    "examples": [
+                        "The findings from this paper are the basis of my further research in this area"
+                    ],
+                    "description": "What is the relationship between these resources?",
                     "$ref": "#/definitions/shortDescription"
                 }
             }

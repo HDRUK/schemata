@@ -108,7 +108,7 @@
         "authors": {
             "$id": "#/properties/authors",
             "title": "Authors on the Gateway",
-            "$comment": "",
+            "$comment": "Authors must be listed as a person on the Gateway",
             "examples": [
                 "Jake Barrett"
             ],
@@ -169,7 +169,7 @@
                 "Analysis",
                 "Statistics"
             ],
-            "description": "",
+            "description": "Please provide relevant and specific keywords that can improve the SEO of the tool as a comma separated list.",
             "anyOf": [
                 {
                     "$ref": "#/definitions/commaSeparatedValues"
@@ -216,9 +216,9 @@
         },
         "relatedObjects": {
             "$id": "#/properties/relatedObjects",
-            "title": "",
+            "title": "Tool Related Objects",
             "$comment": "Resources must be added to the Gateway first.",
-            "description": "The relationships to papers, projects, datasets and tools.",
+            "description": "The relationships to papers, projects, datasets and tools on the Gateway.",
             "type": "array",
             "items": {
                 "allOf": [
