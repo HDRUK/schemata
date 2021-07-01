@@ -20,7 +20,7 @@
             "$comment": "",
             "description": "System People identifier",
             "examples": [
-                "Shahriar Kabir Khan",
+                "4941491924034871",
                 "https://web.www.healthdatagateway.org/person/4941491924034871"
             ],
             "anyOf": [
@@ -82,21 +82,9 @@
                 "NHS"
             ],
             "description": "A list of related sector people works in",
-            "anyOf": [
+            "allOf": [
                 {
-                    "$ref": "#/definitions/commaSeparatedValues"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/sector"
-                            }
-                        ]
-                    },
-                    "uniqueItems": true,
-                    "minItems": 1
+                    "$ref": "#/definitions/sector"
                 }
             ]
         },
@@ -119,7 +107,7 @@
             "title": "People Bio",
             "$comment": "",
             "examples": [
-                "I am a Data Engineer intern at HDRUK."
+                "Data Engineer intern at HDRUK."
             ],
             "description": "Please provide a short description of who you are",
             "allOf": [
@@ -216,7 +204,7 @@
                 "type": "string",
                 "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
             },
-            "sector":{
+            "sector": {
                 "type": "string",
                 "enum": [
                     "NHS",
@@ -225,7 +213,10 @@
                     "Public",
                     "Charity/Non-profit"
                 ]
+            },
+            "orcid": {
+                "type": "string",
+                "pattern": "^https:\/\/orcid.org\/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
             }
         }
     }
-}
