@@ -8,6 +8,7 @@
     "required": [
         "identifier",
         "name",
+        "link",
         "type",
         "description",
         "resultsInsights",
