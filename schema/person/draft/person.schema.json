@@ -25,10 +25,10 @@
             ],
             "anyOf": [
                 {
-                    "$ref": "#/definitions/uuidv4"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/uuidv4"
                 },
                 {
-                    "$ref": "#/definitions/url"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/url"
                 }
             ]
         },
@@ -42,7 +42,7 @@
             "description": "First Name of the people limited to 80 characters.",
             "allOf": [
                 {
-                    "$ref": "#/definitions/eightyCharacters"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/eightyCharacters"
                 }
             ]
         },
@@ -56,7 +56,7 @@
             "description": "Last Name of the people limited to 80 characters.",
             "allOf": [
                 {
-                    "$ref": "#/definitions/eightyCharacters"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/eightyCharacters"
                 }
             ]
         },
@@ -98,7 +98,7 @@
             "description": "Please provide your affiliation or company, if applicable.",
             "allOf": [
                 {
-                    "$ref": "#/definitions/eightyCharacters"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/eightyCharacters"
                 }
             ]
         },
@@ -135,7 +135,7 @@
                     "items": {
                         "allOf": [
                             {
-                                "$ref": "#/definitions/eightyCharacters"
+                                "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/eightyCharacters"
                             }
                         ]
                     },
@@ -153,7 +153,7 @@
             "description": "URL endpoint to where people can find you on Social media, research gate, anywhere that people can go to find out more about you",
             "allOf": [
                 {
-                    "$ref": "#/definitions/url"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/url"
                 }
             ]
         },
@@ -167,27 +167,12 @@
             "description": "Please provide unique ORCID identifier.",
             "allOf": [
                 {
-                    "$ref": "#/definitions/semver"
+                    "$ref": "schema\\common_defination\\draft\\common.schema.json#/definitions/semver"
                 }
             ]
         }
     },
     "definitions": {
-        "uuidv4": {
-            "type": "string",
-            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
-            "minLength": 36,
-            "maxLength": 36
-        },
-        "url": {
-            "type": "string",
-            "format": "uri"
-        },
-        "eightyCharacters": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 80
-        },
         "shortDescription": {
             "type": "string",
             "minLength": 2,
@@ -196,14 +181,6 @@
         "emailAddress": {
             "type": "string",
             "format": "email"
-        },
-        "commaSeparatedValues": {
-            "type": "string",
-            "pattern": "([^,]+)"
-        },
-        "semver": {
-            "type": "string",
-            "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
         },
         "sector": {
             "type": "string",
