@@ -1,0 +1,69 @@
+{
+    "tools": [
+        {
+            "identifier": "https://web.www.healthdatagateway.org/tool/19330809167434930",
+            "link": "https://github.com/nhsx/COVID-19-app-iOS-BETA",
+            "name": "COVID-19 Contact Tracing App - iOS",
+            "type": "Software",
+            "description": "This is a description",
+            "resultsInsights": "These are my resultsThese are my results",
+            "authors": [
+                "Jake Barrett",
+                "Kabir Khan"
+            ],
+            "implementation": [
+                {
+                    "implementation": "Objective-C"
+                }
+            ],
+            "license": "MIT",
+            "keywords": "Contact Tracing, iOS",
+            "domain": [
+                "COVID-19"
+            ],
+            "relatedObjects": [
+                {
+                    "resource": "http://www.google.com",
+                    "relationship": "This is the relationship"
+                },
+                {
+                    "resource": "http://www.google.com",
+                    "relationship": "This is the relationship number 2"
+                }
+            ]
+        },
+        {
+            "identifier": "3020a198-1c1d-4794-b13f-4ee1038a45e9",
+            "link": "http://www.google.com",
+            "name": "COVID-19 Contact Tracing App - iOS",
+            "type": "Software",
+            "description": "This is a description",
+            "resultsInsights": "These are my resultsThese are my results",
+            "authors": "Jake Barrett, Kabir Khan",
+            "implementation": [
+                {
+                    "implementation": "Objective-C",
+                    "version": "3.6.1"
+                },
+                {
+                    "implementation": "Python",
+                    "version": "3.7.2"
+                }
+            ],
+            "license": "MIT",
+            "keywords": [
+                "Contact Tracing",
+                "iOS"
+            ],
+            "domain": [
+                "COVID-19"
+            ],
+            "relatedObjects": [
+                {
+                    "resource": "http://www.google.com",
+                    "relationship": "This is the relationship"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "identifier": "https://web.www.healthdatagateway.org/tool/19330809167434930",
+    "name": "COVID-19 Contact Tracing App - iOS",
+    "tools attributes": {
+      "identifier": 0,
+      "link": 0,
+      "name": 0,
+      "type": 0,
+      "description": 0,
+      "resultsInsights": 0,
+      "authors": 0,
+      "implementation": 0,
+      "license": 0,
+      "keywords": 0,
+      "domain": 0,
+      "relatedObjects": 0,
+      "attributes_with_errors": 0,
+      "total_attributes": 12
+    },
+    "attributes_with_errors": 0,
+    "total_attributes": 12
+  },
+  {
+    "identifier": "3020a198-1c1d-4794-b13f-4ee1038a45e9",
+    "name": "COVID-19 Contact Tracing App - iOS",
+    "tools attributes": {
+      "identifier": 0,
+      "link": 0,
+      "name": 0,
+      "type": 0,
+      "description": 0,
+      "resultsInsights": 0,
+      "authors": 0,
+      "implementation": 0,
+      "license": 0,
+      "keywords": 0,
+      "domain": 0,
+      "relatedObjects": 0,
+      "attributes_with_errors": 0,
+      "total_attributes": 12
+    },
+    "attributes_with_errors": 0,
+    "total_attributes": 12
+  }
+]
