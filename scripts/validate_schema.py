@@ -22,39 +22,6 @@ def get_json(json_uri):
         raise Exception
 
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    "--schema",
-    choices=["tools", "project", "person", "paper"],
-    help="Please enter the schema name (tools, project, person, paper).",
-    type=str,
-    required=True,
-)
-parser.add_argument(
-    "--json",
-    help="Please enter the path to the JSON file you would like to validate.",
-    type=str,
-    required=True,
-)
-
-args = parser.parse_args()
-
-SCHEMA_PATH = "schema/{}/draft/{}.schema.json".format(args.schema, args.schema)
-JSON_PATH = args.json
-
-COMPLETENESS_EXPORT_PATH = "reports/{}/test/attribute_completeness.json".format(
-    args.schema
-)
-ERRORS_EXPORT_PATH = "reports/{}/test/attribute_errors.json".format(args.schema)
-
-REPORTING_LEVELS = ["{} attributes".format(args.schema)]
-REPORTING_ATTRIBUTES = {
-    "{} attributes".format(args.schema): list(
-        get_json(SCHEMA_PATH)["properties"].keys()
-    )
-}
-
-
 def export_json(data, filename, indent=2):
     with open(filename, "w") as jsonfile:
         json.dump(data, jsonfile, indent=indent)
@@ -118,7 +85,7 @@ def generate_attribute_list(
     return raw_attributes
 
 
-def check_attribute_completeness(it, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
+def check_attribute_completeness(item, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
     """
     Count completed (i.e. filled or populated) item attributes
     @param item: uploaded item in list of items (e.g. each tool in the tools collection)
@@ -140,7 +107,7 @@ def check_attribute_completeness(it, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
             elif "total_attributes" == k:
                 continue
             else:
-                reporting_dict[level][k] = 1 if it.get(k, None) is not None else 0
+                reporting_dict[level][k] = 1 if item.get(k, None) is not None else 0
                 total_populated += reporting_dict[level][k]
                 level_total += reporting_dict[level][k]
         reporting_dict[level]["filled_attributes"] = level_total
@@ -148,7 +115,7 @@ def check_attribute_completeness(it, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
     return reporting_dict
 
 
-def check_dm_completeness(items, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
+def check_item_completeness(item_type, items, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
     """
     @return:
     """
@@ -157,7 +124,7 @@ def check_dm_completeness(items, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
         REPORTING_ATTRIBUTES, REPORTING_LEVELS, True
     )
     data = []
-    for item in items[args.schema]:
+    for item in items[item_type]:
         it = copy.deepcopy(item)
         print("Processing:", it["identifier"])
         t = {"identifier": it.get("identifier", None), "name": it.get("name", None)}
@@ -175,6 +142,7 @@ def check_dm_completeness(items, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
 
 
 def check_attribute_validation(
+    item_type,
     items,
     schema,
     REPORTING_ATTRIBUTES,
@@ -192,7 +160,7 @@ def check_attribute_validation(
         generate_attribute_list(REPORTING_ATTRIBUTES, REPORTING_LEVELS)
     )
     data = []
-    for it in items[args.schema]:
+    for it in items[item_type]:
         total_errors, level_errors = 0, 0
         it_validate = copy.deepcopy(it)
         for attribute in set(it_validate.keys()) - validation_attributes:
@@ -305,18 +273,18 @@ def init_reporting_dict(
     return reporting_dict
 
 
-def flatten_reporting_dict(data_models):
+def flatten_reporting_dict(items):
     """
     flatten nested reporting dictionary for export to .csv
-    @param data_models: nested dictionary
+    @param items: nested dictionary
     @return: flat dictionary
     """
     headers = []
     data = []
 
-    for dm in data_models:
-        flat_dm = {}
-        for k, v in dm.items():
+    for it in items:
+        flat_it = {}
+        for k, v in it.items():
             if isinstance(v, dict):
                 i = 0
                 for nk, nv in v.items():  # nested key, value
@@ -325,33 +293,65 @@ def flatten_reporting_dict(data_models):
                         # i += 1
                     else:
                         fk = f"{k[:2]} {nk}"
-                    flat_dm[fk] = nv
+                    flat_it[fk] = nv
                     if not fk in headers:
                         headers.append(fk)
             else:
-                flat_dm[k] = v
+                flat_it[k] = v
                 if not k in headers:
                     headers.append(k)
-        data.append(flat_dm)
+        data.append(flat_it)
 
     return data, headers
 
 
 def main():
 
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--schema",
+        choices=["tools", "project", "person", "paper"],
+        help="Please enter the schema name (tools, project, person, paper).",
+        type=str,
+        required=True,
+    )
+    parser.add_argument(
+        "--json",
+        help="Please enter the path to the JSON file you would like to validate.",
+        type=str,
+        required=True,
+    )
+
+    args = parser.parse_args()
+
+    SCHEMA_PATH = "schema/{}/draft/{}.schema.json".format(args.schema, args.schema)
+    JSON_PATH = args.json
+
+    COMPLETENESS_EXPORT_PATH = "reports/{}/test/attribute_completeness.json".format(
+        args.schema
+    )
+    ERRORS_EXPORT_PATH = "reports/{}/test/attribute_errors.json".format(args.schema)
+
+    REPORTING_LEVELS = ["{} attributes".format(args.schema)]
+    REPORTING_ATTRIBUTES = {
+        "{} attributes".format(args.schema): list(
+            get_json(SCHEMA_PATH)["properties"].keys()
+        )
+    }
+
     # STEP 1: READ IN THE SCHEMA AND JSON FOR VALIDATION
-    tools = get_json(JSON_PATH)
+    items = get_json(JSON_PATH)
     schema = get_json(SCHEMA_PATH)
 
     # STEP 2: RUN THE VALIDATION TO OBTAIN ERRORS AND COMPLETENESS
-    attribute_completeness_score = check_dm_completeness(
-        tools, REPORTING_ATTRIBUTES, REPORTING_LEVELS
+    attribute_completeness_score = check_item_completeness(
+        args.schema, items, REPORTING_ATTRIBUTES, REPORTING_LEVELS
     )
     export_json(attribute_completeness_score, COMPLETENESS_EXPORT_PATH)
     data, headers = flatten_reporting_dict(attribute_completeness_score)
 
     schema_errors = check_attribute_validation(
-        tools, schema, REPORTING_ATTRIBUTES, REPORTING_LEVELS
+        args.schema, items, schema, REPORTING_ATTRIBUTES, REPORTING_LEVELS
     )
     export_json(schema_errors, ERRORS_EXPORT_PATH)
 
