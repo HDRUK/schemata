@@ -496,8 +496,12 @@ definitions:
           or https://what3words.com/daring.lion.race.
         examples:
         - https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html
-        allOf:
-        - "$ref": "#/definitions/url"
+        anyOf:
+        - "$ref": "#/definitions/commaSeparatedValues"
+        - type: array
+          items:
+            anyOf:
+            - "$ref": "#/definitions/url"
 
       typicalAgeRange:
         "$id": "#/properties/coverage/typicalAgeRange"
