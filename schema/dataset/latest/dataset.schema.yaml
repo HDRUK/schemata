@@ -992,8 +992,9 @@ definitions:
         - "$ref": "#/definitions/commaSeparatedValues"
         - type: array
           items:
-            allOf:
+            anyOf:
             - "$ref": "#/definitions/url"
+            - "$ref": "#/definitions/eightyCharacters"
 
       derivation:
         title: Derivations
