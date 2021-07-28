@@ -1,0 +1,26 @@
+[
+  {
+    "identifier": "https://web.www.healthdatagateway.org/person/8101920551208412",
+    "name": null,
+    "completeness_percent": 100.0,
+    "weighted_completeness_percent": 100.0,
+    "error_percent": 0.0,
+    "weighted_error_percent": 0.0,
+    "quality_score": 100.0,
+    "quality_rating": "Gold",
+    "weighted_quality_score": 100.0,
+    "weighted_quality_rating": "Gold"
+  },
+  {
+    "identifier": "https://web.www.healthdatagateway.org/person/5703995672678985",
+    "name": null,
+    "completeness_percent": 90.0,
+    "weighted_completeness_percent": 90.0,
+    "error_percent": 0.0,
+    "weighted_error_percent": 0.0,
+    "quality_score": 95.0,
+    "quality_rating": "Gold",
+    "weighted_quality_score": 95.0,
+    "weighted_quality_rating": "Gold"
+  }
+]

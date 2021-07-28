@@ -7,8 +7,6 @@ import copy
 import argparse
 import re
 
-# JSON_PATH = 'examples/tools/test/tools_test.json'
-
 
 def get_json(json_uri):
     if isinstance(json_uri, dict):

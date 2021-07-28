@@ -1,0 +1,26 @@
+[
+  {
+    "identifier": "https://web.www.healthdatagateway.org/tool/19330809167434930",
+    "name": "COVID-19 Contact Tracing App - iOS",
+    "completeness_percent": 100.0,
+    "weighted_completeness_percent": 100.0,
+    "error_percent": 0.0,
+    "weighted_error_percent": 0.0,
+    "quality_score": 100.0,
+    "quality_rating": "Gold",
+    "weighted_quality_score": 100.0,
+    "weighted_quality_rating": "Gold"
+  },
+  {
+    "identifier": "3020a198-1c1d-4794-b13f-4ee1038a45e9",
+    "name": "COVID-19 Contact Tracing App - iOS",
+    "completeness_percent": 100.0,
+    "weighted_completeness_percent": 100.0,
+    "error_percent": 0.0,
+    "weighted_error_percent": 0.0,
+    "quality_score": 100.0,
+    "quality_rating": "Gold",
+    "weighted_quality_score": 100.0,
+    "weighted_quality_rating": "Gold"
+  }
+]

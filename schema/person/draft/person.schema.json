@@ -1,8 +1,8 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://hdruk.github.io/schemata/schema/person/draft/person.schema.json",
-    "title": "HDR UK People Schema",
-    "description": "HDR UK People Metadata JSONSchema",
+    "title": "HDR UK Person Schema",
+    "description": "HDR UK Person Metadata JSONSchema",
     "type": "object",
     "version": "0.0.1",
     "required": [
@@ -16,39 +16,39 @@
     "properties": {
         "identifier": {
             "$id": "#/properties/identifier",
-            "title": "People Identifier",
+            "title": "Person Identifier",
             "$comment": "",
-            "description": "System People identifier",
+            "description": "System person identifier",
             "examples": [
                 "4941491924034871",
                 "https://web.www.healthdatagateway.org/person/4941491924034871"
             ],
             "anyOf": [
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/uuidv4"
+                    "$ref": "#/definitions/uuidv4"
                 },
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/url"
+                    "$ref": "#/definitions/url"
                 }
             ]
         },
         "firstName": {
             "$id": "#/properties/firstName",
-            "title": "People First Name",
+            "title": "Person First Name",
             "$comment": "",
             "examples": [
                 "Kabir"
             ],
-            "description": "First Name of the people limited to 80 characters.",
+            "description": "First Name of the prson limited to 80 characters.",
             "allOf": [
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/eightyCharacters"
+                    "$ref": "#/definitions/eightyCharacters"
                 }
             ]
         },
         "lastName": {
             "$id": "#/properties/lastName",
-            "title": "People Last Name",
+            "title": "Person Last Name",
             "$comment": "",
             "examples": [
                 "Khan"
@@ -56,13 +56,13 @@
             "description": "Last Name of the people limited to 80 characters.",
             "allOf": [
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/eightyCharacters"
+                    "$ref": "#/definitions/eightyCharacters"
                 }
             ]
         },
         "email": {
             "$id": "#/properties/email",
-            "title": "People email",
+            "title": "Person email",
             "$comment": "",
             "examples": [
                 "kabir.khan@hdruk.ac.uk"
@@ -76,7 +76,7 @@
         },
         "sector": {
             "$id": "#/properties/sector",
-            "title": "People Sector",
+            "title": "Person Sector",
             "$comment": "",
             "examples": [
                 "NHS"
@@ -88,9 +88,9 @@
                 }
             ]
         },
-        "organisation ": {
+        "organisation": {
             "$id": "#/properties/organisation",
-            "title": "People Organisation",
+            "title": "Person organisation",
             "$comment": "",
             "examples": [
                 "HDRUK"
@@ -98,13 +98,13 @@
             "description": "Please provide your affiliation or company, if applicable.",
             "allOf": [
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/eightyCharacters"
+                    "$ref": "#/definitions/eightyCharacters"
                 }
             ]
         },
         "bio": {
             "$id": "#/properties/bio",
-            "title": "People Bio",
+            "title": "Person Bio",
             "$comment": "",
             "examples": [
                 "Data Engineer intern at HDRUK."
@@ -118,7 +118,7 @@
         },
         "domain": {
             "$id": "#/properties/domain",
-            "title": "People Domain",
+            "title": "Person Domain",
             "$comment": "",
             "examples": [
                 "Clinical Research",
@@ -135,7 +135,7 @@
                     "items": {
                         "allOf": [
                             {
-                                "$ref": "schema/common_defination/draft/common.schema.json#/definitions/eightyCharacters"
+                                "$ref": "#/definitions/eightyCharacters"
                             }
                         ]
                     },
@@ -153,7 +153,7 @@
             "description": "URL endpoint to where people can find you on Social media, research gate, anywhere that people can go to find out more about you",
             "allOf": [
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/url"
+                    "$ref": "#/definitions/url"
                 }
             ]
         },
@@ -162,21 +162,49 @@
             "title": "People Orcid",
             "$comment": "",
             "examples": [
-                "0000-0003-2897-3739"
+                "https://orcid.org/0000-0003-1427-3598"
             ],
             "description": "Please provide unique ORCID identifier.",
             "allOf": [
                 {
-                    "$ref": "schema/common_defination/draft/common.schema.json#/definitions/semver"
+                    "$ref": "#/definitions/orcid"
                 }
             ]
         }
     },
     "definitions": {
+        "uuidv4": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+            "minLength": 36,
+            "maxLength": 36
+        },
+        "url": {
+            "type": "string",
+            "format": "uri"
+        },
+        "eightyCharacters": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+        },
         "shortDescription": {
             "type": "string",
             "minLength": 2,
             "maxLength": 1500
+        },
+        "description": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 3000
+        },
+        "commaSeparatedValues": {
+            "type": "string",
+            "pattern": "([^,]+)"
+        },
+        "semver": {
+            "type": "string",
+            "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
         },
         "emailAddress": {
             "type": "string",
@@ -194,7 +222,7 @@
         },
         "orcid": {
             "type": "string",
-            "pattern": "^https:\/\/orcid.org\/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
+            "pattern": "^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
         }
     }
 }

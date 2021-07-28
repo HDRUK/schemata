@@ -1,0 +1,42 @@
+[
+  {
+    "identifier": "https://web.www.healthdatagateway.org/project/16090674102699244",
+    "name": null,
+    "project attributes": {
+      "identifier": 1,
+      "link": 1,
+      "projectName": 1,
+      "type": 1,
+      "description": 1,
+      "resultsInsights": 1,
+      "collaborators": 1,
+      "keywords": 1,
+      "domain": 1,
+      "relatedObjects": 1,
+      "filled_attributes": 10,
+      "total_attributes": 10
+    },
+    "filled_attributes": 10,
+    "total_attributes": 10
+  },
+  {
+    "identifier": "3020a198-1c1d-4794-b13f-4ee1038a45e9",
+    "name": null,
+    "project attributes": {
+      "identifier": 1,
+      "link": 1,
+      "projectName": 1,
+      "type": 1,
+      "description": 1,
+      "resultsInsights": 1,
+      "collaborators": 1,
+      "keywords": 1,
+      "domain": 1,
+      "relatedObjects": 1,
+      "filled_attributes": 10,
+      "total_attributes": 10
+    },
+    "filled_attributes": 10,
+    "total_attributes": 10
+  }
+]

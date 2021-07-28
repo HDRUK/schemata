@@ -1,0 +1,33 @@
+{
+    "person": [
+        {
+            "identifier": "https://web.www.healthdatagateway.org/person/8101920551208412",
+            "firstName": "Gerry",
+            "lastName": "Reilly",
+            "email": "gerry.reilly@hdruk.ac.uk",
+            "sector": "Industry",
+            "organisation": "HDRUK",
+            "bio": "Technologist in Residence, HDR UK",
+            "domain": [
+                "Software Engineering",
+                "Data Management"
+            ],
+            "link": "https://www.linkedin.com/in/gerry-reilly-7290681/",
+            "orcid": "https://orcid.org/0000-0003-1427-3598"
+        },
+        {
+            "identifier": "https://web.www.healthdatagateway.org/person/5703995672678985",
+            "firstName": "Susheel",
+            "lastName": "Varma",
+            "email": "susheel.varma@hdruk.ac.uk",
+            "sector": "Academia",
+            "organisation": "HDRUK",
+            "bio": "Director of Engineering at HDR UK Central Team",
+            "domain": [
+                "Research",
+                "Software Engineering"
+            ],
+            "link": "https://www.linkedin.com/in/susheelvarma/"
+        }
+    ]
+}

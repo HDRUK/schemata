@@ -1,0 +1,42 @@
+[
+  {
+    "identifier": "https://web.www.healthdatagateway.org/person/8101920551208412",
+    "name": null,
+    "person attributes": {
+      "identifier": 1,
+      "firstName": 1,
+      "lastName": 1,
+      "email": 1,
+      "sector": 1,
+      "organisation": 1,
+      "bio": 1,
+      "domain": 1,
+      "link": 1,
+      "orcid": 1,
+      "filled_attributes": 10,
+      "total_attributes": 10
+    },
+    "filled_attributes": 10,
+    "total_attributes": 10
+  },
+  {
+    "identifier": "https://web.www.healthdatagateway.org/person/5703995672678985",
+    "name": null,
+    "person attributes": {
+      "identifier": 1,
+      "firstName": 1,
+      "lastName": 1,
+      "email": 1,
+      "sector": 1,
+      "organisation": 1,
+      "bio": 1,
+      "domain": 1,
+      "link": 1,
+      "orcid": 0,
+      "filled_attributes": 9,
+      "total_attributes": 10
+    },
+    "filled_attributes": 9,
+    "total_attributes": 10
+  }
+]

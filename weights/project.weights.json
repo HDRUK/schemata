@@ -1,0 +1,14 @@
+{
+    "project attributes": {
+        "identifier": 0.1,
+        "link": 0.1,
+        "projectName": 0.1,
+        "type": 0.1,
+        "description": 0.1,
+        "resultsInsights": 0.1,
+        "collaborators":0.1,
+        "keywords": 0.1,
+        "domain": 0.1,
+        "relatedObjects": 0.1
+    }
+}

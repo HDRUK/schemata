@@ -1,0 +1,14 @@
+{
+    "person attributes": {
+        "identifier": 0.1,
+        "firstName": 0.1,
+        "lastName": 0.1,
+        "email": 0.1,
+        "sector": 0.1,
+        "organisation": 0.1,
+        "bio":0.1,
+        "domain": 0.1,
+        "link": 0.1,
+        "orcid": 0.1
+    }
+}
