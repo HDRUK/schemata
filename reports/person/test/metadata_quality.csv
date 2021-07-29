@@ -1,0 +1,3 @@
+quality_rating,weighted_quality_rating,completeness_percent,weighted_quality_score,name,identifier,weighted_completeness_percent,weighted_error_percent,error_percent,quality_score
+Gold,Gold,100.0,100.0,,https://web.www.healthdatagateway.org/person/8101920551208412,100.0,0.0,0.0,100.0
+Gold,Gold,90.0,95.0,,https://web.www.healthdatagateway.org/person/5703995672678985,90.0,0.0,0.0,95.0

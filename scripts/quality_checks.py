@@ -137,9 +137,9 @@ def main():
 
     # Summarise Average Quality Score
     summary_score, headers = generate_quality_score()
-    export_json(summary_score, "reports/{}/metadata_quality.json".format(args.schema))
+    export_json(summary_score, "reports/{}/test/metadata_quality.json".format(args.schema))
     export_csv(
-        summary_score, "reports/{}/metadata_quality.csv".format(args.schema), headers
+        summary_score, "reports/{}/test/metadata_quality.csv".format(args.schema), headers
     )
 
 
