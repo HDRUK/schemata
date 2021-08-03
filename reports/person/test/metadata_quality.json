@@ -7,9 +7,9 @@
     "error_percent": 0.0,
     "weighted_error_percent": 0.0,
     "quality_score": 100.0,
-    "quality_rating": "Gold",
+    "quality_rating": "Platinum",
     "weighted_quality_score": 100.0,
-    "weighted_quality_rating": "Gold"
+    "weighted_quality_rating": "Platinum"
   },
   {
     "identifier": "https://web.www.healthdatagateway.org/person/5703995672678985",
@@ -19,8 +19,8 @@
     "error_percent": 0.0,
     "weighted_error_percent": 0.0,
     "quality_score": 95.0,
-    "quality_rating": "Gold",
+    "quality_rating": "Platinum",
     "weighted_quality_score": 95.0,
-    "weighted_quality_rating": "Gold"
+    "weighted_quality_rating": "Platinum"
   }
 ]

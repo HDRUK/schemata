@@ -109,14 +109,16 @@ def quality_ratings(s):
     Keyword arguments:
     s -- score: a single score from the dictionary of metadata scores
     """
-    if s <= 66:
+    if s <= 60:
         return "Not Rated"
-    elif s > 66 and s <= 76:
+    elif s > 60 and s <= 70:
         return "Bronze"
-    elif s > 76 and s <= 86:
+    elif s > 70 and s <= 80:
         return "Silver"
-    elif s > 86:
+    elif s > 80 and s <= 90:
         return "Gold"
+    elif s > 90:
+        return "Platinum"
 
 
 def attribute_weighted_score(s, w):
