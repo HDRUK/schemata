@@ -1042,9 +1042,11 @@ The geographical area covered by the dataset. It is recommended that links are t
 
 merged type ([Geographic Coverage](dataset-definitions-coverage-properties-geographic-coverage.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-anyof-1.md "check type definition")
 
 #### spatial Examples
 

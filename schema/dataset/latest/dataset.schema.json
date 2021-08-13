@@ -4,7 +4,7 @@
   "type": "object",
   "title": "HDR UK Dataset Schema",
   "description": "HDR UK Dataset Metadata JSONSchema",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "required": [
     "identifier",
     "version",
@@ -559,9 +559,19 @@
           "examples": [
             "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
           ],
-          "allOf": [
+          "anyOf": [
             {
-              "$ref": "#/definitions/url"
+              "$ref": "#/definitions/commaSeparatedValues"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/url"
+                  }
+                ]
+              }
             }
           ]
         },
@@ -1171,9 +1181,12 @@
             {
               "type": "array",
               "items": {
-                "allOf": [
+                "anyOf": [
                   {
                     "$ref": "#/definitions/url"
+                  },
+                  {
+                    "$ref": "#/definitions/eightyCharacters"
                   }
                 ]
               }
