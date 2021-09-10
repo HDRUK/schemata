@@ -49,6 +49,7 @@ def validate_attribute_schema(schema, item):
             print(error.message)
             attribute = re.findall(r"(.*?)'", error.message)[1]
             err.setdefault(attribute, []).append(error.message)
+    print("111111111 TEST ======validate_attribute_schema===", err)
     return err
 
 
@@ -79,7 +80,7 @@ def generate_attribute_list(
 
     if add_id:
         raw_attributes.insert(0, "identifier")
-
+    # print("2222222 TEST ======generate_attribute_list===", raw_attributes)
     return raw_attributes
 
 
@@ -110,6 +111,7 @@ def check_attribute_completeness(item, REPORTING_ATTRIBUTES, REPORTING_LEVELS):
                 level_total += reporting_dict[level][k]
         reporting_dict[level]["filled_attributes"] = level_total
     reporting_dict["filled_attributes"] = total_populated
+    print("333333 TEST ========check_attribute_completeness=", item)
     return reporting_dict
 
 
@@ -133,9 +135,13 @@ def check_item_completeness(item_type, items, REPORTING_ATTRIBUTES, REPORTING_LE
             )  # any attribute not in the schema, drop from the data model
         s = copy.deepcopy(schema)
         s.update(it)
+
         score = check_attribute_completeness(s, REPORTING_ATTRIBUTES, REPORTING_LEVELS)
+
         t.update(score)
         data.append(t)
+    print("ITEM TYPE", item_type)
+    # print("444444444 TEST ======check_item_completeness===", data)
     return data
 
 
@@ -202,6 +208,10 @@ def check_attribute_validation(
         t.update(reporting_dict)
         t["attributes_with_errors"] = total_errors
         data.append(t)
+    # print("100100010001000 - :", item_type)
+    # print("111111111111111 - :", items)
+    # print("22222222222222 TEST :", schema)
+    # print("5555555 TEST ======check_attribute_validation===", data)
     return data
 
 
@@ -224,7 +234,7 @@ def generate_baseline_from_sections(
     )
 
     baseline_dict = {attribute: None for attribute in raw_attributes}
-
+    # print("666666 TEST ======generate_baseline_from_sections===", baseline_dict)
     return baseline_dict
 
 
@@ -268,6 +278,7 @@ def init_reporting_dict(
     reporting_dict[txt] = 0
     reporting_dict["total_attributes"] = attribute_count
 
+    # print("77777777 TEST ======init_reporting_dict===", reporting_dict)
     return reporting_dict
 
 
