@@ -1,0 +1,40 @@
+title: person
+type: object
+examples: []
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  identifiers:
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - ORCID
+            - AR
+        value:
+          type: string
+        qualifier:
+          type: string
+      required:
+        - type
+        - value
+  name:
+    type: string
+  title:
+    type: string
+  email:
+    type: string
+    format: email
+  telephone:
+    type: string
+  organisation:
+    $ref: ./organisation.yaml
+required:
+  - name
+  - title
+  - email
