@@ -1,8 +1,7 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: HDR UK Federated Metadata Catalogue API
   version: '1.0'
-  summary: HDR UK Federated Metadata Catalogue API
   contact:
     name: Susheel Varma
     email: susheel.varma@hdruk.ac.uk
