@@ -118,7 +118,7 @@ paths:
       description: Get Dataset by ID
   /export:
     get:
-      summary: Export all Datasets
+      summary: [OPTIONAL] Export all Datasets
       tags: []
       responses:
         '200':
@@ -154,7 +154,7 @@ paths:
       description: Export all Datasets
   /feed:
     get:
-      summary: Dataset Feed
+      summary: [OPTIONAL] Dataset Atom Feed
       tags: []
       responses:
         '200':
