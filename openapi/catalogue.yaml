@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
-  description: Specification for a Federated Metadata Catalogue API
+  description: Example ppecification for a Metadata Catalogue API to allow data custodians to develop/deploy endpoints conformation to HDR UK's metadata spcifications
 servers:
   - url: 'http://localhost:3000'
 paths:
@@ -102,7 +102,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../schema/dataset/latest/dataset.schema.yaml
+                $ref: ../models/Dataset.yaml
         '400':
           description: Bad Request
         '401':
@@ -128,7 +128,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ../schema/dataset/latest/dataset.schema.yaml
+                  $ref: ../models/Dataset.yaml
         '400':
           description: Bad Request
         '401':
@@ -151,10 +151,10 @@ paths:
             format: date-time
           in: query
           name: until
-      description: Export all Datasets
+      description: Export all Datasets (OPTIONAL)
   /feed:
     get:
-      summary: Dataset Atom Feed
+      summary: Dataset Feed
       tags: []
       responses:
         '200':
@@ -173,6 +173,6 @@ paths:
         '503':
           description: Service Unavailable
       operationId: get-feed
-      description: Atom Feed of datasets
+      description: Atom Feed of datasets (OPTIONAL)
 components:
   schemas: {}
