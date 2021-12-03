@@ -1,0 +1,179 @@
+openapi: 3.1.0
+info:
+  title: HDR UK Federated Metadata Catalogue API
+  version: '1.0'
+  summary: HDR UK Federated Metadata Catalogue API
+  contact:
+    name: Susheel Varma
+    email: susheel.varma@hdruk.ac.uk
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0'
+  description: Specification for a Federated Metadata Catalogue API
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /datasets:
+    get:
+      summary: List Datasets
+      tags: []
+      operationId: list-datasets
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: q
+          description: query
+        - schema:
+            type: number
+          in: query
+          name: limit
+        - schema:
+            type: number
+          in: query
+          name: offset
+      description: List all Dataset summaries
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  query:
+                    type: object
+                    properties:
+                      q:
+                        type: string
+                      total:
+                        type: string
+                      limit:
+                        type: string
+                      offset:
+                        type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        '@schema':
+                          type: string
+                        type:
+                          type: string
+                        identifier:
+                          type: string
+                        name:
+                          type: string
+                        description:
+                          type: string
+                        version:
+                          type: string
+                        self:
+                          type: string
+                        issued:
+                          type: string
+                        modified:
+                          type: string
+                        source:
+                          type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+  '/datasets/{id}':
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+    get:
+      summary: Get Dataset by ID
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../schema/dataset/latest/dataset.schema.yaml
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+      operationId: get-datasets-id
+      parameters: []
+      description: Get Dataset by ID
+  /export:
+    get:
+      summary: Export all Datasets
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: ../schema/dataset/latest/dataset.schema.yaml
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+      operationId: export-datasets
+      parameters:
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: from
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: until
+      description: Export all Datasets
+  /feed:
+    get:
+      summary: Dataset Feed
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/atom+xml:
+              schema:
+                type: object
+                properties: {}
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+      operationId: get-feed
+      description: Atom Feed of datasets
+components:
+  schemas: {}
