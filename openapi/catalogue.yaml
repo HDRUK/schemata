@@ -8,7 +8,7 @@ info:
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
-  description: Example ppecification for a Metadata Catalogue API to allow data custodians to develop/deploy endpoints conformation to HDR UK's metadata spcifications
+  description: Example specification for a Metadata Catalogue API to allow data custodians to develop/deploy endpoints conformation to HDR UK's metadata spcifications
 servers:
   - url: 'http://localhost:3000'
 paths:
