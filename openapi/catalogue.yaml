@@ -102,7 +102,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../dataset/latest/dataset.schema.yaml
+                $ref: ../schema/dataset/latest/dataset.schema.yaml
         '400':
           description: Bad Request
         '401':
@@ -128,7 +128,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: ../dataset/latest/dataset.schema.yaml
+                  $ref: ../schema/dataset/latest/dataset.schema.yaml
         '400':
           description: Bad Request
         '401':
