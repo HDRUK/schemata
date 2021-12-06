@@ -176,3 +176,34 @@ paths:
       description: Atom Feed of datasets (OPTIONAL)
 components:
   schemas: {}
+  securitySchemes:
+    API Key:
+      type: openIdConnect
+      openIdConnectUrl: 'https://server.com/.well-known/openid-configuration'
+    X-API-Key:
+      name: ABC123
+      type: apiKey
+      in: query
+    bearer:
+      type: http
+      scheme: bearer
+    X-OAUTH2-Key:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: ''
+          refreshUrl: ''
+          scopes: {}
+        password:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+        clientCredentials:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+        authorizationCode:
+          authorizationUrl: ''
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
