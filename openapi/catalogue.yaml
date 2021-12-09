@@ -177,7 +177,7 @@ paths:
 components:
   schemas: {}
   securitySchemes:
-    API Key:
+    API-Key:
       type: openIdConnect
       openIdConnectUrl: 'https://server.com/.well-known/openid-configuration'
     X-API-Key:
