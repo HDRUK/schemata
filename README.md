@@ -1,10 +1,10 @@
 ![generate-markdown](https://github.com/HDRUK/schemata/workflows/generate-markdown/badge.svg)
 
-# HDR UK Schemata - Dataset V2.0.1
+# HDR UK Schemata - Dataset V2.0.2
 
-### 1. [HDR UK Dataset Schema](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md) - [YAML](https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.yaml) - [JSON](https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.json)
+### 1. [HDR UK Dataset Schema](https://hdruk.github.io/schemata/schema/dataset/latest/) - [YAML](https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.yaml) - [JSON](https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.json)
 
-The latest version specification required for datasets to be onboarded onto the Gateway are shown in this repository and is comprised of the following:
+The latest version specification required for datasets to be on boarded onto the Gateway are shown in this repository and is comprised of the following:
 
  - The latest json schema and yaml which can be found here: https://github.com/HDRUK/schemata/blob/master/schema/dataset/latest. They represent the V2 metadata specification for onboarding datasets onto the Gateway presented in the [descriptive metadata documentation](https://github.com/HDRUK/schemata/tree/master/docs/dataset/2.0.0/distribution).
  - Example json files which can be found here: https://github.com/HDRUK/schemata/blob/master/examples. It includes a current mapped dataset, a minimum json example and a full example of the metadata for onboarding to the Gateway.
