@@ -131,6 +131,17 @@ properties:
     items:
       allOf:
       - "$ref": "#/definitions/observation"
+  
+  structuralMetadata:
+    "$id": "#/properties/structuralMetadata"
+    title: Structural Metadata
+    description: Descriptions of all tables and data elements that can be included in the dataset
+    $comment: First phase includes only column level metadata, future versions will include value
+      level attributes
+    type: array
+    items: 
+      allOf: 
+      - "$ref": "#/definitions/dataClass"
 
 definitions:
 
@@ -1590,3 +1601,65 @@ definitions:
     - PERSONS
     - EVENTS
     - FINDINGS
+  
+  dataClass: 
+    "$id": "#/definitions/dataClass"
+    additionalProperties: false
+    properties:
+      name: 
+        "$id": "#/properties/dataClass/name"
+        title: Table Name
+        description: The name of a table in a dataset.
+        $comment: Should be limited to 255 Characters, abstract text requires rewrite.
+        type: string
+      description: 
+        "$id": "#/properties/dataClass/description"
+        title: Table Description
+        description: A description of a table in a dataset.
+        allOf: 
+        - "$ref": "#/definitions/shortDescription"
+      elements: 
+        "$id": "#/properties/dataClass/elements"
+        title: Data Elements
+        description: A list of data elements contained within a table in a dataset.
+        type: array
+        items: 
+          allOf: 
+          - "$ref": "#/definitions/dataElement"
+    required: 
+    - name
+    - elements
+  
+  dataElements:
+    "$id": "#/definitions/dataElement"
+    additionalProperties: true
+    properties: 
+      name: 
+        "$id": "#/properties/dataElement/name"
+        title: Column Name
+        description: The name of a column in a table.
+        $comment: 255 Chars
+        type: string
+      dataType: 
+        "$id": "#/properties/dataElement/dataType"
+        title: Data Type
+        description: The data type of values in the column
+        $comment: In future we could enumerate options for this, rather than just a string. 255 Chars
+        type: string
+      description: 
+        "$id": "#/properties/dataElement/description"
+        title: Column Description
+        description: A description of a column in a table.
+        $comment: 255 Chars
+        allOf: 
+        - "$ref": "#/definitions/shortDescription"
+      sensitive: 
+        "$id": "#/properties/dataElement/sensitive"
+        title: Sensitive
+        description: A True or False value, indicating if the field is sensitive or not
+        $comment: We could clarify a definition of what is sensitive in the future.
+        type: boolean
+    required: 
+    - name
+    - dataType
+    - sensitive
