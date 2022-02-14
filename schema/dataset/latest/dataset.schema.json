@@ -1843,7 +1843,11 @@
           "title": "Table Name",
           "description": "The name of a table in a dataset.",
           "$comment": "Should be limited to 255 Characters, abstract text requires rewrite.",
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "#/definitions/abstractText"
+            }
+          ]
         },
         "description": {
           "$id": "#/properties/dataClass/description",
