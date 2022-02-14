@@ -1853,11 +1853,9 @@
           "$id": "#/properties/dataClass/description",
           "title": "Table Description",
           "description": "A description of a table in a dataset.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/shortDescription"
-            }
-          ]
+          "type":"string",
+          "minLength":1,
+          "maxLength": 20000
         },
         "elements": {
           "$id": "#/properties/dataClass/elements",
@@ -1905,11 +1903,9 @@
           "title": "Column Description",
           "description": "A description of a column in a table.",
           "$comment": "255 Chars",
-          "allOf": [
-            {
-              "$ref": "#/definitions/shortDescription"
-            }
-          ]
+          "type":"string",
+          "minLength":1,
+          "maxLength": 20000
         },
         "sensitive": {
           "$id": "#/properties/dataElement/sensitive",
