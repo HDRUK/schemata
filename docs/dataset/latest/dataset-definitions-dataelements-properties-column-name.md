@@ -14,4 +14,8 @@ The name of a column in a table.
 
 ## name Type
 
-`string` ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+merged type ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+
+all of
+
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name-allof-0.md "check type definition")

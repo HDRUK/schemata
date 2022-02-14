@@ -4,7 +4,7 @@
   "type": "object",
   "title": "HDR UK Dataset Schema",
   "description": "HDR UK Dataset Metadata JSONSchema",
-  "version": "2.0.2",
+  "version": 2.1,
   "required": [
     "identifier",
     "version",
@@ -1843,17 +1843,19 @@
           "title": "Table Name",
           "description": "The name of a table in a dataset.",
           "$comment": "Should be limited to 255 Characters, abstract text requires rewrite.",
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "#/definitions/abstractText"
+            }
+          ]
         },
         "description": {
           "$id": "#/properties/dataClass/description",
           "title": "Table Description",
           "description": "A description of a table in a dataset.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/shortDescription"
-            }
-          ]
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000
         },
         "elements": {
           "$id": "#/properties/dataClass/elements",
@@ -1883,7 +1885,11 @@
           "title": "Column Name",
           "description": "The name of a column in a table.",
           "$comment": "255 Chars",
-          "type": "string"
+          "allOf": [
+            {
+              "ref": "#/defintions/abstractText"
+            }
+          ]
         },
         "dataType": {
           "$id": "#/properties/dataElement/dataType",
@@ -1896,12 +1902,9 @@
           "$id": "#/properties/dataElement/description",
           "title": "Column Description",
           "description": "A description of a column in a table.",
-          "$comment": "255 Chars",
-          "allOf": [
-            {
-              "$ref": "#/definitions/shortDescription"
-            }
-          ]
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20000
         },
         "sensitive": {
           "$id": "#/properties/dataElement/sensitive",

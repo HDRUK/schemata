@@ -14,4 +14,8 @@ The name of a table in a dataset.
 
 ## name Type
 
-`string` ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+merged type ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+
+all of
+
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name-allof-0.md "check type definition")

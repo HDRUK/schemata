@@ -1,21 +1,15 @@
-# Column Description Schema
+# Untitled undefined type in HDR UK Dataset Schema Schema
 
 ```txt
-#/properties/dataElement/description#/definitions/dataElements/properties/description
+#/properties/dataClass/name#/definitions/dataClass/properties/name/allOf/0
 ```
 
-A description of a column in a table.
+
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                        |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## description Type
+## 0 Type
 
-`string` ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
-
-## description Constraints
-
-**maximum length**: the maximum number of characters for this string is: `20000`
-
-**minimum length**: the minimum number of characters for this string is: `1`
+unknown

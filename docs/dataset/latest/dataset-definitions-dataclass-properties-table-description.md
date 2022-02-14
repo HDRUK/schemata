@@ -12,8 +12,10 @@ A description of a table in a dataset.
 
 ## description Type
 
-merged type ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
+`string` ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
 
-all of
+## description Constraints
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-description-allof-0.md "check type definition")
+**maximum length**: the maximum number of characters for this string is: `20000`
+
+**minimum length**: the minimum number of characters for this string is: `1`

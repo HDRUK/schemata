@@ -2622,8 +2622,8 @@ Reference this group by using
 
 | Property                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                |
 | :---------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [name](#name-1)               | `string` | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name.md "#/properties/dataClass/name#/definitions/dataClass/properties/name")                      |
-| [description](#description-2) | Merged   | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-description.md "#/properties/dataClass/description#/definitions/dataClass/properties/description") |
+| [name](#name-1)               | Merged   | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name.md "#/properties/dataClass/name#/definitions/dataClass/properties/name")                      |
+| [description](#description-2) | `string` | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-description.md "#/properties/dataClass/description#/definitions/dataClass/properties/description") |
 | [elements](#elements)         | `array`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-data-elements.md "#/properties/dataClass/elements#/definitions/dataClass/properties/elements")           |
 
 ### name
@@ -2636,7 +2636,7 @@ The name of a table in a dataset.
 
 *   is required
 
-*   Type: `string` ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+*   Type: merged type ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
 
 *   cannot be null
 
@@ -2644,7 +2644,11 @@ The name of a table in a dataset.
 
 #### name Type
 
-`string` ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+merged type ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+
+all of
+
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name-allof-0.md "check type definition")
 
 ### description
 
@@ -2654,7 +2658,7 @@ A description of a table in a dataset.
 
 *   is optional
 
-*   Type: merged type ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
+*   Type: `string` ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
 
 *   cannot be null
 
@@ -2662,11 +2666,13 @@ A description of a table in a dataset.
 
 #### description Type
 
-merged type ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
+`string` ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
 
-all of
+#### description Constraints
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-description-allof-0.md "check type definition")
+**maximum length**: the maximum number of characters for this string is: `20000`
+
+**minimum length**: the minimum number of characters for this string is: `1`
 
 ### elements
 
@@ -2696,9 +2702,9 @@ Reference this group by using
 
 | Property                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                         |
 | :---------------------------- | :-------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-2)               | `string`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElements/properties/name")                      |
+| [name](#name-2)               | Merged    | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElements/properties/name")                      |
 | [dataType](#datatype)         | `string`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElements/properties/dataType")                |
-| [description](#description-3) | Merged    | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElements/properties/description") |
+| [description](#description-3) | `string`  | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElements/properties/description") |
 | [sensitive](#sensitive)       | `boolean` | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElements/properties/sensitive")              |
 | Additional Properties         | Any       | Optional | can be null    |                                                                                                                                                                                    |
 
@@ -2712,7 +2718,7 @@ The name of a column in a table.
 
 *   is required
 
-*   Type: `string` ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+*   Type: merged type ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
 
 *   cannot be null
 
@@ -2720,7 +2726,11 @@ The name of a column in a table.
 
 #### name Type
 
-`string` ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+merged type ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+
+all of
+
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name-allof-0.md "check type definition")
 
 ### dataType
 
@@ -2746,13 +2756,11 @@ The data type of values in the column
 
 A description of a column in a table.
 
-> 255 Chars
-
 `description`
 
 *   is optional
 
-*   Type: merged type ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
+*   Type: `string` ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
 
 *   cannot be null
 
@@ -2760,11 +2768,13 @@ A description of a column in a table.
 
 #### description Type
 
-merged type ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
+`string` ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
 
-all of
+#### description Constraints
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-description-allof-0.md "check type definition")
+**maximum length**: the maximum number of characters for this string is: `20000`
+
+**minimum length**: the minimum number of characters for this string is: `1`
 
 ### sensitive
 
