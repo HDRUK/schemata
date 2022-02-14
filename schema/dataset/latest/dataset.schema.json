@@ -1902,7 +1902,6 @@
           "$id": "#/properties/dataElement/description",
           "title": "Column Description",
           "description": "A description of a column in a table.",
-          "$comment": "255 Chars",
           "type":"string",
           "minLength":1,
           "maxLength": 20000
