@@ -4,7 +4,7 @@
   "type": "object",
   "title": "HDR UK Dataset Schema",
   "description": "HDR UK Dataset Metadata JSONSchema",
-  "version": "2.0.2",
+  "version": "2.1",
   "required": [
     "identifier",
     "version",
