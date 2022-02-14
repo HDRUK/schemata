@@ -12,7 +12,8 @@
     "issued",
     "modified",
     "summary",
-    "accessibility"
+    "accessibility",
+    "observations"
   ],
   "additionalProperties": false,
   "properties": {

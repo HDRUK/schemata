@@ -29,7 +29,7 @@ HDR UK Dataset Metadata JSONSchema
 | [provenance](#provenance)                     | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-provenance.md "#/definitions/provenance#/properties/provenance")                                 |
 | [accessibility](#accessibility)               | Not specified | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-accessibility.md "#/definitions/accessibility#/properties/accessibility")                        |
 | [enrichmentAndLinkage](#enrichmentandlinkage) | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-enrichment-and-linkage.md "#/definitions/enrichmentAndLinkage#/properties/enrichmentAndLinkage") |
-| [observations](#observations)                 | `array`       | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-observations.md "#/properties/observations#/properties/observations")                            |
+| [observations](#observations)                 | `array`       | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-observations.md "#/properties/observations#/properties/observations")                            |
 | [structuralMetadata](#structuralmetadata)     | `array`       | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-structural-metadata.md "#/properties/structuralMetadata#/properties/structuralMetadata")         |
 
 ## identifier
@@ -283,7 +283,7 @@ Multiple observations about the dataset may be provided and users are expected t
 
 `observations`
 
-*   is optional
+*   is required
 
 *   Type: an array of merged types ([Details](dataset-properties-observations-items.md))
 
