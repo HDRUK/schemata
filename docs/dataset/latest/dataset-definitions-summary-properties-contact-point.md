@@ -4,7 +4,7 @@
 #/summary/contactPoint#/definitions/summary/properties/contactPoint
 ```
 
-Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes: An employee’s email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.
+Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.
 
 > dcat:contactPoint
 

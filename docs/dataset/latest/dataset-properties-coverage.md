@@ -58,7 +58,7 @@ any of
 
 ## typicalAgeRange
 
-Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format ‘\[min age] – \[max age]’ where both the minimum and maximum are whole numbers (integers).
+Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '\[min age] – \[max age]' where both the minimum and maximum are whole numbers (integers).
 
 > <https://schema.org/typicalAgeRange>
 

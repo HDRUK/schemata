@@ -1,21 +1,21 @@
-# Age Range Schema
+# Column Description Schema
 
 ```txt
-#/properties/coverage/typicalAgeRange#/definitions/coverage/properties/typicalAgeRange
+#/properties/dataElement/description#/definitions/dataElements/properties/description
 ```
 
-Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '\[min age] – \[max age]' where both the minimum and maximum are whole numbers (integers).
+A description of a column in a table.
 
-> <https://schema.org/typicalAgeRange>
+> 255 Chars
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                        |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## typicalAgeRange Type
+## description Type
 
-merged type ([Age Range](dataset-definitions-coverage-properties-age-range.md))
+merged type ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
 
 all of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-age-range-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-description-allof-0.md "check type definition")

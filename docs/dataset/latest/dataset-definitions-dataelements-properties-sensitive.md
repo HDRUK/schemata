@@ -1,21 +1,17 @@
-# Age Range Schema
+# Sensitive Schema
 
 ```txt
-#/properties/coverage/typicalAgeRange#/definitions/coverage/properties/typicalAgeRange
+#/properties/dataElement/sensitive#/definitions/dataElements/properties/sensitive
 ```
 
-Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '\[min age] – \[max age]' where both the minimum and maximum are whole numbers (integers).
+A True or False value, indicating if the field is sensitive or not
 
-> <https://schema.org/typicalAgeRange>
+> We could clarify a definition of what is sensitive in the future.
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                        |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## typicalAgeRange Type
+## sensitive Type
 
-merged type ([Age Range](dataset-definitions-coverage-properties-age-range.md))
-
-all of
-
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-age-range-allof-0.md "check type definition")
+`boolean` ([Sensitive](dataset-definitions-dataelements-properties-sensitive.md))
