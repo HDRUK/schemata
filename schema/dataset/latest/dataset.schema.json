@@ -1887,7 +1887,11 @@
           "title": "Column Name",
           "description": "The name of a column in a table.",
           "$comment": "255 Chars",
-          "type": "string"
+          "allOf": [
+            {
+              "$ref": "#/definitions/abstractText"
+            }
+          ]
         },
         "dataType": {
           "$id": "#/properties/dataElement/dataType",
