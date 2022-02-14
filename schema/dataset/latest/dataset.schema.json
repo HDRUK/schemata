@@ -4,7 +4,7 @@
   "type": "object",
   "title": "HDR UK Dataset Schema",
   "description": "HDR UK Dataset Metadata JSONSchema",
-  "version": "2.0.2",
+  "version": "2.1",
   "required": [
     "identifier",
     "version",
@@ -114,12 +114,26 @@
       "$id": "#/properties/observations",
       "title": "Observations",
       "$comment": "https://schema.org/observation",
-      "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: “2017”",
+      "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d",
       "type": "array",
       "items": {
         "allOf": [
           {
             "$ref": "#/definitions/observation"
+          }
+        ]
+      }
+    },
+    "structuralMetadata": {
+      "$id": "#/properties/structuralMetadata",
+      "title": "Structural Metadata",
+      "description": "Descriptions of all tables and data elements that can be included in the dataset",
+      "$comment": "First phase includes only column level metadata, future versions will include value level attributes",
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/definitions/dataClass"
           }
         ]
       }
@@ -179,7 +193,7 @@
           "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible",
           "$comment": "dct:abstract",
           "examples": [
-            "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+            "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
           ],
           "allOf": [
             {
@@ -206,7 +220,7 @@
           "examples": [
             "SAILDatabank@swansea.ac.uk"
           ],
-          "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes: An employee’s email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
+          "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
           "allOf": [
             {
               "$ref": "#/definitions/emailAddress"
@@ -288,7 +302,7 @@
         "identifier": {
           "$id": "#/organisation/identifier",
           "title": "Organisation Identifier",
-          "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the “suggest and institute” function here: https://www.grid.ac/institutes#",
+          "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the \u201csuggest and institute\u201d function here: https://www.grid.ac/institutes#",
           "$comment": "https://schema.org/identifier",
           "allOf": [
             {
@@ -579,7 +593,7 @@
           "$id": "#/properties/coverage/typicalAgeRange",
           "title": "Age Range",
           "$comment": "https://schema.org/typicalAgeRange",
-          "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format ‘[min age] – [max age]’ where both the minimum and maximum are whole numbers (integers).",
+          "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
           "allOf": [
             {
               "$ref": "#/definitions/ageRange"
@@ -593,7 +607,7 @@
           "examples": [
             "BONE MARROW"
           ],
-          "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide “AVAILABILITY TO BE CONFIRMED”. If samples are not available, then please provide “NOT AVAILABLE”.",
+          "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide \u201cAVAILABILITY TO BE CONFIRMED\u201d. If samples are not available, then please provide \u201cNOT AVAILABLE\u201d.",
           "anyOf": [
             {
               "$ref": "#/definitions/commaSeparatedValues"
@@ -741,7 +755,7 @@
           "title": "Periodicity",
           "$comment": "dct:accrualPeriodicity",
           "default": "",
-          "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or “on-demand” please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+          "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
           "allOf": [
             {
               "$ref": "#/definitions/periodicity"
@@ -784,7 +798,7 @@
           "$id": "#/properties/provenance/temporal/endDate",
           "title": "End Date",
           "$comment": "dcat:endDate",
-          "description": "The end of the time period that the dataset provides coverage for. If the dataset is “Continuous” and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
+          "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
           "anyOf": [
             {
               "type": "string",
@@ -1024,7 +1038,7 @@
           "title": "Jurisdiction",
           "default": "GB-ENG",
           "$comment": "http://purl.org/dc/terms/Jurisdiction FIXME: Add ISO 3166-2 Subdivision code pattern",
-          "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects’ data is collected, processed and stored.",
+          "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
           "anyOf": [
             {
               "$ref": "#/definitions/commaSeparatedValues"
@@ -1080,7 +1094,7 @@
           "title": "Controlled Vocabulary",
           "$comment": "https://www.dublincore.org/specifications/dublin-core/dcmi-terms/#http://purl.org/dc/dcam/VocabularyEncodingScheme",
           "default": "LOCAL",
-          "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+          "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
           "anyOf": [
             {
               "$ref": "#/definitions/commaSeparatedValues"
@@ -1103,7 +1117,7 @@
           "title": "Conforms To",
           "$comment": "dct:conformsTo",
           "default": "LOCAL",
-          "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition.",
+          "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
           "anyOf": [
             {
               "$ref": "#/definitions/commaSeparatedValues"
@@ -1173,7 +1187,7 @@
           "$id": "#/properties/enrichmentAndLinkage/qualifiedRelation",
           "title": "Linked Datasets",
           "$comment": "dcat:qualifiedRelation",
-          "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate “ALL” and the onboarding portal will automate linkage across the datasets submitted.",
+          "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate \u201cALL\u201d and the onboarding portal will automate linkage across the datasets submitted.",
           "anyOf": [
             {
               "$ref": "#/definitions/commaSeparatedValues"
@@ -1818,6 +1832,92 @@
         "PERSONS",
         "EVENTS",
         "FINDINGS"
+      ]
+    },
+    "dataClass": {
+      "$id": "#/definitions/dataClass",
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "$id": "#/properties/dataClass/name",
+          "title": "Table Name",
+          "description": "The name of a table in a dataset.",
+          "$comment": "Should be limited to 255 Characters, abstract text requires rewrite.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/abstractText"
+            }
+          ]
+        },
+        "description": {
+          "$id": "#/properties/dataClass/description",
+          "title": "Table Description",
+          "description": "A description of a table in a dataset.",
+          "type":"string",
+          "minLength":1,
+          "maxLength": 20000
+        },
+        "elements": {
+          "$id": "#/properties/dataClass/elements",
+          "title": "Data Elements",
+          "description": "A list of data elements contained within a table in a dataset.",
+          "type": "array",
+          "items": {
+            "allOf": [
+              {
+                "$ref": "#/definitions/dataElement"
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "name",
+        "elements"
+      ]
+    },
+    "dataElements": {
+      "$id": "#/definitions/dataElement",
+      "additionalProperties": true,
+      "properties": {
+        "name": {
+          "$id": "#/properties/dataElement/name",
+          "title": "Column Name",
+          "description": "The name of a column in a table.",
+          "$comment": "255 Chars",
+          "allOf": [
+            {
+              "$ref": "#/definitions/abstractText"
+            }
+          ]
+        },
+        "dataType": {
+          "$id": "#/properties/dataElement/dataType",
+          "title": "Data Type",
+          "description": "The data type of values in the column",
+          "$comment": "In future we could enumerate options for this, rather than just a string. 255 Chars",
+          "type": "string"
+        },
+        "description": {
+          "$id": "#/properties/dataElement/description",
+          "title": "Column Description",
+          "description": "A description of a column in a table.",
+          "type":"string",
+          "minLength":1,
+          "maxLength": 20000
+        },
+        "sensitive": {
+          "$id": "#/properties/dataElement/sensitive",
+          "title": "Sensitive",
+          "description": "A True or False value, indicating if the field is sensitive or not",
+          "$comment": "We could clarify a definition of what is sensitive in the future.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "dataType",
+        "sensitive"
       ]
     }
   }
