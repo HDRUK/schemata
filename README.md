@@ -1,6 +1,6 @@
 ![generate-markdown](https://github.com/HDRUK/schemata/workflows/generate-markdown/badge.svg)
 
-# HDR UK Schemata - Dataset V2.0.2
+# HDR UK Schemata - Dataset V2.1
 
 ### 1. [HDR UK Dataset Schema](https://hdruk.github.io/schemata/schema/dataset/latest/) - [YAML](https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.yaml) - [JSON](https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.json)
 
@@ -105,6 +105,18 @@ Below is the breakdown of the HDR UK V2 Dataset Schema by its properties and sub
   - [disambiguatingDescription](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#disambiguatingdescription)
   - [observationDate](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#observationdate)
   - [measuredProperty](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#measuredproperty)
+
+#### 8. [structuralMetadata](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset-properties-structural-metadata.md#structural-metadata-schema): Descriptions and details about the tables and columns within a dataset.
+
+- [dataClass](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#definitions-group-dataclass)
+  - [name](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#name-1)
+  - [description](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#description-2)
+  - [elements](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#elements)
+- [dataElement](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#definitions-group-dataelements)
+  - [name](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#name-2)
+  - [description](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#description-3)
+  - [dataType](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#datatype)
+  - [sensitive](https://github.com/HDRUK/schemata/blob/master/docs/dataset/latest/dataset.md#sensitive)
 
 <!--te-->
 
