@@ -87,7 +87,7 @@ Dataset metadata version
 
 ### version Constraints
 
-**pattern**: the string must match the following regular expression:&#x20;
+**pattern**: the string must match the following regular expression: 
 
 ```regexp
 ^([0-9]+)\.([0-9]+)\.([0-9]+)$
@@ -763,7 +763,7 @@ all of
 
 The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both.
 
-> dct:access\_rights
+> dct:access_rights
 
 `accessRights`
 
@@ -1380,7 +1380,7 @@ all of
 
 Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.
 
-> dcat:distribution\_release\_date
+> dcat:distribution_release_date
 
 `distributionReleaseDate`
 
@@ -1716,7 +1716,7 @@ Reference this group by using
 
 
 
-> dct:access\_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info
+> dct:access_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info
 
 `accessRights`
 
