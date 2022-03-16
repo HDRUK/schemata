@@ -87,7 +87,7 @@ Dataset metadata version
 
 ### version Constraints
 
-**pattern**: the string must match the following regular expression: 
+**pattern**: the string must match the following regular expression:&#x20;
 
 ```regexp
 ^([0-9]+)\.([0-9]+)\.([0-9]+)$
@@ -763,7 +763,7 @@ all of
 
 The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both.
 
-> dct:access_rights
+> dct:access\_rights
 
 `accessRights`
 
@@ -1380,7 +1380,7 @@ all of
 
 Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.
 
-> dcat:distribution_release_date
+> dcat:distribution\_release\_date
 
 `distributionReleaseDate`
 
@@ -1716,7 +1716,7 @@ Reference this group by using
 
 
 
-> dct:access_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info
+> dct:access\_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info
 
 `accessRights`
 
@@ -2692,21 +2692,21 @@ A list of data elements contained within a table in a dataset.
 
 an array of merged types ([Details](dataset-definitions-dataclass-properties-data-elements-items.md))
 
-## Definitions group dataElements
+## Definitions group dataElement
 
 Reference this group by using
 
 ```json
-{"$ref":"#/definitions/dataElement#/definitions/dataElements"}
+{"$ref":"#/definitions/dataElement#/definitions/dataElement"}
 ```
 
-| Property                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                         |
-| :---------------------------- | :-------- | :------- | :------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [name](#name-2)               | Merged    | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElements/properties/name")                      |
-| [dataType](#datatype)         | `string`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElements/properties/dataType")                |
-| [description](#description-3) | `string`  | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElements/properties/description") |
-| [sensitive](#sensitive)       | `boolean` | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElements/properties/sensitive")              |
-| Additional Properties         | Any       | Optional | can be null    |                                                                                                                                                                                    |
+| Property                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                       |
+| :---------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-2)               | Merged    | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElement/properties/name")                      |
+| [dataType](#datatype)         | `string`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElement/properties/dataType")                |
+| [description](#description-3) | `string`  | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElement/properties/description") |
+| [sensitive](#sensitive)       | `boolean` | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElement/properties/sensitive")              |
+| Additional Properties         | Any       | Optional | can be null    |                                                                                                                                                                                  |
 
 ### name
 
@@ -2718,19 +2718,19 @@ The name of a column in a table.
 
 *   is required
 
-*   Type: merged type ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+*   Type: merged type ([Column Name](dataset-definitions-dataelement-properties-column-name.md))
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElements/properties/name")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElement/properties/name")
 
 #### name Type
 
-merged type ([Column Name](dataset-definitions-dataelements-properties-column-name.md))
+merged type ([Column Name](dataset-definitions-dataelement-properties-column-name.md))
 
 all of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-name-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name-allof-0.md "check type definition")
 
 ### dataType
 
@@ -2742,15 +2742,15 @@ The data type of values in the column
 
 *   is required
 
-*   Type: `string` ([Data Type](dataset-definitions-dataelements-properties-data-type.md))
+*   Type: `string` ([Data Type](dataset-definitions-dataelement-properties-data-type.md))
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElements/properties/dataType")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElement/properties/dataType")
 
 #### dataType Type
 
-`string` ([Data Type](dataset-definitions-dataelements-properties-data-type.md))
+`string` ([Data Type](dataset-definitions-dataelement-properties-data-type.md))
 
 ### description
 
@@ -2760,15 +2760,15 @@ A description of a column in a table.
 
 *   is optional
 
-*   Type: `string` ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
+*   Type: `string` ([Column Description](dataset-definitions-dataelement-properties-column-description.md))
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElements/properties/description")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElement/properties/description")
 
 #### description Type
 
-`string` ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
+`string` ([Column Description](dataset-definitions-dataelement-properties-column-description.md))
 
 #### description Constraints
 
@@ -2786,15 +2786,15 @@ A True or False value, indicating if the field is sensitive or not
 
 *   is required
 
-*   Type: `boolean` ([Sensitive](dataset-definitions-dataelements-properties-sensitive.md))
+*   Type: `boolean` ([Sensitive](dataset-definitions-dataelement-properties-sensitive.md))
 
 *   cannot be null
 
-*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelements-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElements/properties/sensitive")
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElement/properties/sensitive")
 
 #### sensitive Type
 
-`boolean` ([Sensitive](dataset-definitions-dataelements-properties-sensitive.md))
+`boolean` ([Sensitive](dataset-definitions-dataelement-properties-sensitive.md))
 
 ### Additional Properties
 
