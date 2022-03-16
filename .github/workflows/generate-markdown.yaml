@@ -36,7 +36,7 @@ jobs:
         file_glob: 'schema/*/latest/*.yaml'
     
     - name: Install jsonschema2md package
-      run: npm install -g @adobe/jsonschema2md
+      run: npm install -g @adobe/jsonschema2md@6.1.4
     
     - name: Run jsonschema2md package to generate markdown
       run: jsonschema2md -n -d schema/dataset/latest -o docs/dataset/latest -x -
