@@ -1633,7 +1633,7 @@ definitions:
     - name
     - elements
   
-  dataElements:
+  dataElement:
     "$id": "#/definitions/dataElement"
     additionalProperties: true
     properties: 
