@@ -25,9 +25,7 @@
             "anyOf": [
                 {
                     "type": "string",
-                    "format":"uuid",
-                    "minLength": 36,
-                    "maxLength": 36
+                    "format":"uuid"
                 },
                 {
                     "type": "string",
