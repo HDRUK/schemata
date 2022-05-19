@@ -96,23 +96,17 @@
             "$comment": "Authors must be listed as a person on the Gateway",
             "description": "Authors on the Gateway",
             "examples": [
-                "Jake Barrett"
+                ["Jake Barrett", "Khabir Khan"]
             ],
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/commaSeparatedValues"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "type":"string",
-                        "maxLength": 80,
-                        "minLength": 2
-                    },
-                    "uniqueItems": true,
-                    "minItems": 1
-                }
-            ]
+            "type": "array",
+            "items": {
+                "type":"string",
+                "maxLength": 80,
+                "minLength": 2
+            },
+            "uniqueItems": true,
+            "minItems": 1
+            }
         },
         "implementation": {
             "$id": "#/properties/implementation",
@@ -142,24 +136,17 @@
         "keywords": {
             "$id": "#/properties/keywords",
             "title": "Tool Keywords",
-            "description": "Please provide relevant and specific keywords that can improve the SEO of the tool as a comma separated list.",
+            "description": "Please provide relevant and specific keywords that can improve the SEO of the tool as an array of strings.",
             "examples": [
                 ["Data Profiling","Analysis","Statistics"]
             ],
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/commaSeparatedValues"
+            "type": "array",
+            "items": {
+                "type":"string",
+                "maxLength": 80,
+                "minLength": 2
                 },
-                {
-                    "type": "array",
-                    "items": {
-                        "type":"string",
-                        "maxLength": 80,
-                        "minLength": 2
-                    },
-                    "uniqueItems": true
-                }
-            ]
+            "uniqueItems": true
         },
         "domain": {
             "$id": "#/properties/domain",
@@ -168,20 +155,13 @@
             "examples": [
                 ["COVID-19","Clinical Trial","Respiratory"]
             ],
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/commaSeparatedValues"
+            "type": "array",
+            "items": {
+                "type":"string",
+                "maxLength": 80,
+                "minLength": 2
                 },
-                {
-                    "type": "array",
-                    "items": {
-                        "type":"string",
-                        "maxLength": 80,
-                        "minLength": 2
-                    },
-                    "uniqueItems": true
-                }
-            ]
+            "uniqueItems": true
         },
         "relatedObjects": {
             "$id": "#/properties/relatedObjects",
@@ -200,10 +180,6 @@
         }
     },
     "definitions": {
-        "commaSeparatedValues": {
-            "type": "string",
-            "pattern": "([^,]+)"
-        },
         "implementation": {
             "$id": "#/definitions/implementation",
             "required": [
