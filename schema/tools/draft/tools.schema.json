@@ -19,7 +19,6 @@
         "identifier": {
             "$id": "#/properties/identifier",
             "title": "Tool Identifier",
-            "$comment": "",
             "description": "System tool identifier",
             "examples": [
                 "19330809167434930",
@@ -222,7 +221,6 @@
                 "resource": {
                     "$id": "#/properties/relatedObjects/resource",
                     "title": "Tool Related Resource",
-                    "$comment": "",
                     "examples": [
                         "https://web.www.healthdatagateway.org/dataset/f93aea28-7592-42c0-a5e7-5802f0d6051f",
                         "f93aea28-7592-42c0-a5e7-5802f0d6051f"
@@ -242,7 +240,6 @@
                 "relationship": {
                     "$id": "#/properties/relatedObjects/relationship",
                     "title": "Tool Relationship Between Resources",
-                    "$comment": "",
                     "examples": [
                         "Covid-19 questionnaire data will be available in this dataset"
                     ],
