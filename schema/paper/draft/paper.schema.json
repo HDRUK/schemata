@@ -82,31 +82,16 @@
                 
             
         },
-        "journal": {
+        "journalTitle": {
             "$id": "#/properties/journal",
-            "title": "Paper journal",
+            "title": "Paper journal title",
             "$comment": "",
-            "examples": [],
-            "description": "Journal Name and Year",
-            "type": "array",
-            "items": {
-            "properties": {
-                "journal": {
-                    "$id": "#/properties/journal/journal",
-                    "title": "Paper journal",
-                    "$comment": "",
-                    "examples": [
-                        "Translational Biomedicine"
-                    ],
-                    "description": "Please provide name of journal",
-                    "type": "string",
-                    "minLength": 2,
-                    "maxLength": 80
-                }
-                }
-            },
-            "minItems": 1
-        }
+            "examples": ["Journal of epidemiology and community health"],
+            "description": "Please provide name of journal",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+            
     },
         "journalYear": {
             "$id": "#/properties/journalYear",
