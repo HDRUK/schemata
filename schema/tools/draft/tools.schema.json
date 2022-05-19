@@ -95,7 +95,7 @@
             "$comment": "Authors must be listed as a person on the Gateway",
             "description": "Authors on the Gateway",
             "examples": [
-                ["Jake Barrett", "Khabir Khan"]
+                ["Jake Barrett", "Kabir Khan"]
             ],
             "type": "array",
             "items": {
