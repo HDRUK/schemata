@@ -130,10 +130,12 @@
             "title": "Paper Keywords",
             "$comment": "",
             "examples": [
+                [
                 "Data Profiling",
                 "Analysis",
                 "Statistics"
-            ],
+            ]
+        ],
             "description": "",
             "type": "array",
             "items": {
@@ -141,21 +143,19 @@
                 "minLength": 2,
                 "maxLength": 80
             },
-            "uniqueItems": true,
-            "minItems": 1
-                    
-            }
-            
+            "uniqueItems": true
         },
         "domain": {
             "$id": "#/properties/domain",
             "title": "Paper Domain",
             "$comment": "",
             "examples": [
+                [
                 "COVID-19",
                 "Clinical Trial",
                 "Respiratory"
-            ],
+            ]
+        ],
             "description": "",
             "type": "array",
             "items": {
@@ -199,6 +199,6 @@
                     }
                 }
             },
-            "minItems": 1
+            "uniqueItems": true
     }
 }
