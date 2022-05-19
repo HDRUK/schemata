@@ -53,7 +53,9 @@
             "title": "Paper Links",
             "$comment": "",
             "examples": [
+                [
                 "https://github.com/OHDSI/WhiteRabbit"
+                ]
             ],
             "description": "URL endpoint to where can we find this tool or resource",
             "type": "string",
@@ -64,8 +66,10 @@
             "title": "Paper Authors on the Gateway",
             "$comment": "",
             "examples": [
-                "Shahriar Kabir Khan"
-            ],
+                [
+                "Shahriar Kabir Khan", "Ned Stark"
+            ]
+        ],
             "description": "", 
             "type": "array",
             "items": {
@@ -98,20 +102,20 @@
                     "type": "string",
                     "minLength": 2,
                     "maxLength": 80
-                },
-                "year": {
-                    "$id": "#/properties/journal/year",
-                    "title": "Paper publication Year",
-                    "$comment": "",
-                    "examples": [
-                        "3.6.1"
-                    ],
-                    "description": "Please provide the paper publication year",
-                    "type": "string",
-                    "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
+                }
                 }
             },
             "minItems": 1
+        }
+    },
+        "journalYear": {
+            "$id": "#/properties/journalYear",
+            "title": "Paper Publication Year",
+            "$comment": "",
+            "examples": ["2020"],
+            "description": "Please provide the paper publication year",
+            "type": "int"
+            
         }
     },
         "abstract": {
