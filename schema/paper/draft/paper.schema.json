@@ -39,7 +39,7 @@
             "$comment": "",
             "description": "Title of the paper limited to 80 characters. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
             "examples": [
-                "WhiteRabbit"
+                "Efficacy of contact tracing for the containment of the 2019 novel coronavirus (COVID-19)."
             ],
             
             "type": "string",
