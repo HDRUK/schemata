@@ -25,10 +25,14 @@
             ],
             "anyOf": [
                 {
-                    "$ref": "#/definitions/uuidv4"
+                    "type": "string",
+                    "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                    "minLength": 36,
+                    "maxLength": 36
                 },
                 {
-                    "$ref": "#/definitions/url"
+                    "type": "string",
+                    "format": "uri"
                 }
             ]
         },
@@ -39,12 +43,11 @@
             "examples": [
                 "Kabir"
             ],
-            "description": "First Name of the prson limited to 80 characters.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/eightyCharacters"
-                }
-            ]
+            "description": "First Name of the person limited to 80 characters.",
+            "type":"string",
+            "minLength":2,
+            "maxLength":80 
+            
         },
         "lastName": {
             "$id": "#/properties/lastName",
@@ -54,11 +57,9 @@
                 "Khan"
             ],
             "description": "Last Name of the people limited to 80 characters.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/eightyCharacters"
-                }
-            ]
+            "type":"string",
+            "minLength":2,
+            "maxLength":80 
         },
         "email": {
             "$id": "#/properties/email",
@@ -68,11 +69,9 @@
                 "kabir.khan@hdruk.ac.uk"
             ],
             "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes: An employee’s email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/emailAddress"
-                }
-            ]
+            "type": "string",
+            "format": "email"
+            
         },
         "sector": {
             "$id": "#/properties/sector",
@@ -82,10 +81,13 @@
                 "NHS"
             ],
             "description": "A list of related sector people works in",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/sector"
-                }
+            "type": "string",
+            "enum": [
+                "NHS",
+                "Industry",
+                "Academia",
+                "Public",
+                "Charity/Non-profit"
             ]
         },
         "organisation": {
@@ -96,11 +98,10 @@
                 "HDRUK"
             ],
             "description": "Please provide your affiliation or company, if applicable.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/eightyCharacters"
-                }
-            ]
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 80
+            
         },
         "bio": {
             "$id": "#/properties/bio",
@@ -110,38 +111,29 @@
                 "Data Engineer intern at HDRUK."
             ],
             "description": "Please provide a short description of who you are",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/shortDescription"
-                }
-            ]
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 1500
         },
         "domain": {
             "$id": "#/properties/domain",
             "title": "Person Domain",
             "$comment": "",
             "examples": [
+                [
                 "Clinical Research",
                 "Data Engineering",
                 "Artificial Intelligence"
-            ],
-            "description": "The different areas/fields the people mainly works.",
-            "anyOf": [
-                {
-                    "$ref": "#/definitions/commaSeparatedValues"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "allOf": [
-                            {
-                                "$ref": "#/definitions/eightyCharacters"
-                            }
-                        ]
-                    },
-                    "uniqueItems": true
-                }
             ]
+        ],
+            "description": "The different areas/fields the people mainly works.",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 80
+                },
+                "uniqueItems": true
         },
         "link": {
             "$id": "#/properties/link",
@@ -151,11 +143,8 @@
                 "https://stackoverflow.com/users/9453613/shahriar-kabir-khan"
             ],
             "description": "URL endpoint to where people can find you on Social media, research gate, anywhere that people can go to find out more about you",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/url"
-                }
-            ]
+            "type": "string",
+            "format": "uri"
         },
         "orcid": {
             "$id": "#/properties/orcid",
@@ -165,62 +154,6 @@
                 "https://orcid.org/0000-0003-1427-3598"
             ],
             "description": "Please provide unique ORCID identifier.",
-            "allOf": [
-                {
-                    "$ref": "#/definitions/orcid"
-                }
-            ]
-        }
-    },
-    "definitions": {
-        "uuidv4": {
-            "type": "string",
-            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
-            "minLength": 36,
-            "maxLength": 36
-        },
-        "url": {
-            "type": "string",
-            "format": "uri"
-        },
-        "eightyCharacters": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 80
-        },
-        "shortDescription": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 1500
-        },
-        "description": {
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 3000
-        },
-        "commaSeparatedValues": {
-            "type": "string",
-            "pattern": "([^,]+)"
-        },
-        "semver": {
-            "type": "string",
-            "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
-        },
-        "emailAddress": {
-            "type": "string",
-            "format": "email"
-        },
-        "sector": {
-            "type": "string",
-            "enum": [
-                "NHS",
-                "Industry",
-                "Academia",
-                "Public",
-                "Charity/Non-profit"
-            ]
-        },
-        "orcid": {
             "type": "string",
             "pattern": "^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}$"
         }
