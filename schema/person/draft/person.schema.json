@@ -17,7 +17,6 @@
         "identifier": {
             "$id": "#/properties/identifier",
             "title": "Person Identifier",
-            "$comment": "",
             "description": "System person identifier",
             "examples": [
                 "4941491924034871",
@@ -39,7 +38,6 @@
         "firstName": {
             "$id": "#/properties/firstName",
             "title": "Person First Name",
-            "$comment": "",
             "examples": [
                 "Kabir"
             ],
@@ -52,7 +50,6 @@
         "lastName": {
             "$id": "#/properties/lastName",
             "title": "Person Last Name",
-            "$comment": "",
             "examples": [
                 "Khan"
             ],
@@ -64,7 +61,6 @@
         "email": {
             "$id": "#/properties/email",
             "title": "Person email",
-            "$comment": "",
             "examples": [
                 "kabir.khan@hdruk.ac.uk"
             ],
@@ -76,7 +72,6 @@
         "sector": {
             "$id": "#/properties/sector",
             "title": "Person Sector",
-            "$comment": "",
             "examples": [
                 "NHS"
             ],
@@ -93,7 +88,6 @@
         "organisation": {
             "$id": "#/properties/organisation",
             "title": "Person organisation",
-            "$comment": "",
             "examples": [
                 "HDRUK"
             ],
@@ -106,7 +100,6 @@
         "bio": {
             "$id": "#/properties/bio",
             "title": "Person Bio",
-            "$comment": "",
             "examples": [
                 "Data Engineer intern at HDRUK."
             ],
@@ -118,7 +111,6 @@
         "domain": {
             "$id": "#/properties/domain",
             "title": "Person Domain",
-            "$comment": "",
             "examples": [
                 [
                 "Clinical Research",
@@ -138,7 +130,6 @@
         "link": {
             "$id": "#/properties/link",
             "title": "People Link",
-            "$comment": "",
             "examples": [
                 "https://stackoverflow.com/users/9453613/shahriar-kabir-khan"
             ],
@@ -149,7 +140,6 @@
         "orcid": {
             "$id": "#/properties/orcid",
             "title": "People Orcid",
-            "$comment": "",
             "examples": [
                 "https://orcid.org/0000-0003-1427-3598"
             ],
