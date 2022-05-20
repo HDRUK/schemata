@@ -61,7 +61,7 @@
             "type": "string",
             "format": "uri"
         },
-        "authorsOntheGateway": {
+        "authors": {
             "$id": "#/properties/authorsOntheGateway",
             "title": "Paper Authors on the Gateway",
             "$comment": "",
