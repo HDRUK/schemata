@@ -145,6 +145,25 @@
             },
             "uniqueItems": true
         },
+        "gatewayUploaders": {
+            "$id": "#/properties/gatewayUploaders",
+            "title": "Uploaders to Innovation Gateway",
+            "$comment": "",
+            "examples": [
+                [
+                "HDR UK Papers Team"
+            ]
+        ],
+            "description": "These are the user accounts on the gateway that have permission to edit metadata on the gateway related to the paper being uploaded",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "minLength": 2,
+                "maxLength": 80
+            },
+            "uniqueItems": true
+
+        },
         "domain": {
             "$id": "#/properties/domain",
             "title": "Paper Domain",
