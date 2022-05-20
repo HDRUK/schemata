@@ -1,0 +1,197 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/data_use_register/latest/data_use_register.schema.json",
+    "title": "Data Use Register",
+    "type": "object",
+    "properties": {
+        "pid": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "identifier": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "lay_summary": {
+            "type": "string"
+        },
+        "technical_summary": {
+            "type": "string"
+        },
+        "public_benefit_statement": {
+            "type": "string"
+        },
+        "approval_status": {
+            "type": "string",
+            "enum": [
+                "APPROVED",
+                "REJECTED",
+                "IN PROGRESS"
+            ]
+        },
+        "approval_date": {
+            "type": "string",
+            "format": "date"
+        },
+        "data_release_date": {
+            "type": "string",
+            "format": "date"
+        },
+        "project_start_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "project_end_date": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "legal_basis": {
+            "type": "string"
+        },
+        "duty_of_confidentiality": {
+            "type": "string",
+            "enum": [
+                "CONSENT",
+                "SECTION 251"
+            ]
+        },
+        "other_approval_committees": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "string"
+            }
+        },
+        "applicants": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "accredited_researcher_status": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "organisation": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "format": "uri"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            }
+                        },
+                        "required": [
+                            "name"
+                        ]
+                    },
+                    "sponsors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "name"
+                ]
+            }
+        },
+        "datasets": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "publisher": {
+                        "type": "string"
+                    },
+                    "sensitivity_level": {
+                        "type": "string"
+                    },
+                    "description_of_use": {
+                        "type": "string"
+                    },
+                    "release_frequency": {
+                        "type": "string"
+                    },
+                    "description_of_confidential_data_use": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "publisher"
+                ]
+            }
+        },
+        "research_setting": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "datasets_used": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "research_outputs": {
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        }
+    },
+    "required": [
+        "pid",
+        "identifier",
+        "title",
+        "lay_summary",
+        "public_benefit_statement",
+        "approval_status",
+        "approval_date",
+        "project_start_date",
+        "project_end_date",
+        "legal_basis",
+        "duty_of_confidentiality",
+        "applicants",
+        "datasets",
+        "research_setting",
+        "research_outputs"
+    ]
+}
