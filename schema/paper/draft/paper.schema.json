@@ -184,12 +184,12 @@
             },
             "uniqueItems": true
         },
-        "relatedObjects": {
-            "$id": "#/properties/relatedObjects",
+        "relatedResources": {
+            "$id": "#/properties/relatedResources",
             "title": "",
             "$comment": "",
             "examples": ["The relationships to papers, projects, datasets and tools."],
-            "description": "",
+            "description": "Show relationships to papers, data uses, datasets and tools. Resources must be added to the Gateway first.",
             "type": "array",
             "items": {
                 "properties": {
