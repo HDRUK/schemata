@@ -1,0 +1,166 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/paper/draft/enquiries.schema.json",
+    "title": "HDR UK Enquiry Schema",
+    "description": "HDR UK Enquiry Metadata JSONSchema",
+    "type": "object",
+    "version": "0.0.1",
+    "additionalProperties": false,
+    "properties": {
+
+        "safeData": {
+            "$id": "#/properties/safeData",
+            "title": "safeData",
+            "description": "Information in the Enquiry message relating to Safe Data.",
+            "$ref": "#/definitions/safeData",
+            "type":"array",
+            "items": {
+                "properties": {
+                    "datasetLinkage": {
+                        "$id": "#/properties/safeData/datasetLinkage",
+                        "title": "Intention to link Dataset",
+                        "$comment": "",
+                        "examples": ["Yes"
+                            ],
+                        "description": "Are there other datasets you would like to link with the ones listed above?.",
+                        "type": "Boolean"
+                },
+                    "datasetLinkageDescription": {
+                        "$id": "#/properties/safeData/datasetLinkageDescription",
+                        "title": "Description of datasets you would like to link with",
+                        "$comment": "",
+                        "examples": [
+                            ],
+                        "description": "Please provide the name or description of these datasets you are interested in linking to",
+                        "type": "String"
+            },
+                "datasetInterest": {
+                    "$id": "#/properties/safeData/datasetInterest",
+                    "title": "Dataset Interest",
+                    "$comment": "",
+                    "examples": ["Yes"
+                        ],
+                    "description": "Do you know which parts of the dataset you are interested in?",
+                    "type": "Boolean"
+            },
+                "datasetInterestJustification": {
+                    "$id": "#/properties/safeData/datasetInterestJustification",
+                    "title": "Explaination of Dataset Interest",
+                    "$comment": "",
+                    "examples": [
+                        ],
+                    "description": "Please explain which parts of the dataset you are interested in?",
+                    "type": "String"
+                    }
+                }
+            }
+        },
+
+        "safePeople": {
+            "$id": "#/properties/safePeople",
+            "title": "safePeople",
+            "description": "Information in the Enquiry message relating to Safe People.",
+            "$ref": "#/definitions/safePeople",
+            "type": "array",
+            "items": {
+                "properties": {
+                    "applicantName": {
+                        "$id": "#/properties/safePeople/applicantName",
+                        "title": "Applicant Name",
+                        "$comment": "",
+                        "examples": ["Candice Ownens"
+                            ],
+                        "description": "Full name of applicant making the enquiry.",
+                        "type": "String"
+                    },
+
+                    "applicantEmail": {
+                        "$id": "#/properties/safePeople/applicantEmail",
+                        "title": "Applicant Email",
+                        "$comment": "",
+                        "examples": ["Candice.Ownens@gmail.com"
+                            ],
+                        "description": "Email of applicant making the enquiry.",
+                        "type": "String",
+                        "format": "email"
+                    },
+
+                    "applicantOrganisation": {
+                        "$id": "#/properties/safePeople/applicantOrganisation",
+                        "title": "Applicant Organisation",
+                        "$comment": "",
+                        "examples": ["NHS Trust"
+                            ],
+                        "description": "Organisation of applicant making the enquiry.",
+                        "type": "String"
+                    },
+
+                    "applicantContactNumber": {
+                        "$id": "#/properties/safePeople/applicantContactNumber",
+                        "title": "Applicant Contact Number",
+                        "$comment": "",
+                        "examples": [""
+                            ],
+                        "description": "Contact number of applicant making the enquiry.",
+                        "type": "String",
+                        "format": "Phone Number"
+                    }
+
+                }
+            }
+        },
+
+        "safeProject": {
+            "$id": "#/properties/safeProject",
+            "title": "safeProject",
+            "description": "Information in the Enquiry message relating to Safe Project.",
+            "$ref": "#/definitions/safeProject",
+            "type": "array",
+            "items": {
+                "properties": {
+                    "projectTitle": {
+                        "$id": "#/properties/safeProject/projectTitle",
+                        "title": "Project Title",
+                        "$comment": "",
+                        "examples": ["Cancer study among adults in the UK"
+                            ],
+                        "description": "Title of the project that will be using the dataset enquired about",
+                        "type": "String"
+                    },
+                    "researchAim": {
+                        "$id": "#/properties/safeProject/researchAim",
+                        "title": "Research aim or question of the project",
+                        "$comment": "",
+                        "examples": [""
+                            ],
+                        "description": "Please briefly explain the purpose of your research, why you require this dataset and when you intend to begin the project",
+                        "type": "String"
+                    },
+                    "funding": {
+                        "$id": "#/properties/safeProject/funding",
+                        "title": "Information on funding of the project",
+                        "$comment": "",
+                        "examples": [""
+                            ],
+                        "description": "Please provide information on the status of funding for your project including who is expected to fund the research",
+                        "type": "String"
+                    },
+                    "potentialResearchBenefits": {
+                        "$id": "#/properties/safeProject/potentialResearchBenefits",
+                        "title": "Potential research benefit of the project",
+                        "$comment": "",
+                        "examples": [""
+                            ],
+                        "description": "Please provide a short explanation of how your research would benefit the health and care system",
+                        "type": "String"
+                    }
+                    
+
+
+                }
+
+
+            }
+        }
+    }
+}
