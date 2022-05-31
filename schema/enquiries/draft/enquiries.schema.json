@@ -19,7 +19,7 @@
                         "$id": "#/properties/safeData/datasetLinkage",
                         "title": "Intention to link Dataset",
                         "$comment": "",
-                        "examples": ["Yes"],
+                        "examples": [true, false],
                         "description": "Are there other datasets you would like to link with the ones listed above?.",
                         "type": "boolean"
                 },
@@ -35,7 +35,7 @@
                     "$id": "#/properties/safeData/datasetInterest",
                     "title": "Dataset Interest",
                     "$comment": "",
-                    "examples": ["Yes"],
+                    "examples": [true, false],
                     "description": "Do you know which parts of the dataset you are interested in?",
                     "type": "boolean"
             },
