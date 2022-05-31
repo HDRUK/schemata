@@ -105,22 +105,16 @@
             },
             "uniqueItems": true,
             "minItems": 1
-            }
         },
         "implementation": {
             "$id": "#/properties/implementation",
             "title": "Tool Implementation",
             "description": "Programming languages, formalisms or frameworks. E.g. Python, RDF, GATE",
             "type": "array",
-            "items": {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/implementation"
-                    }
-                ]
-            },
+            "items": {"$ref": "#/definitions/implementation"},
             "minItems": 1
         },
+        
         "license": {
             "$id": "#/properties/license",
             "title": "Tool License",
@@ -168,14 +162,9 @@
             "$comment": "Resources must be added to the Gateway first.",
             "description": "The relationships to papers, projects, datasets and tools on the Gateway.",
             "type": "array",
-            "items": {
-                "allOf": [
-                    {
-                        "$ref": "#/definitions/relatedObjects"
-                    }
-                ]
-            },
+            "items": {"$ref": "#/definitions/relatedObjects"},
             "minItems": 1
+        }
     },
     "definitions": {
         "implementation": {
