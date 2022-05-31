@@ -11,7 +11,6 @@
             "$id": "#/properties/safeData",
             "title": "safeData",
             "description": "Information in the Enquiry message relating to Safe Data.",
-            "$ref": "#/definitions/safeData",
             "type":"array",
             "items": {
                 "properties": {
@@ -54,7 +53,6 @@
             "$id": "#/properties/safePeople",
             "title": "safePeople",
             "description": "Information in the Enquiry message relating to Safe People.",
-            "$ref": "#/definitions/safePeople",
             "type": "array",
             "items": {
                 "properties": {
@@ -103,7 +101,6 @@
             "$id": "#/properties/safeProject",
             "title": "safeProject",
             "description": "Information in the Enquiry message relating to Safe Project.",
-            "$ref": "#/definitions/safeProject",
             "type": "array",
             "items": {
                 "properties": {
