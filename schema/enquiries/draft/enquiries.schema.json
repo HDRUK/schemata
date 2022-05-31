@@ -19,7 +19,12 @@
                     "$comment": "",
                     "examples": [],
                     "description": "Which datasets on the innovation gateway are you intrested in enquiring about?",
-                    "type": "string"
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
                 },
                 "datasetLinkage": {
                     "title": "Intention to link Dataset",
