@@ -1,0 +1,141 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/data_utility/latest/data_utility.schema.json",
+    "title": "HDR UK Data Utility Framework Schema",
+    "description": "A schema used to describe the utility of a dataset. Described in full at: https://www.hdruk.ac.uk/wp-content/uploads/2021/08/Data-Utility-Framework_withlink_updatedDC100821.pdf",
+    "type": "object",
+    "version": "1.0.0",
+    "additionalProperties": false,
+    "properties": {
+        "dataDocumentation": {
+            "title": "Data Documentation",
+            "$id": "#/properties/dataDocumentation",
+            "description": "",
+            "type": "object",
+            "properties":{
+                "completeness": {
+                    "title": "Completeness",
+                    "$id": "#/properties/dataDocumentation/completeness",
+                    "description": "Proportion of metadata (as in the current HDR UK metadata specification) which is available in the expected format",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "additionalDocumentationAndSupport": {
+                    "title": "Availability of Additional Documentation and Support",
+                    "$id": "#/properties/dataDocumentation/additionalDocumentationAndSupport",
+                    "description": "Available dataset documentation in addition to the data dictionary.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "dataModel": {
+                    "title": "Data Model",
+                    "$id": "#/properties/dataDocumentation/dataModel",
+                    "description": "Availability of a clear, documented data model.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "dataDictionary": {
+                    "title": "Data Dictionary",
+                    "$id": "#/properties/dataDocumentation/dataDictionary",
+                    "description": "Availability of a clear, documented data dictionary and terminologies.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "provenance": {
+                    "title": "Provenance",
+                    "$id": "#/properties/dataDocumentation/provenance",
+                    "description": "Clear description of source and history of the dataset, providing a transparent data pipeline.",
+                    "$ref": "#/definitions/evaluation"
+                }
+            }
+        },
+        "technicalQuality": {
+            "title": "Technical Quality",
+            "$id": "#/properties/technicalQuality",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "qualityManagement": {
+                    "title": "Data Quality Management Process",
+                    "$id": "#/properties/technicalQuality/dataQualityManagement",
+                    "description": "Level of maturity of the data quality management processes.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "damaQualityDimensions": {
+                    "title": "Data Quality Dimensions",
+                    "$id": "#/properties/technicalQuality/dataQualityDimensions",
+                    "description": "Availability of clear, documented data quality dimensions.",
+                    "$ref": "#/definitions/evaluation"
+                }
+            }
+        },
+        "coverage": {
+            "title": "Coverage",
+            "$id": "#/properties/coverage",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "pathwayCoverage": {
+                    "title": "pathwayCoverage",
+                    "$id": "#/properties/coverage/pathwayCoverage",
+                    "description": "Representation of multi-disciplinary healthcare data.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "followUp": {
+                    "title": "Length of follow-up",
+                    "$id": "#/properties/coverage/followUp",
+                    "description": "Average timeframe in which a patient appears in a dataset.",
+                    "$ref": "#/definitions/evaluation"
+                }
+            }
+        },
+        "accessAndProvision": {
+            "title": "Access and Provision",
+            "$id": "#/properties/accessAndProvision",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "allowableUses": {
+                    "title": "Allowable Uses",
+                    "$id": "#/properties/accessAndProvision/allowableUses",
+                    "description": "Allowable dataset usages as per the licensing agreement, following ethical and IG approval.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "timeLag": {
+                    "title": "Time Lag",
+                    "$id": "#/properties/accessAndProvision/timeLag",
+                    "description": "Lag between the data being collected and added to the dataset.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "timeliness": {
+                    "title": "Timeliness",
+                    "$id": "#/properties/accessAndProvision/timeliness",
+                    "description": "Average data access request timeframe.",
+                    "$ref": "#/definitions/evaluation"
+                }
+            }
+        },
+        "valueAndInterest": {
+            "title": "Value and Interest",
+            "$id": "#/properties/valueAndInterest",
+            "description": "",
+            "type": "object",
+            "properties": {
+                "linkages": {
+                    "title": "Linkages",
+                    "$id": "#/properties/valueAndInterest/linkages",
+                    "description": "Ability to link with other datasets.",
+                    "$ref": "#/definitions/evaluation"
+                },
+                "enrichments": {
+                    "title": "Data Enrichements",
+                    "$id": "#/properties/valueAndInterest/enrichments",
+                    "description": "Data sources enriched with annotations, image labels, phenomes, derivations, NLP derived data labels.",
+                    "$ref": "#/definitions/evaluation"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "evaluation": {
+            "type": "string",
+            "enum": ["platinum", "gold", "silver", "bronze"]
+        }
+    }
+}
