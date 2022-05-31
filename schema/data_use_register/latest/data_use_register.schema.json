@@ -1,197 +1,415 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "https://hdruk.github.io/schemata/schema/data_use_register/latest/data_use_register.schema.json",
-    "title": "Data Use Register",
+    "title": "HDR UK Data Use Schema",
+    "description": "A schema used to describe data uses in a data use register.",
     "type": "object",
+    "version": "1.0.0",
+    "required": ["people", "projects", "data", "settings"],
+    "additionalProperties": false,
     "properties": {
-        "pid": {
-            "type": "string",
-            "format": "uuid"
-        },
-        "identifier": {
-            "type": "string"
-        },
-        "title": {
-            "type": "string"
-        },
-        "lay_summary": {
-            "type": "string"
-        },
-        "technical_summary": {
-            "type": "string"
-        },
-        "public_benefit_statement": {
-            "type": "string"
-        },
-        "approval_status": {
-            "type": "string",
-            "enum": [
-                "APPROVED",
-                "REJECTED",
-                "IN PROGRESS"
-            ]
-        },
-        "approval_date": {
-            "type": "string",
-            "format": "date"
-        },
-        "data_release_date": {
-            "type": "string",
-            "format": "date"
-        },
-        "project_start_date": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "project_end_date": {
-            "type": "string",
-            "format": "date-time"
-        },
-        "legal_basis": {
-            "type": "string"
-        },
-        "duty_of_confidentiality": {
-            "type": "string",
-            "enum": [
-                "CONSENT",
-                "SECTION 251"
-            ]
-        },
-        "other_approval_committees": {
-            "type": "array",
-            "minItems": 0,
-            "items": {
-                "type": "string"
-            }
-        },
-        "applicants": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "accredited_researcher_status": {
+        "people": {
+            "name": "People",
+            "$id": "#/properties/people",
+            "description": "Information about the people who created the data use. Based on 'Safe People' from the Five Safe Principles.",
+            "type":"object",
+            "required" : ["organisation"],
+            "properties":{
+                "organisation": {
+                    "name": "Organisation",
+                    "$id": "#/properties/people/organisation",
+                    "description": "The organisation that created the data use.",
+                    "$ref": "#/definitions/organisation"
+                },
+                "applicant": {
+                    "name": "Applicant",
+                    "$id": "#/properties/people/applicant",
+                    "description": "The person who applied for the data use.",
+                    "$ref": "#/definitions/applicant"
+                },
+                "fundersAndSponsors": {
+                    "name": "Funders and Sponsors",
+                    "$id": "#/properties/people/fundersAndSponsors",
+                    "description": "The name of the funders and sponsors involved in the project.",
+                    "type": "array",
+                    "items": {
                         "type": "string",
-                        "format": "uri"
-                    },
-                    "organisation": {
-                        "type": "object",
-                        "properties": {
-                            "id": {
-                                "type": "string",
-                                "format": "uri"
-                            },
-                            "name": {
-                                "type": "string"
-                            },
-                            "type": {
-                                "type": "string"
-                            }
-                        },
-                        "required": [
-                            "name"
-                        ]
-                    },
-                    "sponsors": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
+                        "minLength": 1,
+                        "maxLength": 255
                     }
                 },
-                "required": [
-                    "name"
-                ]
-            }
-        },
-        "datasets": {
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "format": "uri"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "publisher": {
-                        "type": "string"
-                    },
-                    "sensitivity_level": {
-                        "type": "string"
-                    },
-                    "description_of_use": {
-                        "type": "string"
-                    },
-                    "release_frequency": {
-                        "type": "string"
-                    },
-                    "description_of_confidential_data_use": {
-                        "type": "string"
-                    }
+                "accredited": {
+                    "name": "DEA Accredited",
+                    "$id": "#/properties/people/accredited",
+                    "description": "Whether the principle researcher is accredited under the Digital Economy Act 2017 (DEA) or not, as defined by the ONS Research Code of Practice and Accreditation criteria.",
+                    "type": "boolean"
                 },
-                "required": [
-                    "id",
-                    "name",
-                    "publisher"
-                ]
-            }
-        },
-        "research_setting": {
-            "type": "array",
-            "minItems": 0,
-            "items": {
-                "type": "object",
-                "properties": {
-                    "id": {
-                        "type": "string",
-                        "format": "uri"
-                    },
-                    "name": {
-                        "type": "string"
-                    },
-                    "datasets_used": {
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        }
-                    }
+                "subLicence": {
+                    "name": "Sub Licence Arrangements",
+                    "$id": "#/properties/people/subLicence",
+                    "description": "Identifies whether there are any permissions for the applicant to share the data beyond the named parties.  e.g., NHS Digital may approve a data release to the ONS, who then makes decisions about access to accredited researchers undertaking approved projects in their own trusted research environment." ,
+                    "type": "boolean"
                 }
             }
         },
-        "research_outputs": {
+        "project": {
+            "name": "Safe Project",
+            "$id": "#/properties/project",
+            "description": "Information about the project that the data was used in. Based on 'Safe Project' from the Five Safe Principles.",
+            "type": "object",
+            "required": ["title", "laySummary", "latestApprovalDate"],
+            "properties": {
+                "title": {
+                    "name": "Project Title",
+                    "$id": "#/properties/project/title",
+                    "description": "The title of the project.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "identifier": {
+                    "name": "Project Identifier",
+                    "$id": "#/properties/project/identifier",
+                    "description": "A unique identifier for the project. This should be a standard identifier such as a DOI or a URL.",
+                    "anyOf": [
+                        {   
+                            "name": "DOI",
+                            "type": "string",
+                            "pattern": "^10.\\d{4,9}/[-._;()/:A-Z0-9]+$"
+                        },
+                        {   
+                            "name": "URL",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {   
+                            "name": "IRAS ID",
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+                        },
+                        {   
+                            "name": "Internal Reference Number",
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+                        }
+                    ]
+                },
+                "laySummary": {
+                    "name": "Lay Summary",
+                    "$id": "#/properties/project/laySummary",
+                    "description": "A concise and clear description of the project, (e.g. as required by URKI in funding applications). It should outline the problem, objectives and expected outcomes in language that is understandable to the general public and contain a maximum of 300 words.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 3000
+                },
+                "publicBenefit": {
+                    "name": "Public Benefit Statement",
+                    "$id": "#/properties/project/publicBenefit",
+                    "description": "A description in plain English of the anticipated outcomes, or impact of project on the general public",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 3000
+                },
+                "requestCategory": {
+                    "name": "Request Category Type",
+                    "$id": "#/properties/project/requestCategory",
+                    "description": "This categorises the 'purpose of the share' (i.e., research, policy development, etc)",
+                    "type": "string",
+                    "enum":[
+                        "Efficacy & Mechanism Evaluation",
+                        "Health Services & Delivery",
+                        "Public Health Research",
+                        "Other"
+                    ]
+                },
+                "technicalSummary": {
+                    "name": "Technical Summary",
+                    "$id": "#/properties/project/technicalSummary",
+                    "description": "A summary of the proposed research, in a manner that is suitable for a specialist reader.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 3000
+                },
+                "approvalCommittees": {
+                    "name": "Other Approval Committees",
+                    "$id": "#/properties/project/approvalCommittees",
+                    "description": "Reference to other decision-making bodies that the project has already been authorised by.",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 255
+                    }
+                },
+                "startDate": {
+                    "name": "Project Start Date",
+                    "$id": "#/properties/project/startDate",
+                    "description": "The date the project is scheduled to start or actual start date.",
+                    "type": "string",
+                    "format": "date"
+                },
+                "endDate": {
+                    "name": "Project End Date",
+                    "$id": "#/properties/project/endDate",
+                    "description": "The date the project is scheduled to finish or actual end date.",
+                    "type": "string",
+                    "format": "date"
+                },
+                "latestApprovalDate": {
+                    "name": "Latest Approval Date",
+                    "$id": "#/properties/project/latestApprovalDate",
+                    "description": "The last date the data access request for this project was approved by a data custodian.",
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "data": {
+            "name": "Safe Data",
+            "$id": "#/properties/data",
+            "description": "Information about the data that was used in the project. Based on 'Safe Data' from the Five Safe Principles.",
+            "type": "object",
+            "required": ["datasets"],
+            "properties": {
+                "datasets":{
+                    "name": "Datasets",
+                    "$id": "#/properties/data/datasets",
+                    "description": "The datasets being accessed. If a dataset is on the Gateway, please provide the  dataset's URL or ID.",
+                    "type":"array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "name": "Gateway URL",
+                                "$comment": "Should match the format https://www.healthdatagateway.org/datasets/<dataset-id>",
+                                "type": "string",
+                                "pattern": "^https://www.healthdatagateway.org/dataset/^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$"
+                                
+                            },
+                            {
+                                "name": "Gateway ID",
+                                "type": "string",
+                                "format": "uuid"
+                            },
+                            {   
+                                "name": "Dataset Title",
+                                "type":"string",
+                                "minLength": 1,
+                                "maxLength": 255
+                            }
+                        ]
+                    }
+                },
+                "sensitivityLevel": {
+                    "name": "Data Sensitivity Level",
+                    "$id": "#/properties/data/sensitivityLevel",
+                    "description": "The level of identifiability of the data being accesses, as defined by Understanding Patient Data.",
+                    "type": "string",
+                    "enum": [
+                        "Personally Identificable",
+                        "De-Personalised",
+                        "Anonymous"
+                    ]
+                },
+                "legalBasis": {
+                    "name": "Legal Basis for Provision of Data",
+                    "$id": "#/properties/data/legalBasis",
+                    "description": "The lawful basis for processing are set out in Article 6 of the GDPR. At least one legal basis must apply whenever you process personal data. Please select appropriate Article 6 lawful basis. Processing shall be lawful only if and to the extent that at least one of the following applies.",
+                    "$comment": "https://gdpr-info.eu/art-6-gdpr/",
+                    "type": "string",
+                    "enum": [
+                        "The data subject has given consent to the processing of his or her personal data for one or more specific purposes.",
+                        "The processing is necessary for the performance of an agreement to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract.",
+                        "The processing is necessary for compliance with a legal obligation to which the controller is subject.",
+                        "The processing is necessary in order to protect the vital interests of the data subject or of another natural person.",
+                        "The processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller.",
+                        "The processing is necessary for the purposes of the legitimate interests pursued by the controller or by a third party, except where such interests are overrideen by the interests or fundamental rights and freedoms of the data subject which require protection of personal data, in particular where the data subject is a child.",
+                        "Not applicable."
+                    ]
+                },
+                "lawfulConditions": {
+                    "name": "Lawful Conditions for Provision of Data",
+                    "$id": "#/properties/data/lawfulConditions",
+                    "description": "The conditions under which the data subject's personal data are processed are set out in Article 9 of the GDPR. Please select appropriate Article 9 lawful conditions.",
+                    "$comment": "https://gdpr-info.eu/art-9-gdpr/",
+                    "type": "string",
+                    "enum": [
+                        "The data subject has given explicit consent to the processing of those personal data for one or more specified purposes, except where Union or Member State law provide that the prohibition referred to in paragraph 1 may not be lifted by the data subject.",
+                        "Processing is necessary for the purposes of carrying out the obligations and exercising specific rights of the controller or of the data subject in the field of employment and social security and social protection law in so far as it is authorised by Union or Member State law or a collective agreement pursuant to Member State law providing for appropriate safeguards for the fundamental rights and the interests of the data subject.",
+                        "Processing is necessary to protect the vital interests of the data subject or of another natural person where the data subject is physically or legally incapable of giving consent.",
+                        "Processing is carried out in the course of its legitimate activities with appropriate safeguards by a foundation, association or any other not-for-profit body with a political, philosophical, religious or trade union aim and on condition that the processing relates solely to the members or to former members of the body or to persons who have regular contact with it in connection with its purposes and that the personal data are not disclosed outside that body without the consent of the data subjects.",
+                        "Processing relates to personal data which are manifestly made public by the data subject",
+                        "Processing is necessary for the establishment, exercise or defence of legal claims or whenever courts are acting in their judicial capacity.",
+                        "Processing is necessary for reasons of substantial public interest, on the basis of Union or Member State law which shall be proportionate to the aim pursued, respect the essence of the right to data protection and provide for suitable and specific measures to safeguard the fundamental rights and the interests of the data subject.",
+                        "Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services on the basis of Union or Member State law or pursuant to contract with a health professional and subject to the conditions and safeguards referred to in paragraph 3.",
+                        "Processing is necessary for reasons of public interest in the area of public health, such as protecting against serious cross-border threats to health or ensuring high standards of quality and safety of health care and of medicinal products or medical devices, on the basis of Union or Member State law which provides for suitable and specific measures to safeguard the rights and freedoms of the data subject, in particular professional secrecy.",
+                        "Processing is necessary for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes in accordance with Article 89(1) based on Union or Member State law which shall be proportionate to the aim pursued, respect the essence of the right to data protection and provide for suitable and specific measures to safeguard the fundamental rights and the interests of the data subject.",
+                        "Not applicable"
+                    ]
+                },
+                "dutyOfConfidentiality": {
+                    "name": "Common Law Duty of Confidentiality",
+                    "$id": "#/properties/data/dutyOfConfidentiality",
+                    "description": "If confidential information is being disclosed , the organisations holding this data (both the organisation disclosing the information and the recipient organisation) must also have a lawful basis to hold and use this information, and if applicable, have a condition to hold and use special categories of confidential information, and be fair and transparent about how they hold and use this data. In England and Wales, if you are using section 251 of the NHS Act 2006 (s251) as a legal basis for identifiable data, you will need to ensure that you have the latest approval letter and application. For Scotland this application will be reviewed by the Public Benefit and Privacy Panel. In Northern Ireland it will be considered by the Privacy Advisory Committee. If you are using patient consent as the legal basis, you will need to provide all relevant consent forms and information leaflets.",
+                    "type": "string",
+                    "enum": [
+                        "Consent",
+                        "Section 251 of the NHS Act 2006",
+                        "Other",
+                        "Not applicable"
+                    ]
+                },
+                "optOut": {
+                    "name": "National data opt-out applied",
+                    "$id": "#/properties/data/optOut",
+                    "description": "Specifies whether the preference for people to opt-out of their confidential patient information being used for secondary use has been applied to the data prior to release.",
+                    "type": "boolean"
+                },
+                "requestFrequency": {
+                    "name": "Request Frequency",
+                    "$id": "#/properties/data/requestFrequency",
+                    "description": "Determines whether this a 'one-off' request or a recurring dataset to be provided over a specific time period.",
+                    "type": "string",
+                    "enum": [
+                        "One-off",
+                        "Recurring"
+                    ]
+                },
+                "linkage": {
+                    "name": "Linkage",
+                    "$id": "#/properties/data/linkage",
+                    "description": "For linked datasets, specify how the linkage will take place. Specifies whether applicant intends for the datasets to be linked with any additional datasets. Relevant information on the organisations undertaking linkages and how the linkage will take place must also be disclosed. As well as, a summary of the risks/mitigations to be considered",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 3000
+                },
+                "confidentialDataDescription": {
+                    "name": "Description of the confidential data being used",
+                    "$id": "#/properties/data/confidentialDataDescription",
+                    "description": "A description of the specific patient identifiable fields that have been included in the dataset(s) being accessed",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 3000
+                    }
+                },
+                "accessDate": {
+                    "name": "Release/Access Date",
+                    "$id": "#/properties/data/accessDate",
+                    "description": "The date the data access was granted and active research started",
+                    "type": "string",
+                    "format": "date"
+                }
+            }
+        },
+        "setting": {
+            "name": "Safe Setting",
+            "$id": "#/properties/setting",
+            "description": "The setting in which the data is being processed. Based on 'Safe Setting' from the Five Safes Principles.",
+            "type": "object",
+            "required": ["accessType"],
+            "properties": {
+                "accessType": {
+                    "name": "Access Type",
+                    "$id": "#/properties/setting/accessType",
+                    "description": "Determines whether the data is accessed within a Trusted Research Environmenet or via traditional data release.",
+                    "type": "string",
+                    "enum": [
+                        "Trusted Research Environment",
+                        "Release"
+                    ]
+                },
+                "privacyEnhancements": {
+                    "name": "Privacy Enhancements",
+                    "$id": "#/properties/setting/privacyEnhancements",
+                    "description": "Description of tools or software used to reduce the level of identifiable data being shared.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 3000
+                }
+            }
+        },
+        "outputs": {
+            "name": "Safe Outputs",
+            "$id": "#/properties/outputs",
+            "description": "The outputs of the data being processed. Based on 'Safe Outputs' from the Five Safes Principles. Link to any research outputs as they become available.",
             "type": "array",
-            "minItems": 0,
             "items": {
                 "type": "string",
                 "format": "uri"
             }
         }
     },
-    "required": [
-        "pid",
-        "identifier",
-        "title",
-        "lay_summary",
-        "public_benefit_statement",
-        "approval_status",
-        "approval_date",
-        "project_start_date",
-        "project_end_date",
-        "legal_basis",
-        "duty_of_confidentiality",
-        "applicants",
-        "datasets",
-        "research_setting",
-        "research_outputs"
-    ]
+    "definitions": {
+        "organisation": {
+            "$id": "#/definitions/organisation",
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "name": {
+                    "name": "Organisation Name",
+                    "$id": "#/definitions/organisation/name",
+                    "description": "The name of the organisation who created the data use.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "identifier": {
+                    "name": "Organisation Identifier",
+                    "$id": "#/definitions/organisation/identifier",
+                    "description": "A unique identifier for an organisation that is preferably an industry used standard such as Grid.ac (see https://www.grid.ac/institutes).",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "sector": {
+                    "name": "Organisation Sector",
+                    "$id": "#/definitions/organisation/sector",
+                    "description": "The sector of the organisation who created the data use.",
+                    "type": "string",
+                    "enum": [
+                        "Academic Institute",
+                        "CQC Registered Health or/and Social Care provider",
+                        "Independent Sector Organisation",
+                        "Government Agency (Health and Adult Social Care)",
+                        "Commercial",
+                        "Local authority",
+                        "Government Agency (Other)"
+                    ]
+                }
+            }
+        },
+        "applicant": {
+            "$id": "#/definitions/applicant",
+            "type": "object",
+            "required": ["names"],
+            "properties": {
+                "names": {
+                    "name": "Applicant Names",
+                    "description": "The name of the Principal Investigator, as well as any other individuals that have been authorised to use the data. If they are on the Gateway, please provide their profile URL", 
+                    "$comment": "Provide urls or names in the format: Firstname, Lastname",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "pattern": "^[a-zA-Z0-9, ]+$"
+                    }
+                },
+                "identifier": {
+                    "name": "Applicant ID",
+                    "description": "An ORCID identifier for the principal investigator. Can be either an ID number or a URL.",
+                    "anyOf": [
+                        {   
+                            "name": "ORCID ID",
+                            "type": "string",
+                            "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+                        },
+                        {   "name": "ORCID URL",
+                            "type": "string",
+                            "pattern": "^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
+                        }
+                    ]
+                }
+            }
+        }
+    }
 }
