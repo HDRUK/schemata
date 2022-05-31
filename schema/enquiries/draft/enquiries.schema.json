@@ -13,6 +13,14 @@
             "description": "Information in the Enquiry message relating to Safe Data.",
             "type":"object",
             "properties": {
+                "datasetsOfInterest": {
+                    "$id": "#/properties/safeData/datasetsOfInterest",
+                    "title": "Datasets of Interest",
+                    "$comment": "",
+                    "examples": [],
+                    "description": "Which datasets on the innovation gateway are you intrested in enquiring about?",
+                    "type": "string"
+                },
                 "datasetLinkage": {
                     "title": "Intention to link Dataset",
                     "$id": "#/properties/safeData/datasetLinkage",
@@ -29,16 +37,16 @@
                     "description": "Please provide the name or description of these datasets you are interested in linking to",
                     "type": "string"
                 },
-                "datasetInterest": {
-                    "$id": "#/properties/safeData/datasetInterest",
+                "datasetPartInterest": {
+                    "$id": "#/properties/safeData/datasetPartInterest",
                     "title": "Dataset Interest",
                     "$comment": "",
                     "examples": [true, false],
                     "description": "Do you know which parts of the dataset you are interested in?",
                     "type": "boolean"
                 },
-                "datasetInterestJustification": {
-                    "$id": "#/properties/safeData/datasetInterestJustification",
+                "datasetPartInterestJustification": {
+                    "$id": "#/properties/safeData/datasetPartInterestJustification",
                     "title": "Explaination of Dataset Interest",
                     "$comment": "",
                     "examples": [],
