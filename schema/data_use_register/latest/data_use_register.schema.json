@@ -9,26 +9,26 @@
     "additionalProperties": false,
     "properties": {
         "people": {
-            "name": "People",
+            "title": "People",
             "$id": "#/properties/people",
             "description": "Information about the people who created the data use. Based on 'Safe People' from the Five Safe Principles.",
             "type":"object",
             "required" : ["organisation"],
             "properties":{
                 "organisation": {
-                    "name": "Organisation",
+                    "title": "Organisation",
                     "$id": "#/properties/people/organisation",
                     "description": "The organisation that created the data use.",
                     "$ref": "#/definitions/organisation"
                 },
                 "applicant": {
-                    "name": "Applicant",
+                    "title": "Applicant",
                     "$id": "#/properties/people/applicant",
                     "description": "The person who applied for the data use.",
                     "$ref": "#/definitions/applicant"
                 },
                 "fundersAndSponsors": {
-                    "name": "Funders and Sponsors",
+                    "title": "Funders and Sponsors",
                     "$id": "#/properties/people/fundersAndSponsors",
                     "description": "The name of the funders and sponsors involved in the project.",
                     "type": "array",
@@ -39,28 +39,28 @@
                     }
                 },
                 "accredited": {
-                    "name": "DEA Accredited",
+                    "title": "DEA Accredited",
                     "$id": "#/properties/people/accredited",
                     "description": "Whether the principle researcher is accredited under the Digital Economy Act 2017 (DEA) or not, as defined by the ONS Research Code of Practice and Accreditation criteria.",
                     "type": "boolean"
                 },
                 "subLicence": {
-                    "name": "Sub Licence Arrangements",
+                    "title": "Sub Licence Arrangements",
                     "$id": "#/properties/people/subLicence",
-                    "description": "Identifies whether there are any permissions for the applicant to share the data beyond the named parties.  e.g., NHS Digital may approve a data release to the ONS, who then makes decisions about access to accredited researchers undertaking approved projects in their own trusted research environment." ,
+                    "description": "Identifies whether there are any permissions for the applicant to share the data beyond the titled parties.  e.g., NHS Digital may approve a data release to the ONS, who then makes decisions about access to accredited researchers undertaking approved projects in their own trusted research environment." ,
                     "type": "boolean"
                 }
             }
         },
         "project": {
-            "name": "Safe Project",
+            "title": "Safe Project",
             "$id": "#/properties/project",
             "description": "Information about the project that the data was used in. Based on 'Safe Project' from the Five Safe Principles.",
             "type": "object",
             "required": ["title", "laySummary", "latestApprovalDate"],
             "properties": {
                 "title": {
-                    "name": "Project Title",
+                    "title": "Project Title",
                     "$id": "#/properties/project/title",
                     "description": "The title of the project.",
                     "type": "string",
@@ -68,34 +68,34 @@
                     "maxLength": 255
                 },
                 "identifier": {
-                    "name": "Project Identifier",
+                    "title": "Project Identifier",
                     "$id": "#/properties/project/identifier",
                     "description": "A unique identifier for the project. This should be a standard identifier such as a DOI or a URL.",
                     "anyOf": [
                         {   
-                            "name": "DOI",
+                            "title": "DOI",
                             "type": "string",
                             "pattern": "^10.\\d{4,9}/[-._;()/:A-Z0-9]+$"
                         },
                         {   
-                            "name": "URL",
+                            "title": "URL",
                             "type": "string",
                             "format": "uri"
                         },
                         {   
-                            "name": "IRAS ID",
+                            "title": "IRAS ID",
                             "type": "string",
                             "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
                         },
                         {   
-                            "name": "Internal Reference Number",
+                            "title": "Internal Reference Number",
                             "type": "string",
                             "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
                         }
                     ]
                 },
                 "laySummary": {
-                    "name": "Lay Summary",
+                    "title": "Lay Summary",
                     "$id": "#/properties/project/laySummary",
                     "description": "A concise and clear description of the project, (e.g. as required by URKI in funding applications). It should outline the problem, objectives and expected outcomes in language that is understandable to the general public and contain a maximum of 300 words.",
                     "type": "string",
@@ -103,7 +103,7 @@
                     "maxLength": 3000
                 },
                 "publicBenefit": {
-                    "name": "Public Benefit Statement",
+                    "title": "Public Benefit Statement",
                     "$id": "#/properties/project/publicBenefit",
                     "description": "A description in plain English of the anticipated outcomes, or impact of project on the general public",
                     "type": "string",
@@ -111,7 +111,7 @@
                     "maxLength": 3000
                 },
                 "requestCategory": {
-                    "name": "Request Category Type",
+                    "title": "Request Category Type",
                     "$id": "#/properties/project/requestCategory",
                     "description": "This categorises the 'purpose of the share' (i.e., research, policy development, etc)",
                     "type": "string",
@@ -123,7 +123,7 @@
                     ]
                 },
                 "technicalSummary": {
-                    "name": "Technical Summary",
+                    "title": "Technical Summary",
                     "$id": "#/properties/project/technicalSummary",
                     "description": "A summary of the proposed research, in a manner that is suitable for a specialist reader.",
                     "type": "string",
@@ -131,7 +131,7 @@
                     "maxLength": 3000
                 },
                 "approvalCommittees": {
-                    "name": "Other Approval Committees",
+                    "title": "Other Approval Committees",
                     "$id": "#/properties/project/approvalCommittees",
                     "description": "Reference to other decision-making bodies that the project has already been authorised by.",
                     "type": "array",
@@ -142,21 +142,21 @@
                     }
                 },
                 "startDate": {
-                    "name": "Project Start Date",
+                    "title": "Project Start Date",
                     "$id": "#/properties/project/startDate",
                     "description": "The date the project is scheduled to start or actual start date.",
                     "type": "string",
                     "format": "date"
                 },
                 "endDate": {
-                    "name": "Project End Date",
+                    "title": "Project End Date",
                     "$id": "#/properties/project/endDate",
                     "description": "The date the project is scheduled to finish or actual end date.",
                     "type": "string",
                     "format": "date"
                 },
                 "latestApprovalDate": {
-                    "name": "Latest Approval Date",
+                    "title": "Latest Approval Date",
                     "$id": "#/properties/project/latestApprovalDate",
                     "description": "The last date the data access request for this project was approved by a data custodian.",
                     "type": "string",
@@ -165,33 +165,33 @@
             }
         },
         "data": {
-            "name": "Safe Data",
+            "title": "Safe Data",
             "$id": "#/properties/data",
             "description": "Information about the data that was used in the project. Based on 'Safe Data' from the Five Safe Principles.",
             "type": "object",
             "required": ["datasets"],
             "properties": {
                 "datasets":{
-                    "name": "Datasets",
+                    "title": "Datasets",
                     "$id": "#/properties/data/datasets",
                     "description": "The datasets being accessed. If a dataset is on the Gateway, please provide the  dataset's URL or ID.",
                     "type":"array",
                     "items": {
                         "anyOf": [
                             {
-                                "name": "Gateway URL",
+                                "title": "Gateway URL",
                                 "$comment": "Should match the format https://www.healthdatagateway.org/datasets/<dataset-id>",
                                 "type": "string",
                                 "pattern": "^https://www.healthdatagateway.org/dataset/^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$"
                                 
                             },
                             {
-                                "name": "Gateway ID",
+                                "title": "Gateway ID",
                                 "type": "string",
                                 "format": "uuid"
                             },
                             {   
-                                "name": "Dataset Title",
+                                "title": "Dataset Title",
                                 "type":"string",
                                 "minLength": 1,
                                 "maxLength": 255
@@ -200,7 +200,7 @@
                     }
                 },
                 "sensitivityLevel": {
-                    "name": "Data Sensitivity Level",
+                    "title": "Data Sensitivity Level",
                     "$id": "#/properties/data/sensitivityLevel",
                     "description": "The level of identifiability of the data being accesses, as defined by Understanding Patient Data.",
                     "type": "string",
@@ -211,7 +211,7 @@
                     ]
                 },
                 "legalBasis": {
-                    "name": "Legal Basis for Provision of Data",
+                    "title": "Legal Basis for Provision of Data",
                     "$id": "#/properties/data/legalBasis",
                     "description": "The lawful basis for processing are set out in Article 6 of the GDPR. At least one legal basis must apply whenever you process personal data. Please select appropriate Article 6 lawful basis. Processing shall be lawful only if and to the extent that at least one of the following applies.",
                     "$comment": "https://gdpr-info.eu/art-6-gdpr/",
@@ -227,7 +227,7 @@
                     ]
                 },
                 "lawfulConditions": {
-                    "name": "Lawful Conditions for Provision of Data",
+                    "title": "Lawful Conditions for Provision of Data",
                     "$id": "#/properties/data/lawfulConditions",
                     "description": "The conditions under which the data subject's personal data are processed are set out in Article 9 of the GDPR. Please select appropriate Article 9 lawful conditions.",
                     "$comment": "https://gdpr-info.eu/art-9-gdpr/",
@@ -247,7 +247,7 @@
                     ]
                 },
                 "dutyOfConfidentiality": {
-                    "name": "Common Law Duty of Confidentiality",
+                    "title": "Common Law Duty of Confidentiality",
                     "$id": "#/properties/data/dutyOfConfidentiality",
                     "description": "If confidential information is being disclosed , the organisations holding this data (both the organisation disclosing the information and the recipient organisation) must also have a lawful basis to hold and use this information, and if applicable, have a condition to hold and use special categories of confidential information, and be fair and transparent about how they hold and use this data. In England and Wales, if you are using section 251 of the NHS Act 2006 (s251) as a legal basis for identifiable data, you will need to ensure that you have the latest approval letter and application. For Scotland this application will be reviewed by the Public Benefit and Privacy Panel. In Northern Ireland it will be considered by the Privacy Advisory Committee. If you are using patient consent as the legal basis, you will need to provide all relevant consent forms and information leaflets.",
                     "type": "string",
@@ -259,13 +259,13 @@
                     ]
                 },
                 "optOut": {
-                    "name": "National data opt-out applied",
+                    "title": "National data opt-out applied",
                     "$id": "#/properties/data/optOut",
                     "description": "Specifies whether the preference for people to opt-out of their confidential patient information being used for secondary use has been applied to the data prior to release.",
                     "type": "boolean"
                 },
                 "requestFrequency": {
-                    "name": "Request Frequency",
+                    "title": "Request Frequency",
                     "$id": "#/properties/data/requestFrequency",
                     "description": "Determines whether this a 'one-off' request or a recurring dataset to be provided over a specific time period.",
                     "type": "string",
@@ -275,7 +275,7 @@
                     ]
                 },
                 "linkage": {
-                    "name": "Linkage",
+                    "title": "Linkage",
                     "$id": "#/properties/data/linkage",
                     "description": "For linked datasets, specify how the linkage will take place. Specifies whether applicant intends for the datasets to be linked with any additional datasets. Relevant information on the organisations undertaking linkages and how the linkage will take place must also be disclosed. As well as, a summary of the risks/mitigations to be considered",
                     "type": "string",
@@ -283,7 +283,7 @@
                     "maxLength": 3000
                 },
                 "confidentialDataDescription": {
-                    "name": "Description of the confidential data being used",
+                    "title": "Description of the confidential data being used",
                     "$id": "#/properties/data/confidentialDataDescription",
                     "description": "A description of the specific patient identifiable fields that have been included in the dataset(s) being accessed",
                     "type": "array",
@@ -294,7 +294,7 @@
                     }
                 },
                 "accessDate": {
-                    "name": "Release/Access Date",
+                    "title": "Release/Access Date",
                     "$id": "#/properties/data/accessDate",
                     "description": "The date the data access was granted and active research started",
                     "type": "string",
@@ -303,14 +303,14 @@
             }
         },
         "setting": {
-            "name": "Safe Setting",
+            "title": "Safe Setting",
             "$id": "#/properties/setting",
             "description": "The setting in which the data is being processed. Based on 'Safe Setting' from the Five Safes Principles.",
             "type": "object",
             "required": ["accessType"],
             "properties": {
                 "accessType": {
-                    "name": "Access Type",
+                    "title": "Access Type",
                     "$id": "#/properties/setting/accessType",
                     "description": "Determines whether the data is accessed within a Trusted Research Environmenet or via traditional data release.",
                     "type": "string",
@@ -320,7 +320,7 @@
                     ]
                 },
                 "privacyEnhancements": {
-                    "name": "Privacy Enhancements",
+                    "title": "Privacy Enhancements",
                     "$id": "#/properties/setting/privacyEnhancements",
                     "description": "Description of tools or software used to reduce the level of identifiable data being shared.",
                     "type": "string",
@@ -330,7 +330,7 @@
             }
         },
         "outputs": {
-            "name": "Safe Outputs",
+            "title": "Safe Outputs",
             "$id": "#/properties/outputs",
             "description": "The outputs of the data being processed. Based on 'Safe Outputs' from the Five Safes Principles. Link to any research outputs as they become available.",
             "type": "array",
@@ -347,7 +347,7 @@
             "required": ["name"],
             "properties": {
                 "name": {
-                    "name": "Organisation Name",
+                    "title": "Organisation Name",
                     "$id": "#/definitions/organisation/name",
                     "description": "The name of the organisation who created the data use.",
                     "type": "string",
@@ -355,7 +355,7 @@
                     "maxLength": 255
                 },
                 "identifier": {
-                    "name": "Organisation Identifier",
+                    "title": "Organisation Identifier",
                     "$id": "#/definitions/organisation/identifier",
                     "description": "A unique identifier for an organisation that is preferably an industry used standard such as Grid.ac (see https://www.grid.ac/institutes).",
                     "type": "string",
@@ -363,7 +363,7 @@
                     "maxLength": 255
                 },
                 "sector": {
-                    "name": "Organisation Sector",
+                    "title": "Organisation Sector",
                     "$id": "#/definitions/organisation/sector",
                     "description": "The sector of the organisation who created the data use.",
                     "type": "string",
@@ -385,7 +385,7 @@
             "required": ["names"],
             "properties": {
                 "names": {
-                    "name": "Applicant Names",
+                    "title": "Applicant Names",
                     "description": "The name of the Principal Investigator, as well as any other individuals that have been authorised to use the data. If they are on the Gateway, please provide their profile URL", 
                     "$comment": "Provide urls or names in the format: Firstname, Lastname",
                     "type": "array",
@@ -395,15 +395,15 @@
                     }
                 },
                 "identifier": {
-                    "name": "Applicant ID",
+                    "title": "Applicant ID",
                     "description": "An ORCID identifier for the principal investigator. Can be either an ID number or a URL.",
                     "anyOf": [
                         {   
-                            "name": "ORCID ID",
+                            "title": "ORCID ID",
                             "type": "string",
                             "pattern": "^[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
                         },
-                        {   "name": "ORCID URL",
+                        {   "title": "ORCID URL",
                             "type": "string",
                             "pattern": "^https://orcid.org/[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]$"
                         }
