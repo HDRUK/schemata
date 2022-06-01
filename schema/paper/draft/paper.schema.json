@@ -80,6 +80,13 @@
             },
             "uniqueItems": true
         },
+        "preprint":{
+            "$id": "#/properties/preprint",
+            "title": "Preprint",
+            "description": "If the paper is a preprint, this should be set to true.",
+            "examples": [true, false],
+            "type": "boolean"
+        },
         "journal": {
             "$id": "#/properties/journal",
             "title": "Journal",
