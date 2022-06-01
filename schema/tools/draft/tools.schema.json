@@ -25,7 +25,7 @@
                 "https://web.www.healthdatagateway.org/tool/19330809167434930"
             ],
             "anyOf": [
-                {
+                {   
                     "type": "string",
                     "format": "uuid"
                 },
