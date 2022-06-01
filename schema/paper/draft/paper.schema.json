@@ -150,30 +150,36 @@
             "examples": ["The relationships to papers, projects, datasets and tools."],
             "description": "Show relationships to papers, data uses, datasets and tools. Resources must be added to the Gateway first.",
             "type": "array",
-            "items": {
-                "properties": {
-                    "resource": {
-                        "$id": "#/properties/relatedObjects/resource",
-                        "title": "Paper Related Resource",
-                        "$comment": "",
-                        "examples": ["https://web.www.healthdatagateway.org/dataset/f93aea28-7592-42c0-a5e7-5802f0d6051f"],
-                        "description": "The identifier of the related resource.",
-                        "type": "string",
-                        "format": "uri"
-                    },
-                    "relationship": {
-                        "$id": "#/properties/relatedObjects/relationship",
-                        "title": "Paper Relationship Between Resources",
-                        "$comment": "",
-                        "examples": ["Covid-19 questionnaire data will be available in this dataset"],
-                        "description": "What is the relationship between these resources?",
-                        "type": "string",
-                        "minLength": 2,
-                        "maxLength": 3000
-                    }
-                }
-            },
+            "items": {"$ref": "#/definitions/relatedResource"},
             "uniqueItems": true
+        }
+    },
+    "definitions": {
+        "relatedResource": {
+            "title": "Paper Related Resource",
+            "$id": "#/definitions/relatedResource",
+            "type": "object",
+            "properties": {
+                "resource": {
+                    "$id": "#/definitions/relatedResource/properties/resource",
+                    "title": "Paper Related Resource",
+                    "$comment": "",
+                    "examples": ["https://web.www.healthdatagateway.org/dataset/f93aea28-7592-42c0-a5e7-5802f0d6051f"],
+                    "description": "The identifier of the related resource.",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "relationship": {
+                    "$id": "#/definitions/relatedResource/properties/relationship",
+                    "title": "Paper Relationship Between Resources",
+                    "$comment": "",
+                    "examples": ["Covid-19 questionnaire data will be available in this dataset"],
+                    "description": "What is the relationship between these resources?",
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 3000
+                }
+            }
         }
     }
 }
