@@ -142,7 +142,7 @@
             "type": "array",
             "items": {
                 "type": "string",
-                "format": "uri"
+                "pattern": "^(https://web.www.healthdatagateway.org/person/\\d+)$"
             },
             "uniqueItems": true
         },
