@@ -132,13 +132,17 @@
         "uploaders": {
             "$id": "#/properties/uploaders",
             "title": "Uploaders to Innovation Gateway",
-            "examples": [["HDR UK Papers Team"]],
-            "description": "These are the user accounts on the gateway that have permission to edit metadata on the gateway related to the paper being uploaded",
+            "examples": [
+                [
+                    "https://web.www.healthdatagateway.org/person/5050276793730464", 
+                    "https://web.www.healthdatagateway.org/person/18192243612685188"
+                ]
+            ],
+            "description": "Links to the profiles of the uploader(s) of the paper to the Innovation Gateway.",
             "type": "array",
             "items": {
                 "type": "string",
-                "minLength": 2,
-                "maxLength": 80
+                "format": "uri"
             },
             "uniqueItems": true
         },
@@ -172,7 +176,7 @@
             "type": "object",
             "properties": {
                 "resource": {
-                    "$id": "#/definitions/relatedResource/properties/resource",
+                    "$id": "#/definitions/relatedResource/resource",
                     "title": "Paper Related Resource",
                     "description": "The identifier of the related resource.",
                     "examples": ["https://web.www.healthdatagateway.org/dataset/f93aea28-7592-42c0-a5e7-5802f0d6051f"],
@@ -180,7 +184,7 @@
                     "format": "uri"
                 },
                 "relationship": {
-                    "$id": "#/definitions/relatedResource/properties/relationship",
+                    "$id": "#/definitions/relatedResource/relationship",
                     "title": "Paper Relationship Between Resources",
                     "description": "What is the relationship between these resources?",
                     "examples": ["Covid-19 questionnaire data will be available in this dataset"],
