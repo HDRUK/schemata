@@ -11,7 +11,8 @@
         "links",
         "journal",
         "abstract",
-        "resultsInsights"
+        "resultsInsights",
+        "uploaders"
     ],
     "additionalProperties": false,
     "properties": {
@@ -94,7 +95,8 @@
             "title": "Paper Publication Year",
             "description": "Please provide the paper publication year",
             "examples": ["2020"],
-            "type": "int"    
+            "type": "string",
+            "pattern": "^(\\d{4})$"    
         },
         "abstract": {
             "$id": "#/properties/abstract",
@@ -127,8 +129,8 @@
             },
             "uniqueItems": true
         },
-        "gatewayUploaders": {
-            "$id": "#/properties/gatewayUploaders",
+        "uploaders": {
+            "$id": "#/properties/uploaders",
             "title": "Uploaders to Innovation Gateway",
             "examples": [["HDR UK Papers Team"]],
             "description": "These are the user accounts on the gateway that have permission to edit metadata on the gateway related to the paper being uploaded",
