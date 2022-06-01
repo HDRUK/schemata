@@ -78,25 +78,38 @@
                 "minLength": 2,
                 "maxLength": 80
             },
-            "uniqueItems": true,
-            "minItems": 1
+            "uniqueItems": true
         },
-        "journalTitle": {
+        "journal": {
             "$id": "#/properties/journal",
-            "title": "Paper journal title",
-            "description": "Please provide name of journal",
-            "examples": ["Journal of epidemiology and community health"],
-            "type": "string",
-            "minLength": 2,
-            "maxLength": 80
-        },
-        "journalYear": {
-            "$id": "#/properties/journalYear",
-            "title": "Paper Publication Year",
-            "description": "Please provide the paper publication year",
-            "examples": ["2020"],
-            "type": "string",
-            "pattern": "^(\\d{4})$"    
+            "title": "Journal",
+            "description": "Information about the journal the paper was published in - title and year.",
+            "examples": [
+                {
+                    "title": "Journal of epidemiology and community health",
+                    "year": "2020"
+                }
+            ],
+            "type": "object",
+            "properties": {
+                "title": {
+                    "$id": "#/properties/journal/properties/title",
+                    "title": "Journal Title",
+                    "description": "The title of the journal.",
+                    "examples": ["Journal of epidemiology and community health"],
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 80
+                },
+                "year": {
+                    "$id": "#/properties/journal/properties/year",
+                    "title": "Journal Year",
+                    "description": "The year the journal was published.",
+                    "examples": ["2020"],
+                    "type": "string",
+                    "pattern": "^\\d{4}$"
+                } 
+            },
         },
         "abstract": {
             "$id": "#/properties/abstract",
