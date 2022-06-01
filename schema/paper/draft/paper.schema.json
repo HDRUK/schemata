@@ -19,7 +19,6 @@
         "identifier": {
             "$id": "#/properties/identifier",
             "title": "Paper Identifier",
-            "$comment": "",
             "description": "System paper identifier",
             "examples": [],
             "oneOf": [
@@ -36,7 +35,6 @@
         "title": {
             "$id": "#/properties/title",
             "title": "Paper Title",
-            "$comment": "",
             "description": "Title of the paper limited to 80 characters. It should be unique across the Gateway. Please avoid acronyms wherever possible.",
             "examples": ["Efficacy of contact tracing for the containment of the 2019 novel coronavirus (COVID-19)."],
             "type": "string",
@@ -48,7 +46,6 @@
         "doiandOtherLinks": {
             "$id": "#/properties/doiandOtherLinks",
             "title": "Paper Links",
-            "$comment": "",
             "examples": [["https://github.com/OHDSI/WhiteRabbit"]],
             "description": "URL endpoint to where can we find this tool or resource",
             "type": "string",
@@ -57,7 +54,6 @@
         "authors": {
             "$id": "#/properties/authorsOntheGateway",
             "title": "Paper Authors on the Gateway",
-            "$comment": "",
             "examples": [["Shahriar Kabir Khan", "Ned Stark", "John Snow"]],
             "description": "", 
             "type": "array",
@@ -72,7 +68,6 @@
         "journalTitle": {
             "$id": "#/properties/journal",
             "title": "Paper journal title",
-            "$comment": "",
             "examples": ["Journal of epidemiology and community health"],
             "description": "Please provide name of journal",
             "type": "string",
@@ -120,7 +115,6 @@
         "gatewayUploaders": {
             "$id": "#/properties/gatewayUploaders",
             "title": "Uploaders to Innovation Gateway",
-            "$comment": "",
             "examples": [["HDR UK Papers Team"]],
             "description": "These are the user accounts on the gateway that have permission to edit metadata on the gateway related to the paper being uploaded",
             "type": "array",
@@ -163,7 +157,6 @@
                 "resource": {
                     "$id": "#/definitions/relatedResource/properties/resource",
                     "title": "Paper Related Resource",
-                    "$comment": "",
                     "examples": ["https://web.www.healthdatagateway.org/dataset/f93aea28-7592-42c0-a5e7-5802f0d6051f"],
                     "description": "The identifier of the related resource.",
                     "type": "string",
@@ -172,7 +165,6 @@
                 "relationship": {
                     "$id": "#/definitions/relatedResource/properties/relationship",
                     "title": "Paper Relationship Between Resources",
-                    "$comment": "",
                     "examples": ["Covid-19 questionnaire data will be available in this dataset"],
                     "description": "What is the relationship between these resources?",
                     "type": "string",
