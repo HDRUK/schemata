@@ -109,7 +109,7 @@
                     "type": "string",
                     "pattern": "^\\d{4}$"
                 } 
-            },
+            }
         },
         "abstract": {
             "$id": "#/properties/abstract",
