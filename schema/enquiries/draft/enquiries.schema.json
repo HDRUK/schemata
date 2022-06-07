@@ -21,9 +21,7 @@
                     "description": "Which datasets on the innovation gateway are you intrested in enquiring about?",
                     "type": "array",
                     "items": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 255
+                        "$ref": "#/definitions/dataset"
                     }
                 },
                 "datasetLinkage": {
@@ -139,6 +137,45 @@
                     "examples": [""],
                     "description": "Please provide a short explanation of how your research would benefit the health and care system",
                     "type": "string"
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dataset": {
+            "$id": "#/definitions/dataset",
+            "title": "Dataset of Interest Definition",
+            "type": "object",
+            "properties": {
+                "pid": {
+                    "title": "Persistent Identifier",
+                    "$id": "#/definitions/dataset/pid",
+                    "description": "Identifier for the dataset which is persistent across versions.",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "datasetId": {
+                    "title": "Dataset Identifier",
+                    "$id": "#/definitions/dataset/datasetId",
+                    "description": "Identifier for the dataset which is unique to a version.",
+                    "type": "string",
+                    "format": "uuid"
+                },
+                "name": {
+                    "title": "Dataset Name",
+                    "$id": "#/definitions/dataset/name",
+                    "description": "Name of the dataset.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "publisher": {
+                    "title": "Dataset Publisher",
+                    "$id": "#/definitions/dataset/publisher",
+                    "description": "Publisher of the dataset.",
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
                 }
             }
         }
