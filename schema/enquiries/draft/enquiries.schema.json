@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema",
-    "$id": "https://hdruk.github.io/schemata/schema/paper/draft/enquiries.schema.json",
+    "$id": "https://hdruk.github.io/schemata/schema/enquiries/draft/enquiries.schema.json",
     "title": "HDR UK Enquiry Schema",
     "description": "HDR UK Enquiry Metadata JSONSchema",
     "type": "object",
@@ -16,7 +16,6 @@
                 "datasetsOfInterest": {
                     "$id": "#/properties/safeData/datasetsOfInterest",
                     "title": "Datasets of Interest",
-                    "$comment": "",
                     "examples": [],
                     "description": "Which datasets on the innovation gateway are you intrested in enquiring about?",
                     "type": "array",
@@ -27,7 +26,6 @@
                 "datasetLinkage": {
                     "title": "Intention to link Dataset",
                     "$id": "#/properties/safeData/datasetLinkage",
-                    "$comment": "",
                     "examples": [true, false],
                     "description": "Are there other datasets you would like to link with the ones listed above?.",
                     "type": "boolean"
@@ -35,7 +33,6 @@
                 "datasetLinkageDescription": {
                     "$id": "#/properties/safeData/datasetLinkageDescription",
                     "title": "Description of datasets you would like to link with",
-                    "$comment": "",
                     "examples": [],
                     "description": "Please provide the name or description of these datasets you are interested in linking to",
                     "type": "string"
@@ -43,7 +40,6 @@
                 "datasetPartInterest": {
                     "$id": "#/properties/safeData/datasetPartInterest",
                     "title": "Dataset Interest",
-                    "$comment": "",
                     "examples": [true, false],
                     "description": "Do you know which parts of the dataset you are interested in?",
                     "type": "boolean"
@@ -51,7 +47,6 @@
                 "datasetPartInterestJustification": {
                     "$id": "#/properties/safeData/datasetPartInterestJustification",
                     "title": "Explaination of Dataset Interest",
-                    "$comment": "",
                     "examples": [],
                     "description": "Please explain which parts of the dataset you are interested in?",
                     "type": "string"
@@ -67,7 +62,6 @@
                 "applicantName": {
                     "$id": "#/properties/safePeople/applicantName",
                     "title": "Applicant Name",
-                    "$comment": "",
                     "examples": ["Candice Ownens"],
                     "description": "Full name of applicant making the enquiry.",
                     "type": "string"
@@ -75,7 +69,6 @@
                 "applicantEmail": {
                     "$id": "#/properties/safePeople/applicantEmail",
                     "title": "Applicant Email",
-                    "$comment": "",
                     "examples": ["Candice.Ownens@gmail.com"],
                     "description": "Email of applicant making the enquiry.",
                     "type": "string",
@@ -84,7 +77,6 @@
                 "applicantOrganisation": {
                     "$id": "#/properties/safePeople/applicantOrganisation",
                     "title": "Applicant Organisation",
-                    "$comment": "",
                     "examples": ["NHS Trust"],
                     "description": "Organisation of applicant making the enquiry.",
                     "type": "string"
@@ -92,7 +84,6 @@
                 "applicantContactNumber": {
                     "$id": "#/properties/safePeople/applicantContactNumber",
                     "title": "Applicant Contact Number",
-                    "$comment": "",
                     "examples": [""],
                     "description": "Contact number of applicant making the enquiry.",
                     "type": "string",
@@ -109,7 +100,6 @@
                 "projectTitle": {
                     "$id": "#/properties/safeProject/projectTitle",
                     "title": "Project Title",
-                    "$comment": "",
                     "examples": ["Cancer study among adults in the UK"],
                     "description": "Title of the project that will be using the dataset enquired about",
                     "type": "string"
@@ -117,7 +107,6 @@
                 "researchAim": {
                     "$id": "#/properties/safeProject/researchAim",
                     "title": "Research aim or question of the project",
-                    "$comment": "",
                     "examples": [""],
                     "description": "Please briefly explain the purpose of your research, why you require this dataset and when you intend to begin the project",
                     "type": "string"
@@ -125,7 +114,6 @@
                 "funding": {
                     "$id": "#/properties/safeProject/funding",
                     "title": "Information on funding of the project",
-                    "$comment": "",
                     "examples": [""],
                     "description": "Please provide information on the status of funding for your project including who is expected to fund the research",
                     "type": "string"
@@ -133,7 +121,6 @@
                 "potentialResearchBenefits": {
                     "$id": "#/properties/safeProject/potentialResearchBenefits",
                     "title": "Potential research benefit of the project",
-                    "$comment": "",
                     "examples": [""],
                     "description": "Please provide a short explanation of how your research would benefit the health and care system",
                     "type": "string"
