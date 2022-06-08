@@ -42,13 +42,31 @@
                     "oneOf": [
                         {
                             "title": "URL",
+                            "$id": "#/definitions/asset/identifier/url",
                             "type": "string",
-                            "format": "uri"
+                            "format": "uri",
+                            "examples": [
+                                "https://web.www.healthdatagateway.org/dataset/5616e0a6-22f1-43a5-a2bd-dcecfa2f3b70",
+                                "https://healthdata.gov/dataset/Social-Determinants-and-Health-Equity-Resource-Gui/vbjv-rh5z"
+                            ]
                         },
                         {
                             "title": "Gateway Object ID",
+                            "$id": "#/definitions/asset/identifier/gatewayObjectId",
                             "type": "string",
-                            "format": "uuid"
+                            "format": "uuid",
+                            "examples": [
+                                "5616e0a6-22f1-43a5-a2bd-dcecfa2f3b70"
+                            ]
+                        },
+                        {
+                            "title": "DOI",
+                            "$id": "#/definitions/asset/identifier/doi",
+                            "type": "string",
+                            "pattern": "^10\\.\\d{4,9}\\/[-._;()/:A-Za-z0-9]+$",
+                            "examples": [
+                                "10.1234/56789"
+                            ]
                         }
                     ]
                 },
