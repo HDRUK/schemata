@@ -1,0 +1,87 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://hdruk.github.io/schemata/schema/linkage/draft/linkage.schema.json",
+    "title": "HDR UK Linkage Schema",
+    "description": "HDR UK Linkage Metadata JSONSchema",
+    "type": "object",
+    "version": "0.0.1",
+    "additionalProperties": false,
+    "properties": {
+        "objects": {
+            "title": "Objects",
+            "$id": "#/properties/objects",
+            "description": "The objects in the linkage",
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": {"$ref": "#/definitions/asset"}
+        },
+        "relationship": {
+            "title": "Relationship",
+            "$id": "#/properties/relationship",
+            "type": "string",
+            "enum": [
+                "related",
+                "isPartOf",
+                "derivation",
+                "memberOf"
+            ]
+        }
+    },
+    "definitions": {
+        "asset": {
+            "title": "Asset",
+            "$id": "#/definitions/asset",
+            "description": "An asset in the linkage, either on the Gateway or externally.",
+            "type": "object",
+            "required": ["identifier", "assetType"],
+            "properties": {
+                "identifier": {
+                    "title": "Identifier",
+                    "$id": "#/definitions/asset/identifier",
+                    "oneOf": [
+                        {
+                            "title": "URL",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        {
+                            "title": "Gateway Object ID",
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    ]
+                },
+                "assetType": {
+                    "title": "Asset Type",
+                    "$id": "#/definitions/asset/assetType",
+                    "$comment": "Need to add all the asset types to the enum.",
+                    "type": "string",
+                    "enum": [
+                        "Dataset",
+                        "Paper",
+                        "Data Use",
+                        "Enquiry",
+                        "Data Access Request",
+                        "Person"
+                    ]
+                },
+                "relation": {
+                    "title": "Relation",
+                    "$id": "#/definitions/asset/relation",
+                    "type": "string",
+                    "$comment": "Need to add all the relation types to the enum.",
+                    "enum": [
+                        "related",
+                        "parent",
+                        "child",
+                        "derivedFrom",
+                        "derivation",
+                        "qualifiedRelation",
+                        "output"
+                    ]
+                }
+            }
+        }
+    }
+}
