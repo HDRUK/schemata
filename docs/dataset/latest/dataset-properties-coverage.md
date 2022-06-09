@@ -44,9 +44,11 @@ The geographical area covered by the dataset. It is recommended that links are t
 
 merged type ([Geographic Coverage](dataset-definitions-coverage-properties-geographic-coverage.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-anyof-1.md "check type definition")
 
 ### spatial Examples
 
@@ -56,7 +58,7 @@ all of
 
 ## typicalAgeRange
 
-Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format ‘\[min age] – \[max age]’ where both the minimum and maximum are whole numbers (integers).
+Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '\[min age] – \[max age]' where both the minimum and maximum are whole numbers (integers).
 
 > <https://schema.org/typicalAgeRange>
 

@@ -29,7 +29,8 @@ HDR UK Dataset Metadata JSONSchema
 | [provenance](#provenance)                     | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-provenance.md "#/definitions/provenance#/properties/provenance")                                 |
 | [accessibility](#accessibility)               | Not specified | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-accessibility.md "#/definitions/accessibility#/properties/accessibility")                        |
 | [enrichmentAndLinkage](#enrichmentandlinkage) | Not specified | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-enrichment-and-linkage.md "#/definitions/enrichmentAndLinkage#/properties/enrichmentAndLinkage") |
-| [observations](#observations)                 | `array`       | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-observations.md "#/properties/observations#/properties/observations")                            |
+| [observations](#observations)                 | `array`       | Required | cannot be null | [HDR UK Dataset Schema](dataset-properties-observations.md "#/properties/observations#/properties/observations")                            |
+| [structuralMetadata](#structuralmetadata)     | `array`       | Optional | cannot be null | [HDR UK Dataset Schema](dataset-properties-structural-metadata.md "#/properties/structuralMetadata#/properties/structuralMetadata")         |
 
 ## identifier
 
@@ -282,7 +283,7 @@ Multiple observations about the dataset may be provided and users are expected t
 
 `observations`
 
-*   is optional
+*   is required
 
 *   Type: an array of merged types ([Details](dataset-properties-observations-items.md))
 
@@ -293,6 +294,26 @@ Multiple observations about the dataset may be provided and users are expected t
 ### observations Type
 
 an array of merged types ([Details](dataset-properties-observations-items.md))
+
+## structuralMetadata
+
+Descriptions of all tables and data elements that can be included in the dataset
+
+> First phase includes only column level metadata, future versions will include value level attributes
+
+`structuralMetadata`
+
+*   is optional
+
+*   Type: an array of merged types ([Details](dataset-properties-structural-metadata-items.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-properties-structural-metadata.md "#/properties/structuralMetadata#/properties/structuralMetadata")
+
+### structuralMetadata Type
+
+an array of merged types ([Details](dataset-properties-structural-metadata-items.md))
 
 # HDR UK Dataset Schema Definitions
 
@@ -451,7 +472,7 @@ all of
 
 ### contactPoint
 
-Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes: An employee’s email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.
+Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.
 
 > dcat:contactPoint
 
@@ -1042,9 +1063,11 @@ The geographical area covered by the dataset. It is recommended that links are t
 
 merged type ([Geographic Coverage](dataset-definitions-coverage-properties-geographic-coverage.md))
 
-all of
+any of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-allof-0.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-anyof-0.md "check type definition")
+
+*   [Untitled array in HDR UK Dataset Schema](dataset-definitions-coverage-properties-geographic-coverage-anyof-1.md "check type definition")
 
 #### spatial Examples
 
@@ -1054,7 +1077,7 @@ all of
 
 ### typicalAgeRange
 
-Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format ‘\[min age] – \[max age]’ where both the minimum and maximum are whole numbers (integers).
+Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '\[min age] – \[max age]' where both the minimum and maximum are whole numbers (integers).
 
 > <https://schema.org/typicalAgeRange>
 
@@ -1799,7 +1822,7 @@ all of
 
 ### jurisdiction
 
-Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects’ data is collected, processed and stored.
+Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.
 
 > <http://purl.org/dc/terms/Jurisdiction> FIXME: Add ISO 3166-2 Subdivision code pattern
 
@@ -2588,3 +2611,191 @@ Reference this group by using
 
 | Property | Type | Required | Nullable | Defined by |
 | :------- | :--- | :------- | :------- | :--------- |
+
+## Definitions group dataClass
+
+Reference this group by using
+
+```json
+{"$ref":"#/definitions/dataClass#/definitions/dataClass"}
+```
+
+| Property                      | Type     | Required | Nullable       | Defined by                                                                                                                                                                |
+| :---------------------------- | :------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [name](#name-1)               | Merged   | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name.md "#/properties/dataClass/name#/definitions/dataClass/properties/name")                      |
+| [description](#description-2) | `string` | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-description.md "#/properties/dataClass/description#/definitions/dataClass/properties/description") |
+| [elements](#elements)         | `array`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-data-elements.md "#/properties/dataClass/elements#/definitions/dataClass/properties/elements")           |
+
+### name
+
+The name of a table in a dataset.
+
+> Should be limited to 255 Characters, abstract text requires rewrite.
+
+`name`
+
+*   is required
+
+*   Type: merged type ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name.md "#/properties/dataClass/name#/definitions/dataClass/properties/name")
+
+#### name Type
+
+merged type ([Table Name](dataset-definitions-dataclass-properties-table-name.md))
+
+all of
+
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-name-allof-0.md "check type definition")
+
+### description
+
+A description of a table in a dataset.
+
+`description`
+
+*   is optional
+
+*   Type: `string` ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-table-description.md "#/properties/dataClass/description#/definitions/dataClass/properties/description")
+
+#### description Type
+
+`string` ([Table Description](dataset-definitions-dataclass-properties-table-description.md))
+
+#### description Constraints
+
+**maximum length**: the maximum number of characters for this string is: `20000`
+
+**minimum length**: the minimum number of characters for this string is: `1`
+
+### elements
+
+A list of data elements contained within a table in a dataset.
+
+`elements`
+
+*   is required
+
+*   Type: an array of merged types ([Details](dataset-definitions-dataclass-properties-data-elements-items.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataclass-properties-data-elements.md "#/properties/dataClass/elements#/definitions/dataClass/properties/elements")
+
+#### elements Type
+
+an array of merged types ([Details](dataset-definitions-dataclass-properties-data-elements-items.md))
+
+## Definitions group dataElement
+
+Reference this group by using
+
+```json
+{"$ref":"#/definitions/dataElement#/definitions/dataElement"}
+```
+
+| Property                      | Type      | Required | Nullable       | Defined by                                                                                                                                                                       |
+| :---------------------------- | :-------- | :------- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [name](#name-2)               | Merged    | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElement/properties/name")                      |
+| [dataType](#datatype)         | `string`  | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElement/properties/dataType")                |
+| [description](#description-3) | `string`  | Optional | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElement/properties/description") |
+| [sensitive](#sensitive)       | `boolean` | Required | cannot be null | [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElement/properties/sensitive")              |
+| Additional Properties         | Any       | Optional | can be null    |                                                                                                                                                                                  |
+
+### name
+
+The name of a column in a table.
+
+> 255 Chars
+
+`name`
+
+*   is required
+
+*   Type: merged type ([Column Name](dataset-definitions-dataelement-properties-column-name.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name.md "#/properties/dataElement/name#/definitions/dataElement/properties/name")
+
+#### name Type
+
+merged type ([Column Name](dataset-definitions-dataelement-properties-column-name.md))
+
+all of
+
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name-allof-0.md "check type definition")
+
+### dataType
+
+The data type of values in the column
+
+> In future we could enumerate options for this, rather than just a string. 255 Chars
+
+`dataType`
+
+*   is required
+
+*   Type: `string` ([Data Type](dataset-definitions-dataelement-properties-data-type.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-data-type.md "#/properties/dataElement/dataType#/definitions/dataElement/properties/dataType")
+
+#### dataType Type
+
+`string` ([Data Type](dataset-definitions-dataelement-properties-data-type.md))
+
+### description
+
+A description of a column in a table.
+
+`description`
+
+*   is optional
+
+*   Type: `string` ([Column Description](dataset-definitions-dataelement-properties-column-description.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-description.md "#/properties/dataElement/description#/definitions/dataElement/properties/description")
+
+#### description Type
+
+`string` ([Column Description](dataset-definitions-dataelement-properties-column-description.md))
+
+#### description Constraints
+
+**maximum length**: the maximum number of characters for this string is: `20000`
+
+**minimum length**: the minimum number of characters for this string is: `1`
+
+### sensitive
+
+A True or False value, indicating if the field is sensitive or not
+
+> We could clarify a definition of what is sensitive in the future.
+
+`sensitive`
+
+*   is required
+
+*   Type: `boolean` ([Sensitive](dataset-definitions-dataelement-properties-sensitive.md))
+
+*   cannot be null
+
+*   defined in: [HDR UK Dataset Schema](dataset-definitions-dataelement-properties-sensitive.md "#/properties/dataElement/sensitive#/definitions/dataElement/properties/sensitive")
+
+#### sensitive Type
+
+`boolean` ([Sensitive](dataset-definitions-dataelement-properties-sensitive.md))
+
+### Additional Properties
+
+Additional properties are allowed and do not have to follow a specific schema

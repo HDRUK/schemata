@@ -1,21 +1,21 @@
-# Untitled undefined type in HDR UK Dataset Schema Schema
+# Column Description Schema
 
 ```txt
-#/properties/enrichmentAndLinkage/qualifiedRelation#/definitions/enrichmentAndLinkage/properties/qualifiedRelation/anyOf/1/items
+#/properties/dataElement/description#/definitions/dataElements/properties/description
 ```
 
-
+A description of a column in a table.
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                        |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## items Type
+## description Type
 
-merged type ([Details](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items.md))
+`string` ([Column Description](dataset-definitions-dataelements-properties-column-description.md))
 
-any of
+## description Constraints
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items-anyof-0.md "check type definition")
+**maximum length**: the maximum number of characters for this string is: `20000`
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items-anyof-1.md "check type definition")
+**minimum length**: the minimum number of characters for this string is: `1`

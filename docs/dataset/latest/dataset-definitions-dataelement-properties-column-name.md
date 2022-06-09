@@ -1,21 +1,21 @@
-# Untitled undefined type in HDR UK Dataset Schema Schema
+# Column Name Schema
 
 ```txt
-#/properties/enrichmentAndLinkage/qualifiedRelation#/definitions/enrichmentAndLinkage/properties/qualifiedRelation/anyOf/1/items
+#/properties/dataElement/name#/definitions/dataElement/properties/name
 ```
 
+The name of a column in a table.
 
+> 255 Chars
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                        |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## items Type
+## name Type
 
-merged type ([Details](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items.md))
+merged type ([Column Name](dataset-definitions-dataelement-properties-column-name.md))
 
-any of
+all of
 
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items-anyof-0.md "check type definition")
-
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items-anyof-1.md "check type definition")
+*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-dataelement-properties-column-name-allof-0.md "check type definition")

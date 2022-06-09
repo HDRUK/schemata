@@ -9,6 +9,7 @@ on:
     branches:
       - master
       - develop
+  workflow_dispatch:
 
 jobs:
   generate-markdown:
@@ -35,10 +36,16 @@ jobs:
         file_glob: 'schema/*/latest/*.yaml'
     
     - name: Install jsonschema2md package
-      run: npm install -g @adobe/jsonschema2md
+      run: npm install -g @adobe/jsonschema2md@6.1.4
     
     - name: Run jsonschema2md package to generate markdown
       run: jsonschema2md -n -d schema/dataset/latest -o docs/dataset/latest -x -
+    
+    - name: Install jsonschema-for-humans
+      run: pip install json-schema-for-humans
+    
+    - name: Install jsonschema-for-humans
+      run: generate-schema-doc schema/dataset/latest/dataset.schema.json schema/dataset/latest/index.html
     
     - name: Auto-Commit generate-markdown
       uses: stefanzweifel/git-auto-commit-action@v4.1.6
