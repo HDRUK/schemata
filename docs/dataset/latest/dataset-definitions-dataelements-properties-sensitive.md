@@ -1,21 +1,17 @@
-# Untitled undefined type in HDR UK Dataset Schema Schema
+# Sensitive Schema
 
 ```txt
-#/properties/enrichmentAndLinkage/qualifiedRelation#/definitions/enrichmentAndLinkage/properties/qualifiedRelation/anyOf/1/items
+#/properties/dataElement/sensitive#/definitions/dataElements/properties/sensitive
 ```
 
+A True or False value, indicating if the field is sensitive or not
 
+> We could clarify a definition of what is sensitive in the future.
 
 | Abstract            | Extensible | Status         | Identifiable            | Custom Properties | Additional Properties | Access Restrictions | Defined In                                                                                        |
 | :------------------ | :--------- | :------------- | :---------------------- | :---------------- | :-------------------- | :------------------ | :------------------------------------------------------------------------------------------------ |
 | Can be instantiated | No         | Unknown status | Unknown identifiability | Forbidden         | Allowed               | none                | [dataset.schema.json*](../../../schema/dataset/latest/dataset.schema.json "open original schema") |
 
-## items Type
+## sensitive Type
 
-merged type ([Details](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items.md))
-
-any of
-
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items-anyof-0.md "check type definition")
-
-*   [Untitled undefined type in HDR UK Dataset Schema](dataset-definitions-enrichmentandlinkage-properties-linked-datasets-anyof-1-items-anyof-1.md "check type definition")
+`boolean` ([Sensitive](dataset-definitions-dataelements-properties-sensitive.md))

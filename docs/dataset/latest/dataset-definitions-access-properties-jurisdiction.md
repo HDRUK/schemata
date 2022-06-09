@@ -4,7 +4,7 @@
 #/properties/accessibility/access/jurisdiction#/definitions/access/properties/jurisdiction
 ```
 
-Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects’ data is collected, processed and stored.
+Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.
 
 > <http://purl.org/dc/terms/Jurisdiction> FIXME: Add ISO 3166-2 Subdivision code pattern
 
