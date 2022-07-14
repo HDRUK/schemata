@@ -29,10 +29,14 @@
         "description": "System dataset identifier",
         "anyOf": [
           {
-            "$ref": "#/definitions/uuidv4"
+            "title": "UUID",
+            "type": "string",
+            "format": "uuid"
           },
           {
-            "$ref": "#/definitions/url"
+            "title": "URL",
+            "type": "string",
+            "format": "uri"
           }
         ]
       },
@@ -135,7 +139,8 @@
           "url": {
             "$id": "#/definitions/revision/url",
             "description": "URL endpoint to obtain the version",
-            "$ref": "#/definitions/url"
+            "type": "string",
+            "format": "uri"
           }
         }
       },
@@ -308,11 +313,8 @@
             "title": "Organisation Identifier",
             "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the “suggest and institute” function here: https://www.grid.ac/institutes#",
             "$comment": "https://schema.org/identifier",
-            "allOf": [
-              {
-                "$ref": "#/definitions/url"
-              }
-            ]
+            "type": "string",
+            "format": "uri"
           },
           "name": {
             "$id": "#/organisation/name",
@@ -332,7 +334,8 @@
             "$comment": "https://schema.org/logo",
             "allOf": [
               {
-                "$ref": "#/definitions/url"
+                "type": "string",
+                "format": "uri"
               }
             ]
           },
@@ -343,7 +346,8 @@
             "$comment": "https://schema.org/description",
             "allOf": [
               {
-                "$ref": "#/definitions/url"
+                "type": "string",
+                "format": "uri"
               }
             ]
           },
@@ -386,7 +390,8 @@
             "description": "The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both.",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/url"
+              "type": "string",
+              "format": "uri"
             }
           },
           "deliveryLeadTime": {
@@ -454,7 +459,8 @@
               "items": {
                 "allOf": [
                   {
-                    "$ref": "#/definitions/url"
+                    "type": "string",
+                    "format": "uri"
                   }
                 ]
               }
@@ -491,7 +497,8 @@
             "items": {
               "allOf": [
                 {
-                  "$ref": "#/definitions/url"
+                  "type": "string",
+                  "format": "uri"
                 }
               ]
             }
@@ -745,7 +752,8 @@
             "items": {
               "allOf": [
                 {
-                  "$ref": "#/definitions/url"
+                  "type": "string",
+                  "format": "uri"
                 }
               ]
             }
@@ -778,7 +786,8 @@
             "$comment": "dct:access_rights NOTE: need to ensure that this is consistent across the organisation info and the dataset info",
             "type": "array",
             "items": {
-              "$ref": "#/definitions/url"
+              "type": "string",
+              "format": "uri"
             }
           },
           "accessService": {
@@ -939,7 +948,8 @@
             "items": {
               "allOf": [
                 {
-                  "$ref": "#/definitions/url"
+                  "type": "string",
+                  "format": "uri"
                 }
               ]
             }
