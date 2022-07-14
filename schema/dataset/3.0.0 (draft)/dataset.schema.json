@@ -41,8 +41,9 @@
       "version": {
         "$id": "#/properties/version",
         "title": "Dataset Version",
-        "description": "Dataset metadata version",
-        "$ref": "#/definitions/semver",
+        "description": "Dataset metadata semantic version",
+        "type": "string",
+        "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$",
         "examples": [
           "1.1.0"
         ]
@@ -132,7 +133,8 @@
           "version": {
             "$id": "#/definitions/revision/version",
             "description": "Semantic Version",
-            "$ref": "#/definitions/semver"
+            "type": "string",
+            "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$"
           },
           "url": {
             "$id": "#/definitions/revision/url",
