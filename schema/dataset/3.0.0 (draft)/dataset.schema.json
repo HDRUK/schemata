@@ -29,12 +29,10 @@
         "description": "System dataset identifier",
         "anyOf": [
           {
-            "title": "UUID",
             "type": "string",
             "format": "uuid"
           },
           {
-            "title": "URL",
             "type": "string",
             "format": "uri"
           }
