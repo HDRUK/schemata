@@ -912,7 +912,6 @@ definitions:
     "$id": "#/definitions/formatAndStandards"
     additionalProperties: false
     required:
-    - conformsTo
     - language
     - format
     properties:
