@@ -1,5 +1,5 @@
 {
-  "title": "ISO 3166-1 Codes",
+  "name": "ISO 3166-1 Codes",
   "description": "To be used spatial coverage of datasets.",
   "enum": [
     "AW",
