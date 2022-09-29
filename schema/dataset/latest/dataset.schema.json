@@ -4,7 +4,7 @@
   "type": "object",
   "title": "HDR UK Dataset Schema",
   "description": "HDR UK Dataset Metadata JSONSchema",
-  "version": 2.1,
+  "version": "2.1.1",
   "required": [
     "identifier",
     "version",
@@ -12,8 +12,7 @@
     "issued",
     "modified",
     "summary",
-    "accessibility",
-    "observations"
+    "accessibility"
   ],
   "additionalProperties": false,
   "properties": {
@@ -570,23 +569,23 @@
           "$id": "#/properties/coverage/spatial",
           "title": "Geographic Coverage",
           "$comment": "dct:spatial",
-          "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
+          "description": "The geographical area covered by the dataset. For locations outside of the UK, please use an ISO3166-1 or ISO3166-2 code, and for those inside the UK, please use an ONS place code, full lists of these of these codes can be found at in the reference material for this repository.",
           "examples": [
-            "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+            "FR",
+            "IE-WW",
+            "IPN0037322"
           ],
+          "type": "array",
+          "items": null,
           "anyOf": [
             {
-              "$ref": "#/definitions/commaSeparatedValues"
+              "$ref": "/reference/data/iso_3166-1.json/enumerations"
             },
             {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "$ref": "#/definitions/url"
-                  }
-                ]
-              }
+              "$ref": "/reference/data/iso_3166-2.json/enumerations"
+            },
+            {
+              "$ref": "/reference/data/ons_codes.json/enumerations"
             }
           ]
         },
@@ -1084,8 +1083,6 @@
       "$id": "#/definitions/formatAndStandards",
       "additionalProperties": false,
       "required": [
-        "vocabularyEncodingScheme",
-        "conformsTo",
         "language",
         "format"
       ],
