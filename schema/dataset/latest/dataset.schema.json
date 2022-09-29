@@ -576,18 +576,19 @@
             "IPN0037322"
           ],
           "type": "array",
-          "items": null,
-          "anyOf": [
-            {
-              "$ref": "/reference/data/iso_3166-1.json/enumerations"
-            },
-            {
-              "$ref": "/reference/data/iso_3166-2.json/enumerations"
-            },
-            {
-              "$ref": "/reference/data/ons_codes.json/enumerations"
-            }
-          ]
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "https://raw.githubusercontent.com/HDRUK/schemata/master/reference/data/iso_3166-1.json"
+              },
+              {
+                "$ref": "https://raw.githubusercontent.com/HDRUK/schemata/master/reference/data/iso_3166-2.json"
+              },
+              {
+                "$ref": "https://raw.githubusercontent.com/HDRUK/schemata/master/reference/data/ons_codes.json"
+              }
+            ]
+          }
         },
         "typicalAgeRange": {
           "$id": "#/properties/coverage/typicalAgeRange",
