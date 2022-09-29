@@ -503,10 +503,10 @@ definitions:
         title: Geographic Coverage
         "$comment": dct:spatial
         description: "The geographical area covered by the dataset. For locations
-        outside of the UK, please use an ISO3166-1 or ISO3166-2 code, and for
-        those inside the UK, please use an ONS place code, full lists
-        of these of these codes can be found at in the reference material for
-        this repository."
+          outside of the UK, please use an ISO3166-1 or ISO3166-2 code, and for
+          those inside the UK, please use an ONS place code, full lists
+          of these of these codes can be found at in the reference material for
+          this repository."
         examples:
         - "FR"
         - "IE-WW"
