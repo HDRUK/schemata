@@ -1,7 +1,7 @@
 {
-  "title": "Language Codes Reference Data",
+  "name": "Language Codes Reference Data",
   "description": "ISO 3166-1 and ISO 3166-2 codes.",
-  "enumerations": [
+  "enum": [
     "aa",
     "ab",
     "af",

@@ -1,7 +1,7 @@
 {
-  "title": "ONS Codes Place Name Codes",
+  "name": "ONS Codes Place Name Codes",
   "description": "To be used spatial coverage of datasets.",
-  "enumerations": [
+  "enum": [
     "IPN0000419",
     "IPN0018256",
     "IPN0027987",
