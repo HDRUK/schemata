@@ -1,0 +1,315 @@
+"$schema": "http://json-schema.org/draft-07/schema"
+"$id": "https://hdruk.github.io/schemata/schema/data_access_request/data_access_request.schema.json"
+title: Data Access Request
+type: object
+description: Data Access Request Schema
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  created:
+    type: string
+    format: date-time
+    readOnly: true
+  updated:
+    type: string
+    format: date-time
+    readOnly: true
+  SAFEPeople:
+    type: object
+    required:
+      - applicants
+    properties:
+      applicants:
+        type: array
+        items:
+          allOf:
+            - type: object
+              properties:
+                role:
+                  type: string
+                  enum:
+                    - Primary Applicant
+                    - Principal Investigator
+                    - Collaborator
+                    - Team Member
+              required:
+                - role
+            - $ref: ./person.yaml
+  SAFEProject:
+    type: object
+    required:
+      - id
+      - applicationType
+      - researchPurpose
+      - projectTitle
+      - startDate
+      - endDate
+    properties:
+      id:
+        type: string
+      identifiers:
+        type: array
+        enum:
+          - New
+          - Amendment
+          - Extension
+          - Renewal
+          - Related
+        items:
+          type: object
+          properties:
+            type:
+              type: string
+            value:
+              type: string
+      applicationType:
+        type: string
+        enum:
+          - New
+          - Amendment
+          - Extension
+          - Renewal
+          - Related
+      researchPurpose:
+        anyOf:
+          - enum:
+              - Research
+              - Clinical Audit
+              - Service Evaluation
+          - {}
+        type: string
+      projectTitle:
+        type: string
+      keywords:
+        type: array
+        items:
+          type: string
+      startDate:
+        type: string
+        format: date
+      endDate:
+        type: string
+        format: date
+      statements:
+        type: array
+        items:
+          allOf:
+            - type: object
+              properties:
+                laySummary:
+                  type: string
+                objectives:
+                  type: string
+                impact:
+                  type: string
+              required:
+                - laySummary
+                - objectives
+                - impact
+            - anyOf:
+                - type: object
+                  properties:
+                    ppieStrategy:
+                      type: string
+                    privacyRiskMitigation:
+                      type: string
+                    discriminationRiskMitigation:
+                      type: string
+                    futureBenefit:
+                      type: string
+                    intellectualProperty:
+                      type: string
+      organisations:
+        type: array
+        items:
+          allOf:
+            - type: object
+              properties:
+                role:
+                  type: string
+                  enum:
+                    - Funder
+                    - Sponsor
+                    - Commercial Interest
+              required:
+                - role
+            - $ref: ./organisation.yaml
+            - type: object
+              properties:
+                details:
+                  type: string
+                  description: 'Declaration of Funding, Sponsorship or Commercial Interest'
+              required:
+                - details
+  SAFEData:
+    type: object
+    required:
+      - datasets
+      - legalBasis
+      - confidentialityAvenue
+      - ethicsApprovals
+    properties:
+      datasets:
+        type: array
+        items:
+          $ref: ./dataset.yaml
+      inclusionExclusionCriteria:
+        type: string
+      periodicity:
+        anyOf:
+          - enum:
+              - Single
+              - Monthly
+              - Quaterly
+              - Bi-Annualy
+              - Annualy
+          - {}
+        type: string
+      linkages:
+        type: object
+        properties:
+          datasets:
+            type: array
+            items:
+              $ref: ./dataset.yaml
+          reidenfiabilityRiskMitigation:
+            type: string
+      legalBasis:
+        type: object
+        required:
+          - article6
+          - article9
+        properties:
+          article6:
+            type: object
+            required:
+              - legalBasis
+              - justification
+            properties:
+              legalBasis:
+                type: string
+              justification:
+                type: string
+          article9:
+            type: object
+            required:
+              - legalBasis
+              - justification
+            properties:
+              legalBasis:
+                type: string
+              justification:
+                type: string
+      confidentialityAvenue:
+        type: object
+        required:
+          - legalBasis
+        properties:
+          legalBasis:
+            type: string
+            enum:
+              - Not Applicable
+              - Informed Consent
+              - Section 251
+              - Other
+          evidence:
+            type: string
+      ethicsApprovals:
+        type: array
+        items:
+          type: object
+          properties:
+            status:
+              type: string
+              enum:
+                - Seeking Approval
+                - Approval Pending
+                - Approved
+                - Not required
+                - Not Approved
+            committeeName:
+              type: string
+            referenceNumber:
+              type: string
+            attachments:
+              type: string
+  SAFESettings:
+    type: array
+    items:
+      anyOf:
+        - properties:
+            name:
+              type: string
+            organisationCode:
+              type: string
+            typeofAccess:
+              type:
+                - array
+                - string
+              items:
+                type: string
+                enum:
+                  - Storage
+                  - Processing
+            securityAssurance:
+              type:
+                - array
+                - string
+              items:
+                type: string
+                enum:
+                  - DSPT
+                  - ISO 27001
+                  - SLSP
+          required:
+            - name
+            - organisationCode
+            - typeofAccess
+            - securityAssurance
+      type: object
+  SAFEOutputs:
+    type: object
+    required:
+      - dissemination
+      - retention
+    properties:
+      dissemination:
+        type: object
+        required:
+          - plan
+          - milestones
+          - disclosureControlPolicy
+        properties:
+          plan:
+            type: string
+          milestones:
+            type: string
+          disclosureControlPolicy:
+            type: string
+      retention:
+        type: object
+        required:
+          - retentionDate
+        properties:
+          retentionDate:
+            type: string
+          justification:
+            type: string
+          plannedExtenstions:
+            type: string
+  attachments:
+    type: array
+    items:
+      type: string
+      format: uri
+required:
+  - id
+  - created
+  - updated
+  - SAFEPeople
+  - SAFEProject
+  - SAFEData
+  - SAFESettings
+  - SAFEOutputs

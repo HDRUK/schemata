@@ -1,0 +1,38 @@
+title: dataset
+type: object
+properties:
+  id:
+    type: string
+  name:
+    type: string
+  publisher:
+    type: string
+  justification:
+    type: string
+  tables:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        justification:
+          type: string
+        fields:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              justification:
+                type: string
+            required:
+              - name
+      required:
+        - name
+required:
+  - id
+  - name
+  - publisher
+  - justification

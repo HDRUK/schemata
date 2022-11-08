@@ -1,0 +1,192 @@
+{
+  "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+  "created": "2019-08-24T14:15:22Z",
+  "updated": "2019-08-24T14:15:22Z",
+  "SAFEPeople": {
+    "applicants": [
+      {
+        "role": "Primary Applicant",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "identifiers": [
+          {
+            "type": "ORCID",
+            "value": "string",
+            "qualifier": "string"
+          }
+        ],
+        "name": "string",
+        "title": "string",
+        "email": "user@example.com",
+        "telephone": "string",
+        "organisation": {
+          "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+          "identifiers": [
+            {
+              "type": "string",
+              "value": "string"
+            }
+          ],
+          "name": "string",
+          "address": "string",
+          "city": "string",
+          "postcode": "string",
+          "country": "string",
+          "type": "Academic Institution",
+          "sector": "string",
+          "size": "string",
+          "contact": {
+            "name": "string",
+            "email": "string",
+            "telephone": "string"
+          }
+        }
+      }
+    ]
+  },
+  "SAFEProject": {
+    "id": "string",
+    "identifiers": "New",
+    "applicationType": "New",
+    "researchPurpose": "Research",
+    "projectTitle": "string",
+    "keywords": [
+      "string"
+    ],
+    "startDate": "2019-08-24",
+    "endDate": "2019-08-24",
+    "statements": [
+      {
+        "laySummary": "string",
+        "objectives": "string",
+        "impact": "string",
+        "ppieStrategy": "string",
+        "privacyRiskMitigation": "string",
+        "discriminationRiskMitigation": "string",
+        "futureBenefit": "string",
+        "intellectualProperty": "string"
+      }
+    ],
+    "organisations": [
+      {
+        "role": "Funder",
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "identifiers": [
+          {
+            "type": "string",
+            "value": "string"
+          }
+        ],
+        "name": "string",
+        "address": "string",
+        "city": "string",
+        "postcode": "string",
+        "country": "string",
+        "type": "Academic Institution",
+        "sector": "string",
+        "size": "string",
+        "contact": {
+          "name": "string",
+          "email": "string",
+          "telephone": "string"
+        },
+        "details": "string"
+      }
+    ]
+  },
+  "SAFEData": {
+    "datasets": [
+      {
+        "id": "string",
+        "name": "string",
+        "publisher": "string",
+        "justification": "string",
+        "tables": [
+          {
+            "name": "string",
+            "justification": "string",
+            "fields": [
+              {
+                "name": "string",
+                "justification": "string"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "inclusionExclusionCriteria": "string",
+    "periodicity": "Single",
+    "linkages": {
+      "datasets": [
+        {
+          "id": "string",
+          "name": "string",
+          "publisher": "string",
+          "justification": "string",
+          "tables": [
+            {
+              "name": "string",
+              "justification": "string",
+              "fields": [
+                {
+                  "name": "string",
+                  "justification": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "reidenfiabilityRiskMitigation": "string"
+    },
+    "legalBasis": {
+      "article6": {
+        "legalBasis": "string",
+        "justification": "string"
+      },
+      "article9": {
+        "legalBasis": "string",
+        "justification": "string"
+      }
+    },
+    "confidentialityAvenue": {
+      "legalBasis": "Not Applicable",
+      "evidence": "string"
+    },
+    "ethicsApprovals": [
+      {
+        "status": "Seeking Approval",
+        "committeeName": "string",
+        "referenceNumber": "string",
+        "attachments": "string"
+      }
+    ]
+  },
+  "SAFESettings": [
+    {
+      "name": "string",
+      "organisationCode": "string",
+      "typeofAccess": [
+        "Storage"
+      ],
+      "securityAssurance": [
+        "DSPT"
+      ]
+    }
+  ],
+  "SAFEOutputs": {
+    "dissemination": {
+      "plan": "string",
+      "milestones": "string",
+      "disclosureControlPolicy": "string"
+    },
+    "retention": {
+      "retentionDate": "string",
+      "justification": "string",
+      "plannedExtenstions": "string"
+    }
+  },
+  "attachments": [
+    "http://example.com"
+  ]
+}
