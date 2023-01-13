@@ -3,7 +3,7 @@
 type: object
 title: HDR UK Dataset Schema
 description: HDR UK Dataset Metadata JSONSchema
-version: 2.1
+version: "2.1.0"
 required:
 - identifier
 - version
