@@ -777,8 +777,8 @@
               "type": "string",
               "format": "date-time"
             },
-	      {
-		  "type":"null"
+	    {
+	      "type":"null"
 	    }
           ]
         },
@@ -796,9 +796,9 @@
               "type": "string",
               "format": "date-time"
             },
-	      {
-		  "type":"null"
-	      }
+	    {
+              "type":"null"
+	    }
           ]
         },
         "endDate": {
@@ -816,10 +816,10 @@
               "format": "date-time"
             },
             {
-		"type": ["string","null"],
+	      "type": ["string","null"],
               "enum": [
-                  "CONTINUOUS",
-		  null
+                 "CONTINUOUS",
+		 null
               ]
             }
           ]
@@ -1450,8 +1450,8 @@
         "> 10 YEARS",
         "UNKNOWN",
         "CONTINUOUS",
-          "OTHER",
-	  null
+        "OTHER",
+	null
       ]
     },
     "periodicity": {
@@ -1522,7 +1522,7 @@
       ]
     },
     "timeLag": {
-	"type": ["string","null"],
+      "type": ["string","null"],
       "enum": [
         "LESS 1 WEEK",
         "1-2 WEEKS",
@@ -1539,24 +1539,24 @@
     },
     "dataUseLimitation": {
     "type": ["string","null"],
-        "enum": [
-          "GENERAL RESEARCH USE",
-          "COMMERCIAL RESEARCH USE",
-          "GENETIC STUDIES ONLY",
-          "NO GENERAL METHODS RESEARCH",
-          "NO RESTRICTION",
-          "GEOGRAPHICAL RESTRICTIONS",
-          "INSTITUTION SPECIFIC RESTRICTIONS",
-          "NOT FOR PROFIT USE",
-          "PROJECT SPECIFIC RESTRICTIONS",
-          "RESEARCH SPECIFIC RESTRICTIONS",
-          "USER SPECIFIC RESTRICTION",
-          "RESEARCH USE ONLY",
-          "NO LINKAGE"
-      ]
+    "enum": [
+        "GENERAL RESEARCH USE",
+        "COMMERCIAL RESEARCH USE",
+        "GENETIC STUDIES ONLY",
+        "NO GENERAL METHODS RESEARCH",
+        "NO RESTRICTION",
+        "GEOGRAPHICAL RESTRICTIONS",
+        "INSTITUTION SPECIFIC RESTRICTIONS",
+        "NOT FOR PROFIT USE",
+        "PROJECT SPECIFIC RESTRICTIONS",
+        "RESEARCH SPECIFIC RESTRICTIONS",
+        "USER SPECIFIC RESTRICTION",
+        "RESEARCH USE ONLY",
+        "NO LINKAGE"
+    ]
     },
     "dataUseRequirements": {
-	  "type": ["string","null"],
+      "type": ["string","null"],
       "enum": [
         "COLLABORATION REQUIRED",
         "PROJECT SPECIFIC RESTRICTIONS",
@@ -1569,8 +1569,8 @@
         "TIME LIMIT ON USE",
         "DISCLOSURE CONTROL",
         "NOT FOR PROFIT USE",
-          "USER SPECIFIC RESTRICTION",
-	  null
+        "USER SPECIFIC RESTRICTION",
+	null
       ]
     },
     "deliveryLeadTime": {
@@ -1584,8 +1584,8 @@
         "MORE 6 MONTHS",
         "VARIABLE",
         "NOT APPLICABLE",
-          "OTHER",
-	  null
+        "OTHER",
+	null
       ]
     },
     "standardisedDataModels": {
@@ -1608,7 +1608,8 @@
         "NHS SCOTLAND DATA DICTIONARY",
         "NHS WALES DATA DICTIONARY",
         "LOCAL",
-        "OTHER"
+        "OTHER",
+	null 
       ]
     },
     "controlledVocabulary": {
@@ -1651,7 +1652,8 @@
         "RXNORM",
         "RXNORM EXTENSION",
         "SPL",
-        "OTHER"
+        "OTHER",
+	null  
       ]
     },
     "language": {
@@ -1840,7 +1842,8 @@
         "yo",
         "za",
         "zh",
-        "zu"
+        "zu",
+	null  
       ]
     },
     "statisticalPopulationConstrained": {
