@@ -1362,7 +1362,7 @@
     "abstractText": {
       "type": ["string","null"],
       "minLength": 5,
-      "maxLength": 255
+      "maxLength": 500
     },
     "emailAddress": {
       "type": ["string","null"],
@@ -1376,12 +1376,12 @@
     "description": {
       "type": ["string","null"],
       "minLength": 2,
-      "maxLength": 3000
+      "maxLength": 5000
     },
     "longDescription": {
       "type": ["string","null"],
       "minLength": 2,
-      "maxLength": 5000
+      "maxLength": 10000
     },
     "commaSeparatedValues": {
       "type": ["string","null"],
