@@ -1892,7 +1892,8 @@
         }
       },
       "required": [
-        "name",
+         "name",
+	 "description",
         "elements"
       ]
     },
