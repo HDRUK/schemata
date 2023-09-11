@@ -130,7 +130,7 @@
       "title": "Structural Metadata",
       "description": "Descriptions of all tables and data elements that can be included in the dataset",
       "$comment": "First phase includes only column level metadata, future versions will include value level attributes",
-      "type": "array",
+	"type": ["array","null"],
       "items": {
         "allOf": [
           {
@@ -176,7 +176,7 @@
           "$id": "#/summary/title",
           "$comment": "dct:title. title is reserved word in json schema",
           "title": "Title",
-          "description": "Title of the dataset limited to 80 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
+          "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
           "examples": [
             [
               "North West London COVID-19 Patient Level Situation Report"
@@ -184,7 +184,7 @@
           ],
           "allOf": [
             {
-              "$ref": "#/definitions/eightyCharacters"
+              "$ref": "#/definitions/oneHundredFiftyCharacters"
             }
           ]
         },
@@ -242,7 +242,7 @@
               "items": {
                 "allOf": [
                   {
-                    "$ref": "#/definitions/eightyCharacters"
+                    "$ref": "#/definitions/oneHundredFiftyCharacters"
                   }
                 ]
               },
@@ -318,7 +318,7 @@
           "$comment": "https://schema.org/name",
           "allOf": [
             {
-              "$ref": "#/definitions/eightyCharacters"
+              "$ref": "#/definitions/oneHundredFiftyCharacters"
             }
           ]
         },
@@ -545,7 +545,7 @@
                     "$ref": "#/definitions/url"
                   },
                   {
-                    "$ref": "#/definitions/eightyCharacters"
+                    "$ref": "#/definitions/oneHundredFiftyCharacters"
                   },
                   {
                     "type": "string",
@@ -1211,7 +1211,7 @@
                     "$ref": "#/definitions/url"
                   },
                   {
-                    "$ref": "#/definitions/eightyCharacters"
+                    "$ref": "#/definitions/oneHundredFiftyCharacters"
                   }
                 ]
               }
@@ -1354,10 +1354,10 @@
       "type": ["string","null"],
       "format": "uri"
     }, 
-    "eightyCharacters": {
+    "oneHundredFiftyCharacters": {
       "type": "string",
       "minLength": 2,
-      "maxLength": 80
+      "maxLength": 150
     },
     "abstractText": {
       "type": ["string","null"],
@@ -1376,12 +1376,12 @@
     "description": {
       "type": ["string","null"],
       "minLength": 2,
-      "maxLength": 5000
+      "maxLength": 10000
     },
     "longDescription": {
       "type": ["string","null"],
       "minLength": 2,
-      "maxLength": 10000
+      "maxLength": 50000
     },
     "commaSeparatedValues": {
       "type": ["string","null"],
@@ -1393,7 +1393,7 @@
     },
     "ageRange": {
       "type": ["string","null"],
-      "pattern": "(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])"
+      "pattern": "Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])"
     },
     "format": {
       "$comment": "FIXME: Conforms to spec, but may be a list of strings given cardinality 1:*. Validate against external list of formats, e.g. https://www.iana.org/assignments/media-types/media-types.xhtml",
@@ -1862,12 +1862,9 @@
           "$id": "#/properties/dataClass/name",
           "title": "Table Name",
           "description": "The name of a table in a dataset.",
-          "$comment": "Should be limited to 255 Characters, abstract text requires rewrite.",
-          "allOf": [
-            {
-              "$ref": "#/definitions/abstractText"
-            }
-          ]
+	  "type": ["string","null"],
+	  "minLength": 1,
+	  "maxLength": 500
         },
         "description": {
           "$id": "#/properties/dataClass/description",
@@ -1892,9 +1889,8 @@
         }
       },
       "required": [
-         "name",
-	 "description",
-        "elements"
+        "name",
+	"elements"
       ]
     },
     "dataElement": {
