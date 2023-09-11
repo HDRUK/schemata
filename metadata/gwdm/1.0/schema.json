@@ -1,0 +1,704 @@
+{
+    "title": "GDMv1",
+    "type": "object",
+    "properties": {
+        "required": {
+            "$ref": "#/definitions/Required"
+        },
+        "summary": {
+            "title": "Summary",
+            "default": {
+                "title": null,
+                "shortTitle": null,
+                "doiName": null,
+                "abstract": null,
+                "keywords": null,
+                "controlledKeywords": null,
+                "contactPoint": null,
+                "datasetType": null,
+                "description": null,
+                "publisher": {
+                    "publisherName": null,
+                    "publisherGatewayId": null
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Summary"
+                }
+            ]
+        },
+        "coverage": {
+            "title": "Coverage",
+            "default": {
+                "spatial": null,
+                "physicalSampleAvailability": [],
+                "pathway": null,
+                "followup": null,
+                "typicalAgeRange": null
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Coverage"
+                }
+            ]
+        },
+        "provenance": {
+            "title": "Provenance",
+            "default": {
+                "origin": {
+                    "purpose": null,
+                    "source": null
+                },
+                "temporal": {
+                    "endDate": "2023-07-03",
+                    "startDate": "2023-07-03"
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Provenance"
+                }
+            ]
+        },
+        "accessibility": {
+            "title": "Accessibility",
+            "default": {
+                "access": {
+                    "deliveryLeadTime": null, 
+                    "jurisdiction": null,
+                    "dataController": null,
+                    "dataProcessor": null,
+                    "accessRights": null,
+                    "accessService": null,
+                    "accessRequestCost": null
+                },
+                "usage": {
+                    "dataUseLimitation": null,
+                    "dataUseRequirement": null,
+                    "resourceCreator": null
+                },
+                "formatAndStandards": {
+                    "vocabularyEncodingSchemes": null,
+                    "conformsTo": null,
+                    "languages": null,
+                    "formats": null
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Accessibility"
+                }
+            ]
+        },
+        "observations": {
+            "title": "Observations",
+            "default": {
+                "observationsList": []
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Observations"
+                }
+            ]
+        },
+        "structuralMetadata": {
+            "$id": "#/properties/structuralMetadata",
+            "title": "Structural Metadata",
+            "description": "Descriptions of all tables and data elements that can be included in the dataset",
+            "$comment": "First phase includes only column level metadata, future versions will include value level attributes",
+            "type":"array",
+            "items": {
+                "allOf": [
+                    {
+                    "$ref": "#/definitions/dataClass"
+                    }
+                ]
+            }
+        },
+        "linkage": {
+            "title": "Linkage",
+            "default": {
+                "isReferenceIn": null,
+                "IsGeneratedUsing": null,
+                "dataUses": null,
+                "associatedMedia": null,
+                "datasetLinkage": {
+                    "isDerivedFrom": null,
+                    "isPartOf": null,
+                    "isMemberOf": null
+                }
+            },
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Linkage"
+                }
+            ]
+        }
+    },
+    "required": [
+        "required"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "Required": {
+            "title": "Required",
+            "type": "object",
+            "properties": {
+                "gatewayId": {
+                    "title": "Gatewayid",
+                    "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
+                    "type": "string"
+                },
+                "gatewayPid": {
+                    "title": "Gatewaypid",
+                    "description": "Need a field in Mauro that captures the dataset pid to link to gateway database",
+                    "type": "string"
+                },
+                "issued": {
+                    "title": "Issued",
+                    "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "title": "Modified",
+                    "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "revisions": {
+                    "title": "Revisions",
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    }
+                }
+            },
+            "required": [
+                "gatewayId",
+                "gatewayPid",
+                "issued",
+                "modified",
+                "revisions"
+            ]
+        },
+        "Publisher": {
+            "title": "Publisher",
+            "type": "object",
+            "properties": {
+                "publisherName": {
+                    "title": "Publishername",
+                    "type": "string"
+                },
+                "publisherGatewayId": {
+                    "title": "Publishergatewayid",
+                    "type": "string"
+                }
+            }
+        },
+        "Summary": {
+            "title": "Summary",
+            "type": "object",
+            "properties": {
+                "title": {
+                    "title": "Title",
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 255
+                },
+                "shortTitle": {
+                    "title": "Shorttitle",
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 100
+                },
+                "doiName": {
+                    "title": "Doiname",
+                    "type": "string",
+                    "pattern": "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$"
+                },
+                "abstract": {
+                    "title": "Abstract",
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 5000
+                },
+                "keywords": {
+                    "title": "Keywords",
+                    "type": "string"
+                },
+                "controlledKeywords": {
+                    "title": "Controlledkeywords",
+                    "type": "string"
+                },
+                "contactPoint": {
+                    "title": "Contactpoint",
+                    "type": "string",
+                    "format": "email"
+                },
+                "datasetType": {
+                    "title": "Dataset type",
+                    "type": "string"
+                },
+                "description": {
+                    "title": "Description",
+                    "type": "string"
+                },
+                "publisher": {
+                    "title": "Publisher",
+                    "default": {
+                        "publisherName": null,
+                        "publisherGatewayId": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/Publisher"
+                        }
+                    ]
+                }
+            }
+        },
+        "FollowUp": {
+            "title": "FollowUp",
+            "type": "string"
+        },
+        "TypicalAgeRange": {
+            "title": "TypicalAgeRange",
+            "type": "string"
+        },
+        "Coverage": {
+            "title": "Coverage",
+            "type": "object",
+            "properties": {
+                "spatial": {
+                    "title": "Spatial",
+                    "type": "string"
+                },
+                "physicalSampleAvailability": {
+                    "title": "Physicalsampleavailability",
+                    "default": [],
+                    "type": "string"
+                },
+                "pathway": {
+                    "title": "Pathway",
+                    "type": "string"
+                },
+                "followup": {
+                    "title": "Followup",
+                    "default": null,
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/FollowUp"
+                        }
+                    ]
+                },
+                "typicalAgeRange": {
+                    "title": "Typicalagerange",
+                    "default": null,
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/TypicalAgeRange"
+                        }
+                    ]
+                }
+            }
+        },
+        "Origin": {
+            "title": "Origin",
+            "type": "object",
+            "properties": {
+                "purpose": {
+                    "title": "Purpose",
+                    "type": "string"
+                },
+                "source": {
+                    "title": "Source",
+                    "type": "string"
+                }
+            }
+        },
+        "Temporal": {
+            "title": "Temporal",
+            "type": "object",
+            "properties": {
+                "endDate": {
+                    "title": "Enddate",
+                    "default": "2023-07-03",
+                    "type": "string",
+                    "format": "date"
+                },
+                "startDate": {
+                    "title": "Startdate",
+                    "default": "2023-07-03",
+                    "type": "string",
+                    "format": "date"
+                },
+                "timeLag":{
+                    "title": "Time Lag",
+                    "default": null,
+                    "type": "string"
+                },
+                "accrualPeriodicity":{
+                    "title": "Accrual Periodicity",
+                    "default": null,
+                    "type": "string"
+                }
+            }
+        },
+        "Provenance": {
+            "title": "Provenance",
+            "type": "object",
+            "properties": {
+                "origin": {
+                    "title": "Origin",
+                    "default": {
+                        "purpose": null,
+                        "source": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/Origin"
+                        }
+                    ]
+                },
+                "temporal": {
+                    "title": "Temporal",
+                    "default": {
+                        "endDate": "2023-07-03",
+                        "startDate": "2023-07-03",
+                        "timeLag": null,
+                        "accrualPeriodicity": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/Temporal"
+                        }
+                    ]
+                }
+            }
+        },
+        "DeliveryLeadTime": {
+            "title": "DeliveryLeadTime",
+            "type": "string"
+        },
+        "Access": {
+            "title": "Access",
+            "type": "object",
+            "properties": {
+                "deliveryLeadTime": {
+                    "title": "Deliveryleadtime",
+                    "default": null,
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/DeliveryLeadTime"
+                        }
+                    ]
+                },
+                "jurisdiction": {
+                    "title": "Jurisdiction",
+                    "type": "string"
+                },
+                "dataController": {
+                    "title": "Datacontroller",
+                    "type": "string"
+                },
+                "dataProcessor": {
+                    "title": "Dataprocessor",
+                    "type": "string"
+                },
+                "accessRights": {
+                    "title": "Accessrights",
+                    "type": "string"
+                },
+                "accessService": {
+                    "title": "Accessservice",
+                    "type": "string"
+                },
+                "accessRequestCost": {
+                    "title": "Accessrequestcost",
+                    "type": "string"
+                }
+            }
+        },
+        "Usage": {
+            "title": "Usage",
+            "type": "object",
+            "properties": {
+                "dataUseLimitation": {
+                    "title": "Datauselimitation",
+                    "type": "string"
+                },
+                "dataUseRequirement": {
+                    "title": "Datauserequirement",
+                    "type": "string"
+                },
+                "resourceCreator": {
+                    "title": "Resourcecreator",
+                    "type": "string"
+                }
+            }
+        },
+        "FormatAndStandards": {
+            "title": "FormatAndStandards",
+            "type": "object",
+            "properties": {
+                "vocabularyEncodingSchemes": {
+                    "title": "Vocabularyencodingscheme",
+                    "type": "string"
+                },
+                "conformsTo": {
+                    "title": "Conformsto",
+                    "type": "string"
+                },
+                "languages": {
+                    "title": "Languages",
+                    "type": "string"
+                },
+                "formats": {
+                    "title": "Formats",
+                    "type": "string"
+                }
+            }
+        },
+        "Accessibility": {
+            "title": "Accessibility",
+            "type": "object",
+            "properties": {
+                "access": {
+                    "title": "Access",
+                    "default": {
+                        "deliveryLeadTime": null,
+                        "jurisdiction": null,
+                        "dataController": null,
+                        "dataProcessor": null,
+                        "accessRights": null,
+                        "accessService": null,
+                        "accessRequestCost": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/Access"
+                        }
+                    ]
+                },
+                "usage": {
+                    "title": "Usage",
+                    "default": {
+                        "dataUseLimitation": null,
+                        "dataUseRequirement": null,
+                        "resourceCreator": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/Usage"
+                        }
+                    ]
+                },
+                "formatAndStandards": {
+                    "title": "Formatandstandards",
+                    "default": {
+                        "vocabularyEncodingSchemes": null,
+                        "conformsTo": null,
+                        "languages": null,
+                        "formats": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/FormatAndStandards"
+                        }
+                    ]
+                }
+            }
+        },
+        "Observations": {
+            "title": "Observations",
+            "type": "array",
+            "properties": {
+                "observedNode": {
+                    "title": "",
+                    "type": "string"
+                },
+                "measuredValue": {
+                    "title": "",
+                    "type": "string"
+                },
+                "observationDate": {
+                    "title": "",
+                    "type": "string"
+                },
+                "measuredProperty": {
+                    "title": "",
+                    "type": "string"
+                }              
+            }
+        },
+        "DatasetLinkage": {
+            "title": "DatasetLinkage",
+            "type": "object",
+            "properties": {
+                "isDerivedFrom": {
+                    "title": "Isderivedfrom",
+                    "type": "string"
+                },
+                "isPartOf": {
+                    "title": "Ispartof",
+                    "type": "string"
+                },
+                "isMemberOf": {
+                    "title": "Ismemberof",
+                    "type": "string"
+                }
+            }
+        },
+        "Linkage": {
+            "title": "Linkage",
+            "type": "object",
+            "properties": {
+                "isReferenceIn": {
+                    "title": "Isreferencein",
+                    "type": "string"
+                },
+                "IsGeneratedUsing": {
+                    "title": "Generated by using tool?",
+                    "type": "string"
+                },
+                "dataUses": {
+                    "title": "What data uses this?",
+                    "type": "string"
+                },
+                "associatedMedia": {
+                    "title": "Associatedmedia",
+                    "type": "string"
+                },
+                "datasetLinkage": {
+                    "title": "Datasetlinkage",
+                    "default": {
+                        "isDerivedFrom": null,
+                        "isPartOf": null,
+                        "isMemberOf": null
+                    },
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/DatasetLinkage"
+                        }
+                    ]
+                }
+            }
+        },
+        "dataClass": {
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "name": {
+                "$id": "#/properties/dataClass/name",
+                "title": "Table Name",
+                "description": "The name of a table in a dataset.",
+                "$comment": "Should be limited to 255 Characters, abstract text requires rewrite.",
+                "type":["string","null"]
+              },
+              "description": {
+                "$id": "#/properties/dataClass/description",
+                "title": "Table Description",
+                "description": "A description of a table in a dataset.",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 20000
+              },
+              "elements": {
+                "$id": "#/properties/dataClass/elements",
+                "title": "Data Elements",
+                "description": "A list of data elements contained within a table in a dataset.",
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/dataElement"
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "name",
+              "elements"
+            ]
+        },
+        "dataElement": {
+            "$id": "#/definitions/dataElement",
+            "additionalProperties": false,
+            "type": "object",
+            "properties": {
+              "name": {
+                "$id": "#/properties/dataElement/name",
+                "title": "Column Name",
+                "description": "The name of a column in a table.",
+                "$comment": "255 Chars",
+                "type":["string","null"]
+              },
+              "dataType": {
+                "$id": "#/properties/dataElement/dataType",
+                "title": "Data Type",
+                "description": "The data type of values in the column",
+                "$comment": "In future we could enumerate options for this, rather than just a string. 255 Chars",
+                "type": "string"
+              },
+              "description": {
+                "$id": "#/properties/dataElement/description",
+                "title": "Column Description",
+                "description": "A description of a column in a table.",
+                "type": ["string","null"],
+                "minLength": 1,
+                "maxLength": 20000
+              },
+              "sensitive": {
+                "$id": "#/properties/dataElement/sensitive",
+                "title": "Sensitive",
+                "description": "A True or False value, indicating if the field is sensitive or not",
+                "$comment": "We could clarify a definition of what is sensitive in the future.",
+                "type": "boolean"
+              },
+              "elements": {
+                "$id": "#/properties/dataElement/elements",
+                "title": "Data Values",
+                "description": "Temporary for frequency data",
+                "type": "array",
+                "items": {
+                  "allOf": [
+                    {
+                      "$ref": "#/definitions/dataValue"
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "name",
+              "dataType",
+              "sensitive"
+            ]
+        },
+        "dataValue": {
+            "$id": "#/definitions/dataValue",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "$id": "#/properties/dataValue/name",
+                "title": "Value Name",
+                "description": "What is the value e.g. Male/Female",
+                "type":"string"
+              },
+              "frequency":{
+                "$id": "#/properties/dataValue/frequency",
+                "title": "Value Frequency",
+                "description": "What is the frequency of the value",
+                "type": "number"
+              }
+            },
+            "required": [
+                "name",
+                "frequency"
+            ]
+        }
+    }
+}
