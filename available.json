@@ -1,12 +1,12 @@
 {
-      "hdruk": [
+      "HDRUK": [
             "2.1.2",
             "2.1.1"
       ],
-      "gwdm": [
+      "GWDM": [
             "1.0"
       ],
-      "schema.org": [
+      "SchemaOrg": [
             "default"
       ]
 }
