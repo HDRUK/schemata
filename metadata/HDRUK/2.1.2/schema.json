@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://hdruk.github.io/schemata/schema/dataset/latest/dataset.schema.json",
+  "$id": "https://raw.githubusercontent.com/HDRUK/schemata-2/master/metadata/HDRUK/2.1.2/schema.json",
   "type": "object",
   "title": "HDR UK Dataset Schema",
   "description": "HDR UK Dataset Metadata JSONSchema",
