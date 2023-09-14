@@ -1,0 +1,19 @@
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+
+# Ignore virtual environment folders (e.g., virtualenv, venv)
+venv/
+env/
+.venv/
+
+# Ignore logs and other generated files
+*.log
+*.swp
+
+# Ignore IDE-specific files and directories (e.g., for VSCode or PyCharm)
+.vscode/
+.idea/
+
+# Ignore editor backup files
+*~
