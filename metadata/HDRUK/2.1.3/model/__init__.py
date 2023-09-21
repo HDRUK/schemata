@@ -96,4 +96,6 @@ class HdrUkDatasetSchema(BaseModel):
 
 
 if __name__ == '__main__':
-    print (HdrUkDatasetSchema)
+    import json
+    with open('schema.json','w') as f:
+        json.dump(HdrUkDatasetSchema.model_json_schema(),f,indent=6)
