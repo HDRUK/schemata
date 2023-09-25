@@ -4,6 +4,7 @@ from .CommaSeparatedValues import CommaSeparatedValues
 from .ControlledVocabulary import ControlledVocabulary
 from .ControlledVocabularyEnum import ControlledVocabularyEnum
 from .DataUseLimitation import DataUseLimitation
+from .DatasetType import DatasetType
 from .DataUseRequirements import DataUseRequirements
 from .DeliveryLeadTime import DeliveryLeadTime
 from .Description import Description
@@ -16,6 +17,7 @@ from .IsPartOfEnum import IsPartOfEnum
 from .Isocountrycode import Isocountrycode
 from .Language import Language
 from .LanguageEnum import LanguageEnum
+from .LongAbstractText import LongAbstractText
 from .LongDescription import LongDescription
 from .MeasuredProperty import MeasuredProperty
 from .MemberOf import MemberOf
@@ -27,10 +29,12 @@ from .Purpose import Purpose
 from .Semver import Semver
 from .Setting import Setting
 from .ShortDescription import ShortDescription
+from .ShortTitle import ShortTitle
 from .Source import Source
 from .StandardisedDataModels import StandardisedDataModels
 from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
 from .StatisticalPopulationConstrained import StatisticalPopulationConstrained
 from .TimeLag import TimeLag
+from .TwoHundredFiftyFiveCharacters import TwoHundredFiftyFiveCharacters
 from .Url import Url
 from .Uuidv4 import Uuidv4
