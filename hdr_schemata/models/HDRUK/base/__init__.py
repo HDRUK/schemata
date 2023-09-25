@@ -6,20 +6,18 @@ from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 
 from hdr_schemata.definitions.HDRUK import * 
 
-from model.Revision import Revision
-from model.Summary import Summary
-from model.Documentation import Documentation
-from model.Coverage import Coverage
-from model.Provenance import Provenance
-from model.Accessibility import  Accessibility 
-from model.EnrichmentAndLinkage import EnrichmentAndLinkage
-from model.Observations import Observation
-from model.DataClass import DataClass
-from model.DataElement import DataElement
+from .Revision import Revision
+from .Summary import Summary
+from .Documentation import Documentation
+from .Coverage import Coverage
+from .Provenance import Provenance
+from .Accessibility import  Accessibility 
+from .EnrichmentAndLinkage import EnrichmentAndLinkage
+from .Observations import Observation
+from .DataClass import DataClass
+from .DataElement import DataElement
 
-
-
-class Hdruk213(BaseModel):
+class HdrukBaseModel(BaseModel):
     class Config:
         extra = 'forbid'
 
@@ -95,7 +93,7 @@ class Hdruk213(BaseModel):
     )
 
 
-if __name__ == '__main__':
-    import json
-    with open('schema.json','w') as f:
-        json.dump(Hdruk213.model_json_schema(),f,indent=6)
+#if __name__ == '__main__':
+#    import json
+#    with open('schema.json','w') as f:
+#        json.dump(Hdruk213.model_json_schema(),f,indent=6)
