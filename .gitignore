@@ -1,6 +1,7 @@
 # Ignore Python compiled files
 __pycache__/
 *.pyc
+*.egg-info
 
 # Ignore virtual environment folders (e.g., virtualenv, venv)
 venv/
