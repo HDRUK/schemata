@@ -10,7 +10,7 @@ import sys
 
 
 setuptools.setup(
-    name="pyHDR",
+    name="hdr_schemata",
     author="Health Data Research UK",
     version="0.1",
     author_email="calum.macdonald@hdruk.ac.uk",
