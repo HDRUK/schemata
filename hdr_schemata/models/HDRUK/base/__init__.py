@@ -91,9 +91,3 @@ class HdrukBaseModel(BaseModel):
         description='Descriptions of all tables and data elements that can be included in the dataset',
         title='Structural Metadata',
     )
-
-
-#if __name__ == '__main__':
-#    import json
-#    with open('schema.json','w') as f:
-#        json.dump(Hdruk213.model_json_schema(),f,indent=6)
