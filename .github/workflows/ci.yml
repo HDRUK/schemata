@@ -20,18 +20,7 @@ jobs:
         python -m pip install setuptools
         python -m pip install -e .
 
-    - name: Test package
-      run: |
-         cd hdr_schemata/tests/
-         python -c 'from hdr_schemata.models.HDRUK import Hdruk212'
-
-    - name: Check location
-      run: |
-        pwd
-        ls ../examples
-        ls ../examples/HDRUK
-        ls ../examples/HDRUK/2.1.2
-         
     - name: Run pytest
       run: |
+        cd hdr_schemata/tests/
         pytest  
