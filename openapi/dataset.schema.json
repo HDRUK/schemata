@@ -88,6 +88,7 @@
                             "format": "uri",
                             "enum": [
                                 "https://raw.githubusercontent.com/HDRUK/schemata/master/schema/dataset/2.0.2/dataset.schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata/master/schema/dataset/2.1.0/dataset.schema.json",
                                 "https://raw.githubusercontent.com/HDRUK/schemata/master/schema/dataset/latest/dataset.schema.json"
                             ]
                         }
