@@ -13,7 +13,7 @@ from .Provenance import Provenance
 from .Accessibility import Accessibility
 from .Linkage import Linkage
 from .Observations import Observation
-from .DataClass import DataClass
+from .DataTable import DataTable
 
 class GwdmBaseModel(BaseModel):
     class Config:
@@ -59,7 +59,7 @@ class GwdmBaseModel(BaseModel):
         description='Obsservations',
         title='Observations',
     )
-    structuralMetadata: Optional[List[DataClass]] = Field(
+    structuralMetadata: Optional[List[DataTable]] = Field(
         None,
         description='Descriptions of all tables and data elements that can be included in the dataset',
         title='Structural Metadata',
