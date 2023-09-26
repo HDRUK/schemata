@@ -6,41 +6,77 @@ class Access(BaseModel):
     class Config:
         extra = 'forbid'
 
-    accessRights: Union[
-        constr(pattern=r'^In Progress$'), Optional[Url], List[Optional[Url]]
-    ] = Field(..., title='Access Rights')
+    #note: do we want to make this CommaSeparatedValues of URLs?
+    #      dont allow a description of the license?
+    accessRights: Optional[CommaSeparatedValues] = Field(
+        ...,
+        description='Optional link(s) or a description of where the license associated to accessing this dataset',
+        example='https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE',
+        title='Access Rights'
+    )
+
+    #note: do we want to limit these to actual accessibly service objects?
+    #      e.g.: Optional[AccessServiceEnum]
+    #      options: [SAIL,HIC,DARE,...,OTHER]
+    #
+    #note: do we want to include something accessServiceType (?)
+    #      options: [TRE, SDE, University, SafeHaven, ... ]
     accessService: Optional[LongDescription] = Field(
         None,
-        description='Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.',
-        examples=[
-            'https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide'
-        ],
+        description='',
+        example="The SAIL Databank is powered by the UK Secure e-Research Platform (UKSeRP). Following approval through safeguard processes, access to project-specific data within the secure environment is permitted using two-factor authentication."
         title='Access Service',
     )
-    accessRequestCost: Optional[
-        Union[Optional[LongDescription], List[Optional[Url]]]
-    ] = Field(
+
+
+    #note: as above... having a long description seems odd to me...
+    #      we could associate this with an Optional[AccessService]
+    #      class AccessService(BaseModel):
+    #            serviceName: ShortTitle
+    #            serviceDescription: LongDescription
+    #            cost: 'free'|'paid'|'other'
+    #            timeToAcess: DeliveryLeadTime
+    accessRequestCost: Optional[LongDescription] = Field(
         None,
-        description='Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.',
+        description='',
+        example="Data provision is free from SAIL. Overall project costing depends on the number of people that require access to the SAIL Gateway, the activities that SAIL needs to complete (e.g. loading non-standard datasets), data refreshes, analytical work required, disclosure control process, and special case technological requirements."
         title='Organisation Access Request Cost',
     )
+
+    #note: related to above... this is hard to know or guess..
+    #      not useful to a researcher as they can tell this is made up...
+    #      may remove or class as a 'AccessService'
     deliveryLeadTime: Optional[DeliveryLeadTime] = Field(
         None,
-        description='Please provide an indication of the typical processing times based on the types of requests typically received.',
+        description='An arbitrary guess at the time to gain access to the dataset...',
+        example='2-6 MONTHS'
         title='Access Request Duration',
     )
-    jurisdiction: Union[Optional[CommaSeparatedValues], List[Isocountrycode]] = Field(
+
+    #note: May want to make this a CommaSeparetedListIsoCountryCode
+    #       e.g. GB-XXX
+    jurisdiction: Optional[CommaSeparatedValues] = Field(
         ...,
-        description="Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+        description="Comma separated country codes of where the data jurisdiction is.",
+        example="GB-WLS,GB-GBN,GB-SCT"
         title='Jurisdiction',
     )
+
+    #note: this could also be associated with the AccessService?
+    #      could the dataController not be the TRE for example?
+    #      terminology could be confusing here... 
     dataController: Optional[LongDescription] = Field(
         ...,
-        description='Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.',
+        description="Name of the data controller",
+        example="SAIL Databank",
         title='Data Controller',
     )
+
+    #note: as with dataController-- what does this mean?
+    #      are these often different?
     dataProcessor: Optional[LongDescription] = Field(
         None,
-        description='A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.',
+        description='Name of the data processors',
+        example='SAIL Databank',
         title='Data Processor',
     )
