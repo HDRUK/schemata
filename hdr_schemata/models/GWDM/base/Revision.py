@@ -9,7 +9,7 @@ class Revision(BaseModel):
         title='revision version'
     )
 
-    version: Url = Field(
+    url: Url = Field(
         ...,
         title='revision url'
     )
