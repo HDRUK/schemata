@@ -6,7 +6,7 @@ class DatasetLinkage(BaseModel):
     class Config:
         extra = 'forbid'
         
-    derivation: Optional[CommaSeparatedValues] = Field(
+    isDerivedFrom: Optional[CommaSeparatedValues] = Field(
         None,
         description='Derivations.',
         title='Derivations',
@@ -24,15 +24,8 @@ class DatasetLinkage(BaseModel):
         title='Is PartOf',
     )
 
-    qualifiedRelation: Optional[CommaSeparatedValues] = Field(
+    linkedDatasets: Optional[CommaSeparatedValues] = Field(
         None,
         description='.',
         title='Linked Datasets',
-    )
-
-
-    investigations: Optional[CommaSeparatedValues] = Field(
-        None,
-        title='Investigations'
-    )
-    
+    )    

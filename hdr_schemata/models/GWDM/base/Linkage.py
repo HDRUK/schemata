@@ -8,7 +8,7 @@ class Linkage(BaseModel):
     class Config:
         extra = 'forbid'
 
-    IsGeneratedUsing: Optional[CommaSeparatedValues] = Field(
+    isGeneratedUsing: Optional[CommaSeparatedValues] = Field(
         None,
         description='',
         title=''

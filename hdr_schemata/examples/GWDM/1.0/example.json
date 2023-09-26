@@ -81,7 +81,7 @@
         }
     },
     "linkage": {
-        "IsGeneratedUsing": "something",
+        "isGeneratedUsing": "something",
         "dataUses": "dunno",
         "isReferenceIn": "10.5281/zenodo.326615",
         "tools": "https://github.com/HDRUK/papers",

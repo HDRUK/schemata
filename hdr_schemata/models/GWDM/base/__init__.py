@@ -12,6 +12,7 @@ from .Coverage import Coverage
 from .Provenance import Provenance
 from .Accessibility import Accessibility
 from .Linkage import Linkage
+from .Observations import Observation
 from .DataClass import DataClass
 
 class GwdmBaseModel(BaseModel):
@@ -47,10 +48,10 @@ class GwdmBaseModel(BaseModel):
         title='Accessibility',
     )
     
-    enrichmentAndLinkage: Optional[EnrichmentAndLinkage] = Field(
+    linkage: Optional[Linkage] = Field(
         None,
         description='Linkage and enrichment.',
-        title='Enrichment and Linkage',
+        title='Linkage',
     )
     
     observations: List[Observation] = Field(
