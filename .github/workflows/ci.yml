@@ -1,12 +1,6 @@
 name: Pytest
 
 on: [push]
-#  push:
-#    branches:
-#      - main  # Modify this branch name as needed
-#  pull_request:
-#    branches:
-#      - main  # Modify this branch name as needed
 
 jobs:
   build:
