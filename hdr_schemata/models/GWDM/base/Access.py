@@ -24,7 +24,7 @@ class Access(BaseModel):
     accessService: Optional[LongDescription] = Field(
         None,
         description='',
-        example="The SAIL Databank is powered by the UK Secure e-Research Platform (UKSeRP). Following approval through safeguard processes, access to project-specific data within the secure environment is permitted using two-factor authentication."
+        example="The SAIL Databank is powered by the UK Secure e-Research Platform (UKSeRP). Following approval through safeguard processes, access to project-specific data within the secure environment is permitted using two-factor authentication.",
         title='Access Service',
     )
 
@@ -39,7 +39,7 @@ class Access(BaseModel):
     accessRequestCost: Optional[LongDescription] = Field(
         None,
         description='',
-        example="Data provision is free from SAIL. Overall project costing depends on the number of people that require access to the SAIL Gateway, the activities that SAIL needs to complete (e.g. loading non-standard datasets), data refreshes, analytical work required, disclosure control process, and special case technological requirements."
+        example="Data provision is free from SAIL. Overall project costing depends on the number of people that require access to the SAIL Gateway, the activities that SAIL needs to complete (e.g. loading non-standard datasets), data refreshes, analytical work required, disclosure control process, and special case technological requirements.",
         title='Organisation Access Request Cost',
     )
 
@@ -49,7 +49,7 @@ class Access(BaseModel):
     deliveryLeadTime: Optional[DeliveryLeadTime] = Field(
         None,
         description='An arbitrary guess at the time to gain access to the dataset...',
-        example='2-6 MONTHS'
+        example='2-6 MONTHS',
         title='Access Request Duration',
     )
 
@@ -58,7 +58,7 @@ class Access(BaseModel):
     jurisdiction: Optional[CommaSeparatedValues] = Field(
         ...,
         description="Comma separated country codes of where the data jurisdiction is.",
-        example="GB-WLS,GB-GBN,GB-SCT"
+        example="GB-WLS,GB-GBN,GB-SCT",
         title='Jurisdiction',
     )
 
