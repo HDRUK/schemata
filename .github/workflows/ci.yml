@@ -22,9 +22,9 @@ jobs:
 
     - name: Test package
       run: |
+         cd hdr_schemata/tests/
          python -c 'from hdr_schemata.models.HDRUK import Hdruk212'
 
     - name: Run pytest
       run: |
-        cd hdr_schemata/tests/
         pytest  
