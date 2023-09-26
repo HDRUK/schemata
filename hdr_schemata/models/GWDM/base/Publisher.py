@@ -7,6 +7,8 @@ class Publisher(BaseModel):
 
     publisherName: Optional[Name] = Field(
         ...,
+        description="The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+        example="SAIL",
         title='Publisher name'
     )
 
@@ -14,5 +16,6 @@ class Publisher(BaseModel):
     #      should match a pattern? sha256? integer?
     publisherGatewayId: Optional[constr(min_length=2,max_length=50)] = Field(
         None,
+        description="The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
         title='Publisher gateway id'
     )
