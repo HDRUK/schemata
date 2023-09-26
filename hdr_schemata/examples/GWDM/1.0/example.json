@@ -106,12 +106,19 @@
         {
             "name": "table1",
             "description": "this is table 1",
-            "elements": [
+            "columns": [
                 {
                     "name": "column1",
                     "description": "this is column1",
                     "dataType": "String",
-                    "sensitive": false
+                    "sensitive": false,
+		    "values": [
+			{
+			    "name": "value",
+			    "description": "this is value1",
+			    "frequency":50
+			}
+		    ]
                 }
             ]
         }

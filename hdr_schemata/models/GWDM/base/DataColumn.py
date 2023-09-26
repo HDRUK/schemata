@@ -1,6 +1,8 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel, Field, constr
 from hdr_schemata.definitions.HDRUK import *
+
+from .DataValue import DataValue
 
 class DataColumn(BaseModel):
     class Config:

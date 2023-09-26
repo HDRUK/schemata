@@ -11,7 +11,7 @@ class FormatAndStandards(BaseModel):
     vocabularyEncodingSchemes:  Optional[CommaSeparatedValues] = Field(
         ...,
         description='Code value of the ontology vocabulary encoding',
-        example="OPCS4,NHS NATIONAL CODES,ICD10,OTHER"
+        example="OPCS4,NHS NATIONAL CODES,ICD10,OTHER",
         title='Controlled Vocabulary',
     )
 
@@ -28,7 +28,7 @@ class FormatAndStandards(BaseModel):
     languages: Optional[CommaSeparatedValues] = Field(
         ...,
         description='Language code(s) of the language of the dataset metadata and underlying data is made available.',
-        example="en"
+        example="en",
         title='Language Code(s)',
     )
 
