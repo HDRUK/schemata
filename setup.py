@@ -20,8 +20,8 @@ setuptools.setup(
     url="https://github.com/HDRUK/schemata-2",
     packages=setuptools.find_packages(),
     install_requires=[
-        "pydantic[email]",
-        "pytest"
+        "pydantic==2.0.3",
+        "pytest==7.4.2"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
