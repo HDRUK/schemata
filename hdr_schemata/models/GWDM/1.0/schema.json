@@ -1,0 +1,1384 @@
+{
+      "$defs": {
+            "AbstractText": {
+                  "anyOf": [
+                        {
+                              "maxLength": 500,
+                              "minLength": 5,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "AbstractText"
+            },
+            "Access": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "accessRights": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^In Progress$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "items": {
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/Url"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Access Rights"
+                        },
+                        "accessService": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                              "examples": [
+                                    "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                              ],
+                              "title": "Access Service"
+                        },
+                        "accessRequestCost": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
+                                    },
+                                    {
+                                          "items": {
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/Url"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
+                              "title": "Organisation Access Request Cost"
+                        },
+                        "deliveryLeadTime": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DeliveryLeadTime"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
+                              "title": "Access Request Duration"
+                        },
+                        "jurisdiction": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Isocountrycode"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+                              "title": "Jurisdiction"
+                        },
+                        "dataController": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
+                              "title": "Data Controller"
+                        },
+                        "dataProcessor": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
+                              "title": "Data Processor"
+                        }
+                  },
+                  "required": [
+                        "accessRights",
+                        "jurisdiction",
+                        "dataController"
+                  ],
+                  "title": "Access",
+                  "type": "object"
+            },
+            "Accessibility": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "usage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Usage"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "This section includes information about how the data can be used and how it is currently being used",
+                              "title": "Usage"
+                        },
+                        "access": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Access"
+                                    }
+                              ],
+                              "description": "This section includes information about data access"
+                        },
+                        "formatAndStandards": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/FormatAndStandards"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
+                              "title": "Format and Standards"
+                        }
+                  },
+                  "required": [
+                        "access"
+                  ],
+                  "title": "Accessibility",
+                  "type": "object"
+            },
+            "AgeRange": {
+                  "anyOf": [
+                        {
+                              "pattern": "Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "AgeRange"
+            },
+            "CommaSeparatedValues": {
+                  "anyOf": [
+                        {
+                              "pattern": "([^,]+)",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "CommaSeparatedValues"
+            },
+            "Coverage": {
+                  "properties": {
+                        "spatial": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Spatial"
+                        },
+                        "physicalSampleAvailability": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Physical Sample Availability"
+                        },
+                        "pathway": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Description"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Pathway"
+                        },
+                        "followup": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Followup"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Followup"
+                        },
+                        "typicalAgeRange": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/AgeRange"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Typical Age Range"
+                        }
+                  },
+                  "title": "Coverage",
+                  "type": "object"
+            },
+            "DataClass": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 500,
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The name of a table in a dataset.",
+                              "title": "Table Name"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 20000,
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of a table in a dataset.",
+                              "title": "Table Description"
+                        },
+                        "elements": {
+                              "description": "A list of data elements contained within a table in a dataset.",
+                              "items": {
+                                    "$ref": "#/$defs/DataElement"
+                              },
+                              "title": "Data Elements",
+                              "type": "array"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "elements"
+                  ],
+                  "title": "DataClass",
+                  "type": "object"
+            },
+            "DataElement": {
+                  "additionalProperties": true,
+                  "properties": {
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Name"
+                                    }
+                              ],
+                              "description": "The name of a column in a table.",
+                              "title": "Column Name"
+                        },
+                        "dataType": {
+                              "description": "The data type of values in the column",
+                              "title": "Data Type",
+                              "type": "string"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 20000,
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of a column in a table.",
+                              "title": "Column Description"
+                        },
+                        "sensitive": {
+                              "description": "A True or False value, indicating if the field is sensitive or not",
+                              "title": "Sensitive",
+                              "type": "boolean"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "dataType",
+                        "sensitive"
+                  ],
+                  "title": "DataElement",
+                  "type": "object"
+            },
+            "DatasetLinkage": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "isDerivedFrom": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Derivations.",
+                              "title": "Derivations"
+                        },
+                        "isPartOf": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": "Is PartOf"
+                        },
+                        "isMemberOf": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": "Is PartOf"
+                        },
+                        "linkedDatasets": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": ".",
+                              "title": "Linked Datasets"
+                        }
+                  },
+                  "title": "DatasetLinkage",
+                  "type": "object"
+            },
+            "DatasetType": {
+                  "anyOf": [
+                        {
+                              "maxLength": 100,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "DatasetType"
+            },
+            "DeliveryLeadTime": {
+                  "enum": [
+                        "LESS 1 WEEK",
+                        "1-2 WEEKS",
+                        "2-4 WEEKS",
+                        "1-2 MONTHS",
+                        "2-6 MONTHS",
+                        "MORE 6 MONTHS",
+                        "VARIABLE",
+                        "NOT APPLICABLE",
+                        "OTHER",
+                        null
+                  ],
+                  "title": "DeliveryLeadTime"
+            },
+            "Description": {
+                  "anyOf": [
+                        {
+                              "maxLength": 10000,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Description"
+            },
+            "Doi": {
+                  "anyOf": [
+                        {
+                              "pattern": "^10.\\d{4,9}/[-._;()/:a-zA-Z0-9]+$",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Doi"
+            },
+            "Followup": {
+                  "enum": [
+                        "0 - 6 MONTHS",
+                        "6 - 12 MONTHS",
+                        "1 - 10 YEARS",
+                        "> 10 YEARS",
+                        "UNKNOWN",
+                        "CONTINUOUS",
+                        "OTHER",
+                        null
+                  ],
+                  "title": "Followup"
+            },
+            "FormatAndStandards": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "vocabularyEncodingSchemes": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": ".",
+                              "title": "Controlled Vocabulary"
+                        },
+                        "conformsTo": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": ".",
+                              "title": "Conforms To"
+                        },
+                        "languages": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
+                              "title": "Language"
+                        },
+                        "formats": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": ".",
+                              "title": "Format"
+                        }
+                  },
+                  "required": [
+                        "vocabularyEncodingSchemes",
+                        "conformsTo",
+                        "languages",
+                        "formats"
+                  ],
+                  "title": "FormatAndStandards",
+                  "type": "object"
+            },
+            "Isocountrycode": {
+                  "pattern": "^[A-Z]{2}(-[A-Z]{2,3})?$",
+                  "title": "Isocountrycode",
+                  "type": "string"
+            },
+            "Linkage": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "isGeneratedUsing": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": ""
+                        },
+                        "associatedMedia": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": ""
+                        },
+                        "dataUses": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": ""
+                        },
+                        "isReferenceIn": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": ""
+                        },
+                        "tools": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "tools",
+                              "title": "Tools"
+                        },
+                        "datasetLinkage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetLinkage"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Dataset Linkage copied over from",
+                              "title": "Dataset Linkage"
+                        },
+                        "investigations": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Investigations"
+                        }
+                  },
+                  "title": "Linkage",
+                  "type": "object"
+            },
+            "LongAbstractText": {
+                  "anyOf": [
+                        {
+                              "maxLength": 5000,
+                              "minLength": 5,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "LongAbstractText"
+            },
+            "LongDescription": {
+                  "anyOf": [
+                        {
+                              "maxLength": 50000,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "LongDescription"
+            },
+            "MeasuredProperty": {
+                  "title": "MeasuredProperty"
+            },
+            "Name": {
+                  "title": "Name"
+            },
+            "Observation": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "observedNode": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/StatisticalPopulationConstrained"
+                                    }
+                              ],
+                              "description": "Please select one of the following statistical populations for you observation",
+                              "examples": [
+                                    "PERSONS"
+                              ],
+                              "title": "Statistical Population"
+                        },
+                        "measuredValue": {
+                              "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
+                              "title": "Measured Value",
+                              "type": "integer"
+                        },
+                        "disambiguatingDescription": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/AbstractText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type.",
+                              "title": "Disambiguating Description"
+                        },
+                        "observationDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    }
+                              ],
+                              "description": "Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.",
+                              "title": "Observation Date"
+                        },
+                        "measuredProperty": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/MeasuredProperty"
+                                    }
+                              ],
+                              "description": "Initially this will be defaulted to \"COUNT\"",
+                              "title": "Measured Property"
+                        }
+                  },
+                  "required": [
+                        "observedNode",
+                        "measuredValue",
+                        "observationDate",
+                        "measuredProperty"
+                  ],
+                  "title": "Observation",
+                  "type": "object"
+            },
+            "Origin": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "purpose": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Pleases indicate the purpose(s) that the dataset was collected.",
+                              "title": "Purpose"
+                        },
+                        "source": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Pleases indicate the source of the data extraction",
+                              "title": "Source"
+                        },
+                        "collectionSituation": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Pleases indicate the setting(s) where data was collected. Multiple settings may be provided",
+                              "title": "Setting"
+                        }
+                  },
+                  "title": "Origin",
+                  "type": "object"
+            },
+            "Periodicity": {
+                  "enum": [
+                        "STATIC",
+                        "IRREGULAR",
+                        "CONTINUOUS",
+                        "BIENNIAL",
+                        "ANNUAL",
+                        "BIANNUAL",
+                        "QUARTERLY",
+                        "BIMONTHLY",
+                        "MONTHLY",
+                        "BIWEEKLY",
+                        "WEEKLY",
+                        "SEMIWEEKLY",
+                        "DAILY",
+                        "OTHER",
+                        null
+                  ],
+                  "title": "Periodicity"
+            },
+            "Provenance": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "origin": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Origin"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null
+                        },
+                        "temporal": {
+                              "$ref": "#/$defs/Temporal"
+                        }
+                  },
+                  "required": [
+                        "temporal"
+                  ],
+                  "title": "Provenance",
+                  "type": "object"
+            },
+            "Publisher": {
+                  "properties": {
+                        "publisherName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Name"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Publisher name"
+                        },
+                        "publisherGatewayId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Publisher gateway id"
+                        }
+                  },
+                  "required": [
+                        "publisherName"
+                  ],
+                  "title": "Publisher",
+                  "type": "object"
+            },
+            "Required": {
+                  "properties": {
+                        "gatewayId": {
+                              "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
+                              "maxLength": 50,
+                              "minLength": 2,
+                              "title": "Gatewayid",
+                              "type": "string"
+                        },
+                        "gatewayPid": {
+                              "description": "Need a field in Mauro that captures the dataset pid to link to gateway database",
+                              "maxLength": 50,
+                              "minLength": 2,
+                              "title": "Gatewaypid",
+                              "type": "string"
+                        },
+                        "issued": {
+                              "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                              "format": "date-time",
+                              "title": "Issued",
+                              "type": "string"
+                        },
+                        "modified": {
+                              "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                              "format": "date-time",
+                              "title": "Modified",
+                              "type": "string"
+                        },
+                        "revisions": {
+                              "items": {
+                                    "$ref": "#/$defs/Revision"
+                              },
+                              "title": "Revisions",
+                              "type": "array"
+                        }
+                  },
+                  "required": [
+                        "gatewayId",
+                        "gatewayPid",
+                        "issued",
+                        "modified",
+                        "revisions"
+                  ],
+                  "title": "Required",
+                  "type": "object"
+            },
+            "Revision": {
+                  "properties": {
+                        "version": {
+                              "maxLength": 100,
+                              "minLength": 2,
+                              "title": "revision version",
+                              "type": "string"
+                        },
+                        "url": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    }
+                              ],
+                              "title": "revision url"
+                        }
+                  },
+                  "required": [
+                        "version",
+                        "url"
+                  ],
+                  "title": "Revision",
+                  "type": "object"
+            },
+            "ShortDescription": {
+                  "anyOf": [
+                        {
+                              "maxLength": 1000,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "ShortDescription"
+            },
+            "ShortTitle": {
+                  "anyOf": [
+                        {
+                              "maxLength": 100,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "ShortTitle"
+            },
+            "StatisticalPopulationConstrained": {
+                  "enum": [
+                        "PERSONS",
+                        "EVENTS",
+                        "FINDINGS"
+                  ],
+                  "title": "StatisticalPopulationConstrained",
+                  "type": "string"
+            },
+            "Summary": {
+                  "properties": {
+                        "title": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/TwoHundredFiftyFiveCharacters"
+                                    }
+                              ],
+                              "title": "Title"
+                        },
+                        "shortTitle": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/ShortTitle"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Shorttitle"
+                        },
+                        "doiName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Doi"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Doiname"
+                        },
+                        "abstract": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/LongAbstractText"
+                                    }
+                              ],
+                              "title": "Abstract"
+                        },
+                        "keywords": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Keywords"
+                        },
+                        "controlledKeywords": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Controlled Keywords"
+                        },
+                        "contactPoint": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Contact Point"
+                        },
+                        "datasetType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetType"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Dataset type"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Description"
+                        },
+                        "publisher": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Publisher"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Publisher"
+                        }
+                  },
+                  "required": [
+                        "title",
+                        "shortTitle",
+                        "doiName",
+                        "abstract",
+                        "keywords",
+                        "controlledKeywords",
+                        "contactPoint",
+                        "datasetType",
+                        "description",
+                        "publisher"
+                  ],
+                  "title": "Summary",
+                  "type": "object"
+            },
+            "Temporal": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "startDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": ".",
+                              "title": "Start Date"
+                        },
+                        "endDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": ".",
+                              "title": "End Date"
+                        },
+                        "timeLag": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/TimeLag"
+                                    }
+                              ],
+                              "description": "t",
+                              "title": "Time Lag"
+                        },
+                        "accrualPeriodicity": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Periodicity"
+                                    }
+                              ],
+                              "description": ""
+                        },
+                        "distributionReleaseDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": "Release Date"
+                        }
+                  },
+                  "required": [
+                        "startDate",
+                        "timeLag",
+                        "accrualPeriodicity"
+                  ],
+                  "title": "Temporal",
+                  "type": "object"
+            },
+            "TimeLag": {
+                  "enum": [
+                        "LESS 1 WEEK",
+                        "1-2 WEEKS",
+                        "2-4 WEEKS",
+                        "1-2 MONTHS",
+                        "2-6 MONTHS",
+                        "MORE 6 MONTHS",
+                        "VARIABLE",
+                        "NO TIMELAG",
+                        "NOT APPLICABLE",
+                        "OTHER",
+                        null
+                  ],
+                  "title": "TimeLag"
+            },
+            "TwoHundredFiftyFiveCharacters": {
+                  "maxLength": 255,
+                  "minLength": 2,
+                  "title": "TwoHundredFiftyFiveCharacters",
+                  "type": "string"
+            },
+            "Url": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Url"
+            },
+            "Usage": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "dataUseLimitation": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "",
+                              "title": "Data Use Limitation"
+                        },
+                        "dataUseRequirement": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "",
+                              "title": "Data Use Requirements"
+                        },
+                        "resourceCreator": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/ShortDescription"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "",
+                              "title": "Citation Requirements"
+                        }
+                  },
+                  "required": [
+                        "dataUseLimitation",
+                        "dataUseRequirement"
+                  ],
+                  "title": "Usage",
+                  "type": "object"
+            }
+      },
+      "additionalProperties": false,
+      "properties": {
+            "required": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Required"
+                        }
+                  ],
+                  "description": "required metadata needed for the GWDM"
+            },
+            "summary": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Summary"
+                        }
+                  ],
+                  "description": "Summary of metadata describing key pieces of information."
+            },
+            "coverage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Coverage"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "description": "Spatial and Temporal coverage",
+                  "title": "Coverage"
+            },
+            "provenance": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Provenance"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Provenance information",
+                  "title": "Provenance"
+            },
+            "accessibility": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Accessibility"
+                        }
+                  ],
+                  "description": "Accessibility information."
+            },
+            "linkage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Linkage"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Linkage and enrichment.",
+                  "title": "Linkage"
+            },
+            "observations": {
+                  "description": "Obsservations",
+                  "items": {
+                        "$ref": "#/$defs/Observation"
+                  },
+                  "title": "Observations",
+                  "type": "array"
+            },
+            "structuralMetadata": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/DataClass"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Descriptions of all tables and data elements that can be included in the dataset",
+                  "title": "Structural Metadata"
+            }
+      },
+      "required": [
+            "required",
+            "summary",
+            "coverage",
+            "accessibility",
+            "observations"
+      ],
+      "title": "Gwdm10",
+      "type": "object"
+}
