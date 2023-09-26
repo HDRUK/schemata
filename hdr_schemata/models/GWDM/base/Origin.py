@@ -6,19 +6,27 @@ class Origin(BaseModel):
     class Config:
         extra = 'forbid'
 
+    #note: shall we update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Purpose.py
     purpose: Optional[CommaSeparatedValues] = Field(
         None,
-        description='Pleases indicate the purpose(s) that the dataset was collected.',
+        description='Indicates the purpose(s) that the dataset was collected.',
+        example='ADMINISTRATIVE,STATUTORY',
         title='Purpose',
     )
+
+    #note: update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Source.py
     source: Optional[CommaSeparatedValues] = Field(
         None,
-        description='Pleases indicate the source of the data extraction',
+        description='Indicates the source of the data extraction',
+        example= "PAPER BASED,ELECTRONIC SURVEY",
         title='Source',
     )
+    
+    #note: update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Setting.py
     collectionSituation: Optional[CommaSeparatedValues] = Field(
         None,
-        description='Pleases indicate the setting(s) where data was collected. Multiple settings may be provided',
+        description='Indicate the setting(s) where data was collected. Multiple settings may be provided',
+        example="IN-PATIENTS,PRIMARY CARE",
         title='Setting',
     )
 
