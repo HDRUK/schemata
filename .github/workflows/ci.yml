@@ -14,13 +14,15 @@ jobs:
       with:
         python-version: 3.8  
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt  
-
     - name: Install schema module
       run: |
-        pip install -e . 
+        python -m pip install --upgrade
+        python -m pip install setuptools
+        python -m pip install -e .
+
+    - name: Test package
+      run: |
+         python -c 'from hdr_schemata.models.HDRUK import Hdruk212
 
     - name: Run pytest
       run: |
