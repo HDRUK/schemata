@@ -3,17 +3,29 @@ from pydantic import AnyUrl, HttpUrl, BaseModel, RootModel, Field, constr, Email
 
 from .Organization import Organization
 from .Person import Person
+from .CreativeWork import CreativeWork
+from .Place import Place
 
-from hdr_schemata.definitions.SchemaOrg import Text, Text
+from hdr_schemata.definitions.SchemaOrg import Text 
 
     
 class Dataset(BaseModel):
     class Config:
         extra = 'forbid'
 
-    _type: Text = Field(
+    m_type: Text = Field(
         alias="@type",
         default="Dataset"
+    )
+
+    m_id: Text = Field(
+        alias="@id",
+        default="Another ID for context"
+    )
+
+    m_context: Text = Field(
+        alias="@context",
+        default="https://schema.org/",
     )
     
     description: Text = Field(
@@ -40,3 +52,17 @@ class Dataset(BaseModel):
         title='Dataset Creator',
         description="The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
     )
+
+    citation: Optional[Union[Text,CreativeWork]] = Field(
+        ...,
+        title='citation',
+        description='A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.'
+    )
+
+    funder: Optional[Union[Person,Organization]] = Field(
+        ...,
+        title='Funder',
+        description='A person or organization that supports (sponsors) something through some kind of financial contribution.'
+    )
+
+    
