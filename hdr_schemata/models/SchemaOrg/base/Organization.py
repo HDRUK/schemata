@@ -10,9 +10,9 @@ class Organization(BaseModel):
         default="Organization"
     )
 
-    sameAs: Union[Ror,AnyUrl] = Field(
-        description="Link or ror.org ID of the organisation",
-        example="https://ror.org/xxxxxxxxx"
+    sameAs: AnyUrl = Field(
+        description="URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+        example="https://www.kaggle.com/datasets/meirnizri/covid19-dataset"
     )
     
     name: Text = Field(
