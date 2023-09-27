@@ -29,7 +29,8 @@ class Required(BaseModel):
         description="Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
         title='Modified',
     )
-    
+
+    #note: do we also need to include a 'latest'?
     revisions: List[Revision] = Field(
         ...,
         title='Revisions')
