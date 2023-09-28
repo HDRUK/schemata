@@ -1,3 +1,4 @@
+from datetime import date,datetime
 from typing import Optional, Union, List
 from pydantic import AnyUrl, HttpUrl, BaseModel, RootModel, Field, constr, EmailStr
 from pydantic import ConfigDict
@@ -44,10 +45,16 @@ class Dataset(BaseModel):
         description="A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also DCAT on this point). Different distributions might include or exclude different subsets of the entire dataset, for example"
     )
 
-    includedInDataCatalog = Optional[DataCatalog] = Field(
+    includedInDataCatalog: Optional[DataCatalog] = Field(
         ...,
         title='Included In Data Catalog',
         description="A data catalog which contains this dataset. Supersedes includedDataCatalog, catalog. Inverse property: dataset"
+    )
+
+    isBasedOn: Optional[Union[CreativeWork,AnyUrl]] = Field(
+        ...,
+        title='Is Based On',
+        description="Use to link a Dataset to the Study that it was generated from. A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl."
     )
      
     name: Text = Field(
@@ -183,4 +190,34 @@ class Dataset(BaseModel):
         None,
         title='url',
         description='Location of a page describing the dataset.'
+    )
+
+    dateCreated: Optional[Union[date,datetime]] = Field(
+        ...,
+        title="Date Created",
+        description="The date on which the CreativeWork was created or the item was added to a DataFeed."
+    )
+
+    dateModified: Optional[Union[date,datetime]] = Field(
+        ...,
+        title="Date (last) Modified",
+        description="The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."
+    )
+
+    datePublished: Optional[Union[date,datetime]] = Field(
+        ...,
+        title="Date Published",
+        description="Date of first broadcast/publication."
+    )
+
+    maintainer: Optional[Union[Organization,Person]] = Field(
+        ...,
+        title="Maintainer",
+        description="A maintainer of a Dataset, software package (SoftwareApplication), or other Project. A maintainer is a Person or Organization that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on 'upstream' sources. When maintainer is applied to a specific version of something e.g. a particular version or packaging of a Dataset, it is always possible that the upstream source has a different maintainer. The isBasedOn property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work."
+    )
+
+    publisher: Optional[Union[Organization,Person]] = Field(
+        ...,
+        title="Publisher",
+        description="The publisher of the creative work."
     )
