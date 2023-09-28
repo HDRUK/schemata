@@ -1,0 +1,718 @@
+{
+      "$defs": {
+            "CreativeWork": {
+                  "properties": {
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "The name of the item."
+                        },
+                        "identifier": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links."
+                        },
+                        "creator": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Person"
+                                    },
+                                    {
+                                          "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+                              "title": "Creative Work creator"
+                        },
+                        "publisher": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Person"
+                                    },
+                                    {
+                                          "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The publisher of the creative work.",
+                              "title": "Creative Work publisher"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "identifier",
+                        "creator",
+                        "publisher"
+                  ],
+                  "title": "CreativeWork",
+                  "type": "object"
+            },
+            "GeoCoordinates": {
+                  "properties": {
+                        "latitude": {
+                              "pattern": "^[-]?([0-8]?[0-9]|90)(\\.[0-9]+)?$",
+                              "title": "Latitude",
+                              "type": "string"
+                        },
+                        "longitude": {
+                              "pattern": "^[-]?((1[0-7][0-9])|([0-9]?[0-9]))(\\.[0-9]+)?$",
+                              "title": "Longitude",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "latitude",
+                        "longitude"
+                  ],
+                  "title": "GeoCoordinates",
+                  "type": "object"
+            },
+            "Number": {
+                  "title": "Number",
+                  "type": "string"
+            },
+            "OpenEndedTimePeriod": {
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}\\/\\.\\.$",
+                  "title": "OpenEndedTimePeriod",
+                  "type": "string"
+            },
+            "Person": {
+                  "properties": {
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://orcid.org/0000-0000-0000-0000",
+                              "title": "Sameas"
+                        },
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "Full name of a person",
+                              "example": "Jane Foo"
+                        },
+                        "givenName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Given name. In the U.S., the first name of a Person.",
+                              "example": "Jane"
+                        },
+                        "familyName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Family name. In the U.S., the last name of a Person.",
+                              "example": "Foo"
+                        },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Email address",
+                              "example": "blah@google.com",
+                              "title": "Email"
+                        },
+                        "affiliation": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                                    }
+                              ],
+                              "description": "An organization that this person is affiliated with. For example, a school/university, a club, or a team."
+                        }
+                  },
+                  "required": [
+                        "sameAs",
+                        "name",
+                        "givenName",
+                        "familyName",
+                        "email",
+                        "affiliation"
+                  ],
+                  "title": "Person",
+                  "type": "object"
+            },
+            "Place": {
+                  "properties": {
+                        "geo": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/GeoCoordinates"
+                                    }
+                              ],
+                              "description": "GeoCoordinates of the place"
+                        }
+                  },
+                  "required": [
+                        "geo"
+                  ],
+                  "title": "Place",
+                  "type": "object"
+            },
+            "Ror": {
+                  "pattern": "^https:\\/\\/ror\\.org.*$",
+                  "title": "Ror",
+                  "type": "string"
+            },
+            "SingleDate": {
+                  "format": "date",
+                  "title": "SingleDate",
+                  "type": "string"
+            },
+            "Text": {
+                  "title": "Text",
+                  "type": "string"
+            },
+            "Text50": {
+                  "maxLength": 5000,
+                  "minLength": 50,
+                  "title": "Text50",
+                  "type": "string"
+            },
+            "TimePeriod": {
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}\\/\\d{4}-\\d{2}-\\d{2}$",
+                  "title": "TimePeriod",
+                  "type": "string"
+            },
+            "hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization": {
+                  "properties": {
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Ror"
+                                    },
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Link or ror.org ID of the organisation",
+                              "example": "https://ror.org/xxxxxxxxx",
+                              "title": "Sameas"
+                        },
+                        "legalName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Legal name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "legalName"
+                  ],
+                  "title": "Organization",
+                  "type": "object"
+            },
+            "hdr_schemata__models__SchemaOrg__base__Organization__Organization": {
+                  "properties": {
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        },
+                        "legalName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Legal name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "sameAs",
+                        "legalName"
+                  ],
+                  "title": "Organization",
+                  "type": "object"
+            }
+      },
+      "additionalProperties": false,
+      "description": "\n    - inherits from the baseline Schema.org definitions (currently incomplete)\n    - implements some additional Google Recommended specific patterns \n    ",
+      "properties": {
+            "@type": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "default": "Dataset"
+            },
+            "@id": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "default": "Another ID for context"
+            },
+            "@context": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "default": "https://schema.org/"
+            },
+            "description": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text50"
+                        }
+                  ],
+                  "description": "A short summary describing a dataset.\n        Guidelines\n\n        The summary must be between 50 and 5000 characters long.\n        The summary may include Markdown syntax. Embedded images need to use absolute path URLs (instead of relative paths).\n        When using the JSON-LD format, denote new lines with \\n (two characters: backslash and lower case letter \"n\").\n        ",
+                  "title": "description"
+            },
+            "name": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "description": "A descriptive name of a dataset. For example, \"Snow depth in the Northern Hemisphere\".\n        Guidelines\n        \n        Use unique names for distinct datasets whenever possible.\n        Recommended: \"Snow depth in the Northern Hemisphere\" and \"Snow depth in the Southern Hemisphere\" for two different datasets.\n        \n        Not recommended: \"Snow depth\" and \"Snow depth\" for two different datasets.\n        ",
+                  "title": "Name"
+            },
+            "alternateName": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/Text"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "description": "Alternative names that have been used to refer to this dataset, such as aliases or abbreviations",
+                  "example": [
+                        "Quick Draw Dataset",
+                        "quickdraw-dataset"
+                  ],
+                  "title": "Alternate Name"
+            },
+            "creator": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The creator or author of this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
+                  "example": [
+                        {
+                              "@type": "Person",
+                              "familyName": "Foo",
+                              "givenName": "Jane",
+                              "name": "Jane Foo",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0000"
+                        },
+                        {
+                              "@type": "Person",
+                              "familyName": "Bar",
+                              "givenName": "Jo",
+                              "name": "Jo Bar",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0001"
+                        },
+                        {
+                              "@type": "Organization",
+                              "name": "Fictitious Research Consortium",
+                              "sameAs": "https://ror.org/xxxxxxxxx"
+                        }
+                  ],
+                  "title": "Dataset Creator"
+            },
+            "citation": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "$ref": "#/$defs/CreativeWork"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself. Provide the citation for the dataset itself with other properties, such as name, identifier, creator, and publisher properties. For example, this property can uniquely identify a related academic publication such as a data descriptor, data paper, or an article for which this dataset is supplementary material for. Don't use this property to provide citation information for the dataset itself. It is intended to identify related academic articles, not the dataset itself. To provide information necessary to cite the dataset itself use name, identifier, creator, and publisher properties instead.",
+                  "examples": [
+                        "https://doi.org/10.1111/111",
+                        "https://identifiers.org/pubmed:11111111",
+                        "https://identifiers.org/arxiv:0111.1111v1",
+                        "Doe J (2014) Influence of X ... https://doi.org/10.1111/111"
+                  ],
+                  "title": "citation"
+            },
+            "funder": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "A person or organization that provides financial support for this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
+                  "examples": [
+                        {
+                              "@type": "Person",
+                              "familyName": "Funder",
+                              "givenName": "Jane",
+                              "name": "Jane Funder",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0002"
+                        },
+                        {
+                              "@type": "Organization",
+                              "name": "Fictitious Funding Organization",
+                              "sameAs": "https://ror.org/yyyyyyyyy"
+                        }
+                  ],
+                  "title": "Funder"
+            },
+            "isPartOf": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "If the dataset is a collection of smaller datasets, use the hasPart property to denote such relationship. Conversly, if the dataset is part of a larger dataset, use isPartOf. Both properties can take the form of a URL or a Dataset instance. In case Dataset is used as a value it has to include all of the properties required for a standalone Dataset. ",
+                  "examples": [
+                        "https://example.com/aggregate_dataset"
+                  ],
+                  "title": "Is Part Of (dataset)"
+            },
+            "identifier": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "anyOf": [
+                                          {
+                                                "format": "uri",
+                                                "minLength": 1,
+                                                "type": "string"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Text"
+                                          }
+                                    ]
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
+                  "title": "identifier"
+            },
+            "isAccessibleForFree": {
+                  "anyOf": [
+                        {
+                              "type": "boolean"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Whether the dataset is accessible without payment.",
+                  "title": "Is Accessible For Free?"
+            },
+            "keywords": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/Text"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Keywords summarizing the dataset.",
+                  "examples": [
+                        [
+                              "ATMOSPHERE > ATMOSPHERIC PHENOMENA > CYCLONES",
+                              "ATMOSPHERE > ATMOSPHERIC PHENOMENA > DROUGHT",
+                              "ATMOSPHERE > ATMOSPHERIC PHENOMENA > FOG",
+                              "ATMOSPHERE > ATMOSPHERIC PHENOMENA > FREEZE"
+                        ]
+                  ],
+                  "title": "Keywords"
+            },
+            "license": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "$ref": "#/$defs/CreativeWork"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "A license under which the dataset is distributed. Provide a URL that unambiguously identifies a specific version of the license used. e.g. https://creativecommons.org/licenses/by/4.0 not https://creativecommons.org/licenses/by",
+                  "examples": [
+                        "https://creativecommons.org/publicdomain/zero/1.0/",
+                        {
+                              "@type": "CreativeWork",
+                              "name": "Custom license",
+                              "url": "https://example.com/custom_license"
+                        }
+                  ],
+                  "title": "License"
+            },
+            "measurementTechnique": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The technique, technology, or methodology used in a dataset, which can correspond to the variable(s) described in variableMeasured.",
+                  "title": "Measurement Technique"
+            },
+            "sameAs": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "items": {
+                                    "format": "uri",
+                                    "minLength": 1,
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The URL of a reference web page that unambiguously indicates the dataset's identity.",
+                  "title": "Same As (dataset)"
+            },
+            "spatialCoverage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "$ref": "#/$defs/Place"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "You can provide a single point that describes the spatial aspect of the dataset. Only include this property if the dataset has a spatial dimension. For example, a single point where all the measurements were collected, or the coordinates of a bounding box for an area.",
+                  "examples": [
+                        {
+                              "@type": "Place",
+                              "geo": {
+                                    "@type": "GeoShape",
+                                    "box": "39.3280 120.1633 40.445 123.7878"
+                              }
+                        }
+                  ],
+                  "title": "Spatial Coverage"
+            },
+            "temporalCoverage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/SingleDate"
+                        },
+                        {
+                              "$ref": "#/$defs/TimePeriod"
+                        },
+                        {
+                              "$ref": "#/$defs/OpenEndedTimePeriod"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension. Schema.org uses the ISO 8601 standard to describe time intervals and time points. You can describe dates differently depending upon the dataset interval. Indicate open-ended intervals with two decimal points (..).",
+                  "title": "Temporal Coverage"
+            },
+            "variableMeasured": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The variable that this dataset measures. For example, temperature or pressure.",
+                  "title": "Variable Measured"
+            },
+            "version": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "$ref": "#/$defs/Number"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The version number for the dataset.",
+                  "title": "version"
+            },
+            "url": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Location of a page describing the dataset.",
+                  "title": "url"
+            }
+      },
+      "required": [
+            "description",
+            "name",
+            "alternateName"
+      ],
+      "title": "Dataset",
+      "type": "object"
+}

@@ -1,0 +1,1 @@
+from .GoogleRecommended import Dataset as SchemaOrgGoogleRecommendedDataset

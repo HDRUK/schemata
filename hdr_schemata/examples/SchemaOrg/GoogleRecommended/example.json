@@ -1,0 +1,27 @@
+{
+    "@context": "https://schema.org/",
+    "@id": "https://hdruk.ac.uk",
+    "@type": "Dataset",
+    "identifier": "10.1093/ije/dyx196",
+    "version": "GDMv1",
+    "url": "https://hdruk.ac.uk/1234",
+    "name": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations",
+    "alternateName": "HDR UK Papers & Preprints",
+    "description": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\n\nThis will include:\n- Papers\n- COVID-19 Papers\n- COVID-19 Preprint",
+    "citation": "10.1093/ije/dyx196",
+    "funder": {
+        "@type": "Organization",
+        "legalName": "HDR UK Science Team",
+        "name": "HDR UK Science Team"
+    },
+    "creator": {
+        "@type": "Organization",
+        "legalName": "HDR UK Science Team",
+        "name": "HDR UK Science Team"
+    },
+    "spatialCoverage": "MACHINE GENERATED",
+    "temporalCoverage": "2020-03-31/2022-04-30",
+    "isAccessibleForFree": true,
+    "keywords": "Preprints,Papers,HDR UK",
+    "license": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE"
+}
