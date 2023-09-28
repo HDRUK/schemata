@@ -18,14 +18,14 @@ class Organization(BaseModel):
 
     
     sameAs: Optional[AnyUrl] = Field(
-        ...,
+        None,
         description="URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
         example="https://www.kaggle.com/datasets/meirnizri/covid19-dataset"
     )
     
 
     legalName: Optional[Text] = Field(
-        ...,
+        None,
         description="Legal name of the organisation",
         example="Fictitious Research Consortium"
     )

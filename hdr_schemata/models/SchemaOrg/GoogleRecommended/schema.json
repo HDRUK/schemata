@@ -362,13 +362,13 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Legal name of the organisation",
                               "example": "Fictitious Research Consortium"
                         }
                   },
                   "required": [
-                        "name",
-                        "legalName"
+                        "name"
                   ],
                   "title": "Organization",
                   "type": "object"
@@ -403,6 +403,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
                               "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
                               "title": "Sameas"
@@ -416,14 +417,13 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Legal name of the organisation",
                               "example": "Fictitious Research Consortium"
                         }
                   },
                   "required": [
-                        "name",
-                        "sameAs",
-                        "legalName"
+                        "name"
                   ],
                   "title": "Organization",
                   "type": "object"
@@ -474,6 +474,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also DCAT on this point). Different distributions might include or exclude different subsets of the entire dataset, for example",
                   "title": "distribution"
             },
@@ -486,6 +487,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "A data catalog which contains this dataset. Supersedes includedDataCatalog, catalog. Inverse property: dataset",
                   "title": "Included In Data Catalog"
             },
@@ -503,6 +505,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "Use to link a Dataset to the Study that it was generated from. A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl.",
                   "title": "Is Based On"
             },
@@ -530,6 +533,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "Alternative names that have been used to refer to this dataset, such as aliases or abbreviations",
                   "example": [
                         "Quick Draw Dataset",
@@ -893,6 +897,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "The date on which the CreativeWork was created or the item was added to a DataFeed.",
                   "title": "Date Created"
             },
@@ -910,6 +915,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.",
                   "title": "Date (last) Modified"
             },
@@ -927,6 +933,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "Date of first broadcast/publication.",
                   "title": "Date Published"
             },
@@ -942,6 +949,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "A maintainer of a Dataset, software package (SoftwareApplication), or other Project. A maintainer is a Person or Organization that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on 'upstream' sources. When maintainer is applied to a specific version of something e.g. a particular version or packaging of a Dataset, it is always possible that the upstream source has a different maintainer. The isBasedOn property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.",
                   "title": "Maintainer"
             },
@@ -957,22 +965,14 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "The publisher of the creative work.",
                   "title": "Publisher"
             }
       },
       "required": [
             "description",
-            "distribution",
-            "includedInDataCatalog",
-            "isBasedOn",
-            "name",
-            "alternateName",
-            "dateCreated",
-            "dateModified",
-            "datePublished",
-            "maintainer",
-            "publisher"
+            "name"
       ],
       "title": "Dataset",
       "type": "object"
