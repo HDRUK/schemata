@@ -5,7 +5,7 @@ from hdr_schemata.definitions.SchemaOrg import Text,Ror
 
 class Organization(BaseModel):
     
-    _type: Text = Field(
+    m_type: Text = Field(
         alias="@type",
         default="Organization"
     )
