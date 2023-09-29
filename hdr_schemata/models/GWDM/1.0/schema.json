@@ -313,6 +313,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Data values contained within the column",
                               "title": "Values"
                         }
@@ -320,8 +321,7 @@
                   "required": [
                         "name",
                         "dataType",
-                        "sensitive",
-                        "values"
+                        "sensitive"
                   ],
                   "title": "DataColumn",
                   "type": "object"
