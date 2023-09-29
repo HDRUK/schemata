@@ -8,8 +8,8 @@ from .Organization import Organization
 
 class CreativeWork(BaseModel):
 
-    _type: Text = Field(
-        alias="@CreativeWork",
+    m_type: Text = Field(
+        alias="@type",
         default="CreativeWork"
     )
 

@@ -32,7 +32,7 @@
                                           "$ref": "#/$defs/Person"
                                     },
                                     {
-                                          "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                                          "$ref": "#/$defs/Organization"
                                     },
                                     {
                                           "type": "null"
@@ -47,7 +47,7 @@
                                           "$ref": "#/$defs/Person"
                                     },
                                     {
-                                          "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                                          "$ref": "#/$defs/Organization"
                                     },
                                     {
                                           "type": "null"
@@ -181,6 +181,61 @@
                   "title": "OpenEndedTimePeriod",
                   "type": "string"
             },
+            "Organization": {
+                  "properties": {
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "Organization"
+                        },
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        },
+                        "legalName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Legal name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        }
+                  },
+                  "required": [
+                        "name"
+                  ],
+                  "title": "Organization",
+                  "type": "object"
+            },
             "Person": {
                   "properties": {
                         "@type": {
@@ -256,7 +311,7 @@
                         "affiliation": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                                          "$ref": "#/$defs/Organization"
                                     }
                               ],
                               "description": "An organization that this person is affiliated with. For example, a school/university, a club, or a team."
@@ -290,11 +345,6 @@
                   "title": "Place",
                   "type": "object"
             },
-            "Ror": {
-                  "pattern": "^https:\\/\\/ror\\.org.*$",
-                  "title": "Ror",
-                  "type": "string"
-            },
             "SingleDate": {
                   "format": "date",
                   "title": "SingleDate",
@@ -304,133 +354,13 @@
                   "title": "Text",
                   "type": "string"
             },
-            "Text50": {
-                  "maxLength": 5000,
-                  "minLength": 50,
-                  "title": "Text50",
-                  "type": "string"
-            },
             "TimePeriod": {
                   "pattern": "^\\d{4}-\\d{2}-\\d{2}\\/\\d{4}-\\d{2}-\\d{2}$",
                   "title": "TimePeriod",
                   "type": "string"
-            },
-            "hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization": {
-                  "properties": {
-                        "@type": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "default": "Organization"
-                        },
-                        "name": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "description": "Name of the organisation",
-                              "example": "Fictitious Research Consortium"
-                        },
-                        "sameAs": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Ror"
-                                    },
-                                    {
-                                          "format": "uri",
-                                          "minLength": 1,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Link or ror.org ID of the organisation",
-                              "example": "https://ror.org/xxxxxxxxx",
-                              "title": "Sameas"
-                        },
-                        "legalName": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Legal name of the organisation",
-                              "example": "Fictitious Research Consortium"
-                        }
-                  },
-                  "required": [
-                        "name"
-                  ],
-                  "title": "Organization",
-                  "type": "object"
-            },
-            "hdr_schemata__models__SchemaOrg__base__Organization__Organization": {
-                  "properties": {
-                        "@type": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "default": "Organization"
-                        },
-                        "name": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "description": "Name of the organisation",
-                              "example": "Fictitious Research Consortium"
-                        },
-                        "sameAs": {
-                              "anyOf": [
-                                    {
-                                          "format": "uri",
-                                          "minLength": 1,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
-                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
-                              "title": "Sameas"
-                        },
-                        "legalName": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Legal name of the organisation",
-                              "example": "Fictitious Research Consortium"
-                        }
-                  },
-                  "required": [
-                        "name"
-                  ],
-                  "title": "Organization",
-                  "type": "object"
             }
       },
       "additionalProperties": false,
-      "description": "\n    - inherits from the baseline Schema.org definitions (currently incomplete)\n    - implements some additional Google Recommended specific patterns \n    ",
       "properties": {
             "@type": {
                   "allOf": [
@@ -459,10 +389,10 @@
             "description": {
                   "allOf": [
                         {
-                              "$ref": "#/$defs/Text50"
+                              "$ref": "#/$defs/Text"
                         }
                   ],
-                  "description": "A short summary describing a dataset.\n        Guidelines\n\n        The summary must be between 50 and 5000 characters long.\n        The summary may include Markdown syntax. Embedded images need to use absolute path URLs (instead of relative paths).\n        When using the JSON-LD format, denote new lines with \\n (two characters: backslash and lower case letter \"n\").\n        ",
+                  "description": "A description of the item.",
                   "title": "description"
             },
             "distribution": {
@@ -515,7 +445,7 @@
                               "$ref": "#/$defs/Text"
                         }
                   ],
-                  "description": "A descriptive name of a dataset. For example, \"Snow depth in the Northern Hemisphere\".\n        Guidelines\n        \n        Use unique names for distinct datasets whenever possible.\n        Recommended: \"Snow depth in the Northern Hemisphere\" and \"Snow depth in the Southern Hemisphere\" for two different datasets.\n        \n        Not recommended: \"Snow depth\" and \"Snow depth\" for two different datasets.\n        ",
+                  "description": "The name of the item.",
                   "title": "Name"
             },
             "alternateName": {
@@ -544,35 +474,14 @@
             "creator": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
+                              "$ref": "#/$defs/Organization"
                         },
                         {
                               "type": "null"
                         }
                   ],
                   "default": null,
-                  "description": "The creator or author of this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
-                  "example": [
-                        {
-                              "@type": "Person",
-                              "familyName": "Foo",
-                              "givenName": "Jane",
-                              "name": "Jane Foo",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0000"
-                        },
-                        {
-                              "@type": "Person",
-                              "familyName": "Bar",
-                              "givenName": "Jo",
-                              "name": "Jo Bar",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0001"
-                        },
-                        {
-                              "@type": "Organization",
-                              "name": "Fictitious Research Consortium",
-                              "sameAs": "https://ror.org/xxxxxxxxx"
-                        }
-                  ],
+                  "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
                   "title": "Dataset Creator"
             },
             "citation": {
@@ -588,44 +497,27 @@
                         }
                   ],
                   "default": null,
-                  "description": "Identifies academic articles that are recommended by the data provider be cited in addition to the dataset itself. Provide the citation for the dataset itself with other properties, such as name, identifier, creator, and publisher properties. For example, this property can uniquely identify a related academic publication such as a data descriptor, data paper, or an article for which this dataset is supplementary material for. Don't use this property to provide citation information for the dataset itself. It is intended to identify related academic articles, not the dataset itself. To provide information necessary to cite the dataset itself use name, identifier, creator, and publisher properties instead.",
-                  "examples": [
-                        "https://doi.org/10.1111/111",
-                        "https://identifiers.org/pubmed:11111111",
-                        "https://identifiers.org/arxiv:0111.1111v1",
-                        "Doe J (2014) Influence of X ... https://doi.org/10.1111/111"
-                  ],
+                  "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
                   "title": "citation"
             },
             "funder": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
+                              "$ref": "#/$defs/Organization"
                         },
                         {
                               "type": "null"
                         }
                   ],
                   "default": null,
-                  "description": "A person or organization that provides financial support for this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
-                  "examples": [
-                        {
-                              "@type": "Person",
-                              "familyName": "Funder",
-                              "givenName": "Jane",
-                              "name": "Jane Funder",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0002"
-                        },
-                        {
-                              "@type": "Organization",
-                              "name": "Fictitious Funding Organization",
-                              "sameAs": "https://ror.org/yyyyyyyyy"
-                        }
-                  ],
+                  "description": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
                   "title": "Funder"
             },
             "isPartOf": {
                   "anyOf": [
+                        {
+                              "$ref": "#/$defs/CreativeWork"
+                        },
                         {
                               "format": "uri",
                               "minLength": 1,
@@ -943,7 +835,7 @@
                               "$ref": "#/$defs/Person"
                         },
                         {
-                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                              "$ref": "#/$defs/Organization"
                         },
                         {
                               "type": "null"
@@ -959,7 +851,7 @@
                               "$ref": "#/$defs/Person"
                         },
                         {
-                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__base__Organization__Organization"
+                              "$ref": "#/$defs/Organization"
                         },
                         {
                               "type": "null"
@@ -968,6 +860,16 @@
                   "default": null,
                   "description": "The publisher of the creative work.",
                   "title": "Publisher"
+            },
+            "dct:conformsTo": {
+                  "default": {
+                        "http://purl.org/dc/terms/conformsTo": {
+                              "@id": "https://bioschemas.org/profiles/Dataset/1.1-DRAFT",
+                              "@type": "CreativeWork"
+                        }
+                  },
+                  "title": "Dct:Conformsto",
+                  "type": "object"
             }
       },
       "required": [

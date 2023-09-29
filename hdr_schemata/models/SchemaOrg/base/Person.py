@@ -8,7 +8,7 @@ from .Organization import Organization
 
 class Person(BaseModel):
 
-    _type: Text = Field(
+    m_type: Text = Field(
         alias="@type",
         default="Person"
     )
