@@ -32,7 +32,7 @@ class DataColumn(BaseModel):
     )
 
     values: Optional[List[DataValue]] = Field(
-        ...,
+        None,
         description='Data values contained within the column',
         title='Values',
     )

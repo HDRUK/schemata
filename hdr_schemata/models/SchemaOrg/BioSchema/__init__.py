@@ -51,10 +51,15 @@ __fields_to_keep = [
 all_keys = list(Dataset.model_fields.keys())
 for field in all_keys:
     if not field in __fields_to_keep:
-        if type(Dataset.__fields_set__) == set:
-            Dataset.__fields_set__.remove(field)
+        Dataset.model_fields_set.deleter(field)
+        Dataset.model_computed_fields.deleter(field)
         del Dataset.model_fields[field]
-
+        
 for field in __fields_to_keep:
     if not field in Dataset.model_fields.keys():
         raise NotImplementedError(f'Field "{field}" has not been implemented!')
+
+
+Dataset.__pydantic_complete__ = False
+del Dataset.__pydantic_core_schema__
+Dataset.model_rebuild(force=True)

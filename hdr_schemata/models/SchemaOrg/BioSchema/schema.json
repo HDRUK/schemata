@@ -152,33 +152,8 @@
                   "title": "DataDownload",
                   "type": "object"
             },
-            "GeoCoordinates": {
-                  "properties": {
-                        "latitude": {
-                              "pattern": "^[-]?([0-8]?[0-9]|90)(\\.[0-9]+)?$",
-                              "title": "Latitude",
-                              "type": "string"
-                        },
-                        "longitude": {
-                              "pattern": "^[-]?((1[0-7][0-9])|([0-9]?[0-9]))(\\.[0-9]+)?$",
-                              "title": "Longitude",
-                              "type": "string"
-                        }
-                  },
-                  "required": [
-                        "latitude",
-                        "longitude"
-                  ],
-                  "title": "GeoCoordinates",
-                  "type": "object"
-            },
             "Number": {
                   "title": "Number",
-                  "type": "string"
-            },
-            "OpenEndedTimePeriod": {
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}\\/\\.\\.$",
-                  "title": "OpenEndedTimePeriod",
                   "type": "string"
             },
             "Organization": {
@@ -328,35 +303,8 @@
                   "title": "Person",
                   "type": "object"
             },
-            "Place": {
-                  "properties": {
-                        "geo": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/GeoCoordinates"
-                                    }
-                              ],
-                              "description": "GeoCoordinates of the place"
-                        }
-                  },
-                  "required": [
-                        "geo"
-                  ],
-                  "title": "Place",
-                  "type": "object"
-            },
-            "SingleDate": {
-                  "format": "date",
-                  "title": "SingleDate",
-                  "type": "string"
-            },
             "Text": {
                   "title": "Text",
-                  "type": "string"
-            },
-            "TimePeriod": {
-                  "pattern": "^\\d{4}-\\d{2}-\\d{2}\\/\\d{4}-\\d{2}-\\d{2}$",
-                  "title": "TimePeriod",
                   "type": "string"
             }
       },
@@ -499,19 +447,6 @@
                   "default": null,
                   "description": "A citation or reference to another creative work, such as another publication, web page, scholarly article, etc.",
                   "title": "citation"
-            },
-            "funder": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "A person or organization that supports (sponsors) something through some kind of financial contribution.",
-                  "title": "Funder"
             },
             "isPartOf": {
                   "anyOf": [
@@ -686,50 +621,6 @@
                   "default": null,
                   "description": "The URL of a reference web page that unambiguously indicates the dataset's identity.",
                   "title": "Same As (dataset)"
-            },
-            "spatialCoverage": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Text"
-                        },
-                        {
-                              "$ref": "#/$defs/Place"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "You can provide a single point that describes the spatial aspect of the dataset. Only include this property if the dataset has a spatial dimension. For example, a single point where all the measurements were collected, or the coordinates of a bounding box for an area.",
-                  "examples": [
-                        {
-                              "@type": "Place",
-                              "geo": {
-                                    "@type": "GeoShape",
-                                    "box": "39.3280 120.1633 40.445 123.7878"
-                              }
-                        }
-                  ],
-                  "title": "Spatial Coverage"
-            },
-            "temporalCoverage": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/SingleDate"
-                        },
-                        {
-                              "$ref": "#/$defs/TimePeriod"
-                        },
-                        {
-                              "$ref": "#/$defs/OpenEndedTimePeriod"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension. Schema.org uses the ISO 8601 standard to describe time intervals and time points. You can describe dates differently depending upon the dataset interval. Indicate open-ended intervals with two decimal points (..).",
-                  "title": "Temporal Coverage"
             },
             "variableMeasured": {
                   "anyOf": [
