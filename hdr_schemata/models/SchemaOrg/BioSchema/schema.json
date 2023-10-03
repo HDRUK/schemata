@@ -171,14 +171,6 @@
             },
             "Organization": {
                   "properties": {
-                        "@type": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "default": "Organization"
-                        },
                         "name": {
                               "allOf": [
                                     {
@@ -188,19 +180,17 @@
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
-                        "email": {
+                        "identifier": {
                               "anyOf": [
                                     {
-                                          "format": "email",
-                                          "type": "string"
+                                          "$ref": "#/$defs/Text"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Email address.",
-                              "title": "Email"
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
                         },
                         "sameAs": {
                               "anyOf": [
@@ -217,6 +207,28 @@
                               "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
                               "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
                               "title": "Sameas"
+                        },
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "Organization"
+                        },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Email address.",
+                              "title": "Email"
                         },
                         "legalName": {
                               "anyOf": [
