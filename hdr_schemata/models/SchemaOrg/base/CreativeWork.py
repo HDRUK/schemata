@@ -18,6 +18,11 @@ class CreativeWork(BaseModel):
         description="The name of the item."
     )
 
+    abstract: Optional[Text] = Field(
+        None,
+        title='abstract',
+        description="An abstract is a short description that summarizes a CreativeWork."
+    )
     
     identifier: Text = Field(
         ...,

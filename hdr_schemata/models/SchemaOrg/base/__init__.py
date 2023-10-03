@@ -14,7 +14,7 @@ from hdr_schemata.definitions.SchemaOrg import Text, Text50, Number
 from hdr_schemata.definitions.SchemaOrg import SingleDate, TimePeriod, OpenEndedTimePeriod
     
     
-class Dataset(BaseModel):
+class Dataset(CreativeWork):
 
     model_config = ConfigDict(extra='forbid')
 
