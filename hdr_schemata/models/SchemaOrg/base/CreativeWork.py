@@ -23,7 +23,20 @@ class CreativeWork(BaseModel):
         title='abstract',
         description="An abstract is a short description that summarizes a CreativeWork."
     )
+
+    accessMode: Optional[Text] = Field(
+        None,
+        title='Access Mode',
+        description='The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the approved vocabulary.'
+    )
+
+    accessibilitySummary: Optional[Text] = Field(
+        None,
+        title='Acces Summary',
+        description='A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as "short descriptions are present but long descriptions will be needed for non-visual users" or "short descriptions are present and no long descriptions are needed."'
+    )
     
+
     identifier: Text = Field(
         ...,
         description="The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links."
