@@ -32,6 +32,7 @@ class GwdmBaseModel(BaseModel):
     )
     
     coverage: Optional[Coverage] = Field(
+        None,
         description='Spatial and Temporal coverage',
         title='Coverage',
     )
@@ -43,7 +44,7 @@ class GwdmBaseModel(BaseModel):
     )
     
     accessibility: Accessibility = Field(
-        ...,
+        None,
         description='Accessibility information.',
         title='Accessibility',
     )
@@ -55,7 +56,7 @@ class GwdmBaseModel(BaseModel):
     )
     
     observations: List[Observation] = Field(
-        ...,
+        None,
         description='Obsservations',
         title='Observations',
     )
