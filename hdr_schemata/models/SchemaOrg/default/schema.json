@@ -81,6 +81,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
                               "title": "Creative Work creator"
                         },
@@ -96,14 +97,13 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The publisher of the creative work.",
                               "title": "Creative Work publisher"
                         }
                   },
                   "required": [
-                        "name",
-                        "creator",
-                        "publisher"
+                        "name"
                   ],
                   "title": "CreativeWork",
                   "type": "object"

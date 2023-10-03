@@ -44,13 +44,13 @@ class CreativeWork(BaseModel):
 
 
     creator: Optional[Union[Person,Organization]] = Field(
-        ...,
+        None,
         title='Creative Work creator',
         description="The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."
     )
 
     publisher: Optional[Union[Person,Organization]] = Field(
-        ...,
+        None,
         title='Creative Work publisher',
         description="The publisher of the creative work."
     )
