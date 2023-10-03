@@ -18,6 +18,19 @@
                               ],
                               "description": "The name of the item."
                         },
+                        "abstract": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "An abstract is a short description that summarizes a CreativeWork.",
+                              "title": "abstract"
+                        },
                         "identifier": {
                               "allOf": [
                                     {
@@ -318,6 +331,77 @@
                   ],
                   "default": "Dataset"
             },
+            "name": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "description": "The name of the item.",
+                  "title": "Name"
+            },
+            "identifier": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "anyOf": [
+                                          {
+                                                "format": "uri",
+                                                "minLength": 1,
+                                                "type": "string"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Text"
+                                          }
+                                    ]
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
+                  "title": "identifier"
+            },
+            "creator": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+                  "title": "Dataset Creator"
+            },
+            "publisher": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Person"
+                        },
+                        {
+                              "$ref": "#/$defs/Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The publisher of the creative work.",
+                  "title": "Publisher"
+            },
             "@id": {
                   "allOf": [
                         {
@@ -387,15 +471,6 @@
                   "description": "Use to link a Dataset to the Study that it was generated from. A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl.",
                   "title": "Is Based On"
             },
-            "name": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Text"
-                        }
-                  ],
-                  "description": "The name of the item.",
-                  "title": "Name"
-            },
             "alternateName": {
                   "anyOf": [
                         {
@@ -418,19 +493,6 @@
                         "quickdraw-dataset"
                   ],
                   "title": "Alternate Name"
-            },
-            "creator": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-                  "title": "Dataset Creator"
             },
             "citation": {
                   "anyOf": [
@@ -481,39 +543,6 @@
                   "default": null,
                   "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
                   "title": "Has Part"
-            },
-            "identifier": {
-                  "anyOf": [
-                        {
-                              "format": "uri",
-                              "minLength": 1,
-                              "type": "string"
-                        },
-                        {
-                              "$ref": "#/$defs/Text"
-                        },
-                        {
-                              "items": {
-                                    "anyOf": [
-                                          {
-                                                "format": "uri",
-                                                "minLength": 1,
-                                                "type": "string"
-                                          },
-                                          {
-                                                "$ref": "#/$defs/Text"
-                                          }
-                                    ]
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
-                  "title": "identifier"
             },
             "isAccessibleForFree": {
                   "anyOf": [
@@ -736,22 +765,6 @@
                   "description": "A maintainer of a Dataset, software package (SoftwareApplication), or other Project. A maintainer is a Person or Organization that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on 'upstream' sources. When maintainer is applied to a specific version of something e.g. a particular version or packaging of a Dataset, it is always possible that the upstream source has a different maintainer. The isBasedOn property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.",
                   "title": "Maintainer"
             },
-            "publisher": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Person"
-                        },
-                        {
-                              "$ref": "#/$defs/Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The publisher of the creative work.",
-                  "title": "Publisher"
-            },
             "dct:conformsTo": {
                   "default": {
                         "http://purl.org/dc/terms/conformsTo": {
@@ -764,8 +777,8 @@
             }
       },
       "required": [
-            "description",
-            "name"
+            "name",
+            "description"
       ],
       "title": "Dataset",
       "type": "object"

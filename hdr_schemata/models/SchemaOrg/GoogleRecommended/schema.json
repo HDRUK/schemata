@@ -18,6 +18,19 @@
                               ],
                               "description": "The name of the item."
                         },
+                        "abstract": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "An abstract is a short description that summarizes a CreativeWork.",
+                              "title": "abstract"
+                        },
                         "identifier": {
                               "allOf": [
                                     {
@@ -414,6 +427,82 @@
                   ],
                   "default": "Dataset"
             },
+            "name": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "description": "A descriptive name of a dataset. For example, \"Snow depth in the Northern Hemisphere\".\n        Guidelines\n        \n        Use unique names for distinct datasets whenever possible.\n        Recommended: \"Snow depth in the Northern Hemisphere\" and \"Snow depth in the Southern Hemisphere\" for two different datasets.\n        \n        Not recommended: \"Snow depth\" and \"Snow depth\" for two different datasets.\n        ",
+                  "title": "Name"
+            },
+            "identifier": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "anyOf": [
+                                          {
+                                                "format": "uri",
+                                                "minLength": 1,
+                                                "type": "string"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Text"
+                                          }
+                                    ]
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
+                  "title": "identifier"
+            },
+            "creator": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The creator or author of this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
+                  "example": [
+                        {
+                              "@type": "Person",
+                              "familyName": "Foo",
+                              "givenName": "Jane",
+                              "name": "Jane Foo",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0000"
+                        },
+                        {
+                              "@type": "Person",
+                              "familyName": "Bar",
+                              "givenName": "Jo",
+                              "name": "Jo Bar",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0001"
+                        },
+                        {
+                              "@type": "Organization",
+                              "name": "Fictitious Research Consortium",
+                              "sameAs": "https://ror.org/xxxxxxxxx"
+                        }
+                  ],
+                  "title": "Dataset Creator"
+            },
             "@id": {
                   "allOf": [
                         {
@@ -452,15 +541,6 @@
                   "description": "A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also DCAT on this point). Different distributions might include or exclude different subsets of the entire dataset, for example",
                   "title": "distribution"
             },
-            "name": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Text"
-                        }
-                  ],
-                  "description": "A descriptive name of a dataset. For example, \"Snow depth in the Northern Hemisphere\".\n        Guidelines\n        \n        Use unique names for distinct datasets whenever possible.\n        Recommended: \"Snow depth in the Northern Hemisphere\" and \"Snow depth in the Southern Hemisphere\" for two different datasets.\n        \n        Not recommended: \"Snow depth\" and \"Snow depth\" for two different datasets.\n        ",
-                  "title": "Name"
-            },
             "alternateName": {
                   "anyOf": [
                         {
@@ -483,40 +563,6 @@
                         "quickdraw-dataset"
                   ],
                   "title": "Alternate Name"
-            },
-            "creator": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The creator or author of this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
-                  "example": [
-                        {
-                              "@type": "Person",
-                              "familyName": "Foo",
-                              "givenName": "Jane",
-                              "name": "Jane Foo",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0000"
-                        },
-                        {
-                              "@type": "Person",
-                              "familyName": "Bar",
-                              "givenName": "Jo",
-                              "name": "Jo Bar",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0001"
-                        },
-                        {
-                              "@type": "Organization",
-                              "name": "Fictitious Research Consortium",
-                              "sameAs": "https://ror.org/xxxxxxxxx"
-                        }
-                  ],
-                  "title": "Dataset Creator"
             },
             "citation": {
                   "anyOf": [
@@ -597,39 +643,6 @@
                   "default": null,
                   "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
                   "title": "Has Part"
-            },
-            "identifier": {
-                  "anyOf": [
-                        {
-                              "format": "uri",
-                              "minLength": 1,
-                              "type": "string"
-                        },
-                        {
-                              "$ref": "#/$defs/Text"
-                        },
-                        {
-                              "items": {
-                                    "anyOf": [
-                                          {
-                                                "format": "uri",
-                                                "minLength": 1,
-                                                "type": "string"
-                                          },
-                                          {
-                                                "$ref": "#/$defs/Text"
-                                          }
-                                    ]
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
-                  "title": "identifier"
             },
             "isAccessibleForFree": {
                   "anyOf": [
@@ -828,8 +841,8 @@
             }
       },
       "required": [
-            "description",
-            "name"
+            "name",
+            "description"
       ],
       "title": "Dataset",
       "type": "object"
