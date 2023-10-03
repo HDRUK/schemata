@@ -55,7 +55,7 @@ class GwdmBaseModel(BaseModel):
         title='Linkage',
     )
     
-    observations: List[Observation] = Field(
+    observations: Optional[List[Observation]] = Field(
         None,
         description='Obsservations',
         title='Observations',
