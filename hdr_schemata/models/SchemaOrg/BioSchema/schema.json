@@ -18,12 +18,55 @@
                               ],
                               "description": "The name of the item."
                         },
-                        "identifier": {
-                              "allOf": [
+                        "abstract": {
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
+                              "description": "An abstract is a short description that summarizes a CreativeWork.",
+                              "title": "abstract"
+                        },
+                        "accessMode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the approved vocabulary.",
+                              "title": "Access Mode"
+                        },
+                        "accessibilitySummary": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed.\"",
+                              "title": "Acces Summary"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
                               "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links."
                         },
                         "creator": {
@@ -38,6 +81,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
                               "title": "Creative Work creator"
                         },
@@ -53,15 +97,13 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The publisher of the creative work.",
                               "title": "Creative Work publisher"
                         }
                   },
                   "required": [
-                        "name",
-                        "identifier",
-                        "creator",
-                        "publisher"
+                        "name"
                   ],
                   "title": "CreativeWork",
                   "type": "object"
@@ -158,14 +200,6 @@
             },
             "Organization": {
                   "properties": {
-                        "@type": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "default": "Organization"
-                        },
                         "name": {
                               "allOf": [
                                     {
@@ -174,6 +208,18 @@
                               ],
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
                         },
                         "sameAs": {
                               "anyOf": [
@@ -190,6 +236,28 @@
                               "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
                               "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
                               "title": "Sameas"
+                        },
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "Organization"
+                        },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Email address.",
+                              "title": "Email"
                         },
                         "legalName": {
                               "anyOf": [
@@ -318,6 +386,77 @@
                   ],
                   "default": "Dataset"
             },
+            "name": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "description": "The name of the item.",
+                  "title": "Name"
+            },
+            "identifier": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "anyOf": [
+                                          {
+                                                "format": "uri",
+                                                "minLength": 1,
+                                                "type": "string"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Text"
+                                          }
+                                    ]
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
+                  "title": "identifier"
+            },
+            "creator": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
+                  "title": "Dataset Creator"
+            },
+            "publisher": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Person"
+                        },
+                        {
+                              "$ref": "#/$defs/Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The publisher of the creative work.",
+                  "title": "Publisher"
+            },
             "@id": {
                   "allOf": [
                         {
@@ -387,15 +526,6 @@
                   "description": "Use to link a Dataset to the Study that it was generated from. A resource that was used in the creation of this resource. This term can be repeated for multiple sources. For example, http://example.com/great-multiplication-intro.html. Supersedes isBasedOnUrl.",
                   "title": "Is Based On"
             },
-            "name": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Text"
-                        }
-                  ],
-                  "description": "The name of the item.",
-                  "title": "Name"
-            },
             "alternateName": {
                   "anyOf": [
                         {
@@ -418,19 +548,6 @@
                         "quickdraw-dataset"
                   ],
                   "title": "Alternate Name"
-            },
-            "creator": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
-                  "title": "Dataset Creator"
             },
             "citation": {
                   "anyOf": [
@@ -481,39 +598,6 @@
                   "default": null,
                   "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
                   "title": "Has Part"
-            },
-            "identifier": {
-                  "anyOf": [
-                        {
-                              "format": "uri",
-                              "minLength": 1,
-                              "type": "string"
-                        },
-                        {
-                              "$ref": "#/$defs/Text"
-                        },
-                        {
-                              "items": {
-                                    "anyOf": [
-                                          {
-                                                "format": "uri",
-                                                "minLength": 1,
-                                                "type": "string"
-                                          },
-                                          {
-                                                "$ref": "#/$defs/Text"
-                                          }
-                                    ]
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
-                  "title": "identifier"
             },
             "isAccessibleForFree": {
                   "anyOf": [
@@ -736,22 +820,6 @@
                   "description": "A maintainer of a Dataset, software package (SoftwareApplication), or other Project. A maintainer is a Person or Organization that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on 'upstream' sources. When maintainer is applied to a specific version of something e.g. a particular version or packaging of a Dataset, it is always possible that the upstream source has a different maintainer. The isBasedOn property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.",
                   "title": "Maintainer"
             },
-            "publisher": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Person"
-                        },
-                        {
-                              "$ref": "#/$defs/Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The publisher of the creative work.",
-                  "title": "Publisher"
-            },
             "dct:conformsTo": {
                   "default": {
                         "http://purl.org/dc/terms/conformsTo": {
@@ -764,8 +832,8 @@
             }
       },
       "required": [
-            "description",
-            "name"
+            "name",
+            "description"
       ],
       "title": "Dataset",
       "type": "object"

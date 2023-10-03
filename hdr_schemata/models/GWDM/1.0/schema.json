@@ -1420,13 +1420,20 @@
                   "title": "Linkage"
             },
             "observations": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/Observation"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
                   "default": null,
                   "description": "Obsservations",
-                  "items": {
-                        "$ref": "#/$defs/Observation"
-                  },
-                  "title": "Observations",
-                  "type": "array"
+                  "title": "Observations"
             },
             "structuralMetadata": {
                   "anyOf": [

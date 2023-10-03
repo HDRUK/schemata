@@ -18,12 +18,55 @@
                               ],
                               "description": "The name of the item."
                         },
-                        "identifier": {
-                              "allOf": [
+                        "abstract": {
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
+                              "description": "An abstract is a short description that summarizes a CreativeWork.",
+                              "title": "abstract"
+                        },
+                        "accessMode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The human sensory perceptual system or cognitive faculty through which a person may process or perceive information. Values should be drawn from the approved vocabulary.",
+                              "title": "Access Mode"
+                        },
+                        "accessibilitySummary": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A human-readable summary of specific accessibility features or deficiencies, consistent with the other accessibility metadata but expressing subtleties such as \"short descriptions are present but long descriptions will be needed for non-visual users\" or \"short descriptions are present and no long descriptions are needed.\"",
+                              "title": "Acces Summary"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
                               "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links."
                         },
                         "creator": {
@@ -38,6 +81,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.",
                               "title": "Creative Work creator"
                         },
@@ -53,15 +97,13 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The publisher of the creative work.",
                               "title": "Creative Work publisher"
                         }
                   },
                   "required": [
-                        "name",
-                        "identifier",
-                        "creator",
-                        "publisher"
+                        "name"
                   ],
                   "title": "CreativeWork",
                   "type": "object"
@@ -291,14 +333,6 @@
             },
             "hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization": {
                   "properties": {
-                        "@type": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "default": "Organization"
-                        },
                         "name": {
                               "allOf": [
                                     {
@@ -307,6 +341,18 @@
                               ],
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
                         },
                         "sameAs": {
                               "anyOf": [
@@ -326,6 +372,28 @@
                               "description": "Link or ror.org ID of the organisation",
                               "example": "https://ror.org/xxxxxxxxx",
                               "title": "Sameas"
+                        },
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "Organization"
+                        },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Email address.",
+                              "title": "Email"
                         },
                         "legalName": {
                               "anyOf": [
@@ -349,14 +417,6 @@
             },
             "hdr_schemata__models__SchemaOrg__base__Organization__Organization": {
                   "properties": {
-                        "@type": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Text"
-                                    }
-                              ],
-                              "default": "Organization"
-                        },
                         "name": {
                               "allOf": [
                                     {
@@ -365,6 +425,18 @@
                               ],
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
                         },
                         "sameAs": {
                               "anyOf": [
@@ -381,6 +453,28 @@
                               "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
                               "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
                               "title": "Sameas"
+                        },
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "Organization"
+                        },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Email address.",
+                              "title": "Email"
                         },
                         "legalName": {
                               "anyOf": [
@@ -413,6 +507,82 @@
                         }
                   ],
                   "default": "Dataset"
+            },
+            "name": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        }
+                  ],
+                  "description": "A descriptive name of a dataset. For example, \"Snow depth in the Northern Hemisphere\".\n        Guidelines\n        \n        Use unique names for distinct datasets whenever possible.\n        Recommended: \"Snow depth in the Northern Hemisphere\" and \"Snow depth in the Southern Hemisphere\" for two different datasets.\n        \n        Not recommended: \"Snow depth\" and \"Snow depth\" for two different datasets.\n        ",
+                  "title": "Name"
+            },
+            "identifier": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "items": {
+                                    "anyOf": [
+                                          {
+                                                "format": "uri",
+                                                "minLength": 1,
+                                                "type": "string"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Text"
+                                          }
+                                    ]
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
+                  "title": "identifier"
+            },
+            "creator": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The creator or author of this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
+                  "example": [
+                        {
+                              "@type": "Person",
+                              "familyName": "Foo",
+                              "givenName": "Jane",
+                              "name": "Jane Foo",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0000"
+                        },
+                        {
+                              "@type": "Person",
+                              "familyName": "Bar",
+                              "givenName": "Jo",
+                              "name": "Jo Bar",
+                              "sameAs": "https://orcid.org/0000-0000-0000-0001"
+                        },
+                        {
+                              "@type": "Organization",
+                              "name": "Fictitious Research Consortium",
+                              "sameAs": "https://ror.org/xxxxxxxxx"
+                        }
+                  ],
+                  "title": "Dataset Creator"
             },
             "@id": {
                   "allOf": [
@@ -452,15 +622,6 @@
                   "description": "A downloadable form of this dataset, at a specific location, in a specific format. This property can be repeated if different variations are available. There is no expectation that different downloadable distributions must contain exactly equivalent information (see also DCAT on this point). Different distributions might include or exclude different subsets of the entire dataset, for example",
                   "title": "distribution"
             },
-            "name": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Text"
-                        }
-                  ],
-                  "description": "A descriptive name of a dataset. For example, \"Snow depth in the Northern Hemisphere\".\n        Guidelines\n        \n        Use unique names for distinct datasets whenever possible.\n        Recommended: \"Snow depth in the Northern Hemisphere\" and \"Snow depth in the Southern Hemisphere\" for two different datasets.\n        \n        Not recommended: \"Snow depth\" and \"Snow depth\" for two different datasets.\n        ",
-                  "title": "Name"
-            },
             "alternateName": {
                   "anyOf": [
                         {
@@ -483,40 +644,6 @@
                         "quickdraw-dataset"
                   ],
                   "title": "Alternate Name"
-            },
-            "creator": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The creator or author of this dataset. To uniquely identify individuals, use ORCID ID as the value of the sameAs property of the Person type. To uniquely identify institutions and organizations, use ROR ID.",
-                  "example": [
-                        {
-                              "@type": "Person",
-                              "familyName": "Foo",
-                              "givenName": "Jane",
-                              "name": "Jane Foo",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0000"
-                        },
-                        {
-                              "@type": "Person",
-                              "familyName": "Bar",
-                              "givenName": "Jo",
-                              "name": "Jo Bar",
-                              "sameAs": "https://orcid.org/0000-0000-0000-0001"
-                        },
-                        {
-                              "@type": "Organization",
-                              "name": "Fictitious Research Consortium",
-                              "sameAs": "https://ror.org/xxxxxxxxx"
-                        }
-                  ],
-                  "title": "Dataset Creator"
             },
             "citation": {
                   "anyOf": [
@@ -597,39 +724,6 @@
                   "default": null,
                   "description": "Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense).",
                   "title": "Has Part"
-            },
-            "identifier": {
-                  "anyOf": [
-                        {
-                              "format": "uri",
-                              "minLength": 1,
-                              "type": "string"
-                        },
-                        {
-                              "$ref": "#/$defs/Text"
-                        },
-                        {
-                              "items": {
-                                    "anyOf": [
-                                          {
-                                                "format": "uri",
-                                                "minLength": 1,
-                                                "type": "string"
-                                          },
-                                          {
-                                                "$ref": "#/$defs/Text"
-                                          }
-                                    ]
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.",
-                  "title": "identifier"
             },
             "isAccessibleForFree": {
                   "anyOf": [
@@ -828,8 +922,8 @@
             }
       },
       "required": [
-            "description",
-            "name"
+            "name",
+            "description"
       ],
       "title": "Dataset",
       "type": "object"
