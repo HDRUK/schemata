@@ -1,5 +1,5 @@
 from typing import Union, Optional
-from pydantic import BaseModel, Field, AnyUrl
+from pydantic import BaseModel, Field, AnyUrl, EmailStr
 
 from hdr_schemata.definitions.SchemaOrg import Text,Ror
 
@@ -14,6 +14,11 @@ class Organization(BaseModel):
         ...,
         description="Name of the organisation",
         example="Fictitious Research Consortium"
+    )
+
+    email: Optional[EmailStr] = Field(
+        None,
+        description="Email address.",
     )
 
     

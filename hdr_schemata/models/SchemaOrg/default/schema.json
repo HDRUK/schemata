@@ -213,6 +213,20 @@
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Email address.",
+                              "title": "Email"
+                        },
                         "sameAs": {
                               "anyOf": [
                                     {
