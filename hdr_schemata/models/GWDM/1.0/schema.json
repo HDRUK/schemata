@@ -1379,6 +1379,7 @@
                               "type": "null"
                         }
                   ],
+                  "default": null,
                   "description": "Spatial and Temporal coverage",
                   "title": "Coverage"
             },
@@ -1401,7 +1402,9 @@
                               "$ref": "#/$defs/Accessibility"
                         }
                   ],
-                  "description": "Accessibility information."
+                  "default": null,
+                  "description": "Accessibility information.",
+                  "title": "Accessibility"
             },
             "linkage": {
                   "anyOf": [
@@ -1417,6 +1420,7 @@
                   "title": "Linkage"
             },
             "observations": {
+                  "default": null,
                   "description": "Obsservations",
                   "items": {
                         "$ref": "#/$defs/Observation"
@@ -1443,10 +1447,7 @@
       },
       "required": [
             "required",
-            "summary",
-            "coverage",
-            "accessibility",
-            "observations"
+            "summary"
       ],
       "title": "Gwdm10",
       "type": "object"
