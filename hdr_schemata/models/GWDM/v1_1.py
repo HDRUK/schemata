@@ -34,7 +34,7 @@ class Physical(RootModel):
         [
             'Respiratory',
             'Vision',
-            'Hearing ',
+            'Hearing',
             'Musculoskeletal',
             'Cardiovascular',
             'Reproductive'

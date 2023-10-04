@@ -1011,7 +1011,7 @@
             "Physical": {
                   "anyOf": [
                         {
-                              "pattern": "\\b(?:Respiratory|Vision|Hearing |Musculoskeletal|Cardiovascular|Reproductive)(?:,(?:Respiratory|Vision|Hearing |Musculoskeletal|Cardiovascular|Reproductive))*\\b",
+                              "pattern": "\\b(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive)(?:,(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive))*\\b",
                               "type": "string"
                         },
                         {
