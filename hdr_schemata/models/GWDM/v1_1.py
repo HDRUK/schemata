@@ -5,10 +5,47 @@ import re
 from typing import Optional,List
 from pydantic import Field, BaseModel, RootModel, constr
 
-#'Anthropometric': ['waist circumference', 'weight', 'blood pressure', 'hip circumference', 'height'], 'Physical': ['respiratory', 'vision', 'hearing ', 'musculoskeletal', 'cardiovascular', 'reproductive'], 'Psychological': ['cognitive function', 'mental health'], 'Lifestyle': ['Smoking', 'dietary habits', 'physical activity', 'alcohol', 'smoking'], 'Socio-economic': ['finances', 'family circumstances', 'housing', 'education', 'marital status', 'occupation', 'ethnic group', 'social support'], 'Biological samples': ['blood', 'other', 'urine', 'saliva']}
 
 def get_pattern(allowed_phrases):
     return r'\b(?:' + '|'.join(allowed_phrases) + r')(?:,(?:' + '|'.join(allowed_phrases) + r'))*\b'
+
+
+class Anthropometric(RootModel):
+    root: Optional[constr(pattern=get_pattern(
+        [
+            'Blood Pressure',
+            'Hip Circumference',
+            'Height',
+            'Waist Circumference',
+            'Weight',
+        ]))]
+
+class BiologicalSamples(RootModel):
+    root: Optional[constr(pattern=get_pattern(
+        [
+            'Blood',
+            'Other',
+            'Urine',
+            'Saliva'
+        ]))]
+    
+class Physical(RootModel):
+    root: Optional[constr(pattern=get_pattern(
+        [
+            'Respiratory',
+            'Vision',
+            'Hearing ',
+            'Musculoskeletal',
+            'Cardiovascular',
+            'Reproductive'
+        ]))]
+
+class Psychological(RootModel):
+    root: Optional[constr(pattern=get_pattern(
+        [
+            'Cognitive Function',
+            'Mental Health'
+        ]))]
     
 class Lifestyles(RootModel):
     root: Optional[constr(pattern=get_pattern(
@@ -17,6 +54,14 @@ class Lifestyles(RootModel):
             'Dietary Habits',
             'Physical Activity',
             'Alcohol'
+        ]))]
+
+class Gender(RootModel):
+    root: Optional[constr(pattern=get_pattern(
+        [
+            'Male',
+            'Female',
+            'Other'
         ]))]
 
 class SocioEconomic(RootModel):
@@ -34,6 +79,37 @@ class SocioEconomic(RootModel):
     
 
 class Coverage(BaseCoverage):
+
+    gender: Optional[Gender] = Field(
+        None,
+        title='Gender',
+        description='Male, Female, Other'
+    )
+
+    biologicalsamples: Optional[BiologicalSamples] = Field(
+        None,
+        title='Biological Samples',
+        description='Blood, Saliva, Urine, Other'
+    )
+
+    psychological: Optional[Psychological] = Field(
+        None,
+        title='Psychological',
+        description='Mental health, Cognitive function'
+    )
+
+    physical: Optional[Physical] = Field(
+        None,
+        title='Physical',
+        description='Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive'
+    )
+
+    anthropometric: Optional[Anthropometric] = Field(
+        None,
+        title='Anthropometric',
+        description='Height, Weight, Waist circumference, Hip circumference, Blood pressure'
+    )
+        
     lifestyle: Optional[Lifestyles] = Field(
         None,
         title='Lifestyle',
@@ -44,7 +120,7 @@ class Coverage(BaseCoverage):
     socioeconomic: Optional[SocioEconomic] = Field(
         None,
         title='Socio-economic',
-        description='Description of Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support'
+        description='Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support'
     )
 
 
