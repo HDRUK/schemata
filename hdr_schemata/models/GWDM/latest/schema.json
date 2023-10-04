@@ -259,6 +259,19 @@
                               "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                               "example": "1-150",
                               "title": "Typical Age Range"
+                        },
+                        "lifestyle": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Description of cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                              "title": "Lifestyle"
                         }
                   },
                   "title": "Coverage",
@@ -1456,6 +1469,6 @@
             "required",
             "summary"
       ],
-      "title": "Gwdm10",
+      "title": "Gwdm11",
       "type": "object"
 }
