@@ -263,15 +263,28 @@
                         "lifestyle": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/LongDescription"
+                                          "$ref": "#/$defs/Lifestyles"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Description of cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
                               "title": "Lifestyle"
+                        },
+                        "socioeconomic": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/SocioEconomic"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Description of Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                              "title": "Socio-economic"
                         }
                   },
                   "title": "Coverage",
@@ -613,6 +626,18 @@
                   ],
                   "title": "FormatAndStandards",
                   "type": "object"
+            },
+            "Lifestyles": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Smoking|Dietary Habits|Physical Activity|Alcohol)(?:,(?:Smoking|Dietary Habits|Physical Activity|Alcohol))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Lifestyles"
             },
             "Linkage": {
                   "additionalProperties": false,
@@ -1042,6 +1067,18 @@
                         }
                   ],
                   "title": "ShortTitle"
+            },
+            "SocioEconomic": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support)(?:,(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "SocioEconomic"
             },
             "StatisticalPopulationConstrained": {
                   "enum": [
