@@ -1,10 +1,11 @@
 from datetime import date, datetime
 from enum import Enum
 from typing import List, Optional, Union
-
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 
 from hdr_schemata.definitions.HDRUK import *
+
+import json
 
 from .Required import Required
 from .Summary import Summary
@@ -14,8 +15,9 @@ from .Accessibility import Accessibility
 from .Linkage import Linkage
 from .Observations import Observation
 from .DataTable import DataTable
+from .Usage import Usage
 
-class GwdmBaseModel(BaseModel):
+class Gwdm10(BaseModel):
     class Config:
         extra = 'forbid'
 
@@ -65,3 +67,10 @@ class GwdmBaseModel(BaseModel):
         description='Descriptions of all tables and data elements that can be included in the dataset',
         title='Structural Metadata',
     )
+
+
+    @classmethod
+    def save_schema(cls,location='./1.0/schema.json'):
+        with open(location,'w') as f:
+            json.dump(cls.model_json_schema(),f,indent=6)
+ 
