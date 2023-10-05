@@ -200,6 +200,18 @@
                   ],
                   "title": "BiologicalSamples"
             },
+            "CommaSeparatedIntegers": {
+                  "anyOf": [
+                        {
+                              "pattern": "^\\d+(,\\d+)*$",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "CommaSeparatedIntegers"
+            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -925,6 +937,110 @@
                   "title": "Observation",
                   "type": "object"
             },
+            "OmopIDs": {
+                  "properties": {
+                        "measurements": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for measured quantities. E.g. 44810410 - https://athena.ohdsi.org/search-terms/terms/44810410",
+                              "example": "44810410",
+                              "title": "OMOP Measurements"
+                        },
+                        "drug": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for drug exposures. E.g. 602396 - https://athena.ohdsi.org/search-terms/terms/602396",
+                              "example": "602396",
+                              "title": "OMOP Drugs"
+                        },
+                        "observations": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for observations.",
+                              "example": "12345,6789",
+                              "title": "OMOP Observations"
+                        },
+                        "specimens": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for specimens.",
+                              "example": "12345,6789",
+                              "title": "OMOP Specimens"
+                        },
+                        "conditions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for condition occurrences.",
+                              "example": "12345,6789",
+                              "title": "OMOP Condition Occurrences"
+                        },
+                        "procedures": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for procedure occurrences.",
+                              "example": "12345,6789",
+                              "title": "OMOP Procedure Occurrences"
+                        },
+                        "device_exposures": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedIntegers"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "OMOP Concept IDs for device exposures.",
+                              "example": "12345,6789",
+                              "title": "OMOP "
+                        }
+                  },
+                  "title": "OmopIDs",
+                  "type": "object"
+            },
             "Organisation": {
                   "properties": {
                         "name": {
@@ -1579,7 +1695,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Spatial and Temporal coverage",
+                  "description": "Observational, Spatial and Temporal coverage",
                   "title": "Coverage"
             },
             "provenance": {
@@ -1649,6 +1765,19 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
+            },
+            "omopIDs": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/OmopIDs"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Collection of OMOP IDs that are contained within the dataset.",
+                  "title": "OMOP IDs"
             }
       },
       "required": [

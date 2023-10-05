@@ -1,6 +1,7 @@
 from hdr_schemata.models.GWDM import Gwdm10
 from .Coverage import Coverage 
 from .Accessibility import Accessibility
+from .Omop import OmopIDs
 from typing import Optional
 from pydantic import Field, BaseModel, constr
 
@@ -9,7 +10,7 @@ class Gwdm11(Gwdm10):
     #overload Coverage with an updated version of it.. 
     coverage: Optional[Coverage] = Field(
         None,
-        description='Spatial and Temporal coverage',
+        description='Observational, Spatial and Temporal coverage',
         title='Coverage',
     )
 
@@ -20,3 +21,10 @@ class Gwdm11(Gwdm10):
         title='Accessibility',
     )
 
+    omopIDs: Optional[OmopIDs] = Field(
+        None,
+        description='Collection of OMOP IDs that are contained within the dataset.',
+        title='OMOP IDs',
+    )
+
+    

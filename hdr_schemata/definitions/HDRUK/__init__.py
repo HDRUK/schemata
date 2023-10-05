@@ -1,5 +1,6 @@
 from .AbstractText import AbstractText
 from .AgeRange import AgeRange
+from .CommaSeparatedIntegers import CommaSeparatedIntegers
 from .CommaSeparatedValues import CommaSeparatedValues
 from .ControlledVocabulary import ControlledVocabulary
 from .ControlledVocabularyEnum import ControlledVocabularyEnum
