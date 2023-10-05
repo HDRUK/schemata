@@ -1,3 +1,4 @@
+from hdr_schemata.models import remove_fields_from_cls
 from hdr_schemata.models.GWDM.v1_0 import Coverage as BaseCoverage
 import re
 from typing import Optional,List
@@ -120,3 +121,6 @@ class Coverage(BaseCoverage):
         title='Socio-economic',
         description='Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support'
     )
+
+#inherited physicalSampleAvailability but this has now been replaced by biologicalsamples
+remove_fields_from_cls(Coverage,['physicalSampleAvailability'])

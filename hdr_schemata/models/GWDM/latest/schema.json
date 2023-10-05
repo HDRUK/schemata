@@ -228,20 +228,6 @@
                               "example": "United Kingdom,Wales,England",
                               "title": "Spatial"
                         },
-                        "physicalSampleAvailability": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "A list of what the dataset actually contains in terms of sample measurements",
-                              "example": "DNA,PLASMA,SERUM,URINE,WHOLE BLOOD",
-                              "title": "Physical Sample Availability"
-                        },
                         "pathway": {
                               "anyOf": [
                                     {

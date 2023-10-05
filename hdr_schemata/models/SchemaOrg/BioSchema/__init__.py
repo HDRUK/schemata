@@ -1,7 +1,7 @@
 import json
 from pydantic import BaseModel, Field
 from hdr_schemata.models.SchemaOrg.base import Dataset as BaseDataset
-from hdr_schemata.models import remove_fields_from_cls
+from hdr_schemata.models import filter_fields_in_cls
 
 class Dataset(BaseDataset):
     m_dct_conformsTo: dict = Field(
@@ -14,7 +14,7 @@ class Dataset(BaseDataset):
         }
     )
 
-remove_fields_from_cls(Dataset,
+filter_fields_in_cls(Dataset,
                        [
                            "m_type",
                            "m_id",
