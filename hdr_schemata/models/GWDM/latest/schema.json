@@ -939,6 +939,58 @@
                   "title": "Observation",
                   "type": "object"
             },
+            "Organisation": {
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Name"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+                              "example": "SAIL",
+                              "title": "Name"
+                        },
+                        "gatewayId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
+                              "title": "Publisher gateway id"
+                        },
+                        "rorId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 9,
+                                          "minLength": 9,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The Research Organization Registry (ROR) for the organisation, if applicable",
+                              "title": "Research Organization Registry Identifier"
+                        }
+                  },
+                  "required": [
+                        "name"
+                  ],
+                  "title": "Organisation",
+                  "type": "object"
+            },
             "Origin": {
                   "additionalProperties": false,
                   "properties": {
@@ -1166,19 +1218,6 @@
                   ],
                   "title": "Revision",
                   "type": "object"
-            },
-            "ShortDescription": {
-                  "anyOf": [
-                        {
-                              "maxLength": 1000,
-                              "minLength": 2,
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "ShortDescription"
             },
             "ShortTitle": {
                   "anyOf": [
@@ -1507,7 +1546,7 @@
                         "resourceCreator": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/ShortDescription"
+                                          "$ref": "#/$defs/Organisation"
                                     },
                                     {
                                           "type": "null"
@@ -1515,7 +1554,6 @@
                               ],
                               "default": null,
                               "description": "Who has created this resource",
-                              "example": "Ministry of Justice",
                               "title": "Resource Creator"
                         }
                   },

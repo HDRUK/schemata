@@ -1,5 +1,6 @@
 from hdr_schemata.models.GWDM import Gwdm10
 from .Coverage import Coverage 
+from .Accessibility import Accessibility
 from typing import Optional
 from pydantic import Field, BaseModel, constr
 
@@ -12,4 +13,10 @@ class Gwdm11(Gwdm10):
         title='Coverage',
     )
 
+    #modifying Accessibility --> modifying Usage
+    accessibility: Accessibility = Field(
+        None,
+        description='Accessibility information.',
+        title='Accessibility',
+    )
 

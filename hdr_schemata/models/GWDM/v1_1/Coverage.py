@@ -1,4 +1,4 @@
-from hdr_schemata.models.GWDM.base import Coverage as BaseCoverage
+from hdr_schemata.models.GWDM.v1_0 import Coverage as BaseCoverage
 import re
 from typing import Optional,List
 from pydantic import Field, RootModel, constr
