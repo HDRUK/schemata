@@ -1,9 +1,7 @@
-from hdr_schemata.models.GWDM import Gwdm10
 from hdr_schemata.models.GWDM.base import Coverage as BaseCoverage
-from hdr_schemata.definitions.HDRUK import LongDescription,CommaSeparatedValues
 import re
 from typing import Optional,List
-from pydantic import Field, BaseModel, RootModel, constr
+from pydantic import Field, RootModel, constr
 
 
 def get_pattern(allowed_phrases):
@@ -122,18 +120,3 @@ class Coverage(BaseCoverage):
         title='Socio-economic',
         description='Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support'
     )
-
-
-class Gwdm11(Gwdm10):
-    #overload Coverage with an updated version of it.. 
-    coverage: Optional[Coverage] = Field(
-        None,
-        description='Spatial and Temporal coverage',
-        title='Coverage',
-    )
-
-
-#data = {'lifestyle':'Smoking, Alcohol ,Dietary Habits'}
-#Coverage(**data)
-
-
