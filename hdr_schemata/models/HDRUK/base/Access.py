@@ -6,9 +6,8 @@ class Access(BaseModel):
     class Config:
         extra = 'forbid'
 
-    accessRights: Union[
-        constr(pattern=r'^In Progress$'), Optional[Url], List[Optional[Url]]
-    ] = Field(..., title='Access Rights')
+    accessRights: Optional[LongDescription] = Field(..., title='Access Rights')
+
     accessService: Optional[LongDescription] = Field(
         None,
         description='Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.',
