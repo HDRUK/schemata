@@ -19,24 +19,7 @@
                         "accessRights": {
                               "anyOf": [
                                     {
-                                          "pattern": "^In Progress$",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
+                                          "$ref": "#/$defs/LongDescription"
                                     },
                                     {
                                           "type": "null"
