@@ -65,4 +65,9 @@ In the case of TV and movie, this would be the country of the principle offices 
 In the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.'''
     )
 
+    jurisdiction: Optional[Text] = Field(
+        None,
+        title='Jurisdiction',
+        description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based."
+    )
     
