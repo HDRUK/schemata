@@ -100,6 +100,19 @@
                               "default": null,
                               "description": "The publisher of the creative work.",
                               "title": "Creative Work publisher"
+                        },
+                        "countryOfOrigin": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The country of origin of something, including products as well as creative works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of CreativeWork it is difficult to provide fully general guidance, and properties such as contentLocation and locationCreated may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.",
+                              "title": "Country Of Origin"
                         }
                   },
                   "required": [
@@ -234,11 +247,15 @@
             "Organization": {
                   "properties": {
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
@@ -306,9 +323,6 @@
                               "example": "Fictitious Research Consortium"
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Organization",
                   "type": "object"
             },
@@ -407,11 +421,15 @@
             "Place": {
                   "properties": {
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
@@ -476,9 +494,6 @@
                               "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid."
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Place",
                   "type": "object"
             },
@@ -616,6 +631,19 @@
                   "default": null,
                   "description": "The publisher of the creative work.",
                   "title": "Publisher"
+            },
+            "countryOfOrigin": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The country of origin of something, including products as well as creative works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of CreativeWork it is difficult to provide fully general guidance, and properties such as contentLocation and locationCreated may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.",
+                  "title": "Country Of Origin"
             },
             "@id": {
                   "allOf": [
