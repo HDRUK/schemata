@@ -299,6 +299,43 @@
             },
             "Place": {
                   "properties": {
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        },
                         "@type": {
                               "allOf": [
                                     {
@@ -320,6 +357,9 @@
                               "description": "GeoCoordinates of the place"
                         }
                   },
+                  "required": [
+                        "name"
+                  ],
                   "title": "Place",
                   "type": "object"
             },

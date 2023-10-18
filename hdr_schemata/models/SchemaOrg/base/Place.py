@@ -1,11 +1,12 @@
-from typing import Optional, Union
-from pydantic import AnyUrl, BaseModel, RootModel, Field,  EmailStr
+from typing import Optional
+from pydantic import Field
 
 from hdr_schemata.definitions.SchemaOrg import Text
 
 from .GeoCoordinates import GeoCoordinates
+from .Thing import Thing
 
-class Place(BaseModel):
+class Place(Thing):
 
     m_type: Text = Field(
         alias="@type",
