@@ -170,6 +170,14 @@
             },
             "GeoCoordinates": {
                   "properties": {
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "GeoCoordinates"
+                        },
                         "latitude": {
                               "pattern": "^[-]?([0-8]?[0-9]|90)(\\.[0-9]+)?$",
                               "title": "Latitude",
@@ -291,18 +299,27 @@
             },
             "Place": {
                   "properties": {
-                        "geo": {
+                        "@type": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/GeoCoordinates"
+                                          "$ref": "#/$defs/Text"
                                     }
                               ],
+                              "default": "Place"
+                        },
+                        "geo": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/GeoCoordinates"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
                               "description": "GeoCoordinates of the place"
                         }
                   },
-                  "required": [
-                        "geo"
-                  ],
                   "title": "Place",
                   "type": "object"
             },
@@ -498,7 +515,7 @@
             }
       },
       "additionalProperties": false,
-      "description": "\n    - inherits from the baseline Schema.org definitions (currently incomplete)\n    - implements some additional Google Recommended specific patterns \n    ",
+      "description": "- inherits from the baseline Schema.org definitions (currently incomplete)\n- implements some additional Google Recommended specific patterns ",
       "properties": {
             "@type": {
                   "allOf": [

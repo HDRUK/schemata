@@ -7,11 +7,11 @@ from .GeoCoordinates import GeoCoordinates
 
 class Place(BaseModel):
 
-    _type: Text = Field(
+    m_type: Text = Field(
         alias="@type",
         default="Place"
     )
-    geo: GeoCoordinates = Field(
-        ...,
+    geo: Optional[GeoCoordinates] = Field(
+        None,
         description='GeoCoordinates of the place'
     )

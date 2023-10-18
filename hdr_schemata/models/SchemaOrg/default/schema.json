@@ -109,7 +109,7 @@
                   "type": "object"
             },
             "DataCatalog": {
-                  "description": "\n    This is pretty incomplete, but we might not need it... \n    ",
+                  "description": "This is pretty incomplete, but we might not need it... ",
                   "properties": {
                         "@type": {
                               "allOf": [
@@ -196,6 +196,14 @@
             },
             "GeoCoordinates": {
                   "properties": {
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "GeoCoordinates"
+                        },
                         "latitude": {
                               "pattern": "^[-]?([0-8]?[0-9]|90)(\\.[0-9]+)?$",
                               "title": "Latitude",
@@ -398,18 +406,27 @@
             },
             "Place": {
                   "properties": {
-                        "geo": {
+                        "@type": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/GeoCoordinates"
+                                          "$ref": "#/$defs/Text"
                                     }
                               ],
+                              "default": "Place"
+                        },
+                        "geo": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/GeoCoordinates"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
                               "description": "GeoCoordinates of the place"
                         }
                   },
-                  "required": [
-                        "geo"
-                  ],
                   "title": "Place",
                   "type": "object"
             },
