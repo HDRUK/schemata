@@ -100,6 +100,32 @@
                               "default": null,
                               "description": "The publisher of the creative work.",
                               "title": "Creative Work publisher"
+                        },
+                        "countryOfOrigin": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The country of origin of something, including products as well as creative works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of CreativeWork it is difficult to provide fully general guidance, and properties such as contentLocation and locationCreated may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.",
+                              "title": "Country Of Origin"
+                        },
+                        "jurisdiction": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
+                              "title": "Jurisdiction"
                         }
                   },
                   "required": [
@@ -170,6 +196,14 @@
             },
             "GeoCoordinates": {
                   "properties": {
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "GeoCoordinates"
+                        },
                         "latitude": {
                               "pattern": "^[-]?([0-8]?[0-9]|90)(\\.[0-9]+)?$",
                               "title": "Latitude",
@@ -291,18 +325,80 @@
             },
             "Place": {
                   "properties": {
-                        "geo": {
-                              "allOf": [
+                        "name": {
+                              "anyOf": [
                                     {
-                                          "$ref": "#/$defs/GeoCoordinates"
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        },
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "Place"
+                        },
+                        "geo": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/GeoCoordinates"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
                               "description": "GeoCoordinates of the place"
+                        },
+                        "eligibleRegion": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid."
                         }
                   },
-                  "required": [
-                        "geo"
-                  ],
                   "title": "Place",
                   "type": "object"
             },
@@ -334,11 +430,15 @@
             "hdr_schemata__models__SchemaOrg__GoogleRecommended__Organization__Organization": {
                   "properties": {
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
@@ -409,20 +509,21 @@
                               "example": "Fictitious Research Consortium"
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Organization",
                   "type": "object"
             },
             "hdr_schemata__models__SchemaOrg__base__Organization__Organization": {
                   "properties": {
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
@@ -490,15 +591,12 @@
                               "example": "Fictitious Research Consortium"
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Organization",
                   "type": "object"
             }
       },
       "additionalProperties": false,
-      "description": "\n    - inherits from the baseline Schema.org definitions (currently incomplete)\n    - implements some additional Google Recommended specific patterns \n    ",
+      "description": "- inherits from the baseline Schema.org definitions (currently incomplete)\n- implements some additional Google Recommended specific patterns ",
       "properties": {
             "@type": {
                   "allOf": [

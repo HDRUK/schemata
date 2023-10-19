@@ -5,8 +5,8 @@ from hdr_schemata.definitions.SchemaOrg import Text
 
 class Thing(BaseModel):
     
-    name: Text = Field(
-        ...,
+    name: Optional[Text] = Field(
+        None,
         description="Name of the organisation",
         example="Fictitious Research Consortium"
     )

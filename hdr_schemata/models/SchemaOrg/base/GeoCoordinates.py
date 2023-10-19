@@ -5,7 +5,7 @@ from hdr_schemata.definitions.SchemaOrg import Text
 
 class GeoCoordinates(BaseModel):
 
-    _type: Text = Field(
+    m_type: Text = Field(
         alias="@type",
         default="GeoCoordinates"
     )
