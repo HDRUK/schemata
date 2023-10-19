@@ -12,7 +12,9 @@ from .DataCatalog import DataCatalog
 
 from hdr_schemata.definitions.SchemaOrg import Text, Text50, Number 
 from hdr_schemata.definitions.SchemaOrg import SingleDate, TimePeriod, OpenEndedTimePeriod
-    
+
+class Extra(BaseModel):
+    model_config = ConfigDict(extra='allow')
     
 class Dataset(CreativeWork):
 
@@ -229,4 +231,8 @@ class Dataset(CreativeWork):
         This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.'''
     )
 
-    
+    extra: Optional[Extra] = Field(
+        None,
+        title='extra',
+        description='There may be fields that do not exist in schema.org that need to be included'
+    )

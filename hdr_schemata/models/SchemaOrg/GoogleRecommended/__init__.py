@@ -240,24 +240,4 @@ filter_fields_in_cls(Dataset,
                            "version",
                            "url",
                            "distribution",
-                       ]
-
-# - There is a problem with pydantic v2 where the 'exclude' feature doesnt currently work
-#   see: https://github.com/pydantic/pydantic/discussions/2686
-# - This hack means that I can inherit from the Schema.Org model but then exclude fields
-#   that are not needed for the Google Recommended Schema
-all_keys = list(Dataset.model_fields.keys())
-for field in all_keys:
-    if not field in __fields_to_keep:
-        Dataset.model_fields_set.deleter(field)
-        Dataset.model_computed_fields.deleter(field)
-        del Dataset.model_fields[field]
-        
-for field in __fields_to_keep:
-    if not field in Dataset.model_fields.keys():
-        raise NotImplementedError(f'Field "{field}" has not been implemented!')
-
-
-Dataset.__pydantic_complete__ = False
-del Dataset.__pydantic_core_schema__
-Dataset.model_rebuild(force=True)
+                       ])
