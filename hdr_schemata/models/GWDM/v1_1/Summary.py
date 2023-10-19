@@ -1,4 +1,5 @@
-from hdr_schemata.models.GWDM.v1_1 import Summary as BaseSummary
+from hdr_schemata.models.GWDM.v1_0 import Summary as BaseSummary
+from pydantic import Field 
 from typing import Optional
 from .Organisation import Organisation
 

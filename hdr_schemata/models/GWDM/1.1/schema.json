@@ -378,7 +378,6 @@
                   "type": "object"
             },
             "DataColumn": {
-                  "additionalProperties": true,
                   "properties": {
                         "name": {
                               "allOf": [
@@ -488,7 +487,6 @@
                   "type": "object"
             },
             "DataValue": {
-                  "additionalProperties": true,
                   "properties": {
                         "name": {
                               "allOf": [
@@ -1210,43 +1208,6 @@
                   ],
                   "title": "Psychological"
             },
-            "Publisher": {
-                  "properties": {
-                        "publisherName": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Name"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
-                              "example": "SAIL",
-                              "title": "Publisher name"
-                        },
-                        "publisherGatewayId": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 50,
-                                          "minLength": 2,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
-                              "title": "Publisher gateway id"
-                        }
-                  },
-                  "required": [
-                        "publisherName"
-                  ],
-                  "title": "Publisher",
-                  "type": "object"
-            },
             "Required": {
                   "properties": {
                         "gatewayId": {
@@ -1281,6 +1242,16 @@
                               },
                               "title": "Revisions",
                               "type": "array"
+                        },
+                        "version": {
+                              "description": "Dataset metadata version",
+                              "examples": [
+                                    "1.1.0"
+                              ],
+                              "maxLength": 100,
+                              "minLength": 2,
+                              "title": "Dataset Version",
+                              "type": "string"
                         }
                   },
                   "required": [
@@ -1288,7 +1259,8 @@
                         "gatewayPid",
                         "issued",
                         "modified",
-                        "revisions"
+                        "revisions",
+                        "version"
                   ],
                   "title": "Required",
                   "type": "object"
@@ -1470,7 +1442,7 @@
                         "publisher": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Publisher"
+                                          "$ref": "#/$defs/Organisation"
                                     },
                                     {
                                           "type": "null"
