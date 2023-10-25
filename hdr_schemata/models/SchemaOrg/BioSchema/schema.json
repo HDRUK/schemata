@@ -126,6 +126,19 @@
                               "default": null,
                               "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
                               "title": "Jurisdiction"
+                        },
+                        "temporalCoverage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The typical expected age range, e.g. '7-9', '11-'.",
+                              "title": "temporalCoverage"
                         }
                   },
                   "required": [

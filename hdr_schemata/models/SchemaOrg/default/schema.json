@@ -126,6 +126,19 @@
                               "default": null,
                               "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
                               "title": "Jurisdiction"
+                        },
+                        "temporalCoverage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The typical expected age range, e.g. '7-9', '11-'.",
+                              "title": "temporalCoverage"
                         }
                   },
                   "required": [
@@ -677,6 +690,25 @@
                   "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
                   "title": "Jurisdiction"
             },
+            "temporalCoverage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/SingleDate"
+                        },
+                        {
+                              "$ref": "#/$defs/TimePeriod"
+                        },
+                        {
+                              "$ref": "#/$defs/OpenEndedTimePeriod"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension. Schema.org uses the ISO 8601 standard to describe time intervals and time points. You can describe dates differently depending upon the dataset interval. Indicate open-ended intervals with two decimal points (..).",
+                  "title": "Temporal Coverage"
+            },
             "@id": {
                   "allOf": [
                         {
@@ -963,25 +995,6 @@
                         }
                   ],
                   "title": "Spatial Coverage"
-            },
-            "temporalCoverage": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/SingleDate"
-                        },
-                        {
-                              "$ref": "#/$defs/TimePeriod"
-                        },
-                        {
-                              "$ref": "#/$defs/OpenEndedTimePeriod"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension. Schema.org uses the ISO 8601 standard to describe time intervals and time points. You can describe dates differently depending upon the dataset interval. Indicate open-ended intervals with two decimal points (..).",
-                  "title": "Temporal Coverage"
             },
             "variableMeasured": {
                   "anyOf": [

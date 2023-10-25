@@ -70,4 +70,10 @@ In the case of products, the country of origin of the product. The exact interpr
         title='Jurisdiction',
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based."
     )
+
+    temporalCoverage: Optional[Text] = Field(
+        None,
+        title='temporalCoverage',
+        description="The typical expected age range, e.g. '7-9', '11-'."
+    )
     
