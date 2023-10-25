@@ -23,4 +23,18 @@ jobs:
     - name: Run pytest
       run: |
         cd hdr_schemata/tests/
-        pytest  
+        pytest
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+      - run: pip3 install -r requirements.txt
+      - name: deploy
+        run: |
+          mkdocs gh-deploy --force
+

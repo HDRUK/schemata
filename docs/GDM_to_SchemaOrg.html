@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: #ffffff;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+             #config {
+                 float: left;
+                 width: 400px;
+                 height: 600px;
+             }
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+            <div id="config"></div>
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "mediumvioletred", "id": "gdmv1", "label": "gdmv1", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required", "label": "required", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary", "label": "summary", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.publisher", "label": "publisher", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.coverage", "label": "coverage", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance", "label": "provenance", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility", "label": "accessibility", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage", "label": "linkage", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.observations", "label": "observations", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.gatewayId", "label": "gatewayId", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.gatewayPid", "label": "gatewayPid", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.issued", "label": "issued", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.modified", "label": "modified", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.revisions", "label": "revisions", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.url", "label": "url", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.dateCreated", "label": "dateCreated", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.revisions.version", "label": "version", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.required.revisions.url", "label": "url", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.abstract", "label": "abstract", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.contactPoint", "label": "contactPoint", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.keywords", "label": "keywords", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.controlledKeywords", "label": "controlledKeywords", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.description", "label": "description", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.doiName", "label": "doiName", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.shortTitle", "label": "shortTitle", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.summary.title", "label": "title", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.keywords", "label": "keywords", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.description", "label": "description", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.identifier", "label": "identifier", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.citation", "label": "citation", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.alternateName", "label": "alternateName", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.name", "label": "name", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.publisher.publisherName", "label": "publisherName", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.publisher.publisherGatewayId", "label": "publisherGatewayId", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.coverage.pathway", "label": "pathway", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.coverage.physicalSampleAvailability", "label": "physicalSampleAvailability", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.coverage.spatial", "label": "spatial", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.coverage.followup", "label": "followup", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.coverage.typicalAgeRange", "label": "typicalAgeRange", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.origin", "label": "origin", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.temporal", "label": "temporal", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.origin.purpose", "label": "purpose", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.origin.source", "label": "source", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.spacialCoverage", "label": "spacialCoverage", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.temporal.endDate", "label": "endDate", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.temporal.startDate", "label": "startDate", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.temporal.timeLag", "label": "timeLag", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.provenance.temporal.accrualPeriodicity", "label": "accrualPeriodicity", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.temporalCoverage", "label": "temporalCoverage", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access", "label": "access", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.usage", "label": "usage", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.formatAndStandards", "label": "formatAndStandards", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.deliveryLeadTime", "label": "deliveryLeadTime", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.jurisdiction", "label": "jurisdiction", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.dataController", "label": "dataController", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.dataProcessor", "label": "dataProcessor", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.accessRights", "label": "accessRights", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.accessService", "label": "accessService", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.access.accessRequestCost", "label": "accessRequestCost", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.license", "label": "license", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.distribution.name", "label": "name", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.usage.dataUseLimitation", "label": "dataUseLimitation", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.usage.dataUseRequirement", "label": "dataUseRequirement", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.usage.resourceCreator", "label": "resourceCreator", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.funder.legalName", "label": "legalName", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.funder.name", "label": "name", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.creator.legalName", "label": "legalName", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.creator.name", "label": "name", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.formatAndStandards.vocabularyEncodingSchemes", "label": "vocabularyEncodingSchemes", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.formatAndStandards.conformsTo", "label": "conformsTo", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.formatAndStandards.languages", "label": "languages", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.accessibility.formatAndStandards.formats", "label": "formats", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage.associatedMedia", "label": "associatedMedia", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage.isReferenceIn", "label": "isReferenceIn", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage.tools", "label": "tools", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage.datasetLinkage", "label": "datasetLinkage", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage.datasetLinkage.isDerivedFrom", "label": "isDerivedFrom", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.linkage.datasetLinkage.isPartOf", "label": "isPartOf", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.observations.observedNode", "label": "observedNode", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.observations.measuredValue", "label": "measuredValue", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.observations.observationDate", "label": "observationDate", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "gdmv1.observations.measuredProperty", "label": "measuredProperty", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.@context", "label": "@context", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg", "label": "schemaorg", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.@id", "label": "@id", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.@type", "label": "@type", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.version", "label": "version", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.funder", "label": "funder", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.funder.@type", "label": "@type", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.creator", "label": "creator", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.creator.@type", "label": "@type", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.isAccessibleForFree", "label": "isAccessibleForFree", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.distribution", "label": "distribution", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.distribution.@type", "label": "@type", "shape": "dot", "size": 10}, {"color": "lightblue", "id": "schemaorg.distribution.contentUrl", "label": "contentUrl", "shape": "dot", "size": 10}, {"color": "mediumvioletred", "id": "extra", "label": "extra", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.required", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.summary", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.publisher", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.coverage", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.provenance", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.accessibility", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.linkage", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1", "to": "gdmv1.observations", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required", "to": "gdmv1.required.gatewayId", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required", "to": "gdmv1.required.gatewayPid", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required", "to": "gdmv1.required.issued", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required", "to": "gdmv1.required.modified", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required", "to": "gdmv1.required.revisions", "width": 5}, {"color": "black", "from": "gdmv1.required.gatewayId", "to": "schemaorg.url", "width": 1}, {"color": "black", "from": "gdmv1.required.issued", "to": "schemaorg.dateCreated", "width": 1}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required.revisions", "to": "gdmv1.required.revisions.version", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.required.revisions", "to": "gdmv1.required.revisions.url", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.abstract", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.contactPoint", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.keywords", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.controlledKeywords", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.description", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.doiName", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.shortTitle", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.summary", "to": "gdmv1.summary.title", "width": 5}, {"color": "black", "from": "gdmv1.summary.keywords", "to": "schemaorg.keywords", "width": 1}, {"color": "black", "from": "gdmv1.summary.description", "to": "schemaorg.description", "width": 1}, {"color": "black", "from": "gdmv1.summary.doiName", "to": "schemaorg.identifier", "width": 1}, {"color": "black", "from": "gdmv1.summary.doiName", "to": "schemaorg.citation", "width": 1}, {"color": "black", "from": "gdmv1.summary.shortTitle", "to": "schemaorg.alternateName", "width": 1}, {"color": "black", "from": "gdmv1.summary.title", "to": "schemaorg.name", "width": 1}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.publisher", "to": "gdmv1.publisher.publisherName", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.publisher", "to": "gdmv1.publisher.publisherGatewayId", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.coverage", "to": "gdmv1.coverage.pathway", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.coverage", "to": "gdmv1.coverage.physicalSampleAvailability", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.coverage", "to": "gdmv1.coverage.spatial", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.coverage", "to": "gdmv1.coverage.followup", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.coverage", "to": "gdmv1.coverage.typicalAgeRange", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance", "to": "gdmv1.provenance.origin", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance", "to": "gdmv1.provenance.temporal", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance.origin", "to": "gdmv1.provenance.origin.purpose", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance.origin", "to": "gdmv1.provenance.origin.source", "width": 5}, {"color": "black", "from": "gdmv1.provenance.origin.source", "to": "schemaorg.spacialCoverage", "width": 1}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance.temporal", "to": "gdmv1.provenance.temporal.endDate", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance.temporal", "to": "gdmv1.provenance.temporal.startDate", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance.temporal", "to": "gdmv1.provenance.temporal.timeLag", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.provenance.temporal", "to": "gdmv1.provenance.temporal.accrualPeriodicity", "width": 5}, {"color": "black", "from": "gdmv1.provenance.temporal.endDate", "to": "schemaorg.temporalCoverage", "width": 1}, {"color": "black", "from": "gdmv1.provenance.temporal.startDate", "to": "schemaorg.temporalCoverage", "width": 1}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility", "to": "gdmv1.accessibility.access", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility", "to": "gdmv1.accessibility.usage", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility", "to": "gdmv1.accessibility.formatAndStandards", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.deliveryLeadTime", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.jurisdiction", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.dataController", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.dataProcessor", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.accessRights", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.accessService", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.access", "to": "gdmv1.accessibility.access.accessRequestCost", "width": 5}, {"color": "black", "from": "gdmv1.accessibility.access.accessRights", "to": "schemaorg.license", "width": 1}, {"color": "black", "from": "gdmv1.accessibility.access.accessService", "to": "schemaorg.distribution.name", "width": 1}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.usage", "to": "gdmv1.accessibility.usage.dataUseLimitation", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.usage", "to": "gdmv1.accessibility.usage.dataUseRequirement", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.usage", "to": "gdmv1.accessibility.usage.resourceCreator", "width": 5}, {"color": "black", "from": "gdmv1.accessibility.usage.resourceCreator", "to": "schemaorg.funder.legalName", "width": 1}, {"color": "black", "from": "gdmv1.accessibility.usage.resourceCreator", "to": "schemaorg.funder.name", "width": 1}, {"color": "black", "from": "gdmv1.accessibility.usage.resourceCreator", "to": "schemaorg.creator.legalName", "width": 1}, {"color": "black", "from": "gdmv1.accessibility.usage.resourceCreator", "to": "schemaorg.creator.name", "width": 1}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.formatAndStandards", "to": "gdmv1.accessibility.formatAndStandards.vocabularyEncodingSchemes", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.formatAndStandards", "to": "gdmv1.accessibility.formatAndStandards.conformsTo", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.formatAndStandards", "to": "gdmv1.accessibility.formatAndStandards.languages", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.accessibility.formatAndStandards", "to": "gdmv1.accessibility.formatAndStandards.formats", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.linkage", "to": "gdmv1.linkage.associatedMedia", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.linkage", "to": "gdmv1.linkage.isReferenceIn", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.linkage", "to": "gdmv1.linkage.tools", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.linkage", "to": "gdmv1.linkage.datasetLinkage", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.linkage.datasetLinkage", "to": "gdmv1.linkage.datasetLinkage.isDerivedFrom", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.linkage.datasetLinkage", "to": "gdmv1.linkage.datasetLinkage.isPartOf", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.observations", "to": "gdmv1.observations.observedNode", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.observations", "to": "gdmv1.observations.measuredValue", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.observations", "to": "gdmv1.observations.observationDate", "width": 5}, {"arrow": false, "color": "mediumvioletred", "from": "gdmv1.observations", "to": "gdmv1.observations.measuredProperty", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.@context", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.@id", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.@type", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.identifier", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.version", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.url", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.name", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.alternateName", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.description", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.citation", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.funder", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.funder.@type", "to": "schemaorg.funder", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.funder.legalName", "to": "schemaorg.funder", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.funder.name", "to": "schemaorg.funder", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.creator", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.creator.@type", "to": "schemaorg.creator", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.creator.legalName", "to": "schemaorg.creator", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.creator.name", "to": "schemaorg.creator", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.spacialCoverage", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.temporalCoverage", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.isAccessibleForFree", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.dateCreated", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.distribution", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.distribution.@type", "to": "schemaorg.distribution", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.distribution.name", "to": "schemaorg.distribution", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.distribution.contentUrl", "to": "schemaorg.distribution", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.keywords", "to": "schemaorg", "width": 5}, {"arrowsize": 0, "color": "lightblue", "from": "schemaorg.license", "to": "schemaorg", "width": 5}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.5,
+            "springLength": 0.1
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+                  // if this network requires displaying the configure window,
+                  // put it in its div
+                  options.configure["container"] = document.getElementById("config");
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

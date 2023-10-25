@@ -1,0 +1,270 @@
+{
+      "$defs": {
+            "Citation": {
+                  "properties": {
+                        "headline": {
+                              "title": "Headline",
+                              "type": "string"
+                        },
+                        "identifier": {
+                              "items": {
+                                    "type": "string"
+                              },
+                              "title": "Identifier",
+                              "type": "array"
+                        },
+                        "datePublished": {
+                              "title": "Datepublished",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "headline",
+                        "identifier",
+                        "datePublished"
+                  ],
+                  "title": "Citation",
+                  "type": "object"
+            },
+            "Creator": {
+                  "properties": {
+                        "givenName": {
+                              "title": "Givenname",
+                              "type": "string"
+                        },
+                        "familyName": {
+                              "title": "Familyname",
+                              "type": "string"
+                        },
+                        "email": {
+                              "title": "Email",
+                              "type": "string"
+                        },
+                        "affiliation": {
+                              "title": "Affiliation",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "givenName",
+                        "familyName",
+                        "email",
+                        "affiliation"
+                  ],
+                  "title": "Creator",
+                  "type": "object"
+            },
+            "DataCatalog": {
+                  "properties": {
+                        "name": {
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "url": {
+                              "title": "Url",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "url"
+                  ],
+                  "title": "DataCatalog",
+                  "type": "object"
+            },
+            "DefinedTerm": {
+                  "properties": {
+                        "name": {
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "id": {
+                              "title": "Id",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "id"
+                  ],
+                  "title": "DefinedTerm",
+                  "type": "object"
+            },
+            "Distribution": {
+                  "properties": {
+                        "name": {
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "fileFormat": {
+                              "title": "Fileformat",
+                              "type": "string"
+                        },
+                        "contentURL": {
+                              "title": "Contenturl",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "fileFormat",
+                        "contentURL"
+                  ],
+                  "title": "Distribution",
+                  "type": "object"
+            },
+            "Organization": {
+                  "properties": {
+                        "name": {
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Id"
+                        }
+                  },
+                  "required": [
+                        "name"
+                  ],
+                  "title": "Organization",
+                  "type": "object"
+            }
+      },
+      "properties": {
+            "alternateName": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "title": "Alternatename"
+            },
+            "citation": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Citation"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null
+            },
+            "creator": {
+                  "default": [],
+                  "items": {
+                        "$ref": "#/$defs/Creator"
+                  },
+                  "title": "Creator",
+                  "type": "array"
+            },
+            "datePublished": {
+                  "title": "Datepublished",
+                  "type": "string"
+            },
+            "description": {
+                  "title": "Description",
+                  "type": "string"
+            },
+            "distribution": {
+                  "default": [],
+                  "items": {
+                        "$ref": "#/$defs/Distribution"
+                  },
+                  "title": "Distribution",
+                  "type": "array"
+            },
+            "identifier": {
+                  "title": "Identifier",
+                  "type": "string"
+            },
+            "includedInDataCatalog": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/DataCatalog"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null
+            },
+            "isBasedOn": {
+                  "anyOf": [
+                        {
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "title": "Isbasedon"
+            },
+            "keywords": {
+                  "default": [],
+                  "items": {
+                        "$ref": "#/$defs/DefinedTerm"
+                  },
+                  "title": "Keywords",
+                  "type": "array"
+            },
+            "license": {
+                  "title": "License",
+                  "type": "string"
+            },
+            "measurementTechnique": {
+                  "title": "Measurementtechnique",
+                  "type": "string"
+            },
+            "name": {
+                  "title": "Name",
+                  "type": "string"
+            },
+            "publisher": {
+                  "$ref": "#/$defs/Organization"
+            },
+            "url": {
+                  "title": "Url",
+                  "type": "string"
+            },
+            "variableMeasured": {
+                  "title": "Variablemeasured",
+                  "type": "string"
+            },
+            "version": {
+                  "title": "Version",
+                  "type": "string"
+            }
+      },
+      "required": [
+            "datePublished",
+            "description",
+            "identifier",
+            "license",
+            "measurementTechnique",
+            "name",
+            "publisher",
+            "url",
+            "variableMeasured",
+            "version"
+      ],
+      "title": "BioschemaDataset",
+      "type": "object"
+}
