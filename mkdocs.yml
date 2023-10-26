@@ -14,7 +14,7 @@ extra_css:
 nav:
   - Welcome: index.md
   - Gateway Data Model:
-      1.0: GWDM/v1_0.md
+      Version 1.0: GWDM/1.0.md
 
 plugins:
   - search
