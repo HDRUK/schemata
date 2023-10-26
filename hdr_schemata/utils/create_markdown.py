@@ -1,4 +1,6 @@
 from hdr_schemata.models.GWDM.v1_0 import Gwdm10
+from hdr_schemata.models.GWDM.v1_1 import Gwdm11
+from hdr_schemata.models.HDRUK import Hdruk212
 from pydantic import BaseModel
 import pandas as pd
 import json
@@ -70,7 +72,7 @@ def json_to_markdown(structure,level=2):
     return md
 
 structure = []
-get_fields(structure,Gwdm10)
+get_fields(structure,Hdruk212)
 
 with open('temp.json','w') as f:
     json.dump(structure,f,indent=6)
