@@ -71,7 +71,7 @@ In the case of products, the country of origin of the product. The exact interpr
         description="Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based."
     )
 
-    typicalAgeRange: Text = Field(
+    typicalAgeRange: Optional[Text] = Field(
         None,
         description="The typical expected age range, e.g. '7-9', '11-'."
     )
@@ -81,4 +81,9 @@ In the case of products, the country of origin of the product. The exact interpr
         title='temporalCoverage',
         description="The typical expected age range, e.g. '7-9', '11-'."
     )
-    
+
+    inLanguage: Optional[Text] = Field(
+        None,
+        description="The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage. Supersedes language."
+    )
+

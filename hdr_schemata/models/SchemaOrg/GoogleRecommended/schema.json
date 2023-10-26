@@ -128,9 +128,12 @@
                               "title": "Jurisdiction"
                         },
                         "typicalAgeRange": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
                               "default": null,
@@ -148,6 +151,18 @@
                               "default": null,
                               "description": "The typical expected age range, e.g. '7-9', '11-'.",
                               "title": "temporalCoverage"
+                        },
+                        "inLanguage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage. Supersedes language."
                         }
                   },
                   "required": [

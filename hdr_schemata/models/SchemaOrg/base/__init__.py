@@ -9,6 +9,7 @@ from .CreativeWork import CreativeWork
 from .Place import Place
 from .DataDownload import DataDownload
 from .DataCatalog import DataCatalog
+from .PropertyValue import PropertyValue
 
 from hdr_schemata.definitions.SchemaOrg import Text, Text50, Number 
 from hdr_schemata.definitions.SchemaOrg import SingleDate, TimePeriod, OpenEndedTimePeriod
@@ -176,7 +177,7 @@ class Dataset(CreativeWork):
         description='The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension. Schema.org uses the ISO 8601 standard to describe time intervals and time points. You can describe dates differently depending upon the dataset interval. Indicate open-ended intervals with two decimal points (..).'
     )
 
-    variableMeasured: Optional[Text] = Field(
+    variableMeasured: Optional[Union[Text,PropertyValue,List[PropertyValue]]] = Field(
         None,
         title='Variable Measured',
         description='The variable that this dataset measures. For example, temperature or pressure.'
