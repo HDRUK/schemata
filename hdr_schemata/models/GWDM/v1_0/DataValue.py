@@ -3,8 +3,6 @@ from pydantic import BaseModel, Field, constr
 from hdr_schemata.definitions.HDRUK import *
 
 class DataValue(BaseModel):
-    class Config:
-        extra = 'allow'
 
     name: Name = Field(
         ...,

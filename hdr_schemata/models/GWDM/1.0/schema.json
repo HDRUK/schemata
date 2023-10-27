@@ -265,7 +265,6 @@
                   "type": "object"
             },
             "DataColumn": {
-                  "additionalProperties": true,
                   "properties": {
                         "name": {
                               "allOf": [
@@ -375,7 +374,6 @@
                   "type": "object"
             },
             "DataValue": {
-                  "additionalProperties": true,
                   "properties": {
                         "name": {
                               "allOf": [

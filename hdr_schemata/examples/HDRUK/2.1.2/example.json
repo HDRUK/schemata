@@ -70,9 +70,7 @@
             "jurisdiction": "GB-ENG",
             "dataProcessor": "HDR UK",
             "accessService": "https://github.com/HDRUK/papers",
-            "accessRights": [
-                "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE"
-            ],
+            "accessRights": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
             "accessRequestCost": "Free",
             "deliveryLeadTime": "OTHER"
         }

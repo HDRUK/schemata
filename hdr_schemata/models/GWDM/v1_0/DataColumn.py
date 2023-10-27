@@ -5,8 +5,6 @@ from hdr_schemata.definitions.HDRUK import *
 from .DataValue import DataValue
 
 class DataColumn(BaseModel):
-    class Config:
-        extra = 'allow'
 
     name: Name = Field(
         ...,

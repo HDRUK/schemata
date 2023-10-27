@@ -11,11 +11,15 @@
                               "default": "CreativeWork"
                         },
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The name of the item."
                         },
                         "abstract": {
@@ -72,9 +76,6 @@
                         "creator": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Person"
-                                    },
-                                    {
                                           "$ref": "#/$defs/Organization"
                                     },
                                     {
@@ -100,16 +101,88 @@
                               "default": null,
                               "description": "The publisher of the creative work.",
                               "title": "Creative Work publisher"
+                        },
+                        "countryOfOrigin": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The country of origin of something, including products as well as creative works such as movie and TV content.\n\nIn the case of TV and movie, this would be the country of the principle offices of the production company or individual responsible for the movie. For other kinds of CreativeWork it is difficult to provide fully general guidance, and properties such as contentLocation and locationCreated may be more applicable.\n\nIn the case of products, the country of origin of the product. The exact interpretation of this may vary by context and product type, and cannot be fully enumerated here.",
+                              "title": "Country Of Origin"
+                        },
+                        "jurisdiction": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Indicates a legal jurisdiction, e.g. of some legislation, or where some government service is based.",
+                              "title": "Jurisdiction"
+                        },
+                        "typicalAgeRange": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The typical expected age range, e.g. '7-9', '11-'."
+                        },
+                        "temporalCoverage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The typical expected age range, e.g. '7-9', '11-'.",
+                              "title": "temporalCoverage"
+                        },
+                        "inLanguage": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard. See also availableLanguage. Supersedes language."
+                        },
+                        "encodingFormat": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Media type typically expressed using a MIME format (see IANA site and MDN reference), e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.\n\nIn cases where a CreativeWork has several media type representations, encoding can be used to indicate each MediaObject alongside particular encodingFormat information.\n\nUnregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. Supersedes fileFormat."
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "CreativeWork",
                   "type": "object"
             },
             "DataCatalog": {
-                  "description": "\n    This is pretty incomplete, but we might not need it... \n    ",
+                  "description": "This is pretty incomplete, but we might not need it... ",
                   "properties": {
                         "@type": {
                               "allOf": [
@@ -201,13 +274,29 @@
             "Organization": {
                   "properties": {
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of the item."
                         },
                         "identifier": {
                               "anyOf": [
@@ -273,9 +362,6 @@
                               "example": "Fictitious Research Consortium"
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Organization",
                   "type": "object"
             },
@@ -369,6 +455,217 @@
                         "affiliation"
                   ],
                   "title": "Person",
+                  "type": "object"
+            },
+            "PropertyValue": {
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of the item."
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        },
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "PropertyValue"
+                        },
+                        "maxValue": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Number"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The upper value of some characteristic or property."
+                        },
+                        "date": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "PropertyValue observed date"
+                        },
+                        "measurementMethod": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A subproperty of measurementTechnique that can be used for specifying specific methods, in particular via MeasurementMethodEnum.",
+                              "title": "Measurementmethod"
+                        },
+                        "measurementTechnique": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A technique, method or technology used in an Observation, StatisticalVariable or Dataset (or DataDownload, DataCatalog), corresponding to the method used for measuring the corresponding variable(s) (for datasets, described using variableMeasured; for Observation, a StatisticalVariable). Often but not necessarily each variableMeasured will have an explicit representation as (or mapping to) an property such as those defined in Schema.org, or other RDF vocabularies and \"knowledge graphs\". In that case the subproperty of variableMeasured called measuredProperty is applicable.\n        \n        The measurementTechnique property helps when extra clarification is needed about how a measuredProperty was measured. This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but can often serve as a high level summary for dataset discovery. \n        \n        For example, if variableMeasured is: molecule concentration, measurementTechnique could be: \"mass spectrometry\" or \"nmr spectroscopy\" or \"colorimetry\" or \"immunofluorescence\". If the variableMeasured is \"depression rating\", the measurementTechnique could be \"Zung Scale\" or \"HAM-D\" or \"Beck Depression Inventory\". \n        \n        If there are several variableMeasured properties recorded for some given data object, use a PropertyValue for each variableMeasured and attach the corresponding measurementTechnique. The value can also be from an enumeration, organized as a MeasurementMetholdEnumeration.",
+                              "title": "Measurementtechnique"
+                        },
+                        "minValue": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Number"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The lower value of some characteristic or property."
+                        },
+                        "propertyID": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be\n        (1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific ID of the property), or (3)\n        a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).\n        Standards bodies should promote a standard prefix for the identifiers of properties from their standards.",
+                              "title": "Propertyid"
+                        },
+                        "unitCode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.",
+                              "title": "Unitcode"
+                        },
+                        "unitText": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for\n        unitCode."
+                        },
+                        "value": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The value of a QuantitativeValue (including Observation) or property value node.\n        \n        For QuantitativeValue and MonetaryAmount, the recommended type for values is 'Number'.\n        For PropertyValue, it can be 'Text', 'Number', 'Boolean', or 'StructuredValue'.\n        Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similar Unicode symbols.\n    Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator."
+                        },
+                        "valueReference": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A secondary value that provides additional information on the original value, e.g. a reference temperature or a type of measurement."
+                        }
+                  },
+                  "title": "PropertyValue",
                   "type": "object"
             },
             "Text": {
@@ -710,6 +1007,15 @@
                   "anyOf": [
                         {
                               "$ref": "#/$defs/Text"
+                        },
+                        {
+                              "$ref": "#/$defs/PropertyValue"
+                        },
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/PropertyValue"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"

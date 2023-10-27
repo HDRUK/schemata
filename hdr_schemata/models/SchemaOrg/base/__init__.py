@@ -9,10 +9,14 @@ from .CreativeWork import CreativeWork
 from .Place import Place
 from .DataDownload import DataDownload
 from .DataCatalog import DataCatalog
+from .PropertyValue import PropertyValue
+from .PublicationEvent import PublicationEvent
 
 from hdr_schemata.definitions.SchemaOrg import Text, Text50, Number 
 from hdr_schemata.definitions.SchemaOrg import SingleDate, TimePeriod, OpenEndedTimePeriod
-    
+
+class Extra(BaseModel):
+    model_config = ConfigDict(extra='allow')
     
 class Dataset(CreativeWork):
 
@@ -174,7 +178,7 @@ class Dataset(CreativeWork):
         description='The data in the dataset covers a specific time interval. Only include this property if the dataset has a temporal dimension. Schema.org uses the ISO 8601 standard to describe time intervals and time points. You can describe dates differently depending upon the dataset interval. Indicate open-ended intervals with two decimal points (..).'
     )
 
-    variableMeasured: Optional[Text] = Field(
+    variableMeasured: Optional[Union[Text,PropertyValue,List[PropertyValue]]] = Field(
         None,
         title='Variable Measured',
         description='The variable that this dataset measures. For example, temperature or pressure.'
@@ -222,9 +226,23 @@ class Dataset(CreativeWork):
         description="The publisher of the creative work."
     )
 
+    releasedEvent: Optional[PublicationEvent] = Field(
+        None,
+        title="Released Event",
+        description="The place and time the release was issued, expressed as a PublicationEvent."
+    )
+
+
+    
     usageInfo: Optional[Union[CreativeWork,AnyUrl]] = Field(
         None,
         title='Usage Info',
         description=r'''The schema.org usageInfo property indicates further information about a CreativeWork. This property is applicable both to works that are freely available and to those that require payment or other transactions. It can reference additional information, e.g. community expectations on preferred linking and citation conventions, as well as purchasing details. For something that can be commercially licensed, usageInfo can provide detailed, resource-specific information about licensing options.
         This property can be used alongside the license property which indicates license(s) applicable to some piece of content. The usageInfo property can provide information about other licensing options, e.g. acquiring commercial usage rights for an image that is also available under non-commercial creative commons licenses.'''
+    )
+
+    extra: Optional[Extra] = Field(
+        None,
+        title='extra',
+        description='There may be fields that do not exist in schema.org that need to be included'
     )

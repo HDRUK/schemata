@@ -11,7 +11,9 @@ from .Organization import Organization
 #import definitions
 from hdr_schemata.definitions.SchemaOrg import Text, Text50, Number
 from hdr_schemata.definitions.SchemaOrg import SingleDate, TimePeriod, OpenEndedTimePeriod
-    
+
+from hdr_schemata.models import filter_fields_in_cls
+
 class Dataset(BaseDataset):
     """
     - inherits from the baseline Schema.org definitions (currently incomplete)
@@ -212,49 +214,30 @@ class Dataset(BaseDataset):
         description='Location of a page describing the dataset.'
     )
     
-        
-__fields_to_keep = [
-    "m_type",
-    "m_id",
-    "m_context",
-    "description",
-    "name",
-    "alternateName",
-    "creator",
-    "citation",
-    "funder",
-    "hasPart",
-    "isPartOf",
-    "identifier",
-    "isAccessibleForFree",
-    "keywords",
-    "license",
-    "measurementTechnique",
-    "sameAs",
-    "spatialCoverage",
-    "temporalCoverage",
-    "variableMeasured",
-    "version",
-    "url",
-    "distribution",
-]
 
-# - There is a problem with pydantic v2 where the 'exclude' feature doesnt currently work
-#   see: https://github.com/pydantic/pydantic/discussions/2686
-# - This hack means that I can inherit from the Schema.Org model but then exclude fields
-#   that are not needed for the Google Recommended Schema
-all_keys = list(Dataset.model_fields.keys())
-for field in all_keys:
-    if not field in __fields_to_keep:
-        Dataset.model_fields_set.deleter(field)
-        Dataset.model_computed_fields.deleter(field)
-        del Dataset.model_fields[field]
-        
-for field in __fields_to_keep:
-    if not field in Dataset.model_fields.keys():
-        raise NotImplementedError(f'Field "{field}" has not been implemented!')
-
-
-Dataset.__pydantic_complete__ = False
-del Dataset.__pydantic_core_schema__
-Dataset.model_rebuild(force=True)
+filter_fields_in_cls(Dataset,
+                       [
+                           "m_type",
+                           "m_id",
+                           "m_context",
+                           "description",
+                           "name",
+                           "alternateName",
+                           "creator",
+                           "citation",
+                           "funder",
+                           "hasPart",
+                           "isPartOf",
+                           "identifier",
+                           "isAccessibleForFree",
+                           "keywords",
+                           "license",
+                           "measurementTechnique",
+                           "sameAs",
+                           "spatialCoverage",
+                           "temporalCoverage",
+                           "variableMeasured",
+                           "version",
+                           "url",
+                           "distribution",
+                       ])
