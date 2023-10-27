@@ -11,6 +11,7 @@ def remove_leading(text):
 url = 'https://schema.org/Dataset'
 url = 'https://schema.org/CreativeWork'
 url = 'https://schema.org/PropertyValue'
+url = 'https://schema.org/PublicationEvent'
 
 response = requests.get(url)
 
@@ -19,10 +20,11 @@ soup = BeautifulSoup(response.text, 'html.parser')
 tables = soup.find_all('table', class_ = 'definition-table')
 
 template = r'''
-{name}: {_type} = Field(
-     None,
-     description=r{quotes}{description}{quotes}
-)'''
+    {name}: {_type} = Field(
+        None,
+        description=r{quotes}{description}{quotes}
+    )
+'''
 
 model = []
 for table in tables[:1]:

@@ -10,6 +10,7 @@ from .Place import Place
 from .DataDownload import DataDownload
 from .DataCatalog import DataCatalog
 from .PropertyValue import PropertyValue
+from .PublicationEvent import PublicationEvent
 
 from hdr_schemata.definitions.SchemaOrg import Text, Text50, Number 
 from hdr_schemata.definitions.SchemaOrg import SingleDate, TimePeriod, OpenEndedTimePeriod
@@ -225,6 +226,14 @@ class Dataset(CreativeWork):
         description="The publisher of the creative work."
     )
 
+    releasedEvent: Optional[PublicationEvent] = Field(
+        None,
+        title="Released Event",
+        description="The place and time the release was issued, expressed as a PublicationEvent."
+    )
+
+
+    
     usageInfo: Optional[Union[CreativeWork,AnyUrl]] = Field(
         None,
         title='Usage Info',
