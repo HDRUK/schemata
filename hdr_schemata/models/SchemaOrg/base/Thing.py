@@ -11,6 +11,11 @@ class Thing(BaseModel):
         example="Fictitious Research Consortium"
     )
 
+    description: Optional[Text] = Field(
+        None,
+        description="A description of the item."
+    )
+
     identifier: Optional[Text] = Field(
         None,
         description="The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."

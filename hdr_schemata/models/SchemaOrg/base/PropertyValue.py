@@ -2,9 +2,9 @@ from typing import Optional, Union
 from pydantic import AnyUrl, BaseModel, RootModel, Field,  EmailStr
 
 from hdr_schemata.definitions.SchemaOrg import Text, Number
+from .Thing import Thing
 
-
-class PropertyValue(BaseModel):
+class PropertyValue(Thing):
 
     m_type: Text = Field(
         alias="@type",
@@ -15,6 +15,11 @@ class PropertyValue(BaseModel):
     maxValue: Optional[Number] = Field(
         None,
         description=r'''The upper value of some characteristic or property.'''
+    )
+
+    date: Optional[Text] = Field(
+        None,
+        description=r'''PropertyValue observed date'''
     )
     
     #measurementMethod: Optional[Union[DefinedTerm, MeasurementMethodEnum, Text, AnyUrl]] = Field(

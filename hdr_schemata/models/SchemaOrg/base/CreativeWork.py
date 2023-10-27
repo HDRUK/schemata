@@ -13,8 +13,8 @@ class CreativeWork(BaseModel):
         default="CreativeWork"
     )
 
-    name: Text = Field(
-        ...,
+    name: Optional[Text] = Field(
+        None,
         description="The name of the item."
     )
 
@@ -43,7 +43,8 @@ class CreativeWork(BaseModel):
     )
 
 
-    creator: Optional[Union[Person,Organization]] = Field(
+    #creator: Optional[Union[Person,Organization]] = Field(
+    creator: Optional[Organization] = Field(
         None,
         title='Creative Work creator',
         description="The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork."

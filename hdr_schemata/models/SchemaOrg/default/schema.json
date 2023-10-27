@@ -11,11 +11,15 @@
                               "default": "CreativeWork"
                         },
                         "name": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The name of the item."
                         },
                         "abstract": {
@@ -71,9 +75,6 @@
                         },
                         "creator": {
                               "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Person"
-                                    },
                                     {
                                           "$ref": "#/$defs/Organization"
                                     },
@@ -177,9 +178,6 @@
                               "description": "Media type typically expressed using a MIME format (see IANA site and MDN reference), e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.\n\nIn cases where a CreativeWork has several media type representations, encoding can be used to indicate each MediaObject alongside particular encodingFormat information.\n\nUnregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. Supersedes fileFormat."
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "CreativeWork",
                   "type": "object"
             },
@@ -326,6 +324,18 @@
                               "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of the item."
                         },
                         "identifier": {
                               "anyOf": [
@@ -501,6 +511,18 @@
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
                         },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of the item."
+                        },
                         "identifier": {
                               "anyOf": [
                                     {
@@ -567,6 +589,59 @@
             },
             "PropertyValue": {
                   "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of the item."
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        },
                         "@type": {
                               "allOf": [
                                     {
@@ -586,6 +661,18 @@
                               ],
                               "default": null,
                               "description": "The upper value of some characteristic or property."
+                        },
+                        "date": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "PropertyValue observed date"
                         },
                         "measurementMethod": {
                               "anyOf": [
@@ -806,6 +893,18 @@
                               "default": null,
                               "description": "Name of the organisation",
                               "example": "Fictitious Research Consortium"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of the item."
                         },
                         "identifier": {
                               "anyOf": [
