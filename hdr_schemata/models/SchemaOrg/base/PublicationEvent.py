@@ -4,7 +4,7 @@ from pydantic import AnyUrl, BaseModel, RootModel, Field,  EmailStr
 from .Organization import Organization
 from .Person import Person
 from .Thing import Thing
-from hdr_schemata.definitions.SchemaOrg import Text, Number
+from hdr_schemata.definitions.SchemaOrg import Text, Number, Date, DateTime
 
 
 class PublicationEvent(BaseModel):

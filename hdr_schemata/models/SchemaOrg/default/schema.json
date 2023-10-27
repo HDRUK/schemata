@@ -699,6 +699,78 @@
                   "title": "PropertyValue",
                   "type": "object"
             },
+            "PublicationEvent": {
+                  "properties": {
+                        "@type": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    }
+                              ],
+                              "default": "PublicationEvent"
+                        },
+                        "publishedBy": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Person"
+                                    },
+                                    {
+                                          "$ref": "#/$defs/Organization"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "An agent associated with the publication event.",
+                              "title": "Publishedby"
+                        },
+                        "publishedOn": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A broadcast service associated with the publication event."
+                        },
+                        "about": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Thing"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The subject matter of the content.\n        \n        \n        Inverse property: \n        subjectOf"
+                        },
+                        "startDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The start date and time of the item (in ISO 8601 date format).",
+                              "title": "Startdate"
+                        }
+                  },
+                  "title": "PublicationEvent",
+                  "type": "object"
+            },
             "SingleDate": {
                   "format": "date",
                   "title": "SingleDate",
@@ -707,6 +779,53 @@
             "Text": {
                   "title": "Text",
                   "type": "string"
+            },
+            "Thing": {
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Name of the organisation",
+                              "example": "Fictitious Research Consortium"
+                        },
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Text"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The identifier property represents any kind of identifier for any kind of Thing, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes for more details."
+                        },
+                        "sameAs": {
+                              "anyOf": [
+                                    {
+                                          "format": "uri",
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Wikidata entry, or official website.",
+                              "example": "https://www.kaggle.com/datasets/meirnizri/covid19-dataset",
+                              "title": "Sameas"
+                        }
+                  },
+                  "title": "Thing",
+                  "type": "object"
             },
             "TimePeriod": {
                   "pattern": "^\\d{4}-\\d{2}-\\d{2}\\/\\d{4}-\\d{2}-\\d{2}$",
@@ -1312,6 +1431,19 @@
                   "default": null,
                   "description": "A maintainer of a Dataset, software package (SoftwareApplication), or other Project. A maintainer is a Person or Organization that manages contributions to, and/or publication of, some (typically complex) artifact. It is common for distributions of software and data to be based on 'upstream' sources. When maintainer is applied to a specific version of something e.g. a particular version or packaging of a Dataset, it is always possible that the upstream source has a different maintainer. The isBasedOn property can be used to indicate such relationships between datasets to make the different maintenance roles clear. Similarly in the case of software, a package may have dedicated maintainers working on integration into software distributions such as Ubuntu, as well as upstream maintainers of the underlying work.",
                   "title": "Maintainer"
+            },
+            "releasedEvent": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/PublicationEvent"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "The place and time the release was issued, expressed as a PublicationEvent.",
+                  "title": "Released Event"
             },
             "usageInfo": {
                   "anyOf": [
