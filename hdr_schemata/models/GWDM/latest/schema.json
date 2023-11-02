@@ -176,42 +176,6 @@
                   ],
                   "title": "AgeRange"
             },
-            "Anthropometric": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight)(?:,(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Anthropometric"
-            },
-            "BiologicalSamples": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Blood|Other|Urine|Saliva)(?:,(?:Blood|Other|Urine|Saliva))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "BiologicalSamples"
-            },
-            "CommaSeparatedIntegers": {
-                  "anyOf": [
-                        {
-                              "pattern": "^\\d+(,\\d+)*$",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "CommaSeparatedIntegers"
-            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -239,6 +203,20 @@
                               "description": "List of countries where the data was taken from",
                               "example": "United Kingdom,Wales,England",
                               "title": "Spatial"
+                        },
+                        "physicalSampleAvailability": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A list of what the dataset actually contains in terms of sample measurements",
+                              "example": "DNA,PLASMA,SERUM,URINE,WHOLE BLOOD",
+                              "title": "Physical Sample Availability"
                         },
                         "pathway": {
                               "anyOf": [
@@ -281,97 +259,6 @@
                               "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                               "example": "1-150",
                               "title": "Typical Age Range"
-                        },
-                        "gender": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Gender"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
-                        },
-                        "biologicalsamples": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/BiologicalSamples"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Blood, Saliva, Urine, Other",
-                              "title": "Biological Samples"
-                        },
-                        "psychological": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Psychological"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Mental health, Cognitive function",
-                              "title": "Psychological"
-                        },
-                        "physical": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Physical"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
-                              "title": "Physical"
-                        },
-                        "anthropometric": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Anthropometric"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
-                              "title": "Anthropometric"
-                        },
-                        "lifestyle": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Lifestyles"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
-                              "title": "Lifestyle"
-                        },
-                        "socioeconomic": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/SocioEconomic"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
-                              "title": "Socio-economic"
                         }
                   },
                   "title": "Coverage",
@@ -712,30 +599,6 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
-            "Gender": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Male|Female|Other)(?:,(?:Male|Female|Other))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Gender"
-            },
-            "Lifestyles": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Smoking|Dietary Habits|Physical Activity|Alcohol)(?:,(?:Smoking|Dietary Habits|Physical Activity|Alcohol))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Lifestyles"
-            },
             "Linkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -935,162 +798,6 @@
                   "title": "Observation",
                   "type": "object"
             },
-            "OmopIDs": {
-                  "properties": {
-                        "measurements": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for measured quantities. E.g. 44810410 - https://athena.ohdsi.org/search-terms/terms/44810410",
-                              "example": "44810410",
-                              "title": "OMOP Measurements"
-                        },
-                        "drug": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for drug exposures. E.g. 602396 - https://athena.ohdsi.org/search-terms/terms/602396",
-                              "example": "602396",
-                              "title": "OMOP Drugs"
-                        },
-                        "observations": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for observations.",
-                              "example": "12345,6789",
-                              "title": "OMOP Observations"
-                        },
-                        "specimens": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for specimens.",
-                              "example": "12345,6789",
-                              "title": "OMOP Specimens"
-                        },
-                        "conditions": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for condition occurrences.",
-                              "example": "12345,6789",
-                              "title": "OMOP Condition Occurrences"
-                        },
-                        "procedures": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for procedure occurrences.",
-                              "example": "12345,6789",
-                              "title": "OMOP Procedure Occurrences"
-                        },
-                        "device_exposures": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedIntegers"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "OMOP Concept IDs for device exposures.",
-                              "example": "12345,6789",
-                              "title": "OMOP "
-                        }
-                  },
-                  "title": "OmopIDs",
-                  "type": "object"
-            },
-            "Organisation": {
-                  "properties": {
-                        "name": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Name"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
-                              "example": "SAIL",
-                              "title": "Name"
-                        },
-                        "gatewayId": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 50,
-                                          "minLength": 2,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
-                              "title": "Publisher gateway id"
-                        },
-                        "rorId": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 9,
-                                          "minLength": 9,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The Research Organization Registry (ROR) for the organisation, if applicable",
-                              "title": "Research Organization Registry Identifier"
-                        }
-                  },
-                  "required": [
-                        "name"
-                  ],
-                  "title": "Organisation",
-                  "type": "object"
-            },
             "Origin": {
                   "additionalProperties": false,
                   "properties": {
@@ -1160,18 +867,6 @@
                   ],
                   "title": "Periodicity"
             },
-            "Physical": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive)(?:,(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Physical"
-            },
             "Provenance": {
                   "additionalProperties": false,
                   "properties": {
@@ -1196,17 +891,42 @@
                   "title": "Provenance",
                   "type": "object"
             },
-            "Psychological": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Cognitive Function|Mental Health)(?:,(?:Cognitive Function|Mental Health))*\\b",
-                              "type": "string"
+            "Publisher": {
+                  "properties": {
+                        "publisherName": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Name"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+                              "example": "SAIL",
+                              "title": "Publisher name"
                         },
-                        {
-                              "type": "null"
+                        "publisherGatewayId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
+                              "title": "Publisher gateway id"
                         }
+                  },
+                  "required": [
+                        "publisherName"
                   ],
-                  "title": "Psychological"
+                  "title": "Publisher",
+                  "type": "object"
             },
             "Required": {
                   "properties": {
@@ -1242,16 +962,6 @@
                               },
                               "title": "Revisions",
                               "type": "array"
-                        },
-                        "version": {
-                              "description": "Dataset metadata version",
-                              "examples": [
-                                    "1.1.0"
-                              ],
-                              "maxLength": 100,
-                              "minLength": 2,
-                              "title": "Dataset Version",
-                              "type": "string"
                         }
                   },
                   "required": [
@@ -1259,8 +969,7 @@
                         "gatewayPid",
                         "issued",
                         "modified",
-                        "revisions",
-                        "version"
+                        "revisions"
                   ],
                   "title": "Required",
                   "type": "object"
@@ -1293,6 +1002,19 @@
                   "title": "Revision",
                   "type": "object"
             },
+            "ShortDescription": {
+                  "anyOf": [
+                        {
+                              "maxLength": 1000,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "ShortDescription"
+            },
             "ShortTitle": {
                   "anyOf": [
                         {
@@ -1305,18 +1027,6 @@
                         }
                   ],
                   "title": "ShortTitle"
-            },
-            "SocioEconomic": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support)(?:,(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "SocioEconomic"
             },
             "StatisticalPopulationConstrained": {
                   "enum": [
@@ -1442,7 +1152,7 @@
                         "publisher": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Organisation"
+                                          "$ref": "#/$defs/Publisher"
                                     },
                                     {
                                           "type": "null"
@@ -1620,7 +1330,7 @@
                         "resourceCreator": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Organisation"
+                                          "$ref": "#/$defs/ShortDescription"
                                     },
                                     {
                                           "type": "null"
@@ -1628,6 +1338,7 @@
                               ],
                               "default": null,
                               "description": "Who has created this resource",
+                              "example": "Ministry of Justice",
                               "title": "Resource Creator"
                         }
                   },
@@ -1667,7 +1378,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Observational, Spatial and Temporal coverage",
+                  "description": "Spatial and Temporal coverage",
                   "title": "Coverage"
             },
             "provenance": {
@@ -1737,25 +1448,12 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
-            },
-            "omopIDs": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/OmopIDs"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "Collection of OMOP IDs that are contained within the dataset.",
-                  "title": "OMOP IDs"
             }
       },
       "required": [
             "required",
             "summary"
       ],
-      "title": "Gwdm11",
+      "title": "Gwdm10",
       "type": "object"
 }
