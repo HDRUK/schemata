@@ -1,5 +1,4 @@
 from hdr_schemata.models.GWDM.v1_0 import Gwdm10
-from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.HDRUK import Hdruk212
 from pydantic import BaseModel
 import pandas as pd
