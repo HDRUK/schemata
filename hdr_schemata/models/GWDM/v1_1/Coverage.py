@@ -79,6 +79,10 @@ class SocioEconomic(RootModel):
 
 class Coverage(BaseCoverage):
 
+    class Config:
+        extra = 'forbid'
+
+    
     gender: Optional[Gender] = Field(
         None,
         title='Gender',
