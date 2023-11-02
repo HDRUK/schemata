@@ -1,7 +1,6 @@
 from hdr_schemata.models.GWDM import Gwdm10
 from .Coverage import Coverage 
 from .Accessibility import Accessibility
-from .Omop import OmopIDs
 from .Required import Required
 from .Summary import Summary
 from typing import Optional
@@ -36,11 +35,4 @@ class Gwdm11(Gwdm10):
         description='Accessibility information.',
         title='Accessibility',
     )
-
-    omopIDs: Optional[OmopIDs] = Field(
-        None,
-        description='Collection of OMOP IDs that are contained within the dataset.',
-        title='OMOP IDs',
-    )
-
     
