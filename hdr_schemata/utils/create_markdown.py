@@ -1,5 +1,6 @@
-from hdr_schemata.models.GWDM.v1_0 import Gwdm10
-from hdr_schemata.models.HDRUK import Hdruk212
+#from hdr_schemata.models.GWDM.v1_0 import Gwdm10 as Model
+from hdr_schemata.models.HDRUK import Hdruk212 as Model
+#from hdr_schemata.models.HDRUK.base import Observation as Model
 from pydantic import BaseModel
 import pandas as pd
 import json
@@ -23,6 +24,7 @@ def get_fields(structure,model: type[BaseModel]):
                 _type = _type.__args__[0]
             _type = _type.__name__
 
+
         value = {
             'name':name,
             'required':field.is_required(),
@@ -40,7 +42,6 @@ def get_fields(structure,model: type[BaseModel]):
             subItems = []
             get_fields(subItems,t)
             value['subItems'] = subItems
-
 
         structure.append(value)
 
@@ -80,7 +81,8 @@ def json_to_markdown(structure,level=2):
     return md
 
 structure = []
-get_fields(structure,Hdruk212)
+get_fields(structure,Model)
+#get_fields(structure,Hdruk212)
 
 with open('temp.json','w') as f:
     json.dump(structure,f,indent=6)
