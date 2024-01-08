@@ -1,11 +1,7 @@
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import Periodicity
-from hdr_schemata.models.HDRUK.base import Temporal as BaseTemporal
-from hdr_schemata.models.HDRUK.base import Coverage as BaseCoverage
+from hdr_schemata.models.HDRUK.base.Temporal import Temporal as BaseTemporal
 from pydantic import BaseModel, Field
-
-print(BaseTemporal)
-print(BaseCoverage)
 
 
 class Temporal(BaseTemporal):
