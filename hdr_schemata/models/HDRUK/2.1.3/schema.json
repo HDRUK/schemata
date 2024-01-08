@@ -620,13 +620,6 @@
                   ],
                   "title": "EmailAddress"
             },
-            "EndDateEnum": {
-                  "enum": [
-                        "CONTINUOUS",
-                        null
-                  ],
-                  "title": "EndDateEnum"
-            },
             "EnrichmentAndLinkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -1131,6 +1124,7 @@
                   "type": "string"
             },
             "Organisation": {
+                  "additionalProperties": false,
                   "properties": {
                         "identifier": {
                               "anyOf": [
@@ -1217,125 +1211,6 @@
                               "default": null,
                               "description": "Please indicate if the organisation is an Alliance Member or a Hub.",
                               "title": "Organisation Membership"
-                        },
-                        "accessRights": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both.",
-                              "title": "Organisation Default Access Rights"
-                        },
-                        "deliveryLeadTime": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/DeliveryLeadTime"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide an indication of the typical processing times based on the types of requests typically received. Note: This value will be used as default access request duration for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
-                              "title": "Access Request Duration"
-                        },
-                        "accessService": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/LongDescription"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
-                              "examples": [
-                                    "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
-                              ],
-                              "title": "Organisation Access Service"
-                        },
-                        "accessRequestCost": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/ShortDescription"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide link(s) to a webpage or a short description detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
-                              "title": "Organisation Access Request Cost"
-                        },
-                        "dataUseLimitation": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/DataUseLimitation"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. Notes: where there are existing data-sharing arrangements such as the HDR UK HUB data sharing agreement or the NIHR HIC data sharing agreement this should be indicated within access rights. This value will be used as terms for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
-                              "title": "Data Use Limitation"
-                        },
-                        "dataUseRequirements": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/DataUseRequirements"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
-                              "title": "Data Use Requirements"
                         }
                   },
                   "required": [
@@ -1408,26 +1283,6 @@
                   },
                   "title": "Origin",
                   "type": "object"
-            },
-            "Periodicity": {
-                  "enum": [
-                        "STATIC",
-                        "IRREGULAR",
-                        "CONTINUOUS",
-                        "BIENNIAL",
-                        "ANNUAL",
-                        "BIANNUAL",
-                        "QUARTERLY",
-                        "BIMONTHLY",
-                        "MONTHLY",
-                        "BIWEEKLY",
-                        "WEEKLY",
-                        "SEMIWEEKLY",
-                        "DAILY",
-                        "OTHER",
-                        null
-                  ],
-                  "title": "Periodicity"
             },
             "Provenance": {
                   "additionalProperties": false,
@@ -1723,105 +1578,15 @@
                   "type": "object"
             },
             "Temporal": {
-                  "additionalProperties": false,
                   "properties": {
-                        "accrualPeriodicity": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Periodicity"
-                                    }
-                              ],
-                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/"
-                        },
-                        "distributionReleaseDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
-                              "title": "Release Date"
-                        },
-                        "startDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
-                              "title": "Start Date"
-                        },
-                        "endDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/EndDateEnum"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
-                              "title": "End Date"
-                        },
-                        "timeLag": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/TimeLag"
-                                    }
-                              ],
-                              "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
-                              "title": "Time Lag"
+                        "test": {
+                              "default": "blah",
+                              "title": "Test",
+                              "type": "string"
                         }
                   },
-                  "required": [
-                        "accrualPeriodicity",
-                        "startDate",
-                        "timeLag"
-                  ],
                   "title": "Temporal",
                   "type": "object"
-            },
-            "TimeLag": {
-                  "enum": [
-                        "LESS 1 WEEK",
-                        "1-2 WEEKS",
-                        "2-4 WEEKS",
-                        "1-2 MONTHS",
-                        "2-6 MONTHS",
-                        "MORE 6 MONTHS",
-                        "VARIABLE",
-                        "NO TIMELAG",
-                        "NOT APPLICABLE",
-                        "OTHER",
-                        null
-                  ],
-                  "title": "TimeLag"
             },
             "Url": {
                   "anyOf": [
