@@ -3,6 +3,28 @@ name: Pytest
 on: [push]
 
 jobs:
+  check_json:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check JSON
+      run: |
+        file_path="available.json"
+        if [ -f "$file_path" ]; then
+          if jq . "$file_path" >/dev/null 2>&1; then
+            echo "JSON file is valid."
+          else
+            echo "JSON file is not valid."
+            exit 1
+          fi
+        else
+          echo "JSON file does not exist."
+          exit 1
+        fi
+    
   test:
     runs-on: ubuntu-latest
     steps:
