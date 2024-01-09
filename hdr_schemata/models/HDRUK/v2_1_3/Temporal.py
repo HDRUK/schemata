@@ -1,6 +1,6 @@
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import Periodicity
-from hdr_schemata.models.HDRUK.base.Temporal import Temporal as BaseTemporal
+from hdr_schemata.models.HDRUK.v2_1_2.Temporal import Temporal as BaseTemporal
 from pydantic import BaseModel, Field
 from hdr_schemata.models import remove_fields_from_cls
 

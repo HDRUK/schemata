@@ -1,4 +1,4 @@
-from hdr_schemata.models.HDRUK.base import Provenance as BaseProvenance
+from hdr_schemata.models.HDRUK.v2_1_2 import Provenance as BaseProvenance
 from .Temporal import Temporal
 
 

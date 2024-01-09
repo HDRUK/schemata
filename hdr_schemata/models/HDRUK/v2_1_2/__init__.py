@@ -1,7 +1,7 @@
+import json
 from datetime import date, datetime
 from enum import Enum
 from typing import List, Optional, Union
-
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 
 from hdr_schemata.definitions.HDRUK import * 
@@ -17,7 +17,8 @@ from .Observations import Observation
 from .DataClass import DataClass
 from .DataElement import DataElement
 
-class HdrukBaseModel(BaseModel):
+
+class Hdruk212(BaseModel):
     class Config:
         extra = 'forbid'
 
@@ -91,3 +92,8 @@ class HdrukBaseModel(BaseModel):
         description='Descriptions of all tables and data elements that can be included in the dataset',
         title='Structural Metadata',
     )
+
+    @classmethod
+    def save_schema(cls,location='./2.1.2/schema.json'):
+        with open(location,'w') as f:
+            json.dump(cls.model_json_schema(),f,indent=6)
