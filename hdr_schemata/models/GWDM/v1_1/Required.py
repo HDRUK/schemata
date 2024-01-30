@@ -4,7 +4,9 @@ from pydantic import Field, constr
 
 
 class Required(BaseRequired):
-    version: constr(min_length=3, max_length=4) = Field(
+    version: constr(
+        pattern=r"^\d+\.\d+\.\d+$",
+    ) = Field(
         ...,
         description="Dataset metadata version",
         examples=["1.1.0"],
