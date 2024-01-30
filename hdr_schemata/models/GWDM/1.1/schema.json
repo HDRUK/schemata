@@ -1344,6 +1344,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Summary population size of the cohort",
                               "title": "Population size"
                         }
@@ -1358,8 +1359,7 @@
                         "contactPoint",
                         "datasetType",
                         "description",
-                        "publisher",
-                        "populationSize"
+                        "publisher"
                   ],
                   "title": "Summary",
                   "type": "object"

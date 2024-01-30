@@ -14,7 +14,7 @@ class Summary(BaseSummary):
 
     # new field for a summary of the population size
     populationSize: Optional[int] = Field(
-        ...,
+        None,
         description="Summary population size of the cohort",
         title="Population size",
     )
