@@ -1133,8 +1133,8 @@
                               "examples": [
                                     "1.1.0"
                               ],
-                              "maxLength": 100,
-                              "minLength": 2,
+                              "maxLength": 4,
+                              "minLength": 3,
                               "title": "Dataset Version",
                               "type": "string"
                         }
@@ -1335,6 +1335,18 @@
                               ],
                               "description": "Link to details about the publisher of this dataset",
                               "title": "Publisher"
+                        },
+                        "populationSize": {
+                              "anyOf": [
+                                    {
+                                          "type": "integer"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Summary population size of the cohort",
+                              "title": "Population size"
                         }
                   },
                   "required": [
@@ -1347,7 +1359,8 @@
                         "contactPoint",
                         "datasetType",
                         "description",
-                        "publisher"
+                        "publisher",
+                        "populationSize"
                   ],
                   "title": "Summary",
                   "type": "object"
