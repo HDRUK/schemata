@@ -1,14 +1,10 @@
-from typing import List, Optional
-from pydantic import AnyUrl, BaseModel, EmailStr, Field
-from hdr_schemata.definitions.HDRUK import (
-    TwoHundredFiftyFiveCharacters,
-    ShortTitle,
-    Doi,
-    LongAbstractText,
-    CommaSeparatedValues,
-    DatasetType,
-    LongDescription
-)
+from datetime import date, datetime
+from enum import Enum
+from typing import List, Optional, Union
+
+from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
+
+from hdr_schemata.definitions.HDRUK import *
 
 from .Publisher import Publisher
 
