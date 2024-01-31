@@ -4,6 +4,7 @@ from typing import Optional
 from pydantic import Field
 
 from .TissuesSampleCollection import TissuesSampleCollection
+from .Coverage import Coverage
 
 
 class Hdruk220(Hdruk213):
@@ -11,6 +12,13 @@ class Hdruk220(Hdruk213):
         None,
         description="Metadata collection for Tissue Samples datasets",
         title="Tissues Sample Collection",
+    )
+
+    # overload Coverage with an updated version of it..
+    coverage: Optional[Coverage] = Field(
+        None,
+        description="Observational, Spatial and Temporal coverage",
+        title="Coverage",
     )
 
     @classmethod

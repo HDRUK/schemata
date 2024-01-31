@@ -1,7 +1,7 @@
 #from hdr_schemata.models.GWDM.v1_0 import Gwdm10 as Model
 #from hdr_schemata.models.HDRUK.base import Observation as Model
-#from hdr_schemata.models.HDRUK import Hdruk220 as Model
-from hdr_schemata.models.GWDM.v1_1 import Gwdm11 as Model
+from hdr_schemata.models.HDRUK import Hdruk220 as Model
+#from hdr_schemata.models.GWDM.v1_1 import Gwdm11 as Model
 from pydantic import BaseModel
 import pandas as pd
 import json

@@ -250,57 +250,100 @@
             "name": "coverage",
             "required": false,
             "title": "Coverage",
-            "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
+            "description": "Observational, Spatial and Temporal coverage",
             "examples": null,
             "type": "Coverage",
             "subItems": [
                   {
                         "name": "spatial",
                         "required": false,
-                        "title": "Geographic Coverage",
-                        "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
-                        "examples": [
-                              "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
-                        ],
-                        "type": "CommaSeparatedValues",
-                        "subItems": []
-                  },
-                  {
-                        "name": "typicalAgeRange",
-                        "required": false,
-                        "title": "Age Range",
-                        "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                        "title": "Spatial",
+                        "description": "List of countries where the data was taken from",
                         "examples": null,
-                        "type": "AgeRange",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "physicalSampleAvailability",
+                        "name": "pathway",
                         "required": false,
-                        "title": "Physical Sample Availability",
-                        "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide \u201cAVAILABILITY TO BE CONFIRMED\u201d. If samples are not available, then please provide \u201cNOT AVAILABLE\u201d.",
-                        "examples": [
-                              "BONE MARROW"
-                        ],
-                        "type": "CommaSeparatedValues",
+                        "title": "Pathway",
+                        "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                        "examples": null,
+                        "type": "LongDescription",
                         "subItems": []
                   },
                   {
                         "name": "followup",
                         "required": false,
                         "title": "Followup",
-                        "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                        "description": "What is the typical time span that a patient appears in the dataset (follow up period)",
                         "examples": null,
                         "type": "Followup"
                   },
                   {
-                        "name": "pathway",
+                        "name": "typicalAgeRange",
                         "required": false,
-                        "title": "Pathway",
-                        "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                        "title": "Typical Age Range",
+                        "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                         "examples": null,
-                        "type": "Description",
+                        "type": "AgeRange",
                         "subItems": []
+                  },
+                  {
+                        "name": "gender",
+                        "required": false,
+                        "title": "Gender",
+                        "description": "Male, Female, Other",
+                        "examples": null,
+                        "type": "GenderType"
+                  },
+                  {
+                        "name": "biologicalsamples",
+                        "required": false,
+                        "title": "Biological Samples",
+                        "description": "Blood, Saliva, Urine, Other",
+                        "examples": null,
+                        "type": "BiologicalSampleType"
+                  },
+                  {
+                        "name": "psychological",
+                        "required": false,
+                        "title": "Psychological",
+                        "description": "Mental health, Cognitive function",
+                        "examples": null,
+                        "type": "PsychologicalType"
+                  },
+                  {
+                        "name": "physical",
+                        "required": false,
+                        "title": "Physical",
+                        "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                        "examples": null,
+                        "type": "PhysicalType"
+                  },
+                  {
+                        "name": "anthropometric",
+                        "required": false,
+                        "title": "Anthropometric",
+                        "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                        "examples": null,
+                        "type": "AnthropometricType"
+                  },
+                  {
+                        "name": "lifestyle",
+                        "required": false,
+                        "title": "Lifestyle",
+                        "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                        "examples": null,
+                        "type": "LifestylesType"
+                  },
+                  {
+                        "name": "socioeconomic",
+                        "required": false,
+                        "title": "Socio-economic",
+                        "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                        "examples": null,
+                        "type": "SocioEconomicType"
                   }
             ]
       },

@@ -190,6 +190,27 @@
                   ],
                   "title": "AgeRange"
             },
+            "AnthropometricType": {
+                  "enum": [
+                        "Blood Pressure",
+                        "Hip Circumference",
+                        "Height",
+                        "Waist Circumference",
+                        "Weight"
+                  ],
+                  "title": "AnthropometricType",
+                  "type": "string"
+            },
+            "BiologicalSampleType": {
+                  "enum": [
+                        "Blood",
+                        "Other",
+                        "Urine",
+                        "Saliva"
+                  ],
+                  "title": "BiologicalSampleType",
+                  "type": "string"
+            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -267,28 +288,41 @@
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "List of countries where the data was taken from",
+                              "example": "United Kingdom,Wales,England",
+                              "title": "Spatial"
+                        },
+                        "pathway": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/LongDescription"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
-                              "examples": [
-                                    "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                              "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                              "example": "The lookup contains references to link data held elsewhere on:\n\u2022 individuals appearing as defendants in criminal cases dealt with by the magistrates' or Crown Court in England and Wales (including Youth Courts). \n\u2022 individuals supervised by the probation service in England and Wales\n\u2022 individuals serving custodial sentences in England & Wales who appear within records from the prison data source, p-NOMIS. Young Offenders are included if resident at prisons or Young Offender Institutes (YOIs) that use p-NOMIS, however, this excludes the majority of Secure Schools and Secure Training Centres. \"\n\n\"The linking dataset includes a person ID and link to record in other data first datasets for: \n\u2022 Disposals in the magistrates\u2019 court from 1 January 2011 to 31 December 2020\n\u2022 Disposals in the Crown Court from 1 January 2013 to 31 December 2020\n\u2022 Custodial sentences of offenders in custody from January 2011 to September 2021 (including sentences begun before 2011) \n\u2022 Offender probation records from January 2014 to December 2020.",
+                              "title": "Pathway"
+                        },
+                        "followup": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Followup"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
                               ],
-                              "title": "Geographic Coverage"
+                              "default": null,
+                              "description": "What is the typical time span that a patient appears in the dataset (follow up period)",
+                              "example": "CONTINUOUS",
+                              "title": "Followup"
                         },
                         "typicalAgeRange": {
                               "anyOf": [
@@ -300,16 +334,16 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
-                              "title": "Age Range"
+                              "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                              "example": "1-150",
+                              "title": "Typical Age Range"
                         },
-                        "physicalSampleAvailability": {
+                        "gender": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {},
+                                          "items": {
+                                                "$ref": "#/$defs/GenderType"
+                                          },
                                           "type": "array"
                                     },
                                     {
@@ -317,37 +351,104 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide \u201cAVAILABILITY TO BE CONFIRMED\u201d. If samples are not available, then please provide \u201cNOT AVAILABLE\u201d.",
-                              "examples": [
-                                    "BONE MARROW"
-                              ],
-                              "title": "Physical Sample Availability"
+                              "description": "Male, Female, Other",
+                              "title": "Gender"
                         },
-                        "followup": {
+                        "biologicalsamples": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Followup"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": "UNKNOWN",
-                              "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
-                              "title": "Followup"
-                        },
-                        "pathway": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Description"
+                                          "items": {
+                                                "$ref": "#/$defs/BiologicalSampleType"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
-                              "title": "Pathway"
+                              "description": "Blood, Saliva, Urine, Other",
+                              "title": "Biological Samples"
+                        },
+                        "psychological": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/PsychologicalType"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Mental health, Cognitive function",
+                              "title": "Psychological"
+                        },
+                        "physical": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/PhysicalType"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                              "title": "Physical"
+                        },
+                        "anthropometric": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/AnthropometricType"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                              "title": "Anthropometric"
+                        },
+                        "lifestyle": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/LifestylesType"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                              "title": "Lifestyle"
+                        },
+                        "socioeconomic": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/SocioEconomicType"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                              "title": "Socio-economic"
                         }
                   },
                   "title": "Coverage",
@@ -818,6 +919,15 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
+            "GenderType": {
+                  "enum": [
+                        "Male",
+                        "Female",
+                        "Other"
+                  ],
+                  "title": "GenderType",
+                  "type": "string"
+            },
             "ICD_0_3": {
                   "anyOf": [
                         {
@@ -1039,6 +1149,16 @@
                         "zu"
                   ],
                   "title": "LanguageEnum",
+                  "type": "string"
+            },
+            "LifestylesType": {
+                  "enum": [
+                        "Smoking",
+                        "Dietary Habits",
+                        "Physical Activity",
+                        "Alcohol"
+                  ],
+                  "title": "LifestylesType",
                   "type": "string"
             },
             "LongDescription": {
@@ -1342,6 +1462,18 @@
                   ],
                   "title": "Periodicity"
             },
+            "PhysicalType": {
+                  "enum": [
+                        "Respiratory",
+                        "Vision",
+                        "Hearing",
+                        "Musculoskeletal",
+                        "Cardiovascular",
+                        "Reproductive"
+                  ],
+                  "title": "PhysicalType",
+                  "type": "string"
+            },
             "Provenance": {
                   "additionalProperties": false,
                   "properties": {
@@ -1365,6 +1497,14 @@
                   ],
                   "title": "Provenance",
                   "type": "object"
+            },
+            "PsychologicalType": {
+                  "enum": [
+                        "Cognitive Function",
+                        "Mental Health"
+                  ],
+                  "title": "PsychologicalType",
+                  "type": "string"
             },
             "Purpose": {
                   "enum": [
@@ -1448,6 +1588,20 @@
                         }
                   ],
                   "title": "ShortDescription"
+            },
+            "SocioEconomicType": {
+                  "enum": [
+                        "Finances",
+                        "Family Circumstances",
+                        "Housing",
+                        "Education",
+                        "Marital Status",
+                        "Occupation",
+                        "Ethnic Group",
+                        "Social Support"
+                  ],
+                  "title": "SocioEconomicType",
+                  "type": "string"
             },
             "Source": {
                   "enum": [
@@ -2071,7 +2225,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
+                  "description": "Observational, Spatial and Temporal coverage",
                   "title": "Coverage"
             },
             "provenance": {
