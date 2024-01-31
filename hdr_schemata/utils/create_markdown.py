@@ -54,8 +54,8 @@ def json_to_markdown(structure,level=2):
         description = field.pop('description')
         examples = field.pop('examples')
         if examples:
-            examples = "\n".join(['   * '+str(x) for x in examples])
-            examples = "Examples: \n" + examples
+            examples = "\n".join(['  * '+str(x) for x in examples])
+            examples = "Examples: \n\n " + examples
         else:
             examples = ""
 
@@ -75,6 +75,7 @@ def json_to_markdown(structure,level=2):
 {examples}
 
 '''
+
         if subItems:
             md += json_to_markdown(subItems,level=level+1)
 
