@@ -5,7 +5,7 @@ from .Required import Required
 from .Summary import Summary
 from .TissuesSampleCollection import TissuesSampleCollection
 from typing import Optional
-from pydantic import Field, BaseModel, constr
+from pydantic import Field
 
 
 class Gwdm11(Gwdm10):

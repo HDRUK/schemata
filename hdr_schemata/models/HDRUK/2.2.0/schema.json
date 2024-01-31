@@ -1781,7 +1781,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Ontology code for the anatomical site",
+                              "description": "Ontology code for the anatomical site, this code must match an ICD-0-3 format",
                               "title": "Anatomical Site Ontology Code"
                         }
                   },
