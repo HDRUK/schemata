@@ -3,22 +3,18 @@ from pydantic import BaseModel, Field
 from .TissueSampleMetadata import TissueSampleMetadata
 from hdr_schemata.definitions.HDRUK import (
     TissueDataCategoriesEnum,
-    TissueDataCategoriesEnum,
+    MaterialTypeCategories,
 )
 
 
 class TissuesSampleCollection(BaseModel):
-    id: Optional[str] = Field(
-        None, title="ID", description="ID of the tissue sample collection"
-    )
-
     dataCategories: Optional[List[TissueDataCategoriesEnum]] = Field(
         None,
         title="Data Categories",
         description="Data categories related to the tissue sample collection",
     )
 
-    materialType: Optional[CommaSeparatedValues] = Field(
+    materialType: Optional[List[MaterialTypeCategories]] = Field(
         None,
         title="Material Type",
         description="Material type of the tissue sample collection",

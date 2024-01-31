@@ -818,6 +818,18 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
+            "ICD_0_3": {
+                  "anyOf": [
+                        {
+                              "pattern": "^[C\\d]{3}\\.\\d{4}\\/\\d{1,4}$",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "ICD_0_3"
+            },
             "IsPartOfEnum": {
                   "const": "NOT APPLICABLE",
                   "title": "IsPartOfEnum"
@@ -1041,6 +1053,25 @@
                         }
                   ],
                   "title": "LongDescription"
+            },
+            "MaterialTypeCategories": {
+                  "enum": [
+                        "Blood",
+                        "DNA",
+                        "Faeces",
+                        "Immortalized Cell Lines",
+                        "Isolated Pathogen",
+                        "Other",
+                        "Plasma",
+                        "RNA",
+                        "Saliva",
+                        "Serum",
+                        "Tissue (Frozen)",
+                        "Tissue (FFPE)",
+                        "Urine"
+                  ],
+                  "title": "MaterialTypeCategories",
+                  "type": "string"
             },
             "MeasuredProperty": {
                   "title": "MeasuredProperty"
@@ -1706,6 +1737,108 @@
                   ],
                   "title": "TimeLag"
             },
+            "TissueDataCategoriesEnum": {
+                  "enum": [
+                        "Biological samples",
+                        "Survey data",
+                        "Imaging data",
+                        "Medical records",
+                        "National registries",
+                        "Genealogical records",
+                        "Physiological/Biochemical measurements",
+                        "Other"
+                  ],
+                  "title": "TissueDataCategoriesEnum",
+                  "type": "string"
+            },
+            "TissueSampleMetadata": {
+                  "properties": {
+                        "creationDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Date when the tissue sample metadata was created",
+                              "title": "Creation Date"
+                        },
+                        "AnatomicalSiteOntologyCode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/ICD_0_3"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Ontology code for the anatomical site",
+                              "title": "Anatomical Site Ontology Code"
+                        }
+                  },
+                  "title": "TissueSampleMetadata",
+                  "type": "object"
+            },
+            "TissuesSampleCollection": {
+                  "properties": {
+                        "dataCategories": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/TissueDataCategoriesEnum"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Data categories related to the tissue sample collection",
+                              "title": "Data Categories"
+                        },
+                        "materialType": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/MaterialTypeCategories"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Material type of the tissue sample collection",
+                              "title": "Material Type"
+                        },
+                        "tissueSampleMetadata": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/TissueSampleMetadata"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Metadata related to the tissue sample",
+                              "title": "Tissue Sample Metadata"
+                        }
+                  },
+                  "title": "TissuesSampleCollection",
+                  "type": "object"
+            },
             "Url": {
                   "anyOf": [
                         {
@@ -1998,6 +2131,19 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
+            },
+            "tissuesSampleCollection": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/TissuesSampleCollection"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Metadata collection for Tissue Samples datasets",
+                  "title": "Tissues Sample Collection"
             }
       },
       "required": [
