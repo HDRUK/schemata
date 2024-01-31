@@ -585,6 +585,19 @@
                   ],
                   "title": "DataUseRequirements"
             },
+            "DatasetType": {
+                  "anyOf": [
+                        {
+                              "maxLength": 100,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "DatasetType"
+            },
             "DeliveryLeadTime": {
                   "enum": [
                         "LESS 1 WEEK",
@@ -1777,6 +1790,52 @@
                                     "10.3399/bjgp17X692645"
                               ],
                               "title": "Digital Object Identifier"
+                        },
+                        "datasetType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetType"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Placeholder for dataset type",
+                              "examples": [
+                                    [
+                                          ""
+                                    ]
+                              ],
+                              "title": "Datasetype"
+                        },
+                        "datasetSubType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetType"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Placeholder for dataset sub-type",
+                              "examples": [
+                                    [
+                                          ""
+                                    ]
+                              ],
+                              "title": "Datasetype"
+                        },
+                        "populationSize": {
+                              "anyOf": [
+                                    {
+                                          "type": "integer"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Summary population size of the cohort",
+                              "title": "Population size"
                         }
                   },
                   "required": [
@@ -1784,7 +1843,10 @@
                         "abstract",
                         "publisher",
                         "contactPoint",
-                        "keywords"
+                        "keywords",
+                        "datasetType",
+                        "datasetSubType",
+                        "populationSize"
                   ],
                   "title": "Summary",
                   "type": "object"

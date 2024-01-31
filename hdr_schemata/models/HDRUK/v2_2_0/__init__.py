@@ -4,14 +4,16 @@ from typing import Optional
 from pydantic import Field
 
 from .TissuesSampleCollection import TissuesSampleCollection
+from .Summary import Summary
 from .Coverage import Coverage
 
 
 class Hdruk220(Hdruk213):
-    tissuesSampleCollection: Optional[TissuesSampleCollection] = Field(
-        None,
-        description="Metadata collection for Tissue Samples datasets",
-        title="Tissues Sample Collection",
+    # update on summary to include datasetType and population size
+    summary: Summary = Field(
+        ...,
+        description="Summary metadata must be completed by Data Custodians onboarding metadata into the Innovation Gateway MVP.",
+        title="Summary",
     )
 
     # overload Coverage with an updated version of it..
@@ -19,6 +21,12 @@ class Hdruk220(Hdruk213):
         None,
         description="Observational, Spatial and Temporal coverage",
         title="Coverage",
+    )
+
+    tissuesSampleCollection: Optional[TissuesSampleCollection] = Field(
+        None,
+        description="Metadata collection for Tissue Samples datasets",
+        title="Tissues Sample Collection",
     )
 
     @classmethod
