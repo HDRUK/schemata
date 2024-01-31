@@ -15,5 +15,5 @@ class TissueSampleMetadata(BaseModel):
     AnatomicalSiteOntologyCode: Optional[ICD_0_3] = Field(
         None,
         title="Anatomical Site Ontology Code",
-        description="Ontology code for the anatomical site",
+        description="Ontology code for the anatomical site, this code must match an ICD-0-3 format",
     )
