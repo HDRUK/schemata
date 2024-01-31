@@ -1177,6 +1177,71 @@
                   "title": "Revision",
                   "type": "object"
             },
+            "SampleDonor": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the sample donor",
+                              "title": "Donor ID"
+                        },
+                        "sex": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Sex of the sample donor",
+                              "title": "Donor Sex"
+                        },
+                        "birthDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Date of birth of the sample donor",
+                              "title": "Donor birth date"
+                        },
+                        "dataCategories": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Data categories related to the sample donor",
+                              "title": "Donor Data Categories"
+                        }
+                  },
+                  "title": "SampleDonor",
+                  "type": "object"
+            },
             "ShortTitle": {
                   "anyOf": [
                         {
@@ -1466,57 +1531,14 @@
                   ],
                   "title": "TimeLag"
             },
-            "TissueSampleDonor": {
-                  "properties": {
-                        "id": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "ID of the sample donor",
-                              "title": "Donor ID"
-                        },
-                        "sex": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Sex of the sample donor",
-                              "title": "Donor Sex"
-                        },
-                        "dataCategories": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Data categories related to the sample donor",
-                              "title": "Donor Data Categories"
-                        }
-                  },
-                  "title": "TissueSampleDonor",
-                  "type": "object"
-            },
             "TissueSampleMetadata": {
                   "properties": {
                         "id": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
                                     },
                                     {
                                           "type": "null"
@@ -1527,9 +1549,12 @@
                               "title": "Metadata ID"
                         },
                         "sampleDonor": {
-                              "allOf": [
+                              "anyOf": [
                                     {
-                                          "$ref": "#/$defs/TissueSampleDonor"
+                                          "$ref": "#/$defs/SampleDonor"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
                               "default": null,
@@ -1552,7 +1577,7 @@
                         "storageTemperature": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "type": "string"
                                     },
                                     {
                                           "type": "null"
@@ -1565,7 +1590,12 @@
                         "creationDate": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
                                     },
                                     {
                                           "type": "null"
