@@ -31,18 +31,19 @@ class TissueSampleMetadata(BaseModel):
         description="Date when the tissue sample metadata was created",
     )
 
-    AnatomicalSiteOntologyCode: Optional[CommaSeparatedValues] = Field(
+    anatomicalSiteOntologyCode: Optional[CommaSeparatedValues] = Field(
         None,
         title="Anatomical Site Ontology Code",
         description="Ontology code for the anatomical site",
     )
-    AnatomicalSiteOntologyDescription: Optional[CommaSeparatedValues] = Field(
+
+    anatomicalSiteOntologyDescription: Optional[CommaSeparatedValues] = Field(
         None,
         title="Anatomical Site Ontology Description",
         description="Ontology description for the anatomical site",
     )
 
-    AnatomicalSiteFreeText: Optional[CommaSeparatedValues] = Field(
+    anatomicalSiteFreeText: Optional[CommaSeparatedValues] = Field(
         None,
         title="Anatomical Site Free Text",
         description="Free text describing the anatomical site",
@@ -54,7 +55,7 @@ class TissueSampleMetadata(BaseModel):
         description="Diagnosis related to the sample content",
     )
 
-    useReCommaSeparatedValuesictions: Optional[CommaSeparatedValues] = Field(
+    useRestrictions: Optional[CommaSeparatedValues] = Field(
         None,
         title="Use Restrictions",
         description="Restrictions on the use of the tissue sample",
