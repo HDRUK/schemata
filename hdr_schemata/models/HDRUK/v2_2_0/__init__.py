@@ -3,8 +3,16 @@ import json
 from typing import Optional
 from pydantic import Field
 
+from .TissuesSampleCollection import TissuesSampleCollection
+
 
 class Hdruk220(Hdruk213):
+    tissuesSampleCollection: Optional[TissuesSampleCollection] = Field(
+        None,
+        description="Metadata collection for Tissue Samples datasets",
+        title="Tissues Sample Collection",
+    )
+
     @classmethod
     def save_schema(cls, location="./2.2.0/schema.json"):
         with open(location, "w") as f:
