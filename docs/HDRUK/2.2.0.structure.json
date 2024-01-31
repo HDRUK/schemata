@@ -202,6 +202,40 @@
                         ],
                         "type": "Doi",
                         "subItems": []
+                  },
+                  {
+                        "name": "datasetType",
+                        "required": true,
+                        "title": "Datasetype",
+                        "description": "Placeholder for dataset type",
+                        "examples": [
+                              [
+                                    ""
+                              ]
+                        ],
+                        "type": "DatasetType",
+                        "subItems": []
+                  },
+                  {
+                        "name": "datasetSubType",
+                        "required": true,
+                        "title": "Datasetype",
+                        "description": "Placeholder for dataset sub-type",
+                        "examples": [
+                              [
+                                    ""
+                              ]
+                        ],
+                        "type": "DatasetType",
+                        "subItems": []
+                  },
+                  {
+                        "name": "populationSize",
+                        "required": true,
+                        "title": "Population size",
+                        "description": "Summary population size of the cohort",
+                        "examples": null,
+                        "type": "int"
                   }
             ]
       },
