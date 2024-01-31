@@ -1412,6 +1412,19 @@
                               "default": null,
                               "description": "Summary population size of the cohort",
                               "title": "Population size"
+                        },
+                        "datasetSubType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetType"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "What us the subtype for this dataset?",
+                              "title": "Dataset sub type"
                         }
                   },
                   "required": [
@@ -1605,7 +1618,7 @@
                               "description": "Date when the tissue sample metadata was created",
                               "title": "Creation Date"
                         },
-                        "AnatomicalSiteOntologyCode": {
+                        "anatomicalSiteOntologyCode": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
@@ -1618,7 +1631,7 @@
                               "description": "Ontology code for the anatomical site",
                               "title": "Anatomical Site Ontology Code"
                         },
-                        "AnatomicalSiteOntologyDescription": {
+                        "anatomicalSiteOntologyDescription": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
@@ -1631,7 +1644,7 @@
                               "description": "Ontology description for the anatomical site",
                               "title": "Anatomical Site Ontology Description"
                         },
-                        "AnatomicalSiteFreeText": {
+                        "anatomicalSiteFreeText": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
@@ -1657,7 +1670,7 @@
                               "description": "Diagnosis related to the sample content",
                               "title": "Sample Content Diagnosis"
                         },
-                        "useReCommaSeparatedValuesictions": {
+                        "useRestrictions": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"

@@ -3,6 +3,8 @@ from pydantic import Field
 from typing import Optional
 from .Organisation import Organisation
 
+from hdr_schemata.definitions.HDRUK import DatasetType
+
 
 class Summary(BaseSummary):
     # switch publisher to be an Organisation
@@ -17,4 +19,11 @@ class Summary(BaseSummary):
         None,
         description="Summary population size of the cohort",
         title="Population size",
+    )
+
+    # include a new subType for a dataset to be paired with datasetType
+    datasetSubType: Optional[DatasetType] = Field(
+        None,
+        description="What us the subtype for this dataset?",
+        title="Dataset sub type",
     )
