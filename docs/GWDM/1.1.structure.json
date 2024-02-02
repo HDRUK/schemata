@@ -200,6 +200,23 @@
                                     "type": "str"
                               }
                         ]
+                  },
+                  {
+                        "name": "populationSize",
+                        "required": false,
+                        "title": "Population size",
+                        "description": "Summary population size of the cohort",
+                        "examples": null,
+                        "type": "int"
+                  },
+                  {
+                        "name": "datasetSubType",
+                        "required": false,
+                        "title": "Dataset sub type",
+                        "description": "What us the subtype for this dataset?",
+                        "examples": null,
+                        "type": "DatasetType",
+                        "subItems": []
                   }
             ]
       },
@@ -384,7 +401,7 @@
                                     "name": "timeLag",
                                     "required": true,
                                     "title": "Time Lag",
-                                    "description": "Rypical time-lag between an event and the data for that event appearing in the dataset",
+                                    "description": "Typical time-lag between an event and the data for that event appearing in the dataset",
                                     "examples": null,
                                     "type": "TimeLag"
                               },
@@ -726,75 +743,215 @@
             "type": "DataTable"
       },
       {
-            "name": "omopIDs",
+            "name": "tissuesSampleCollection",
             "required": false,
-            "title": "OMOP IDs",
-            "description": "Collection of OMOP IDs that are contained within the dataset.",
+            "title": "Tissues Sample Collection",
+            "description": "Metadata collection for Tissue Samples datasets",
             "examples": null,
-            "type": "OmopIDs",
+            "type": "TissuesSampleCollection",
             "subItems": [
                   {
-                        "name": "measurements",
+                        "name": "id",
                         "required": false,
-                        "title": "OMOP Measurements",
-                        "description": "OMOP Concept IDs for measured quantities. E.g. 44810410 - https://athena.ohdsi.org/search-terms/terms/44810410",
+                        "title": "ID",
+                        "description": "ID of the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "drug",
+                        "name": "dataCategories",
                         "required": false,
-                        "title": "OMOP Drugs",
-                        "description": "OMOP Concept IDs for drug exposures. E.g. 602396 - https://athena.ohdsi.org/search-terms/terms/602396",
+                        "title": "Data Categories",
+                        "description": "Data categories related to the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "observations",
+                        "name": "materialType",
                         "required": false,
-                        "title": "OMOP Observations",
-                        "description": "OMOP Concept IDs for observations.",
+                        "title": "Material Type",
+                        "description": "Material type of the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "specimens",
+                        "name": "accessConditions",
                         "required": false,
-                        "title": "OMOP Specimens",
-                        "description": "OMOP Concept IDs for specimens.",
+                        "title": "Access Conditions",
+                        "description": "Access conditions for the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "conditions",
+                        "name": "collectionType",
                         "required": false,
-                        "title": "OMOP Condition Occurrences",
-                        "description": "OMOP Concept IDs for condition occurrences.",
+                        "title": "Collection Type",
+                        "description": "Type of the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "procedures",
+                        "name": "disease",
                         "required": false,
-                        "title": "OMOP Procedure Occurrences",
-                        "description": "OMOP Concept IDs for procedure occurrences.",
+                        "title": "Disease",
+                        "description": "Disease associated with the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
                   },
                   {
-                        "name": "device_exposures",
+                        "name": "storageTemperature",
                         "required": false,
-                        "title": "OMOP ",
-                        "description": "OMOP Concept IDs for device exposures.",
+                        "title": "Storage Temperature",
+                        "description": "Storage temperature of the tissue sample collection",
                         "examples": null,
-                        "type": "CommaSeparatedIntegers",
+                        "type": "CommaSeparatedValues",
                         "subItems": []
+                  },
+                  {
+                        "name": "sampleAgeRange",
+                        "required": false,
+                        "title": "Sample Age Range",
+                        "description": "Age range of the tissue sample collection",
+                        "examples": null,
+                        "type": "CommaSeparatedValues",
+                        "subItems": []
+                  },
+                  {
+                        "name": "tissueSampleMetadata",
+                        "required": false,
+                        "title": "Tissue Sample Metadata",
+                        "description": "Metadata related to the tissue sample",
+                        "examples": null,
+                        "type": "TissueSampleMetadata",
+                        "subItems": [
+                              {
+                                    "name": "id",
+                                    "required": false,
+                                    "title": "Metadata ID",
+                                    "description": "ID of the tissue sample metadata",
+                                    "examples": null,
+                                    "type": "str"
+                              },
+                              {
+                                    "name": "sampleDonor",
+                                    "required": false,
+                                    "title": "Sample Donor",
+                                    "description": "Information about the sample donor",
+                                    "examples": null,
+                                    "type": "SampleDonor",
+                                    "subItems": [
+                                          {
+                                                "name": "id",
+                                                "required": false,
+                                                "title": "Donor ID",
+                                                "description": "ID of the sample donor",
+                                                "examples": null,
+                                                "type": "str"
+                                          },
+                                          {
+                                                "name": "sex",
+                                                "required": false,
+                                                "title": "Donor Sex",
+                                                "description": "Sex of the sample donor",
+                                                "examples": null,
+                                                "type": "str"
+                                          },
+                                          {
+                                                "name": "birthDate",
+                                                "required": false,
+                                                "title": "Donor birth date",
+                                                "description": "Date of birth of the sample donor",
+                                                "examples": null,
+                                                "type": "date"
+                                          },
+                                          {
+                                                "name": "dataCategories",
+                                                "required": false,
+                                                "title": "Donor Data Categories",
+                                                "description": "Data categories related to the sample donor",
+                                                "examples": null,
+                                                "type": "CommaSeparatedValues",
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "sampleType",
+                                    "required": false,
+                                    "title": "Sample Type",
+                                    "description": "Type of the tissue sample",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "storageTemperature",
+                                    "required": false,
+                                    "title": "Storage Temperature",
+                                    "description": "Storage temperature of the tissue sample",
+                                    "examples": null,
+                                    "type": "str"
+                              },
+                              {
+                                    "name": "creationDate",
+                                    "required": false,
+                                    "title": "Creation Date",
+                                    "description": "Date when the tissue sample metadata was created",
+                                    "examples": null,
+                                    "type": "date"
+                              },
+                              {
+                                    "name": "anatomicalSiteOntologyCode",
+                                    "required": false,
+                                    "title": "Anatomical Site Ontology Code",
+                                    "description": "Ontology code for the anatomical site",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "anatomicalSiteOntologyDescription",
+                                    "required": false,
+                                    "title": "Anatomical Site Ontology Description",
+                                    "description": "Ontology description for the anatomical site",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "anatomicalSiteFreeText",
+                                    "required": false,
+                                    "title": "Anatomical Site Free Text",
+                                    "description": "Free text describing the anatomical site",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "sampleContentDiagnosis",
+                                    "required": false,
+                                    "title": "Sample Content Diagnosis",
+                                    "description": "Diagnosis related to the sample content",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "useRestrictions",
+                                    "required": false,
+                                    "title": "Use Restrictions",
+                                    "description": "Restrictions on the use of the tissue sample",
+                                    "examples": null,
+                                    "type": "CommaSeparatedValues",
+                                    "subItems": []
+                              }
+                        ]
                   }
             ]
       }

@@ -1223,7 +1223,7 @@
                                           "$ref": "#/$defs/TimeLag"
                                     }
                               ],
-                              "description": "Rypical time-lag between an event and the data for that event appearing in the dataset",
+                              "description": "Typical time-lag between an event and the data for that event appearing in the dataset",
                               "example": "LESS 1 WEEK",
                               "title": "Time Lag"
                         },
