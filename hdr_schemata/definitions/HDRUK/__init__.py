@@ -38,6 +38,7 @@ from .StandardisedDataModels import StandardisedDataModels
 from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
 from .StatisticalPopulationConstrained import StatisticalPopulationConstrained
 from .TimeLag import TimeLag
+from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
 from .TissueDataCategoriesEnum import TissueDataCategoriesEnum
 from .TwoHundredFiftyFiveCharacters import TwoHundredFiftyFiveCharacters
 from .Url import Url
