@@ -176,6 +176,30 @@
                   ],
                   "title": "AgeRange"
             },
+            "Anthropometric": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight)(?:,(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Anthropometric"
+            },
+            "BiologicalSamples": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Blood|Other|Urine|Saliva)(?:,(?:Blood|Other|Urine|Saliva))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "BiologicalSamples"
+            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -189,6 +213,7 @@
                   "title": "CommaSeparatedValues"
             },
             "Coverage": {
+                  "additionalProperties": false,
                   "properties": {
                         "spatial": {
                               "anyOf": [
@@ -203,20 +228,6 @@
                               "description": "List of countries where the data was taken from",
                               "example": "United Kingdom,Wales,England",
                               "title": "Spatial"
-                        },
-                        "physicalSampleAvailability": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "A list of what the dataset actually contains in terms of sample measurements",
-                              "example": "DNA,PLASMA,SERUM,URINE,WHOLE BLOOD",
-                              "title": "Physical Sample Availability"
                         },
                         "pathway": {
                               "anyOf": [
@@ -259,6 +270,97 @@
                               "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                               "example": "1-150",
                               "title": "Typical Age Range"
+                        },
+                        "gender": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Gender"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Male, Female, Other",
+                              "title": "Gender"
+                        },
+                        "biologicalsamples": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/BiologicalSamples"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Blood, Saliva, Urine, Other",
+                              "title": "Biological Samples"
+                        },
+                        "psychological": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Psychological"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Mental health, Cognitive function",
+                              "title": "Psychological"
+                        },
+                        "physical": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Physical"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                              "title": "Physical"
+                        },
+                        "anthropometric": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Anthropometric"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                              "title": "Anthropometric"
+                        },
+                        "lifestyle": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Lifestyles"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                              "title": "Lifestyle"
+                        },
+                        "socioeconomic": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/SocioEconomic"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                              "title": "Socio-economic"
                         }
                   },
                   "title": "Coverage",
@@ -599,6 +701,30 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
+            "Gender": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Male|Female|Other)(?:,(?:Male|Female|Other))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Gender"
+            },
+            "Lifestyles": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Smoking|Dietary Habits|Physical Activity|Alcohol)(?:,(?:Smoking|Dietary Habits|Physical Activity|Alcohol))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Lifestyles"
+            },
             "Linkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -798,6 +924,58 @@
                   "title": "Observation",
                   "type": "object"
             },
+            "Organisation": {
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Name"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+                              "example": "SAIL",
+                              "title": "Name"
+                        },
+                        "gatewayId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
+                              "title": "Publisher gateway id"
+                        },
+                        "rorId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 9,
+                                          "minLength": 9,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The Research Organization Registry (ROR) for the organisation, if applicable",
+                              "title": "Research Organization Registry Identifier"
+                        }
+                  },
+                  "required": [
+                        "name"
+                  ],
+                  "title": "Organisation",
+                  "type": "object"
+            },
             "Origin": {
                   "additionalProperties": false,
                   "properties": {
@@ -867,6 +1045,18 @@
                   ],
                   "title": "Periodicity"
             },
+            "Physical": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive)(?:,(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Physical"
+            },
             "Provenance": {
                   "additionalProperties": false,
                   "properties": {
@@ -891,42 +1081,17 @@
                   "title": "Provenance",
                   "type": "object"
             },
-            "Publisher": {
-                  "properties": {
-                        "publisherName": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Name"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
-                              "example": "SAIL",
-                              "title": "Publisher name"
+            "Psychological": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Cognitive Function|Mental Health)(?:,(?:Cognitive Function|Mental Health))*\\b",
+                              "type": "string"
                         },
-                        "publisherGatewayId": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 50,
-                                          "minLength": 2,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
-                              "title": "Publisher gateway id"
+                        {
+                              "type": "null"
                         }
-                  },
-                  "required": [
-                        "publisherName"
                   ],
-                  "title": "Publisher",
-                  "type": "object"
+                  "title": "Psychological"
             },
             "Required": {
                   "properties": {
@@ -962,6 +1127,15 @@
                               },
                               "title": "Revisions",
                               "type": "array"
+                        },
+                        "version": {
+                              "description": "Dataset metadata version",
+                              "examples": [
+                                    "1.1.0"
+                              ],
+                              "pattern": "^\\d+\\.\\d+\\.\\d+$",
+                              "title": "Dataset Version",
+                              "type": "string"
                         }
                   },
                   "required": [
@@ -969,7 +1143,8 @@
                         "gatewayPid",
                         "issued",
                         "modified",
-                        "revisions"
+                        "revisions",
+                        "version"
                   ],
                   "title": "Required",
                   "type": "object"
@@ -1002,18 +1177,70 @@
                   "title": "Revision",
                   "type": "object"
             },
-            "ShortDescription": {
-                  "anyOf": [
-                        {
-                              "maxLength": 1000,
-                              "minLength": 2,
-                              "type": "string"
+            "SampleDonor": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the sample donor",
+                              "title": "Donor ID"
                         },
-                        {
-                              "type": "null"
+                        "sex": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Sex of the sample donor",
+                              "title": "Donor Sex"
+                        },
+                        "birthDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Date of birth of the sample donor",
+                              "title": "Donor birth date"
+                        },
+                        "dataCategories": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Data categories related to the sample donor",
+                              "title": "Donor Data Categories"
                         }
-                  ],
-                  "title": "ShortDescription"
+                  },
+                  "title": "SampleDonor",
+                  "type": "object"
             },
             "ShortTitle": {
                   "anyOf": [
@@ -1027,6 +1254,18 @@
                         }
                   ],
                   "title": "ShortTitle"
+            },
+            "SocioEconomic": {
+                  "anyOf": [
+                        {
+                              "pattern": "\\b(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support)(?:,(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support))*\\b",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "SocioEconomic"
             },
             "StatisticalPopulationConstrained": {
                   "enum": [
@@ -1152,7 +1391,7 @@
                         "publisher": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Publisher"
+                                          "$ref": "#/$defs/Organisation"
                                     },
                                     {
                                           "type": "null"
@@ -1160,6 +1399,32 @@
                               ],
                               "description": "Link to details about the publisher of this dataset",
                               "title": "Publisher"
+                        },
+                        "populationSize": {
+                              "anyOf": [
+                                    {
+                                          "type": "integer"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Summary population size of the cohort",
+                              "title": "Population size"
+                        },
+                        "datasetSubType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetType"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "What us the subtype for this dataset?",
+                              "title": "Dataset sub type"
                         }
                   },
                   "required": [
@@ -1279,6 +1544,272 @@
                   ],
                   "title": "TimeLag"
             },
+            "TissueSampleMetadata": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the tissue sample metadata",
+                              "title": "Metadata ID"
+                        },
+                        "sampleDonor": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/SampleDonor"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Information about the sample donor",
+                              "title": "Sample Donor"
+                        },
+                        "sampleType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Type of the tissue sample",
+                              "title": "Sample Type"
+                        },
+                        "storageTemperature": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Storage temperature of the tissue sample",
+                              "title": "Storage Temperature"
+                        },
+                        "creationDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Date when the tissue sample metadata was created",
+                              "title": "Creation Date"
+                        },
+                        "anatomicalSiteOntologyCode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Ontology code for the anatomical site",
+                              "title": "Anatomical Site Ontology Code"
+                        },
+                        "anatomicalSiteOntologyDescription": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Ontology description for the anatomical site",
+                              "title": "Anatomical Site Ontology Description"
+                        },
+                        "anatomicalSiteFreeText": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Free text describing the anatomical site",
+                              "title": "Anatomical Site Free Text"
+                        },
+                        "sampleContentDiagnosis": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Diagnosis related to the sample content",
+                              "title": "Sample Content Diagnosis"
+                        },
+                        "useRestrictions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Restrictions on the use of the tissue sample",
+                              "title": "Use Restrictions"
+                        }
+                  },
+                  "title": "TissueSampleMetadata",
+                  "type": "object"
+            },
+            "TissuesSampleCollection": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the tissue sample collection",
+                              "title": "ID"
+                        },
+                        "dataCategories": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Data categories related to the tissue sample collection",
+                              "title": "Data Categories"
+                        },
+                        "materialType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Material type of the tissue sample collection",
+                              "title": "Material Type"
+                        },
+                        "accessConditions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Access conditions for the tissue sample collection",
+                              "title": "Access Conditions"
+                        },
+                        "collectionType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Type of the tissue sample collection",
+                              "title": "Collection Type"
+                        },
+                        "disease": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Disease associated with the tissue sample collection",
+                              "title": "Disease"
+                        },
+                        "storageTemperature": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Storage temperature of the tissue sample collection",
+                              "title": "Storage Temperature"
+                        },
+                        "sampleAgeRange": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Age range of the tissue sample collection",
+                              "title": "Sample Age Range"
+                        },
+                        "tissueSampleMetadata": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/TissueSampleMetadata"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Metadata related to the tissue sample",
+                              "title": "Tissue Sample Metadata"
+                        }
+                  },
+                  "title": "TissuesSampleCollection",
+                  "type": "object"
+            },
             "TwoHundredFiftyFiveCharacters": {
                   "maxLength": 255,
                   "minLength": 2,
@@ -1330,7 +1861,7 @@
                         "resourceCreator": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/ShortDescription"
+                                          "$ref": "#/$defs/Organisation"
                                     },
                                     {
                                           "type": "null"
@@ -1338,7 +1869,6 @@
                               ],
                               "default": null,
                               "description": "Who has created this resource",
-                              "example": "Ministry of Justice",
                               "title": "Resource Creator"
                         }
                   },
@@ -1378,7 +1908,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Spatial and Temporal coverage",
+                  "description": "Observational, Spatial and Temporal coverage",
                   "title": "Coverage"
             },
             "provenance": {
@@ -1448,12 +1978,25 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
+            },
+            "tissuesSampleCollection": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/TissuesSampleCollection"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Metadata collection for Tissue Samples datasets",
+                  "title": "Tissues Sample Collection"
             }
       },
       "required": [
             "required",
             "summary"
       ],
-      "title": "Gwdm10",
+      "title": "Gwdm11",
       "type": "object"
 }
