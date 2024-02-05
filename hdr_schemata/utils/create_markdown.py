@@ -1,20 +1,9 @@
-# from hdr_schemata.models.GWDM.v1_0 import Gwdm10 as Model
-# from hdr_schemata.models.HDRUK.base import Observation as Model
-# from hdr_schemata.models.HDRUK import Hdruk220 as Model
-from hdr_schemata.models.GWDM.v1_1 import Gwdm11 as Model
-
 from pydantic._internal._model_construction import ModelMetaclass
 from pydantic import BaseModel, RootModel
 import pandas as pd
 import json
 import typing
 import enum
-
-from hdr_schemata.models.HDRUK.v2_1_2.Observations import Observation
-
-_type1 = typing.List[Observation]
-_type2 = typing.Optional[Observation]
-_type3 = typing.Union[Observation, str]
 
 
 def extract_type_info(type_hint):
@@ -78,8 +67,6 @@ def get_fields(structure, model: type[BaseModel]):
     for name, field in model.model_fields.items():
         if name == "root":
             continue
-        # if name != "structuralMetadata":
-        #    continue
 
         t = field.annotation
 
@@ -146,15 +133,29 @@ def json_to_markdown(structure, level=2):
     return md
 
 
-structure = []
-get_fields(structure, Model)
-# get_fields(structure,Hdruk212)
+def create_markdown(Model, path, name):
+    structure = []
+    get_fields(structure, Model)
 
-with open("temp.json", "w") as f:
-    print(json.dumps(structure, indent=6))
-    json.dump(structure, f, indent=6)
+    with open(f"{path}/{name}.structure.json", "w") as f:
+        print(json.dumps(structure, indent=6))
+        json.dump(structure, f, indent=6)
 
-md = json_to_markdown(structure)
+    md = json_to_markdown(structure)
 
-with open("temp.md", "w") as f:
-    f.write(md)
+    with open(f"{path}/{name}.md", "w") as f:
+        f.write(md)
+    print(f"Done {path}/name")
+
+
+from hdr_schemata.models.HDRUK import Hdruk212
+from hdr_schemata.models.HDRUK import Hdruk213
+from hdr_schemata.models.HDRUK import Hdruk220
+from hdr_schemata.models.GWDM.v1_1 import Gwdm10
+from hdr_schemata.models.GWDM.v1_1 import Gwdm11
+
+create_markdown(Gwdm10, "./docs/GWDM/", "1.0")
+create_markdown(Gwdm11, "./docs/GWDM/", "1.1")
+create_markdown(Hdruk212, "./docs/HDRUK/", "2.1.2")
+create_markdown(Hdruk213, "./docs/HDRUK/", "2.1.3")
+create_markdown(Hdruk220, "./docs/HDRUK/", "2.2.0")

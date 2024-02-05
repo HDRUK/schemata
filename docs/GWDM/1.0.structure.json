@@ -5,7 +5,11 @@
             "title": "Required",
             "description": "required metadata needed for the GWDM",
             "examples": null,
-            "type": "Required",
+            "type": [
+                  "Required"
+            ],
+            "is_list": false,
+            "is_optional": false,
             "subItems": [
                   {
                         "name": "gatewayId",
@@ -13,7 +17,11 @@
                         "title": "Gatewayid",
                         "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
                         "examples": null,
-                        "type": "str"
+                        "type": [
+                              "str"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
                   },
                   {
                         "name": "gatewayPid",
@@ -21,7 +29,11 @@
                         "title": "Gatewaypid",
                         "description": "Need a field in Mauro that captures the dataset pid to link to gateway database",
                         "examples": null,
-                        "type": "str"
+                        "type": [
+                              "str"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
                   },
                   {
                         "name": "issued",
@@ -29,7 +41,11 @@
                         "title": "Issued",
                         "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
                         "examples": null,
-                        "type": "datetime"
+                        "type": [
+                              "datetime"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
                   },
                   {
                         "name": "modified",
@@ -37,7 +53,11 @@
                         "title": "Modified",
                         "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
                         "examples": null,
-                        "type": "datetime"
+                        "type": [
+                              "datetime"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
                   },
                   {
                         "name": "revisions",
@@ -45,7 +65,11 @@
                         "title": "Revisions",
                         "description": null,
                         "examples": null,
-                        "type": "Revision",
+                        "type": [
+                              "Revision"
+                        ],
+                        "is_list": true,
+                        "is_optional": false,
                         "subItems": [
                               {
                                     "name": "version",
@@ -53,7 +77,11 @@
                                     "title": "revision version",
                                     "description": "Version number used for previous version of this dataset",
                                     "examples": null,
-                                    "type": "str"
+                                    "type": [
+                                          "str"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
                               },
                               {
                                     "name": "url",
@@ -61,7 +89,11 @@
                                     "title": "revision url",
                                     "description": "Some url with a reference to the record of a previous version of this dataset",
                                     "examples": null,
-                                    "type": "Url",
+                                    "type": [
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false,
                                     "subItems": []
                               }
                         ]
@@ -74,7 +106,11 @@
             "title": "Summary",
             "description": "Summary of metadata describing key pieces of information.",
             "examples": null,
-            "type": "Summary",
+            "type": [
+                  "Summary"
+            ],
+            "is_list": false,
+            "is_optional": false,
             "subItems": [
                   {
                         "name": "title",
@@ -82,7 +118,11 @@
                         "title": "Title",
                         "description": "The main title of the dataset",
                         "examples": null,
-                        "type": "TwoHundredFiftyFiveCharacters",
+                        "type": [
+                              "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
                         "subItems": []
                   },
                   {
@@ -91,7 +131,12 @@
                         "title": "Shorttitle",
                         "description": "A shorter descriptive title of the dataset",
                         "examples": null,
-                        "type": "ShortTitle",
+                        "type": [
+                              "ShortTitle[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -100,7 +145,12 @@
                         "title": "Doiname",
                         "description": "DOI associated to this dataset",
                         "examples": null,
-                        "type": "Doi",
+                        "type": [
+                              "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -109,7 +159,11 @@
                         "title": "Abstract",
                         "description": "Longer abstract detailing the dataset.",
                         "examples": null,
-                        "type": "LongAbstractText",
+                        "type": [
+                              "LongAbstractText[{'anyOf': [{'maxLength': 5000, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
                         "subItems": []
                   },
                   {
@@ -118,7 +172,12 @@
                         "title": "Keywords",
                         "description": "Comma separated key words associated to this dataset.",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -127,7 +186,12 @@
                         "title": "Controlled Keywords",
                         "description": "Keywords that have been filtered and limited",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -136,7 +200,12 @@
                         "title": "Contact Point",
                         "description": "email of a person who can be the main contact point of this dataset",
                         "examples": null,
-                        "type": "EmailStr"
+                        "type": [
+                              "EmailStr",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
                   },
                   {
                         "name": "datasetType",
@@ -144,7 +213,12 @@
                         "title": "Dataset type",
                         "description": "What type of dataset is this?",
                         "examples": null,
-                        "type": "DatasetType",
+                        "type": [
+                              "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -153,7 +227,12 @@
                         "title": "Description",
                         "description": "Longer description of the dataset in detail",
                         "examples": null,
-                        "type": "LongDescription",
+                        "type": [
+                              "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -162,7 +241,12 @@
                         "title": "Publisher",
                         "description": "Link to details about the publisher of this dataset",
                         "examples": null,
-                        "type": "Publisher",
+                        "type": [
+                              "Publisher",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": [
                               {
                                     "name": "publisherName",
@@ -170,7 +254,12 @@
                                     "title": "Publisher name",
                                     "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
                                     "examples": null,
-                                    "type": "Name",
+                                    "type": [
+                                          "Name[{}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -179,7 +268,12 @@
                                     "title": "Publisher gateway id",
                                     "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
                                     "examples": null,
-                                    "type": "str"
+                                    "type": [
+                                          "str",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
                               }
                         ]
                   }
@@ -191,7 +285,12 @@
             "title": "Coverage",
             "description": "Spatial and Temporal coverage",
             "examples": null,
-            "type": "Coverage",
+            "type": [
+                  "Coverage",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
             "subItems": [
                   {
                         "name": "spatial",
@@ -199,7 +298,12 @@
                         "title": "Spatial",
                         "description": "List of countries where the data was taken from",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -208,7 +312,12 @@
                         "title": "Physical Sample Availability",
                         "description": "A list of what the dataset actually contains in terms of sample measurements",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -217,7 +326,12 @@
                         "title": "Pathway",
                         "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
                         "examples": null,
-                        "type": "LongDescription",
+                        "type": [
+                              "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -226,7 +340,12 @@
                         "title": "Followup",
                         "description": "What is the typical time span that a patient appears in the dataset (follow up period)",
                         "examples": null,
-                        "type": "Followup"
+                        "type": [
+                              "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
                   },
                   {
                         "name": "typicalAgeRange",
@@ -234,7 +353,12 @@
                         "title": "Typical Age Range",
                         "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                         "examples": null,
-                        "type": "AgeRange",
+                        "type": [
+                              "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   }
             ]
@@ -245,7 +369,12 @@
             "title": "Provenance",
             "description": "Provenance information",
             "examples": null,
-            "type": "Provenance",
+            "type": [
+                  "Provenance",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
             "subItems": [
                   {
                         "name": "origin",
@@ -253,7 +382,12 @@
                         "title": null,
                         "description": null,
                         "examples": null,
-                        "type": "Origin",
+                        "type": [
+                              "Origin",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": [
                               {
                                     "name": "purpose",
@@ -261,7 +395,12 @@
                                     "title": "Purpose",
                                     "description": "Indicates the purpose(s) that the dataset was collected.",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -270,7 +409,12 @@
                                     "title": "Source",
                                     "description": "Indicates the source of the data extraction",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -279,7 +423,12 @@
                                     "title": "Setting",
                                     "description": "Indicate the setting(s) where data was collected. Multiple settings may be provided",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               }
                         ]
@@ -290,7 +439,11 @@
                         "title": null,
                         "description": null,
                         "examples": null,
-                        "type": "Temporal",
+                        "type": [
+                              "Temporal"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
                         "subItems": [
                               {
                                     "name": "startDate",
@@ -298,7 +451,13 @@
                                     "title": "Start Date",
                                     "description": "The start of the time period that the dataset provides coverage for",
                                     "examples": null,
-                                    "type": "date"
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
                               },
                               {
                                     "name": "endDate",
@@ -306,15 +465,25 @@
                                     "title": "End Date",
                                     "description": "The end of the time period that the dataset provides coverage for",
                                     "examples": null,
-                                    "type": "date"
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
                               },
                               {
                                     "name": "timeLag",
                                     "required": true,
                                     "title": "Time Lag",
-                                    "description": "Rypical time-lag between an event and the data for that event appearing in the dataset",
+                                    "description": "Typical time-lag between an event and the data for that event appearing in the dataset",
                                     "examples": null,
-                                    "type": "TimeLag"
+                                    "type": [
+                                          "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
                               },
                               {
                                     "name": "accrualPeriodicity",
@@ -322,7 +491,11 @@
                                     "title": "Periodicity",
                                     "description": "frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.",
                                     "examples": null,
-                                    "type": "Periodicity"
+                                    "type": [
+                                          "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
                               },
                               {
                                     "name": "distributionReleaseDate",
@@ -330,7 +503,13 @@
                                     "title": "Release Date",
                                     "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity.",
                                     "examples": null,
-                                    "type": "date"
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
                               }
                         ]
                   }
@@ -342,7 +521,11 @@
             "title": "Accessibility",
             "description": "Accessibility information.",
             "examples": null,
-            "type": "Accessibility",
+            "type": [
+                  "Accessibility"
+            ],
+            "is_list": false,
+            "is_optional": false,
             "subItems": [
                   {
                         "name": "usage",
@@ -350,7 +533,12 @@
                         "title": "Usage",
                         "description": "This section includes information about how the data can be used and how it is currently being used",
                         "examples": null,
-                        "type": "Usage",
+                        "type": [
+                              "Usage",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": [
                               {
                                     "name": "dataUseLimitation",
@@ -358,7 +546,12 @@
                                     "title": "Data Use Limitation",
                                     "description": "Any restrictions to its usage",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -367,7 +560,12 @@
                                     "title": "Data Use Requirements",
                                     "description": "Any requirements needed for data usage",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -376,7 +574,12 @@
                                     "title": "Resource Creator",
                                     "description": "Who has created this resource",
                                     "examples": null,
-                                    "type": "ShortDescription",
+                                    "type": [
+                                          "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               }
                         ]
@@ -387,7 +590,11 @@
                         "title": "Access",
                         "description": "This section includes information about data access",
                         "examples": null,
-                        "type": "Access",
+                        "type": [
+                              "Access"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
                         "subItems": [
                               {
                                     "name": "accessRights",
@@ -395,7 +602,12 @@
                                     "title": "Access Rights",
                                     "description": "Optional link(s) or a description of where the license associated to accessing this dataset",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -404,7 +616,12 @@
                                     "title": "Access Service",
                                     "description": "",
                                     "examples": null,
-                                    "type": "LongDescription",
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -413,7 +630,12 @@
                                     "title": "Organisation Access Request Cost",
                                     "description": "",
                                     "examples": null,
-                                    "type": "LongDescription",
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -422,7 +644,12 @@
                                     "title": "Access Request Duration",
                                     "description": "An arbitrary guess at the time to gain access to the dataset...",
                                     "examples": null,
-                                    "type": "DeliveryLeadTime"
+                                    "type": [
+                                          "DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
                               },
                               {
                                     "name": "jurisdiction",
@@ -430,7 +657,12 @@
                                     "title": "Jurisdiction",
                                     "description": "Comma separated country codes of where the data jurisdiction is.",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -439,7 +671,12 @@
                                     "title": "Data Controller",
                                     "description": "Name of the data controller",
                                     "examples": null,
-                                    "type": "LongDescription",
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -448,7 +685,12 @@
                                     "title": "Data Processor",
                                     "description": "Name of the data processors",
                                     "examples": null,
-                                    "type": "LongDescription",
+                                    "type": [
+                                          "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               }
                         ]
@@ -459,7 +701,12 @@
                         "title": "Format and Standards",
                         "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
                         "examples": null,
-                        "type": "FormatAndStandards",
+                        "type": [
+                              "FormatAndStandards",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": [
                               {
                                     "name": "vocabularyEncodingSchemes",
@@ -467,7 +714,12 @@
                                     "title": "Controlled Vocabulary",
                                     "description": "Code value of the ontology vocabulary encoding",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -476,7 +728,12 @@
                                     "title": "Conforms To",
                                     "description": "What the vocabulary conforms to.",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -485,7 +742,12 @@
                                     "title": "Language Code(s)",
                                     "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -494,7 +756,12 @@
                                     "title": "Dataset Format",
                                     "description": "Format(s) the dataset can be made available in",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               }
                         ]
@@ -507,7 +774,12 @@
             "title": "Linkage",
             "description": "Linkage and enrichment.",
             "examples": null,
-            "type": "Linkage",
+            "type": [
+                  "Linkage",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
             "subItems": [
                   {
                         "name": "isGeneratedUsing",
@@ -515,7 +787,12 @@
                         "title": "Is Generated Using",
                         "description": "??",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -524,7 +801,12 @@
                         "title": "Associated Media",
                         "description": "Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -533,7 +815,12 @@
                         "title": "Data Uses",
                         "description": "??",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -542,7 +829,12 @@
                         "title": "Is Reference in",
                         "description": "Rhe keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -551,7 +843,12 @@
                         "title": "Tools",
                         "description": "URL of any analysis tools or models that have been created for this dataset and are available for further use",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   },
                   {
@@ -560,7 +857,12 @@
                         "title": "Dataset Linkage",
                         "description": "Dataset Linkage copied over from",
                         "examples": null,
-                        "type": "DatasetLinkage",
+                        "type": [
+                              "DatasetLinkage",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": [
                               {
                                     "name": "isDerivedFrom",
@@ -568,7 +870,12 @@
                                     "title": "Derivations",
                                     "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -577,7 +884,12 @@
                                     "title": "Is PartOf",
                                     "description": "If the dataset is part of a group or family",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -586,7 +898,12 @@
                                     "title": "Is MemberOf",
                                     "description": "Dataset is a member of XXX(?)",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               },
                               {
@@ -595,7 +912,12 @@
                                     "title": "Linked Datasets",
                                     "description": "Links to other datasets.",
                                     "examples": null,
-                                    "type": "CommaSeparatedValues",
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
                                     "subItems": []
                               }
                         ]
@@ -606,7 +928,12 @@
                         "title": "Investigations",
                         "description": "Please provide the keystone paper associated with the dataset.",
                         "examples": null,
-                        "type": "CommaSeparatedValues",
+                        "type": [
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
                         "subItems": []
                   }
             ]
@@ -617,7 +944,11 @@
             "title": "Observations",
             "description": "Obsservations",
             "examples": null,
-            "type": "Observation"
+            "type": [
+                  "Observation"
+            ],
+            "is_list": true,
+            "is_optional": true
       },
       {
             "name": "structuralMetadata",
@@ -625,6 +956,10 @@
             "title": "Structural Metadata",
             "description": "Descriptions of all tables and data elements that can be included in the dataset",
             "examples": null,
-            "type": "DataTable"
+            "type": [
+                  "DataTable"
+            ],
+            "is_list": true,
+            "is_optional": true
       }
 ]
