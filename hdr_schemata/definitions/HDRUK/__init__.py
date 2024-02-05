@@ -14,12 +14,14 @@ from .EmailAddress import EmailAddress
 from .EndDateEnum import EndDateEnum
 from .Followup import Followup
 from .Format import Format
+from .ICD_0_3 import ICD_0_3
 from .IsPartOfEnum import IsPartOfEnum
 from .Isocountrycode import Isocountrycode
 from .Language import Language
 from .LanguageEnum import LanguageEnum
 from .LongAbstractText import LongAbstractText
 from .LongDescription import LongDescription
+from .MaterialTypeCategories import MaterialTypeCategories
 from .MeasuredProperty import MeasuredProperty
 from .MemberOf import MemberOf
 from .Name import Name
@@ -36,6 +38,8 @@ from .StandardisedDataModels import StandardisedDataModels
 from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
 from .StatisticalPopulationConstrained import StatisticalPopulationConstrained
 from .TimeLag import TimeLag
+from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
+from .TissueDataCategoriesEnum import TissueDataCategoriesEnum
 from .TwoHundredFiftyFiveCharacters import TwoHundredFiftyFiveCharacters
 from .Url import Url
 from .Uuidv4 import Uuidv4

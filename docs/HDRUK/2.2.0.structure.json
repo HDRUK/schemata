@@ -302,6 +302,55 @@
                         "is_list": false,
                         "is_optional": true,
                         "subItems": []
+                  },
+                  {
+                        "name": "datasetType",
+                        "required": true,
+                        "title": "Datasetype",
+                        "description": "Placeholder for dataset type",
+                        "examples": [
+                              [
+                                    ""
+                              ]
+                        ],
+                        "type": [
+                              "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "datasetSubType",
+                        "required": true,
+                        "title": "Datasetype",
+                        "description": "Placeholder for dataset sub-type",
+                        "examples": [
+                              [
+                                    ""
+                              ]
+                        ],
+                        "type": [
+                              "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "populationSize",
+                        "required": true,
+                        "title": "Population size",
+                        "description": "Summary population size of the cohort",
+                        "examples": null,
+                        "type": [
+                              "int",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
                   }
             ]
       },
@@ -372,7 +421,7 @@
             "name": "coverage",
             "required": false,
             "title": "Coverage",
-            "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
+            "description": "Observational, Spatial and Temporal coverage",
             "examples": null,
             "type": [
                   "Coverage",
@@ -384,28 +433,11 @@
                   {
                         "name": "spatial",
                         "required": false,
-                        "title": "Geographic Coverage",
-                        "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
-                        "examples": [
-                              "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
-                        ],
-                        "type": [
-                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
-                              "null"
-                        ],
-                        "is_list": false,
-                        "is_optional": true,
-                        "subItems": []
-                  },
-                  {
-                        "name": "typicalAgeRange",
-                        "required": false,
-                        "title": "Age Range",
-                        "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                        "title": "Spatial",
+                        "description": "List of countries where the data was taken from",
                         "examples": null,
                         "type": [
-                              "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -413,16 +445,13 @@
                         "subItems": []
                   },
                   {
-                        "name": "physicalSampleAvailability",
+                        "name": "pathway",
                         "required": false,
-                        "title": "Physical Sample Availability",
-                        "description": "Availability of physical samples associated with the dataset. If samples are available, please indicate the types of samples that are available. More than one type may be provided. If sample are not yet available, please provide \u201cAVAILABILITY TO BE CONFIRMED\u201d. If samples are not available, then please provide \u201cNOT AVAILABLE\u201d.",
-                        "examples": [
-                              "BONE MARROW"
-                        ],
+                        "title": "Pathway",
+                        "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                        "examples": null,
                         "type": [
-                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List",
+                              "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -433,7 +462,7 @@
                         "name": "followup",
                         "required": false,
                         "title": "Followup",
-                        "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                        "description": "What is the typical time span that a patient appears in the dataset (follow up period)",
                         "examples": null,
                         "type": [
                               "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]",
@@ -443,18 +472,102 @@
                         "is_optional": true
                   },
                   {
-                        "name": "pathway",
+                        "name": "typicalAgeRange",
                         "required": false,
-                        "title": "Pathway",
-                        "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                        "title": "Typical Age Range",
+                        "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                         "examples": null,
                         "type": [
-                              "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
                         "is_optional": true,
                         "subItems": []
+                  },
+                  {
+                        "name": "gender",
+                        "required": false,
+                        "title": "Gender",
+                        "description": "Male, Female, Other",
+                        "examples": null,
+                        "type": [
+                              "GenderType['Male','Female','Other']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "biologicalsamples",
+                        "required": false,
+                        "title": "Biological Samples",
+                        "description": "Blood, Saliva, Urine, Other",
+                        "examples": null,
+                        "type": [
+                              "BiologicalSampleType['Blood','Other','Urine','Saliva']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "psychological",
+                        "required": false,
+                        "title": "Psychological",
+                        "description": "Mental health, Cognitive function",
+                        "examples": null,
+                        "type": [
+                              "PsychologicalType['Cognitive Function','Mental Health']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "physical",
+                        "required": false,
+                        "title": "Physical",
+                        "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                        "examples": null,
+                        "type": [
+                              "PhysicalType['Respiratory','Vision','Hearing','Musculoskeletal','Cardiovascular','Reproductive']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "anthropometric",
+                        "required": false,
+                        "title": "Anthropometric",
+                        "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                        "examples": null,
+                        "type": [
+                              "AnthropometricType['Blood Pressure','Hip Circumference','Height','Waist Circumference','Weight']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "lifestyle",
+                        "required": false,
+                        "title": "Lifestyle",
+                        "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                        "examples": null,
+                        "type": [
+                              "LifestylesType['Smoking','Dietary Habits','Physical Activity','Alcohol']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "socioeconomic",
+                        "required": false,
+                        "title": "Socio-economic",
+                        "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                        "examples": null,
+                        "type": [
+                              "SocioEconomicType['Finances','Family Circumstances','Housing','Education','Marital Status','Occupation','Ethnic Group','Social Support']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
                   }
             ]
       },
@@ -544,18 +657,6 @@
                         "is_optional": false,
                         "subItems": [
                               {
-                                    "name": "accrualPeriodicity",
-                                    "required": true,
-                                    "title": "Periodicity",
-                                    "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
-                                    "examples": null,
-                                    "type": [
-                                          "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": false
-                              },
-                              {
                                     "name": "distributionReleaseDate",
                                     "required": false,
                                     "title": "Release Date",
@@ -606,6 +707,18 @@
                                     "examples": null,
                                     "type": [
                                           "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "publishingFrequency",
+                                    "required": true,
+                                    "title": "Publishing Frequency",
+                                    "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                                    "examples": null,
+                                    "type": [
+                                          "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1060,5 +1173,100 @@
             ],
             "is_list": true,
             "is_optional": true
+      },
+      {
+            "name": "tissuesSampleCollection",
+            "required": false,
+            "title": "Tissues Sample Collection",
+            "description": "Metadata collection for Tissue Samples datasets",
+            "examples": null,
+            "type": [
+                  "TissuesSampleCollection",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "dataCategories",
+                        "required": false,
+                        "title": "Data Categories",
+                        "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
+                        "examples": null,
+                        "type": [
+                              "TissueDataCategoriesEnum['Biological samples','Survey data','Imaging data','Medical records','National registries','Genealogical records','Physiological/Biochemical measurements','Other']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "materialType",
+                        "required": false,
+                        "title": "Material Type",
+                        "description": "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
+                        "examples": null,
+                        "type": [
+                              "MaterialTypeCategories['Blood','DNA','Faeces','Immortalized Cell Lines','Isolated Pathogen','Other','Plasma','RNA','Saliva','Serum','Tissue (Frozen)','Tissue (FFPE)','Urine']"
+                        ],
+                        "is_list": true,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "tissueSampleMetadata",
+                        "required": false,
+                        "title": "Tissue Sample Metadata",
+                        "description": "Metadata related to the tissue sample",
+                        "examples": null,
+                        "type": [
+                              "TissueSampleMetadata",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "creationDate",
+                                    "required": false,
+                                    "title": "Creation Date",
+                                    "description": "Date when the tissue sample metadata was created",
+                                    "examples": null,
+                                    "type": [
+                                          "date",
+                                          "datetime",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "AnatomicalSiteOntologyCode",
+                                    "required": false,
+                                    "title": "Anatomical Site Ontology Code",
+                                    "description": "Ontology code for the anatomical site, this code must match an ICD-0-3 format",
+                                    "examples": null,
+                                    "type": [
+                                          "ICD_0_3[{'anyOf': [{'pattern': '^[C\\\\d]{3}\\\\.\\\\d{4}\\\\/\\\\d{1,4}$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "collectionType",
+                        "required": false,
+                        "title": "Collection Type",
+                        "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
+                        "examples": null,
+                        "type": [
+                              "TissueCollectionTypeEnum['Case-control','Cohort','Cross-sectional','Longitudinal','Twin-study','Quality control','Population-based','Disease specific','Birth cohort','Other']",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  }
+            ]
       }
 ]
