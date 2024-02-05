@@ -1,4 +1,3 @@
-from pydantic._internal._model_construction import ModelMetaclass
 from pydantic import BaseModel, RootModel
 import pandas as pd
 import json
