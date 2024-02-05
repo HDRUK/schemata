@@ -3,8 +3,8 @@ info:
   title: HDR UK Federated Metadata Catalogue API
   version: '1.0'
   contact:
-    name: Susheel Varma
-    email: susheel.varma@hdruk.ac.uk
+    name: Gateway Support
+    email: gatewayenquiries@hdruk.ac.uk
   license:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0'
