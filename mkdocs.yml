@@ -13,13 +13,16 @@ extra_css:
 
 nav:
     - Welcome: index.md
-    - Gateway Data Model:
-          - Version 1.0: GWDM/1.0.md
-          - Version 1.1: GWDM/1.1.md
-    - HDRUK Schema:
-          - Version 2.1.2: HDRUK/2.1.2.md
-          - Version 2.2.0: HDRUK/2.1.3.md
-          - Version 2.2.0: HDRUK/2.2.0.md
-
+    - Schemata:
+          - Gateway Data Model (GWDM):
+                - Version 1.0: GWDM/1.0.md
+                - Version 1.1: GWDM/1.1.md
+          - HDRUK:
+                - Version 2.1.2: HDRUK/2.1.2.md
+                - Version 2.2.0: HDRUK/2.1.3.md
+                - Version 2.2.0: HDRUK/2.2.0.md
+    - Schema Change Log:
+          - GWDM:
+                - 1.1: GWDM/1.1.change.md
 plugins:
     - search
