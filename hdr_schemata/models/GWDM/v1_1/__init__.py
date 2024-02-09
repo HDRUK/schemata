@@ -4,7 +4,7 @@ from .Accessibility import Accessibility
 from .Required import Required
 from .Summary import Summary
 from .TissuesSampleCollection import TissuesSampleCollection
-from typing import Optional
+from typing import Optional,List
 from pydantic import Field
 
 
@@ -34,7 +34,7 @@ class Gwdm11(Gwdm10):
     )
 
     # add a new entry for tissue sample collections
-    tissuesSampleCollection: Optional[TissuesSampleCollection] = Field(
+    tissuesSampleCollection: Optional[List[TissuesSampleCollection]] = Field(
         None,
         description="Metadata collection for Tissue Samples datasets",
         title="Tissues Sample Collection",

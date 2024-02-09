@@ -1059,6 +1059,98 @@
                   "DataClass"
             ],
             "is_list": true,
-            "is_optional": true
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "name",
+                        "required": true,
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
+                        "examples": null,
+                        "type": [
+                              "str",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "description",
+                        "required": false,
+                        "title": "Table Description",
+                        "description": "A description of a table in a dataset.",
+                        "examples": null,
+                        "type": [
+                              "str",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "elements",
+                        "required": true,
+                        "title": "Data Elements",
+                        "description": "A list of data elements contained within a table in a dataset.",
+                        "examples": null,
+                        "type": [
+                              "DataElement"
+                        ],
+                        "is_list": true,
+                        "is_optional": false,
+                        "subItems": [
+                              {
+                                    "name": "name",
+                                    "required": true,
+                                    "title": "Column Name",
+                                    "description": "The name of a column in a table.",
+                                    "examples": null,
+                                    "type": [
+                                          "Name[{}]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataType",
+                                    "required": true,
+                                    "title": "Data Type",
+                                    "description": "The data type of values in the column",
+                                    "examples": null,
+                                    "type": [
+                                          "str"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "description",
+                                    "required": false,
+                                    "title": "Column Description",
+                                    "description": "A description of a column in a table.",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "sensitive",
+                                    "required": true,
+                                    "title": "Sensitive",
+                                    "description": "A True or False value, indicating if the field is sensitive or not",
+                                    "examples": null,
+                                    "type": [
+                                          "bool"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  }
+            ]
       }
 ]

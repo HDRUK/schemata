@@ -9,7 +9,7 @@ from hdr_schemata.definitions.HDRUK import *
 from .Revision import Revision
 
 class Required(BaseModel):
-    gatewayId: constr(min_length=2,max_length=50) = Field(
+    gatewayId: constr(min_length=1,max_length=50) = Field(
         ...,
         description='Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?',
         title='Gatewayid',

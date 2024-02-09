@@ -1,6 +1,6 @@
 from hdr_schemata.models.HDRUK.v2_1_3 import Hdruk213
 import json
-from typing import Optional
+from typing import Optional, List
 from pydantic import Field
 
 from .TissuesSampleCollection import TissuesSampleCollection
@@ -23,7 +23,7 @@ class Hdruk220(Hdruk213):
         title="Coverage",
     )
 
-    tissuesSampleCollection: Optional[TissuesSampleCollection] = Field(
+    tissuesSampleCollection: Optional[List[TissuesSampleCollection]] = Field(
         None,
         description="Metadata collection for Tissue Samples datasets",
         title="Tissues Sample Collection",

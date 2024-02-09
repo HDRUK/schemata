@@ -1273,10 +1273,9 @@
             "description": "Metadata collection for Tissue Samples datasets",
             "examples": null,
             "type": [
-                  "TissuesSampleCollection",
-                  "null"
+                  "TissuesSampleCollection"
             ],
-            "is_list": false,
+            "is_list": true,
             "is_optional": true,
             "subItems": [
                   {

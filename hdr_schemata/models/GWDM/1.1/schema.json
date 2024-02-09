@@ -359,7 +359,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
                               "title": "Socio-economic"
                         }
                   },
@@ -1098,7 +1098,7 @@
                         "gatewayId": {
                               "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
                               "maxLength": 50,
-                              "minLength": 2,
+                              "minLength": 1,
                               "title": "Gatewayid",
                               "type": "string"
                         },
@@ -1982,7 +1982,10 @@
             "tissuesSampleCollection": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/TissuesSampleCollection"
+                              "items": {
+                                    "$ref": "#/$defs/TissuesSampleCollection"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"

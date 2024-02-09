@@ -1,6 +1,5 @@
 import json
 
-data = json.load(open("temp.json"))
 
 
 def get_subItems(item):
@@ -10,10 +9,11 @@ def get_subItems(item):
         else " | ".join(item["type"])
     )
 
+def create_example(path):
+    data = json.load(open(f"{path}.structure.json"))
+    example = {item["name"]: get_subItems(item) for item in data}
+    print(json.dumps(example, indent=6))
+    with open(f"{path}.example.json", "w") as f:
+        json.dump(example, f, indent=6)
 
-example = {item["name"]: get_subItems(item) for item in data}
-print(json.dumps(example, indent=6))
-with open("temp2.json", "w") as f:
-    json.dump(example, f, indent=6)
-
-# print(json.dumps(data, indent=6))
+create_example("./docs/HDRUK/2.2.0")

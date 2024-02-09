@@ -1953,6 +1953,22 @@
                   ],
                   "title": "TimeLag"
             },
+            "TissueCollectionTypeEnum": {
+                  "enum": [
+                        "Case-control",
+                        "Cohort",
+                        "Cross-sectional",
+                        "Longitudinal",
+                        "Twin-study",
+                        "Quality control",
+                        "Population-based",
+                        "Disease specific",
+                        "Birth cohort",
+                        "Other"
+                  ],
+                  "title": "TissueCollectionTypeEnum",
+                  "type": "string"
+            },
             "TissueDataCategoriesEnum": {
                   "enum": [
                         "Biological samples",
@@ -2019,7 +2035,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Data categories related to the tissue sample collection",
+                              "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
                               "title": "Data Categories"
                         },
                         "materialType": {
@@ -2035,7 +2051,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Material type of the tissue sample collection",
+                              "description": "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
                               "title": "Material Type"
                         },
                         "tissueSampleMetadata": {
@@ -2050,6 +2066,19 @@
                               "default": null,
                               "description": "Metadata related to the tissue sample",
                               "title": "Tissue Sample Metadata"
+                        },
+                        "collectionType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/TissueCollectionTypeEnum"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
+                              "title": "Collection Type"
                         }
                   },
                   "title": "TissuesSampleCollection",
@@ -2351,7 +2380,10 @@
             "tissuesSampleCollection": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/TissuesSampleCollection"
+                              "items": {
+                                    "$ref": "#/$defs/TissuesSampleCollection"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"

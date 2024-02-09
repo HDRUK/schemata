@@ -948,7 +948,75 @@
                   "Observation"
             ],
             "is_list": true,
-            "is_optional": true
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "observedNode",
+                        "required": true,
+                        "title": "Statistical Population",
+                        "description": "Please select one of the following statistical populations for you observation",
+                        "examples": [
+                              "PERSONS"
+                        ],
+                        "type": [
+                              "StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "measuredValue",
+                        "required": true,
+                        "title": "Measured Value",
+                        "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
+                        "examples": null,
+                        "type": [
+                              "int"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "disambiguatingDescription",
+                        "required": false,
+                        "title": "Disambiguating Description",
+                        "description": "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type.",
+                        "examples": null,
+                        "type": [
+                              "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "observationDate",
+                        "required": true,
+                        "title": "Observation Date",
+                        "description": "Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.",
+                        "examples": null,
+                        "type": [
+                              "date",
+                              "datetime"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "measuredProperty",
+                        "required": true,
+                        "title": "Measured Property",
+                        "description": "Initially this will be defaulted to \"COUNT\"",
+                        "examples": null,
+                        "type": [
+                              "MeasuredProperty[{}]"
+                        ],
+                        "is_list": false,
+                        "is_optional": false,
+                        "subItems": []
+                  }
+            ]
       },
       {
             "name": "structuralMetadata",
@@ -960,6 +1028,151 @@
                   "DataTable"
             ],
             "is_list": true,
-            "is_optional": true
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "name",
+                        "required": true,
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
+                        "examples": null,
+                        "type": [
+                              "str",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "description",
+                        "required": false,
+                        "title": "Table Description",
+                        "description": "A description of a table in a dataset.",
+                        "examples": null,
+                        "type": [
+                              "str",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "columns",
+                        "required": true,
+                        "title": "Data Columns",
+                        "description": "A list of columns contained within a table in a dataset.",
+                        "examples": null,
+                        "type": [
+                              "DataColumn"
+                        ],
+                        "is_list": true,
+                        "is_optional": false,
+                        "subItems": [
+                              {
+                                    "name": "name",
+                                    "required": true,
+                                    "title": "Column Name",
+                                    "description": "The name of a column in a table.",
+                                    "examples": null,
+                                    "type": [
+                                          "Name[{}]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "dataType",
+                                    "required": true,
+                                    "title": "Data Type",
+                                    "description": "The data type of values in the column",
+                                    "examples": null,
+                                    "type": [
+                                          "str"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "description",
+                                    "required": false,
+                                    "title": "Column Description",
+                                    "description": "A description of a column in a table.",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "sensitive",
+                                    "required": true,
+                                    "title": "Sensitive",
+                                    "description": "A True or False value, indicating if the field is sensitive or not",
+                                    "examples": null,
+                                    "type": [
+                                          "bool"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "values",
+                                    "required": false,
+                                    "title": "Values",
+                                    "description": "Data values contained within the column",
+                                    "examples": null,
+                                    "type": [
+                                          "DataValue"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "name",
+                                                "required": true,
+                                                "title": "Value Name",
+                                                "description": "Unique value in a column .",
+                                                "examples": null,
+                                                "type": [
+                                                      "Name[{}]"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": false,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "description",
+                                                "required": false,
+                                                "title": "Value Description",
+                                                "description": "A description of a unique value in a column.",
+                                                "examples": null,
+                                                "type": [
+                                                      "str",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true
+                                          },
+                                          {
+                                                "name": "frequency",
+                                                "required": false,
+                                                "title": "Value Frequency",
+                                                "description": "The frequency of occurrance of a value in a column",
+                                                "examples": null,
+                                                "type": [
+                                                      "int",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true
+                                          }
+                                    ]
+                              }
+                        ]
+                  }
+            ]
       }
 ]
