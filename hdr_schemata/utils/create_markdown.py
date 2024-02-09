@@ -73,6 +73,8 @@ def get_fields(structure, model: type[BaseModel]):
 
         is_list, is_optional, type_names = extract_type_info(_type)
 
+        
+
         value = {
             "name": name,
             "required": field.is_required(),
@@ -85,9 +87,11 @@ def get_fields(structure, model: type[BaseModel]):
             "is_optional": is_optional,
         }
 
-        if hasattr(t, "__args__"):
+        
+        while hasattr(t, "__args__"):
             t = t.__args__[0]
-
+            
+                    
         if isinstance(t, type) and issubclass(t, BaseModel):
             subItems = []
             get_fields(subItems, t)

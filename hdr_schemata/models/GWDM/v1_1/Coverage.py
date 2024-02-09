@@ -126,7 +126,7 @@ class Coverage(BaseCoverage):
     socioeconomic: Optional[SocioEconomic] = Field(
         None,
         title="Socio-economic",
-        description="Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+        description="Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
     )
 
 
