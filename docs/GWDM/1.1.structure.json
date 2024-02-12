@@ -408,7 +408,7 @@
                         "description": "Male, Female, Other",
                         "examples": null,
                         "type": [
-                              "Gender[{'anyOf': [{'pattern': '\\\\b(?:Male|Female|Other)(?:,(?:Male|Female|Other))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -422,7 +422,7 @@
                         "description": "Blood, Saliva, Urine, Other",
                         "examples": null,
                         "type": [
-                              "BiologicalSamples[{'anyOf': [{'pattern': '\\\\b(?:Blood|Other|Urine|Saliva)(?:,(?:Blood|Other|Urine|Saliva))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -436,7 +436,7 @@
                         "description": "Mental health, Cognitive function",
                         "examples": null,
                         "type": [
-                              "Psychological[{'anyOf': [{'pattern': '\\\\b(?:Cognitive Function|Mental Health)(?:,(?:Cognitive Function|Mental Health))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -450,7 +450,7 @@
                         "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
                         "examples": null,
                         "type": [
-                              "Physical[{'anyOf': [{'pattern': '\\\\b(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive)(?:,(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -464,7 +464,7 @@
                         "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
                         "examples": null,
                         "type": [
-                              "Anthropometric[{'anyOf': [{'pattern': '\\\\b(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight)(?:,(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -478,7 +478,7 @@
                         "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
                         "examples": null,
                         "type": [
-                              "Lifestyles[{'anyOf': [{'pattern': '\\\\b(?:Smoking|Dietary Habits|Physical Activity|Alcohol)(?:,(?:Smoking|Dietary Habits|Physical Activity|Alcohol))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -492,7 +492,7 @@
                         "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
                         "examples": null,
                         "type": [
-                              "SocioEconomic[{'anyOf': [{'pattern': '\\\\b(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support)(?:,(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support))*\\\\b', 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,

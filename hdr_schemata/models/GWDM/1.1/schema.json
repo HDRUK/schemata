@@ -176,30 +176,6 @@
                   ],
                   "title": "AgeRange"
             },
-            "Anthropometric": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight)(?:,(?:Blood Pressure|Hip Circumference|Height|Waist Circumference|Weight))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Anthropometric"
-            },
-            "BiologicalSamples": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Blood|Other|Urine|Saliva)(?:,(?:Blood|Other|Urine|Saliva))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "BiologicalSamples"
-            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -274,7 +250,7 @@
                         "gender": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Gender"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -287,7 +263,7 @@
                         "biologicalsamples": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/BiologicalSamples"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -300,7 +276,7 @@
                         "psychological": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Psychological"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -313,7 +289,7 @@
                         "physical": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Physical"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -326,7 +302,7 @@
                         "anthropometric": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Anthropometric"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -339,7 +315,7 @@
                         "lifestyle": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Lifestyles"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -352,7 +328,7 @@
                         "socioeconomic": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/SocioEconomic"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -701,30 +677,6 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
-            "Gender": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Male|Female|Other)(?:,(?:Male|Female|Other))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Gender"
-            },
-            "Lifestyles": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Smoking|Dietary Habits|Physical Activity|Alcohol)(?:,(?:Smoking|Dietary Habits|Physical Activity|Alcohol))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Lifestyles"
-            },
             "Linkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -1045,18 +997,6 @@
                   ],
                   "title": "Periodicity"
             },
-            "Physical": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive)(?:,(?:Respiratory|Vision|Hearing|Musculoskeletal|Cardiovascular|Reproductive))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Physical"
-            },
             "Provenance": {
                   "additionalProperties": false,
                   "properties": {
@@ -1080,18 +1020,6 @@
                   ],
                   "title": "Provenance",
                   "type": "object"
-            },
-            "Psychological": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Cognitive Function|Mental Health)(?:,(?:Cognitive Function|Mental Health))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Psychological"
             },
             "Required": {
                   "properties": {
@@ -1254,18 +1182,6 @@
                         }
                   ],
                   "title": "ShortTitle"
-            },
-            "SocioEconomic": {
-                  "anyOf": [
-                        {
-                              "pattern": "\\b(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support)(?:,(?:Finances|Family Circumstances|Housing|Education|Marital Status|Occupation|Ethnic Group|Social Support))*\\b",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "SocioEconomic"
             },
             "StatisticalPopulationConstrained": {
                   "enum": [
