@@ -1,0 +1,178 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "Federated Metadata Catalogue - Datasets Endpoint",
+    "description": "The Federated Metadata Catalogue JSONSchema for the /datasets endpoint",
+    "required": ["items"],
+    "properties": {
+        "query": {
+            "$id": "#/properties/query",
+            "type": "object",
+            "description": "Key information about the query that was made, and information about the response",
+            "required": ["total"],
+            "additionalProperties": false,
+            "properties": {
+                "q": {
+                    "$id": "#/query/q",
+                    "type": "string",
+                    "title": "Query String",
+                    "description": "The query string that was provided as part of the original API call"
+                },
+                "total": {
+                    "$id": "#/query/total",
+                    "type": "integer",
+                    "title": "Total Results",
+                    "description": "The total number of items returned by the query",
+                    "minimum": 0
+                },
+                "limit": {
+                    "$id": "#/query/limit",
+                    "type": "integer",
+                    "title": "Result Limit",
+                    "description": "The limit of items returned by the query. 0 indicates no limit",
+                    "minimum": 0
+                },
+                "offset": {
+                    "$id": "#/query/offset",
+                    "type": "integer",
+                    "title": "offset",
+                    "description": "The offset from the first item returned. For example, if results are returned 50 at a time, the second request would contain offset=50",
+                    "minimum": 0
+                }
+            }
+        },
+        "items": {
+            "type": "array",
+            "title": "Query Results",
+            "description": "The results of the query",
+            "items": {
+                "anyOf": [{ "$ref": "#/definitions/dataset" }]
+            }
+        }
+    },
+    "definitions": {
+        "dataset": {
+            "$id": "#/definitions/dataset",
+            "title": "Dataset Definition",
+            "type": "object",
+            "required": [
+                "@schema",
+                "type",
+                "persistentId",
+                "name",
+                "description",
+                "version",
+                "self",
+                "issued",
+                "modified",
+                "source"
+            ],
+            "properties": {
+                "@schema": {
+                    "$id": "#/dataset/@schema",
+                    "title": "Schema Version",
+                    "description": "The version of the schema that the metadata will comply to",
+                    "oneOf": [
+                        {
+                            "title": "HDR UK Dataset Schema Semantic Version",
+                            "type": "string",
+                            "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$",
+                            "enum": ["2.0.2", "latest"]
+                        },
+                        {
+                            "title": "HDR UK Dataset Schema URL",
+                            "type": "string",
+                            "format": "uri",
+                            "enum": [
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/HDRUK/2.0.2/schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/HDRUK/2.1.0/schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/HDRUK/2.1.2/schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/HDRUK/2.1.3/schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/HDRUK/2.2.0/schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/GWDM/1.0/schema.json",
+                                "https://raw.githubusercontent.com/HDRUK/schemata-2/master/hdr_schemata/models/GWDM/1.1/schema.json"
+                            ]
+                        }
+                    ]
+                },
+                "type": {
+                    "$id": "#/dataset/type",
+                    "title": "Type of data",
+                    "description": "What type of information does this relate to. Fixed value of 'Dataset'",
+                    "type": "string",
+                    "const": "dataset"
+                },
+                "persistentId": {
+                    "$id": "#/dataset/persistentId",
+                    "title": "Persistent identifier",
+                    "description": "The persistent identifyer across all versions/revisions of this dataset.",
+                    "type": "string",
+                    "pattern": "[A-Za-z0-9_-]*",
+                    "examples": [
+                        "00851558-9b0f-11ed-a8fc-0242ac120002",
+                        "00851558_9b0f_11ed_a8fc_0242ac120002"
+                    ]
+                },
+                "name": {
+                    "$id": "#/dataset/name",
+                    "title": "Title",
+                    "description": "Title of the dataset limited to 80 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
+                    "examples": [
+                        "North West London COVID-19 Patient Level Situation Report"
+                    ],
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                },
+                "description": {
+                    "$id": "#/dataset/description",
+                    "title": "Dataset Abstract",
+                    "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible",
+                    "examples": [
+                        "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+                    ],
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255
+                },
+                "version": {
+                    "$id": "#/dataset/version",
+                    "title": "Dataset Version",
+                    "description": "Dataset metadata semantic version",
+                    "type": "string",
+                    "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)$",
+                    "examples": ["4.0.0", "1.1.3"]
+                },
+                "self": {
+                    "$id": "#/dataset/self",
+                    "title": "Self",
+                    "description": "The URL that the dataset can be found on",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "issued": {
+                    "$id": "#/dataset/issued",
+                    "title": "Creation Date",
+                    "$comment": "dcat:issued,  ISO 8601 format",
+                    "description": "Dataset Metadata Creation Date",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "modified": {
+                    "$id": "#/dataset/modified",
+                    "title": "Modification Date",
+                    "$comment": "ISO 8601 format",
+                    "description": "Dataset Metadata Creation Date",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "source": {
+                    "$id": "#/dataset/source",
+                    "title": "Source",
+                    "description": "The originating organistion of the dataset",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
