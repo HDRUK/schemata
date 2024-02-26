@@ -4,6 +4,8 @@ from typing import Optional
 from pydantic import Field
 from .Provenance import Provenance
 
+from hdr_schemata.models.HDRUK.v2_1_2 import *
+
 
 class Hdruk213(Hdruk212):
     provenance: Optional[Provenance] = Field(

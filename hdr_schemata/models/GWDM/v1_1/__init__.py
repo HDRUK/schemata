@@ -1,10 +1,12 @@
 from hdr_schemata.models.GWDM import Gwdm10
+
+from hdr_schemata.models.GWDM.v1_0 import *
 from .Coverage import Coverage
 from .Accessibility import Accessibility
 from .Required import Required
 from .Summary import Summary
 from .TissuesSampleCollection import TissuesSampleCollection
-from typing import Optional,List
+from typing import Optional, List
 from pydantic import Field
 
 

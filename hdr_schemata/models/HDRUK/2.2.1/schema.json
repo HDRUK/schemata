@@ -824,6 +824,23 @@
                               "default": null,
                               "description": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
                               "title": "Tools"
+                        },
+                        "syntheticDataWebLink": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Url"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset",
+                              "example": "",
+                              "title": "Synthetic Data Web Links"
                         }
                   },
                   "title": "EnrichmentAndLinkage",
@@ -2403,6 +2420,6 @@
             "accessibility",
             "observations"
       ],
-      "title": "Hdruk220",
+      "title": "Hdruk221",
       "type": "object"
 }
