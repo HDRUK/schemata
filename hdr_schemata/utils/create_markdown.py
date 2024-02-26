@@ -73,8 +73,6 @@ def get_fields(structure, model: type[BaseModel]):
 
         is_list, is_optional, type_names = extract_type_info(_type)
 
-        
-
         value = {
             "name": name,
             "required": field.is_required(),
@@ -87,11 +85,9 @@ def get_fields(structure, model: type[BaseModel]):
             "is_optional": is_optional,
         }
 
-        
         while hasattr(t, "__args__"):
             t = t.__args__[0]
-            
-                    
+
         if isinstance(t, type) and issubclass(t, BaseModel):
             subItems = []
             get_fields(subItems, t)
@@ -154,11 +150,15 @@ def create_markdown(Model, path, name):
 from hdr_schemata.models.HDRUK import Hdruk212
 from hdr_schemata.models.HDRUK import Hdruk213
 from hdr_schemata.models.HDRUK import Hdruk220
+from hdr_schemata.models.HDRUK import Hdruk221
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
+from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 
 create_markdown(Gwdm10, "./docs/GWDM/", "1.0")
 create_markdown(Gwdm11, "./docs/GWDM/", "1.1")
+create_markdown(Gwdm12, "./docs/GWDM/", "1.2")
 create_markdown(Hdruk212, "./docs/HDRUK/", "2.1.2")
 create_markdown(Hdruk213, "./docs/HDRUK/", "2.1.3")
 create_markdown(Hdruk220, "./docs/HDRUK/", "2.2.0")
+create_markdown(Hdruk221, "./docs/HDRUK/", "2.2.1")

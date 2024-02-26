@@ -2,6 +2,8 @@ from hdr_schemata.models.HDRUK.v2_1_2 import Hdruk212
 import json
 from typing import Optional
 from pydantic import Field
+
+from hdr_schemata.models.HDRUK.v2_1_2 import *
 from .Provenance import Provenance
 
 
