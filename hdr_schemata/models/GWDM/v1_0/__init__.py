@@ -15,61 +15,62 @@ from .Accessibility import Accessibility
 from .Linkage import Linkage
 from .Observations import Observation
 from .DataTable import DataTable
-
 from .Usage import Usage
-from .Access import Access
-
 
 class Gwdm10(BaseModel):
     class Config:
-        extra = "forbid"
+        extra = 'forbid'
 
     required: Required = Field(
-        ..., description="required metadata needed for the GWDM", title="Required"
+        ...,
+        description='required metadata needed for the GWDM',
+        title='Required'
     )
 
     summary: Summary = Field(
         ...,
-        description="Summary of metadata describing key pieces of information.",
-        title="Summary",
+        description='Summary of metadata describing key pieces of information.',
+        title='Summary',
     )
-
+    
     coverage: Optional[Coverage] = Field(
         None,
-        description="Spatial and Temporal coverage",
-        title="Coverage",
+        description='Spatial and Temporal coverage',
+        title='Coverage',
     )
 
     provenance: Optional[Provenance] = Field(
         None,
-        description="Provenance information",
-        title="Provenance",
+        description='Provenance information',
+        title='Provenance',
     )
-
+    
     accessibility: Accessibility = Field(
         None,
-        description="Accessibility information.",
-        title="Accessibility",
+        description='Accessibility information.',
+        title='Accessibility',
     )
-
+    
     linkage: Optional[Linkage] = Field(
         None,
-        description="Linkage and enrichment.",
-        title="Linkage",
+        description='Linkage and enrichment.',
+        title='Linkage',
     )
-
+    
     observations: Optional[List[Observation]] = Field(
         None,
-        description="Obsservations",
-        title="Observations",
+        description='Obsservations',
+        title='Observations',
     )
     structuralMetadata: Optional[List[DataTable]] = Field(
         None,
-        description="Descriptions of all tables and data elements that can be included in the dataset",
-        title="Structural Metadata",
+        description='Descriptions of all tables and data elements that can be included in the dataset',
+        title='Structural Metadata',
     )
 
+
     @classmethod
-    def save_schema(cls, location="./1.0/schema.json"):
-        with open(location, "w") as f:
-            json.dump(cls.model_json_schema(), f, indent=6)
+    def save_schema(cls,location='./1.0/schema.json'):
+        with open(location,'w') as f:
+            json.dump(cls.model_json_schema(),f,indent=6)
+ 

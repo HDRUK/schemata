@@ -3,7 +3,6 @@ import json
 from typing import Optional, List
 from pydantic import Field
 
-from hdr_schemata.models.HDRUK.v2_1_3 import *
 from .TissuesSampleCollection import TissuesSampleCollection
 from .Summary import Summary
 from .Coverage import Coverage
