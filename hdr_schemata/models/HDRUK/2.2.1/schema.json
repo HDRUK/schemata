@@ -19,12 +19,14 @@
                         "accessRights": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/LongDescription"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
+                              "description": "Optional link(s) or a description of where the license associated to accessing this dataset",
+                              "example": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
                               "title": "Access Rights"
                         },
                         "accessService": {
@@ -37,10 +39,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
-                              "examples": [
-                                    "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
-                              ],
+                              "description": "",
+                              "example": "The SAIL Databank is powered by the UK Secure e-Research Platform (UKSeRP). Following approval through safeguard processes, access to project-specific data within the secure environment is permitted using two-factor authentication.",
                               "title": "Access Service"
                         },
                         "accessRequestCost": {
@@ -49,24 +49,12 @@
                                           "$ref": "#/$defs/LongDescription"
                                     },
                                     {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
+                              "description": "",
+                              "example": "Data provision is free from SAIL. Overall project costing depends on the number of people that require access to the SAIL Gateway, the activities that SAIL needs to complete (e.g. loading non-standard datasets), data refreshes, analytical work required, disclosure control process, and special case technological requirements.",
                               "title": "Organisation Access Request Cost"
                         },
                         "deliveryLeadTime": {
@@ -79,7 +67,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
+                              "description": "An arbitrary guess at the time to gain access to the dataset...",
+                              "example": "2-6 MONTHS",
                               "title": "Access Request Duration"
                         },
                         "jurisdiction": {
@@ -88,16 +77,11 @@
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/Isocountrycode"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+                              "description": "Comma separated country codes of where the data jurisdiction is.",
+                              "example": "GB-WLS,GB-GBN,GB-SCT",
                               "title": "Jurisdiction"
                         },
                         "dataController": {
@@ -109,7 +93,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
+                              "description": "Name of the data controller",
+                              "example": "SAIL Databank",
                               "title": "Data Controller"
                         },
                         "dataProcessor": {
@@ -122,8 +107,26 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
+                              "description": "Name of the data processors",
+                              "example": "SAIL Databank",
                               "title": "Data Processor"
+                        },
+                        "accessServiceCategory": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/AccessService"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Where access to data come from: TRE/SED, direct access, open acccess, varies based on project.",
+                              "example": "",
+                              "title": "Access/governance requirementss"
                         }
                   },
                   "required": [
@@ -133,6 +136,16 @@
                   ],
                   "title": "Access",
                   "type": "object"
+            },
+            "AccessService": {
+                  "enum": [
+                        "TRE/SDE",
+                        "Direct access",
+                        "Open access",
+                        "Varies based on project"
+                  ],
+                  "title": "AccessService",
+                  "type": "string"
             },
             "Accessibility": {
                   "additionalProperties": false,
@@ -222,62 +235,6 @@
                         }
                   ],
                   "title": "CommaSeparatedValues"
-            },
-            "ControlledVocabulary": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/ControlledVocabularyEnum"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "title": "ControlledVocabulary"
-            },
-            "ControlledVocabularyEnum": {
-                  "enum": [
-                        "LOCAL",
-                        "OPCS4",
-                        "READ",
-                        "SNOMED CT",
-                        "SNOMED RT",
-                        "DM PLUS D",
-                        "DM+D",
-                        "NHS NATIONAL CODES",
-                        "NHS SCOTLAND NATIONAL CODES",
-                        "NHS WALES NATIONAL CODES",
-                        "ODS",
-                        "LOINC",
-                        "ICD10",
-                        "ICD10CM",
-                        "ICD10PCS",
-                        "ICD9CM",
-                        "ICD9",
-                        "ICDO3",
-                        "AMT",
-                        "APC",
-                        "ATC",
-                        "CIEL",
-                        "HPO",
-                        "CPT4",
-                        "DPD",
-                        "DRG",
-                        "HEMONC",
-                        "JMDC",
-                        "KCD7",
-                        "MULTUM",
-                        "NAACCR",
-                        "NDC",
-                        "NDFRT",
-                        "OXMIS",
-                        "RXNORM",
-                        "RXNORM EXTENSION",
-                        "SPL",
-                        "OTHER"
-                  ],
-                  "title": "ControlledVocabularyEnum",
-                  "type": "string"
             },
             "Coverage": {
                   "additionalProperties": false,
@@ -547,43 +504,6 @@
                   ],
                   "title": "DataElement",
                   "type": "object"
-            },
-            "DataUseLimitation": {
-                  "enum": [
-                        "GENERAL RESEARCH USE",
-                        "COMMERCIAL RESEARCH USE",
-                        "GENETIC STUDIES ONLY",
-                        "NO GENERAL METHODS RESEARCH",
-                        "NO RESTRICTION",
-                        "GEOGRAPHICAL RESTRICTIONS",
-                        "INSTITUTION SPECIFIC RESTRICTIONS",
-                        "NOT FOR PROFIT USE",
-                        "PROJECT SPECIFIC RESTRICTIONS",
-                        "RESEARCH SPECIFIC RESTRICTIONS",
-                        "USER SPECIFIC RESTRICTION",
-                        "RESEARCH USE ONLY",
-                        "NO LINKAGE"
-                  ],
-                  "title": "DataUseLimitation",
-                  "type": "string"
-            },
-            "DataUseRequirements": {
-                  "enum": [
-                        "COLLABORATION REQUIRED",
-                        "PROJECT SPECIFIC RESTRICTIONS",
-                        "ETHICS APPROVAL REQUIRED",
-                        "INSTITUTION SPECIFIC RESTRICTIONS",
-                        "GEOGRAPHICAL RESTRICTIONS",
-                        "PUBLICATION MORATORIUM",
-                        "PUBLICATION REQUIRED",
-                        "RETURN TO DATABASE OR RESOURCE",
-                        "TIME LIMIT ON USE",
-                        "DISCLOSURE CONTROL",
-                        "NOT FOR PROFIT USE",
-                        "USER SPECIFIC RESTRICTION",
-                        null
-                  ],
-                  "title": "DataUseRequirements"
             },
             "DatasetType": {
                   "anyOf": [
@@ -859,30 +779,20 @@
                   ],
                   "title": "Followup"
             },
-            "Format": {
-                  "minLength": 1,
-                  "title": "Format",
-                  "type": "string"
-            },
             "FormatAndStandards": {
                   "additionalProperties": false,
                   "properties": {
-                        "vocabularyEncodingScheme": {
+                        "vocabularyEncodingSchemes": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/ControlledVocabulary"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "description": "Code value of the ontology vocabulary encoding",
+                              "example": "OPCS4,NHS NATIONAL CODES,ICD10,OTHER",
                               "title": "Controlled Vocabulary"
                         },
                         "conformsTo": {
@@ -891,60 +801,45 @@
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/StandardisedDataModels"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                              "description": "What the vocabulary conforms to.",
+                              "example": "LOCAL,NHS DATA DICTIONARY",
                               "title": "Conforms To"
                         },
-                        "language": {
+                        "languages": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/Language"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
-                              "title": "Language"
+                              "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
+                              "example": "en",
+                              "title": "Language Code(s)"
                         },
-                        "format": {
+                        "formats": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/Format"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
-                              "title": "Format"
+                              "description": "Format(s) the dataset can be made available in",
+                              "example": "CSV,JSON,SQL database table",
+                              "title": "Dataset Format"
                         }
                   },
                   "required": [
-                        "vocabularyEncodingScheme",
+                        "vocabularyEncodingSchemes",
                         "conformsTo",
-                        "language",
-                        "format"
+                        "languages",
+                        "formats"
                   ],
                   "title": "FormatAndStandards",
                   "type": "object"
@@ -973,213 +868,6 @@
             "IsPartOfEnum": {
                   "const": "NOT APPLICABLE",
                   "title": "IsPartOfEnum"
-            },
-            "Isocountrycode": {
-                  "pattern": "^[A-Z]{2}(-[A-Z]{2,3})?$",
-                  "title": "Isocountrycode",
-                  "type": "string"
-            },
-            "Language": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/LanguageEnum"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "title": "Language"
-            },
-            "LanguageEnum": {
-                  "enum": [
-                        "aa",
-                        "ab",
-                        "ae",
-                        "af",
-                        "ak",
-                        "am",
-                        "an",
-                        "ar",
-                        "as",
-                        "av",
-                        "ay",
-                        "az",
-                        "ba",
-                        "be",
-                        "bg",
-                        "bh",
-                        "bi",
-                        "bm",
-                        "bn",
-                        "bo",
-                        "br",
-                        "bs",
-                        "ca",
-                        "ce",
-                        "ch",
-                        "co",
-                        "cr",
-                        "cs",
-                        "cu",
-                        "cv",
-                        "cy",
-                        "da",
-                        "de",
-                        "dv",
-                        "dz",
-                        "ee",
-                        "el",
-                        "en",
-                        "eo",
-                        "es",
-                        "et",
-                        "eu",
-                        "fa",
-                        "ff",
-                        "fi",
-                        "fj",
-                        "fo",
-                        "fr",
-                        "fy",
-                        "ga",
-                        "gd",
-                        "gl",
-                        "gn",
-                        "gu",
-                        "gv",
-                        "ha",
-                        "he",
-                        "hi",
-                        "ho",
-                        "hr",
-                        "ht",
-                        "hu",
-                        "hy",
-                        "hz",
-                        "ia",
-                        "id",
-                        "ie",
-                        "ig",
-                        "ii",
-                        "ik",
-                        "io",
-                        "is",
-                        "it",
-                        "iu",
-                        "ja",
-                        "jv",
-                        "ka",
-                        "kg",
-                        "ki",
-                        "kj",
-                        "kk",
-                        "kl",
-                        "km",
-                        "kn",
-                        "ko",
-                        "kr",
-                        "ks",
-                        "ku",
-                        "kv",
-                        "kw",
-                        "ky",
-                        "la",
-                        "lb",
-                        "lg",
-                        "li",
-                        "ln",
-                        "lo",
-                        "lt",
-                        "lu",
-                        "lv",
-                        "mg",
-                        "mh",
-                        "mi",
-                        "mk",
-                        "ml",
-                        "mn",
-                        "mr",
-                        "ms",
-                        "mt",
-                        "my",
-                        "na",
-                        "nb",
-                        "nd",
-                        "ne",
-                        "ng",
-                        "nl",
-                        "nn",
-                        "no",
-                        "nr",
-                        "nv",
-                        "ny",
-                        "oc",
-                        "oj",
-                        "om",
-                        "or",
-                        "os",
-                        "pa",
-                        "pi",
-                        "pl",
-                        "ps",
-                        "pt",
-                        "qu",
-                        "rm",
-                        "rn",
-                        "ro",
-                        "ru",
-                        "rw",
-                        "sa",
-                        "sc",
-                        "sd",
-                        "se",
-                        "sg",
-                        "si",
-                        "sk",
-                        "sl",
-                        "sm",
-                        "sn",
-                        "so",
-                        "sq",
-                        "sr",
-                        "ss",
-                        "st",
-                        "su",
-                        "sv",
-                        "sw",
-                        "ta",
-                        "te",
-                        "tg",
-                        "th",
-                        "ti",
-                        "tk",
-                        "tl",
-                        "tn",
-                        "to",
-                        "tr",
-                        "ts",
-                        "tt",
-                        "tw",
-                        "ty",
-                        "ug",
-                        "uk",
-                        "ur",
-                        "uz",
-                        "ve",
-                        "vi",
-                        "vo",
-                        "wa",
-                        "wo",
-                        "xh",
-                        "yi",
-                        "yo",
-                        "za",
-                        "zh",
-                        "zu"
-                  ],
-                  "title": "LanguageEnum",
-                  "type": "string"
             },
             "LifestylesType": {
                   "enum": [
@@ -1310,103 +998,6 @@
                   "minLength": 2,
                   "title": "OneHundredFiftyCharacters",
                   "type": "string"
-            },
-            "Organisation": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "identifier": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the \u201csuggest and institute\u201d function here: https://www.grid.ac/institutes#",
-                              "title": "Organisation Identifier"
-                        },
-                        "name": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    }
-                              ],
-                              "description": "Name of the organisation",
-                              "title": "Organisation Name"
-                        },
-                        "logo": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.",
-                              "title": "Organisation Logo"
-                        },
-                        "description": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Description"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide a URL that describes the organisation.",
-                              "title": "Organisation Description"
-                        },
-                        "contactPoint": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/EmailAddress"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/EmailAddress"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "Organisation contact point(s)",
-                              "title": "Organisation Contact Point"
-                        },
-                        "memberOf": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/MemberOf"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please indicate if the organisation is an Alliance Member or a Hub.",
-                              "title": "Organisation Membership"
-                        }
-                  },
-                  "required": [
-                        "name",
-                        "contactPoint"
-                  ],
-                  "title": "Organisation",
-                  "type": "object"
             },
             "Origin": {
                   "additionalProperties": false,
@@ -1647,42 +1238,6 @@
                   "title": "Source",
                   "type": "string"
             },
-            "StandardisedDataModels": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/StandardisedDataModelsEnum"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "title": "StandardisedDataModels"
-            },
-            "StandardisedDataModelsEnum": {
-                  "enum": [
-                        "HL7 FHIR",
-                        "HL7 V2",
-                        "HL7 CDA",
-                        "HL7 CCOW",
-                        "LOINC",
-                        "DICOM",
-                        "I2B2",
-                        "IHE",
-                        "OMOP",
-                        "OPENEHR",
-                        "SENTINEL",
-                        "PCORNET",
-                        "CDISC",
-                        "NHS DATA DICTIONARY",
-                        "NHS SCOTLAND DATA DICTIONARY",
-                        "NHS WALES DATA DICTIONARY",
-                        "LOCAL",
-                        "OTHER"
-                  ],
-                  "title": "StandardisedDataModelsEnum",
-                  "type": "string"
-            },
             "StatisticalPopulationConstrained": {
                   "enum": [
                         "PERSONS",
@@ -1727,7 +1282,7 @@
                         "publisher": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/Organisation"
+                                          "$ref": "#/$defs/hdr_schemata__models__HDRUK__v2_1_2__Organisation__Organisation"
                                     }
                               ],
                               "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
@@ -2123,119 +1678,44 @@
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/DataUseLimitation"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "default": null,
-                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
+                              "description": "Any restrictions to its usage",
+                              "example": "GENERAL RESEARCH USE,PROJECT SPECIFIC RESTRICTIONS",
                               "title": "Data Use Limitation"
                         },
-                        "dataUseRequirements": {
+                        "dataUseRequirement": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/DataUseRequirements"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],
-                              "default": null,
-                              "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
+                              "description": "Any requirements needed for data usage",
+                              "example": "PROJECT SPECIFIC RESTRICTIONS,TIME LIMIT ON USE,USER SPECIFIC RESTRICTION",
                               "title": "Data Use Requirements"
                         },
                         "resourceCreator": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/ShortDescription"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/ShortDescription"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
+                                          "$ref": "#/$defs/hdr_schemata__models__GWDM__v1_1__Organisation__Organisation"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
-                              "title": "Citation Requirements"
-                        },
-                        "investigations": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "title": "Investigations"
-                        },
-                        "isReferencedBy": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Doi"
-                                    },
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Doi"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list.",
-                              "title": "Citations"
+                              "description": "Who has created this resource",
+                              "title": "Resource Creator"
                         }
                   },
+                  "required": [
+                        "dataUseLimitation",
+                        "dataUseRequirement"
+                  ],
                   "title": "Usage",
                   "type": "object"
             },
@@ -2245,6 +1725,155 @@
                   "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
                   "title": "Uuidv4",
                   "type": "string"
+            },
+            "hdr_schemata__models__GWDM__v1_1__Organisation__Organisation": {
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Name"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
+                              "example": "SAIL",
+                              "title": "Name"
+                        },
+                        "gatewayId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
+                              "title": "Publisher gateway id"
+                        },
+                        "rorId": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 9,
+                                          "minLength": 9,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The Research Organization Registry (ROR) for the organisation, if applicable",
+                              "title": "Research Organization Registry Identifier"
+                        }
+                  },
+                  "required": [
+                        "name"
+                  ],
+                  "title": "Organisation",
+                  "type": "object"
+            },
+            "hdr_schemata__models__HDRUK__v2_1_2__Organisation__Organisation": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "identifier": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the \u201csuggest and institute\u201d function here: https://www.grid.ac/institutes#",
+                              "title": "Organisation Identifier"
+                        },
+                        "name": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "description": "Name of the organisation",
+                              "title": "Organisation Name"
+                        },
+                        "logo": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.",
+                              "title": "Organisation Logo"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Description"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide a URL that describes the organisation.",
+                              "title": "Organisation Description"
+                        },
+                        "contactPoint": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/EmailAddress"
+                                    },
+                                    {
+                                          "items": {
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/EmailAddress"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Organisation contact point(s)",
+                              "title": "Organisation Contact Point"
+                        },
+                        "memberOf": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/MemberOf"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please indicate if the organisation is an Alliance Member or a Hub.",
+                              "title": "Organisation Membership"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "contactPoint"
+                  ],
+                  "title": "Organisation",
+                  "type": "object"
             }
       },
       "additionalProperties": false,

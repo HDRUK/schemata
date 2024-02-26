@@ -871,6 +871,20 @@
                                     "is_list": false,
                                     "is_optional": true,
                                     "subItems": []
+                              },
+                              {
+                                    "name": "accessServiceCategory",
+                                    "required": false,
+                                    "title": "Access/governance requirementss",
+                                    "description": "Where access to data come from: TRE/SED, direct access, open acccess, varies based on project.",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
                               }
                         ]
                   },

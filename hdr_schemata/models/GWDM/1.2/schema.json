@@ -110,6 +110,20 @@
                               "description": "Name of the data processors",
                               "example": "SAIL Databank",
                               "title": "Data Processor"
+                        },
+                        "accessServiceCategory": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Where access to data come from: TRE/SED, direct access, open acccess, varies based on project.",
+                              "example": "",
+                              "title": "Access/governance requirementss"
                         }
                   },
                   "required": [
