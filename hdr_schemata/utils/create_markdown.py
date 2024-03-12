@@ -34,7 +34,6 @@ def extract_type_info(type_hint):
     type_names = []
     for _type in inner_types:
         type_name = getattr(_type, "__name__", str(_type))
-
         try:
             if _type and issubclass(_type, RootModel):
                 info = _type.model_json_schema()
@@ -58,7 +57,7 @@ def extract_type_info(type_hint):
 
         type_names.append(type_name)
 
-    return is_list, is_optional, type_names
+    return is_list, is_optional, type_names, inner_types
 
 
 def get_fields(structure, model: type[BaseModel]):
@@ -71,7 +70,7 @@ def get_fields(structure, model: type[BaseModel]):
 
         _type = model_hints[name]
 
-        is_list, is_optional, type_names = extract_type_info(_type)
+        is_list, is_optional, type_names, _types = extract_type_info(_type)
 
         value = {
             "name": name,
@@ -81,6 +80,7 @@ def get_fields(structure, model: type[BaseModel]):
             "title": field.title,
             "examples": field.examples,
             "type": type_names,
+            # "types": _types,
             "is_list": is_list,
             "is_optional": is_optional,
         }
@@ -132,9 +132,37 @@ def json_to_markdown(structure, level=2):
     return md
 
 
+def traverse_structure(data, form, parent=None):
+    for item in data:
+        k = item.pop("name")
+        if parent:
+            k = parent + "." + k
+        subItems = item.pop("subItems", None)
+        if subItems:
+            traverse_structure(subItems, form, parent=k)
+
+        types = item.pop("types")
+        info = None
+        for t in types:
+            try:
+                if t and issubclass(t, RootModel):
+                    info = t.model_json_schema()
+            except:
+                ...
+            if type(t) == enum.EnumMeta:
+                info = {"type": "string", "options": [m.value for m in t]}
+        _ = item.pop("type")
+        item["types"] = info
+        form[k] = item
+
+
 def create_markdown(Model, path, name):
     structure = []
     get_fields(structure, Model)
+
+    # form = {}
+    # traverse_structure(structure, form)
+    # print(json.dumps(form, indent=6))
 
     with open(f"{path}/{name}.structure.json", "w") as f:
         print(json.dumps(structure, indent=6))
@@ -155,10 +183,16 @@ from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 
+
+create_markdown(Hdruk220, "./docs/HDRUK/", "2.2.0")
+create_markdown(Hdruk221, "./docs/HDRUK/", "2.2.1")
+create_markdown(Hdruk212, "./docs/HDRUK/", "2.1.2")
+create_markdown(Hdruk213, "./docs/HDRUK/", "2.1.3")
+
+from hdr_schemata.models.GWDM.v1_1 import Gwdm10
+from hdr_schemata.models.GWDM.v1_1 import Gwdm11
+from hdr_schemata.models.GWDM.v1_2 import Gwdm12
+
 create_markdown(Gwdm10, "./docs/GWDM/", "1.0")
 create_markdown(Gwdm11, "./docs/GWDM/", "1.1")
 create_markdown(Gwdm12, "./docs/GWDM/", "1.2")
-create_markdown(Hdruk212, "./docs/HDRUK/", "2.1.2")
-create_markdown(Hdruk213, "./docs/HDRUK/", "2.1.3")
-create_markdown(Hdruk220, "./docs/HDRUK/", "2.2.0")
-create_markdown(Hdruk221, "./docs/HDRUK/", "2.2.1")

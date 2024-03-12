@@ -2,7 +2,7 @@ from typing import Optional, List
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import AccessService
 
-from hdr_schemata.models.GWDM.v1_1 import Access as BaseAccess
+from hdr_schemata.models.HDRUK.v2_2_0 import Access as BaseAccess
 
 
 class Access(BaseAccess):

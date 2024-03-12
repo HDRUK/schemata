@@ -1,5 +1,5 @@
 from hdr_schemata.models import remove_fields_from_cls
-from hdr_schemata.models.GWDM.v1_0 import Coverage as BaseCoverage
+from hdr_schemata.models.HDRUK.v2_1_2 import Coverage as BaseCoverage
 from hdr_schemata.definitions.HDRUK.BiologicalSamples import *
 from typing import Optional, List
 from pydantic import Field

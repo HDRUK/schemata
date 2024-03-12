@@ -1,7 +1,7 @@
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import *
 
-from hdr_schemata.models.GWDM.v1_1 import Accessibility as BaseAccessibility
+from hdr_schemata.models.HDRUK.v2_2_0 import Accessibility as BaseAccessibility
 from .Access import Access
 
 
