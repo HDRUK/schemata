@@ -1,0 +1,33 @@
+11;rgb:1818/1818/1818Common:
+  summary:
+    description: Summary of metadata describing key pieces of information.
+    title: Summary
+
+  coverage:
+    description: Spatial and Temporal coverage
+    title: Coverage
+
+  provenance:
+    description: Provenance information
+    title: Provenance
+
+  accessibility:
+    description: Accessibility information
+    title: Accessibility
+
+  linkage:
+    description: Linkage between datasets, other gateway entities and papers
+    title: Linkage
+
+  observations:
+    description: Observations
+    title: Observations
+
+  structuralMetadata:
+    description: Descriptions of all tables and data elements that can be included in the dataset
+    title: Structural Metadata
+
+GWDM:
+  required:
+    description: Required metadata needed for the GWDM
+    title: Required

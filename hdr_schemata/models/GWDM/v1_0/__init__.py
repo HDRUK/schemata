@@ -4,6 +4,7 @@ from typing import List, Optional, Union
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 
 from hdr_schemata.definitions.HDRUK import *
+from hdr_schemata.annotations import annotations
 
 import json
 
@@ -19,54 +20,45 @@ from .DataTable import DataTable
 from .Usage import Usage
 from .Access import Access
 
+an = annotations.GWDM
+
 
 class Gwdm10(BaseModel):
+
     class Config:
         extra = "forbid"
 
     required: Required = Field(
-        ..., description="required metadata needed for the GWDM", title="Required"
+        ..., description=an.required.description, title=an.required.title
     )
 
     summary: Summary = Field(
-        ...,
-        description="Summary of metadata describing key pieces of information.",
-        title="Summary",
+        ..., description=an.summary.description, title=an.summary.title
     )
 
     coverage: Optional[Coverage] = Field(
-        None,
-        description="Spatial and Temporal coverage",
-        title="Coverage",
+        None, description=an.coverage.description, title=an.coverage.title
     )
 
     provenance: Optional[Provenance] = Field(
-        None,
-        description="Provenance information",
-        title="Provenance",
+        None, description=an.provenance.description, title=an.provenance.title
     )
 
     accessibility: Accessibility = Field(
-        None,
-        description="Accessibility information.",
-        title="Accessibility",
+        None, description=an.accessibility.description, title=an.accessibility.title
     )
 
     linkage: Optional[Linkage] = Field(
-        None,
-        description="Linkage and enrichment.",
-        title="Linkage",
+        None, description=an.linkage.description, title=an.linkage.title
     )
 
     observations: Optional[List[Observation]] = Field(
-        None,
-        description="Obsservations",
-        title="Observations",
+        None, description=an.observations.description, title=an.observations.title
     )
     structuralMetadata: Optional[List[DataTable]] = Field(
         None,
-        description="Descriptions of all tables and data elements that can be included in the dataset",
-        title="Structural Metadata",
+        description=an.structuralMetadata.description,
+        title=an.structuralMetadata.title,
     )
 
     @classmethod

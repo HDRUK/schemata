@@ -202,7 +202,7 @@
                               ],
                               "default": null,
                               "description": "List of countries where the data was taken from",
-                              "example": "United Kingdom,Wales,England",
+                              "example": "United Kingdom,Wales,England, please provide the full country names",
                               "title": "Spatial"
                         },
                         "pathway": {
@@ -215,7 +215,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                              "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway. Gateway Feature: The min and max age added using X-X will be split out for use of filters, if data not provided in this format then the dataset will not appear filter search, for example <18 will not be appear in search the input should be 0-18.",
                               "example": "The lookup contains references to link data held elsewhere on:\n\u2022 individuals appearing as defendants in criminal cases dealt with by the magistrates' or Crown Court in England and Wales (including Youth Courts). \n\u2022 individuals supervised by the probation service in England and Wales\n\u2022 individuals serving custodial sentences in England & Wales who appear within records from the prison data source, p-NOMIS. Young Offenders are included if resident at prisons or Young Offender Institutes (YOIs) that use p-NOMIS, however, this excludes the majority of Secure Schools and Secure Training Centres. \"\n\n\"The linking dataset includes a person ID and link to record in other data first datasets for: \n\u2022 Disposals in the magistrates\u2019 court from 1 January 2011 to 31 December 2020\n\u2022 Disposals in the Crown Court from 1 January 2013 to 31 December 2020\n\u2022 Custodial sentences of offenders in custody from January 2011 to September 2021 (including sentences begun before 2011) \n\u2022 Offender probation records from January 2014 to December 2020.",
                               "title": "Pathway"
                         },
@@ -1860,7 +1860,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Linkage and enrichment.",
+                  "description": "Linkage between datasets, other gateway entities and papers",
                   "title": "Linkage"
             },
             "observations": {
@@ -1876,7 +1876,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Obsservations",
+                  "description": "Observations",
                   "title": "Observations"
             },
             "structuralMetadata": {
