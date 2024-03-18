@@ -3,7 +3,7 @@ from hdr_schemata.definitions.HDRUK import *
 
 from hdr_schemata.annotations import annotations
 
-an = annotations.GWDM.v1p0.required.revisions
+an = annotations.GWDM.v1p0.revisions
 
 
 class Revision(BaseModel):

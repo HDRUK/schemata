@@ -1,11 +1,11 @@
 Common: &common_definitions
-  issued:
+  issued: &common_definitions_issued
     description: Datetime stamp of when this metadata version was initially issued
     title: Metadata Issued Datetime',
-  modified:
+  modified: &common_definitions_modified
     description: Datetime stamp of when this metadata was last modified
     title: Last Modified Datetime
-  revisions:
+  revisions: &common_definitions_revisions
     description: A list of persistent identifiers and version numbers for previous versions of metadata for this dataset
     title: Metadata Version Revisions
     version:
@@ -120,6 +120,9 @@ GWDM:
         title: Gateway Persistent Identifier
         examples:
           - 550e8400-e29b-41d4-a716-446655440000
+      issued: *common_definitions_issued
+      modified: *common_definitions_modified
+      revisions: *common_definitions_revisions
   v1p1: &gwdm_1p1_definitions
     <<: *gwdm_1p0_definitions
 

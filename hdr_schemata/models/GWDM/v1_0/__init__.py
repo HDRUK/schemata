@@ -28,6 +28,10 @@ class Gwdm10(BaseModel):
     class Config:
         extra = "forbid"
 
+    required: Required = Field(
+        ..., description=an.required.description, title=an.required.title
+    )
+
     summary: Summary = Field(
         ..., description=an.summary._description, title=an.summary._title
     )

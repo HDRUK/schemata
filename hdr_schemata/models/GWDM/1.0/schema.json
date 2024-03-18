@@ -928,6 +928,81 @@
                   "title": "Publisher",
                   "type": "object"
             },
+            "Required": {
+                  "properties": {
+                        "gatewayId": {
+                              "description": "Associated identifier (number) that is the BigInt key in our SQL datasbase for the dataset version associated with this metadata",
+                              "maxLength": 50,
+                              "minLength": 1,
+                              "title": "Gateway Identifier",
+                              "type": "string"
+                        },
+                        "gatewayPid": {
+                              "description": "A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens",
+                              "maxLength": 50,
+                              "minLength": 2,
+                              "title": "Gateway Persistent Identifier",
+                              "type": "string"
+                        },
+                        "issued": {
+                              "description": "Datetime stamp of when this metadata version was initially issued",
+                              "format": "date-time",
+                              "title": "Metadata Issued Datetime',",
+                              "type": "string"
+                        },
+                        "modified": {
+                              "description": "Datetime stamp of when this metadata was last modified",
+                              "format": "date-time",
+                              "title": "Last Modified Datetime",
+                              "type": "string"
+                        },
+                        "revisions": {
+                              "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
+                              "items": {
+                                    "$ref": "#/$defs/Revision"
+                              },
+                              "title": "Metadata Version Revisions",
+                              "type": "array"
+                        }
+                  },
+                  "required": [
+                        "gatewayId",
+                        "gatewayPid",
+                        "issued",
+                        "modified",
+                        "revisions"
+                  ],
+                  "title": "Required",
+                  "type": "object"
+            },
+            "Revision": {
+                  "properties": {
+                        "version": {
+                              "description": "Version number used for previous version of this dataset",
+                              "example": "6.0.0",
+                              "maxLength": 100,
+                              "minLength": 2,
+                              "title": "revision version",
+                              "type": "string"
+                        },
+                        "url": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    }
+                              ],
+                              "description": "Some url with a reference to the record of a previous version of this dataset",
+                              "example": "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561",
+                              "title": "revision url"
+                        }
+                  },
+                  "required": [
+                        "version",
+                        "url"
+                  ],
+                  "title": "Revision",
+                  "type": "object"
+            },
             "ShortDescription": {
                   "anyOf": [
                         {
@@ -1223,6 +1298,19 @@
                   "title": "TwoHundredFiftyFiveCharacters",
                   "type": "string"
             },
+            "Url": {
+                  "anyOf": [
+                        {
+                              "format": "uri",
+                              "minLength": 1,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Url"
+            },
             "Usage": {
                   "additionalProperties": false,
                   "properties": {
@@ -1277,6 +1365,14 @@
       },
       "additionalProperties": false,
       "properties": {
+            "required": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Required"
+                        }
+                  ],
+                  "description": "Required metadata needed for the GWDM"
+            },
             "summary": {
                   "allOf": [
                         {
@@ -1295,7 +1391,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Spatial and Temporal coverage",
+                  "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
                   "title": "Coverage"
             },
             "provenance": {
@@ -1308,7 +1404,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Provenance information",
+                  "description": "Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.",
                   "title": "Provenance"
             },
             "accessibility": {
@@ -1318,7 +1414,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Accessibility information",
+                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
                   "title": "Accessibility"
             },
             "linkage": {
@@ -1347,7 +1443,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Observations",
+                  "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d",
                   "title": "Observations"
             },
             "structuralMetadata": {
@@ -1368,6 +1464,7 @@
             }
       },
       "required": [
+            "required",
             "summary"
       ],
       "title": "Gwdm10",
