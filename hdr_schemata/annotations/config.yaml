@@ -206,7 +206,7 @@ HDRUK:
         title: Dataset Abstract
 
       publisher:
-        description: This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
+        description: This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.
         title: Dataset publisher
 
       contactPoint:
@@ -221,7 +221,7 @@ HDRUK:
 
       alternateIdentifiers:
         description: "Alternate dataset identifiers or local identifiers"
-        title: Alternate dataset identifiers"
+        title: Alternate dataset identifiers
     documentation:
       _description: Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.
       _title: Documentation
