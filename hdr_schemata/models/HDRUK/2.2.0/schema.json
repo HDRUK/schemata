@@ -677,7 +677,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
+                              "description=\"Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note": "media asset can be hosted by the organisation or uploaded using the onboarding portal.\",",
                               "examples": [
                                     "PDF Document that describes study protocol"
                               ],
@@ -752,94 +752,6 @@
                         null
                   ],
                   "title": "EndDateEnum"
-            },
-            "EnrichmentAndLinkage": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "qualifiedRelation": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate \u201cALL\u201d and the onboarding portal will automate linkage across the datasets submitted.",
-                              "title": "Linked Datasets"
-                        },
-                        "derivation": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/AbstractText"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset.",
-                              "title": "Derivations"
-                        },
-                        "tools": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
-                              "title": "Tools"
-                        }
-                  },
-                  "title": "EnrichmentAndLinkage",
-                  "type": "object"
             },
             "Followup": {
                   "enum": [
@@ -2254,10 +2166,8 @@
                   ],
                   "description": "System dataset identifier",
                   "examples": [
-                        [
-                              "226fb3f1-4471-400a-8c39-2b66d46a39b6",
-                              "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
-                        ]
+                        "226fb3f1-4471-400a-8c39-2b66d46a39b6",
+                        "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
                   ],
                   "title": "Dataset identifier"
             },
@@ -2274,23 +2184,23 @@
                   "title": "Dataset Version"
             },
             "revisions": {
-                  "description": "Revisions of Dataset metadata",
+                  "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
                   "items": {
                         "$ref": "#/$defs/Revision"
                   },
-                  "title": "Dataset Revisions",
+                  "title": "Metadata Version Revisions",
                   "type": "array"
             },
             "issued": {
-                  "description": "Dataset Metadata Creation Date",
+                  "description": "Datetime stamp of when this metadata version was initially issued",
                   "format": "date-time",
-                  "title": "Creation Date",
+                  "title": "Metadata Issued Datetime',",
                   "type": "string"
             },
             "modified": {
-                  "description": "Dataset Metadata Creation Date",
+                  "description": "Datetime stamp of when this metadata was last modified",
                   "format": "date-time",
-                  "title": "Modification Date",
+                  "title": "Last Modified Datetime",
                   "type": "string"
             },
             "summary": {
@@ -2347,19 +2257,6 @@
                         }
                   ],
                   "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets."
-            },
-            "enrichmentAndLinkage": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/EnrichmentAndLinkage"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.",
-                  "title": "Enrichment and Linkage"
             },
             "observations": {
                   "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d",

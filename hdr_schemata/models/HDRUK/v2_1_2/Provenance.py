@@ -5,9 +5,10 @@ from hdr_schemata.definitions.HDRUK import *
 from .Origin import Origin
 from .Temporal import Temporal
 
+
 class Provenance(BaseModel):
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
 
     origin: Optional[Origin] = None
     temporal: Temporal
