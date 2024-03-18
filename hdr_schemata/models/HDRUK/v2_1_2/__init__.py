@@ -56,6 +56,12 @@ class Hdruk212(BaseModel):
         ..., description=an.accessibility.description, title=an.accessibility.title
     )
 
+    enrichmentAndLinkage: Optional[EnrichmentAndLinkage] = Field(
+        None,
+        description=an.enrichmentAndLinkage.description,
+        title=an.enrichmentAndLinkage.title,
+    )
+
     observations: List[Observation] = Field(
         ..., description=an.observations.description, title=an.observations.title
     )

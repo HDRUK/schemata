@@ -156,7 +156,7 @@
                                           "$ref": "#/$defs/Access"
                                     }
                               ],
-                              "description": "This section includes information about data access"
+                              "description": "Metadat relating to access to this dataset"
                         },
                         "formatAndStandards": {
                               "anyOf": [
@@ -626,6 +626,94 @@
                         null
                   ],
                   "title": "EndDateEnum"
+            },
+            "EnrichmentAndLinkage": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "qualifiedRelation": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "items": {
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/Url"
+                                                      },
+                                                      {
+                                                            "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate \u201cALL\u201d and the onboarding portal will automate linkage across the datasets submitted.",
+                              "title": "Linked Datasets"
+                        },
+                        "derivation": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "items": {
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/AbstractText"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset.",
+                              "title": "Derivations"
+                        },
+                        "tools": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "items": {
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/Url"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
+                              "title": "Tools"
+                        }
+                  },
+                  "title": "EnrichmentAndLinkage",
+                  "type": "object"
             },
             "Followup": {
                   "enum": [
@@ -1699,8 +1787,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
-                              "title": "Citation Requirements"
+                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                              "title": "Citation Requirements'"
                         },
                         "investigations": {
                               "anyOf": [
@@ -1876,8 +1964,21 @@
                   ],
                   "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets."
             },
+            "enrichmentAndLinkage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/EnrichmentAndLinkage"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.",
+                  "title": "Enrichment and Linkage"
+            },
             "observations": {
-                  "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d",
+                  "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation \n(1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. \nExample: \n      &lt;b&gt; Statistical Population 1 \n      &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 \n      &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d\"\n",
                   "items": {
                         "$ref": "#/$defs/Observation"
                   },
