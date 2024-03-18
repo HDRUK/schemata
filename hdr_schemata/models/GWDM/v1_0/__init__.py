@@ -20,7 +20,7 @@ from .DataTable import DataTable
 from .Usage import Usage
 from .Access import Access
 
-an = annotations.GWDM
+an = annotations.GWDM.v1p0
 
 
 class Gwdm10(BaseModel):
@@ -28,12 +28,8 @@ class Gwdm10(BaseModel):
     class Config:
         extra = "forbid"
 
-    required: Required = Field(
-        ..., description=an.required.description, title=an.required.title
-    )
-
     summary: Summary = Field(
-        ..., description=an.summary.description, title=an.summary.title
+        ..., description=an.summary._description, title=an.summary._title
     )
 
     coverage: Optional[Coverage] = Field(

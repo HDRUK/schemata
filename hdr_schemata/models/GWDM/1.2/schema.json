@@ -1052,36 +1052,37 @@
             "Required": {
                   "properties": {
                         "gatewayId": {
-                              "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
+                              "description": "Associated identifier (number) that is the BigInt key in our SQL datasbase for the dataset version associated with this metadata",
                               "maxLength": 50,
                               "minLength": 1,
-                              "title": "Gatewayid",
+                              "title": "Gateway Identifier",
                               "type": "string"
                         },
                         "gatewayPid": {
-                              "description": "Need a field in Mauro that captures the dataset pid to link to gateway database",
+                              "description": "A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens",
                               "maxLength": 50,
                               "minLength": 2,
-                              "title": "Gatewaypid",
+                              "title": "Gateway Persistent Identifier",
                               "type": "string"
                         },
                         "issued": {
-                              "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                              "description": "Datetime stamp of when this metadata version was initially issued",
                               "format": "date-time",
-                              "title": "Issued",
+                              "title": "Metadata Issued Datetime',",
                               "type": "string"
                         },
                         "modified": {
-                              "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
+                              "description": "Datetime stamp of when this metadata was last modified",
                               "format": "date-time",
-                              "title": "Modified",
+                              "title": "Last Modified Datetime",
                               "type": "string"
                         },
                         "revisions": {
+                              "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
                               "items": {
                                     "$ref": "#/$defs/Revision"
                               },
-                              "title": "Revisions",
+                              "title": "Metadata Version Revisions",
                               "type": "array"
                         },
                         "version": {
@@ -1229,7 +1230,9 @@
                                     }
                               ],
                               "description": "The main title of the dataset",
-                              "example": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations",
+                              "examples": [
+                                    "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations"
+                              ],
                               "title": "Title"
                         },
                         "shortTitle": {
@@ -1242,8 +1245,10 @@
                                     }
                               ],
                               "description": "A shorter descriptive title of the dataset",
-                              "example": "ONS 2011 Census Wales (CENW)",
-                              "title": "Shorttitle"
+                              "examples": [
+                                    "ONS 2011 Census Wales (CENW)"
+                              ],
+                              "title": "Short Title"
                         },
                         "doiName": {
                               "anyOf": [
@@ -1255,8 +1260,8 @@
                                     }
                               ],
                               "description": "DOI associated to this dataset",
-                              "example": "10.1093/ije/dyx196",
-                              "title": "Doiname"
+                              "examples": "10.1093/ije/dyx196",
+                              "title": "DOI Name"
                         },
                         "abstract": {
                               "allOf": [
@@ -1265,7 +1270,9 @@
                                     }
                               ],
                               "description": "Longer abstract detailing the dataset.",
-                              "example": "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner.",
+                              "examples": [
+                                    "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner."
+                              ],
                               "title": "Abstract"
                         },
                         "keywords": {
@@ -1278,7 +1285,9 @@
                                     }
                               ],
                               "description": "Comma separated key words associated to this dataset.",
-                              "example": "Preprints,Papers,HDR UK",
+                              "examples": [
+                                    "Preprints,Papers,HDR UK"
+                              ],
                               "title": "Keywords"
                         },
                         "controlledKeywords": {
@@ -1304,7 +1313,9 @@
                                     }
                               ],
                               "description": "email of a person who can be the main contact point of this dataset",
-                              "example": "susheel.varma@hdruk.ac.uk",
+                              "example": [
+                                    "blah.blah@blah.com"
+                              ],
                               "title": "Contact Point"
                         },
                         "datasetType": {
@@ -1329,7 +1340,9 @@
                                     }
                               ],
                               "description": "Longer description of the dataset in detail",
-                              "example": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\n\nThis will include:\n- Papers\n- COVID-19 Papers\n- COVID-19 Preprint",
+                              "examples": [
+                                    "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\\n\\nThis will include:\\n- Papers\\n- COVID-19 Papers\\n- COVID-19 Preprint"
+                              ],
                               "title": "Description"
                         },
                         "publisher": {
@@ -1826,14 +1839,6 @@
       },
       "additionalProperties": false,
       "properties": {
-            "required": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Required"
-                        }
-                  ],
-                  "description": "required metadata needed for the GWDM"
-            },
             "summary": {
                   "allOf": [
                         {
@@ -1923,6 +1928,14 @@
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
             },
+            "required": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/Required"
+                        }
+                  ],
+                  "description": "required metadata needed for the GWDM"
+            },
             "tissuesSampleCollection": {
                   "anyOf": [
                         {
@@ -1941,8 +1954,8 @@
             }
       },
       "required": [
-            "required",
-            "summary"
+            "summary",
+            "required"
       ],
       "title": "Gwdm12",
       "type": "object"

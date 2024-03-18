@@ -525,7 +525,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A free-text description of the record.",
+                              "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search",
                               "title": "Description"
                         },
                         "associatedMedia": {
@@ -1488,9 +1488,7 @@
                               ],
                               "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
                               "examples": [
-                                    [
-                                          "North West London COVID-19 Patient Level Situation Report"
-                                    ]
+                                    "North West London COVID-19 Patient Level Situation Report"
                               ],
                               "title": "Title"
                         },
@@ -1515,7 +1513,7 @@
                                           "$ref": "#/$defs/Organisation"
                                     }
                               ],
-                              "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
+                              "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.\",",
                               "title": "Dataset publisher"
                         },
                         "contactPoint": {
@@ -1527,7 +1525,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
+                              "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
                               "examples": [
                                     "SAILDatabank@swansea.ac.uk"
                               ],
@@ -1548,7 +1546,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Please provide relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                              "description": "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
                               "title": "Keywords"
                         },
                         "alternateIdentifiers": {
@@ -1575,7 +1573,7 @@
                               ],
                               "default": null,
                               "description": "Alternate dataset identifiers or local identifiers",
-                              "title": "Alternate dataset identifiers"
+                              "title": "Alternate dataset identifiers\""
                         },
                         "doiName": {
                               "anyOf": [
@@ -1587,11 +1585,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "All HDR UK registered datasets should either have a Digital Object Identifier (DOI) or be working towards obtaining one. If a DOI is available, please provide the DOI.",
-                              "examples": [
-                                    "10.3399/bjgp17X692645"
-                              ],
-                              "title": "Digital Object Identifier"
+                              "description": "DOI associated to this dataset",
+                              "examples": "10.1093/ije/dyx196",
+                              "title": "DOI Name"
                         }
                   },
                   "required": [

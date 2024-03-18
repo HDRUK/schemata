@@ -1,7 +1,60 @@
 Common: &common_definitions
-  summary:
-    description: Summary of metadata describing key pieces of information.
-    title: Summary
+  summary: &common_definitions_summary
+    _description: Summary of metadata describing key pieces of information.
+    _title: Summary
+
+    title:
+      title: Title
+      description: The main title of the dataset
+      examples:
+        - Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations
+
+    shortTitle:
+      description: A shorter descriptive title of the dataset
+      examples:
+        - ONS 2011 Census Wales (CENW)
+      title: Short Title
+
+    doiName:
+      title: DOI Name
+      description: DOI associated to this dataset
+      examples: 10.1093/ije/dyx196
+
+    abstract:
+      title: Abstract
+      description: Longer abstract detailing the dataset.
+      examples:
+        - COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner.
+
+    keywords:
+      title: Keywords
+      description: Comma separated key words associated to this dataset.
+      examples:
+        - Preprints,Papers,HDR UK
+
+    controlledKeywords:
+      description: Keywords that have been filtered and limited
+      title: Controlled Keywords
+
+    contactPoint:
+      description: email of a person who can be the main contact point of this dataset
+      example:
+        - blah.blah@blah.com
+      title: Contact Point
+
+    datasetType:
+      description: What type of dataset is this?
+      title: Dataset type
+
+    description:
+      description: Longer description of the dataset in detail
+      examples:
+        - Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\n\nThis will include:\n- Papers\n- COVID-19 Papers\n- COVID-19 Preprint
+      title: Description
+
+    publisher:
+      description: Link to details about the publisher of this dataset
+      title: Publisher
 
   coverage:
     description: Spatial and Temporal coverage
@@ -28,7 +81,79 @@ Common: &common_definitions
     title: Structural Metadata
 
 GWDM:
-  <<: *common_definitions
-  required:
-    description: Required metadata needed for the GWDM
-    title: Required
+  v1p0: &gwdm_1p0_definitions
+    <<: *common_definitions
+    required:
+      description: Required metadata needed for the GWDM
+      title: Required
+      gatewayId:
+        description: Associated identifier (number) that is the BigInt key in our SQL datasbase for the dataset version associated with this metadata
+        title: Gateway Identifier
+        examples:
+          - 101
+      gatewayPid:
+        description: A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens
+        title: Gateway Persistent Identifier
+        examples:
+          - 550e8400-e29b-41d4-a716-446655440000
+      issued:
+        description: Datetime stamp of when this metadata version was initially issued
+        title: Metadata Issued Datetime',
+      modified:
+        description: Datetime stamp of when this metadata was last modified
+        title: Last Modified Datetime
+      revisions:
+        description: A list of persistent identifiers and version numbers for previous versions of metadata for this dataset
+        title: Metadata Version Revisions
+        version:
+          description: Version number used for previous version of this dataset
+          title: revision version
+          examples:
+            - 6.0.0
+        url:
+          description: Some url with a reference to the record of a previous version of this dataset
+          title: revision url
+          examples:
+            - https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561
+
+  v1p1: &gwdm_1p1_definitions
+    <<: *gwdm_1p0_definitions
+
+  v1p2: &gwdm_1p2_definitions
+    <<: *gwdm_1p1_definitions
+
+HDRUK:
+  v2p1p2: &hdruk_2p1p2_definitions
+    <<: *common_definitions
+    summary:
+      <<: *common_definitions_summary
+      #override the common definition with more detailed descriptions for the public schema
+      title:
+        title: Title
+        description: Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.
+        examples:
+          - North West London COVID-19 Patient Level Situation Report
+
+      abstract:
+        description: Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible
+        examples:
+          - CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.
+        title: Dataset Abstract
+
+      publisher:
+        description: This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
+        title: Dataset publisher
+
+      contactPoint:
+        description: "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting."
+        examples:
+          - SAILDatabank@swansea.ac.uk
+        title: Contact Point
+
+      keywords:
+        description: "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users."
+        title: Keywords
+
+      alternateIdentifiers:
+        description: "Alternate dataset identifiers or local identifiers"
+        title: Alternate dataset identifiers"

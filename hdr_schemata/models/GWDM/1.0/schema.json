@@ -928,80 +928,6 @@
                   "title": "Publisher",
                   "type": "object"
             },
-            "Required": {
-                  "properties": {
-                        "gatewayId": {
-                              "description": "Need a field in Mauro that captures the datasetID to link to gateway database - or can we just use the one created in Mauro?",
-                              "maxLength": 50,
-                              "minLength": 1,
-                              "title": "Gatewayid",
-                              "type": "string"
-                        },
-                        "gatewayPid": {
-                              "description": "Need a field in Mauro that captures the dataset pid to link to gateway database",
-                              "maxLength": 50,
-                              "minLength": 2,
-                              "title": "Gatewaypid",
-                              "type": "string"
-                        },
-                        "issued": {
-                              "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
-                              "format": "date-time",
-                              "title": "Issued",
-                              "type": "string"
-                        },
-                        "modified": {
-                              "description": "Aren't issued and modified always the same because of versioning? Is that fine to duplicate because datasets in dcat might look different?",
-                              "format": "date-time",
-                              "title": "Modified",
-                              "type": "string"
-                        },
-                        "revisions": {
-                              "items": {
-                                    "$ref": "#/$defs/Revision"
-                              },
-                              "title": "Revisions",
-                              "type": "array"
-                        }
-                  },
-                  "required": [
-                        "gatewayId",
-                        "gatewayPid",
-                        "issued",
-                        "modified",
-                        "revisions"
-                  ],
-                  "title": "Required",
-                  "type": "object"
-            },
-            "Revision": {
-                  "properties": {
-                        "version": {
-                              "description": "Version number used for previous version of this dataset",
-                              "example": "6.0.0",
-                              "maxLength": 100,
-                              "minLength": 2,
-                              "title": "revision version",
-                              "type": "string"
-                        },
-                        "url": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    }
-                              ],
-                              "description": "Some url with a reference to the record of a previous version of this dataset",
-                              "example": "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561",
-                              "title": "revision url"
-                        }
-                  },
-                  "required": [
-                        "version",
-                        "url"
-                  ],
-                  "title": "Revision",
-                  "type": "object"
-            },
             "ShortDescription": {
                   "anyOf": [
                         {
@@ -1046,7 +972,9 @@
                                     }
                               ],
                               "description": "The main title of the dataset",
-                              "example": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations",
+                              "examples": [
+                                    "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations"
+                              ],
                               "title": "Title"
                         },
                         "shortTitle": {
@@ -1059,8 +987,10 @@
                                     }
                               ],
                               "description": "A shorter descriptive title of the dataset",
-                              "example": "ONS 2011 Census Wales (CENW)",
-                              "title": "Shorttitle"
+                              "examples": [
+                                    "ONS 2011 Census Wales (CENW)"
+                              ],
+                              "title": "Short Title"
                         },
                         "doiName": {
                               "anyOf": [
@@ -1072,8 +1002,8 @@
                                     }
                               ],
                               "description": "DOI associated to this dataset",
-                              "example": "10.1093/ije/dyx196",
-                              "title": "Doiname"
+                              "examples": "10.1093/ije/dyx196",
+                              "title": "DOI Name"
                         },
                         "abstract": {
                               "allOf": [
@@ -1082,7 +1012,9 @@
                                     }
                               ],
                               "description": "Longer abstract detailing the dataset.",
-                              "example": "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner.",
+                              "examples": [
+                                    "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner."
+                              ],
                               "title": "Abstract"
                         },
                         "keywords": {
@@ -1095,7 +1027,9 @@
                                     }
                               ],
                               "description": "Comma separated key words associated to this dataset.",
-                              "example": "Preprints,Papers,HDR UK",
+                              "examples": [
+                                    "Preprints,Papers,HDR UK"
+                              ],
                               "title": "Keywords"
                         },
                         "controlledKeywords": {
@@ -1121,7 +1055,9 @@
                                     }
                               ],
                               "description": "email of a person who can be the main contact point of this dataset",
-                              "example": "susheel.varma@hdruk.ac.uk",
+                              "example": [
+                                    "blah.blah@blah.com"
+                              ],
                               "title": "Contact Point"
                         },
                         "datasetType": {
@@ -1146,7 +1082,9 @@
                                     }
                               ],
                               "description": "Longer description of the dataset in detail",
-                              "example": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\n\nThis will include:\n- Papers\n- COVID-19 Papers\n- COVID-19 Preprint",
+                              "examples": [
+                                    "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\\n\\nThis will include:\\n- Papers\\n- COVID-19 Papers\\n- COVID-19 Preprint"
+                              ],
                               "title": "Description"
                         },
                         "publisher": {
@@ -1285,19 +1223,6 @@
                   "title": "TwoHundredFiftyFiveCharacters",
                   "type": "string"
             },
-            "Url": {
-                  "anyOf": [
-                        {
-                              "format": "uri",
-                              "minLength": 1,
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "Url"
-            },
             "Usage": {
                   "additionalProperties": false,
                   "properties": {
@@ -1352,14 +1277,6 @@
       },
       "additionalProperties": false,
       "properties": {
-            "required": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Required"
-                        }
-                  ],
-                  "description": "Required metadata needed for the GWDM"
-            },
             "summary": {
                   "allOf": [
                         {
@@ -1451,7 +1368,6 @@
             }
       },
       "required": [
-            "required",
             "summary"
       ],
       "title": "Gwdm10",
