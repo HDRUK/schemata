@@ -2,26 +2,21 @@ from typing import Optional, List, Union
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
 
+from hdr_schemata.annotations import annotations
+
+an = annotations.HDRUK.v2p1p2.provenance.origin
+
+
 class Origin(BaseModel):
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
 
     purpose: Optional[Union[Optional[CommaSeparatedValues], List[Purpose]]] = Field(
-        None,
-        description='Pleases indicate the purpose(s) that the dataset was collected.',
-        title='Purpose',
+        None, **an.purpose.__dict__
     )
     source: Optional[Union[Optional[CommaSeparatedValues], List[Source]]] = Field(
-        None,
-        description='Pleases indicate the source of the data extraction',
-        title='Source',
+        None, **an.source.__dict__
     )
     collectionSituation: Optional[
         Union[Optional[CommaSeparatedValues], List[Setting]]
-    ] = Field(
-        None,
-        description='Pleases indicate the setting(s) where data was collected. Multiple settings may be provided',
-        title='Setting',
-    )
-
-
+    ] = Field(None, **an.collectionSituation.__dict__)

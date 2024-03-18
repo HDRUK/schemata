@@ -1024,7 +1024,7 @@
             "Required": {
                   "properties": {
                         "gatewayId": {
-                              "description": "Associated identifier (number) that is the BigInt key in our SQL datasbase for the dataset version associated with this metadata",
+                              "description": "Associated identifier (number) that is the BigInt key in our SQL database for the dataset version associated with this metadata",
                               "maxLength": 50,
                               "minLength": 1,
                               "title": "Gateway Identifier",
