@@ -18,9 +18,11 @@ from .Observations import Observation
 from .DataClass import DataClass
 from .DataElement import DataElement
 
-from hdr_schemata.annotations import annotations
 
-an = annotations.HDRUK.v2p1p2
+from .annotations import annotations as an
+
+
+exit(0)
 
 
 class Hdruk212(BaseModel):
