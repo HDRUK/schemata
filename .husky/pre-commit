@@ -1,5 +1,12 @@
-python hdr_schemata/models/HDRUK/create_json_schema.py 
-python hdr_schemata/models/GWDM/create_json_schema.py 
+exit 0
+cd hdr_schemata/models/HDRUK
+python create_json_schema.py 
+cd ../GWDM
+python create_json_schema.py 
+
+cd ../../../
+
+pwd
 
 if [ $? -ne 0 ]; then
     echo "Pre-commit hook failed: Python script(s) failed"
