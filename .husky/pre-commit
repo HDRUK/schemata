@@ -1,3 +1,4 @@
+
 cd hdr_schemata/models/HDRUK
 python create_json_schema.py 
 cd ../GWDM
@@ -5,7 +6,8 @@ python create_json_schema.py
 
 cd ../../../
 
-pwd
+python hdr_schemata/utils/create_markdown.py
+
 
 if [ $? -ne 0 ]; then
     echo "Pre-commit hook failed: Python script(s) failed"
