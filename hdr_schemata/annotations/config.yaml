@@ -204,6 +204,36 @@ Common: &common_definitions
     description: Descriptions of all tables and data elements that can be included in the dataset
     title: Structural Metadata
 
+  dataClass:
+    name:
+      description: "The name of a table in a dataset."
+      title: "Table Name"
+
+    description:
+      description: "A description of a table in a dataset."
+      title: "Table Description"
+
+    elements:
+      description: "A list of data elements contained within a table in a dataset."
+      title: "Data Elements"
+
+  dataElement:
+    name:
+      description: "The name of a column in a table."
+      title: Column Name
+
+    dataType:
+      description: "The data type of values in the column"
+      title: Data Type
+
+    description:
+      description: "A description of a column in a table."
+      title: Column Description
+
+    sensitive:
+      description: "A True or False value, indicating if the field is sensitive or not"
+      title: Sensitive
+
 GWDM:
   v1p0: &gwdm_1p0_definitions
     <<: *common_definitions
@@ -326,26 +356,67 @@ HDRUK:
       <<: *common_definitions_accessibility
       access:
         title: Access
-        description: Metadat relating to access to this dataset
-        usage:
-          dataUseLimitation:
-            description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE"
-            title: Data Use Limitation
+        description: Metadata relating to access to this dataset
+        accessRights:
+          title: Access Rights
+          description: Please provide details for the data access rights
 
-          dataUseRequirements:
-            description: Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.
-            title: Data Use Requirements
+        accessService:
+          description: "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset."
+          examples:
+            - "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+          title: Access Service
 
-          resourceCreator:
-            description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'
-            title: Citation Requirements'
+        accessRequestCost:
+          description: "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian."
+          title: "Organisation Access Request Cost"
 
-          investigations:
-            title: Investigations
+        deliveryLeadTime:
+          description: "Please provide an indication of the typical processing times based on the types of requests typically received."
+          title: "Access Request Duration"
 
-          isReferencedBy:
-            description: "Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list."
-            title: "Citations"
+        jurisdiction:
+          description: Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.
+          title: Jurisdiction
+
+        dataController:
+          description: "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed."
+          title: Data Controller
+
+        dataProcessor:
+          description: "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller."
+          title: Data Processor
+
+      usage:
+        title: Usage
+        description: Data usage information
+        dataUseLimitation:
+          description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE"
+          title: Data Use Limitation
+
+        dataUseRequirements:
+          description: Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.
+          title: Data Use Requirements
+
+        resourceCreator:
+          description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'
+          title: Citation Requirements'
+
+        investigations:
+          title: Investigations
+
+        isReferencedBy:
+          description: "Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list."
+          title: "Citations"
     enrichmentAndLinkage:
       description: This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.
       title: Enrichment and Linkage
+      qualifiedRelation:
+        description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate “ALL” and the onboarding portal will automate linkage across the datasets submitted."
+        title: Linked Datasets
+      derivation:
+        description: "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset."
+        title: Derivations
+      tools:
+        description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
+        title: Tools

@@ -25,6 +25,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "description": "Please provide details for the data access rights",
                               "title": "Access Rights"
                         },
                         "accessService": {
@@ -147,7 +148,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "This section includes information about how the data can be used and how it is currently being used",
+                              "description": "Data usage information",
                               "title": "Usage"
                         },
                         "access": {
@@ -156,7 +157,7 @@
                                           "$ref": "#/$defs/Access"
                                     }
                               ],
-                              "description": "Metadat relating to access to this dataset"
+                              "description": "Metadata relating to access to this dataset"
                         },
                         "formatAndStandards": {
                               "anyOf": [
@@ -382,15 +383,15 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A description of a table in a dataset.",
-                              "title": "Table Description"
+                              "description": "The name of a table in a dataset.",
+                              "title": "Table Name"
                         },
                         "elements": {
-                              "description": "A list of data elements contained within a table in a dataset.",
+                              "description": "The name of a table in a dataset.",
                               "items": {
                                     "$ref": "#/$defs/DataElement"
                               },
-                              "title": "Data Elements",
+                              "title": "Table Name",
                               "type": "array"
                         }
                   },
@@ -769,8 +770,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
-                              "title": "Conforms To"
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "title": "Controlled Vocabulary"
                         },
                         "language": {
                               "anyOf": [
@@ -787,8 +788,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
-                              "title": "Language"
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "title": "Controlled Vocabulary"
                         },
                         "format": {
                               "anyOf": [
@@ -805,8 +806,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
-                              "title": "Format"
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "title": "Controlled Vocabulary"
                         }
                   },
                   "required": [

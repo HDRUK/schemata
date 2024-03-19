@@ -2,22 +2,21 @@ from typing import Optional, List
 from pydantic import BaseModel, Field, constr
 from hdr_schemata.definitions.HDRUK import *
 
-from .DataElement import DataElement 
+from .DataElement import DataElement
+
+from hdr_schemata.annotations import annotations
+
+an = annotations.HDRUK.v2p1p2.dataClass
+
 
 class DataClass(BaseModel):
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
 
     name: Optional[constr(min_length=1, max_length=500)] = Field(
-        ..., description='The name of a table in a dataset.', title='Table Name'
+        ..., **an.name.__dict__
     )
     description: Optional[constr(min_length=1, max_length=20000)] = Field(
-        None,
-        description='A description of a table in a dataset.',
-        title='Table Description',
+        None, **an.name.__dict__
     )
-    elements: List[DataElement] = Field(
-        ...,
-        description='A list of data elements contained within a table in a dataset.',
-        title='Data Elements',
-    )
+    elements: List[DataElement] = Field(..., **an.name.__dict__)

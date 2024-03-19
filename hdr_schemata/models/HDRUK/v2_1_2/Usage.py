@@ -5,7 +5,7 @@ from hdr_schemata.definitions.HDRUK import *
 
 from hdr_schemata.annotations import annotations
 
-an = annotations.HDRUK.v2p1p2.accessibility.access.usage
+an = annotations.HDRUK.v2p1p2.accessibility.usage
 
 
 class Usage(BaseModel):
