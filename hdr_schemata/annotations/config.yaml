@@ -19,6 +19,31 @@ Common: &common_definitions
       examples:
         - https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561
 
+  organisation: &common_definitions_organisation
+    identifier:
+      description: "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the “suggest and institute” function here: https://www.grid.ac/institutes#"
+      title: "Organisation Identifier"
+
+    name:
+      description: Name of the organisation
+      title: Organisation Name
+
+    logo:
+      description: Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.
+      title: Organisation Logo
+
+    description:
+      description: Please provide a URL that describes the organisation.
+      title: Organisation Description
+
+    contactPoint:
+      description: Organisation contact point(s)
+      title: Organisation Contact Point
+
+    memberOf:
+      description: Please indicate if the organisation is an Alliance Member or a Hub.'
+      title: Organisation Membership
+
   summary: &common_definitions_summary
     _description: Summary of metadata describing key pieces of information.
     _title: Summary
@@ -80,7 +105,7 @@ Common: &common_definitions
     description: This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.
     title: Coverage
 
-  provenance:
+  provenance: &common_definitions_provenance
     description: Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.
     title: Provenance
 
@@ -132,8 +157,20 @@ Common: &common_definitions
     formatAndStandards: &common_definitions_formatAndStandards
       description: Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.
       title: Format and Standards
+      vocabularyEncodingScheme:
+        description: "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided."
+        title: Controlled Vocabulary
+      conformsTo:
+        description: List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition.
+        title: Conforms To
+      language:
+        description: This should list all the languages in which the dataset metadata and underlying data is made available.
+        title: Language
+      format:
+        description: "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format."
+        title: Format
 
-  observations:
+  observations: &common_definitions_obsservations
     description: |
       Multiple observations about the dataset may be provided and users are expected to provide at least one observation 
       (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. 
@@ -142,6 +179,26 @@ Common: &common_definitions
             &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 
             &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: “2017”"
     title: Observations
+    observedNode:
+      description: Please select one of the following statistical populations for you observation
+      examples:
+        - "PERSONS"
+      title: Statistical Population'
+    measuredValue:
+      description: "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset."
+      title: Measured Value
+
+    disambiguatingDescription:
+      description: "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type."
+      title: Disambiguating Description
+
+    observationDate:
+      description: Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.
+      title: Observation Date
+
+    measuredProperty:
+      description: Initially this will be defaulted to "COUNT"
+      title: Measured Property
 
   structuralMetadata:
     description: Descriptions of all tables and data elements that can be included in the dataset
