@@ -1,10 +1,9 @@
 from typing import Optional, Union, List
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
+from .annotations import annotations
 
-from hdr_schemata.annotations import annotations
-
-an = annotations.HDRUK.v2p1p2.accessibility.usage
+an = annotations.accessibility.usage
 
 
 class Usage(BaseModel):

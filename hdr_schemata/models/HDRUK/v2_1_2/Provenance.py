@@ -5,9 +5,9 @@ from hdr_schemata.definitions.HDRUK import *
 from .Origin import Origin
 from .Temporal import Temporal
 
-from hdr_schemata.annotations import annotations
+from .annotations import annotations
 
-an = annotations.HDRUK.v2p1p2.provenance
+an = annotations.provenance
 
 
 class Provenance(BaseModel):

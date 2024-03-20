@@ -6,10 +6,9 @@ from .Usage import Usage
 from .Access import Access
 from .FormatAndStandards import FormatAndStandards
 
+from .annotations import annotations
 
-from hdr_schemata.annotations import annotations
-
-an = annotations.HDRUK.v2p1p2.accessibility
+an = annotations.accessibility
 
 
 class Accessibility(BaseModel):

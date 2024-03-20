@@ -18,11 +18,7 @@ from .Observations import Observation
 from .DataClass import DataClass
 from .DataElement import DataElement
 
-
 from .annotations import annotations as an
-
-
-exit(0)
 
 
 class Hdruk212(BaseModel):

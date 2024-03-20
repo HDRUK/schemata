@@ -1544,6 +1544,9 @@
                                     }
                               ],
                               "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
+                              "example": [
+                                    "blah.blah@blah.com"
+                              ],
                               "examples": [
                                     "SAILDatabank@swansea.ac.uk"
                               ],
@@ -1565,6 +1568,9 @@
                                     }
                               ],
                               "description": "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                              "examples": [
+                                    "Preprints,Papers,HDR UK"
+                              ],
                               "title": "Keywords"
                         },
                         "alternateIdentifiers": {

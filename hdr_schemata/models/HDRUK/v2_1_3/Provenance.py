@@ -3,9 +3,10 @@ from pydantic import Field
 from typing import Optional
 from .Temporal import Temporal
 
-from hdr_schemata.annotations import annotations
 
-an = annotations.HDRUK.v2p1p3.provenance
+from .annotations import annotations
+
+an = annotations.provenance
 
 
 class Provenance(BaseProvenance):

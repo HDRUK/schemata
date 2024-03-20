@@ -4,9 +4,9 @@ from hdr_schemata.definitions.HDRUK import *
 
 from .Organisation import Organisation
 
-from hdr_schemata.annotations import annotations
+from .annotations import annotations
 
-an = annotations.HDRUK.v2p1p2.summary
+an = annotations.summary
 
 
 class Summary(BaseModel):

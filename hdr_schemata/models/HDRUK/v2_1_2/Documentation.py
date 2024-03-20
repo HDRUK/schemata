@@ -2,9 +2,9 @@ from typing import Optional, Union, List
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
 
-from hdr_schemata.annotations import annotations
+from .annotations import annotations
 
-an = annotations.HDRUK.v2p1p2.documentation
+an = annotations.documentation
 
 
 class Documentation(BaseModel):
