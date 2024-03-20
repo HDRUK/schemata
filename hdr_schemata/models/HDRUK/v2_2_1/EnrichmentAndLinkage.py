@@ -6,11 +6,12 @@ from hdr_schemata.models.HDRUK.v2_2_0 import (
 
 from hdr_schemata.definitions.HDRUK import Url
 
+from .annotations import annotations
+
+an = annotations.enrichmentAndLinkage
+
 
 class EnrichmentAndLinkage(BaseEnrichmentAndLinkage):
     syntheticDataWebLink: Optional[List[Url]] = Field(
-        None,
-        description="Links to locations of information and or raw downloads of synthetic data associated with this dataset",
-        example="",
-        title="Synthetic Data Web Links",
+        None, **an.syntheticDataWebLink.__dict__
     )
