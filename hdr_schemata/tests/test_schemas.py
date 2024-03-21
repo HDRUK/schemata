@@ -55,9 +55,6 @@ class TestGwdm10:
             "title",
             "type",
         ]
-        print("here in TestGwdm10")
-        print(expected_keys)
-        print(list(schema.keys()))
 
         assert list(schema.keys()) == expected_keys
         assert schema == self.json_schema
