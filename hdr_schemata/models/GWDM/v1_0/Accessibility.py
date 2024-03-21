@@ -15,8 +15,12 @@ class Accessibility(BaseModel):
     class Config:
         extra = "forbid"
 
-    usage: Optional[Usage] = Field(None, title=an.usage.title)
-    access: Access = Field(..., title=an.access.title)
+    usage: Optional[Usage] = Field(
+        None, title=an.usage.title, description=an.usage.description
+    )
+    access: Access = Field(
+        ..., title=an.access.title, description=an.access.description
+    )
     formatAndStandards: Optional[FormatAndStandards] = Field(
         None, title=an.formatAndStandards.title
     )

@@ -787,7 +787,7 @@
                         "name": "access",
                         "required": true,
                         "title": "Access",
-                        "description": null,
+                        "description": "This section includes information about data access",
                         "examples": null,
                         "type": [
                               "Access"

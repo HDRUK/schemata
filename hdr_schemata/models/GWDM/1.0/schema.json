@@ -129,10 +129,16 @@
                                     }
                               ],
                               "default": null,
+                              "description": "This section includes information about how the data can be used and how it is currently being used",
                               "title": "Usage"
                         },
                         "access": {
-                              "$ref": "#/$defs/Access"
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Access"
+                                    }
+                              ],
+                              "description": "This section includes information about data access"
                         },
                         "formatAndStandards": {
                               "anyOf": [

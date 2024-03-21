@@ -133,7 +133,12 @@
                               "title": "Usage"
                         },
                         "access": {
-                              "$ref": "#/$defs/Access"
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Access"
+                                    }
+                              ],
+                              "description": "This section includes information about data access"
                         },
                         "formatAndStandards": {
                               "anyOf": [

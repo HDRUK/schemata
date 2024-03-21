@@ -555,7 +555,7 @@
                         "name": "usage",
                         "required": false,
                         "title": "Usage",
-                        "description": null,
+                        "description": "This section includes information about how the data can be used and how it is currently being used",
                         "examples": null,
                         "type": [
                               "Usage",
@@ -612,7 +612,7 @@
                         "name": "access",
                         "required": true,
                         "title": "Access",
-                        "description": null,
+                        "description": "This section includes information about data access",
                         "examples": null,
                         "type": [
                               "Access"
