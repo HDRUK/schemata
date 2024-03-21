@@ -15,9 +15,8 @@ def get_schema(model, version):
 
 
 class TestGwdm10:
-    def __init__(self):
-        self.metadata = get_metadata("GWDM", "1.0")
-        self.json_schema = get_schema("GWDM", "1.0")
+    metadata = get_metadata("GWDM", "1.0")
+    json_schema = get_schema("GWDM", "1.0")
 
     def test_validation(self):
         assert Gwdm10(**self.metadata) != None
