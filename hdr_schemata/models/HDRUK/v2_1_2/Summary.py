@@ -17,7 +17,9 @@ class Summary(BaseModel):
 
     abstract: Optional[AbstractText] = Field(..., **an.abstract.__dict__)
 
-    publisher: Organisation = Field(..., **an.publisher.__dict__)
+    publisher: Organisation = Field(
+        ..., title=an.publisher.title, description=an.publisher.description
+    )
 
     contactPoint: Optional[EmailAddress] = Field(..., **an.contactPoint.__dict__)
 

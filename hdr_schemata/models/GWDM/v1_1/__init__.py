@@ -10,34 +10,29 @@ from typing import Optional, List
 from pydantic import Field
 
 
+from .annotations import annotations as an
+
+
 class Gwdm11(Gwdm10):
-    summary: Summary = Field(
-        ...,
-        description="Summary of metadata describing key pieces of information.",
-        title="Summary",
-    )
 
     required: Required = Field(
-        ..., description="required metadata needed for the GWDM", title="Required"
+        ..., description=an.required.description, title=an.required.title
     )
 
-    # overload Coverage with an updated version of it..
+    summary: Summary = Field(
+        ..., description=an.summary._description, title=an.summary._title
+    )
+
     coverage: Optional[Coverage] = Field(
-        None,
-        description="Observational, Spatial and Temporal coverage",
-        title="Coverage",
+        None, description=an.coverage.description, title=an.coverage.title
     )
 
-    # modifying Accessibility --> modifying Usage
     accessibility: Accessibility = Field(
-        None,
-        description="Accessibility information.",
-        title="Accessibility",
+        None, description=an.accessibility.description, title=an.accessibility.title
     )
 
-    # add a new entry for tissue sample collections
     tissuesSampleCollection: Optional[List[TissuesSampleCollection]] = Field(
         None,
-        description="Metadata collection for Tissue Samples datasets",
-        title="Tissues Sample Collection",
+        description=an.tissuesSampleCollection.description,
+        title=an.tissuesSampleCollection.title,
     )

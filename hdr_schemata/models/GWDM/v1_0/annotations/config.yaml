@@ -1,0 +1,165 @@
+required:
+  description: Required metadata needed for the GWDM
+  title: Required
+  gatewayId:
+    description: Associated identifier (number) that is the BigInt key in our SQL database for the dataset version associated with this metadata
+    title: Gateway Identifier
+    examples:
+      - 101
+  gatewayPid:
+    description: A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens
+    title: Gateway Persistent Identifier
+    examples:
+      - 550e8400-e29b-41d4-a716-446655440000
+  linkage:
+    description: Linkage between datasets, other gateway entities and papers
+    title: Linkage
+  issued:
+    description: Datetime stamp of when this metadata version was initially issued
+    title: Metadata Issued Datetime',
+  modified:
+    description: Datetime stamp of when this metadata was last modified
+    title: Last Modified Datetime
+  revisions:
+    description: A list of persistent identifiers and version numbers for previous versions of metadata for this dataset
+    title: Metadata Version Revisions
+    version:
+      description: Version number used for previous version of this dataset
+      title: revision version
+      examples:
+        - 6.0.0
+    url:
+      description: Some url with a reference to the record of a previous version of this dataset
+      title: revision url
+      examples:
+        - https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561
+
+accessibility:
+  formatAndStandards:
+    vocabularyEncodingSchemes:
+      description: "Code value of the ontology vocabulary encoding"
+      examples:
+        - "OPCS4,NHS NATIONAL CODES,ICD10,OTHER"
+      title: "Controlled Vocabulary"
+
+    conformsTo:
+      description: What the vocabulary conforms to.
+      examples:
+        - "LOCAL,NHS DATA DICTIONARY"
+      title: "Conforms To"
+
+    languages:
+      description: "Language code(s) of the language of the dataset metadata and underlying data is made available."
+      examples:
+        - "en"
+      title: "Language Code(s)"
+
+    formats:
+      description: "Format(s) the dataset can be made available in"
+      examples:
+        - "CSV,JSON,SQL database table"
+      title: "Dataset Format"
+
+linkage:
+  title: Linkage
+  description: Metadata for various linkages with datasets and other gateway entities
+  isGeneratedUsing:
+    description: "??"
+    title: Is Generated Using
+
+  associatedMedia:
+    description: "Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question"
+    examples:
+      - "https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/"
+    title: "Associated Media"
+
+  dataUses:
+    description: "??"
+    title: "Data Uses"
+
+  isReferenceIn:
+    description: The keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.',
+    title: "Is Reference in"
+
+  tools:
+    description: "URL of any analysis tools or models that have been created for this dataset and are available for further use"
+    examples:
+      - "https://conceptlibrary.saildatabank.com/"
+    title: "Tools"
+
+  datasetLinkage:
+    description: "Dataset Linkage copied over from"
+    title: "Dataset Linkage"
+
+  investigations:
+    description: "Please provide the keystone paper associated with the dataset."
+    examples:
+      - "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases"
+    title: "Investigations"
+
+  isDerivedFrom:
+    description: "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset"
+    examples:
+      - "Data will be minimised as appropriate relative to the data access application"
+    title: Derivations
+
+  isPartOf:
+    description: "If the dataset is part of a group or family"
+    examples:
+      - "UKCRC Tissue Directory and Coordination Centre"
+    title: "Is PartOf"
+
+  isMemberOf:
+    description: "Dataset is a member of XXX(?)"
+    title: "Is MemberOf"
+
+  linkedDatasets:
+    description: "Links to other datasets."
+    examples:
+      - "Yes. To any SAIL dataset & reference data.,ALL"
+    title: "Linked Datasets"
+
+structuralMetadata:
+  description: Descriptions of all tables and data elements that can be included in the dataset
+  title: Structural Metadata
+
+  tables:
+    name:
+      description: The name of a table in a dataset.
+      title: Table Name
+    description:
+      description: A description of a table in a dataset.
+      title: Table Description'
+    columns:
+      _description: "A list of columns contained within a table in a dataset."
+      _title: "Data Columns"
+      name:
+        description: "The name of a column in a table."
+        title: "Column Name"
+
+      dataType:
+        description: "The data type of values in the column"
+        title: "Data Type"
+
+      description:
+        description: "A description of a column in a table."
+        title: "Column Description"
+
+      sensitive:
+        description: "A True or False value, indicating if the field is sensitive or not"
+        title: "Sensitive"
+
+      values:
+        _title: "Values"
+        _description: "values in a dataset"
+        name:
+          description: "Unique value in a column ."
+          title: "Value Name"
+
+        description:
+          description: "A description of a unique value in a column."
+          title: "Value Description"
+
+        frequency:
+          description: "The frequency of occurrance of a value in a column"
+          title: "Value Frequency"

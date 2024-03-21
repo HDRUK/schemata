@@ -148,7 +148,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Data usage information",
+                              "description": "This section includes information about how the data can be used and how it is currently being used",
                               "title": "Usage"
                         },
                         "access": {
@@ -157,7 +157,7 @@
                                           "$ref": "#/$defs/Access"
                                     }
                               ],
-                              "description": "Metadata relating to access to this dataset"
+                              "description": "This section includes information about data access"
                         },
                         "formatAndStandards": {
                               "anyOf": [
@@ -1423,7 +1423,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Pleases indicate the purpose(s) that the dataset was collected.",
+                              "description": "Please indicate the purpose(s) that the dataset was collected.",
                               "title": "Purpose"
                         },
                         "source": {
@@ -1442,7 +1442,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Pleases indicate the source of the data extraction",
+                              "description": "Please indicate the source of the data extraction",
                               "title": "Source"
                         },
                         "collectionSituation": {
@@ -1461,8 +1461,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Pleases indicate the setting(s) where data was collected. Multiple settings may be provided",
-                              "title": "Setting"
+                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                              "title": "Collection Situation Setting"
                         }
                   },
                   "title": "Origin",
@@ -2394,7 +2394,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Descriptions of all tables and data elements that can be included in the dataset",
+                  "description": "Structural metadata about tables, columns and values",
                   "title": "Structural Metadata"
             },
             "tissuesSampleCollection": {

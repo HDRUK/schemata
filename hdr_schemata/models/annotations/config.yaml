@@ -281,6 +281,10 @@ Common: &common_definitions
       description: Initially this will be defaulted to "COUNT"
       title: Measured Property
 
+  structuralMetadata:
+    title: Structural Metadata
+    description: Structural metadata about tables, columns and values
+
   dataClass:
     name:
       description: "The name of a table in a dataset."

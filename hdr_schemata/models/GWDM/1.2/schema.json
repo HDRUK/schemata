@@ -25,8 +25,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Optional link(s) or a description of where the license associated to accessing this dataset",
-                              "example": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
+                              "description": "Please provide details for the data access rights",
                               "title": "Access Rights"
                         },
                         "accessService": {
@@ -39,8 +38,10 @@
                                     }
                               ],
                               "default": null,
-                              "description": "",
-                              "example": "The SAIL Databank is powered by the UK Secure e-Research Platform (UKSeRP). Following approval through safeguard processes, access to project-specific data within the secure environment is permitted using two-factor authentication.",
+                              "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                              "examples": [
+                                    "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                              ],
                               "title": "Access Service"
                         },
                         "accessRequestCost": {
@@ -53,8 +54,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "",
-                              "example": "Data provision is free from SAIL. Overall project costing depends on the number of people that require access to the SAIL Gateway, the activities that SAIL needs to complete (e.g. loading non-standard datasets), data refreshes, analytical work required, disclosure control process, and special case technological requirements.",
+                              "description": "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
                               "title": "Organisation Access Request Cost"
                         },
                         "deliveryLeadTime": {
@@ -67,8 +67,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "An arbitrary guess at the time to gain access to the dataset...",
-                              "example": "2-6 MONTHS",
+                              "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
                               "title": "Access Request Duration"
                         },
                         "jurisdiction": {
@@ -80,8 +79,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Comma separated country codes of where the data jurisdiction is.",
-                              "example": "GB-WLS,GB-GBN,GB-SCT",
+                              "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                               "title": "Jurisdiction"
                         },
                         "dataController": {
@@ -93,8 +91,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Name of the data controller",
-                              "example": "SAIL Databank",
+                              "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
                               "title": "Data Controller"
                         },
                         "dataProcessor": {
@@ -107,8 +104,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Name of the data processors",
-                              "example": "SAIL Databank",
+                              "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
                               "title": "Data Processor"
                         },
                         "accessServiceCategory": {
@@ -122,8 +118,10 @@
                               ],
                               "default": null,
                               "description": "Where access to data come from: TRE/SED, direct access, open acccess, varies based on project.",
-                              "example": "",
-                              "title": "Access/governance requirementss"
+                              "examples": [
+                                    "TRE/SDE"
+                              ],
+                              "title": "Access/governance requirements"
                         }
                   },
                   "required": [
@@ -168,7 +166,6 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
                               "title": "Format and Standards"
                         }
                   },
@@ -215,9 +212,11 @@
                                     }
                               ],
                               "default": null,
-                              "description": "List of countries where the data was taken from",
-                              "example": "United Kingdom,Wales,England, please provide the full country names",
-                              "title": "Spatial"
+                              "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
+                              "examples": [
+                                    "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                              ],
+                              "title": "Geographic Coverage"
                         },
                         "pathway": {
                               "anyOf": [
@@ -229,8 +228,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway. Gateway Feature: The min and max age added using X-X will be split out for use of filters, if data not provided in this format then the dataset will not appear filter search, for example <18 will not be appear in search the input should be 0-18.",
-                              "example": "The lookup contains references to link data held elsewhere on:\n\u2022 individuals appearing as defendants in criminal cases dealt with by the magistrates' or Crown Court in England and Wales (including Youth Courts). \n\u2022 individuals supervised by the probation service in England and Wales\n\u2022 individuals serving custodial sentences in England & Wales who appear within records from the prison data source, p-NOMIS. Young Offenders are included if resident at prisons or Young Offender Institutes (YOIs) that use p-NOMIS, however, this excludes the majority of Secure Schools and Secure Training Centres. \"\n\n\"The linking dataset includes a person ID and link to record in other data first datasets for: \n\u2022 Disposals in the magistrates\u2019 court from 1 January 2011 to 31 December 2020\n\u2022 Disposals in the Crown Court from 1 January 2013 to 31 December 2020\n\u2022 Custodial sentences of offenders in custody from January 2011 to September 2021 (including sentences begun before 2011) \n\u2022 Offender probation records from January 2014 to December 2020.",
+                              "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
                               "title": "Pathway"
                         },
                         "followup": {
@@ -243,8 +241,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "What is the typical time span that a patient appears in the dataset (follow up period)",
-                              "example": "CONTINUOUS",
+                              "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
                               "title": "Followup"
                         },
                         "typicalAgeRange": {
@@ -257,9 +254,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
-                              "example": "1-150",
-                              "title": "Typical Age Range"
+                              "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                              "title": "Age Range"
                         },
                         "gender": {
                               "anyOf": [
@@ -271,7 +267,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
+                              "description": "Cohort description: Male, Female, Other",
                               "title": "Gender"
                         },
                         "biologicalsamples": {
@@ -284,7 +280,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Blood, Saliva, Urine, Other",
+                              "description": "Cohort description: Blood, Saliva, Urine, Other",
                               "title": "Biological Samples"
                         },
                         "psychological": {
@@ -297,7 +293,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Mental health, Cognitive function",
+                              "description": "Cohort description: Mental health, Cognitive function",
                               "title": "Psychological"
                         },
                         "physical": {
@@ -310,7 +306,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                              "description": "Cohort description: Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
                               "title": "Physical"
                         },
                         "anthropometric": {
@@ -323,7 +319,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                              "description": "Cohort description: Height, Weight, Waist circumference, Hip circumference, Blood pressure",
                               "title": "Anthropometric"
                         },
                         "lifestyle": {
@@ -349,7 +345,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
+                              "description": "Cohort description: Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
                               "title": "Socio-economic"
                         }
                   },
@@ -368,8 +364,8 @@
                               "title": "Column Name"
                         },
                         "dataType": {
-                              "description": "The data type of values in the column",
-                              "title": "Data Type",
+                              "description": "The name of a column in a table.",
+                              "title": "Column Name",
                               "type": "string"
                         },
                         "description": {
@@ -405,7 +401,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Data values contained within the column",
+                              "description": "values in a dataset",
                               "title": "Values"
                         }
                   },
@@ -447,7 +443,7 @@
                               ],
                               "default": null,
                               "description": "A description of a table in a dataset.",
-                              "title": "Table Description"
+                              "title": "Table Description'"
                         },
                         "columns": {
                               "description": "A list of columns contained within a table in a dataset.",
@@ -525,7 +521,9 @@
                               ],
                               "default": null,
                               "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
-                              "example": "Data will be minimised as appropriate relative to the data access application",
+                              "examples": [
+                                    "Data will be minimised as appropriate relative to the data access application"
+                              ],
                               "title": "Derivations"
                         },
                         "isPartOf": {
@@ -539,7 +537,9 @@
                               ],
                               "default": null,
                               "description": "If the dataset is part of a group or family",
-                              "example": "UKCRC Tissue Directory and Coordination Centre",
+                              "examples": [
+                                    "UKCRC Tissue Directory and Coordination Centre"
+                              ],
                               "title": "Is PartOf"
                         },
                         "isMemberOf": {
@@ -566,7 +566,9 @@
                               ],
                               "default": null,
                               "description": "Links to other datasets.",
-                              "example": "Yes. To any SAIL dataset & reference data.,ALL",
+                              "examples": [
+                                    "Yes. To any SAIL dataset & reference data.,ALL"
+                              ],
                               "title": "Linked Datasets"
                         }
                   },
@@ -639,7 +641,9 @@
                                     }
                               ],
                               "description": "Code value of the ontology vocabulary encoding",
-                              "example": "OPCS4,NHS NATIONAL CODES,ICD10,OTHER",
+                              "examples": [
+                                    "OPCS4,NHS NATIONAL CODES,ICD10,OTHER"
+                              ],
                               "title": "Controlled Vocabulary"
                         },
                         "conformsTo": {
@@ -652,7 +656,9 @@
                                     }
                               ],
                               "description": "What the vocabulary conforms to.",
-                              "example": "LOCAL,NHS DATA DICTIONARY",
+                              "examples": [
+                                    "LOCAL,NHS DATA DICTIONARY"
+                              ],
                               "title": "Conforms To"
                         },
                         "languages": {
@@ -665,7 +671,9 @@
                                     }
                               ],
                               "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
-                              "example": "en",
+                              "examples": [
+                                    "en"
+                              ],
                               "title": "Language Code(s)"
                         },
                         "formats": {
@@ -678,7 +686,9 @@
                                     }
                               ],
                               "description": "Format(s) the dataset can be made available in",
-                              "example": "CSV,JSON,SQL database table",
+                              "examples": [
+                                    "CSV,JSON,SQL database table"
+                              ],
                               "title": "Dataset Format"
                         }
                   },
@@ -718,7 +728,9 @@
                               ],
                               "default": null,
                               "description": "Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question",
-                              "example": "https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/",
+                              "examples": [
+                                    "https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/"
+                              ],
                               "title": "Associated Media"
                         },
                         "dataUses": {
@@ -744,7 +756,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Rhe keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.",
+                              "description": "The keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.',",
                               "title": "Is Reference in"
                         },
                         "tools": {
@@ -758,7 +770,9 @@
                               ],
                               "default": null,
                               "description": "URL of any analysis tools or models that have been created for this dataset and are available for further use",
-                              "example": "https://conceptlibrary.saildatabank.com/",
+                              "examples": [
+                                    "https://conceptlibrary.saildatabank.com/"
+                              ],
                               "title": "Tools"
                         },
                         "datasetLinkage": {
@@ -785,7 +799,9 @@
                               ],
                               "default": null,
                               "description": "Please provide the keystone paper associated with the dataset.",
-                              "example": "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases",
+                              "examples": [
+                                    "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases"
+                              ],
                               "title": "Investigations"
                         },
                         "syntheticDataWebLink": {
@@ -799,7 +815,6 @@
                               ],
                               "default": null,
                               "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset",
-                              "example": "",
                               "title": "Synthetic Data Web Links"
                         }
                   },
@@ -851,7 +866,7 @@
                               "examples": [
                                     "PERSONS"
                               ],
-                              "title": "Statistical Population"
+                              "title": "Statistical Population'"
                         },
                         "measuredValue": {
                               "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
@@ -915,9 +930,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
-                              "example": "SAIL",
-                              "title": "Name"
+                              "description": "Name of the organisation",
+                              "title": "Organisation Name"
                         },
                         "gatewayId": {
                               "anyOf": [
@@ -931,8 +945,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
-                              "title": "Publisher gateway id"
+                              "description": "Identifier on the gateway",
+                              "title": "Organisation Gateway Identifier"
                         },
                         "rorId": {
                               "anyOf": [
@@ -969,8 +983,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicates the purpose(s) that the dataset was collected.",
-                              "example": "ADMINISTRATIVE,STATUTORY",
+                              "description": "Please indicate the purpose(s) that the dataset was collected.",
                               "title": "Purpose"
                         },
                         "source": {
@@ -983,8 +996,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicates the source of the data extraction",
-                              "example": "PAPER BASED,ELECTRONIC SURVEY",
+                              "description": "Please indicate the source of the data extraction",
                               "title": "Source"
                         },
                         "collectionSituation": {
@@ -997,9 +1009,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicate the setting(s) where data was collected. Multiple settings may be provided",
-                              "example": "IN-PATIENTS,PRIMARY CARE",
-                              "title": "Setting"
+                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                              "title": "Collection Situation Setting"
                         }
                   },
                   "title": "Origin",
@@ -1110,7 +1121,9 @@
                   "properties": {
                         "version": {
                               "description": "Version number used for previous version of this dataset",
-                              "example": "6.0.0",
+                              "examples": [
+                                    "6.0.0"
+                              ],
                               "maxLength": 100,
                               "minLength": 2,
                               "title": "revision version",
@@ -1123,7 +1136,9 @@
                                     }
                               ],
                               "description": "Some url with a reference to the record of a previous version of this dataset",
-                              "example": "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561",
+                              "examples": [
+                                    "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
+                              ],
                               "title": "revision url"
                         }
                   },
@@ -1380,8 +1395,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "What us the subtype for this dataset?",
-                              "title": "Dataset sub type"
+                              "description": "Placeholder for dataset sub-type",
+                              "title": "Dataset Sub-type"
                         }
                   },
                   "required": [
@@ -1416,8 +1431,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "The start of the time period that the dataset provides coverage for",
-                              "example": "12/03/2020",
+                              "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "title": "Start Date"
                         },
                         "endDate": {
@@ -1435,8 +1449,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The end of the time period that the dataset provides coverage for",
-                              "example": "12/03/2020",
+                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
                               "title": "End Date"
                         },
                         "timeLag": {
@@ -1445,8 +1458,7 @@
                                           "$ref": "#/$defs/TimeLag"
                                     }
                               ],
-                              "description": "Typical time-lag between an event and the data for that event appearing in the dataset",
-                              "example": "LESS 1 WEEK",
+                              "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
                               "title": "Time Lag"
                         },
                         "accrualPeriodicity": {
@@ -1455,8 +1467,7 @@
                                           "$ref": "#/$defs/Periodicity"
                                     }
                               ],
-                              "description": "frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.",
-                              "example": "MONTHLY"
+                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/"
                         },
                         "distributionReleaseDate": {
                               "anyOf": [
@@ -1473,7 +1484,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity.",
+                              "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
                               "title": "Release Date"
                         }
                   },
@@ -1585,7 +1596,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Ontology code for the anatomical site",
+                              "description": "Ontology code for the anatomical site, this code must match an ICD-0-3 format",
                               "title": "Anatomical Site Ontology Code"
                         },
                         "anatomicalSiteOntologyDescription": {
@@ -1669,7 +1680,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Data categories related to the tissue sample collection",
+                              "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
                               "title": "Data Categories"
                         },
                         "materialType": {
@@ -1682,7 +1693,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Material type of the tissue sample collection",
+                              "description": "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
                               "title": "Material Type"
                         },
                         "accessConditions": {
@@ -1708,7 +1719,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Type of the tissue sample collection",
+                              "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
                               "title": "Collection Type"
                         },
                         "disease": {
@@ -1798,8 +1809,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Any restrictions to its usage",
-                              "example": "GENERAL RESEARCH USE,PROJECT SPECIFIC RESTRICTIONS",
+                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
                               "title": "Data Use Limitation"
                         },
                         "dataUseRequirement": {
@@ -1811,8 +1821,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Any requirements needed for data usage",
-                              "example": "PROJECT SPECIFIC RESTRICTIONS,TIME LIMIT ON USE,USER SPECIFIC RESTRICTION",
+                              "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
                               "title": "Data Use Requirements"
                         },
                         "resourceCreator": {
@@ -1825,8 +1834,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Who has created this resource",
-                              "title": "Resource Creator"
+                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                              "title": "Citation Requirements'"
                         }
                   },
                   "required": [
@@ -1845,7 +1854,7 @@
                               "$ref": "#/$defs/Required"
                         }
                   ],
-                  "description": "required metadata needed for the GWDM"
+                  "description": "Required metadata needed for the GWDM"
             },
             "summary": {
                   "allOf": [
@@ -1865,7 +1874,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Observational, Spatial and Temporal coverage",
+                  "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
                   "title": "Coverage"
             },
             "provenance": {
@@ -1949,8 +1958,8 @@
                         }
                   ],
                   "default": null,
-                  "description": "Metadata collection for Tissue Samples datasets",
-                  "title": "Tissues Sample Collection"
+                  "description": "metedata for tissue samples",
+                  "title": "Tissue Sample Collection"
             }
       },
       "required": [
