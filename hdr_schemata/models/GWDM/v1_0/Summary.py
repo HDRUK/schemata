@@ -38,4 +38,6 @@ class Summary(BaseModel):
 
     description: Optional[LongDescription] = Field(..., **an.description.__dict__)
 
-    publisher: Optional[Publisher] = Field(..., **an.publisher.__dict__)
+    publisher: Optional[Publisher] = Field(
+        ..., title=an.publisher.title, description=an.publisher.description
+    )

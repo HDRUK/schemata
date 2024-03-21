@@ -25,8 +25,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Optional link(s) or a description of where the license associated to accessing this dataset",
-                              "example": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
+                              "description": "Please provide details for the data access rights",
                               "title": "Access Rights"
                         },
                         "accessService": {
@@ -39,8 +38,10 @@
                                     }
                               ],
                               "default": null,
-                              "description": "",
-                              "example": "The SAIL Databank is powered by the UK Secure e-Research Platform (UKSeRP). Following approval through safeguard processes, access to project-specific data within the secure environment is permitted using two-factor authentication.",
+                              "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                              "examples": [
+                                    "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                              ],
                               "title": "Access Service"
                         },
                         "accessRequestCost": {
@@ -53,8 +54,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "",
-                              "example": "Data provision is free from SAIL. Overall project costing depends on the number of people that require access to the SAIL Gateway, the activities that SAIL needs to complete (e.g. loading non-standard datasets), data refreshes, analytical work required, disclosure control process, and special case technological requirements.",
+                              "description": "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian.",
                               "title": "Organisation Access Request Cost"
                         },
                         "deliveryLeadTime": {
@@ -67,8 +67,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "An arbitrary guess at the time to gain access to the dataset...",
-                              "example": "2-6 MONTHS",
+                              "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
                               "title": "Access Request Duration"
                         },
                         "jurisdiction": {
@@ -80,8 +79,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Comma separated country codes of where the data jurisdiction is.",
-                              "example": "GB-WLS,GB-GBN,GB-SCT",
+                              "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                               "title": "Jurisdiction"
                         },
                         "dataController": {
@@ -93,8 +91,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Name of the data controller",
-                              "example": "SAIL Databank",
+                              "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
                               "title": "Data Controller"
                         },
                         "dataProcessor": {
@@ -107,8 +104,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Name of the data processors",
-                              "example": "SAIL Databank",
+                              "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
                               "title": "Data Processor"
                         }
                   },
@@ -825,8 +821,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicates the purpose(s) that the dataset was collected.",
-                              "example": "ADMINISTRATIVE,STATUTORY",
+                              "description": "Please indicate the purpose(s) that the dataset was collected.",
                               "title": "Purpose"
                         },
                         "source": {
@@ -839,8 +834,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicates the source of the data extraction",
-                              "example": "PAPER BASED,ELECTRONIC SURVEY",
+                              "description": "Please indicate the source of the data extraction",
                               "title": "Source"
                         },
                         "collectionSituation": {
@@ -853,9 +847,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicate the setting(s) where data was collected. Multiple settings may be provided",
-                              "example": "IN-PATIENTS,PRIMARY CARE",
-                              "title": "Setting"
+                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                              "title": "Collection Situation Setting"
                         }
                   },
                   "title": "Origin",
@@ -917,7 +910,9 @@
                                     }
                               ],
                               "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/",
-                              "example": "SAIL",
+                              "examples": [
+                                    "SAIL"
+                              ],
                               "title": "Publisher name"
                         },
                         "publisherGatewayId": {
@@ -932,7 +927,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.",
+                              "description": "The link to an ID somewhere in the gateway where more information on the publisher can be retrieved.\"",
                               "title": "Publisher gateway id"
                         }
                   },
@@ -1225,8 +1220,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "The start of the time period that the dataset provides coverage for",
-                              "example": "12/03/2020",
+                              "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "title": "Start Date"
                         },
                         "endDate": {
@@ -1244,8 +1238,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The end of the time period that the dataset provides coverage for",
-                              "example": "12/03/2020",
+                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
                               "title": "End Date"
                         },
                         "timeLag": {
@@ -1254,8 +1247,7 @@
                                           "$ref": "#/$defs/TimeLag"
                                     }
                               ],
-                              "description": "Typical time-lag between an event and the data for that event appearing in the dataset",
-                              "example": "LESS 1 WEEK",
+                              "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
                               "title": "Time Lag"
                         },
                         "accrualPeriodicity": {
@@ -1264,8 +1256,7 @@
                                           "$ref": "#/$defs/Periodicity"
                                     }
                               ],
-                              "description": "frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.",
-                              "example": "MONTHLY"
+                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/"
                         },
                         "distributionReleaseDate": {
                               "anyOf": [
@@ -1282,7 +1273,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity.",
+                              "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
                               "title": "Release Date"
                         }
                   },
@@ -1341,8 +1332,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Any restrictions to its usage",
-                              "example": "GENERAL RESEARCH USE,PROJECT SPECIFIC RESTRICTIONS",
+                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
                               "title": "Data Use Limitation"
                         },
                         "dataUseRequirement": {
@@ -1354,8 +1344,7 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Any requirements needed for data usage",
-                              "example": "PROJECT SPECIFIC RESTRICTIONS,TIME LIMIT ON USE,USER SPECIFIC RESTRICTION",
+                              "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
                               "title": "Data Use Requirements"
                         },
                         "resourceCreator": {
@@ -1368,9 +1357,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Who has created this resource",
-                              "example": "Ministry of Justice",
-                              "title": "Resource Creator"
+                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                              "title": "Citation Requirements'"
                         }
                   },
                   "required": [

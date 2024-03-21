@@ -100,6 +100,14 @@ Common: &common_definitions
     publisher:
       description: Link to details about the publisher of this dataset
       title: Publisher
+      publisherName:
+        description: "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member)/"
+        examples:
+          - "SAIL"
+        title: "Publisher name"
+      publisherGatewayId:
+        description: The link to an ID somewhere in the gateway where more information on the publisher can be retrieved."
+        title: "Publisher gateway id"
 
   coverage: &common_definitions_coverage
     description: This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.
@@ -174,9 +182,58 @@ Common: &common_definitions
       description: This section includes information about how the data can be used and how it is currently being used
       title: Usage
 
+      dataUseLimitation:
+        description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE"
+        title: Data Use Limitation
+
+      dataUseRequirements:
+        description: Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.
+        title: Data Use Requirements
+
+      resourceCreator:
+        description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'
+        title: Citation Requirements'
+
+      investigations:
+        title: Investigations
+
+      isReferencedBy:
+        description: "Please provide the keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced. Please provide multiple entries, or if you are using a csv upload please provide them as a tab separated list."
+        title: "Citations"
+
     access: &common_definitions_access
       description: This section includes information about data access
       title: Access
+
+      accessRights:
+        title: Access Rights
+        description: Please provide details for the data access rights
+
+      accessService:
+        description: "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset."
+        examples:
+          - "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+        title: Access Service
+
+      accessRequestCost:
+        description: "Please provide link(s) to a webpage detailing the commercial model for processing data access requests for the organisation (if available) Definition: Indication of commercial model or cost (in GBP) for processing each data access request by the data custodian."
+        title: "Organisation Access Request Cost"
+
+      deliveryLeadTime:
+        description: "Please provide an indication of the typical processing times based on the types of requests typically received."
+        title: "Access Request Duration"
+
+      jurisdiction:
+        description: Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.
+        title: Jurisdiction
+
+      dataController:
+        description: "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed."
+        title: Data Controller
+
+      dataProcessor:
+        description: "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller."
+        title: Data Processor
 
     formatAndStandards: &common_definitions_formatAndStandards
       description: Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.
