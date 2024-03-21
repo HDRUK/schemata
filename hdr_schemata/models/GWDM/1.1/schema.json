@@ -1241,7 +1241,9 @@
                                     }
                               ],
                               "description": "DOI associated to this dataset",
-                              "examples": "10.1093/ije/dyx196",
+                              "examples": [
+                                    "10.1093/ije/dyx196"
+                              ],
                               "title": "DOI Name"
                         },
                         "abstract": {

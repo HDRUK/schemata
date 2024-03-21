@@ -152,7 +152,9 @@
                         "required": true,
                         "title": "DOI Name",
                         "description": "DOI associated to this dataset",
-                        "examples": "10.1093/ije/dyx196",
+                        "examples": [
+                              "10.1093/ije/dyx196"
+                        ],
                         "type": [
                               "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
