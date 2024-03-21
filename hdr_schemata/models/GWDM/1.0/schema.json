@@ -266,8 +266,8 @@
                               "title": "Column Name"
                         },
                         "dataType": {
-                              "description": "The data type of values in the column",
-                              "title": "Data Type",
+                              "description": "The name of a column in a table.",
+                              "title": "Column Name",
                               "type": "string"
                         },
                         "description": {
@@ -303,7 +303,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Data values contained within the column",
+                              "description": "values in a dataset",
                               "title": "Values"
                         }
                   },
@@ -345,7 +345,7 @@
                               ],
                               "default": null,
                               "description": "A description of a table in a dataset.",
-                              "title": "Table Description"
+                              "title": "Table Description'"
                         },
                         "columns": {
                               "description": "A list of columns contained within a table in a dataset.",
