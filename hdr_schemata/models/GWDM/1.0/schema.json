@@ -634,7 +634,9 @@
                               ],
                               "default": null,
                               "description": "Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question",
-                              "example": "https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/",
+                              "examples": [
+                                    "https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/"
+                              ],
                               "title": "Associated Media"
                         },
                         "dataUses": {
@@ -660,7 +662,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Rhe keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.",
+                              "description": "The keystone paper associated with the dataset. Also include a list of known citations, if available and should be links to existing resources where the dataset has been used or referenced.',",
                               "title": "Is Reference in"
                         },
                         "tools": {
@@ -674,7 +676,9 @@
                               ],
                               "default": null,
                               "description": "URL of any analysis tools or models that have been created for this dataset and are available for further use",
-                              "example": "https://conceptlibrary.saildatabank.com/",
+                              "examples": [
+                                    "https://conceptlibrary.saildatabank.com/"
+                              ],
                               "title": "Tools"
                         },
                         "datasetLinkage": {
@@ -701,7 +705,9 @@
                               ],
                               "default": null,
                               "description": "Please provide the keystone paper associated with the dataset.",
-                              "example": "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases",
+                              "examples": [
+                                    "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases"
+                              ],
                               "title": "Investigations"
                         }
                   },
@@ -753,7 +759,7 @@
                               "examples": [
                                     "PERSONS"
                               ],
-                              "title": "Statistical Population"
+                              "title": "Statistical Population'"
                         },
                         "measuredValue": {
                               "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",

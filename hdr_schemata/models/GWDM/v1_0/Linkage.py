@@ -4,6 +4,10 @@ from hdr_schemata.definitions.HDRUK import *
 
 from .DatasetLinkage import DatasetLinkage
 
+from .annotations import annotations
+
+an = annotations.linkage
+
 
 class Linkage(BaseModel):
     class Config:
@@ -12,48 +16,28 @@ class Linkage(BaseModel):
     # note: this is a new field
     #      what are we going to do with it?
     isGeneratedUsing: Optional[CommaSeparatedValues] = Field(
-        None, description="??", title="Is Generated Using"
+        None, **an.isGeneratedUsing.__dict__
     )
 
     # note: may need to be commad separated list of URLs?
     associatedMedia: Optional[CommaSeparatedValues] = Field(
-        None,
-        description="Any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question",
-        example="https://popdatasci.swan.ac.uk/centres-of-excellence/sail/,https://www.youtube.com/watch?v=ZK9-Jw3uVkw,https://saildatabank.com/,https://saildatabank.com/about-us/",
-        title="Associated Media",
+        None, **an.associatedMedia.__dict__
     )
 
     # note: new field - what are we going to do with it??
-    dataUses: Optional[CommaSeparatedValues] = Field(
-        None, description="??", title="Data Uses"
-    )
+    dataUses: Optional[CommaSeparatedValues] = Field(None, **an.dataUses.__dict__)
 
     # note: dont we have this already somewhere else? Linked DOIs?
     isReferenceIn: Optional[CommaSeparatedValues] = Field(
-        None,
-        description="Rhe keystone paper associated with the dataset. Also include a list of known citations, if available and s\
-hould be links to existing resources where the dataset has been used or referenced.",
-        title="Is Reference in",
+        None, **an.isReferenceIn.__dict__
     )
 
     # note: limit this is comma separated values of URLs?
-    tools: Optional[CommaSeparatedValues] = Field(
-        None,
-        description="URL of any analysis tools or models that have been created for this dataset and are available for further use",
-        example="https://conceptlibrary.saildatabank.com/",
-        title="Tools",
-    )
+    tools: Optional[CommaSeparatedValues] = Field(None, **an.tools.__dict__)
 
-    datasetLinkage: Optional[DatasetLinkage] = Field(
-        None,
-        description="Dataset Linkage copied over from",
-        title="Dataset Linkage",
-    )
+    datasetLinkage: Optional[DatasetLinkage] = Field(None, **an.datasetLinkage.__dict__)
 
     # note: something wrong with this description and/or something needs updating with what this is needed for...
     investigations: Optional[CommaSeparatedValues] = Field(
-        None,
-        description="Please provide the keystone paper associated with the dataset.",
-        example="https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases",
-        title="Investigations",
+        None, **an.investigations.__dict__
     )
