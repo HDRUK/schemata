@@ -46,7 +46,9 @@ jobs:
       - name: Run pytest
         run: |
           cd hdr_schemata/tests/
-          pytest
+          pytest test_gwdm.py
+          pytest test_hdruk.py
+          pytest test_schemaOrg.py
   deploy:
     runs-on: ubuntu-latest
     needs: test
