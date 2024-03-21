@@ -6,18 +6,17 @@ from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 
 from hdr_schemata.definitions.HDRUK import *
 
+from .annotations import annotations
+
+an = annotations.coverage
+
 
 class Coverage(BaseModel):
 
     # note: limit these to country codes?
     #      what about regions? surely it's more interesting to know:
     #      scotland:lothian, england:yorkshire, etc.
-    spatial: Optional[CommaSeparatedValues] = Field(
-        None,
-        description="List of countries where the data was taken from",
-        example="United Kingdom,Wales,England, please provide the full country names",
-        title="Spatial",
-    )
+    spatial: Optional[CommaSeparatedValues] = Field(None, **an.spatial.__dict__)
 
     # note: limit these instead of arbitrary CommaSeparatedValues
     #      see: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/PhysicalSampleAvailability.py
@@ -28,10 +27,7 @@ class Coverage(BaseModel):
     #      What about medicine given (e.g. diazepam) ?
     #      What about observations (e.g. smoker)?
     physicalSampleAvailability: Optional[CommaSeparatedValues] = Field(
-        None,
-        description="A list of what the dataset actually contains in terms of sample measurements",
-        example="DNA,PLASMA,SERUM,URINE,WHOLE BLOOD",
-        title="Physical Sample Availability",
+        None, **an.physicalSampleAvailability.__dict__
     )
 
     # note: missing coverage of the types of people the dataset is covering?
@@ -44,28 +40,13 @@ class Coverage(BaseModel):
     # observations: Optional[CommaSeparatedValues]
 
     # note: is this appropriate in this coverage section?
-    pathway: Optional[LongDescription] = Field(
-        None,
-        description="Long description of the clinical/diagnostic/treatment pathway if applicable. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tier (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway. Gateway Feature: The min and max age added using X-X will be split out for use of filters, if data not provided in this format then the dataset will not appear filter search, for example <18 will not be appear in search the input should be 0-18.",
-        example='The lookup contains references to link data held elsewhere on:\n• individuals appearing as defendants in criminal cases dealt with by the magistrates\' or Crown Court in England and Wales (including Youth Courts). \n• individuals supervised by the probation service in England and Wales\n• individuals serving custodial sentences in England & Wales who appear within records from the prison data source, p-NOMIS. Young Offenders are included if resident at prisons or Young Offender Institutes (YOIs) that use p-NOMIS, however, this excludes the majority of Secure Schools and Secure Training Centres. "\n\n"The linking dataset includes a person ID and link to record in other data first datasets for: \n• Disposals in the magistrates’ court from 1 January 2011 to 31 December 2020\n• Disposals in the Crown Court from 1 January 2013 to 31 December 2020\n• Custodial sentences of offenders in custody from January 2011 to September 2021 (including sentences begun before 2011) \n• Offender probation records from January 2014 to December 2020.',
-        title="Pathway",
-    )
+    pathway: Optional[LongDescription] = Field(None, **an.pathway.__dict__)
 
     # note: May need to update/modify:
     #      https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Followup.py
-    followup: Optional[Followup] = Field(
-        None,
-        description="What is the typical time span that a patient appears in the dataset (follow up period)",
-        example="CONTINUOUS",
-        title="Followup",
-    )
+    followup: Optional[Followup] = Field(None, **an.followup.__dict__)
 
     # note: not sure if this is the best way of doing it
     #      ask for age: low, median, high instead?
     #      allowing [0-150] is not useful ...
-    typicalAgeRange: Optional[AgeRange] = Field(
-        None,
-        description="Age range in whole years of participants in the dataset. Please provide range in the following format '[min age] – [max age]' where both the minimum and maximum are whole numbers (integers).",
-        example="1-150",
-        title="Typical Age Range",
-    )
+    typicalAgeRange: Optional[AgeRange] = Field(None, **an.typicalAgeRange.__dict__)

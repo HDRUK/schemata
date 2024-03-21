@@ -4,7 +4,6 @@ from typing import List, Optional, Union
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 
 from hdr_schemata.definitions.HDRUK import *
-from hdr_schemata.annotations import annotations
 
 import json
 
@@ -20,7 +19,8 @@ from .DataTable import DataTable
 from .Usage import Usage
 from .Access import Access
 
-an = annotations.GWDM.v1p0
+
+from .annotations import annotations as an
 
 
 class Gwdm10(BaseModel):

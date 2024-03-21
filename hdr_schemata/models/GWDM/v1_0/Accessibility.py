@@ -6,18 +6,17 @@ from .Usage import Usage
 from .Access import Access
 from .FormatAndStandards import FormatAndStandards
 
+from .annotations import annotations
 
-from hdr_schemata.annotations import annotations
-
-an = annotations.GWDM.v1p0.accessibility
+an = annotations.accessibility
 
 
 class Accessibility(BaseModel):
     class Config:
         extra = "forbid"
 
-    usage: Optional[Usage] = Field(None, **an.usage.__dict__)
-    access: Access = Field(..., **an.access.__dict__)
+    usage: Optional[Usage] = Field(None, title=an.usage.title)
+    access: Access = Field(..., title=an.access.title)
     formatAndStandards: Optional[FormatAndStandards] = Field(
-        None, **an.formatAndStandards.__dict__
+        None, title=an.formatAndStandards.title
     )

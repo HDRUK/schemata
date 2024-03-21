@@ -7,9 +7,9 @@ from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 from hdr_schemata.definitions.HDRUK import *
 from .Revision import Revision
 
-from hdr_schemata.annotations import annotations
+from .annotations import annotations
 
-an = annotations.GWDM.v1p0.required
+an = annotations.required
 
 
 class Required(BaseModel):

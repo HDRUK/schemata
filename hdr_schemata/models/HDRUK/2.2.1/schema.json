@@ -140,8 +140,10 @@
                               ],
                               "default": null,
                               "description": "Where access to data come from: TRE/SED, direct access, open acccess, varies based on project.",
-                              "example": "",
-                              "title": "Access/governance requirementss"
+                              "examples": [
+                                    "TRE/SDE"
+                              ],
+                              "title": "Access/governance requirements"
                         }
                   },
                   "required": [
@@ -184,7 +186,8 @@
                                           "$ref": "#/$defs/Access"
                                     }
                               ],
-                              "description": "This section includes information about data access"
+                              "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
+                              "title": "Accessibility"
                         },
                         "formatAndStandards": {
                               "anyOf": [
@@ -879,7 +882,6 @@
                               ],
                               "default": null,
                               "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset",
-                              "example": "",
                               "title": "Synthetic Data Web Links"
                         }
                   },
