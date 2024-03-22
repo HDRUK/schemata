@@ -900,7 +900,7 @@
                         "name": "formatAndStandards",
                         "required": false,
                         "title": "Format and Standards",
-                        "description": null,
+                        "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
                         "examples": null,
                         "type": [
                               "FormatAndStandards",

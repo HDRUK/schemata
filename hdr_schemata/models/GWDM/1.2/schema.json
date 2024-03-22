@@ -166,6 +166,7 @@
                                     }
                               ],
                               "default": null,
+                              "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
                               "title": "Format and Standards"
                         }
                   },

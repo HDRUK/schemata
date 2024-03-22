@@ -22,5 +22,7 @@ class Accessibility(BaseModel):
         ..., title=an.access.title, description=an.access.description
     )
     formatAndStandards: Optional[FormatAndStandards] = Field(
-        None, title=an.formatAndStandards.title
+        None,
+        title=an.formatAndStandards.title,
+        description=an.formatAndStandards.description,
     )
