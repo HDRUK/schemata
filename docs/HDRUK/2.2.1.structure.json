@@ -601,13 +601,10 @@
                                     "description": "Please indicate the purpose(s) that the dataset was collected.",
                                     "examples": null,
                                     "type": [
-                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Purpose.Purpose]",
-                                          "null"
+                                          "Purpose['STUDY','DISEASE REGISTRY','TRIAL','CARE','AUDIT','ADMINISTRATIVE','FINANCIAL','STATUTORY','OTHER',null]"
                                     ],
-                                    "is_list": false,
-                                    "is_optional": true,
-                                    "subItems": []
+                                    "is_list": true,
+                                    "is_optional": true
                               },
                               {
                                     "name": "source",

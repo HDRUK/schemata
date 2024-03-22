@@ -1456,9 +1456,6 @@
                         "purpose": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/Purpose"
                                           },
