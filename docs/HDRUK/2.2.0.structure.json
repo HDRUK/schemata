@@ -5,10 +5,8 @@
             "title": "Dataset identifier",
             "description": "System dataset identifier",
             "examples": [
-                  [
-                        "226fb3f1-4471-400a-8c39-2b66d46a39b6",
-                        "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
-                  ]
+                  "226fb3f1-4471-400a-8c39-2b66d46a39b6",
+                  "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
             ],
             "type": [
                   "Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}]",
@@ -37,8 +35,8 @@
       {
             "name": "revisions",
             "required": true,
-            "title": "Dataset Revisions",
-            "description": "Revisions of Dataset metadata",
+            "title": "Metadata Version Revisions",
+            "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
             "examples": null,
             "type": [
                   "Revision"
@@ -49,9 +47,11 @@
                   {
                         "name": "version",
                         "required": true,
-                        "title": null,
-                        "description": "Semantic Version",
-                        "examples": null,
+                        "title": "revision version",
+                        "description": "Version number used for previous version of this dataset",
+                        "examples": [
+                              "6.0.0"
+                        ],
                         "type": [
                               "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]"
                         ],
@@ -62,9 +62,11 @@
                   {
                         "name": "url",
                         "required": true,
-                        "title": null,
-                        "description": "URL endpoint to obtain the version",
-                        "examples": null,
+                        "title": "revision url",
+                        "description": "Some url with a reference to the record of a previous version of this dataset",
+                        "examples": [
+                              "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
+                        ],
                         "type": [
                               "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
@@ -78,8 +80,8 @@
       {
             "name": "issued",
             "required": true,
-            "title": "Creation Date",
-            "description": "Dataset Metadata Creation Date",
+            "title": "Metadata Issued Datetime',",
+            "description": "Datetime stamp of when this metadata version was initially issued",
             "examples": null,
             "type": [
                   "datetime"
@@ -90,8 +92,8 @@
       {
             "name": "modified",
             "required": true,
-            "title": "Modification Date",
-            "description": "Dataset Metadata Creation Date",
+            "title": "Last Modified Datetime",
+            "description": "Datetime stamp of when this metadata was last modified",
             "examples": null,
             "type": [
                   "datetime"
@@ -117,9 +119,7 @@
                         "title": "Title",
                         "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
                         "examples": [
-                              [
-                                    "North West London COVID-19 Patient Level Situation Report"
-                              ]
+                              "North West London COVID-19 Patient Level Situation Report"
                         ],
                         "type": [
                               "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
@@ -230,7 +230,7 @@
                                     "name": "memberOf",
                                     "required": false,
                                     "title": "Organisation Membership",
-                                    "description": "Please indicate if the organisation is an Alliance Member or a Hub.",
+                                    "description": "Please indicate if the organisation is an Alliance Member or a Hub.'",
                                     "examples": null,
                                     "type": [
                                           "MemberOf['HUB','ALLIANCE','OTHER','NCS']",
@@ -245,7 +245,7 @@
                         "name": "contactPoint",
                         "required": true,
                         "title": "Contact Point",
-                        "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
+                        "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
                         "examples": [
                               "SAILDatabank@swansea.ac.uk"
                         ],
@@ -261,8 +261,10 @@
                         "name": "keywords",
                         "required": true,
                         "title": "Keywords",
-                        "description": "Please provide relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
-                        "examples": null,
+                        "description": "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                        "examples": [
+                              "Preprints,Papers,HDR UK"
+                        ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "typing.List[hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters]",
@@ -290,10 +292,10 @@
                   {
                         "name": "doiName",
                         "required": false,
-                        "title": "Digital Object Identifier",
-                        "description": "All HDR UK registered datasets should either have a Digital Object Identifier (DOI) or be working towards obtaining one. If a DOI is available, please provide the DOI.",
+                        "title": "DOI Name",
+                        "description": "DOI associated to this dataset",
                         "examples": [
-                              "10.3399/bjgp17X692645"
+                              "10.1093/ije/dyx196"
                         ],
                         "type": [
                               "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]",
@@ -306,13 +308,9 @@
                   {
                         "name": "datasetType",
                         "required": true,
-                        "title": "Datasetype",
-                        "description": "Placeholder for dataset type",
-                        "examples": [
-                              [
-                                    ""
-                              ]
-                        ],
+                        "title": "Dataset Type",
+                        "description": "Placeholder for dataset type\"",
+                        "examples": null,
                         "type": [
                               "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
@@ -324,13 +322,9 @@
                   {
                         "name": "datasetSubType",
                         "required": true,
-                        "title": "Datasetype",
+                        "title": "Dataset Sub-type",
                         "description": "Placeholder for dataset sub-type",
-                        "examples": [
-                              [
-                                    ""
-                              ]
-                        ],
+                        "examples": null,
                         "type": [
                               "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
@@ -371,7 +365,7 @@
                         "name": "description",
                         "required": false,
                         "title": "Description",
-                        "description": "A free-text description of the record.",
+                        "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search",
                         "examples": null,
                         "type": [
                               "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
@@ -590,8 +584,8 @@
                   {
                         "name": "origin",
                         "required": false,
-                        "title": null,
-                        "description": null,
+                        "title": "Origin Coverage",
+                        "description": "Coverate by origin (geographical and situations)",
                         "examples": null,
                         "type": [
                               "Origin",
@@ -604,7 +598,7 @@
                                     "name": "purpose",
                                     "required": false,
                                     "title": "Purpose",
-                                    "description": "Pleases indicate the purpose(s) that the dataset was collected.",
+                                    "description": "Please indicate the purpose(s) that the dataset was collected.",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -619,7 +613,7 @@
                                     "name": "source",
                                     "required": false,
                                     "title": "Source",
-                                    "description": "Pleases indicate the source of the data extraction",
+                                    "description": "Please indicate the source of the data extraction",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -633,8 +627,8 @@
                               {
                                     "name": "collectionSituation",
                                     "required": false,
-                                    "title": "Setting",
-                                    "description": "Pleases indicate the setting(s) where data was collected. Multiple settings may be provided",
+                                    "title": "Collection Situation Setting",
+                                    "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -649,15 +643,16 @@
                   },
                   {
                         "name": "temporal",
-                        "required": true,
-                        "title": null,
-                        "description": null,
+                        "required": false,
+                        "title": "Temporal Coverage",
+                        "description": "Dates and other temporal coverage information",
                         "examples": null,
                         "type": [
-                              "Temporal"
+                              "Temporal",
+                              "null"
                         ],
                         "is_list": false,
-                        "is_optional": false,
+                        "is_optional": true,
                         "subItems": [
                               {
                                     "name": "distributionReleaseDate",
@@ -691,7 +686,7 @@
                                     "name": "endDate",
                                     "required": false,
                                     "title": "End Date",
-                                    "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
+                                    "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
                                     "examples": null,
                                     "type": [
                                           "date",
@@ -788,8 +783,8 @@
                               {
                                     "name": "resourceCreator",
                                     "required": false,
-                                    "title": "Citation Requirements",
-                                    "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
+                                    "title": "Citation Requirements'",
+                                    "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
                                     "examples": null,
                                     "type": [
                                           "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
@@ -849,7 +844,7 @@
                                     "name": "accessRights",
                                     "required": true,
                                     "title": "Access Rights",
-                                    "description": null,
+                                    "description": "Please provide details for the data access rights",
                                     "examples": null,
                                     "type": [
                                           "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
@@ -979,8 +974,8 @@
                               {
                                     "name": "conformsTo",
                                     "required": true,
-                                    "title": "Conforms To",
-                                    "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                                    "title": "Controlled Vocabulary",
+                                    "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -994,8 +989,8 @@
                               {
                                     "name": "language",
                                     "required": true,
-                                    "title": "Language",
-                                    "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
+                                    "title": "Controlled Vocabulary",
+                                    "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -1009,8 +1004,8 @@
                               {
                                     "name": "format",
                                     "required": true,
-                                    "title": "Format",
-                                    "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
+                                    "title": "Controlled Vocabulary",
+                                    "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -1089,7 +1084,7 @@
             "name": "observations",
             "required": true,
             "title": "Observations",
-            "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d",
+            "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation \n(1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. \nExample: \n      &lt;b&gt; Statistical Population 1 \n      &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 \n      &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d\"\n",
             "examples": null,
             "type": [
                   "Observation"
@@ -1100,7 +1095,7 @@
                   {
                         "name": "observedNode",
                         "required": true,
-                        "title": "Statistical Population",
+                        "title": "Statistical Population'",
                         "description": "Please select one of the following statistical populations for you observation",
                         "examples": [
                               "PERSONS"
@@ -1169,7 +1164,7 @@
             "name": "structuralMetadata",
             "required": false,
             "title": "Structural Metadata",
-            "description": "Descriptions of all tables and data elements that can be included in the dataset",
+            "description": "Structural metadata about tables, columns and values",
             "examples": null,
             "type": [
                   "DataClass"
@@ -1193,8 +1188,8 @@
                   {
                         "name": "description",
                         "required": false,
-                        "title": "Table Description",
-                        "description": "A description of a table in a dataset.",
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
                         "examples": null,
                         "type": [
                               "str",
@@ -1206,8 +1201,8 @@
                   {
                         "name": "elements",
                         "required": true,
-                        "title": "Data Elements",
-                        "description": "A list of data elements contained within a table in a dataset.",
+                        "title": "Table Name",
+                        "description": "The name of a table in a dataset.",
                         "examples": null,
                         "type": [
                               "DataElement"

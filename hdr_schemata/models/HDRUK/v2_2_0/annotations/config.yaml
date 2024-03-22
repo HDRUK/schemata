@@ -1,0 +1,65 @@
+summary:
+  datasetType:
+    description: Placeholder for dataset type"
+    title: Dataset Type
+
+  datasetSubType:
+    description: Placeholder for dataset sub-type
+    title: Dataset Sub-type
+
+  populationSize:
+    description: Summary population size of the cohort
+    title: Population size
+
+coverage:
+  gender:
+    title: Gender
+    description: Male, Female, Other
+
+  biologicalsamples:
+    title: Biological Samples
+    description: Blood, Saliva, Urine, Other
+
+  psychological:
+    title: Psychological
+    description: Mental health, Cognitive function
+
+  physical:
+    title: Physical
+    description: Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive
+
+  anthropometric:
+    title: Anthropometric
+    description: Height, Weight, Waist circumference, Hip circumference, Blood pressure
+
+  lifestyle:
+    title: Lifestyle
+    description: "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol"
+
+  socioeconomic:
+    title: Socio-economic
+    description: Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support
+
+tissuesSampleCollection:
+  dataCategories:
+    title: Data Categories
+    description: The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13
+
+  materialType:
+    title: Material Type
+    description: "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14"
+
+  collectionType:
+    title: Collection Type
+    description: The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)
+
+  tissueSampleMetadata:
+    title: Tissue Sample Metadata
+    description: Metadata related to the tissue sample
+    creationDate:
+      title: Creation Date
+      description: Date when the tissue sample metadata was created
+
+    AnatomicalSiteOntologyCode:
+      title: Anatomical Site Ontology Code
+      description: Ontology code for the anatomical site, this code must match an ICD-0-3 format

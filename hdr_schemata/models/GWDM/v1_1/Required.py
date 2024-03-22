@@ -3,12 +3,12 @@ from typing import Optional
 from pydantic import Field, constr
 
 
+from .annotations import annotations
+
+an = annotations.required
+
+
 class Required(BaseRequired):
     version: constr(
         pattern=r"^\d+\.\d+\.\d+$",
-    ) = Field(
-        ...,
-        description="Dataset metadata version",
-        examples=["1.1.0"],
-        title="Dataset Version",
-    )
+    ) = Field(..., **an.version.__dict__)

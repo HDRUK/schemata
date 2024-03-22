@@ -2,23 +2,18 @@ from typing import Optional
 from pydantic import BaseModel, Field, constr
 from hdr_schemata.definitions.HDRUK import *
 
+
+from .annotations import annotations
+
+an = annotations.structuralMetadata.tables.columns.values
+
+
 class DataValue(BaseModel):
 
-    name: Name = Field(
-        ...,
-        description='Unique value in a column .',
-        title='Value Name'
-    )
-    
+    name: Name = Field(..., **an.name.__dict__)
+
     description: Optional[constr(min_length=1, max_length=20000)] = Field(
-        None,
-        description='A description of a unique value in a column.',
-        title='Value Description',
+        None, **an.description.__dict__
     )
 
-    frequency: Optional[int] = Field(
-        None,
-        description='The frequency of occurrance of a value in a column',
-        title='Value Frequency',
-    )
-    
+    frequency: Optional[int] = Field(None, **an.frequency.__dict__)

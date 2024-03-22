@@ -7,11 +7,12 @@ from hdr_schemata.models.HDRUK.v2_1_2 import *
 from .Provenance import Provenance
 
 
+from .annotations import annotations as an
+
+
 class Hdruk213(Hdruk212):
     provenance: Optional[Provenance] = Field(
-        None,
-        description="Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.",
-        title="Provenance",
+        None, title=an.provenance.title, description=an.provenance.description
     )
 
     @classmethod

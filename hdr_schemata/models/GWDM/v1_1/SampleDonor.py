@@ -4,21 +4,18 @@ from pydantic import BaseModel, Field, constr
 from hdr_schemata.definitions.HDRUK import CommaSeparatedValues
 
 
+from .annotations import annotations
+
+an = annotations.tissuesSampleCollection.tissueSampleMetadata.sampleDonor
+
+
 class SampleDonor(BaseModel):
-    id: Optional[constr(min_length=2, max_length=50)] = Field(
-        None, title="Donor ID", description="ID of the sample donor"
-    )
+    id: Optional[constr(min_length=2, max_length=50)] = Field(None, **an.id.__dict__)
 
-    sex: Optional[str] = Field(
-        None, title="Donor Sex", description="Sex of the sample donor"
-    )
+    sex: Optional[str] = Field(None, **an.sex.__dict__)
 
-    birthDate: Optional[Union[date, datetime]] = Field(
-        None, title="Donor birth date", description="Date of birth of the sample donor"
-    )
+    birthDate: Optional[Union[date, datetime]] = Field(None, **an.birthDate.__dict__)
 
     dataCategories: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Donor Data Categories",
-        description="Data categories related to the sample donor",
+        None, **an.dataCategories.__dict__
     )

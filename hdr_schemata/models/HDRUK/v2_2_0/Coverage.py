@@ -5,44 +5,40 @@ from typing import Optional, List
 from pydantic import Field
 
 
+from .annotations import annotations
+
+an = annotations.coverage
+
+
 class Coverage(BaseCoverage):
     class Config:
         extra = "forbid"
 
-    gender: Optional[List[GenderType]] = Field(
-        None, title="Gender", description="Male, Female, Other"
-    )
+    gender: Optional[List[GenderType]] = Field(None, **an.gender.__dict__)
 
     biologicalsamples: Optional[List[BiologicalSampleType]] = Field(
-        None, title="Biological Samples", description="Blood, Saliva, Urine, Other"
+        None,
+        **an.biologicalsamples.__dict__,
     )
 
     psychological: Optional[List[PsychologicalType]] = Field(
-        None, title="Psychological", description="Mental health, Cognitive function"
+        None,
+        **an.psychological.__dict__,
     )
 
     physical: Optional[List[PhysicalType]] = Field(
         None,
-        title="Physical",
-        description="Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+        **an.physical.__dict__,
     )
 
     anthropometric: Optional[List[AnthropometricType]] = Field(
-        None,
-        title="Anthropometric",
-        description="Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+        None, **an.anthropometric.__dict__
     )
 
-    lifestyle: Optional[List[LifestylesType]] = Field(
-        None,
-        title="Lifestyle",
-        description="Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
-    )
+    lifestyle: Optional[List[LifestylesType]] = Field(None, **an.lifestyle.__dict__)
 
     socioeconomic: Optional[List[SocioEconomicType]] = Field(
-        None,
-        title="Socio-economic",
-        description="Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+        None, **an.socioeconomic.__dict__
     )
 
 
