@@ -18,26 +18,28 @@ class Coverage(BaseCoverage):
 
     biologicalsamples: Optional[List[BiologicalSampleType]] = Field(
         None,
-        **an.gender.__dict__,
+        **an.biologicalsamples.__dict__,
     )
 
     psychological: Optional[List[PsychologicalType]] = Field(
         None,
-        **an.gender.__dict__,
+        **an.psychological.__dict__,
     )
 
     physical: Optional[List[PhysicalType]] = Field(
         None,
-        **an.gender.__dict__,
+        **an.physical.__dict__,
     )
 
     anthropometric: Optional[List[AnthropometricType]] = Field(
-        None, **an.gender.__dict__
+        None, **an.anthropometric.__dict__
     )
 
-    lifestyle: Optional[List[LifestylesType]] = Field(None, **an.gender.__dict__)
+    lifestyle: Optional[List[LifestylesType]] = Field(None, **an.lifestyle.__dict__)
 
-    socioeconomic: Optional[List[SocioEconomicType]] = Field(None, **an.gender.__dict__)
+    socioeconomic: Optional[List[SocioEconomicType]] = Field(
+        None, **an.socioeconomic.__dict__
+    )
 
 
 # inherited physicalSampleAvailability but this has now been replaced by biologicalsamples

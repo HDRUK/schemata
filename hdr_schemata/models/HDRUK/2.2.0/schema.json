@@ -380,8 +380,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
+                              "description": "Blood, Saliva, Urine, Other",
+                              "title": "Biological Samples"
                         },
                         "psychological": {
                               "anyOf": [
@@ -396,8 +396,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
+                              "description": "Mental health, Cognitive function",
+                              "title": "Psychological"
                         },
                         "physical": {
                               "anyOf": [
@@ -412,8 +412,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
+                              "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
+                              "title": "Physical"
                         },
                         "anthropometric": {
                               "anyOf": [
@@ -428,8 +428,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
+                              "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+                              "title": "Anthropometric"
                         },
                         "lifestyle": {
                               "anyOf": [
@@ -444,8 +444,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
+                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
+                              "title": "Lifestyle"
                         },
                         "socioeconomic": {
                               "anyOf": [
@@ -460,8 +460,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Male, Female, Other",
-                              "title": "Gender"
+                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
+                              "title": "Socio-economic"
                         }
                   },
                   "title": "Coverage",

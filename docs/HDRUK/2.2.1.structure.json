@@ -497,8 +497,8 @@
                   {
                         "name": "biologicalsamples",
                         "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
+                        "title": "Biological Samples",
+                        "description": "Blood, Saliva, Urine, Other",
                         "examples": null,
                         "type": [
                               "BiologicalSampleType['Blood','Other','Urine','Saliva']"
@@ -509,8 +509,8 @@
                   {
                         "name": "psychological",
                         "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
+                        "title": "Psychological",
+                        "description": "Mental health, Cognitive function",
                         "examples": null,
                         "type": [
                               "PsychologicalType['Cognitive Function','Mental Health']"
@@ -521,8 +521,8 @@
                   {
                         "name": "physical",
                         "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
+                        "title": "Physical",
+                        "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
                         "examples": null,
                         "type": [
                               "PhysicalType['Respiratory','Vision','Hearing','Musculoskeletal','Cardiovascular','Reproductive']"
@@ -533,8 +533,8 @@
                   {
                         "name": "anthropometric",
                         "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
+                        "title": "Anthropometric",
+                        "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
                         "examples": null,
                         "type": [
                               "AnthropometricType['Blood Pressure','Hip Circumference','Height','Waist Circumference','Weight']"
@@ -545,8 +545,8 @@
                   {
                         "name": "lifestyle",
                         "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
+                        "title": "Lifestyle",
+                        "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
                         "examples": null,
                         "type": [
                               "LifestylesType['Smoking','Dietary Habits','Physical Activity','Alcohol']"
@@ -557,8 +557,8 @@
                   {
                         "name": "socioeconomic",
                         "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
+                        "title": "Socio-economic",
+                        "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
                         "examples": null,
                         "type": [
                               "SocioEconomicType['Finances','Family Circumstances','Housing','Education','Marital Status','Occupation','Ethnic Group','Social Support']"
