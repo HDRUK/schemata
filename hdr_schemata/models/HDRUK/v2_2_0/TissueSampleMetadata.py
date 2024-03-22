@@ -5,15 +5,16 @@ from datetime import date, datetime
 from hdr_schemata.definitions.HDRUK import ICD_0_3
 
 
+from .annotations import annotations
+
+an = annotations.tissuesSampleCollection.tissueSampleMetadata
+
+
 class TissueSampleMetadata(BaseModel):
     creationDate: Optional[Union[date, datetime]] = Field(
-        None,
-        title="Creation Date",
-        description="Date when the tissue sample metadata was created",
+        None, **an.creationDate.__dict__
     )
 
     AnatomicalSiteOntologyCode: Optional[ICD_0_3] = Field(
-        None,
-        title="Anatomical Site Ontology Code",
-        description="Ontology code for the anatomical site, this code must match an ICD-0-3 format",
+        None, **an.AnatomicalSiteOntologyCode.__dict__
     )

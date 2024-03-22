@@ -1,0 +1,12 @@
+accessibility:
+  access:
+    accessServiceCategory:
+      description: "Where access to data come from: TRE/SED, direct access, open acccess, varies based on project."
+      examples:
+        - "TRE/SDE"
+      title: "Access/governance requirements"
+
+linkage:
+  syntheticDataWebLink:
+    description: Links to locations of information and or raw downloads of synthetic data associated with this dataset
+    title: "Synthetic Data Web Links"

@@ -6,57 +6,42 @@ from .SampleDonor import SampleDonor
 from hdr_schemata.definitions.HDRUK import CommaSeparatedValues
 
 
+from .annotations import annotations
+
+an = annotations.tissuesSampleCollection.tissueSampleMetadata
+
+
 class TissueSampleMetadata(BaseModel):
-    id: Optional[constr(min_length=2, max_length=50)] = Field(
-        None, title="Metadata ID", description="ID of the tissue sample metadata"
-    )
+    id: Optional[constr(min_length=2, max_length=50)] = Field(None, **an.id.__dict__)
 
     sampleDonor: Optional[SampleDonor] = Field(
-        None, title="Sample Donor", description="Information about the sample donor"
+        None, title=an.sampleDonor.title, description=an.sampleDonor.description
     )
 
-    sampleType: Optional[CommaSeparatedValues] = Field(
-        None, title="Sample Type", description="Type of the tissue sample"
-    )
+    sampleType: Optional[CommaSeparatedValues] = Field(None, **an.sampleType.__dict__)
 
-    storageTemperature: Optional[str] = Field(
-        None,
-        title="Storage Temperature",
-        description="Storage temperature of the tissue sample",
-    )
+    storageTemperature: Optional[str] = Field(None, **an.storageTemperature.__dict__)
 
     creationDate: Optional[Union[date, datetime]] = Field(
-        None,
-        title="Creation Date",
-        description="Date when the tissue sample metadata was created",
+        None, **an.creationDate.__dict__
     )
 
     anatomicalSiteOntologyCode: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Anatomical Site Ontology Code",
-        description="Ontology code for the anatomical site",
+        None, **an.anatomicalSiteOntologyCode.__dict__
     )
 
     anatomicalSiteOntologyDescription: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Anatomical Site Ontology Description",
-        description="Ontology description for the anatomical site",
+        None, **an.anatomicalSiteOntologyDescription.__dict__
     )
 
     anatomicalSiteFreeText: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Anatomical Site Free Text",
-        description="Free text describing the anatomical site",
+        None, **an.anatomicalSiteFreeText.__dict__
     )
 
     sampleContentDiagnosis: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Sample Content Diagnosis",
-        description="Diagnosis related to the sample content",
+        None, **an.sampleContentDiagnosis.__dict__
     )
 
     useRestrictions: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Use Restrictions",
-        description="Restrictions on the use of the tissue sample",
+        None, **an.useRestrictions.__dict__
     )

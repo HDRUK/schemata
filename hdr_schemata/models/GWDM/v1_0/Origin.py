@@ -2,32 +2,23 @@ from typing import Optional, List, Union
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
 
+
+from .annotations import annotations
+
+an = annotations.provenance.origin
+
+
 class Origin(BaseModel):
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
 
-    #note: shall we update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Purpose.py
-    purpose: Optional[CommaSeparatedValues] = Field(
-        None,
-        description='Indicates the purpose(s) that the dataset was collected.',
-        example='ADMINISTRATIVE,STATUTORY',
-        title='Purpose',
-    )
+    # note: shall we update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Purpose.py
+    purpose: Optional[CommaSeparatedValues] = Field(None, **an.purpose.__dict__)
 
-    #note: update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Source.py
-    source: Optional[CommaSeparatedValues] = Field(
-        None,
-        description='Indicates the source of the data extraction',
-        example= "PAPER BASED,ELECTRONIC SURVEY",
-        title='Source',
-    )
-    
-    #note: update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Setting.py
+    # note: update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Source.py
+    source: Optional[CommaSeparatedValues] = Field(None, **an.source.__dict__)
+
+    # note: update to limit to: https://github.com/HDRUK/schemata-2/blob/master/hdr_schemata/definitions/HDRUK/Setting.py
     collectionSituation: Optional[CommaSeparatedValues] = Field(
-        None,
-        description='Indicate the setting(s) where data was collected. Multiple settings may be provided',
-        example="IN-PATIENTS,PRIMARY CARE",
-        title='Setting',
+        None, **an.collectionSituation.__dict__
     )
-
-

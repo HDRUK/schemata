@@ -6,22 +6,23 @@ from .Usage import Usage
 from .Access import Access
 from .FormatAndStandards import FormatAndStandards
 
+from .annotations import annotations
+
+an = annotations.accessibility
+
+
 class Accessibility(BaseModel):
     class Config:
-        extra = 'forbid'
+        extra = "forbid"
 
     usage: Optional[Usage] = Field(
-        None,
-        description='This section includes information about how the data can be used and how it is currently being used',
-        title='Usage',
+        None, title=an.usage.title, description=an.usage.description
     )
     access: Access = Field(
-        ...,
-        description='This section includes information about data access',
-        title='Access',
+        ..., title=an.access.title, description=an.access.description
     )
     formatAndStandards: Optional[FormatAndStandards] = Field(
         None,
-        description='Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.',
-        title='Format and Standards',
+        title=an.formatAndStandards.title,
+        description=an.formatAndStandards.description,
     )

@@ -1,0 +1,147 @@
+required:
+  version:
+    description: "Dataset metadata version"
+    examples:
+      - "1.1.0"
+    title: "Dataset Version"
+
+summary:
+  datasetSubType:
+    description: Placeholder for dataset sub-type
+    title: Dataset Sub-type
+
+  populationSize:
+    description: Summary population size of the cohort
+    title: Population size
+
+organisation:
+  gatewayId:
+    description: "Identifier on the gateway"
+    title: "Organisation Gateway Identifier"
+  rorId:
+    description: "The Research Organization Registry (ROR) for the organisation, if applicable"
+    title: "Research Organization Registry Identifier"
+
+coverage:
+  gender:
+    title: "Gender"
+    description: "Cohort description: Male, Female, Other"
+
+  biologicalsamples:
+    title: Biological Samples
+    description: "Cohort description: Blood, Saliva, Urine, Other"
+
+  psychological:
+    title: "Psychological"
+    description: "Cohort description: Mental health, Cognitive function"
+
+  physical:
+    title: "Physical"
+    description: "Cohort description: Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive"
+
+  anthropometric:
+    title: "Anthropometric"
+    description: "Cohort description: Height, Weight, Waist circumference, Hip circumference, Blood pressure"
+
+  lifestyle:
+    title: "Lifestyle"
+    description: "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol"
+
+  socioeconomic:
+    title: "Socio-economic"
+    description: "Cohort description: Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support"
+
+tissuesSampleCollection:
+  title: "Tissue Sample Collection"
+  description: "metedata for tissue samples"
+
+  id:
+    title: "ID"
+    description: "ID of the tissue sample collection"
+
+  dataCategories:
+    title: Data Categories
+    description: The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13
+
+  materialType:
+    title: Material Type
+    description: "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14"
+
+  accessConditions:
+    title: "Access Conditions"
+    description: "Access conditions for the tissue sample collection"
+
+  disease:
+    title: "Disease"
+    description: "Disease associated with the tissue sample collection"
+
+  storageTemperature:
+    title: "Storage Temperature"
+    description: "Storage temperature of the tissue sample collection"
+
+  sampleAgeRange:
+    title: "Sample Age Range"
+    description: "Age range of the tissue sample collection"
+
+  collectionType:
+    title: Collection Type
+    description: The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)
+
+  tissueSampleMetadata:
+    title: Tissue Sample Metadata
+    description: Metadata related to the tissue sample
+
+    id:
+      title: Metadata ID
+      description: "ID of the tissue sample metadata"
+
+    sampleDonor:
+      title: "Sample Donor"
+      description: "Information about the sample donor"
+      id:
+        title: "Donor ID"
+        description: "ID of the sample donor"
+
+      sex:
+        title: "Donor Sex"
+        description: "Sex of the sample donor"
+
+      birthDate:
+        title: "Donor birth date"
+        description: "Date of birth of the sample donor"
+
+      dataCategories:
+        title: "Donor Data Categories"
+        description: "Data categories related to the sample donor"
+
+    sampleType:
+      title: "Sample Type"
+      description: "Type of the tissue sample"
+
+    storageTemperature:
+      title: "Storage Temperature"
+      description: "Storage temperature of the tissue sample"
+
+    creationDate:
+      title: Creation Date
+      description: Date when the tissue sample metadata was created
+
+    anatomicalSiteOntologyCode:
+      title: Anatomical Site Ontology Code
+      description: Ontology code for the anatomical site, this code must match an ICD-0-3 format
+
+    anatomicalSiteOntologyDescription:
+      title: "Anatomical Site Ontology Description"
+      description: "Ontology description for the anatomical site"
+
+    anatomicalSiteFreeText:
+      title: "Anatomical Site Free Text"
+      description: "Free text describing the anatomical site"
+
+    sampleContentDiagnosis:
+      title: "Sample Content Diagnosis"
+      description: "Diagnosis related to the sample content"
+
+    useRestrictions:
+      title: "Use Restrictions"
+      description: "Restrictions on the use of the tissue sample"

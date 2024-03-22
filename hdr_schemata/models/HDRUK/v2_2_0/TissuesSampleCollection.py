@@ -7,28 +7,26 @@ from hdr_schemata.definitions.HDRUK import (
     MaterialTypeCategories,
 )
 
+from .annotations import annotations
+
+an = annotations.tissuesSampleCollection
+
 
 class TissuesSampleCollection(BaseModel):
     dataCategories: Optional[List[TissueDataCategoriesEnum]] = Field(
-        None,
-        title="Data Categories",
-        description="The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
+        None, **an.dataCategories.__dict__
     )
 
     materialType: Optional[List[MaterialTypeCategories]] = Field(
-        None,
-        title="Material Type",
-        description="The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
+        None, **an.materialType.__dict__
     )
 
     tissueSampleMetadata: Optional[TissueSampleMetadata] = Field(
         None,
-        title="Tissue Sample Metadata",
-        description="Metadata related to the tissue sample",
+        title=an.tissueSampleMetadata.title,
+        description=an.tissueSampleMetadata.description,
     )
 
     collectionType: Optional[TissueCollectionTypeEnum] = Field(
-        None,
-        title="Collection Type",
-        description="The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
+        None, **an.collectionType.__dict__
     )

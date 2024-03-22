@@ -5,45 +5,35 @@ from typing import Optional, List
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import CommaSeparatedValues
 
+from .annotations import annotations
+
+an = annotations.coverage
+
 
 class Coverage(BaseCoverage):
     class Config:
         extra = "forbid"
 
-    gender: Optional[CommaSeparatedValues] = Field(
-        None, title="Gender", description="Male, Female, Other"
-    )
+    gender: Optional[CommaSeparatedValues] = Field(None, **an.gender.__dict__)
 
     biologicalsamples: Optional[CommaSeparatedValues] = Field(
-        None, title="Biological Samples", description="Blood, Saliva, Urine, Other"
+        None, **an.biologicalsamples.__dict__
     )
 
     psychological: Optional[CommaSeparatedValues] = Field(
-        None, title="Psychological", description="Mental health, Cognitive function"
+        None, **an.psychological.__dict__
     )
 
-    physical: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Physical",
-        description="Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
-    )
+    physical: Optional[CommaSeparatedValues] = Field(None, **an.physical.__dict__)
 
     anthropometric: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Anthropometric",
-        description="Height, Weight, Waist circumference, Hip circumference, Blood pressure",
+        None, **an.anthropometric.__dict__
     )
 
-    lifestyle: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Lifestyle",
-        description="Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
-    )
+    lifestyle: Optional[CommaSeparatedValues] = Field(None, **an.lifestyle.__dict__)
 
     socioeconomic: Optional[CommaSeparatedValues] = Field(
-        None,
-        title="Socio-economic",
-        description="Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
+        None, **an.socioeconomic.__dict__
     )
 
 

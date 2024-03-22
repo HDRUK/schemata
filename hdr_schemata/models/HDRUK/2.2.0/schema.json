@@ -25,6 +25,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "description": "Please provide details for the data access rights",
                               "title": "Access Rights"
                         },
                         "accessService": {
@@ -495,15 +496,15 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A description of a table in a dataset.",
-                              "title": "Table Description"
+                              "description": "The name of a table in a dataset.",
+                              "title": "Table Name"
                         },
                         "elements": {
-                              "description": "A list of data elements contained within a table in a dataset.",
+                              "description": "The name of a table in a dataset.",
                               "items": {
                                     "$ref": "#/$defs/DataElement"
                               },
-                              "title": "Data Elements",
+                              "title": "Table Name",
                               "type": "array"
                         }
                   },
@@ -651,7 +652,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A free-text description of the record.",
+                              "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search",
                               "title": "Description"
                         },
                         "associatedMedia": {
@@ -895,8 +896,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
-                              "title": "Conforms To"
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "title": "Controlled Vocabulary"
                         },
                         "language": {
                               "anyOf": [
@@ -913,8 +914,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "This should list all the languages in which the dataset metadata and underlying data is made available.",
-                              "title": "Language"
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "title": "Controlled Vocabulary"
                         },
                         "format": {
                               "anyOf": [
@@ -931,8 +932,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
-                              "title": "Format"
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "title": "Controlled Vocabulary"
                         }
                   },
                   "required": [
@@ -1247,7 +1248,7 @@
                               "examples": [
                                     "PERSONS"
                               ],
-                              "title": "Statistical Population"
+                              "title": "Statistical Population'"
                         },
                         "measuredValue": {
                               "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
@@ -1392,7 +1393,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate if the organisation is an Alliance Member or a Hub.",
+                              "description": "Please indicate if the organisation is an Alliance Member or a Hub.'",
                               "title": "Organisation Membership"
                         }
                   },
@@ -1422,7 +1423,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Pleases indicate the purpose(s) that the dataset was collected.",
+                              "description": "Please indicate the purpose(s) that the dataset was collected.",
                               "title": "Purpose"
                         },
                         "source": {
@@ -1441,7 +1442,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Pleases indicate the source of the data extraction",
+                              "description": "Please indicate the source of the data extraction",
                               "title": "Source"
                         },
                         "collectionSituation": {
@@ -1460,8 +1461,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Pleases indicate the setting(s) where data was collected. Multiple settings may be provided",
-                              "title": "Setting"
+                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                              "title": "Collection Situation Setting"
                         }
                   },
                   "title": "Origin",
@@ -1511,15 +1512,24 @@
                                           "type": "null"
                                     }
                               ],
-                              "default": null
+                              "default": null,
+                              "description": "Coverate by origin (geographical and situations)",
+                              "title": "Origin Coverage"
                         },
                         "temporal": {
-                              "$ref": "#/$defs/Temporal"
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Temporal"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Dates and other temporal coverage information",
+                              "title": "Temporal Coverage"
                         }
                   },
-                  "required": [
-                        "temporal"
-                  ],
                   "title": "Provenance",
                   "type": "object"
             },
@@ -1555,7 +1565,11 @@
                                           "$ref": "#/$defs/Semver"
                                     }
                               ],
-                              "description": "Semantic Version"
+                              "description": "Version number used for previous version of this dataset",
+                              "examples": [
+                                    "6.0.0"
+                              ],
+                              "title": "revision version"
                         },
                         "url": {
                               "anyOf": [
@@ -1566,7 +1580,11 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "URL endpoint to obtain the version"
+                              "description": "Some url with a reference to the record of a previous version of this dataset",
+                              "examples": [
+                                    "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
+                              ],
+                              "title": "revision url"
                         }
                   },
                   "required": [
@@ -1698,9 +1716,7 @@
                               ],
                               "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
                               "examples": [
-                                    [
-                                          "North West London COVID-19 Patient Level Situation Report"
-                                    ]
+                                    "North West London COVID-19 Patient Level Situation Report"
                               ],
                               "title": "Title"
                         },
@@ -1737,7 +1753,10 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose.",
+                              "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
+                              "example": [
+                                    "blah.blah@blah.com"
+                              ],
                               "examples": [
                                     "SAILDatabank@swansea.ac.uk"
                               ],
@@ -1758,7 +1777,10 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Please provide relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                              "description": "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                              "examples": [
+                                    "Preprints,Papers,HDR UK"
+                              ],
                               "title": "Keywords"
                         },
                         "alternateIdentifiers": {
@@ -1797,11 +1819,11 @@
                                     }
                               ],
                               "default": null,
-                              "description": "All HDR UK registered datasets should either have a Digital Object Identifier (DOI) or be working towards obtaining one. If a DOI is available, please provide the DOI.",
+                              "description": "DOI associated to this dataset",
                               "examples": [
-                                    "10.3399/bjgp17X692645"
+                                    "10.1093/ije/dyx196"
                               ],
-                              "title": "Digital Object Identifier"
+                              "title": "DOI Name"
                         },
                         "datasetType": {
                               "anyOf": [
@@ -1812,13 +1834,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "Placeholder for dataset type",
-                              "examples": [
-                                    [
-                                          ""
-                                    ]
-                              ],
-                              "title": "Datasetype"
+                              "description": "Placeholder for dataset type\"",
+                              "title": "Dataset Type"
                         },
                         "datasetSubType": {
                               "anyOf": [
@@ -1830,12 +1847,7 @@
                                     }
                               ],
                               "description": "Placeholder for dataset sub-type",
-                              "examples": [
-                                    [
-                                          ""
-                                    ]
-                              ],
-                              "title": "Datasetype"
+                              "title": "Dataset Sub-type"
                         },
                         "populationSize": {
                               "anyOf": [
@@ -1919,7 +1931,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
+                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
                               "title": "End Date"
                         },
                         "timeLag": {
@@ -2173,8 +2185,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
-                              "title": "Citation Requirements"
+                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                              "title": "Citation Requirements'"
                         },
                         "investigations": {
                               "anyOf": [
@@ -2258,10 +2270,8 @@
                   ],
                   "description": "System dataset identifier",
                   "examples": [
-                        [
-                              "226fb3f1-4471-400a-8c39-2b66d46a39b6",
-                              "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
-                        ]
+                        "226fb3f1-4471-400a-8c39-2b66d46a39b6",
+                        "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
                   ],
                   "title": "Dataset identifier"
             },
@@ -2278,23 +2288,23 @@
                   "title": "Dataset Version"
             },
             "revisions": {
-                  "description": "Revisions of Dataset metadata",
+                  "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
                   "items": {
                         "$ref": "#/$defs/Revision"
                   },
-                  "title": "Dataset Revisions",
+                  "title": "Metadata Version Revisions",
                   "type": "array"
             },
             "issued": {
-                  "description": "Dataset Metadata Creation Date",
+                  "description": "Datetime stamp of when this metadata version was initially issued",
                   "format": "date-time",
-                  "title": "Creation Date",
+                  "title": "Metadata Issued Datetime',",
                   "type": "string"
             },
             "modified": {
-                  "description": "Dataset Metadata Creation Date",
+                  "description": "Datetime stamp of when this metadata was last modified",
                   "format": "date-time",
-                  "title": "Modification Date",
+                  "title": "Last Modified Datetime",
                   "type": "string"
             },
             "summary": {
@@ -2366,7 +2376,7 @@
                   "title": "Enrichment and Linkage"
             },
             "observations": {
-                  "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. Example: &lt;b&gt; Statistical Population 1 &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d",
+                  "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation \n(1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. \nExample: \n      &lt;b&gt; Statistical Population 1 \n      &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 \n      &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d\"\n",
                   "items": {
                         "$ref": "#/$defs/Observation"
                   },
@@ -2386,7 +2396,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Descriptions of all tables and data elements that can be included in the dataset",
+                  "description": "Structural metadata about tables, columns and values",
                   "title": "Structural Metadata"
             },
             "tissuesSampleCollection": {
