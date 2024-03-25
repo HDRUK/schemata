@@ -1456,9 +1456,6 @@
                         "purpose": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/Purpose"
                                           },
@@ -1475,9 +1472,6 @@
                         "source": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/Source"
                                           },
@@ -1493,9 +1487,6 @@
                         },
                         "collectionSituation": {
                               "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
                                     {
                                           "items": {
                                                 "$ref": "#/$defs/Setting"
