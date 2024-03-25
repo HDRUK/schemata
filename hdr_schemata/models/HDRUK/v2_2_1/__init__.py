@@ -5,6 +5,9 @@ from pydantic import Field
 
 from .EnrichmentAndLinkage import EnrichmentAndLinkage
 from .Accessibility import Accessibility
+from .Provenance import Provenance
+
+from .annotations import annotations as an
 
 
 class Hdruk221(Hdruk220):
@@ -19,6 +22,10 @@ class Hdruk221(Hdruk220):
         ...,
         description="Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
         title="Accessibility",
+    )
+
+    provenance: Optional[Provenance] = Field(
+        None, description=an.provenance.description, title=an.provenance.title
     )
 
     @classmethod
