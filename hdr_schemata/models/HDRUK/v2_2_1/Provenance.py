@@ -3,7 +3,6 @@ from pydantic import Field
 from typing import Optional
 from .Origin import Origin
 
-
 from .annotations import annotations
 
 an = annotations.provenance
