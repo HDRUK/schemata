@@ -1,5 +1,6 @@
 from pydantic import BaseModel, RootModel
 import pandas as pd
+import copy
 import json
 import typing
 import enum
@@ -80,7 +81,7 @@ def get_fields(structure, model: type[BaseModel]):
             "title": field.title,
             "examples": field.examples,
             "type": type_names,
-            # "types": _types,
+            "types": _types,
             "is_list": is_list,
             "is_optional": is_optional,
         }
@@ -133,6 +134,7 @@ def json_to_markdown(structure, level=2):
 
 
 def traverse_structure(data, form, parent=None):
+    data = copy.deepcopy(data)
     for item in data:
         k = item.pop("name")
         if parent:
@@ -142,30 +144,47 @@ def traverse_structure(data, form, parent=None):
             traverse_structure(subItems, form, parent=k)
 
         types = item.pop("types")
-        info = None
+        infos = []
         for t in types:
+            info = None
             try:
-                if t and issubclass(t, RootModel):
-                    info = t.model_json_schema()
+                if t:
+                    if issubclass(t, RootModel):
+                        info = t.model_json_schema()
+                    else:
+                        info = t.__name__
             except:
                 ...
             if type(t) == enum.EnumMeta:
                 info = {"type": "string", "options": [m.value for m in t]}
+
+            if info:
+                infos.append(info)
+
         _ = item.pop("type")
-        item["types"] = info
+
+        item["types"] = infos
         form[k] = item
 
 
 def create_markdown(Model, path, name):
+
+    def remove_types(data):
+        for d in data:
+            d.pop("types")
+            if d.get("subItems", None):
+                remove_types(d["subItems"])
+
     structure = []
     get_fields(structure, Model)
 
-    # form = {}
-    # traverse_structure(structure, form)
-    # print(json.dumps(form, indent=6))
+    form = {}
+    traverse_structure(structure, form)
+    with open(f"{path}/{name}.form.json", "w") as f:
+        json.dump(form, f, indent=6)
 
     with open(f"{path}/{name}.structure.json", "w") as f:
-        print(json.dumps(structure, indent=6))
+        remove_types(structure)
         json.dump(structure, f, indent=6)
 
     md = json_to_markdown(structure)
