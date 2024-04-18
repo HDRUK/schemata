@@ -13,6 +13,6 @@ class Origin(BaseModel):
 
     purpose: Optional[List[Purpose]] = Field(None, **an.purpose.__dict__)
     source: Optional[List[Source]] = Field(None, **an.source.__dict__)
-    collectionSituation: Optional[
-        List[Setting]
-    ] = Field(None, **an.collectionSituation.__dict__)
+    collectionSituation: Optional[List[Setting]] = Field(
+        None, **an.collectionSituation.__dict__
+    )
