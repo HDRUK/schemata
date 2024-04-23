@@ -16,7 +16,7 @@ an = annotations.accessibility
 class Accessibility(BaseAccessibility):
     access: Access = Field(..., description=an.description, title=an.title)
 
-      formatAndStandards: Optional[FormatAndStandards] = Field(
+    formatAndStandards: Optional[FormatAndStandards] = Field(
         None,
         title=an.formatAndStandards.title,
         description=an.formatAndStandards.description,
