@@ -939,8 +939,8 @@
                                           "type": "null"
                                     }
                               ],
-                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
-                              "title": "Controlled Vocabulary"
+                              "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                              "title": "Conforms To"
                         },
                         "language": {
                               "anyOf": [

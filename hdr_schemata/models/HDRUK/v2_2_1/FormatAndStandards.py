@@ -13,5 +13,5 @@ from hdr_schemata.models.HDRUK.v2_2_0 import (
 
 class FormatAndStandards(BaseFormatAndStandards):
     conformsTo: Optional[List[StandardisedDataModels]] = Field(
-        ..., **an.vocabularyEncodingScheme.__dict__
+        ..., **an.conformsTo.__dict__
     )
