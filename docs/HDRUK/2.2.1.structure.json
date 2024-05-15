@@ -444,9 +444,11 @@
                   {
                         "name": "typicalAgeRange",
                         "required": false,
-                        "title": "Age Range",
+                        "title": "Typical Age Range",
                         "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
-                        "examples": null,
+                        "examples": [
+                              "18-90"
+                        ],
                         "type": [
                               "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"

@@ -401,9 +401,11 @@
             },
             {
                   "required": false,
-                  "title": "Age Range",
+                  "title": "Typical Age Range",
                   "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
-                  "examples": null,
+                  "examples": [
+                        "18-90"
+                  ],
                   "is_list": false,
                   "is_optional": true,
                   "types": {

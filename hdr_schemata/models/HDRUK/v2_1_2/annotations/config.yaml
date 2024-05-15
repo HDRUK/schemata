@@ -73,3 +73,9 @@ enrichmentAndLinkage:
   tools:
     description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
     title: Tools
+
+coverage:
+  title: Coverage
+  typicalAgeRange:
+    examples:
+      - 18-90
