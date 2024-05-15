@@ -15,11 +15,11 @@ class FormatAndStandards(BaseModel):
         Optional[CommaSeparatedValues], List[ControlledVocabulary]
     ] = Field(..., **an.vocabularyEncodingScheme.__dict__)
     conformsTo: Union[Optional[CommaSeparatedValues], List[StandardisedDataModels]] = (
-        Field(..., **an.vocabularyEncodingScheme.__dict__)
+        Field(..., **an.conformsTo.__dict__)
     )
     language: Union[Optional[CommaSeparatedValues], List[Language]] = Field(
-        ..., **an.vocabularyEncodingScheme.__dict__
+        ..., **an.language.__dict__
     )
     format: Union[Optional[CommaSeparatedValues], List[Format]] = Field(
-        ..., **an.vocabularyEncodingScheme.__dict__
+        ..., **an.format.__dict__
     )
