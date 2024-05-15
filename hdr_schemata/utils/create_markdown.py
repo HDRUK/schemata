@@ -142,6 +142,9 @@ def form_structure(data, form, parent=None):
         if subItems:
             form_structure(subItems, form, parent=k)
 
+        if "structuralMetadata" in k:
+            continue
+
         types = item.pop("types")
         infos = []
         for t in types:
@@ -157,6 +160,8 @@ def form_structure(data, form, parent=None):
                         info = {**title, **t_sch["anyOf"][0]}
                     else:
                         info = t_sch
+                elif issubclass(t, BaseModel):
+                    continue
                 else:
                     info = t.__name__
             except:
@@ -170,10 +175,12 @@ def form_structure(data, form, parent=None):
         _ = item.pop("type")
 
         if isinstance(infos, list):
-            # Skip fields where the type is a pydantic type we have defined e.g. "Organisation"
-            # because we drill down into the subtypes instead
-            if isinstance(infos[0], str) and infos[0].lower() == k.split(".")[-1]:
+            if len(infos) == 0:
                 continue
+            # # Skip fields where the type is a pydantic type we have defined e.g. "Organisation"
+            # # because we drill down into the subtypes instead
+            # elif isinstance(infos[0], str) and infos[0].lower() == k.split(".")[-1]:
+            #     continue
             else:
                 item["types"] = infos[0]
         else:
@@ -221,15 +228,15 @@ from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 
 
-# create_markdown(Hdruk220, "./docs/HDRUK/", "2.2.0")
+reate_markdown(Hdruk220, "./docs/HDRUK/", "2.2.0")
 create_markdown(Hdruk221, "./docs/HDRUK/", "2.2.1")
-# create_markdown(Hdruk212, "./docs/HDRUK/", "2.1.2")
-# create_markdown(Hdruk213, "./docs/HDRUK/", "2.1.3")
+create_markdown(Hdruk212, "./docs/HDRUK/", "2.1.2")
+create_markdown(Hdruk213, "./docs/HDRUK/", "2.1.3")
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 
-# create_markdown(Gwdm10, "./docs/GWDM/", "1.0")
-# create_markdown(Gwdm11, "./docs/GWDM/", "1.1")
-# create_markdown(Gwdm12, "./docs/GWDM/", "1.2")
+create_markdown(Gwdm10, "./docs/GWDM/", "1.0")
+create_markdown(Gwdm11, "./docs/GWDM/", "1.1")
+create_markdown(Gwdm12, "./docs/GWDM/", "1.2")
