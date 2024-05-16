@@ -142,6 +142,9 @@ def form_structure(data, form, parent=None):
         if subItems:
             form_structure(subItems, form, parent=k)
 
+        if "structuralMetadata" in k:
+            continue
+
         types = item.pop("types")
         infos = []
         for t in types:
@@ -157,6 +160,8 @@ def form_structure(data, form, parent=None):
                         info = {**title, **t_sch["anyOf"][0]}
                     else:
                         info = t_sch
+                elif issubclass(t, BaseModel):
+                    continue
                 else:
                     info = t.__name__
             except:
@@ -172,7 +177,7 @@ def form_structure(data, form, parent=None):
         if isinstance(infos, list):
             # Skip fields where the type is a pydantic type we have defined e.g. "Organisation"
             # because we drill down into the subtypes instead
-            if isinstance(infos[0], str) and infos[0].lower() == k.split(".")[-1]:
+            if len(infos) == 0:
                 continue
             else:
                 item["types"] = infos[0]

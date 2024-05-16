@@ -219,7 +219,7 @@
                                     "examples": null,
                                     "type": [
                                           "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.EmailAddress.EmailAddress]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -267,7 +267,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -282,7 +282,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -385,7 +385,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -402,7 +402,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Union[hdr_schemata.definitions.HDRUK.Url.Url, NoneType, hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters, hdr_schemata.definitions.HDRUK.IsPartOfEnum.IsPartOfEnum]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -434,7 +434,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -446,7 +446,9 @@
                         "required": false,
                         "title": "Age Range",
                         "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
-                        "examples": null,
+                        "examples": [
+                              "18-90"
+                        ],
                         "type": [
                               "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
@@ -749,7 +751,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.DataUseLimitation.DataUseLimitation]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -764,7 +766,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.DataUseRequirements.DataUseRequirements]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -779,7 +781,7 @@
                                     "examples": null,
                                     "type": [
                                           "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -794,7 +796,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -810,7 +812,7 @@
                                     "type": [
                                           "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]",
                                           "str",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Doi.Doi]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -869,7 +871,7 @@
                                     "examples": null,
                                     "type": [
                                           "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -897,7 +899,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Isocountrycode.Isocountrycode]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -969,7 +971,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.ControlledVocabulary.ControlledVocabulary]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -981,7 +983,9 @@
                                     "required": true,
                                     "title": "Conforms To",
                                     "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
-                                    "examples": null,
+                                    "examples": [
+                                          "LOCAL,NHS DATA DICTIONARY"
+                                    ],
                                     "type": [
                                           "StandardisedDataModels[{'$defs': {'StandardisedDataModelsEnum': {'enum': ['HL7 FHIR', 'HL7 V2', 'HL7 CDA', 'HL7 CCOW', 'LOINC', 'DICOM', 'I2B2', 'IHE', 'OMOP', 'OPENEHR', 'SENTINEL', 'PCORNET', 'CDISC', 'NHS DATA DICTIONARY', 'NHS SCOTLAND DATA DICTIONARY', 'NHS WALES DATA DICTIONARY', 'LOCAL', 'OTHER'], 'title': 'StandardisedDataModelsEnum', 'type': 'string'}}, 'anyOf': [{'$ref': '#/$defs/StandardisedDataModelsEnum'}, {'type': 'null'}], 'default': null}]"
                                     ],
@@ -997,7 +1001,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Language.Language]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1012,7 +1016,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Format.Format]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1044,7 +1048,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Union[hdr_schemata.definitions.HDRUK.Url.Url, NoneType, hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -1059,7 +1063,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.AbstractText.AbstractText]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -1074,7 +1078,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -1168,7 +1172,7 @@
                         "description": "Initially this will be defaulted to \"COUNT\"",
                         "examples": null,
                         "type": [
-                              "MeasuredProperty[{}]"
+                              "MeasuredProperty[{'maxLength': 100, 'minLength': 1, 'type': 'string'}]"
                         ],
                         "is_list": false,
                         "is_optional": false,

@@ -70,16 +70,6 @@
             },
             {
                   "required": true,
-                  "title": "Metadata Version Revisions",
-                  "description": "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": false,
-                  "types": "Revision",
-                  "location": "revisions"
-            },
-            {
-                  "required": true,
                   "title": "Metadata Issued Datetime',",
                   "description": "Datetime stamp of when this metadata version was initially issued",
                   "examples": null,
@@ -223,16 +213,6 @@
                         ]
                   },
                   "location": "summary.publisher.memberOf"
-            },
-            {
-                  "required": true,
-                  "title": "Dataset publisher",
-                  "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": "Organisation",
-                  "location": "summary.publisher"
             },
             {
                   "required": true,
@@ -403,7 +383,9 @@
                   "required": false,
                   "title": "Age Range",
                   "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
-                  "examples": null,
+                  "examples": [
+                        "18-90"
+                  ],
                   "is_list": false,
                   "is_optional": true,
                   "types": {
@@ -962,7 +944,9 @@
                   "required": true,
                   "title": "Conforms To",
                   "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
-                  "examples": null,
+                  "examples": [
+                        "LOCAL,NHS DATA DICTIONARY"
+                  ],
                   "is_list": true,
                   "is_optional": true,
                   "types": {
@@ -998,16 +982,6 @@
                         "type": "string"
                   },
                   "location": "accessibility.formatAndStandards.format"
-            },
-            {
-                  "required": false,
-                  "title": "Format and Standards",
-                  "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": "FormatAndStandards",
-                  "location": "accessibility.formatAndStandards"
             },
             {
                   "required": false,
@@ -1065,16 +1039,6 @@
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.syntheticDataWebLink"
-            },
-            {
-                  "required": false,
-                  "title": "Enrichment and Linkage",
-                  "description": "This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": "EnrichmentAndLinkage",
-                  "location": "enrichmentAndLinkage"
             },
             {
                   "required": true,
@@ -1138,101 +1102,12 @@
                   "is_list": false,
                   "is_optional": false,
                   "types": {
-                        "title": "MeasuredProperty"
+                        "maxLength": 100,
+                        "minLength": 1,
+                        "title": "MeasuredProperty",
+                        "type": "string"
                   },
                   "location": "observations.measuredProperty"
-            },
-            {
-                  "required": true,
-                  "title": "Observations",
-                  "description": "Multiple observations about the dataset may be provided and users are expected to provide at least one observation \n(1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. \nExample: \n      &lt;b&gt; Statistical Population 1 \n      &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 \n      &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: \u201c2017\u201d\"\n",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": false,
-                  "types": "Observation",
-                  "location": "observations"
-            },
-            {
-                  "required": true,
-                  "title": "Table Name",
-                  "description": "The name of a table in a dataset.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": "str",
-                  "location": "structuralMetadata.name"
-            },
-            {
-                  "required": false,
-                  "title": "Table Name",
-                  "description": "The name of a table in a dataset.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": "str",
-                  "location": "structuralMetadata.description"
-            },
-            {
-                  "required": true,
-                  "title": "Column Name",
-                  "description": "The name of a column in a table.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": {
-                        "title": "Name"
-                  },
-                  "location": "structuralMetadata.elements.name"
-            },
-            {
-                  "required": true,
-                  "title": "Data Type",
-                  "description": "The data type of values in the column",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": "str",
-                  "location": "structuralMetadata.elements.dataType"
-            },
-            {
-                  "required": false,
-                  "title": "Column Description",
-                  "description": "A description of a column in a table.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": "str",
-                  "location": "structuralMetadata.elements.description"
-            },
-            {
-                  "required": true,
-                  "title": "Sensitive",
-                  "description": "A True or False value, indicating if the field is sensitive or not",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": "bool",
-                  "location": "structuralMetadata.elements.sensitive"
-            },
-            {
-                  "required": true,
-                  "title": "Table Name",
-                  "description": "The name of a table in a dataset.",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": false,
-                  "types": "DataElement",
-                  "location": "structuralMetadata.elements"
-            },
-            {
-                  "required": false,
-                  "title": "Structural Metadata",
-                  "description": "Structural metadata about tables, columns and values",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": "DataClass",
-                  "location": "structuralMetadata"
             },
             {
                   "required": false,
@@ -1309,16 +1184,6 @@
             },
             {
                   "required": false,
-                  "title": "Tissue Sample Metadata",
-                  "description": "Metadata related to the tissue sample",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": "TissueSampleMetadata",
-                  "location": "tissuesSampleCollection.tissueSampleMetadata"
-            },
-            {
-                  "required": false,
                   "title": "Collection Type",
                   "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
                   "examples": null,
@@ -1340,16 +1205,6 @@
                         ]
                   },
                   "location": "tissuesSampleCollection.collectionType"
-            },
-            {
-                  "required": false,
-                  "title": "Tissues Sample Collection",
-                  "description": "Metadata collection for Tissue Samples datasets",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": "TissuesSampleCollection",
-                  "location": "tissuesSampleCollection"
             }
       ]
 }
