@@ -7,6 +7,7 @@ from .EnrichmentAndLinkage import EnrichmentAndLinkage
 from .Accessibility import Accessibility
 from .Provenance import Provenance
 from .Observations import Observation
+from .MeasuredProperty import MeasuredProperty
 
 from .annotations import annotations as an
 
