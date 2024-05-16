@@ -944,7 +944,9 @@
                   "required": true,
                   "title": "Conforms To",
                   "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
-                  "examples": null,
+                  "examples": [
+                        "LOCAL,NHS DATA DICTIONARY"
+                  ],
                   "is_list": true,
                   "is_optional": true,
                   "types": {
