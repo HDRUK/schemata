@@ -6,6 +6,7 @@ from pydantic import Field
 from .EnrichmentAndLinkage import EnrichmentAndLinkage
 from .Accessibility import Accessibility
 from .Provenance import Provenance
+from .Observations import Observation
 
 from .annotations import annotations as an
 
@@ -26,6 +27,10 @@ class Hdruk221(Hdruk220):
 
     provenance: Optional[Provenance] = Field(
         None, description=an.provenance.description, title=an.provenance.title
+    )
+
+    observations: List[Observation] = Field(
+        ..., description=an.observations.description, title=an.observations.title
     )
 
     @classmethod

@@ -1,6 +1,5 @@
-from pydantic import RootModel, constr
+from pydantic import RootModel
 
 class MeasuredProperty(RootModel):
-    root: constr(min_length=1, max_length=100)
-
+    pass
 

@@ -1226,10 +1226,7 @@
                   "type": "string"
             },
             "MeasuredProperty": {
-                  "maxLength": 100,
-                  "minLength": 1,
-                  "title": "MeasuredProperty",
-                  "type": "string"
+                  "title": "MeasuredProperty"
             },
             "MemberOf": {
                   "enum": [
