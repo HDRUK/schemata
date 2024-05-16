@@ -79,3 +79,15 @@ coverage:
   typicalAgeRange:
     examples:
       - 18-90
+      
+accessibility:
+  formatAndStandards:
+    conformsTo:
+      description: List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition.
+      examples:
+        - "LOCAL,NHS DATA DICTIONARY"
+      title: Conforms To
+
+structuralMetadata:
+  title: Structural Metadata
+  description: Structural metadata about tables, columns and values

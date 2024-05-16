@@ -820,7 +820,10 @@
                   "title": "LongDescription"
             },
             "MeasuredProperty": {
-                  "title": "MeasuredProperty"
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "title": "MeasuredProperty",
+                  "type": "string"
             },
             "Name": {
                   "title": "Name"

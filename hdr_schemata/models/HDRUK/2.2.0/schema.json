@@ -323,6 +323,9 @@
                               ],
                               "default": null,
                               "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
+                              "examples": [
+                                    "18-90"
+                              ],
                               "title": "Age Range"
                         },
                         "followup": {
@@ -897,6 +900,9 @@
                                     }
                               ],
                               "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                              "examples": [
+                                    "LOCAL,NHS DATA DICTIONARY"
+                              ],
                               "title": "Conforms To"
                         },
                         "language": {
@@ -1220,7 +1226,10 @@
                   "type": "string"
             },
             "MeasuredProperty": {
-                  "title": "MeasuredProperty"
+                  "maxLength": 100,
+                  "minLength": 1,
+                  "title": "MeasuredProperty",
+                  "type": "string"
             },
             "MemberOf": {
                   "enum": [
