@@ -1042,7 +1042,7 @@
             },
             {
                   "required": true,
-                  "title": "Statistical Population'",
+                  "title": "Statistical Population",
                   "description": "Please select one of the following statistical populations for you observation",
                   "examples": [
                         "PERSONS"
