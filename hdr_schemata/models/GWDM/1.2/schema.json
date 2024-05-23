@@ -867,7 +867,7 @@
                               "examples": [
                                     "PERSONS"
                               ],
-                              "title": "Statistical Population'"
+                              "title": "Statistical Population"
                         },
                         "measuredValue": {
                               "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
