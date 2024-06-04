@@ -15,4 +15,15 @@ class Purpose(Enum):
     OTHER = 'OTHER'
     NoneType_None = None
 
-
+class PurposeV2(Enum):
+    RESEARCH_COHORT = 'Research cohort'
+    STUDY = 'Study'
+    DISEASE_REGISTRY = 'Disease registry'
+    TRIAL = 'Trial'
+    CARE = 'Care'
+    AUDIT = 'Audit'
+    ADMINISTRATIVE = 'Administrative'
+    FINANCIAL = 'Financial'
+    STATUATORY = 'Statuatory'
+    OTHER = 'Other'
+    NoneType_None = None

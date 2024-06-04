@@ -10,4 +10,11 @@ class Source(Enum):
     MACHINE_GENERATED = 'MACHINE GENERATED'
     OTHER = 'OTHER'
 
-
+class SourceV2(Enum):
+    EPR = 'EPR'
+    ELECTRONIC_SURVEY = 'Electronic survey'
+    LIMS = 'LIMS'
+    PAPER_BASED = 'Paper-based'
+    FREE_TEXT_NLP = 'Free text NLP'
+    MACHINE_GENERATED = 'Machine generated'
+    OTHER = 'Other'

@@ -6,7 +6,7 @@ from .CommaSeparatedValues import CommaSeparatedValues
 from .ControlledVocabulary import ControlledVocabulary
 from .ControlledVocabularyEnum import ControlledVocabularyEnum
 from .DataUseLimitation import DataUseLimitation
-from .DatasetType import DatasetType
+from .DatasetType import DatasetType, DatasetTypeV2, DatasetSubType
 from .DataUseRequirements import DataUseRequirements
 from .DeliveryLeadTime import DeliveryLeadTime
 from .Description import Description
@@ -27,18 +27,19 @@ from .MeasuredProperty import MeasuredProperty
 from .MemberOf import MemberOf
 from .Name import Name
 from .OneHundredFiftyCharacters import OneHundredFiftyCharacters
-from .Periodicity import Periodicity
+from .Periodicity import Periodicity, PeriodicityV2
 from .PhysicalSampleAvailability import PhysicalSampleAvailability
-from .Purpose import Purpose
+from .Purpose import Purpose, PurposeV2
 from .Semver import Semver
-from .Setting import Setting
+from .Setting import Setting, SettingV2
 from .ShortDescription import ShortDescription
 from .ShortTitle import ShortTitle
-from .Source import Source
+from .Source import Source, SourceV2
 from .StandardisedDataModels import StandardisedDataModels
 from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
 from .StatisticalPopulationConstrained import StatisticalPopulationConstrained
-from .TimeLag import TimeLag
+from .Ternary import Ternary
+from .TimeLag import TimeLag, TimeLagV2
 from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
 from .TissueDataCategoriesEnum import TissueDataCategoriesEnum
 from .TwoHundredFiftyFiveCharacters import TwoHundredFiftyFiveCharacters

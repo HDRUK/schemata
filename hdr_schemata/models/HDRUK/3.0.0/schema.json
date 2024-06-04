@@ -221,27 +221,6 @@
                   ],
                   "title": "AgeRange"
             },
-            "AnthropometricType": {
-                  "enum": [
-                        "Blood Pressure",
-                        "Hip Circumference",
-                        "Height",
-                        "Waist Circumference",
-                        "Weight"
-                  ],
-                  "title": "AnthropometricType",
-                  "type": "string"
-            },
-            "BiologicalSampleType": {
-                  "enum": [
-                        "Blood",
-                        "Other",
-                        "Urine",
-                        "Saliva"
-                  ],
-                  "title": "BiologicalSampleType",
-                  "type": "string"
-            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -320,19 +299,9 @@
                                     },
                                     {
                                           "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
+                                                "$ref": "#/$defs/Url"
                                           },
                                           "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
                               "default": null,
@@ -340,7 +309,7 @@
                               "examples": [
                                     "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
                               ],
-                              "title": "Geographic Coverage"
+                              "title": "Geographic coverage"
                         },
                         "typicalAgeRange": {
                               "anyOf": [
@@ -356,7 +325,7 @@
                               "examples": [
                                     "18-90"
                               ],
-                              "title": "Age Range"
+                              "title": "Age range"
                         },
                         "followup": {
                               "anyOf": [
@@ -369,7 +338,7 @@
                               ],
                               "default": "UNKNOWN",
                               "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
-                              "title": "Followup"
+                              "title": "Follow-up"
                         },
                         "pathway": {
                               "anyOf": [
@@ -382,7 +351,7 @@
                               ],
                               "default": null,
                               "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
-                              "title": "Pathway"
+                              "title": "Patient pathway description"
                         },
                         "gender": {
                               "anyOf": [
@@ -400,101 +369,18 @@
                               "description": "Male, Female, Other",
                               "title": "Gender"
                         },
-                        "biologicalsamples": {
+                        "datasetCompleteness": {
                               "anyOf": [
                                     {
-                                          "items": {
-                                                "$ref": "#/$defs/BiologicalSampleType"
-                                          },
-                                          "type": "array"
+                                          "$ref": "#/$defs/Url"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Blood, Saliva, Urine, Other",
-                              "title": "Biological Samples"
-                        },
-                        "psychological": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/PsychologicalType"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Mental health, Cognitive function",
-                              "title": "Psychological"
-                        },
-                        "physical": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/PhysicalType"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
-                              "title": "Physical"
-                        },
-                        "anthropometric": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/AnthropometricType"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Height, Weight, Waist circumference, Hip circumference, Blood pressure",
-                              "title": "Anthropometric"
-                        },
-                        "lifestyle": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/LifestylesType"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
-                              "title": "Lifestyle"
-                        },
-                        "socioeconomic": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/SocioEconomicType"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Occupation, Family circumstances, Housing, Education, Ethnic group, Martial status, Social support",
-                              "title": "Socio-economic"
+                              "description": "The URL where a Researcher can learn more about the completeness of the dataset.",
+                              "title": "Dataset coverage/completeness/quality"
                         }
                   },
                   "title": "Coverage",
@@ -631,18 +517,90 @@
                   ],
                   "title": "DataUseRequirements"
             },
-            "DatasetType": {
-                  "anyOf": [
-                        {
-                              "maxLength": 100,
-                              "minLength": 2,
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
+            "DatasetSubType": {
+                  "enum": [
+                        "Mental health",
+                        "Cardiovascular",
+                        "Cancer",
+                        "Rare diseases",
+                        "Metabolic and Endocrine",
+                        "Neurological",
+                        "Reproductive",
+                        "Maternity and neonatology",
+                        "Respiratory",
+                        "Immunity",
+                        "Musculoskeletal",
+                        "Vision",
+                        "Renal and urogenital",
+                        "Oral and Gastrointestinal",
+                        "Cognitive Function",
+                        "Hearing",
+                        "Others",
+                        "Vaccines",
+                        "Preventive",
+                        "Therapeutic",
+                        "Laboratory",
+                        "Other diagnostics",
+                        "CT",
+                        "MRI",
+                        "PET",
+                        "X-ray",
+                        "Ultrasound",
+                        "Pathology",
+                        "Head",
+                        "Chest",
+                        "Arm",
+                        "Abdomen",
+                        "Leg",
+                        "Proteomics",
+                        "Transcriptomics",
+                        "Epigenomics",
+                        "Metabolomics",
+                        "Multiomics",
+                        "Metagenomics",
+                        "Genomics",
+                        "Education",
+                        "Crime and Justice",
+                        "Ethnicity",
+                        "Housing ",
+                        "Labour",
+                        "Ageing ",
+                        "Economics",
+                        "Marital status",
+                        "Social support",
+                        "Deprivation",
+                        "Religion",
+                        "Occupation",
+                        "Finances",
+                        "Family circumstance",
+                        "Smoking",
+                        "Physical Activity",
+                        "Dietary habits",
+                        "Alcohol",
+                        "Disease Registry (research)",
+                        "National Disease Registries and Audits",
+                        "Births and Deaths"
                   ],
-                  "title": "DatasetType"
+                  "title": "DatasetSubType",
+                  "type": "string"
+            },
+            "DatasetTypeV2": {
+                  "enum": [
+                        "Health and disease",
+                        "Treatments/Interventions",
+                        "Measurements/Tests",
+                        "Imaging types",
+                        "Imaging area of the body",
+                        "Omics",
+                        "Socioeconomic",
+                        "Lifestyle",
+                        "Registry",
+                        "Environment and energy",
+                        "Information and communication",
+                        "Politics"
+                  ],
+                  "title": "DatasetTypeV2",
+                  "type": "string"
             },
             "DeliveryLeadTime": {
                   "enum": [
@@ -676,12 +634,9 @@
                   "additionalProperties": false,
                   "properties": {
                         "description": {
-                              "anyOf": [
+                              "allOf": [
                                     {
                                           "$ref": "#/$defs/Description"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
                               "default": null,
@@ -715,7 +670,7 @@
                               "examples": [
                                     "PDF Document that describes study protocol"
                               ],
-                              "title": "Associated Media"
+                              "title": "Associated media"
                         },
                         "isPartOf": {
                               "anyOf": [
@@ -1226,16 +1181,6 @@
                   "title": "LanguageEnum",
                   "type": "string"
             },
-            "LifestylesType": {
-                  "enum": [
-                        "Smoking",
-                        "Dietary Habits",
-                        "Physical Activity",
-                        "Alcohol"
-                  ],
-                  "title": "LifestylesType",
-                  "type": "string"
-            },
             "LongDescription": {
                   "anyOf": [
                         {
@@ -1372,8 +1317,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide a Grid.ac identifier (see https://www.grid.ac/institutes) for your organisation. If your organisation does not have a Grid.ac identifier please use the \u201csuggest and institute\u201d function here: https://www.grid.ac/institutes#",
-                              "title": "Organisation Identifier"
+                              "description": "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation.",
+                              "title": "identifier"
                         },
                         "name": {
                               "allOf": [
@@ -1381,8 +1326,8 @@
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
                                     }
                               ],
-                              "description": "Name of the organisation",
-                              "title": "Organisation Name"
+                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
+                              "title": "Name of Data Provider"
                         },
                         "logo": {
                               "anyOf": [
@@ -1417,23 +1362,13 @@
                                     },
                                     {
                                           "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/EmailAddress"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
+                                                "$ref": "#/$defs/EmailAddress"
                                           },
                                           "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
-                              "description": "Organisation contact point(s)",
-                              "title": "Organisation Contact Point"
+                              "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.",
+                              "title": "contact point"
                         },
                         "memberOf": {
                               "anyOf": [
@@ -1463,7 +1398,7 @@
                               "anyOf": [
                                     {
                                           "items": {
-                                                "$ref": "#/$defs/Purpose"
+                                                "$ref": "#/$defs/PurposeV2"
                                           },
                                           "type": "array"
                                     },
@@ -1479,7 +1414,7 @@
                               "anyOf": [
                                     {
                                           "items": {
-                                                "$ref": "#/$defs/Source"
+                                                "$ref": "#/$defs/SourceV2"
                                           },
                                           "type": "array"
                                     },
@@ -1491,11 +1426,11 @@
                               "description": "Please indicate the source of the data extraction",
                               "title": "Source of data extraction"
                         },
-                        "collectionSituation": {
+                        "collectionSource": {
                               "anyOf": [
                                     {
                                           "items": {
-                                                "$ref": "#/$defs/Setting"
+                                                "$ref": "#/$defs/SettingV2"
                                           },
                                           "type": "array"
                                     },
@@ -1505,9 +1440,47 @@
                               ],
                               "default": null,
                               "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
-                              "title": "Collection Situation Setting"
+                              "title": "Collection source setting"
+                        },
+                        "datasetType": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetTypeV2"
+                                    }
+                              ],
+                              "description": "The topic areas to which the dataset content relates.",
+                              "title": "Dataset type"
+                        },
+                        "datasetSubType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DatasetSubType"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The sub-type of the dataset content.",
+                              "title": "Dataset sub-type"
+                        },
+                        "imageContrast": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Ternary"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": "Not stated",
+                              "description": "Indicate whether usage of imaging contrast is captured within the dataset.",
+                              "title": "Image contrast"
                         }
                   },
+                  "required": [
+                        "datasetType",
+                        "datasetSubType"
+                  ],
                   "title": "Origin",
                   "type": "object"
             },
@@ -1531,17 +1504,25 @@
                   ],
                   "title": "Periodicity"
             },
-            "PhysicalType": {
+            "PeriodicityV2": {
                   "enum": [
-                        "Respiratory",
-                        "Vision",
-                        "Hearing",
-                        "Musculoskeletal",
-                        "Cardiovascular",
-                        "Reproductive"
+                        "Static",
+                        "Irregular",
+                        "Continuous",
+                        "Biennial",
+                        "Annual",
+                        "Biannual",
+                        "Quarterly",
+                        "Bimonthly",
+                        "Monthly",
+                        "Biweekly",
+                        "Weekly",
+                        "Twice a week",
+                        "Daily",
+                        "Other",
+                        null
                   ],
-                  "title": "PhysicalType",
-                  "type": "string"
+                  "title": "PeriodicityV2"
             },
             "Provenance": {
                   "additionalProperties": false,
@@ -1560,12 +1541,9 @@
                               "title": "Origin Coverage"
                         },
                         "temporal": {
-                              "anyOf": [
+                              "allOf": [
                                     {
                                           "$ref": "#/$defs/Temporal"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
                               "default": null,
@@ -1576,28 +1554,21 @@
                   "title": "Provenance",
                   "type": "object"
             },
-            "PsychologicalType": {
+            "PurposeV2": {
                   "enum": [
-                        "Cognitive Function",
-                        "Mental Health"
-                  ],
-                  "title": "PsychologicalType",
-                  "type": "string"
-            },
-            "Purpose": {
-                  "enum": [
-                        "STUDY",
-                        "DISEASE REGISTRY",
-                        "TRIAL",
-                        "CARE",
-                        "AUDIT",
-                        "ADMINISTRATIVE",
-                        "FINANCIAL",
-                        "STATUTORY",
-                        "OTHER",
+                        "Research cohort",
+                        "Study",
+                        "Disease registry",
+                        "Trial",
+                        "Care",
+                        "Audit",
+                        "Administrative",
+                        "Financial",
+                        "Statuatory",
+                        "Other",
                         null
                   ],
-                  "title": "Purpose"
+                  "title": "PurposeV2"
             },
             "Revision": {
                   "additionalProperties": false,
@@ -1642,25 +1613,35 @@
                   "title": "Semver",
                   "type": "string"
             },
-            "Setting": {
+            "SettingV2": {
                   "enum": [
-                        "CLINIC",
-                        "PRIMARY CARE",
-                        "ACCIDENT AND EMERGENCY",
-                        "OUTPATIENTS",
-                        "IN-PATIENTS",
-                        "SERVICES",
-                        "COMMUNITY",
-                        "HOME",
-                        "PRIVATE",
-                        "PHARMACY",
-                        "SOCIAL CARE",
-                        "LOCAL AUTHORITY",
-                        "NATIONAL GOVERNMENT",
-                        "OTHER"
+                        "Cohort, study, trial",
+                        "Clinic",
+                        "Primary care - Referrals",
+                        "Primary care - Clinic",
+                        "Primary care - Out of hours",
+                        "Secondary care - Accident and Emergency",
+                        "Secondary care - Outpatients",
+                        "Secondary care - In-patients",
+                        "Secondary care - Ambulance",
+                        "Secondary care - ICU",
+                        "Prescribing - Community pharmacy",
+                        "Prescribing - Hospital",
+                        "Patient report outcome",
+                        "Wearables",
+                        "Local authority",
+                        "National government",
+                        "Community",
+                        "Services",
+                        "Home",
+                        "Private",
+                        "Social care - Health care at home",
+                        "Social care - Other social data",
+                        "Census",
+                        "Other",
+                        null
                   ],
-                  "title": "Setting",
-                  "type": "string"
+                  "title": "SettingV2"
             },
             "ShortDescription": {
                   "anyOf": [
@@ -1675,32 +1656,17 @@
                   ],
                   "title": "ShortDescription"
             },
-            "SocioEconomicType": {
-                  "enum": [
-                        "Finances",
-                        "Family Circumstances",
-                        "Housing",
-                        "Education",
-                        "Marital Status",
-                        "Occupation",
-                        "Ethnic Group",
-                        "Social Support"
-                  ],
-                  "title": "SocioEconomicType",
-                  "type": "string"
-            },
-            "Source": {
+            "SourceV2": {
                   "enum": [
                         "EPR",
-                        "ELECTRONIC SURVEY",
+                        "Electronic survey",
                         "LIMS",
-                        "OTHER INFORMATION SYSTEM",
-                        "PAPER BASED",
-                        "FREETEXT NLP",
-                        "MACHINE GENERATED",
-                        "OTHER"
+                        "Paper-based",
+                        "Free text NLP",
+                        "Machine generated",
+                        "Other"
                   ],
-                  "title": "Source",
+                  "title": "SourceV2",
                   "type": "string"
             },
             "StandardisedDataModels": {
@@ -1764,46 +1730,31 @@
                               "title": "Title"
                         },
                         "abstract": {
-                              "anyOf": [
+                              "allOf": [
                                     {
                                           "$ref": "#/$defs/AbstractText"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
                               "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible",
                               "examples": [
                                     "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
                               ],
-                              "title": "Dataset Abstract"
-                        },
-                        "publisher": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Organisation"
-                                    }
-                              ],
-                              "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
-                              "title": "Dataset publisher"
+                              "title": "Dataset abstract"
                         },
                         "contactPoint": {
-                              "anyOf": [
+                              "allOf": [
                                     {
                                           "$ref": "#/$defs/EmailAddress"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
-                              "description": "Please provide a valid email address that can be used to coordinate data access requests with the publisher. Organisations are expected to provide a dedicated email address associated with the data access request process. Notes- An employee's email address can only be provided on a temporary basis and if one is provided an explicit consent must be obtained for this purpose. Gateway Feature: If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.",
+                              "description": "Please provide a valid email address that can be used to coordinate data access requests.",
                               "example": [
                                     "blah.blah@blah.com"
                               ],
                               "examples": [
                                     "SAILDatabank@swansea.ac.uk"
                               ],
-                              "title": "Contact Point"
+                              "title": "Contact point"
                         },
                         "keywords": {
                               "anyOf": [
@@ -1866,54 +1817,30 @@
                               "examples": [
                                     "10.1093/ije/dyx196"
                               ],
-                              "title": "DOI Name"
-                        },
-                        "datasetType": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/DatasetType"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "Placeholder for dataset type\"",
-                              "title": "Dataset Type"
-                        },
-                        "datasetSubType": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/DatasetType"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "Placeholder for dataset sub-type",
-                              "title": "Dataset Sub-type"
+                              "title": "DOI for dataset"
                         },
                         "populationSize": {
-                              "anyOf": [
+                              "description": "Input the number of people captured within the dataset",
+                              "title": "Dataset population size",
+                              "type": "integer"
+                        },
+                        "dataProvider": {
+                              "allOf": [
                                     {
-                                          "type": "integer"
-                                    },
-                                    {
-                                          "type": "null"
+                                          "$ref": "#/$defs/Organisation"
                                     }
                               ],
-                              "description": "Summary population size of the cohort",
-                              "title": "Population size"
+                              "description": "This is the organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
+                              "title": "Dataset provider"
                         }
                   },
                   "required": [
                         "title",
                         "abstract",
-                        "publisher",
                         "contactPoint",
                         "keywords",
-                        "datasetType",
-                        "datasetSubType",
-                        "populationSize"
+                        "populationSize",
+                        "dataProvider"
                   ],
                   "title": "Summary",
                   "type": "object"
@@ -1921,6 +1848,9 @@
             "Temporal": {
                   "additionalProperties": false,
                   "properties": {
+                        "accrualPeriodicity": {
+                              "$ref": "#/$defs/Periodicity"
+                        },
                         "distributionReleaseDate": {
                               "anyOf": [
                                     {
@@ -1937,7 +1867,7 @@
                               ],
                               "default": null,
                               "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
-                              "title": "Release Date"
+                              "title": "Distribution release date"
                         },
                         "startDate": {
                               "anyOf": [
@@ -1948,13 +1878,10 @@
                                     {
                                           "format": "date-time",
                                           "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
                               "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
-                              "title": "Start Date"
+                              "title": "Start date"
                         },
                         "endDate": {
                               "anyOf": [
@@ -1975,28 +1902,29 @@
                               ],
                               "default": null,
                               "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
-                              "title": "End Date"
+                              "title": "End date"
                         },
                         "timeLag": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/TimeLag"
+                                          "$ref": "#/$defs/TimeLagV2"
                                     }
                               ],
                               "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
-                              "title": "Time Lag"
+                              "title": "Time lag"
                         },
                         "publishingFrequency": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/Periodicity"
+                                          "$ref": "#/$defs/PeriodicityV2"
                                     }
                               ],
                               "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
-                              "title": "Publishing Frequency"
+                              "title": "Publishing frequency"
                         }
                   },
                   "required": [
+                        "accrualPeriodicity",
                         "startDate",
                         "timeLag",
                         "publishingFrequency"
@@ -2004,21 +1932,29 @@
                   "title": "Temporal",
                   "type": "object"
             },
-            "TimeLag": {
+            "Ternary": {
                   "enum": [
-                        "LESS 1 WEEK",
-                        "1-2 WEEKS",
-                        "2-4 WEEKS",
-                        "1-2 MONTHS",
-                        "2-6 MONTHS",
-                        "MORE 6 MONTHS",
-                        "VARIABLE",
-                        "NO TIMELAG",
-                        "NOT APPLICABLE",
-                        "OTHER",
-                        null
+                        "Yes",
+                        "No",
+                        "Not stated"
                   ],
-                  "title": "TimeLag"
+                  "title": "Ternary",
+                  "type": "string"
+            },
+            "TimeLagV2": {
+                  "enum": [
+                        "Less than 1 week",
+                        "1-2 weeks",
+                        "2-4 weeks",
+                        "1-2 months",
+                        "2-6 months",
+                        "6 months plus",
+                        "Variable",
+                        "Not applicable",
+                        "Other"
+                  ],
+                  "title": "TimeLagV2",
+                  "type": "string"
             },
             "TissueCollectionTypeEnum": {
                   "enum": [
@@ -2356,7 +2292,7 @@
                               "$ref": "#/$defs/Summary"
                         }
                   ],
-                  "description": "Summary metadata must be completed by Data Custodians onboarding metadata into the Innovation Gateway MVP."
+                  "description": "Summary of metadata describing key pieces of information."
             },
             "documentation": {
                   "anyOf": [
@@ -2381,7 +2317,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Observational, Spatial and Temporal coverage",
+                  "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
                   "title": "Coverage"
             },
             "provenance": {
@@ -2469,6 +2405,6 @@
             "accessibility",
             "observations"
       ],
-      "title": "Hdruk221",
+      "title": "Hdruk300",
       "type": "object"
 }

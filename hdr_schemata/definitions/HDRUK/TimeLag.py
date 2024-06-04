@@ -13,4 +13,14 @@ class TimeLag(Enum):
     OTHER = 'OTHER'
     NoneType_None = None
 
+class TimeLagV2(Enum):
+    LESS_THAN_1_WEEK = 'Less than 1 week'
+    ONE_TWO_WEEKS = '1-2 weeks'
+    TWO_FOUR_WEEKS = '2-4 weeks'
+    ONE_TWO_MONTHS = '1-2 months'
+    TWO_SIX_MONTHS = '2-6 months'
+    SIX_MONTHS_PLUS = '6 months plus'
+    VARIABLE = 'Variable'
+    NOT_APPLICABLE = 'Not applicable'
+    OTHER = 'Other'
 
