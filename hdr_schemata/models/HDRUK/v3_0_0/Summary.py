@@ -14,6 +14,8 @@ an = annotations.summary
 class Summary(BaseSummary):
     abstract: AbstractText = Field(..., **an.abstract.__dict__)
 
+    populationSize: int = Field(..., **an.populationSize.__dict__)
+    
     dataProvider: Organisation = Field(
         ..., title=an.dataProvider.title, description=an.dataProvider.description
     )
@@ -21,8 +23,6 @@ class Summary(BaseSummary):
     contactPoint: EmailAddress = Field(..., **an.contactPoint.__dict__)
 
     doiName: Optional[Doi] = Field(None, **an.doiName.__dict__)
-
-    populationSize: int = Field(..., **an.populationSize.__dict__)
 
 
 remove_fields_from_cls(Summary, ["publisher", "datasetType", "datasetSubType"])

@@ -946,7 +946,7 @@
                               "examples": [
                                     "LOCAL,NHS DATA DICTIONARY"
                               ],
-                              "title": "Conforms To"
+                              "title": "Alignment with standardised data models"
                         },
                         "language": {
                               "anyOf": [
@@ -1340,8 +1340,8 @@
                                           "$ref": "#/$defs/MeasuredProperty"
                                     }
                               ],
-                              "description": "Initially this will be defaulted to \"COUNT\"",
-                              "title": "Measured Property"
+                              "description": "Descibe the property used to measure each observation.",
+                              "title": "Measured property"
                         }
                   },
                   "required": [

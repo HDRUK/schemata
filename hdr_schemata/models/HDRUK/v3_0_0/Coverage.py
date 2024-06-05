@@ -21,11 +21,14 @@ class Coverage(BaseCoverage):
     followup: Optional[Followup] = Field("UNKNOWN", **an.followup.__dict__)
 
     pathway: Optional[Description] = Field(None, **an.pathway.__dict__)
-    
+
     datasetCompleteness: Optional[Url] = (
         Field(None, **an.datasetCompleteness.__dict__)
     )
-    
+
+    materialType: List[MaterialTypeCategoriesV2] = Field(
+        "None/not available", **an.materialType.__dict__
+    )
 
 remove_fields_from_cls(Coverage, [
     "physicalSampleAvailability",

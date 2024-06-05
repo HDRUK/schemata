@@ -85,6 +85,10 @@ coverage:
   datasetCompleteness:
     description: The URL where a Researcher can learn more about the completeness of the dataset.
     title: Dataset coverage/completeness/quality
+
+  materialType:
+    description: The type of biospecimen saved from a biological entity.
+    title: Biological sample availability
   
 provenance:
   description: Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.
@@ -135,3 +139,150 @@ provenance:
     timeLag:
       description: Please indicate the typical time-lag between an event and the data for that event appearing in the dataset
       title: Time lag
+
+accessibility:
+  description: Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.
+  title: Accessibility
+  usage:
+    description: This section includes information about how the data can be used and how it is currently being used
+    title: Usage
+
+    dataUseLimitation:
+      description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE"
+      title: Data use limitation
+
+    dataUseRequirements:
+      description: Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.
+      title: Data use requirements
+
+    resourceCreator:
+      description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'
+      title: Citation requirements
+
+    investigations:
+      description: Please provide link to any active projects that are using the dataset.
+      title: Investigations
+
+    publicationAboutDataset:
+      description: DOIs for publications which describe the dataset.
+      title: Publication about the dataset
+
+    publicationUsingDataset:
+      description: DOIs for publications which use the dataset for analysis.
+      title: Publication using the dataset
+
+  access:
+    description: This section includes information about data access
+    title: Access
+
+    accessRights:
+      title: Access rights
+      description: Please provide details for the data access rights
+
+    accessService:
+      description: "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset."
+      examples:
+        - "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+      title: Access service description
+
+    accessRequestCost:
+      description: Please provide link(s) to a webpage or description detailing the service or cost model for processing data access requests.
+      title: Access request cost
+
+    deliveryLeadTime:
+      description: Please provide an indication of the typical processing times based on the types of requests typically received.
+      title: Time to dataset access
+
+    jurisdiction:
+      description: Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.
+      title: Jurisdiction
+
+    dataController:
+      description: "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed."
+      title: Data Controller
+
+    dataProcessor:
+      description: "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller."
+      title: Data Processor
+
+    accessServiceCategory:
+      description: The method a Researcher will use to access the dataset, if approved.
+      examples:
+        - TRE/SDE
+      title: Access method category
+
+    accessMode:
+      description: Indication of the application type to enable research access.
+      title: Access mode
+
+  formatAndStandards: 
+    description: Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.
+    title: Format and Standards
+    vocabularyEncodingScheme:
+      description: "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided."
+      title: Controlled vocabulary
+    conformsTo:
+      description: List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition.
+      title: Alignment with standardised data models
+    language:
+      description: This should list all the languages in which the dataset metadata and underlying data is made available.
+      title: Language
+    format:
+      description: "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format."
+      title: Format
+
+enrichmentAndLinkage:
+  description: This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.
+  title: Enrichment and Linkage
+  qualifiedRelation:
+    description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate “ALL” and the onboarding portal will automate linkage across the datasets submitted."
+    title: Linked Datasets
+  derivation:
+    description: "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset."
+    title: Derivations
+  tools:
+    description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
+    title: Tools
+  syntheticDataWebLink:
+    description: Links to locations of information and or raw downloads of synthetic data associated with this dataset
+    title: Synthetic Data Web Links
+
+observations:
+  description: |
+    Multiple observations about the dataset may be provided and users are expected to provide at least one observation 
+    (1..*). We will be supporting the schema.org observation model (https://schema.org/Observation) with default values. Users will be encouraged to provide their own statistical populations as the project progresses. 
+    Example: 
+          &lt;b&gt; Statistical Population 1 
+          &lt;/b&gt; type: StatisticalPopulation populationType: Persons numConstraints: 0 
+          &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: “2017”"
+  title: Observations
+  observedNode:
+    description: Please select one of the following statistical populations for you observation
+    examples:
+      - "PERSONS"
+    title: Dataset volume measure
+  measuredValue:
+    description: "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset."
+    title: Measured value
+
+  disambiguatingDescription:
+    description: "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type."
+    title: Disambiguating description
+
+  observationDate:
+    description: Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.
+    title: Observation date
+
+  measuredProperty:
+    description: Descibe the property used to measure each observation.
+    title: Measured property
+
+structuralMetadata:
+  title: Structural Metadata
+  description: Structural metadata about tables, columns and values
+
+dataClass:
+  column:
+    name: 
+    description:
+    frequency:
