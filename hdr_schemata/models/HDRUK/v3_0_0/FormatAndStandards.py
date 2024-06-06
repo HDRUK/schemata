@@ -1,17 +1,16 @@
 from typing import Optional, List, Union
-from pydantic import Field
+from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
 
 from .annotations import annotations
 
 an = annotations.accessibility.formatAndStandards
 
-from hdr_schemata.models.HDRUK.v2_2_1.FormatAndStandards import (
-    FormatAndStandards as BaseFormatAndStandards,
-)
 
-
-class FormatAndStandards(BaseFormatAndStandards):
+class FormatAndStandards(BaseModel):
+    class Config:
+        extra = "forbid"
+        
     vocabularyEncodingScheme: Union[
         Optional[CommaSeparatedValues], List[ControlledVocabulary]
     ] = Field(..., **an.vocabularyEncodingScheme.__dict__)

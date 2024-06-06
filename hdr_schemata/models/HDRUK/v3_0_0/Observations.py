@@ -1,14 +1,15 @@
-from hdr_schemata.models.HDRUK.v2_2_1 import Observation as BaseObservation
 from hdr_schemata.definitions.HDRUK import *
 from typing import Optional, Union
-from pydantic import Field
+from pydantic import BaseModel, Field
 from datetime import date, datetime
 
 from .annotations import annotations
 
 an = annotations.observations
 
-class Observation(BaseObservation):
+class Observation(BaseModel):
+    class Config:
+        extra = "forbid" 
     
     observedNode: StatisticalPopulationConstrainedV2 = Field(
         ..., **an.observedNode.__dict__
@@ -23,5 +24,3 @@ class Observation(BaseObservation):
     observationDate: Union[date, datetime] = Field(..., **an.observationDate.__dict__)
 
     measuredProperty: MeasuredProperty = Field(..., **an.measuredProperty.__dict__)
-
-

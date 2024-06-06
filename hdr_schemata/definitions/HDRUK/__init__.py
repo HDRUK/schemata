@@ -30,6 +30,7 @@ from .Name import Name
 from .OneHundredFiftyCharacters import OneHundredFiftyCharacters
 from .Periodicity import Periodicity, PeriodicityV2
 from .PhysicalSampleAvailability import PhysicalSampleAvailability
+from .Pipeline import Pipeline
 from .Purpose import Purpose, PurposeV2
 from .Semver import Semver
 from .Setting import Setting, SettingV2

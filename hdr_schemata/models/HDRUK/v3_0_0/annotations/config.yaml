@@ -1,5 +1,22 @@
+identifier:
+  title: "Dataset identifier"
+  description: System dataset identifier
+  examples:
+    - "226fb3f1-4471-400a-8c39-2b66d46a39b6"
+    - "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
+
+version:
+  title: "Dataset Version"
+  description: "Dataset metadata version"
+  examples:
+    - "1.1.0"
 
 summary:
+  title:
+    title: Title
+    description: Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.
+    examples:
+      - North West London COVID-19 Patient Level Situation Report
 
   abstract:
     description: Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible
@@ -50,6 +67,15 @@ summary:
     description: Input the number of people captured within the dataset
     title: Dataset population size
 
+  keywords:
+    description: "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users."
+    title: Keywords
+
+  alternateIdentifiers:
+    description: "Alternate dataset identifiers or local identifiers"
+    title: Alternate dataset identifiers
+
+
 documentation:
   _description: Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.
   _title: Documentation
@@ -63,6 +89,10 @@ documentation:
       - PDF Document that describes study protocol
     title: Associated media
 
+  inPipeline:
+    description: Indicate whether this dataset is currently available for Researchers to request access.
+    title: Dataset pipeline status
+
 coverage:
   spatial:
     description: The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.
@@ -70,9 +100,17 @@ coverage:
       - https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html
     title: Geographic coverage
   
-  typicalAgeRange:
-    description: "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] – [max age]' where both the minimum and maximum are whole numbers (integers)."
-    title: Age range
+  typicalAgeRangeMin:
+    description: "Please indicate the minimum age in years of participants in the dataset as a whole number (integer)."
+    title: Minimum age range
+    examples:
+      - 18
+
+  typicalAgeRangeMax:
+    description: "Please indicate the maximum age in years of participants in the dataset as a whole number (integer)."
+    title: Maximum age range
+    examples:
+      - 90
 
   followup:
     description: If known, what is the typical time span that a patient appears in the dataset (follow up period)
@@ -89,6 +127,10 @@ coverage:
   materialType:
     description: The type of biospecimen saved from a biological entity.
     title: Biological sample availability
+
+  gender:
+    title: Gender
+    description: Male, Female, Other 
   
 provenance:
   description: Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.
@@ -159,18 +201,6 @@ accessibility:
       description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'
       title: Citation requirements
 
-    investigations:
-      description: Please provide link to any active projects that are using the dataset.
-      title: Investigations
-
-    publicationAboutDataset:
-      description: DOIs for publications which describe the dataset.
-      title: Publication about the dataset
-
-    publicationUsingDataset:
-      description: DOIs for publications which use the dataset for analysis.
-      title: Publication using the dataset
-
   access:
     description: This section includes information about data access
     title: Access
@@ -234,18 +264,33 @@ accessibility:
 enrichmentAndLinkage:
   description: This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers.
   title: Enrichment and Linkage
-  qualifiedRelation:
-    description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked, where possible using the same title of a dataset previously onboarded to the HOP. Note: If all the datasets from Gateway organisation can be linked please indicate “ALL” and the onboarding portal will automate linkage across the datasets submitted."
-    title: Linked Datasets
-  derivation:
-    description: "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset."
-    title: Derivations
+  derivedFrom:
+    description: If applicable, please provide DOIs or links to datasets from which data in this dataset can be derived or calculated.
+    title: Derived from
+  isPartOf:
+    description: This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data.
+    title: Is part of
+  linkableDatasets:
+    description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked."
+    title: Linked datasets
+  similarToDatasets:
+    description: Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc.
+    title: Similar to datasets
+  investigations:
+    description: Please provide link to any active projects that are using the dataset.
+    title: Investigations
   tools:
     description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
     title: Tools
   syntheticDataWebLink:
     description: Links to locations of information and or raw downloads of synthetic data associated with this dataset
     title: Synthetic Data Web Links
+  publicationAboutDataset:
+    description: DOIs for publications which describe the dataset.
+    title: Publication about the dataset
+  publicationUsingDataset:
+    description: DOIs for publications which use the dataset for analysis.
+    title: Publication using the dataset
 
 observations:
   description: |
@@ -278,11 +323,46 @@ observations:
     title: Measured property
 
 structuralMetadata:
+  description: Descriptions of all tables and data elements that can be included in the dataset
   title: Structural Metadata
-  description: Structural metadata about tables, columns and values
 
-dataClass:
-  column:
-    name: 
+  tables:
+    name:
+      description: The name of a table in a dataset.
+      title: Table Name
     description:
-    frequency:
+      description: A description of a table in a dataset.
+      title: Table Description'
+    columns:
+      _description: "A list of columns contained within a table in a dataset."
+      _title: "Data Columns"
+      name:
+        description: "The name of a column in a table."
+        title: "Column Name"
+
+      dataType:
+        description: "The data type of values in the column"
+        title: "Data Type"
+
+      description:
+        description: "A description of a column in a table."
+        title: "Column Description"
+
+      sensitive:
+        description: "A True or False value, indicating if the field is sensitive or not"
+        title: "Sensitive"
+
+      values:
+        _title: "Values"
+        _description: "values in a dataset"
+        name:
+          description: "Unique value in a column ."
+          title: "Value Name"
+
+        description:
+          description: "A description of a unique value in a column."
+          title: "Value Description"
+
+        frequency:
+          description: "The frequency of occurrance of a value in a column"
+          title: "Value Frequency"

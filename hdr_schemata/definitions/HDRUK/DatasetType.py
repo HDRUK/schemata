@@ -90,3 +90,4 @@ class DatasetSubType(Enum):
     NATIONAL_DISEASE_REGISTRIES_AND_AUDITS = 'National Disease Registries and Audits'
     BIRTHS_AND_DEATHS = 'Births and Deaths'
     # OTHERS = 'Others'
+    NOT_APPLICABLE = 'Not applicable'

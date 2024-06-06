@@ -1,5 +1,4 @@
-from hdr_schemata.models.HDRUK.v2_2_1 import Accessibility as BaseAccessibility
-from pydantic import Field
+from pydantic import BaseModel, Field
 from typing import Optional
 from hdr_schemata.definitions.HDRUK import *
 
@@ -12,8 +11,10 @@ from .annotations import annotations
 an = annotations.accessibility
 
 
-class Accessibility(BaseAccessibility):
-
+class Accessibility(BaseModel):
+    class Config:
+        extra = "forbid"
+    
     usage: Optional[Usage] = Field(
         None, title=an.usage.title, description=an.usage.description
     )
@@ -25,3 +26,4 @@ class Accessibility(BaseAccessibility):
         title=an.formatAndStandards.title,
         description=an.formatAndStandards.description,
     )
+

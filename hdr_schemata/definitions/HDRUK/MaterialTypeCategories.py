@@ -17,7 +17,7 @@ class MaterialTypeCategories(Enum):
     URINE = "Urine"
 
 class MaterialTypeCategoriesV2(Enum):
-    NOT_AVAILABLE = 'Not available'
+    NOT_AVAILABLE = 'None/not available'
     BONE_MARROW = 'Bone marrow'
     CANCER_CELL_LINES = 'Cancer cell lines'
     CDNA_MRNA = 'CDNA/MRNA'

@@ -1,22 +1,33 @@
-from hdr_schemata.models.HDRUK.v2_2_1 import Hdruk221
+from hdr_schemata.definitions.HDRUK import *
 import json
-from typing import Optional, List
-from pydantic import Field
+from typing import Optional, List, Union
+from pydantic import Field, BaseModel
+from datetime import date, datetime
 
 from .Accessibility import Accessibility
 from .Coverage import Coverage
-from .DataClass import DataClass
+from .DataTable import DataTable
 from .Documentation import Documentation
 from .EnrichmentAndLinkage import EnrichmentAndLinkage
 from .Observations import Observation
 from .Provenance import Provenance
+from .Revision import Revision
 from .Summary import Summary
-from .TissuesSampleCollection import TissuesSampleCollection
 
 from .annotations import annotations as an
 
 
-class Hdruk300(Hdruk221):
+class Hdruk300(BaseModel):
+    class Config:
+        extra = "forbid"
+
+    identifier: Union[Uuidv4, Optional[Url]] = Field(..., **an.identifier.__dict__)
+    version: Semver = Field(..., **an.version.__dict__)
+    revisions: List[Revision] = Field(
+        ..., description=an.revisions.description, title=an.revisions.title
+    )
+    issued: datetime = Field(..., **an.issued.__dict__)
+    modified: datetime = Field(..., **an.modified.__dict__)
 
     summary: Summary = Field(
         ..., description=an.summary._description, title=an.summary._title
@@ -48,13 +59,7 @@ class Hdruk300(Hdruk221):
         ..., description=an.observations.description, title=an.observations.title
     )
 
-    tissuesSampleCollection: Optional[List[TissuesSampleCollection]] = Field(
-        None,
-        description="Metadata collection for Tissue Samples datasets",
-        title="Tissues Sample Collection",
-    )
-
-    structuralMetadata: Optional[List[DataClass]] = Field(
+    structuralMetadata: Optional[List[DataTable]] = Field(
         None,
         description=an.structuralMetadata.description,
         title=an.structuralMetadata.title,

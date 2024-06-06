@@ -1,9 +1,7 @@
-from pydantic import Field
+from pydantic import BaseModel, Field
 from typing import Optional, Union
 from datetime import date, datetime
 from hdr_schemata.definitions.HDRUK import *
-from hdr_schemata.models.HDRUK.v2_1_3.Temporal import Temporal as BaseTemporal
-from hdr_schemata.models import remove_fields_from_cls
 
 
 from .annotations import annotations
@@ -11,7 +9,10 @@ from .annotations import annotations
 an = annotations.provenance.temporal
 
 
-class Temporal(BaseTemporal):
+class Temporal(BaseModel):
+    class Config:
+        extra = "forbid"
+
     publishingFrequency: PeriodicityV2 = Field(..., **an.publishingFrequency.__dict__)
 
     distributionReleaseDate: Optional[Union[date, datetime]] = Field(

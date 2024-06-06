@@ -8,7 +8,9 @@ from .annotations import annotations
 an = annotations.documentation
 
 
-class Documentation(BaseDocumentation):
+class Documentation(BaseModel):
+    class Config:
+        extra = "forbid"
 
     description: Description = Field(None, **an.description.__dict__)
 
@@ -16,9 +18,5 @@ class Documentation(BaseDocumentation):
         Union[Optional[CommaSeparatedValues], List[Optional[Url]]]
     ] = Field(None, **an.associatedMedia.__dict__)
 
-    isPartOf: Optional[
-        Union[
-            Optional[CommaSeparatedValues],
-            List[Union[Optional[Url], OneHundredFiftyCharacters, IsPartOfEnum]],
-        ]
-    ] = Field("NOT APPLICABLE", **an.isPartOf.__dict__)
+    inPipeline: Optional[Pipeline] = Field("Not available", **an.inPipeline.__dict__)
+

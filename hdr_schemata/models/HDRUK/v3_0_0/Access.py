@@ -1,17 +1,25 @@
-from typing import Optional, List
-from pydantic import Field
+from typing import Optional, List, Union
+from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
-
-from hdr_schemata.models.HDRUK.v2_2_1.Access import Access as BaseAccess
-
 
 from .annotations import annotations
 
 an = annotations.accessibility.access
 
 
-class Access(BaseAccess):
+class Access(BaseModel):
+    class Config:
+        extra = "forbid"
+
     accessRights: LongDescription = Field(..., **an.accessRights.__dict__)
+
+    accessServiceCategory: Optional[AccessService] = Field(
+        None, **an.accessServiceCategory.__dict__
+    )
+
+    accessMode: Optional[AccessMode] = Field(
+        "New project", **an.accessMode.__dict__
+    )
 
     accessService: Optional[LongDescription] = Field(None, **an.accessService.__dict__)
     
@@ -21,10 +29,11 @@ class Access(BaseAccess):
         None, **an.deliveryLeadTime.__dict__
     )
 
-    accessServiceCategory: Optional[AccessService] = Field(
-        None, **an.accessServiceCategory.__dict__
+    jurisdiction: Union[Optional[CommaSeparatedValues], List[Isocountrycode]] = Field(
+        ..., **an.jurisdiction.__dict__
     )
-
-    accessMode: Optional[AccessMode] = Field(
-        "New project", **an.accessMode.__dict__
-    )
+    
+    dataController: Optional[LongDescription] = Field(..., **an.dataController.__dict__)
+    
+    dataProcessor: Optional[LongDescription] = Field(None, **an.dataProcessor.__dict__)
+    
