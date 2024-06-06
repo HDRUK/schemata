@@ -1,0 +1,26 @@
+from datetime import date, datetime
+from enum import Enum
+from typing import List, Optional, Union
+
+from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
+
+from hdr_schemata.definitions.HDRUK import *
+
+from .annotations import annotations
+
+an = annotations.coverage
+
+
+class Coverage(BaseModel):
+
+    spatial: Optional[CommaSeparatedValues] = Field(None, **an.spatial.__dict__)
+
+    pathway: Optional[LongDescription] = Field(None, **an.pathway.__dict__)
+
+    followup: Optional[Followup] = Field(None, **an.followup.__dict__)
+
+    typicalAgeRange: Optional[AgeRange] = Field(None, **an.typicalAgeRange.__dict__)
+
+    datasetCompleteness: Optional[Url] = (
+        Field(None, **an.datasetCompleteness.__dict__)
+    )
