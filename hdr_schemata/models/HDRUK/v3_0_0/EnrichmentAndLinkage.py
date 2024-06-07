@@ -13,37 +13,21 @@ class EnrichmentAndLinkage(BaseModel):
     class Config:
         extra = "forbid"
 
-    derivedFrom: Optional[
-        Union[
-            Optional[CommaSeparatedValues], 
-            List[Optional[AbstractText]], 
-            List[DatasetDescriptor]
-        ]
-    ] = Field(None, **an.derivedFrom.__dict__)
+    derivedFrom: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.derivedFrom.__dict__
+    )
 
-    isPartOf: Optional[
-        Union[
-            Optional[CommaSeparatedValues],
-            List[Union[Url, OneHundredFiftyCharacters]],
-            List[DatasetDescriptor]
-        ]
-    ] = Field(None, **an.isPartOf.__dict__)
+    isPartOf: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.isPartOf.__dict__
+    )
 
-    linkableDatasets: Optional[
-        Union[
-            Optional[CommaSeparatedValues],
-            List[Union[Optional[Url], OneHundredFiftyCharacters]],
-            List[DatasetDescriptor]
-        ]
-    ] = Field(None, **an.linkableDatasets.__dict__)
+    linkableDatasets: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.linkableDatasets.__dict__
+    )
 
-    similarToDatasets: Optional[
-        Union[
-            Optional[CommaSeparatedValues],
-            List[Union[Optional[Url], OneHundredFiftyCharacters]],
-            List[DatasetDescriptor]
-        ]
-    ] = Field(None, **an.linkableDatasets.__dict__)
+    similarToDatasets: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.similarToDatasets.__dict__
+    )
 
     investigations: Optional[List[Url]] = Field(None, **an.investigations.__dict__)
     

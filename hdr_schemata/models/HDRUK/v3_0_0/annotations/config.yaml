@@ -35,7 +35,7 @@ summary:
 
     name:
       description: The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.
-      title: Name of Data Provider
+      title: Name of data provider
 
     logo:
       description: Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.
