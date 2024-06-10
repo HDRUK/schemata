@@ -15,4 +15,11 @@ class DataUseLimitation(Enum):
     RESEARCH_USE_ONLY = 'RESEARCH USE ONLY'
     NO_LINKAGE = 'NO LINKAGE'
 
-
+class DataUseLimitationV2(Enum):
+    GENERAL_RESEARCH_USE = 'General research use'
+    GENETIC_STUDIES_ONLY = 'Genetic studies only'
+    NO_GENERAL_METHODS_RESEARCH = 'No general methods research'
+    NO_RESTRICTION = 'No restriction'
+    RESEARCH_SPECIFIC_RESTRICTIONS = 'Research-specific restrictions'
+    RESEARCH_USE_ONLY = 'Research use only'
+    NO_LINKAGE = 'No linkage'

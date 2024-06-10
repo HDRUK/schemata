@@ -20,4 +20,19 @@ class Periodicity(Enum):
     OTHER = 'OTHER'
     NoneType_None = None
 
-
+class PeriodicityV2(Enum):
+    STATIC = 'Static'
+    IRREGULAR = 'Irregular'
+    CONTINUOUS = 'Continuous'
+    BIENNIAL = 'Biennial'
+    ANNUAL = 'Annual'
+    BIANNUAL = 'Biannual'
+    QUARTERLY = 'Quarterly'
+    BIMONTHLY = 'Bimonthly'
+    MONTHLY = 'Monthly'
+    BIWEEKLY = 'Biweekly'
+    WEEKLY = 'Weekly'
+    TWICE_A_WEEK = 'Twice a week'
+    DAILY = 'Daily'
+    OTHER = 'Other'
+    NoneType_None = None

@@ -12,4 +12,13 @@ class DeliveryLeadTime(Enum):
     OTHER = 'OTHER'
     NoneType_None = None
 
-
+class DeliveryLeadTimeV2(Enum):
+    LESS_THAN_1_WEEK = 'Less than 1 week'
+    ONE_TWO_WEEKS = '1-2 weeks'
+    TWO_FOUR_WEEKS = '2-4 weeks'
+    ONE_TWO_MONTHS = '1-2 months'
+    TWO_SIX_MONTHS = '2-6 months'
+    MORE_THAN_6_MONTHS = 'More than 6 months'
+    VARIABLE = 'Variable'
+    NOT_APPLICABLE = 'Not applicable'
+    OTHER = 'Other'

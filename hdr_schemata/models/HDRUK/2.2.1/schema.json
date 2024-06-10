@@ -946,7 +946,7 @@
                               "examples": [
                                     "LOCAL,NHS DATA DICTIONARY"
                               ],
-                              "title": "Conforms To"
+                              "title": "Alignment with standardised data models"
                         },
                         "language": {
                               "anyOf": [
@@ -1340,8 +1340,8 @@
                                           "$ref": "#/$defs/MeasuredProperty"
                                     }
                               ],
-                              "description": "Initially this will be defaulted to \"COUNT\"",
-                              "title": "Measured Property"
+                              "description": "Descibe the property used to measure each observation.",
+                              "title": "Measured property"
                         }
                   },
                   "required": [
@@ -1473,7 +1473,7 @@
                               ],
                               "default": null,
                               "description": "Please indicate the purpose(s) that the dataset was collected.",
-                              "title": "Purpose"
+                              "title": "Purpose of dataset collection"
                         },
                         "source": {
                               "anyOf": [
@@ -1488,8 +1488,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate the source of the data extraction",
-                              "title": "Source"
+                              "description": "Please indicate the source of the data extraction.",
+                              "title": "Source of data extraction"
                         },
                         "collectionSituation": {
                               "anyOf": [
@@ -1556,7 +1556,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Coverate by origin (geographical and situations)",
+                              "description": "Coverate by origin (geographical and situations).",
                               "title": "Origin Coverage"
                         },
                         "temporal": {

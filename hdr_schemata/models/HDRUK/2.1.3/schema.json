@@ -1344,7 +1344,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Dates and other temporal coverage information",
+                              "description": "Dates and other temporal coverage information.",
                               "title": "Temporal Coverage"
                         }
                   },
