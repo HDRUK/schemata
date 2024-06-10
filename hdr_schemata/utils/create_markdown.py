@@ -73,12 +73,18 @@ def get_fields(structure, model: type[BaseModel]):
 
         is_list, is_optional, type_names, _types = extract_type_info(_type)
 
+        if field.json_schema_extra is not None and "guidance" in field.json_schema_extra:
+            guidance = field.json_schema_extra["guidance"]
+        else:
+            guidance = ""
+
         value = {
             "name": name,
             "required": field.is_required(),
             "title": field.title,
             "description": field.description,
             "title": field.title,
+            "guidance": guidance,
             "examples": field.examples,
             "type": type_names,
             "types": _types,

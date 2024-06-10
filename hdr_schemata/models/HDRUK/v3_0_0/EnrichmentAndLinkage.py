@@ -29,15 +29,25 @@ class EnrichmentAndLinkage(BaseModel):
         None, **an.similarToDatasets.__dict__
     )
 
-    investigations: Optional[List[Url]] = Field(None, **an.investigations.__dict__)
+    investigations: Optional[List[Url]] = Field(
+        None, **an.investigations.__dict__, json_schema_extra={"guidance": an.investigations.guidance}
+    )
     
     tools: Optional[List[Url]] = Field(
-        None, **an.tools.__dict__
+        None, **an.tools.__dict__, json_schema_extra={"guidance": an.tools.guidance}
     )
 
     publicationAboutDataset: Optional[List[Doi]
-    ] = Field(None, **an.publicationAboutDataset.__dict__)
+    ] = Field(
+        None, 
+        **an.publicationAboutDataset.__dict__, 
+        json_schema_extra={"guidance": an.publicationAboutDataset.guidance}
+    )
 
     publicationUsingDataset: Optional[List[Doi]
-    ] = Field(None, **an.publicationUsingDataset.__dict__)
+    ] = Field(
+        None, 
+        **an.publicationUsingDataset.__dict__, 
+        json_schema_extra={"guidance": an.publicationUsingDataset.guidance}
+    )
 

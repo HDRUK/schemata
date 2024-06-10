@@ -11,14 +11,17 @@ an = annotations.summary.organisation
 
 class Organisation(BaseOrganisation):
 
-    identifier: Optional[Url] = Field(None, **an.identifier.__dict__)
+    identifier: Optional[Url] = Field(
+        None, **an.identifier.__dict__, json_schema_extra={"guidance": an.identifier.guidance}
+    )
 
     name: OneHundredFiftyCharacters = Field(
         ...,
         **an.name.__dict__,
+        json_schema_extra={"guidance": an.name.guidance}
     )
 
     contactPoint: Union[EmailAddress, List[EmailAddress]] = Field(
         ...,
-        **an.contactPoint.__dict__,
+        **an.contactPoint.__dict__
     )

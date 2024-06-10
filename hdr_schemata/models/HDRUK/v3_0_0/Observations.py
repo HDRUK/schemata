@@ -12,15 +12,21 @@ class Observation(BaseModel):
         extra = "forbid" 
     
     observedNode: StatisticalPopulationConstrainedV2 = Field(
-        ..., **an.observedNode.__dict__
+        ..., **an.observedNode.__dict__, json_schema_extra={"guidance": an.observedNode.guidance}
     )
 
-    measuredValue: int = Field(..., **an.measuredValue.__dict__)
+    measuredValue: int = Field(..., **an.measuredValue.__dict__, json_schema_extra={"guidance": an.measuredValue.guidance})
 
     disambiguatingDescription: Optional[AbstractText] = Field(
-        None, **an.disambiguatingDescription.__dict__
+        None, **an.disambiguatingDescription.__dict__, json_schema_extra={"guidance": an.disambiguatingDescription.guidance}
     )
 
-    observationDate: Union[date, datetime] = Field(..., **an.observationDate.__dict__)
+    observationDate: Union[date, datetime] = Field(
+        ..., 
+        **an.observationDate.__dict__, 
+        json_schema_extra={"guidance": an.observationDate.guidance}
+    )
 
-    measuredProperty: MeasuredProperty = Field(..., **an.measuredProperty.__dict__)
+    measuredProperty: MeasuredProperty = Field(
+        ..., **an.measuredProperty.__dict__, json_schema_extra={"guidance": an.measuredProperty.guidance}
+    )
