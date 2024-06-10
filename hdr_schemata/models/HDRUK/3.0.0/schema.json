@@ -1827,6 +1827,7 @@
                               "examples": [
                                     "North West London COVID-19 Patient Level Situation Report"
                               ],
+                              "guidance": "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\n- If the dataset is a **\u201clinked dataset\u201d**, please indicate this using the prefix **\u201cLinked\u201d**.\n- Please **avoid acronyms** wherever possible.\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\n- **Example**: North West London COVID-19 Patient Level Situation Report",
                               "title": "Title"
                         },
                         "abstract": {
