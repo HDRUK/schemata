@@ -11,11 +11,11 @@ summary:
   doiName:
     guidance: "- Please note: This is **not** the DOI of the publication(s) associated with the dataset.\\n- All HDR UK registered **datasets** should either have a **Digital Object Identifier (DOI)** or be working towards obtaining one.\\n- If a DOI is available, please provide the DOI.\\n- **Example**: 10.1093/ije/dyx196\\n- **What happens if I do not have a DOI?**: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service.',"
     title: "DOI for dataset"
-    description: "DOI associated to this dataset"
+    description: "DOI associated to this dataset."
   populationSize:
     guidance: "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the **Observations** fields. The filter also allows for Researchers to search datasets which have no population size reported, but will **not** pull any population size captured in the **Observations** section."
     title: "Dataset population size"
-    description: "Input the number of people captured within the dataset"
+    description: "Input the number of people captured within the dataset."
   keywords:
     guidance: "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches.\\n- **Example**: Health Data, Research, SAIL, Primary care, GP',"
     title: "Keywords"
@@ -31,9 +31,10 @@ summary:
     examples:
       - "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
     title: "Dataset abstract"
-    description: "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible"
+    description: "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible."
   organisation:
     name:
+      guidance: In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.
       title: "Name of data provider"
       description: "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata."
     contactPoint:
@@ -43,6 +44,7 @@ summary:
       title: "Organisation Logo"
       description: "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg."
     identifier:
+      guidance: "**Example**: https://ror.org/053fq8t95 \n  If your organisation does not have a ROR identifier please use the “suggest and institute” function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform"
       title: "identifier"
       description: "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation."
     description:
@@ -50,10 +52,10 @@ summary:
       description: "Please provide a URL that describes the organisation."
     memberOf:
       title: "Organisation Membership"
-      description: "Please indicate if the organisation is an Alliance Member or a Hub.'"
+      description: "Please indicate if the organisation is an Alliance Member or a Hub."
   alternateIdentifiers:
     title: "Alternate dataset identifiers"
-    description: "Alternate dataset identifiers or local identifiers"
+    description: "Alternate dataset identifiers or local identifiers."
 provenance:
   temporal:
     distributionReleaseDate:
@@ -67,13 +69,13 @@ provenance:
     timeLag:
       guidance: "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.\\n\\n- **Less than 1 week**: Typical time lag of less than a week\\n- **1-2 weeks**: Typical time lag of one to two weeks\\n- **2-4 weeks**: Typical time lag of two to four weeks\\n- **1-2 months**: Typical time lag of one to two months\\n- **2-6 months**: Typical time lag of two to six months\\n- **6 months plus**: Typical time lag of more than six months\\n- **Variable**: Variable time lag\\n- **Not applicable**: Not Applicable i.e. static dataset\\n- **Other**: Other time lag',"
       title: "Time lag"
-      description: "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset"
+      description: "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset."
     title: "Temporal Coverage"
     endDate:
       guidance: "- The end of the time period that the dataset provides coverage for.\\n- If the dataset is **“Continuous”** and has no known end date, **please leave blank**.\\n- If there are **multiple cohorts** in the dataset with varying end dates, please provide the **latest date**.',"
       title: "End date"
-      description: "The end of the time period that the dataset provides coverage for. If the dataset is “Continuous” and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'"
-    description: "Dates and other temporal coverage information"
+      description: "The end of the time period that the dataset provides coverage for. If the dataset is “Continuous” and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information."
+    description: "Dates and other temporal coverage information."
     publishingFrequency:
       guidance: "'- Please indicate the frequency of publishing.\\n- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.\\n- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.\\n- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.\\n- If a dataset is released on an irregular basis or “on-demand” please indicate that it is Irregular and leave release date as null.\\n- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.\\n- Notes: see <https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/>\\n- **Static**: Dataset published once.\\n- **Irregular**: Dataset published at uneven intervals.\\n- **Continuous**: Dataset published without interruption.\\n- **Biennial**: Dataset published every two years.\\n- **Annual**: Dataset published occurs once a year.\\n- **Biannual**: Dataset published twice a year.\\n- **Quarterly**: Dataset published every three months.\\n- **Bimonthly**: Dataset published every two months.\\n- **Monthly**: Dataset published once a month.\\n- **Biweekly**: Dataset published every two weeks.\\n- **Weekly**: Dataset published once a week.\\n- **Twice weekly**: Dataset published twice a week.\\n- **Daily**: Dataset published once a day.\\n- **Other**: Dataset published using other interval.',"
       title: "Publishing frequency"
@@ -85,7 +87,7 @@ provenance:
       guidance: |-
         "\n**Cohort, study, trial**: Cohort, study or trial data collection as part of protocol \n**Clinic**: Specific clinic such as antenatal clinic \n**Primary care - Referrals**: General medical practitioner referral to another service \n**Primary care - Clinic**: General medical practitioner practice \n**Primary care - Out of hours**: General medical practitioner care or advice outside of standard hours \n**Secondary care - Accident and emergency**: Accident emergency department \n**Secondary care - Outpatients**: Outpatient care \n**Secondary care - In-patients**: In-patient care \n**Secondary care - Ambulance**: Care provided in association with ambulance service \n**Secondary care - ICU**: Intensive care units, also referred to as critical care units (CCUs) or intensive therapy units (ITUs) \n**Prescribing - Community pharmacy**: Pharmacy based in the community \n**Prescribing - Community pharmacy**: Pharmacy based in a hospital setting \n**Patient report outcome**: Reported by patient \n**Wearables**: Data collection devices worn on the body \n**Local authority**: Local authority or entity associated with a local authority \n**National government**: National government or entity associated with the national government \n**Community**: Community settings \n**Services**: Services such as drug misuse or blood transfusion \n**Home**: Home setting \n**Private**: Private medical clinic \n**Social care - Health care at home**: service provided in the home or residence of a person \n**Social care - Other social data**: service provided in a setting outside of the person's home or residence \n**Census**: collected as part of census \n**Other**: Other setting"
       title: "Collection source setting"
-      description: "Please indicate the setting(s) where data was collected. Multiple settings may be provided"
+      description: "Please indicate the setting(s) where data was collected. Multiple settings may be provided."
     purpose:
       guidance: "-**Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme\\n- **Administrative**: Data collected for administrative and management information purposes\\n- **Financial**: Data collected either for payments or for billing\\n- **Other**: Data collected for other purpose',"
       title: "Purpose of dataset collection"
@@ -98,7 +100,7 @@ provenance:
     source:
       guidance: "- **EPR**: Data Extracted from Electronic Patient Record\\n- **Electronic survey**: Data has been extracted from electronic surveys\\n- **LIMS**: Data has been extracted from a laboratory information management system\\n- **Paper-based**: Data has been extracted from paper forms\\n- **Free text NLP**: Data has been extracted from unstructured freetext using natural language processing\\n- **Machine generated**: Data has been machine generated i.e. imaging\\n- **Other**: Data has been extracted by other means',"
       title: "Source of data extraction"
-      description: "Please indicate the source of the data extraction"
+      description: "Please indicate the source of the data extraction."
     datasetSubType:
       guidance: |-
         "Sub-types include those liste below under each data type. Datasets can have more than one sub-type associated. • **Health and disease** - Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing. • **Treatments/Interventions** - Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature. • **Measurements/Tests** - Includes any data related to laboratory or other diagnostics. • **Imaging types** - Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging. • **Imaging area of the body** - Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging. • **Omics** - Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics. • **Socioeconomic** - Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances. • **Lifestyle** - Includes any data related to smoking, physical activity, dietary habits or alcohol. • **Registry** - Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records. • **Environment and energy** - Includes any data related to the monitoring or study of environmental or energy factors or events. • **Information and communication** - Includes any data related to the study or application of information and communication. • **Politics** - Includes any data related to political views, activities, voting, etc."
@@ -109,15 +111,16 @@ provenance:
       guidance: "If any constrast media or constrast agents were used in creating the images within the dataset and the constrast is known, mark 'Yes'. If this information is not known or not captured, indicate 'Not stated'. If there was no contrast used in the images, mark 'No'."
       title: "Image contrast"
       description: "Indicate whether usage of imaging contrast is captured within the dataset."
-    description: "Coverate by origin (geographical and situations)"
+    description: "Coverate by origin (geographical and situations)."
 observations:
   observedNode:
     guidance: "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n - **Findings**: Unique findings included in the dataset such as diagnoses, test '\\n-**Number of scans per modality**: Unique scans for a specified modality (e.g. 12 x-rays)"
     examples:
       - "PERSONS"
     title: "Dataset volume measure"
-    description: "Please select one of the following statistical populations for you observation"
+    description: "Please select one of the following statistical populations for you observation."
   disambiguatingDescription:
+    guidance: If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the dataset volume measure type.
     title: "Disambiguating description"
     description: "If SNOMED CT term does not provide sufficient detail, please provide a description that disambiguates the population type."
   measuredProperty:
@@ -144,56 +147,59 @@ observations:
 structuralMetadata:
   tables:
     name:
-      title: "Table Name"
+      title: "Table name"
       description: "The name of a table in a dataset."
+    syntheticDataWebLink:
+      title: "Synthetic data web links"
+      description: "Links to locations of information and or raw downloads of synthetic data associated with this dataset."
     description:
-      title: "Table Description'"
+      title: "Table description"
       description: "A description of a table in a dataset."
     columns:
       name:
-        title: "Column Name"
+        title: "Column name"
         description: "The name of a column in a table."
       _description: "A list of columns contained within a table in a dataset."
       values:
         name:
-          title: "Value Name"
-          description: "Unique value in a column ."
-        _description: "values in a dataset"
+          title: "Value name"
+          description: "Unique value in a column."
+        _description: "Values in a dataset."
         _title: "Values"
         frequency:
-          title: "Value Frequency"
-          description: "The frequency of occurrance of a value in a column"
+          title: "Value frequency"
+          description: "The frequency of occurrance of a value in a column."
         description:
-          title: "Value Description"
+          title: "Value description"
           description: "A description of a unique value in a column."
       dataType:
-        title: "Data Type"
-        description: "The data type of values in the column"
+        title: "Data type"
+        description: "The data type of values in the column."
       sensitive:
         title: "Sensitive"
-        description: "A True or False value, indicating if the field is sensitive or not"
-      _title: "Data Columns"
+        description: "A True or False value, indicating if the field is sensitive or not."
+      _title: "Data columns"
       description:
-        title: "Column Description"
+        title: "Column description"
         description: "A description of a column in a table."
-  title: "Structural Metadata"
-  description: "Descriptions of all tables and data elements that can be included in the dataset"
+  title: "Structural metadata"
+  description: "Descriptions of all tables and data elements that can be included in the dataset."
 accessibility:
   usage:
     resourceCreator:
       guidance: "- Please provide the text that you would like included as part of any citation that credits this dataset.\\n- This is typically just the name of the publisher. No employee details should be provided.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\\n- **Example**: National Services Scotland',"
       title: "Citation requirements"
-      description: "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'"
+      description: "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided."
     title: "Usage"
     dataUseRequirements:
       guidance: "- Please indicate if there are any additional conditions set for use if any, multiple requirements may be provided.\\n- Please ensure that these restrictions are documented in access rights information.\\n\\n- **Collaboration required**: This requirement indicates that the requestor must agree to collaboration with the primary study investigator(s).\\n- **Ethics approval required**: This requirement indicates that the requestor must provide documentation of local IRB/ERB approval.\\n- **Geographical restrictions**: This requirement indicates that use is limited to within a specific geographic region.\\n- **Institution-specific restrictions**: This requirement indicates that use is limited to use within an approved institution.\\n- **Not for profit use**: This requirement indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.\\n- **Project-specific restrictions**: This requirement indicates that use is limited to use within an approved project.\\n- **Publication moratorium**: This requirement indicates that requestor agrees not to publish results of studies until a specific date.\\n- **Publication required**: This requirement indicates that requestor agrees to make results of studies using the data available to the larger scientific community.\\n- **Return to database or resource**: This requirement indicates that the requestor must return derived/enriched data to the database/resource.\\n- **Time limit on use**: This requirement indicates that use is approved for a specific number of months.\\n- **User-specific restriction**: This requirement indicates that use is limited to use by approved users.',"
       title: "Data use requirements"
       description: "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information."
-    description: "This section includes information about how the data can be used and how it is currently being used"
+    description: "This section includes information about how the data can be used and how it is currently being used."
     dataUseLimitation:
       guidance: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.\\n\\n- **General research use**: This data use limitation indicates that use is allowed for general research use for any research purpose\\n- **Genetic studies only**: This data use limitation indicates that use is limited to genetic studies only (i.e., no phenotype-only research)\\n- **No general methods research**: This data use limitation indicates that use includes methods development research(e.g., development of software or algorithms) only within the bounds of other use limitations.\\n- **No restriction**: This data use limitation indicates there is no restriction on use.\\n- **Research-specific restrictions**: This data use limitation indicates that use is limited to studies of a certain research type.\\n- **Research use only**: This data use limitation indicates that use is limited to research purposes (e.g., does not include its use in clinical care).\\n- **No linkage**: This data use limitation indicates there is a restriction on linking to any other datasets',"
       title: "Data use limitation"
-      description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE"
+      description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE."
   title: "Accessibility"
   access:
     dataProcessor:
@@ -208,7 +214,7 @@ accessibility:
       guidance: "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the publisher of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate that the publisher is a Processor rather than the data controller.\\n- In some cases, there may be multiple data controllers i.e. GP data. If this is the case please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- **Example**: NHS DIGITAL',"
       title: "Data Controller"
       description: "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed."
-    description: "This section includes information about data access"
+    description: "This section includes information about data access."
     accessMode:
       guidance: "Indicate whether a Researcher will need to join a consortium to enable access to the dataset, or if a Researcher will need to submit an application which describes a specific project and required dataset fields required."
       title: "Access mode"
@@ -222,7 +228,7 @@ accessibility:
     accessRights:
       guidance: "- The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both.\\n- If such a resource or the underlying process doesn’t exist, please provide “In Progress”, until both the process and the documentation are ready.',"
       title: "Access rights"
-      description: "Please provide details for the data access rights"
+      description: "Please provide details for the data access rights."
     accessServiceCategory:
       guidance: "Select the category which best matches how a Researcher will access the dataset, if approved for access. If the access method changes based on the data required for the project (e.g. the dataset can be shared via secure email if the extract is fully anonymised, but must be accessed via a TRE/SDE if the extract is only pseudonymised) then select 'varies based on project'."
       examples:
@@ -260,37 +266,37 @@ accessibility:
       title: "Alignment with standardised data models"
       description: "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use “other” and contact support desk to ask for an addition."
 enrichmentAndLinkage:
-  syntheticDataWebLink:
-    title: "Synthetic Data Web Links"
-    description: "Links to locations of information and or raw downloads of synthetic data associated with this dataset"
+  isPartOf:
+    title: "Is part of"
+    description: "This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data. Complete only if the dataset is part of a group or family of datasets i.e. Hospital Episode Statistics has several constituents. If your dataset is not part of a group, please enter “NOT APPLICABLE” **Example**: Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)."
   publicationAboutDataset:
+    guidance: "- Please provide the DOIs for publications which describe the dataset.\n- Please split your existing list of citations into separate fields.\n- To add multiple entries, please click on **'+' symbol** to enter each separate citation.\n- **Example**: <https://doi.org/10.1093/ije/dyab028>"
     title: "Publication about the dataset"
     description: "DOIs for publications which describe the dataset."
   similarToDatasets:
     title: "Similar to datasets"
     description: "Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc."
-  linkableDatasets:
-    title: "Linked datasets"
-    description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked."
-  isPartOf:
-    title: "Is part of"
-    description: "This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data."
   publicationUsingDataset:
+    guidance: "- Please provide the DOIs for publications which have used the dataset in their analysis.\n- Please split your existing list of citations into separate fields.\n- To add multiple entries, please click on **'+' symbol** to enter each separate citation.\n- **Example**: <https://doi.org/10.1001/jamapediatrics.2016.3633>."
     title: "Publication using the dataset"
     description: "DOIs for publications which use the dataset for analysis."
-  description: "This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers."
+  derivedFrom:
+    title: "Derived from"
+    description: "If applicable, please provide DOIs or links to datasets from which data in this dataset can be derived or calculated."
   tools:
     guidance: |-
       "- Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. - Multiple tools may be provided. - Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
     title: "Tools"
     description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
+  title: "Enrichment and Linkage"
+  description: "This section includes information about related datasets that may have previously been linked, as well as indicating if there is the opportunity to link to other datasets in the future. If a dataset has been enriched and/or derivations, scores and existing tools are available this section allows providers to indicate this to researchers."
+  linkableDatasets:
+    title: "Linked datasets"
+    description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked."
   investigations:
+    guidance: "- Please provide the website address(es) which document information related to active projects utilising the dataset.\n- Please split your existing list of citations into separate fields.\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\n- **Example**: <https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps>"
     title: "Investigations"
     description: "Please provide link to any active projects that are using the dataset."
-  derivedFrom:
-    title: "Derived from"
-    description: "If applicable, please provide DOIs or links to datasets from which data in this dataset can be derived or calculated."
-  title: "Enrichment and Linkage"
 documentation:
   inPipeline:
     guidance: "This metadata field is only relevant to the NHS SDE Network datasets. If a dataset is in development and not yet available for Researchers to apply for access, select 'Not available'. If Researchers can currently apply for access to the dataset, select 'Available'."
@@ -307,7 +313,7 @@ documentation:
   description:
     guidance: "- An HTML account of the data that **provides context and scope** of the data, **limited to 3000 characters, and/or a resolvable URL** that describes the dataset.\\n- Additional information can be recorded and included using media.',"
     title: "Description"
-    description: "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search"
+    description: "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search."
 coverage:
   datasetCompleteness:
     guidance: "If your organisation has a publicly available site which contains information on the completeness of a dataset, add that URL here.\\n- **Example**: <https://bhfdatasciencecentre.org/dashboard/>'"
@@ -327,11 +333,13 @@ coverage:
     title: "Biological sample availability"
     description: "The type of biospecimen saved from a biological entity."
   typicalAgeRangeMax:
+    guidance: '- Please indicate the maximum of the age range in whole years of participants in the dataset.\n- **What if my dataset has participants of all “All Ages” or “Any Ages”?**: In that case, please enter 150.'
     examples:
       - 90
     title: "Maximum age range"
     description: "Please indicate the maximum age in years of participants in the dataset as a whole number (integer)."
   typicalAgeRangeMin:
+    guidance: '- Please indicate the minimum of the age range in whole years of participants in the dataset.\n- **What if my dataset has participants of all “All Ages” or “Any Ages”?**: In that case, please enter 0.'
     examples:
       - 18
     title: "Minimum age range"
@@ -339,7 +347,7 @@ coverage:
   followup:
     guidance: "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).\\n\\n- **0 - 6 MONTHS**: Data typically available for a patient over a 0-6 month period\\n- **6 - 12 MONTHS**: Data typically available for a patient over a 6-12 month period\\n- **1 - 10 YEARS**: Data typically available for a patient over a 1-10 year period\\n- **> 10 YEARS**: Data typically available for a patient for over a 10 year period\\n- **UNKNOWN**: Timespan is Unknown\\n- **OTHER**: Data available for a patient over another time period ',"
     title: "Follow-up"
-    description: "If known, what is the typical time span that a patient appears in the dataset (follow up period)"
+    description: "If known, what is the typical time span that a patient appears in the dataset (follow up period)."
   spatial:
     guidance: "'- The geographical area covered by the dataset.\\n- Please provide a valid location.\\n- For locations in the UK, this location should conform to [ONS standards](https://geoportal.statistics.gov.uk/datasets/ons::index-of-place-names-in-great-britain-november-2021/about).\\n- For locations in other countries we use [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes).',"
     examples:
@@ -352,10 +360,10 @@ identifier:
     - "226fb3f1-4471-400a-8c39-2b66d46a39b6"
     - "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
   title: "Dataset identifier"
-  description: "System dataset identifier"
+  description: "System dataset identifier."
 version:
   guidance: "N/A"
   examples:
     - "1.1.0"
   title: "Dataset Version"
-  description: "Dataset metadata version"
+  description: "Dataset metadata version."

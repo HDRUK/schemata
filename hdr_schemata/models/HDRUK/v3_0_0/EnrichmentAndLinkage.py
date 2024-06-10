@@ -14,19 +14,19 @@ class EnrichmentAndLinkage(BaseModel):
         extra = "forbid"
 
     derivedFrom: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.derivedFrom.__dict__, json_schema_extra={"guidance": an.derivedFrom.guidance}
+        None, **an.derivedFrom.__dict__
     )
 
     isPartOf: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.isPartOf.__dict__, json_schema_extra={"guidance": an.isPartOf.guidance}
+        None, **an.isPartOf.__dict__
     )
 
     linkableDatasets: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.linkableDatasets.__dict__, json_schema_extra={"guidance": an.linkableDatasets.guidance}
+        None, **an.linkableDatasets.__dict__
     )
 
     similarToDatasets: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.similarToDatasets.__dict__, json_schema_extra={"guidance": an.similarToDatasets.guidance}
+        None, **an.similarToDatasets.__dict__
     )
 
     investigations: Optional[List[Url]] = Field(

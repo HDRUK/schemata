@@ -18,7 +18,7 @@ class Summary(BaseModel):
     )
 
     abstract: AbstractText = Field(
-        ..., **an.abstract.__dict__, json_schema_extra={"guidance": an.title.guidance}
+        ..., **an.abstract.__dict__, json_schema_extra={"guidance": an.abstract.guidance}
     )
     
     dataProvider: Organisation = Field(
@@ -43,4 +43,4 @@ class Summary(BaseModel):
     
     alternateIdentifiers: Optional[
         Union[Optional[CommaSeparatedValues], List[Optional[ShortDescription]]]
-    ] = Field(None, **an.alternateIdentifiers.__dict__, json_schema_extra={"guidance": an.alternateIdentifiers.guidance})
+    ] = Field(None, **an.alternateIdentifiers.__dict__)
