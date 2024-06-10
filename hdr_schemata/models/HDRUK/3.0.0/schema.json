@@ -22,7 +22,7 @@
                                           "$ref": "#/$defs/LongDescription"
                                     }
                               ],
-                              "description": "Please provide details for the data access rights",
+                              "description": "Please provide details for the data access rights.",
                               "title": "Access rights"
                         },
                         "accessServiceCategory": {
@@ -179,7 +179,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "This section includes information about how the data can be used and how it is currently being used",
+                              "description": "This section includes information about how the data can be used and how it is currently being used.",
                               "title": "Usage"
                         },
                         "access": {
@@ -365,7 +365,7 @@
                                     }
                               ],
                               "default": "UNKNOWN",
-                              "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                              "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period).",
                               "title": "Follow-up"
                         },
                         "pathway": {
@@ -410,11 +410,11 @@
                                     }
                               ],
                               "description": "The name of a column in a table.",
-                              "title": "Column Name"
+                              "title": "Column name"
                         },
                         "dataType": {
-                              "description": "The name of a column in a table.",
-                              "title": "Column Name",
+                              "description": "The data type of values in the column.",
+                              "title": "Data type",
                               "type": "string"
                         },
                         "description": {
@@ -430,10 +430,10 @@
                               ],
                               "default": null,
                               "description": "A description of a column in a table.",
-                              "title": "Column Description"
+                              "title": "Column description"
                         },
                         "sensitive": {
-                              "description": "A True or False value, indicating if the field is sensitive or not",
+                              "description": "A True or False value, indicating if the field is sensitive or not.",
                               "title": "Sensitive",
                               "type": "boolean"
                         },
@@ -450,7 +450,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "values in a dataset",
+                              "description": "Values in a dataset.",
                               "title": "Values"
                         }
                   },
@@ -460,54 +460,6 @@
                         "sensitive"
                   ],
                   "title": "DataColumn",
-                  "type": "object"
-            },
-            "DataTable": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "name": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 500,
-                                          "minLength": 1,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "The name of a table in a dataset.",
-                              "title": "Table Name"
-                        },
-                        "description": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 20000,
-                                          "minLength": 1,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "A description of a table in a dataset.",
-                              "title": "Table Description'"
-                        },
-                        "columns": {
-                              "description": "A list of columns contained within a table in a dataset.",
-                              "items": {
-                                    "$ref": "#/$defs/DataColumn"
-                              },
-                              "title": "Data Columns",
-                              "type": "array"
-                        }
-                  },
-                  "required": [
-                        "name",
-                        "columns"
-                  ],
-                  "title": "DataTable",
                   "type": "object"
             },
             "DataUseLimitationV2": {
@@ -548,8 +500,8 @@
                                           "$ref": "#/$defs/Name"
                                     }
                               ],
-                              "description": "Unique value in a column .",
-                              "title": "Value Name"
+                              "description": "Unique value in a column.",
+                              "title": "Value name"
                         },
                         "description": {
                               "anyOf": [
@@ -564,7 +516,7 @@
                               ],
                               "default": null,
                               "description": "A description of a unique value in a column.",
-                              "title": "Value Description"
+                              "title": "Value description"
                         },
                         "frequency": {
                               "anyOf": [
@@ -576,8 +528,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The frequency of occurrance of a value in a column",
-                              "title": "Value Frequency"
+                              "description": "The frequency of occurrance of a value in a column.",
+                              "title": "Value frequency"
                         }
                   },
                   "required": [
@@ -751,7 +703,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search",
+                              "description": "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search.",
                               "title": "Description"
                         },
                         "associatedMedia": {
@@ -837,22 +789,6 @@
                         "derivedFrom": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/AbstractText"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/DatasetDescriptor"
                                           },
@@ -868,22 +804,6 @@
                         },
                         "isPartOf": {
                               "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
                                     {
                                           "items": {
                                                 "$ref": "#/$defs/DatasetDescriptor"
@@ -901,25 +821,6 @@
                         "linkableDatasets": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/DatasetDescriptor"
                                           },
@@ -936,25 +837,6 @@
                         "similarToDatasets": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "anyOf": [
-                                                      {
-                                                            "$ref": "#/$defs/Url"
-                                                      },
-                                                      {
-                                                            "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                                      },
-                                                      {
-                                                            "type": "null"
-                                                      }
-                                                ]
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/DatasetDescriptor"
                                           },
@@ -965,8 +847,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked.",
-                              "title": "Linked datasets"
+                              "description": "Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc.",
+                              "title": "Similar to datasets"
                         },
                         "investigations": {
                               "anyOf": [
@@ -999,22 +881,6 @@
                               "default": null,
                               "description": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
                               "title": "Tools"
-                        },
-                        "syntheticDataWebLink": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/Url"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset",
-                              "title": "Synthetic Data Web Links"
                         },
                         "publicationAboutDataset": {
                               "anyOf": [
@@ -1074,22 +940,12 @@
                   "additionalProperties": false,
                   "properties": {
                         "vocabularyEncodingScheme": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/ControlledVocabulary"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
                               "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
-                              "title": "Controlled vocabulary"
+                              "items": {
+                                    "$ref": "#/$defs/ControlledVocabulary"
+                              },
+                              "title": "Controlled vocabulary",
+                              "type": "array"
                         },
                         "conformsTo": {
                               "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
@@ -1432,7 +1288,7 @@
                                           "$ref": "#/$defs/StatisticalPopulationConstrainedV2"
                                     }
                               ],
-                              "description": "Please select one of the following statistical populations for you observation",
+                              "description": "Please select one of the following statistical populations for you observation.",
                               "examples": [
                                     "PERSONS"
                               ],
@@ -1518,7 +1374,7 @@
                                     }
                               ],
                               "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
-                              "title": "Name of Data Provider"
+                              "title": "Name of data provider"
                         },
                         "logo": {
                               "anyOf": [
@@ -1635,7 +1491,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate the source of the data extraction",
+                              "description": "Please indicate the source of the data extraction.",
                               "title": "Source of data extraction"
                         },
                         "collectionSource": {
@@ -1651,7 +1507,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
+                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided.",
                               "title": "Collection source setting"
                         },
                         "imageContrast": {
@@ -1716,7 +1572,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Coverate by origin (geographical and situations)",
+                              "description": "Coverate by origin (geographical and situations).",
                               "title": "Origin Coverage"
                         },
                         "temporal": {
@@ -1726,7 +1582,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Dates and other temporal coverage information",
+                              "description": "Dates and other temporal coverage information.",
                               "title": "Temporal Coverage"
                         }
                   },
@@ -1894,6 +1750,70 @@
                   "title": "StatisticalPopulationConstrainedV2",
                   "type": "string"
             },
+            "StructuralMetadata": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "name": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 500,
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The name of a table in a dataset.",
+                              "title": "Table name"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 20000,
+                                          "minLength": 1,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "A description of a table in a dataset.",
+                              "title": "Table description"
+                        },
+                        "syntheticDataWebLink": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Url"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset.",
+                              "title": "Synthetic data web links"
+                        },
+                        "columns": {
+                              "description": "A list of columns contained within a table in a dataset.",
+                              "items": {
+                                    "$ref": "#/$defs/DataColumn"
+                              },
+                              "title": "Data columns",
+                              "type": "array"
+                        }
+                  },
+                  "required": [
+                        "name",
+                        "columns"
+                  ],
+                  "title": "StructuralMetadata",
+                  "type": "object"
+            },
             "Summary": {
                   "additionalProperties": false,
                   "properties": {
@@ -1915,7 +1835,7 @@
                                           "$ref": "#/$defs/AbstractText"
                                     }
                               ],
-                              "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible",
+                              "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible.",
                               "examples": [
                                     "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
                               ],
@@ -1931,7 +1851,7 @@
                               "title": "Dataset provider"
                         },
                         "populationSize": {
-                              "description": "Input the number of people captured within the dataset",
+                              "description": "Input the number of people captured within the dataset.",
                               "title": "Dataset population size",
                               "type": "integer"
                         },
@@ -1966,7 +1886,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "DOI associated to this dataset",
+                              "description": "DOI associated to this dataset.",
                               "examples": [
                                     "10.1093/ije/dyx196"
                               ],
@@ -2010,7 +1930,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Alternate dataset identifiers or local identifiers",
+                              "description": "Alternate dataset identifiers or local identifiers.",
                               "title": "Alternate dataset identifiers"
                         }
                   },
@@ -2087,7 +2007,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
+                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
                               "title": "End date"
                         },
                         "timeLag": {
@@ -2096,7 +2016,7 @@
                                           "$ref": "#/$defs/TimeLagV2"
                                     }
                               ],
-                              "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
+                              "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
                               "title": "Time lag"
                         }
                   },
@@ -2161,7 +2081,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
+                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE.",
                               "title": "Data use limitation"
                         },
                         "dataUseRequirements": {
@@ -2203,7 +2123,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'",
+                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
                               "title": "Citation requirements"
                         }
                   },
@@ -2232,7 +2152,7 @@
                               "type": "null"
                         }
                   ],
-                  "description": "System dataset identifier",
+                  "description": "System dataset identifier.",
                   "examples": [
                         "226fb3f1-4471-400a-8c39-2b66d46a39b6",
                         "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
@@ -2245,7 +2165,7 @@
                               "$ref": "#/$defs/Semver"
                         }
                   ],
-                  "description": "Dataset metadata version",
+                  "description": "Dataset metadata version.",
                   "examples": [
                         "1.1.0"
                   ],
@@ -2350,18 +2270,15 @@
             "structuralMetadata": {
                   "anyOf": [
                         {
-                              "items": {
-                                    "$ref": "#/$defs/DataTable"
-                              },
-                              "type": "array"
+                              "$ref": "#/$defs/StructuralMetadata"
                         },
                         {
                               "type": "null"
                         }
                   ],
                   "default": null,
-                  "description": "Descriptions of all tables and data elements that can be included in the dataset",
-                  "title": "Structural Metadata"
+                  "description": "Descriptions of all tables and data elements that can be included in the dataset.",
+                  "title": "Structural metadata"
             }
       },
       "required": [

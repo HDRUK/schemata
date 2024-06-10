@@ -34,10 +34,6 @@ class EnrichmentAndLinkage(BaseModel):
     tools: Optional[List[Url]] = Field(
         None, **an.tools.__dict__
     )
-    
-    syntheticDataWebLink: Optional[List[Url]] = Field(
-        None, **an.syntheticDataWebLink.__dict__
-    )
 
     publicationAboutDataset: Optional[List[Doi]
     ] = Field(None, **an.publicationAboutDataset.__dict__)

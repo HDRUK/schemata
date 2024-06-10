@@ -1,4 +1,3 @@
-from hdr_schemata.models.HDRUK.v2_1_2 import Documentation as BaseDocumentation
 from typing import Optional, Union, List
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *

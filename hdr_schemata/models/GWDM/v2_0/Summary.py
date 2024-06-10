@@ -45,6 +45,6 @@ class Summary(BaseModel):
 
     datasetSubType: Optional[DatasetType] = Field(None, **an.datasetSubType.__dict__)
 
-    inPipeline: Optional[List[Pipeline]] = Field("Not available", **an.inPipeline.__dict__)
+    inPipeline: Optional[Pipeline] = Field("Not available", **an.inPipeline.__dict__)
 
 

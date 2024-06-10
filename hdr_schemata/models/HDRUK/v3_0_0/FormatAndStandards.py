@@ -11,9 +11,9 @@ class FormatAndStandards(BaseModel):
     class Config:
         extra = "forbid"
         
-    vocabularyEncodingScheme: Union[
-        Optional[CommaSeparatedValues], List[ControlledVocabulary]
-    ] = Field(..., **an.vocabularyEncodingScheme.__dict__)
+    vocabularyEncodingScheme: List[ControlledVocabulary] = Field(
+        ..., **an.vocabularyEncodingScheme.__dict__
+    )
 
     conformsTo: List[StandardisedDataModels] = Field(
         ..., **an.conformsTo.__dict__

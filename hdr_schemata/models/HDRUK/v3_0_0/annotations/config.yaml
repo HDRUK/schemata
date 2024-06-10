@@ -1,13 +1,13 @@
 identifier:
   title: "Dataset identifier"
-  description: System dataset identifier
+  description: System dataset identifier.
   examples:
     - "226fb3f1-4471-400a-8c39-2b66d46a39b6"
     - "https://web.www.healthdatagateway.org/dataset/226fb3f1-4471-400a-8c39-2b66d46a39b6"
 
 version:
   title: "Dataset Version"
-  description: "Dataset metadata version"
+  description: "Dataset metadata version."
   examples:
     - "1.1.0"
 
@@ -19,7 +19,7 @@ summary:
       - North West London COVID-19 Patient Level Situation Report
 
   abstract:
-    description: Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible
+    description: Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible.
     examples:
       - CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.
     title: Dataset abstract
@@ -50,7 +50,7 @@ summary:
       title: contact point
 
     memberOf:
-      description: Please indicate if the organisation is an Alliance Member or a Hub.'
+      description: Please indicate if the organisation is an Alliance Member or a Hub.
       title: Organisation Membership
 
   contactPoint:
@@ -60,11 +60,11 @@ summary:
     title: Contact point
   
   doiName:
-    description: DOI associated to this dataset
+    description: DOI associated to this dataset.
     title: DOI for dataset
 
   populationSize:
-    description: Input the number of people captured within the dataset
+    description: Input the number of people captured within the dataset.
     title: Dataset population size
 
   keywords:
@@ -72,7 +72,7 @@ summary:
     title: Keywords
 
   alternateIdentifiers:
-    description: "Alternate dataset identifiers or local identifiers"
+    description: "Alternate dataset identifiers or local identifiers."
     title: Alternate dataset identifiers
 
 
@@ -80,7 +80,7 @@ documentation:
   _description: Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.
   _title: Documentation
   description:
-    description: "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search"
+    description: "A free-text description of the dataset. Gateway Feature: Keywords and text may be extracted out of the description and index for search."
     title: Description
 
   associatedMedia:
@@ -113,7 +113,7 @@ coverage:
       - 90
 
   followup:
-    description: If known, what is the typical time span that a patient appears in the dataset (follow up period)
+    description: If known, what is the typical time span that a patient appears in the dataset (follow up period).
     title: Follow-up
 
   pathway:
@@ -137,18 +137,18 @@ provenance:
   title: Provenance
 
   origin:
-    description: Coverate by origin (geographical and situations)
+    description: Coverate by origin (geographical and situations).
     title: Origin Coverage
     purpose:
       description: Please indicate the purpose(s) that the dataset was collected.
       title: Purpose of dataset collection
 
     source:
-      description: Please indicate the source of the data extraction
+      description: Please indicate the source of the data extraction.
       title: Source of data extraction
     
     collectionSource:
-        description: Please indicate the setting(s) where data was collected. Multiple settings may be provided
+        description: Please indicate the setting(s) where data was collected. Multiple settings may be provided.
         title: Collection source setting
 
     datasetType:
@@ -164,7 +164,7 @@ provenance:
       title: Image contrast
 
   temporal:
-    description: Dates and other temporal coverage information
+    description: Dates and other temporal coverage information.
     title: Temporal Coverage
     publishingFrequency:
       title: Publishing frequency
@@ -176,21 +176,21 @@ provenance:
       description: The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.
       title: Start date
     endDate:
-      description: The end of the time period that the dataset provides coverage for. If the dataset is “Continuous” and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'
+      description: The end of the time period that the dataset provides coverage for. If the dataset is “Continuous” and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.
       title: End date
     timeLag:
-      description: Please indicate the typical time-lag between an event and the data for that event appearing in the dataset
+      description: Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.
       title: Time lag
 
 accessibility:
   description: Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.
   title: Accessibility
   usage:
-    description: This section includes information about how the data can be used and how it is currently being used
+    description: This section includes information about how the data can be used and how it is currently being used.
     title: Usage
 
     dataUseLimitation:
-      description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE"
+      description: "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE."
       title: Data use limitation
 
     dataUseRequirements:
@@ -198,16 +198,16 @@ accessibility:
       title: Data use requirements
 
     resourceCreator:
-      description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.'
+      description: Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.
       title: Citation requirements
 
   access:
-    description: This section includes information about data access
+    description: This section includes information about data access.
     title: Access
 
     accessRights:
       title: Access rights
-      description: Please provide details for the data access rights
+      description: Please provide details for the data access rights.
 
     accessService:
       description: "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers;additional consultancy and services;any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset."
@@ -282,9 +282,6 @@ enrichmentAndLinkage:
   tools:
     description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
     title: Tools
-  syntheticDataWebLink:
-    description: Links to locations of information and or raw downloads of synthetic data associated with this dataset
-    title: Synthetic Data Web Links
   publicationAboutDataset:
     description: DOIs for publications which describe the dataset.
     title: Publication about the dataset
@@ -302,7 +299,7 @@ observations:
           &lt;b&gt; Statistical Population 2 &lt;/b&gt; type: StatisticalPopulation populationType: Events numConstraints: 0 &lt;b&gt; Statistical Population 3 &lt;/b&gt; type: StatisticalPopulation populationType: Findings numConstraints: 0 typeOf: Observation observedNode: &lt;b&gt; Statistical Population 1 &lt;/b&gt; measuredProperty: count measuredValue: 32937 observationDate: “2017”"
   title: Observations
   observedNode:
-    description: Please select one of the following statistical populations for you observation
+    description: Please select one of the following statistical populations for you observation.
     examples:
       - "PERSONS"
     title: Dataset volume measure
@@ -323,46 +320,49 @@ observations:
     title: Measured property
 
 structuralMetadata:
-  description: Descriptions of all tables and data elements that can be included in the dataset
-  title: Structural Metadata
+  description: Descriptions of all tables and data elements that can be included in the dataset.
+  title: Structural metadata
 
   tables:
     name:
       description: The name of a table in a dataset.
-      title: Table Name
+      title: Table name
     description:
       description: A description of a table in a dataset.
-      title: Table Description'
+      title: Table description
+    syntheticDataWebLink:
+      description: Links to locations of information and or raw downloads of synthetic data associated with this dataset.
+      title: Synthetic data web links
     columns:
       _description: "A list of columns contained within a table in a dataset."
-      _title: "Data Columns"
+      _title: "Data columns"
       name:
         description: "The name of a column in a table."
-        title: "Column Name"
+        title: "Column name"
 
       dataType:
-        description: "The data type of values in the column"
-        title: "Data Type"
+        description: "The data type of values in the column."
+        title: "Data type"
 
       description:
         description: "A description of a column in a table."
-        title: "Column Description"
+        title: "Column description"
 
       sensitive:
-        description: "A True or False value, indicating if the field is sensitive or not"
+        description: "A True or False value, indicating if the field is sensitive or not."
         title: "Sensitive"
 
       values:
         _title: "Values"
-        _description: "values in a dataset"
+        _description: "Values in a dataset."
         name:
-          description: "Unique value in a column ."
-          title: "Value Name"
+          description: "Unique value in a column."
+          title: "Value name"
 
         description:
           description: "A description of a unique value in a column."
-          title: "Value Description"
+          title: "Value description"
 
         frequency:
-          description: "The frequency of occurrance of a value in a column"
-          title: "Value Frequency"
+          description: "The frequency of occurrance of a value in a column."
+          title: "Value frequency"

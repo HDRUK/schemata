@@ -14,7 +14,7 @@ class DataColumn(BaseModel):
     name: Name = Field(..., **an.name.__dict__)
     dataType: str = Field(
         ...,
-        **an.name.__dict__,
+        **an.dataType.__dict__,
     )
 
     description: Optional[constr(min_length=1, max_length=20000)] = Field(

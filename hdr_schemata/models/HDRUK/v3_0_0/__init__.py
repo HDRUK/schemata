@@ -6,12 +6,12 @@ from datetime import date, datetime
 
 from .Accessibility import Accessibility
 from .Coverage import Coverage
-from .DataTable import DataTable
 from .Documentation import Documentation
 from .EnrichmentAndLinkage import EnrichmentAndLinkage
 from .Observations import Observation
 from .Provenance import Provenance
 from .Revision import Revision
+from .StructuralMetadata import StructuralMetadata
 from .Summary import Summary
 
 from .annotations import annotations as an
@@ -59,7 +59,7 @@ class Hdruk300(BaseModel):
         ..., description=an.observations.description, title=an.observations.title
     )
 
-    structuralMetadata: Optional[List[DataTable]] = Field(
+    structuralMetadata: Optional[StructuralMetadata] = Field(
         None,
         description=an.structuralMetadata.description,
         title=an.structuralMetadata.title,

@@ -1488,7 +1488,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please indicate the source of the data extraction",
+                              "description": "Please indicate the source of the data extraction.",
                               "title": "Source of data extraction"
                         },
                         "collectionSituation": {
@@ -1556,7 +1556,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Coverate by origin (geographical and situations)",
+                              "description": "Coverate by origin (geographical and situations).",
                               "title": "Origin Coverage"
                         },
                         "temporal": {
