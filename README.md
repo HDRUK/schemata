@@ -1,4 +1,4 @@
-New collection of schemas for Mk2
+New collection of schemas for Enhanced Gateway
 
 
 ## Modifying a schema
