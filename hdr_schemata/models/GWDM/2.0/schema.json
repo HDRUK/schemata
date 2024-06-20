@@ -834,7 +834,7 @@
                         "observedNode": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/StatisticalPopulationConstrained"
+                                          "$ref": "#/$defs/StatisticalPopulationConstrainedV2"
                                     }
                               ],
                               "description": "Please select one of the following statistical populations for you observation",
@@ -1158,13 +1158,14 @@
                   ],
                   "title": "ShortTitle"
             },
-            "StatisticalPopulationConstrained": {
+            "StatisticalPopulationConstrainedV2": {
                   "enum": [
-                        "PERSONS",
-                        "EVENTS",
-                        "FINDINGS"
+                        "Person",
+                        "Event",
+                        "Findings",
+                        "Number of scans per modality"
                   ],
-                  "title": "StatisticalPopulationConstrained",
+                  "title": "StatisticalPopulationConstrainedV2",
                   "type": "string"
             },
             "Summary": {
