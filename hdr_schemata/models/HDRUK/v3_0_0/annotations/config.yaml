@@ -369,3 +369,11 @@ version:
     - "1.1.0"
   title: "Dataset Version"
   description: "Dataset metadata version."
+datasetDescriptor:
+  pid:
+    title: Persistent identifier of a dataset
+  title:
+    title: Title of a dataset
+  url:
+    title: Url of a dataset
+  

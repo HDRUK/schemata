@@ -1065,7 +1065,7 @@
                               {
                                     "name": "pid",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1080,7 +1080,7 @@
                               {
                                     "name": "title",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1095,7 +1095,7 @@
                               {
                                     "name": "url",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1125,7 +1125,7 @@
                               {
                                     "name": "pid",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1140,7 +1140,7 @@
                               {
                                     "name": "title",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1155,7 +1155,7 @@
                               {
                                     "name": "url",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1185,7 +1185,7 @@
                               {
                                     "name": "pid",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1200,7 +1200,7 @@
                               {
                                     "name": "title",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1215,7 +1215,7 @@
                               {
                                     "name": "url",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1245,7 +1245,7 @@
                               {
                                     "name": "pid",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1260,7 +1260,7 @@
                               {
                                     "name": "title",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1275,7 +1275,7 @@
                               {
                                     "name": "url",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1448,32 +1448,173 @@
             "is_optional": true,
             "subItems": [
                   {
-                        "name": "name",
-                        "required": true,
-                        "title": "Table name",
-                        "description": "The name of a table in a dataset.",
-                        "guidance": "",
-                        "examples": null,
-                        "type": [
-                              "str",
-                              "null"
-                        ],
-                        "is_list": false,
-                        "is_optional": true
-                  },
-                  {
-                        "name": "description",
+                        "name": "tables",
                         "required": false,
-                        "title": "Table description",
-                        "description": "A description of a table in a dataset.",
+                        "title": "Tables",
+                        "description": "Tables in the dataset",
                         "guidance": "",
                         "examples": null,
                         "type": [
-                              "str",
-                              "null"
+                              "DataTable"
                         ],
-                        "is_list": false,
-                        "is_optional": true
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "name",
+                                    "required": true,
+                                    "title": "Table name",
+                                    "description": "The name of a table in a dataset.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "description",
+                                    "required": false,
+                                    "title": "Table description",
+                                    "description": "A description of a table in a dataset.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "columns",
+                                    "required": true,
+                                    "title": "Data columns",
+                                    "description": "A list of columns contained within a table in a dataset.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "DataColumn"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": false,
+                                    "subItems": [
+                                          {
+                                                "name": "name",
+                                                "required": true,
+                                                "title": "Column name",
+                                                "description": "The name of a column in a table.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Name[{}]"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": false,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "dataType",
+                                                "required": true,
+                                                "title": "Data type",
+                                                "description": "The data type of values in the column.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "str"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": false
+                                          },
+                                          {
+                                                "name": "description",
+                                                "required": false,
+                                                "title": "Column description",
+                                                "description": "A description of a column in a table.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "str",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true
+                                          },
+                                          {
+                                                "name": "sensitive",
+                                                "required": true,
+                                                "title": "Sensitive",
+                                                "description": "A True or False value, indicating if the field is sensitive or not.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "bool"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": false
+                                          },
+                                          {
+                                                "name": "values",
+                                                "required": false,
+                                                "title": "Values",
+                                                "description": "Values in a dataset.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "DataValue"
+                                                ],
+                                                "is_list": true,
+                                                "is_optional": true,
+                                                "subItems": [
+                                                      {
+                                                            "name": "name",
+                                                            "required": true,
+                                                            "title": "Value name",
+                                                            "description": "Unique value in a column.",
+                                                            "guidance": "",
+                                                            "examples": null,
+                                                            "type": [
+                                                                  "Name[{}]"
+                                                            ],
+                                                            "is_list": false,
+                                                            "is_optional": false,
+                                                            "subItems": []
+                                                      },
+                                                      {
+                                                            "name": "description",
+                                                            "required": false,
+                                                            "title": "Value description",
+                                                            "description": "A description of a unique value in a column.",
+                                                            "guidance": "",
+                                                            "examples": null,
+                                                            "type": [
+                                                                  "str",
+                                                                  "null"
+                                                            ],
+                                                            "is_list": false,
+                                                            "is_optional": true
+                                                      },
+                                                      {
+                                                            "name": "frequency",
+                                                            "required": false,
+                                                            "title": "Value frequency",
+                                                            "description": "The frequency of occurrance of a value in a column.",
+                                                            "guidance": "",
+                                                            "examples": null,
+                                                            "type": [
+                                                                  "int",
+                                                                  "null"
+                                                            ],
+                                                            "is_list": false,
+                                                            "is_optional": true
+                                                      }
+                                                ]
+                                          }
+                                    ]
+                              }
+                        ]
                   },
                   {
                         "name": "syntheticDataWebLink",
@@ -1488,132 +1629,6 @@
                         "is_list": true,
                         "is_optional": true,
                         "subItems": []
-                  },
-                  {
-                        "name": "columns",
-                        "required": true,
-                        "title": "Data columns",
-                        "description": "A list of columns contained within a table in a dataset.",
-                        "guidance": "",
-                        "examples": null,
-                        "type": [
-                              "DataColumn"
-                        ],
-                        "is_list": true,
-                        "is_optional": false,
-                        "subItems": [
-                              {
-                                    "name": "name",
-                                    "required": true,
-                                    "title": "Column name",
-                                    "description": "The name of a column in a table.",
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "Name[{}]"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": false,
-                                    "subItems": []
-                              },
-                              {
-                                    "name": "dataType",
-                                    "required": true,
-                                    "title": "Data type",
-                                    "description": "The data type of values in the column.",
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "str"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": false
-                              },
-                              {
-                                    "name": "description",
-                                    "required": false,
-                                    "title": "Column description",
-                                    "description": "A description of a column in a table.",
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "str",
-                                          "null"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": true
-                              },
-                              {
-                                    "name": "sensitive",
-                                    "required": true,
-                                    "title": "Sensitive",
-                                    "description": "A True or False value, indicating if the field is sensitive or not.",
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "bool"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": false
-                              },
-                              {
-                                    "name": "values",
-                                    "required": false,
-                                    "title": "Values",
-                                    "description": "Values in a dataset.",
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "DataValue"
-                                    ],
-                                    "is_list": true,
-                                    "is_optional": true,
-                                    "subItems": [
-                                          {
-                                                "name": "name",
-                                                "required": true,
-                                                "title": "Value name",
-                                                "description": "Unique value in a column.",
-                                                "guidance": "",
-                                                "examples": null,
-                                                "type": [
-                                                      "Name[{}]"
-                                                ],
-                                                "is_list": false,
-                                                "is_optional": false,
-                                                "subItems": []
-                                          },
-                                          {
-                                                "name": "description",
-                                                "required": false,
-                                                "title": "Value description",
-                                                "description": "A description of a unique value in a column.",
-                                                "guidance": "",
-                                                "examples": null,
-                                                "type": [
-                                                      "str",
-                                                      "null"
-                                                ],
-                                                "is_list": false,
-                                                "is_optional": true
-                                          },
-                                          {
-                                                "name": "frequency",
-                                                "required": false,
-                                                "title": "Value frequency",
-                                                "description": "The frequency of occurrance of a value in a column.",
-                                                "guidance": "",
-                                                "examples": null,
-                                                "type": [
-                                                      "int",
-                                                      "null"
-                                                ],
-                                                "is_list": false,
-                                                "is_optional": true
-                                          }
-                                    ]
-                              }
-                        ]
                   }
             ]
       }
