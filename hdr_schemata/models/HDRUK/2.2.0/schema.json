@@ -368,6 +368,7 @@
                               ],
                               "default": null,
                               "description": "Male, Female, Other",
+                              "guidance": "Options are limited to Male/Female/Other.",
                               "title": "Gender"
                         },
                         "biologicalsamples": {
@@ -1865,6 +1866,7 @@
                                     }
                               ],
                               "description": "Summary population size of the cohort",
+                              "guidance": "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the **Observations** fields. The filter also allows for Researchers to search datasets which have no population size reported, but will **not** pull any population size captured in the **Observations** section.",
                               "title": "Population size"
                         }
                   },

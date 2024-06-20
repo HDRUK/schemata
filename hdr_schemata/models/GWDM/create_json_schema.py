@@ -6,4 +6,4 @@ from v2_0 import Gwdm20
 Gwdm10.save_schema("1.0/schema.json")
 Gwdm11.save_schema("1.1/schema.json")
 Gwdm12.save_schema("1.2/schema.json")
-Gwdm12.save_schema("2.0/schema.json")
+Gwdm20.save_schema("2.0/schema.json")

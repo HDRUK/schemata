@@ -146,6 +146,8 @@ observations:
     description: "Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations."
 structuralMetadata:
   tables:
+    _description: "Tables in the dataset"
+    _title: "Tables"
     name:
       title: "Table name"
       description: "The name of a table in a dataset."
@@ -367,3 +369,11 @@ version:
     - "1.1.0"
   title: "Dataset Version"
   description: "Dataset metadata version."
+datasetDescriptor:
+  pid:
+    title: Persistent identifier of a dataset
+  title:
+    title: Title of a dataset
+  url:
+    title: Url of a dataset
+  

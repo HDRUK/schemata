@@ -122,6 +122,19 @@
                                     "TRE/SDE"
                               ],
                               "title": "Access/governance requirements"
+                        },
+                        "accessMode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/AccessMode"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": "New project",
+                              "description": "Indication of the application type to enable research access.",
+                              "title": "Access mode"
                         }
                   },
                   "required": [
@@ -131,6 +144,14 @@
                   ],
                   "title": "Access",
                   "type": "object"
+            },
+            "AccessMode": {
+                  "enum": [
+                        "Join research consortium",
+                        "New project"
+                  ],
+                  "title": "AccessMode",
+                  "type": "string"
             },
             "Accessibility": {
                   "additionalProperties": false,
@@ -201,7 +222,6 @@
                   "title": "CommaSeparatedValues"
             },
             "Coverage": {
-                  "additionalProperties": false,
                   "properties": {
                         "spatial": {
                               "anyOf": [
@@ -258,96 +278,18 @@
                               "description": "Please indicate the age range in whole years of participants in the dataset. Please provide range in the following format '[min age] \u2013 [max age]' where both the minimum and maximum are whole numbers (integers).",
                               "title": "Age Range"
                         },
-                        "gender": {
+                        "datasetCompleteness": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/Url"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Cohort description: Male, Female, Other",
-                              "title": "Gender"
-                        },
-                        "biologicalsamples": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort description: Blood, Saliva, Urine, Other",
-                              "title": "Biological Samples"
-                        },
-                        "psychological": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort description: Mental health, Cognitive function",
-                              "title": "Psychological"
-                        },
-                        "physical": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort description: Cardiovascular, Respiratory, Musculoskeletal, Hearing and Vision, Reproductive",
-                              "title": "Physical"
-                        },
-                        "anthropometric": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort description: Height, Weight, Waist circumference, Hip circumference, Blood pressure",
-                              "title": "Anthropometric"
-                        },
-                        "lifestyle": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort lifestyle habits: Smoking, Physical activity, Dietary habits, Alcohol",
-                              "title": "Lifestyle"
-                        },
-                        "socioeconomic": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Cohort description: Occupation, Family circumstances, Housing, Education, Ethnic group, Marital status, Social support",
-                              "title": "Socio-economic"
+                              "description": "The URL where a Researcher can learn more about the completeness of the dataset.",
+                              "title": "Dataset coverage/completeness/quality"
                         }
                   },
                   "title": "Coverage",
@@ -817,6 +759,38 @@
                               "default": null,
                               "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset",
                               "title": "Synthetic Data Web Links"
+                        },
+                        "publicationAboutDataset": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Doi"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "DOIs for publications which describe the dataset.",
+                              "title": "Publication about the dataset"
+                        },
+                        "publicationUsingDataset": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Doi"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "DOIs for publications which use the dataset for analysis.",
+                              "title": "Publication using the dataset"
                         }
                   },
                   "title": "Linkage",
@@ -860,7 +834,7 @@
                         "observedNode": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/StatisticalPopulationConstrained"
+                                          "$ref": "#/$defs/StatisticalPopulationConstrainedV2"
                                     }
                               ],
                               "description": "Please select one of the following statistical populations for you observation",
@@ -1012,6 +986,19 @@
                               "default": null,
                               "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided",
                               "title": "Collection Situation Setting"
+                        },
+                        "imageContrast": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Ternary"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": "Not stated",
+                              "description": "Indicate whether usage of imaging contrast is captured within the dataset.",
+                              "title": "Image contrast"
                         }
                   },
                   "title": "Origin",
@@ -1036,6 +1023,14 @@
                         null
                   ],
                   "title": "Periodicity"
+            },
+            "Pipeline": {
+                  "enum": [
+                        "Available",
+                        "Not available"
+                  ],
+                  "title": "Pipeline",
+                  "type": "string"
             },
             "Provenance": {
                   "additionalProperties": false,
@@ -1150,71 +1145,6 @@
                   "title": "Revision",
                   "type": "object"
             },
-            "SampleDonor": {
-                  "properties": {
-                        "id": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 50,
-                                          "minLength": 2,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "ID of the sample donor",
-                              "title": "Donor ID"
-                        },
-                        "sex": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Sex of the sample donor",
-                              "title": "Donor Sex"
-                        },
-                        "birthDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Date of birth of the sample donor",
-                              "title": "Donor birth date"
-                        },
-                        "dataCategories": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Data categories related to the sample donor",
-                              "title": "Donor Data Categories"
-                        }
-                  },
-                  "title": "SampleDonor",
-                  "type": "object"
-            },
             "ShortTitle": {
                   "anyOf": [
                         {
@@ -1228,13 +1158,14 @@
                   ],
                   "title": "ShortTitle"
             },
-            "StatisticalPopulationConstrained": {
+            "StatisticalPopulationConstrainedV2": {
                   "enum": [
-                        "PERSONS",
-                        "EVENTS",
-                        "FINDINGS"
+                        "Person",
+                        "Event",
+                        "Findings",
+                        "Number of scans per modality"
                   ],
-                  "title": "StatisticalPopulationConstrained",
+                  "title": "StatisticalPopulationConstrainedV2",
                   "type": "string"
             },
             "Summary": {
@@ -1400,6 +1331,19 @@
                               "default": null,
                               "description": "Placeholder for dataset sub-type",
                               "title": "Dataset Sub-type"
+                        },
+                        "inPipeline": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Pipeline"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": "Not available",
+                              "description": "Indicate whether this dataset is currently available for Researchers to request access.",
+                              "title": "Dataset pipeline status"
                         }
                   },
                   "required": [
@@ -1499,6 +1443,15 @@
                   "title": "Temporal",
                   "type": "object"
             },
+            "Ternary": {
+                  "enum": [
+                        "Yes",
+                        "No",
+                        "Not stated"
+                  ],
+                  "title": "Ternary",
+                  "type": "string"
+            },
             "TimeLag": {
                   "enum": [
                         "LESS 1 WEEK",
@@ -1514,272 +1467,6 @@
                         null
                   ],
                   "title": "TimeLag"
-            },
-            "TissueSampleMetadata": {
-                  "properties": {
-                        "id": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 50,
-                                          "minLength": 2,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "ID of the tissue sample metadata",
-                              "title": "Metadata ID"
-                        },
-                        "sampleDonor": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/SampleDonor"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Information about the sample donor",
-                              "title": "Sample Donor"
-                        },
-                        "sampleType": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Type of the tissue sample",
-                              "title": "Sample Type"
-                        },
-                        "storageTemperature": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Storage temperature of the tissue sample",
-                              "title": "Storage Temperature"
-                        },
-                        "creationDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Date when the tissue sample metadata was created",
-                              "title": "Creation Date"
-                        },
-                        "anatomicalSiteOntologyCode": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Ontology code for the anatomical site, this code must match an ICD-0-3 format",
-                              "title": "Anatomical Site Ontology Code"
-                        },
-                        "anatomicalSiteOntologyDescription": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Ontology description for the anatomical site",
-                              "title": "Anatomical Site Ontology Description"
-                        },
-                        "anatomicalSiteFreeText": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Free text describing the anatomical site",
-                              "title": "Anatomical Site Free Text"
-                        },
-                        "sampleContentDiagnosis": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Diagnosis related to the sample content",
-                              "title": "Sample Content Diagnosis"
-                        },
-                        "useRestrictions": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Restrictions on the use of the tissue sample",
-                              "title": "Use Restrictions"
-                        }
-                  },
-                  "title": "TissueSampleMetadata",
-                  "type": "object"
-            },
-            "TissuesSampleCollection": {
-                  "properties": {
-                        "id": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "ID of the tissue sample collection",
-                              "title": "ID"
-                        },
-                        "dataCategories": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
-                              "title": "Data Categories"
-                        },
-                        "materialType": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
-                              "title": "Material Type"
-                        },
-                        "accessConditions": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Access conditions for the tissue sample collection",
-                              "title": "Access Conditions"
-                        },
-                        "collectionType": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
-                              "title": "Collection Type"
-                        },
-                        "disease": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Disease associated with the tissue sample collection",
-                              "title": "Disease"
-                        },
-                        "storageTemperature": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Storage temperature of the tissue sample collection",
-                              "title": "Storage Temperature"
-                        },
-                        "sampleAgeRange": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Age range of the tissue sample collection",
-                              "title": "Sample Age Range"
-                        },
-                        "tissueSampleMetadata": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/TissueSampleMetadata"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Metadata related to the tissue sample",
-                              "title": "Tissue Sample Metadata"
-                        }
-                  },
-                  "title": "TissuesSampleCollection",
-                  "type": "object"
             },
             "TwoHundredFiftyFiveCharacters": {
                   "maxLength": 255,
@@ -1900,7 +1587,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Accessibility information.",
+                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
                   "title": "Accessibility"
             },
             "linkage": {
@@ -1913,7 +1600,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Linkage and enrichment.",
+                  "description": "Metadata for various linkages with datasets and other gateway entities",
                   "title": "Linkage"
             },
             "observations": {
@@ -1947,28 +1634,12 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
-            },
-            "tissuesSampleCollection": {
-                  "anyOf": [
-                        {
-                              "items": {
-                                    "$ref": "#/$defs/TissuesSampleCollection"
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "metedata for tissue samples",
-                  "title": "Tissue Sample Collection"
             }
       },
       "required": [
             "required",
             "summary"
       ],
-      "title": "Gwdm12",
+      "title": "Gwdm20",
       "type": "object"
 }
