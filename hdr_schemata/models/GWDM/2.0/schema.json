@@ -1145,6 +1145,71 @@
                   "title": "Revision",
                   "type": "object"
             },
+            "SampleDonor": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the sample donor",
+                              "title": "Donor ID"
+                        },
+                        "sex": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Sex of the sample donor",
+                              "title": "Donor Sex"
+                        },
+                        "birthDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Date of birth of the sample donor",
+                              "title": "Donor birth date"
+                        },
+                        "dataCategories": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Data categories related to the sample donor",
+                              "title": "Donor Data Categories"
+                        }
+                  },
+                  "title": "SampleDonor",
+                  "type": "object"
+            },
             "ShortTitle": {
                   "anyOf": [
                         {
@@ -1468,6 +1533,272 @@
                   ],
                   "title": "TimeLag"
             },
+            "TissueSampleMetadata": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the tissue sample metadata",
+                              "title": "Metadata ID"
+                        },
+                        "sampleDonor": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/SampleDonor"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Information about the sample donor",
+                              "title": "Sample Donor"
+                        },
+                        "sampleType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Type of the tissue sample",
+                              "title": "Sample Type"
+                        },
+                        "storageTemperature": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Storage temperature of the tissue sample",
+                              "title": "Storage Temperature"
+                        },
+                        "creationDate": {
+                              "anyOf": [
+                                    {
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Date when the tissue sample metadata was created",
+                              "title": "Creation Date"
+                        },
+                        "anatomicalSiteOntologyCode": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Ontology code for the anatomical site, this code must match an ICD-0-3 format",
+                              "title": "Anatomical Site Ontology Code"
+                        },
+                        "anatomicalSiteOntologyDescription": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Ontology description for the anatomical site",
+                              "title": "Anatomical Site Ontology Description"
+                        },
+                        "anatomicalSiteFreeText": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Free text describing the anatomical site",
+                              "title": "Anatomical Site Free Text"
+                        },
+                        "sampleContentDiagnosis": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Diagnosis related to the sample content",
+                              "title": "Sample Content Diagnosis"
+                        },
+                        "useRestrictions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Restrictions on the use of the tissue sample",
+                              "title": "Use Restrictions"
+                        }
+                  },
+                  "title": "TissueSampleMetadata",
+                  "type": "object"
+            },
+            "TissuesSampleCollection": {
+                  "properties": {
+                        "id": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "ID of the tissue sample collection",
+                              "title": "ID"
+                        },
+                        "dataCategories": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",
+                              "title": "Data Categories"
+                        },
+                        "materialType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The biospecimen saved from a biological entity for propagation e.g. testing, diagnostics, treatment or research purposes. Can be several values MIABIS-2.0-14",
+                              "title": "Material Type"
+                        },
+                        "accessConditions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Access conditions for the tissue sample collection",
+                              "title": "Access Conditions"
+                        },
+                        "collectionType": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The type of the sample collection. Can be several values [MIABIS-2.0-16](https://github.com/BBMRI-ERIC/miabis/blob/master/Structured-data-and-lists.md#collection-type)",
+                              "title": "Collection Type"
+                        },
+                        "disease": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Disease associated with the tissue sample collection",
+                              "title": "Disease"
+                        },
+                        "storageTemperature": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Storage temperature of the tissue sample collection",
+                              "title": "Storage Temperature"
+                        },
+                        "sampleAgeRange": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Age range of the tissue sample collection",
+                              "title": "Sample Age Range"
+                        },
+                        "tissueSampleMetadata": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/TissueSampleMetadata"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Metadata related to the tissue sample",
+                              "title": "Tissue Sample Metadata"
+                        }
+                  },
+                  "title": "TissuesSampleCollection",
+                  "type": "object"
+            },
             "TwoHundredFiftyFiveCharacters": {
                   "maxLength": 255,
                   "minLength": 2,
@@ -1634,6 +1965,22 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset",
                   "title": "Structural Metadata"
+            },
+            "tissuesSampleCollection": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/TissuesSampleCollection"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "metedata for tissue samples",
+                  "title": "Tissue Sample Collection"
             }
       },
       "required": [

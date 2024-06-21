@@ -15,6 +15,7 @@ from .Accessibility import Accessibility
 from .Linkage import Linkage
 from .Observations import Observation
 from .DataTable import DataTable
+from .TissuesSampleCollection import TissuesSampleCollection
 
 from .Usage import Usage
 from .Access import Access
@@ -55,10 +56,17 @@ class Gwdm20(BaseModel):
     observations: Optional[List[Observation]] = Field(
         None, description=an.observations.description, title=an.observations.title
     )
+
     structuralMetadata: Optional[List[DataTable]] = Field(
         None,
         description=an.structuralMetadata.description,
         title=an.structuralMetadata.title,
+    )
+
+    tissuesSampleCollection: Optional[List[TissuesSampleCollection]] = Field(
+        None,
+        description=an.tissuesSampleCollection.description,
+        title=an.tissuesSampleCollection.title,
     )
 
     @classmethod
