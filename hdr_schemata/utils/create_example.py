@@ -16,4 +16,4 @@ def create_example(path):
     with open(f"{path}.example.json", "w") as f:
         json.dump(example, f, indent=6)
 
-create_example("./docs/HDRUK/2.2.0")
+create_example("./docs/HDRUK/3.0.0")
