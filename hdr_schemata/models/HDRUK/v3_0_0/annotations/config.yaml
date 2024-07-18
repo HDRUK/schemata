@@ -364,7 +364,11 @@ identifier:
   title: "Dataset identifier"
   description: "System dataset identifier."
 version:
-  guidance: "N/A"
+  guidance: |
+    Dataset metadata version should follow standard SEMVER naming conventions(https://semver.org). For example: 1.1.0 major.minor.patch.
+    Major: Significant/breaking changes.
+    Minor: new features and bug fixes.
+    Patch: minor fixes without new features.
   examples:
     - "1.1.0"
   title: "Dataset Version"
