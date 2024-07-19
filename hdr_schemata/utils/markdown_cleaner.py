@@ -11,7 +11,7 @@ def clean_markdown_from_json(data, key=None):
         return [clean_markdown_from_json(v, key) for v in data]
     elif isinstance(data, str) and key in keys_to_clean: 
         html = markdown(data)
-        text = "".join(BeautifulSoup(html).findAll(text=True))
+        text = "".join(BeautifulSoup(html, features='html.parser').findAll(text=True))
         nl_clean = re.sub(r'(\r\n|\r|\n|\\n)', '', text)
         return nl_clean
     else:
