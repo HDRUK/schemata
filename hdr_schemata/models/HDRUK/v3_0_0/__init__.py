@@ -16,6 +16,11 @@ from .Summary import Summary
 
 from .annotations import annotations as an
 
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../utils")))
+from markdown_cleaner import clean_markdown_from_json
+
 
 class Hdruk300(BaseModel):
     class Config:
@@ -68,4 +73,4 @@ class Hdruk300(BaseModel):
     @classmethod
     def save_schema(cls, location="./3.0.0/schema.json"):
         with open(location, "w") as f:
-            json.dump(cls.model_json_schema(), f, indent=6)
+            json.dump(clean_markdown_from_json(cls.model_json_schema()), f, indent=6)
