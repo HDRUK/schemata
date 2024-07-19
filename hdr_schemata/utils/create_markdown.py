@@ -5,7 +5,7 @@ import json
 import typing
 import enum
 import os
-import re
+from markdown_cleaner import clean_markdown_from_json
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -207,18 +207,6 @@ def create_markdown(Model, path, name):
             if d.get("subItems", None):
                 remove_types(d["subItems"])
 
-    def remove_br(data, key=None):
-        keys_to_clean = {"name", "title", "description", "guidance", "examples"}
-
-        if isinstance(data, dict):
-            return {k: remove_br(v, k) for k, v in data.items()}
-        elif isinstance(data, list):
-            return [remove_br(v, key) for v in data]
-        elif isinstance(data, str) and key in keys_to_clean: 
-            return re.sub(r'(<br>|\r\n|\r|\n|\\n)', '', data)
-        else:
-            return data
-
     structure = []
     get_fields(structure, Model)
 
@@ -226,11 +214,11 @@ def create_markdown(Model, path, name):
     form["schema_fields"] = []
     form_structure(structure, form)
     with open(f"{path}/{name}.form.json", "w") as f:
-        json.dump(remove_br(form), f, indent=6)
+        json.dump(clean_markdown_from_json(form), f, indent=6)
 
     with open(f"{path}/{name}.structure.json", "w") as f:
         remove_types(structure)
-        json.dump(remove_br(structure), f, indent=6)
+        json.dump(clean_markdown_from_json(structure), f, indent=6)
 
     md = json_to_markdown(structure)
     with open(f"{path}/{name}.md", "w") as f:
