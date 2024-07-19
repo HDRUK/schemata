@@ -214,7 +214,7 @@ def create_markdown(Model, path, name):
     form["schema_fields"] = []
     form_structure(structure, form)
     with open(f"{path}/{name}.form.json", "w") as f:
-        json.dump(clean_markdown_from_json(form), f, indent=6)
+        json.dump(form, f, indent=6)
 
     with open(f"{path}/{name}.structure.json", "w") as f:
         remove_types(structure)
