@@ -3,3 +3,4 @@ mkdocs-material
 PyYAML
 pandas
 tabulate
+beautifulsoup4
