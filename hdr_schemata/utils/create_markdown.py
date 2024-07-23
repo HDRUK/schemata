@@ -6,6 +6,7 @@ import typing
 import enum
 import os
 from markdown_cleaner import clean_markdown_from_json
+from markdown_cleaner import replace_new_lines_with_breaks
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -109,6 +110,7 @@ def get_fields(structure, model: type[BaseModel]):
 
 def json_to_markdown(structure, level=2):
     md = ""
+    structure = replace_new_lines_with_breaks(structure)
     for field in structure:
         name = field.pop("name")
         subItems = field.pop("subItems", None)
@@ -214,12 +216,13 @@ def create_markdown(Model, path, name):
     structure = []
     get_fields(structure, Model)
 
+
     form = {}
     form["schema_fields"] = []
     form_structure(structure, form)
     with open(f"{path}/{name}.form.json", "w") as f:
         json.dump(form, f, indent=6)
-
+    
     with open(f"{path}/{name}.structure.json", "w") as f:
         remove_types(structure)
         json.dump(clean_markdown_from_json(structure), f, indent=6)

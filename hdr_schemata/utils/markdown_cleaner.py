@@ -16,3 +16,13 @@ def clean_markdown_from_json(data, key=None):
         return nl_clean
     else:
         return data
+
+def replace_new_lines_with_breaks(data, key=None):
+    if isinstance(data, dict):
+        return {k: replace_new_lines_with_breaks(v, k) for k, v in data.items()}
+    elif isinstance(data, list):
+        return [replace_new_lines_with_breaks(v, key) for v in data]
+    elif isinstance(data, str): 
+        return re.sub(r'(\r\n|\r|\n|\\n)', '<br>', data)
+    else:
+        return data

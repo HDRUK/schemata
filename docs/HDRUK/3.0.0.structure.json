@@ -23,7 +23,7 @@
             "required": true,
             "title": "Dataset Version",
             "description": "Dataset metadata version.",
-            "guidance": "Dataset metadata version should follow standard SEMVER naming conventions(https://semver.org). For example: 1.1.0 major.minor.patch. Major: Significant/breaking changes. Minor: New features and bug fixes. Patch: Minor fixes without new features.",
+            "guidance": "Dataset metadata version should follow standard SEMVER naming conventions(https://semver.org). For example: 1.1.0 major.minor.patch.Major: Significant/breaking changes.Minor: New features and bug fixes.Patch: Minor fixes without new features.",
             "examples": [
                   "1.1.0"
             ],
@@ -126,7 +126,7 @@
                         "required": true,
                         "title": "Title",
                         "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Please avoid acronyms wherever possible. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
-                        "guidance": "The title should provide a short description of the dataset and be unique across the gateway. - If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. - If the dataset is a \u201clinked dataset\u201d, please indicate this using the prefix \u201cLinked\u201d. - Please avoid acronyms wherever possible. - Good titles should summarise the content of the dataset and if relevant, the region the dataset covers. - Example: North West London COVID-19 Patient Level Situation Report",
+                        "guidance": "The title should provide a short description of the dataset and be unique across the gateway.- If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway.- If the dataset is a \u201clinked dataset\u201d, please indicate this using the prefix \u201cLinked\u201d.- Please avoid acronyms wherever possible.- Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.- Example: North West London COVID-19 Patient Level Situation Report",
                         "examples": [
                               "North West London COVID-19 Patient Level Situation Report"
                         ],
@@ -234,7 +234,7 @@
                                     "examples": null,
                                     "type": [
                                           "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List"
+                                          "typing.List[hdr_schemata.definitions.HDRUK.EmailAddress.EmailAddress]"
                                     ],
                                     "is_list": false,
                                     "is_optional": false,
@@ -280,7 +280,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List",
+                              "typing.List[hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters]",
                               "null"
                         ],
                         "is_list": false,
@@ -329,7 +329,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List",
+                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
                               "null"
                         ],
                         "is_list": false,
@@ -377,7 +377,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List",
+                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
                               "null"
                         ],
                         "is_list": false,
@@ -425,7 +425,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List"
+                              "typing.List[hdr_schemata.definitions.HDRUK.Url.Url]"
                         ],
                         "is_list": false,
                         "is_optional": false,
@@ -795,7 +795,7 @@
                                     "examples": null,
                                     "type": [
                                           "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List",
+                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -916,7 +916,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List",
+                                          "typing.List[hdr_schemata.definitions.HDRUK.Isocountrycode.Isocountrycode]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1008,7 +1008,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List",
+                                          "typing.List[hdr_schemata.definitions.HDRUK.Language.Language]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1024,7 +1024,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List",
+                                          "typing.List[hdr_schemata.definitions.HDRUK.Format.Format]",
                                           "null"
                                     ],
                                     "is_list": false,

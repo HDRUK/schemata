@@ -21,13 +21,7 @@ summary:
     title: "Keywords"
     description: "Please provide a list of relevant and specific keywords that can improve the SEO of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users."
   title:
-    guidance: > 
-      - The **title** should provide a short description of the dataset and be **unique** across the gateway.<br>
-      - If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.<br>
-      - If the dataset is a **“linked dataset”**, please indicate this using the prefix **“Linked”**.<br>
-      - Please **avoid acronyms** wherever possible.<br>
-      - Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.<br>
-      - **Example**: North West London COVID-19 Patient Level Situation Report
+    guidance: "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If the dataset is a **“linked dataset”**, please indicate this using the prefix **“Linked”**.\\n- Please **avoid acronyms** wherever possible.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report"
     examples:
       - "North West London COVID-19 Patient Level Situation Report"
     title: "Title"
@@ -370,11 +364,7 @@ identifier:
   title: "Dataset identifier"
   description: "System dataset identifier."
 version:
-  guidance: >
-    Dataset metadata version should follow standard SEMVER naming conventions(https://semver.org). For example: 1.1.0 major.minor.patch.<br>
-    Major: Significant/breaking changes.<br>
-    Minor: New features and bug fixes.<br>
-    Patch: Minor fixes without new features.
+  guidance: "Dataset metadata version should follow standard SEMVER naming conventions(https://semver.org). For example: 1.1.0 major.minor.patch.\\nMajor: Significant/breaking changes.\\nMinor: New features and bug fixes.\\nPatch: Minor fixes without new features."
   examples:
     - "1.1.0"
   title: "Dataset Version"
