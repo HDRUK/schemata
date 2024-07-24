@@ -2306,7 +2306,7 @@
             "issued": {
                   "description": "Datetime stamp of when this metadata version was initially issued",
                   "format": "date-time",
-                  "title": "Metadata Issued Datetime',",
+                  "title": "Metadata Issued Datetime",
                   "type": "string"
             },
             "modified": {
