@@ -6,6 +6,7 @@ import typing
 import enum
 import os
 from markdown_cleaner import clean_markdown_from_json
+from markdown_cleaner import replace_new_lines_with_breaks
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -109,11 +110,16 @@ def get_fields(structure, model: type[BaseModel]):
 
 def json_to_markdown(structure, level=2):
     md = ""
+    structure = replace_new_lines_with_breaks(structure)
     for field in structure:
         name = field.pop("name")
         subItems = field.pop("subItems", None)
         description = field.pop("description")
         examples = field.pop("examples")
+        
+        # Removing the is_optional fields from the markdown docs
+        del field["is_optional"]
+
         if examples:
             examples = "\n".join(["  * " + str(x) for x in examples])
             examples = "Examples: \n\n " + examples
@@ -210,12 +216,13 @@ def create_markdown(Model, path, name):
     structure = []
     get_fields(structure, Model)
 
+
     form = {}
     form["schema_fields"] = []
     form_structure(structure, form)
     with open(f"{path}/{name}.form.json", "w") as f:
         json.dump(form, f, indent=6)
-
+    
     with open(f"{path}/{name}.structure.json", "w") as f:
         remove_types(structure)
         json.dump(clean_markdown_from_json(structure), f, indent=6)
@@ -223,7 +230,7 @@ def create_markdown(Model, path, name):
     md = json_to_markdown(structure)
     with open(f"{path}/{name}.md", "w") as f:
         f.write(md)
-    print(f"Done {path}/name")
+    print(f"Done {path}/{name}")
 
 
 from hdr_schemata.models.HDRUK import Hdruk212
@@ -237,10 +244,10 @@ from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 
   
-# create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
-# create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
-# create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
-# create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
+create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
+create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
+create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
+create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
 create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
@@ -248,7 +255,7 @@ from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20   
 
-# create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
-# create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
-# create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
-# create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
+create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
+create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
+create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
+create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
