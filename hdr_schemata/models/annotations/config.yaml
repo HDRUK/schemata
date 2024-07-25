@@ -1,7 +1,7 @@
 Common: &common_definitions
   issued: &common_definitions_issued
     description: Datetime stamp of when this metadata version was initially issued
-    title: Metadata Issued Datetime',
+    title: Metadata Issued Datetime
   modified: &common_definitions_modified
     description: Datetime stamp of when this metadata was last modified
     title: Last Modified Datetime

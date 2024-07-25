@@ -16,7 +16,7 @@ required:
     title: Linkage
   issued:
     description: Datetime stamp of when this metadata version was initially issued
-    title: Metadata Issued Datetime',
+    title: Metadata Issued Datetime
   modified:
     description: Datetime stamp of when this metadata was last modified
     title: Last Modified Datetime
