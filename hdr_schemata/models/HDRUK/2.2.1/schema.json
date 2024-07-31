@@ -1476,7 +1476,7 @@
                               ],
                               "default": null,
                               "description": "Please indicate the purpose(s) that the dataset was collected.",
-                              "guidance": "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: ...........\\n- **Other**: Data collected for other purpose.",
+                              "guidance": "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: Data collected in compliance with statutory requirements.\\n- **Other**: Data collected for other purpose.",
                               "title": "Purpose of dataset collection"
                         },
                         "source": {

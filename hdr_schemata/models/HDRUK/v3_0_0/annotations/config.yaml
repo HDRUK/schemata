@@ -22,7 +22,12 @@ summary:
     guidance: "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches."
     title: "Keywords"
     examples: 
-      - Health Data, Research, SAIL, Primary care, GP
+      - Outpatient Care
+      - Socioeconomic Deprivation
+      - Infant Morbidity 
+      - Learning disability
+      - Primary Care Prescription
+      - Accident and Emergency Admissions
     description: "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users."
   title:
     guidance: "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report"
@@ -95,7 +100,7 @@ provenance:
       title: "Collection source setting"
       description: "Please indicate the setting(s) where data was collected. Multiple settings may be provided."
     purpose:
-      guidance: "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: ...........\\n- **Other**: Data collected for other purpose."
+      guidance: "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: Data collected in compliance with statutory requirements.\\n- **Other**: Data collected for other purpose."
       title: "Purpose of dataset collection"
       description: "Please indicate the purpose(s) that the dataset was collected."
     datasetType:
@@ -320,22 +325,22 @@ enrichmentAndLinkage:
     title: "Investigations"
     description: "Please provide link to any active projects that are using the dataset."
 documentation:
+  _title: "Documentation"
+  _description: "Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media."
   inPipeline:
     guidance: "If a dataset is being prepared for sharing but not yet ready and available for researchers to apply for access, select 'Not available'. If Researchers can currently apply for access to the dataset, select 'Available'."
     title: "Dataset pipeline status"
     description: "Indicate whether this dataset is currently available for Researchers to request access."
-  _description: "Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media."
   associatedMedia:
-    guidance: "- Please provide any media associated with the Gateway Organisation **using a valid URL** for the content.\\n- This is an opportunity to **provide additional context** that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question.\\n- Note: media assets can be hosted by the organisation or uploaded using the onboarding portal.\n- **Example**: This could be a **link to a PDF Document** that describes methodology or further detail about the datasets, or a graph or chart that provides further context about the dataset.\\n- If you are providing multiple links for associated media, we recommend that you separate these with a comma."
+    guidance: "- Please provide any media associated with the Gateway Organisation **using a valid URL** for the content.\\n- This is an opportunity to **provide additional context** that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question.\\n- Note: media assets should be hosted by the organisation.\n- **Example**: This could be a **link to a PDF Document** that describes methodology or further detail about the datasets, or a graph or chart that provides further context about the dataset.\\n- If you are providing multiple links for associated media, we recommend that you separate these with a comma."
     examples:
       - "PDF document that describes study protocol - https://link.to/document.pdf"
     title: "Associated media"
     description: "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal."
-  _title: "Documentation"
   description:
-    guidance: "- An HTML account of the data that **provides context and scope** of the data, **limited to 3000 characters, and/or a resolvable URL** that describes the dataset.\\n- Additional information can be recorded and included using media."
+    guidance: "- An HTML account of the data that **provides context and scope** of the data, **limited to 3000 characters, and/or a resolvable URL** that describes the dataset.\\n- Additional information can be recorded and included using the Associated media field."
     title: "Description"
-    description: "A free-text description of the dataset.\\nA URL can also be provided as the description of the dataset.\\nGateway Feature: Keywords and text may be extracted out of the description and index for search."
+    description: "A free-text description of the dataset.\\nA URL can also be provided as the description of the dataset.\\nGateway Feature: Keywords and text may be extracted out of the description and indexed for search."
 coverage:
   datasetCompleteness:
     guidance: "If your organisation has a publicly available site which contains information on the completeness of a dataset, add that URL here.\\n**Example**: https://bhfdatasciencecentre.org/dashboard/"
@@ -368,7 +373,7 @@ coverage:
     title: "Minimum age range"
     description: "Please indicate the minimum age in years of participants in the dataset as a whole number (integer)."
   followup:
-    guidance: "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).\\n-**0 - 6 MONTHS**: Data typically available for a patient over a 0-6 month period.\\n-**6 - 12 MONTHS**: Data typically available for a patient over a 6-12 month period.\\n-**1 - 10 YEARS**: Data typically available for a patient over a 1-10 year period.\\n-**> 10 YEARS**: Data typically available for a patient for over a 10 year period.\\n-**CONTINUOUS**: .......... \\n-**UNKNOWN**: Timespan is Unknown.\\n-**OTHER**: Data available for a patient over another time period."
+    guidance: "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).\\n-**0 - 6 MONTHS**: Data typically available for a patient over a 0-6 month period.\\n-**6 - 12 MONTHS**: Data typically available for a patient over a 6-12 month period.\\n-**1 - 10 YEARS**: Data typically available for a patient over a 1-10 year period.\\n-**> 10 YEARS**: Data typically available for a patient for over a 10 year period.\\n-**CONTINUOUS**: Data for patients is being regularly added to and updated.\\n-**UNKNOWN**: Timespan is Unknown.\\n-**OTHER**: Data available for a patient over another time period."
     title: "Follow-up"
     description: "If known, what is the typical time span that a patient appears in the dataset (follow up period). In a prospective cohort study, after baseline information is collected, participants are followed “longitudinally” i.e. new information is collected about them for a period of time afterward. This is known as the “follow up period”. What is the typical time span of follow up, e.g. 1 year, 5 years? If there are multiple cohorts in the dataset with varying follow up periods, please provide the longest follow up period."
   spatial:
