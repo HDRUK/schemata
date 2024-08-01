@@ -441,7 +441,7 @@
                         "required": false,
                         "title": "Followup",
                         "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
-                        "guidance": "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).-0 - 6 MONTHS: Data typically available for a patient over a 0-6 month period.-6 - 12 MONTHS: Data typically available for a patient over a 6-12 month period.-1 - 10 YEARS: Data typically available for a patient over a 1-10 year period.-> 10 YEARS: Data typically available for a patient for over a 10 year period.-CONTINUOUS: .......... -UNKNOWN: Timespan is Unknown.-OTHER: Data available for a patient over another time period.",
+                        "guidance": "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).-0 - 6 MONTHS: Data typically available for a patient over a 0-6 month period.-6 - 12 MONTHS: Data typically available for a patient over a 6-12 month period.-1 - 10 YEARS: Data typically available for a patient over a 1-10 year period.-> 10 YEARS: Data typically available for a patient for over a 10 year period.-CONTINUOUS: Data for patients is being regularly added to and updated.-UNKNOWN: Timespan is Unknown.-OTHER: Data available for a patient over another time period.",
                         "examples": null,
                         "type": [
                               "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]",
@@ -519,7 +519,7 @@
                                     "required": false,
                                     "title": "Purpose",
                                     "description": "Please indicate the purpose(s) that the dataset was collected.",
-                                    "guidance": "Research cohort: Data collected for a defined group of people.- Study: Data collected for a specific research study.- Disease registry: Data collected as part of a disease registry.- Trial: Data collected for as part of a clinical trial.- Care: Data collected as part of routine clinical care.- Audit: Data collected as part of an audit programme.- Administrative: Data collected for administrative and management information purposes.- Financial: Data collected either for payments or for billing.- Statutory: ...........- Other: Data collected for other purpose.",
+                                    "guidance": "Research cohort: Data collected for a defined group of people.- Study: Data collected for a specific research study.- Disease registry: Data collected as part of a disease registry.- Trial: Data collected for as part of a clinical trial.- Care: Data collected as part of routine clinical care.- Audit: Data collected as part of an audit programme.- Administrative: Data collected for administrative and management information purposes.- Financial: Data collected either for payments or for billing.- Statutory: Data collected in compliance with statutory requirements.- Other: Data collected for other purpose.",
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
