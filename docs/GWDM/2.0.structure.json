@@ -437,7 +437,7 @@
                         "subItems": []
                   },
                   {
-                        "name": "followup",
+                        "name": "followUp",
                         "required": false,
                         "title": "Followup",
                         "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
@@ -1277,16 +1277,16 @@
             "is_optional": true,
             "subItems": [
                   {
-                        "name": "observedNode",
+                        "name": "measuredNode",
                         "required": true,
                         "title": "Statistical Population",
                         "description": "Please select one of the following statistical populations for you observation",
-                        "guidance": "Persons: Unique persons recorded in the dataset- Events: Unique events such as procedures and prescriptions within the dataset-Findings: Unique findings included in the dataset such as diagnoses'-Number of scans per modality: Unique scans for a specified imaging method modality (e.g. 12 x-rays)",
+                        "guidance": "",
                         "examples": [
                               "PERSONS"
                         ],
                         "type": [
-                              "StatisticalPopulationConstrainedV2['Person','Event','Findings','Number of scans per modality']"
+                              "StatisticalPopulationConstrainedV2['Persons','Events','Findings','Number of scans per modality']"
                         ],
                         "is_list": false,
                         "is_optional": false
@@ -1873,6 +1873,244 @@
                                     "subItems": []
                               }
                         ]
+                  }
+            ]
+      },
+      {
+            "name": "demographicFrequency",
+            "required": false,
+            "title": "Demographic frequency",
+            "description": "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "DemographicFrequency",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "age",
+                        "required": true,
+                        "title": "Age",
+                        "description": "Array of age bins and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Age"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "bin",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "AgeBin['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  },
+                  {
+                        "name": "ethnicity",
+                        "required": true,
+                        "title": "Ethnicity",
+                        "description": "Array of ethnicity bins and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Ethnicity"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "bin",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "EthnicityBin['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  },
+                  {
+                        "name": "genderAssignedAtBirth",
+                        "required": true,
+                        "title": "Gender assigned at birth",
+                        "description": "Gender assigned at birth, male or female, and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "GenderAssignedAtBirth"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "bin",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "GenderBin['male','female']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  },
+                  {
+                        "name": "disease",
+                        "required": true,
+                        "title": "Disease",
+                        "description": "Array of diseases and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Disease"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "diseaseCode",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "diseaseCodeVocabulary",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "DiseaseCodeVocabulary['ICD10','SNOMED CT','MeSH']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": null,
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "omics",
+            "required": false,
+            "title": "Omics",
+            "description": "Omics",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Omics",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "assay",
+                        "required": true,
+                        "title": "Omics assay",
+                        "description": "The specific 'omics assay that generated the dataset.",
+                        "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
+                        "examples": null,
+                        "type": [
+                              "Assay['NMR spectroscopy','mass-spectrometry','whole genome sequencing','exome sequencing','genotyping by array','transcriptome profiling by high-throughput sequencing','transcriptome profiling by array','amplicon sequencing','methylation binding domain sequencing','methylation profiling by high-throughput sequencing','genomic variant calling','chromatin accessibility profiling by high-throughput sequencing','histone modification profiling by high-throughput sequencing','chromatin immunoprecipitation sequencing','whole genome shotgun sequencing','whole transcriptome sequencing','targeted mutation analysis']",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "platform",
+                        "required": true,
+                        "title": "Omics Platform",
+                        "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                        "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                        "examples": null,
+                        "type": [
+                              "Platform['Other','NMR Nightingale','Metabolon','Biocrates','Illumina','Oxford Nanopore','454','Hi-C','HiFi']",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
                   }
             ]
       }

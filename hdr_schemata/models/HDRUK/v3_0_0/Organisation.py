@@ -11,7 +11,7 @@ an = annotations.summary.organisation
 
 class Organisation(BaseOrganisation):
 
-    identifier: Optional[Url] = Field(
+    identifier: Optional[int] = Field(
         None, **an.identifier.__dict__, json_schema_extra={"guidance": an.identifier.guidance}
     )
 

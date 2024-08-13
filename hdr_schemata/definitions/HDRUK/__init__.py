@@ -1,7 +1,9 @@
 from .AbstractText import AbstractText
 from .AccessMode import AccessMode
 from .AccessService import AccessService
+from .Age import Age
 from .AgeRange import AgeRange
+from .Assay import Assay
 from .CommaSeparatedIntegers import CommaSeparatedIntegers
 from .CommaSeparatedValues import CommaSeparatedValues
 from .ControlledVocabulary import ControlledVocabulary
@@ -11,11 +13,14 @@ from .DatasetType import DatasetType, DatasetTypeV2, DatasetSubType
 from .DataUseRequirements import DataUseRequirements, DataUseRequirementsV2
 from .DeliveryLeadTime import DeliveryLeadTime, DeliveryLeadTimeV2
 from .Description import Description
+from .Disease import Disease
 from .Doi import Doi
+from .Ethnicity import Ethnicity
 from .EmailAddress import EmailAddress
 from .EndDateEnum import EndDateEnum
 from .Followup import Followup
 from .Format import Format
+from .GenderAssignedAtBirth import GenderAssignedAtBirth
 from .ICD_0_3 import ICD_0_3
 from .IsPartOfEnum import IsPartOfEnum
 from .Isocountrycode import Isocountrycode
@@ -31,6 +36,7 @@ from .OneHundredFiftyCharacters import OneHundredFiftyCharacters
 from .Periodicity import Periodicity, PeriodicityV2
 from .PhysicalSampleAvailability import PhysicalSampleAvailability
 from .Pipeline import Pipeline
+from .Platform import Platform
 from .Purpose import Purpose, PurposeV2
 from .Semver import Semver
 from .Setting import Setting, SettingV2

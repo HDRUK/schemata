@@ -6,9 +6,11 @@ from datetime import date, datetime
 
 from .Accessibility import Accessibility
 from .Coverage import Coverage
+from .DemographicFrequency import DemographicFrequency
 from .Documentation import Documentation
 from .EnrichmentAndLinkage import EnrichmentAndLinkage
 from .Observations import Observation
+from .Omics import Omics
 from .Provenance import Provenance
 from .Revision import Revision
 from .StructuralMetadata import StructuralMetadata
@@ -68,6 +70,18 @@ class Hdruk300(BaseModel):
         None,
         description=an.structuralMetadata.description,
         title=an.structuralMetadata.title,
+    )
+
+    demographicFrequency: Optional[DemographicFrequency] = Field(
+        None,
+        description=an.demographicFrequency.description,
+        title=an.demographicFrequency.title
+    )
+
+    omics: Optional[Omics] = Field(
+        None,
+        description=an.omics.description,
+        title=an.omics.title
     )
 
     @classmethod

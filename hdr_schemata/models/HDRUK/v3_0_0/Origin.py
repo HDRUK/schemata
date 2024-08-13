@@ -15,11 +15,11 @@ class Origin(BaseModel):
         None, **an.purpose.__dict__, json_schema_extra={"guidance": an.purpose.guidance}
     )
 
-    datasetType: DatasetTypeV2 = Field(
+    datasetType: List[DatasetTypeV2] = Field(
         ..., **an.datasetType.__dict__, json_schema_extra={"guidance": an.datasetType.guidance}
     )
 
-    datasetSubType: Optional[DatasetSubType] = Field(
+    datasetSubType: Optional[List[DatasetSubType]] = Field(
         ..., **an.datasetSubType.__dict__, json_schema_extra={"guidance": an.datasetSubType.guidance}
     )
     

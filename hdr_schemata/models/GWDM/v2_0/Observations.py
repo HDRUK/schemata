@@ -11,7 +11,7 @@ class Observation(BaseModel):
     class Config:
         extra = "forbid"
 
-    observedNode: StatisticalPopulationConstrainedV2 = Field(
+    measuredNode: StatisticalPopulationConstrainedV2 = Field(
         ..., **an.observedNode.__dict__
     )
     measuredValue: int = Field(..., **an.measuredValue.__dict__)

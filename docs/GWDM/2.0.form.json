@@ -371,7 +371,7 @@
                               null
                         ]
                   },
-                  "location": "coverage.followup"
+                  "location": "coverage.followUp"
             },
             {
                   "required": false,
@@ -1064,7 +1064,7 @@
                   "required": true,
                   "title": "Statistical Population",
                   "description": "Please select one of the following statistical populations for you observation",
-                  "guidance": "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n-**Findings**: Unique findings included in the dataset such as diagnoses'\\n-**Number of scans per modality**: Unique scans for a specified imaging method modality (e.g. 12 x-rays)",
+                  "guidance": "",
                   "examples": [
                         "PERSONS"
                   ],
@@ -1073,13 +1073,13 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "Person",
-                              "Event",
+                              "Persons",
+                              "Events",
                               "Findings",
                               "Number of scans per modality"
                         ]
                   },
-                  "location": "observations.observedNode"
+                  "location": "observations.measuredNode"
             },
             {
                   "required": true,
@@ -1422,6 +1422,224 @@
                         "type": "string"
                   },
                   "location": "tissuesSampleCollection.tissueSampleMetadata.useRestrictions"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "0-6 days",
+                              "7-27 days",
+                              "1-11 months",
+                              "1-4 years",
+                              "5-9 years",
+                              "10-14 years",
+                              "15-19 years",
+                              "20-14 years",
+                              "25-29 years",
+                              "30-34 years",
+                              "35-39 years",
+                              "40-44 years",
+                              "45-49 years",
+                              "50-54 years",
+                              "55-59 years",
+                              "60-64 years",
+                              "65-69 years",
+                              "70-74 years",
+                              "75-79 years",
+                              "80-84 years",
+                              "85-89 years",
+                              "90-94 years",
+                              "65-99 years",
+                              "100+ years"
+                        ]
+                  },
+                  "location": "demographicFrequency.age.bin"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "int",
+                  "location": "demographicFrequency.age.count"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "White - British",
+                              "White - Irish",
+                              "White - Any other White background",
+                              "Mixed - White and Black Caribbean",
+                              "Mixed - White and Black African",
+                              "Mixed - White and Asian",
+                              "Mixed - Any other mixed background",
+                              "Asian or Asian British - Indian",
+                              "Asian or Asian British - Pakistani",
+                              "Asian or Asian British - Bangladeshi",
+                              "Asian or Asian British - Any other Asian background",
+                              "Black or Black British - Caribbean",
+                              "Black or Black British - African",
+                              "Black or Black British - Any other Black background",
+                              "Other Ethnic Groups - Chinese",
+                              "Other Ethnic Groups - Any other ethnic group",
+                              "Not stated",
+                              "Not known"
+                        ]
+                  },
+                  "location": "demographicFrequency.ethnicity.bin"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "int",
+                  "location": "demographicFrequency.ethnicity.count"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "male",
+                              "female"
+                        ]
+                  },
+                  "location": "demographicFrequency.genderAssignedAtBirth.bin"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "int",
+                  "location": "demographicFrequency.genderAssignedAtBirth.count"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "str",
+                  "location": "demographicFrequency.disease.diseaseCode"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "ICD10",
+                              "SNOMED CT",
+                              "MeSH"
+                        ]
+                  },
+                  "location": "demographicFrequency.disease.diseaseCodeVocabulary"
+            },
+            {
+                  "required": true,
+                  "title": null,
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "int",
+                  "location": "demographicFrequency.disease.count"
+            },
+            {
+                  "required": true,
+                  "title": "Omics assay",
+                  "description": "The specific 'omics assay that generated the dataset.",
+                  "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "NMR spectroscopy",
+                              "mass-spectrometry",
+                              "whole genome sequencing",
+                              "exome sequencing",
+                              "genotyping by array",
+                              "transcriptome profiling by high-throughput sequencing",
+                              "transcriptome profiling by array",
+                              "amplicon sequencing",
+                              "methylation binding domain sequencing",
+                              "methylation profiling by high-throughput sequencing",
+                              "genomic variant calling",
+                              "chromatin accessibility profiling by high-throughput sequencing",
+                              "histone modification profiling by high-throughput sequencing",
+                              "chromatin immunoprecipitation sequencing",
+                              "whole genome shotgun sequencing",
+                              "whole transcriptome sequencing",
+                              "targeted mutation analysis"
+                        ]
+                  },
+                  "location": "omics.assay"
+            },
+            {
+                  "required": true,
+                  "title": "Omics Platform",
+                  "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                  "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Other",
+                              "NMR Nightingale",
+                              "Metabolon",
+                              "Biocrates",
+                              "Illumina",
+                              "Oxford Nanopore",
+                              "454",
+                              "Hi-C",
+                              "HiFi"
+                        ]
+                  },
+                  "location": "omics.platform"
             }
       ]
 }

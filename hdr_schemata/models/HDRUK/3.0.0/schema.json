@@ -105,9 +105,6 @@
                         "jurisdiction": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/Isocountrycode"
                                           },
@@ -226,6 +223,76 @@
                   ],
                   "title": "Accessibility",
                   "type": "object"
+            },
+            "Age": {
+                  "properties": {
+                        "bin": {
+                              "$ref": "#/$defs/AgeBin"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "Age",
+                  "type": "object"
+            },
+            "AgeBin": {
+                  "enum": [
+                        "0-6 days",
+                        "7-27 days",
+                        "1-11 months",
+                        "1-4 years",
+                        "5-9 years",
+                        "10-14 years",
+                        "15-19 years",
+                        "20-14 years",
+                        "25-29 years",
+                        "30-34 years",
+                        "35-39 years",
+                        "40-44 years",
+                        "45-49 years",
+                        "50-54 years",
+                        "55-59 years",
+                        "60-64 years",
+                        "65-69 years",
+                        "70-74 years",
+                        "75-79 years",
+                        "80-84 years",
+                        "85-89 years",
+                        "90-94 years",
+                        "65-99 years",
+                        "100+ years"
+                  ],
+                  "title": "AgeBin",
+                  "type": "string"
+            },
+            "Assay": {
+                  "enum": [
+                        "NMR spectroscopy",
+                        "mass-spectrometry",
+                        "whole genome sequencing",
+                        "exome sequencing",
+                        "genotyping by array",
+                        "transcriptome profiling by high-throughput sequencing",
+                        "transcriptome profiling by array",
+                        "amplicon sequencing",
+                        "methylation binding domain sequencing",
+                        "methylation profiling by high-throughput sequencing",
+                        "genomic variant calling",
+                        "chromatin accessibility profiling by high-throughput sequencing",
+                        "histone modification profiling by high-throughput sequencing",
+                        "chromatin immunoprecipitation sequencing",
+                        "whole genome shotgun sequencing",
+                        "whole transcriptome sequencing",
+                        "targeted mutation analysis"
+                  ],
+                  "title": "Assay",
+                  "type": "string"
             },
             "CommaSeparatedValues": {
                   "anyOf": [
@@ -374,7 +441,7 @@
                               "guidance": "Indicate the specimen type, can be several values from the list below:- Availability of physical samples associated with the dataset.- If samples are available, please indicate the types of samples that are available.- More than one type may be provided.- If samples are not yet available, please provide \u201cAvailability to be confirmed\u201d.- If samples are not available, then please provide \u201cNot available\u201d.- Not available: Samples associated with the dataset are not available.- Bone marrow: Bone marrow samples associated with the data are available.- Cancer cell lines: Cancer cell line samples associated with the data are available.- CDNA/MRNA: CDNA/MRNA samples associated with the data are available.- Core biopsy: Core biopsy samples associated with the data are available.- DNA: DNA samples associated with the data are available.- Entire body organ: Entire body organ associated with the data are available.- Faeces: Faeces samples associated with the data are available.- Immortalized cell lines: Immortalized cell line samples associated with the data are available.- Isolated pathogen: Isolated pathogen associated with the data are available.- MicroRNA: MicroRNA samples associated with the data are available.- Peripheral blood cells: Peripheral blood cell samples associated with the data are available.- Plasma: Plasma samples associated with the data are available.- PM Tissue: PM Tissue samples associated with the data are available.- Primary cells: Primary cell samples associated with the data are available.- RNA: RNA samples associated with the data are available.- Saliva: Saliva samples associated with the data are available.- Serum: Serum samples associated with the data are available.- Swabs: Swab samples associated with the data are available.- Tissue: Tissue samples associated with the data are available.- Urine: Urine samples associated with the data are available.- Whole blood: Whole blood samples associated with the data are available.- Availability to be confirmed: Availability of samples is currently being confirmed.- Other: Other types of sample available.",
                               "title": "Biological sample availability"
                         },
-                        "followup": {
+                        "followUp": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/Followup"
@@ -694,6 +761,7 @@
                         "Multiomics",
                         "Metagenomics",
                         "Genomics",
+                        "Lipidomics",
                         "Education",
                         "Crime and Justice",
                         "Ethnicity",
@@ -753,6 +821,79 @@
                   "title": "DeliveryLeadTimeV2",
                   "type": "string"
             },
+            "DemographicFrequency": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "age": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Age"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Array of age bins and their corresponding counts.",
+                              "title": "Age"
+                        },
+                        "ethnicity": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Ethnicity"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Array of ethnicity bins and their corresponding counts.",
+                              "title": "Ethnicity"
+                        },
+                        "genderAssignedAtBirth": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/GenderAssignedAtBirth"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Gender assigned at birth, male or female, and their corresponding counts.",
+                              "title": "Gender assigned at birth"
+                        },
+                        "disease": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Disease"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Array of diseases and their corresponding counts.",
+                              "title": "Disease"
+                        }
+                  },
+                  "required": [
+                        "age",
+                        "ethnicity",
+                        "genderAssignedAtBirth",
+                        "disease"
+                  ],
+                  "title": "DemographicFrequency",
+                  "type": "object"
+            },
             "Description": {
                   "anyOf": [
                         {
@@ -765,6 +906,44 @@
                         }
                   ],
                   "title": "Description"
+            },
+            "Disease": {
+                  "properties": {
+                        "diseaseCode": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "integer"
+                                    }
+                              ],
+                              "title": "Diseasecode"
+                        },
+                        "diseaseCodeVocabulary": {
+                              "$ref": "#/$defs/DiseaseCodeVocabulary"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "diseaseCode",
+                        "diseaseCodeVocabulary",
+                        "count"
+                  ],
+                  "title": "Disease",
+                  "type": "object"
+            },
+            "DiseaseCodeVocabulary": {
+                  "enum": [
+                        "ICD10",
+                        "SNOMED CT",
+                        "MeSH"
+                  ],
+                  "title": "DiseaseCodeVocabulary",
+                  "type": "string"
             },
             "Documentation": {
                   "additionalProperties": false,
@@ -1007,6 +1186,47 @@
                   "title": "EnrichmentAndLinkage",
                   "type": "object"
             },
+            "Ethnicity": {
+                  "properties": {
+                        "bin": {
+                              "$ref": "#/$defs/EthnicityBin"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "Ethnicity",
+                  "type": "object"
+            },
+            "EthnicityBin": {
+                  "enum": [
+                        "White - British",
+                        "White - Irish",
+                        "White - Any other White background",
+                        "Mixed - White and Black Caribbean",
+                        "Mixed - White and Black African",
+                        "Mixed - White and Asian",
+                        "Mixed - Any other mixed background",
+                        "Asian or Asian British - Indian",
+                        "Asian or Asian British - Pakistani",
+                        "Asian or Asian British - Bangladeshi",
+                        "Asian or Asian British - Any other Asian background",
+                        "Black or Black British - Caribbean",
+                        "Black or Black British - African",
+                        "Black or Black British - Any other Black background",
+                        "Other Ethnic Groups - Chinese",
+                        "Other Ethnic Groups - Any other ethnic group",
+                        "Not stated",
+                        "Not known"
+                  ],
+                  "title": "EthnicityBin",
+                  "type": "string"
+            },
             "Followup": {
                   "enum": [
                         "0 - 6 MONTHS",
@@ -1080,6 +1300,31 @@
                   },
                   "title": "FormatAndStandards",
                   "type": "object"
+            },
+            "GenderAssignedAtBirth": {
+                  "properties": {
+                        "bin": {
+                              "$ref": "#/$defs/GenderBin"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "GenderAssignedAtBirth",
+                  "type": "object"
+            },
+            "GenderBin": {
+                  "enum": [
+                        "male",
+                        "female"
+                  ],
+                  "title": "GenderBin",
+                  "type": "string"
             },
             "GenderType": {
                   "enum": [
@@ -1347,7 +1592,7 @@
             "Observation": {
                   "additionalProperties": false,
                   "properties": {
-                        "observedNode": {
+                        "measuredNode": {
                               "allOf": [
                                     {
                                           "$ref": "#/$defs/StatisticalPopulationConstrainedV2"
@@ -1407,12 +1652,49 @@
                         }
                   },
                   "required": [
-                        "observedNode",
+                        "measuredNode",
                         "measuredValue",
                         "observationDate",
                         "measuredProperty"
                   ],
                   "title": "Observation",
+                  "type": "object"
+            },
+            "Omics": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "assay": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Assay"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The specific 'omics assay that generated the dataset.",
+                              "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
+                              "title": "Omics assay"
+                        },
+                        "platform": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Platform"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                              "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                              "title": "Omics Platform"
+                        }
+                  },
+                  "required": [
+                        "assay",
+                        "platform"
+                  ],
+                  "title": "Omics",
                   "type": "object"
             },
             "OneHundredFiftyCharacters": {
@@ -1427,7 +1709,7 @@
                         "identifier": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Url"
+                                          "type": "integer"
                                     },
                                     {
                                           "type": "null"
@@ -1531,19 +1813,21 @@
                               "title": "Purpose of dataset collection"
                         },
                         "datasetType": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/DatasetTypeV2"
-                                    }
-                              ],
                               "description": "The topic areas to which the dataset content relates.",
                               "guidance": "Types include those listed below. Datasets can have more than one type associated.- Health and disease: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.- Treatments/Interventions: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.- Measurements/Tests: Includes any data related to laboratory or other diagnostics.- Imaging types: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.- Imaging area of the body: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.- Omics: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.- Socioeconomic: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.- Lifestyle: Includes any data related to smoking, physical activity, dietary habits or alcohol.- Registry: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.- Environment and energy: Includes any data related to the monitoring or study of environmental or energy factors or events.- Information and communication: Includes any data related to the study or application of information and communication.- Politics: Includes any data related to political views, activities, voting, etc.",
-                              "title": "Dataset type"
+                              "items": {
+                                    "$ref": "#/$defs/DatasetTypeV2"
+                              },
+                              "title": "Dataset type",
+                              "type": "array"
                         },
                         "datasetSubType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/DatasetSubType"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetSubType"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
@@ -1637,6 +1921,21 @@
                   "title": "Pipeline",
                   "type": "string"
             },
+            "Platform": {
+                  "enum": [
+                        "Other",
+                        "NMR Nightingale",
+                        "Metabolon",
+                        "Biocrates",
+                        "Illumina",
+                        "Oxford Nanopore",
+                        "454",
+                        "Hi-C",
+                        "HiFi"
+                  ],
+                  "title": "Platform",
+                  "type": "string"
+            },
             "Provenance": {
                   "additionalProperties": false,
                   "properties": {
@@ -1677,7 +1976,7 @@
                         "Audit",
                         "Administrative",
                         "Financial",
-                        "Statuatory",
+                        "Statutory",
                         "Other",
                         null
                   ],
@@ -1808,8 +2107,8 @@
             },
             "StatisticalPopulationConstrainedV2": {
                   "enum": [
-                        "Person",
-                        "Event",
+                        "Persons",
+                        "Events",
                         "Findings",
                         "Number of scans per modality"
                   ],
@@ -1885,7 +2184,7 @@
                               "guidance": "The abstract should provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research.- The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content.- Effective abstracts should avoid long sentences and abbreviations where possible.- Note: Researchers will view Titles and the first line of Abstracts (list view) when searching for datasets and choosing whether to explore their content further.- Abstracts should be different from the full description for a dataset.- Example: CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.",
                               "title": "Dataset abstract"
                         },
-                        "dataProvider": {
+                        "dataCustodian": {
                               "allOf": [
                                     {
                                           "$ref": "#/$defs/Organisation"
@@ -1984,7 +2283,7 @@
                   "required": [
                         "title",
                         "abstract",
-                        "dataProvider",
+                        "dataCustodian",
                         "populationSize",
                         "keywords",
                         "contactPoint"
@@ -2337,6 +2636,32 @@
                   "default": null,
                   "description": "Descriptions of all tables and data elements that can be included in the dataset.",
                   "title": "Structural metadata"
+            },
+            "demographicFrequency": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/DemographicFrequency"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes.",
+                  "title": "Demographic frequency"
+            },
+            "omics": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Omics"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Omics",
+                  "title": "Omics"
             }
       },
       "required": [

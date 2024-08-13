@@ -170,7 +170,7 @@ coverage:
       - "BONE MARROW"
     title: Physical Sample Availability
 
-  followup:
+  followUp:
     description: If known, what is the typical time span that a patient appears in the dataset (follow up period)
     title: Followup
 
@@ -559,3 +559,29 @@ tissuesSampleCollection:
     useRestrictions:
       title: "Use Restrictions"
       description: "Restrictions on the use of the tissue sample"
+demographicFrequency:
+  title: "Demographic frequency"
+  description: "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes."
+  age:
+    title: "Age"
+    description: "Array of age bins and their corresponding counts."
+  ethnicity:
+    title: "Ethnicity"
+    description: "Array of ethnicity bins and their corresponding counts."
+  genderAssignedAtBirth:
+    title: "Gender assigned at birth"
+    description: "Gender assigned at birth, male or female, and their corresponding counts."
+  disease:
+    title: "Disease"
+    description: "Array of diseases and their corresponding counts."
+omics: 
+  title: "Omics"
+  description: "Omics"
+  assay:
+    title: "Omics assay"
+    description: "The specific 'omics assay that generated the dataset."
+    guidance: "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry."         
+  platform:
+    title: "Omics Platform"
+    description: "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf."
+    guidance: "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf."

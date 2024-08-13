@@ -21,8 +21,8 @@ class Summary(BaseModel):
         ..., **an.abstract.__dict__, json_schema_extra={"guidance": an.abstract.guidance}
     )
     
-    dataProvider: Organisation = Field(
-        ..., title=an.dataProvider.title, description=an.dataProvider.description
+    dataCustodian: Organisation = Field(
+        ..., title=an.dataCustodian.title, description=an.dataCustodian.description
     )
 
     populationSize: int = Field(

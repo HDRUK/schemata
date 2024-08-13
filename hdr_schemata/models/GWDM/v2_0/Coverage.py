@@ -17,7 +17,7 @@ class Coverage(BaseModel):
 
     pathway: Optional[LongDescription] = Field(None, **an.pathway.__dict__)
 
-    followup: Optional[Followup] = Field(None, **an.followup.__dict__)
+    followUp: Optional[Followup] = Field(None, **an.followUp.__dict__)
 
     typicalAgeRange: Optional[AgeRange] = Field(None, **an.typicalAgeRange.__dict__)
 

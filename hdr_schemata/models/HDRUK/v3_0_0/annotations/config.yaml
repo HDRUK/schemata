@@ -1,5 +1,5 @@
 summary:
-  dataProvider:
+  dataCustodian:
     title: "Dataset Custodian"
     description: "This is the organisation responsible for running or supporting the data access request process, as well as enquiries about a dataset. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank."
   contactPoint:
@@ -123,7 +123,7 @@ observations:
   title: "Observations"
   description: "This section provides an overview of observations of your dataset linked to specific points in time. Multiple observations about the dataset are encouraged to be provided, including multiple observations of the same property at different timepoints. At least one observation is required."
 
-  observedNode:
+  measuredNode:
     guidance: "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n-**Findings**: Unique findings included in the dataset such as diagnoses'\\n-**Number of scans per modality**: Unique scans for a specified imaging method modality (e.g. 12 x-rays)"
     examples:
       - "Persons"
@@ -372,7 +372,7 @@ coverage:
       - 18
     title: "Minimum age range"
     description: "Please indicate the minimum age in years of participants in the dataset as a whole number (integer)."
-  followup:
+  followUp:
     guidance: "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).\\n-**0 - 6 MONTHS**: Data typically available for a patient over a 0-6 month period.\\n-**6 - 12 MONTHS**: Data typically available for a patient over a 6-12 month period.\\n-**1 - 10 YEARS**: Data typically available for a patient over a 1-10 year period.\\n-**> 10 YEARS**: Data typically available for a patient for over a 10 year period.\\n-**CONTINUOUS**: Data for patients is being regularly added to and updated.\\n-**UNKNOWN**: Timespan is Unknown.\\n-**OTHER**: Data available for a patient over another time period."
     title: "Follow-up"
     description: "If known, what is the typical time span that a patient appears in the dataset (follow up period). In a prospective cohort study, after baseline information is collected, participants are followed “longitudinally” i.e. new information is collected about them for a period of time afterward. This is known as the “follow up period”. What is the typical time span of follow up, e.g. 1 year, 5 years? If there are multiple cohorts in the dataset with varying follow up periods, please provide the longest follow up period."
@@ -402,3 +402,29 @@ datasetDescriptor:
     title: "Title of a dataset"
   url:
     title: "Url of a dataset"
+demographicFrequency:
+  title: "Demographic frequency"
+  description: "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes."
+  age:
+    title: "Age"
+    description: "Array of age bins and their corresponding counts."
+  ethnicity:
+    title: "Ethnicity"
+    description: "Array of ethnicity bins and their corresponding counts."
+  genderAssignedAtBirth:
+    title: "Gender assigned at birth"
+    description: "Gender assigned at birth, male or female, and their corresponding counts."
+  disease:
+    title: "Disease"
+    description: "Array of diseases and their corresponding counts."
+omics: 
+  title: "Omics"
+  description: "Omics"
+  assay:
+    title: "Omics assay"
+    description: "The specific 'omics assay that generated the dataset."
+    guidance: "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry."         
+  platform:
+    title: "Omics Platform"
+    description: "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf."
+    guidance: "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf."

@@ -197,6 +197,53 @@
                   "title": "Accessibility",
                   "type": "object"
             },
+            "Age": {
+                  "properties": {
+                        "bin": {
+                              "$ref": "#/$defs/AgeBin"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "Age",
+                  "type": "object"
+            },
+            "AgeBin": {
+                  "enum": [
+                        "0-6 days",
+                        "7-27 days",
+                        "1-11 months",
+                        "1-4 years",
+                        "5-9 years",
+                        "10-14 years",
+                        "15-19 years",
+                        "20-14 years",
+                        "25-29 years",
+                        "30-34 years",
+                        "35-39 years",
+                        "40-44 years",
+                        "45-49 years",
+                        "50-54 years",
+                        "55-59 years",
+                        "60-64 years",
+                        "65-69 years",
+                        "70-74 years",
+                        "75-79 years",
+                        "80-84 years",
+                        "85-89 years",
+                        "90-94 years",
+                        "65-99 years",
+                        "100+ years"
+                  ],
+                  "title": "AgeBin",
+                  "type": "string"
+            },
             "AgeRange": {
                   "anyOf": [
                         {
@@ -208,6 +255,29 @@
                         }
                   ],
                   "title": "AgeRange"
+            },
+            "Assay": {
+                  "enum": [
+                        "NMR spectroscopy",
+                        "mass-spectrometry",
+                        "whole genome sequencing",
+                        "exome sequencing",
+                        "genotyping by array",
+                        "transcriptome profiling by high-throughput sequencing",
+                        "transcriptome profiling by array",
+                        "amplicon sequencing",
+                        "methylation binding domain sequencing",
+                        "methylation profiling by high-throughput sequencing",
+                        "genomic variant calling",
+                        "chromatin accessibility profiling by high-throughput sequencing",
+                        "histone modification profiling by high-throughput sequencing",
+                        "chromatin immunoprecipitation sequencing",
+                        "whole genome shotgun sequencing",
+                        "whole transcriptome sequencing",
+                        "targeted mutation analysis"
+                  ],
+                  "title": "Assay",
+                  "type": "string"
             },
             "CommaSeparatedValues": {
                   "anyOf": [
@@ -546,6 +616,117 @@
                   ],
                   "title": "DeliveryLeadTime"
             },
+            "DemographicFrequency": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "age": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Age"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Array of age bins and their corresponding counts.",
+                              "title": "Age"
+                        },
+                        "ethnicity": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Ethnicity"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Array of ethnicity bins and their corresponding counts.",
+                              "title": "Ethnicity"
+                        },
+                        "genderAssignedAtBirth": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/GenderAssignedAtBirth"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Gender assigned at birth, male or female, and their corresponding counts.",
+                              "title": "Gender assigned at birth"
+                        },
+                        "disease": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Disease"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Array of diseases and their corresponding counts.",
+                              "title": "Disease"
+                        }
+                  },
+                  "required": [
+                        "age",
+                        "ethnicity",
+                        "genderAssignedAtBirth",
+                        "disease"
+                  ],
+                  "title": "DemographicFrequency",
+                  "type": "object"
+            },
+            "Disease": {
+                  "properties": {
+                        "diseaseCode": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "integer"
+                                    }
+                              ],
+                              "title": "Diseasecode"
+                        },
+                        "diseaseCodeVocabulary": {
+                              "$ref": "#/$defs/DiseaseCodeVocabulary"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "diseaseCode",
+                        "diseaseCodeVocabulary",
+                        "count"
+                  ],
+                  "title": "Disease",
+                  "type": "object"
+            },
+            "DiseaseCodeVocabulary": {
+                  "enum": [
+                        "ICD10",
+                        "SNOMED CT",
+                        "MeSH"
+                  ],
+                  "title": "DiseaseCodeVocabulary",
+                  "type": "string"
+            },
             "Doi": {
                   "anyOf": [
                         {
@@ -557,6 +738,47 @@
                         }
                   ],
                   "title": "Doi"
+            },
+            "Ethnicity": {
+                  "properties": {
+                        "bin": {
+                              "$ref": "#/$defs/EthnicityBin"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "Ethnicity",
+                  "type": "object"
+            },
+            "EthnicityBin": {
+                  "enum": [
+                        "White - British",
+                        "White - Irish",
+                        "White - Any other White background",
+                        "Mixed - White and Black Caribbean",
+                        "Mixed - White and Black African",
+                        "Mixed - White and Asian",
+                        "Mixed - Any other mixed background",
+                        "Asian or Asian British - Indian",
+                        "Asian or Asian British - Pakistani",
+                        "Asian or Asian British - Bangladeshi",
+                        "Asian or Asian British - Any other Asian background",
+                        "Black or Black British - Caribbean",
+                        "Black or Black British - African",
+                        "Black or Black British - Any other Black background",
+                        "Other Ethnic Groups - Chinese",
+                        "Other Ethnic Groups - Any other ethnic group",
+                        "Not stated",
+                        "Not known"
+                  ],
+                  "title": "EthnicityBin",
+                  "type": "string"
             },
             "Followup": {
                   "enum": [
@@ -643,6 +865,31 @@
                   ],
                   "title": "FormatAndStandards",
                   "type": "object"
+            },
+            "GenderAssignedAtBirth": {
+                  "properties": {
+                        "bin": {
+                              "$ref": "#/$defs/GenderBin"
+                        },
+                        "count": {
+                              "title": "Count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "GenderAssignedAtBirth",
+                  "type": "object"
+            },
+            "GenderBin": {
+                  "enum": [
+                        "male",
+                        "female"
+                  ],
+                  "title": "GenderBin",
+                  "type": "string"
             },
             "Linkage": {
                   "additionalProperties": false,
@@ -894,6 +1141,43 @@
                   "title": "Observation",
                   "type": "object"
             },
+            "Omics": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "assay": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Assay"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The specific 'omics assay that generated the dataset.",
+                              "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
+                              "title": "Omics assay"
+                        },
+                        "platform": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Platform"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                              "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                              "title": "Omics Platform"
+                        }
+                  },
+                  "required": [
+                        "assay",
+                        "platform"
+                  ],
+                  "title": "Omics",
+                  "type": "object"
+            },
             "Organisation": {
                   "properties": {
                         "name": {
@@ -1032,6 +1316,21 @@
                   "title": "Pipeline",
                   "type": "string"
             },
+            "Platform": {
+                  "enum": [
+                        "Other",
+                        "NMR Nightingale",
+                        "Metabolon",
+                        "Biocrates",
+                        "Illumina",
+                        "Oxford Nanopore",
+                        "454",
+                        "Hi-C",
+                        "HiFi"
+                  ],
+                  "title": "Platform",
+                  "type": "string"
+            },
             "Provenance": {
                   "additionalProperties": false,
                   "properties": {
@@ -1075,7 +1374,7 @@
                         "issued": {
                               "description": "Datetime stamp of when this metadata version was initially issued",
                               "format": "date-time",
-                              "title": "Metadata Issued Datetime',",
+                              "title": "Metadata Issued Datetime",
                               "type": "string"
                         },
                         "modified": {
@@ -1225,8 +1524,8 @@
             },
             "StatisticalPopulationConstrainedV2": {
                   "enum": [
-                        "Person",
-                        "Event",
+                        "Persons",
+                        "Events",
                         "Findings",
                         "Number of scans per modality"
                   ],
@@ -1981,6 +2280,32 @@
                   "default": null,
                   "description": "metedata for tissue samples",
                   "title": "Tissue Sample Collection"
+            },
+            "demographicFrequency": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/DemographicFrequency"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes.",
+                  "title": "Demographic frequency"
+            },
+            "omics": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Omics"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Omics",
+                  "title": "Omics"
             }
       },
       "required": [
