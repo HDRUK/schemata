@@ -1954,9 +1954,6 @@
                         "keywords": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
                                           "items": {
                                                 "$ref": "#/$defs/OneHundredFiftyCharacters"
                                           },

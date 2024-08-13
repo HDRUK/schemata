@@ -32,10 +32,10 @@
             "isPartOf": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Union[hdr_schemata.definitions.HDRUK.Url.Url, NoneType, hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters, hdr_schemata.definitions.HDRUK.IsPartOfEnum.IsPartOfEnum]] | null"
       },
       "coverage": {
-            "spatial": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]] | null",
-            "typicalAgeRange": "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "spatial": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "pathway": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
             "followup": "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null] | null",
-            "pathway": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "typicalAgeRange": "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}] | null",
             "gender": "GenderType['Male','Female','Other']",
             "biologicalsamples": "BiologicalSampleType['Blood','Other','Urine','Saliva']",
             "psychological": "PsychologicalType['Cognitive Function','Mental Health']",

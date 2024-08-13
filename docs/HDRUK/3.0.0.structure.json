@@ -235,7 +235,7 @@
                                     "examples": null,
                                     "type": [
                                           "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.EmailAddress.EmailAddress]"
+                                          "List"
                                     ],
                                     "is_list": false,
                                     "is_optional": false,
@@ -285,11 +285,9 @@
                               "Accident and Emergency Admissions"
                         ],
                         "type": [
-                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[hdr_schemata.definitions.HDRUK.OneHundredFiftyCharacters.OneHundredFiftyCharacters]",
-                              "null"
+                              "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
                         ],
-                        "is_list": false,
+                        "is_list": true,
                         "is_optional": true,
                         "subItems": []
                   },
@@ -335,7 +333,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -383,7 +381,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -431,7 +429,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[hdr_schemata.definitions.HDRUK.Url.Url]"
+                              "List"
                         ],
                         "is_list": false,
                         "is_optional": false,
@@ -805,7 +803,7 @@
                                     ],
                                     "type": [
                                           "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -926,7 +924,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Isocountrycode.Isocountrycode]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1023,7 +1021,7 @@
                                     "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Language.Language]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1044,7 +1042,7 @@
                                     ],
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.Format.Format]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,

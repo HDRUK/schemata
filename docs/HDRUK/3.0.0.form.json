@@ -253,11 +253,12 @@
                         "Primary Care Prescription",
                         "Accident and Emergency Admissions"
                   ],
-                  "is_list": false,
+                  "is_list": true,
                   "is_optional": true,
                   "types": {
-                        "title": "CommaSeparatedValues",
-                        "pattern": "([^,]+)",
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
                   "location": "summary.keywords"
