@@ -123,7 +123,7 @@ observations:
   title: "Observations"
   description: "This section provides an overview of observations of your dataset linked to specific points in time. Multiple observations about the dataset are encouraged to be provided, including multiple observations of the same property at different timepoints. At least one observation is required."
 
-  measuredNode:
+  observedNode:
     guidance: "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n-**Findings**: Unique findings included in the dataset such as diagnoses'\\n-**Number of scans per modality**: Unique scans for a specified imaging method modality (e.g. 12 x-rays)"
     examples:
       - "Persons"
@@ -234,7 +234,8 @@ accessibility:
     accessService:
       guidance: "Please provide a brief description of the data access services that are available including:\\n- environment that is currently available to researchers\\n- additional consultancy and services\\n- any indication of costs associated\\n\\n  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.\\n  **Note**: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset."
       examples:
-        - "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+        - "https://re-docs.genomicsengland.co.uk/tutorials/"
+        - "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
       title: "Access service description"
       description: "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset."
     accessRights:
@@ -336,7 +337,7 @@ documentation:
     examples:
       - "PDF document that describes study protocol - https://link.to/document.pdf"
     title: "Associated media"
-    description: "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal."
+    description: "Please provide any media associated with the Gateway Organisation using a valid URL for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal."
   description:
     guidance: "- An HTML account of the data that **provides context and scope** of the data, **limited to 3000 characters, and/or a resolvable URL** that describes the dataset.\\n- Additional information can be recorded and included using the Associated media field."
     title: "Description"

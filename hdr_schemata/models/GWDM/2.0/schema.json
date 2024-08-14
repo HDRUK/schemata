@@ -1078,7 +1078,7 @@
             "Observation": {
                   "additionalProperties": false,
                   "properties": {
-                        "measuredNode": {
+                        "observedNode": {
                               "allOf": [
                                     {
                                           "$ref": "#/$defs/StatisticalPopulationConstrainedV2"
@@ -1133,7 +1133,7 @@
                         }
                   },
                   "required": [
-                        "measuredNode",
+                        "observedNode",
                         "measuredValue",
                         "observationDate",
                         "measuredProperty"

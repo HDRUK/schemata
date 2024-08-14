@@ -43,20 +43,6 @@
                               "guidance": "Select the category which best matches how a Researcher will access the dataset, if approved for access. If the access method changes based on the data required for the project (e.g. the dataset can be shared via secure email if the extract is fully anonymised, but must be accessed via a TRE/SDE if the extract is only pseudonymised) then select 'varies based on project'.",
                               "title": "Access method category"
                         },
-                        "accessMode": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/AccessMode"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": "New project",
-                              "description": "Indication of the application type to enable research access.",
-                              "guidance": "Indicate whether a Researcher will need to join a consortium to enable access to the dataset, or if a Researcher will need to submit an application which describes a specific project and required dataset fields required.",
-                              "title": "Access mode"
-                        },
                         "accessService": {
                               "anyOf": [
                                     {
@@ -69,7 +55,8 @@
                               "default": null,
                               "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                               "examples": [
-                                    "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                                    "https://re-docs.genomicsengland.co.uk/tutorials/",
+                                    "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
                               ],
                               "guidance": "Please provide a brief description of the data access services that are available including:- environment that is currently available to researchers- additional consultancy and services- any indication of costs associated  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.  Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                               "title": "Access service description"
@@ -160,14 +147,6 @@
                   ],
                   "title": "Access",
                   "type": "object"
-            },
-            "AccessMode": {
-                  "enum": [
-                        "Join research consortium",
-                        "New project"
-                  ],
-                  "title": "AccessMode",
-                  "type": "string"
             },
             "AccessService": {
                   "enum": [
@@ -758,7 +737,6 @@
                         "Transcriptomics",
                         "Epigenomics",
                         "Metabolomics",
-                        "Multiomics",
                         "Metagenomics",
                         "Genomics",
                         "Lipidomics",
@@ -982,7 +960,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
+                              "description": "Please provide any media associated with the Gateway Organisation using a valid URL for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
                               "examples": [
                                     "PDF document that describes study protocol - https://link.to/document.pdf"
                               ],
@@ -1592,7 +1570,7 @@
             "Observation": {
                   "additionalProperties": false,
                   "properties": {
-                        "measuredNode": {
+                        "observedNode": {
                               "allOf": [
                                     {
                                           "$ref": "#/$defs/StatisticalPopulationConstrainedV2"
@@ -1652,7 +1630,7 @@
                         }
                   },
                   "required": [
-                        "measuredNode",
+                        "observedNode",
                         "measuredValue",
                         "observationDate",
                         "measuredProperty"
@@ -1709,10 +1687,12 @@
                         "identifier": {
                               "anyOf": [
                                     {
-                                          "type": "integer"
+                                          "maxLength": 50,
+                                          "minLength": 2,
+                                          "type": "string"
                                     },
                                     {
-                                          "type": "null"
+                                          "type": "integer"
                                     }
                               ],
                               "default": null,

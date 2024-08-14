@@ -62,7 +62,6 @@ class DatasetSubType(Enum):
     TRANSCRIPTOMICS = 'Transcriptomics'
     EPIGENOMICS = 'Epigenomics'
     METABOLOMICS = 'Metabolomics'
-    MULTIOMICS = 'Multiomics'
     METAGENOMICS = 'Metagenomics'
     GENOMICS = 'Genomics'
     LIPIDOMICS = 'Lipidomics'
@@ -92,4 +91,3 @@ class DatasetSubType(Enum):
     BIRTHS_AND_DEATHS = 'Births and Deaths'
     # OTHERS = 'Others'
     NOT_APPLICABLE = 'Not applicable'
-    

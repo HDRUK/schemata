@@ -1,6 +1,6 @@
 from hdr_schemata.models.HDRUK.v2_1_2.Organisation import Organisation as BaseOrganisation
 from typing import Optional, Union, List
-from pydantic import Field
+from pydantic import Field, constr
 
 from hdr_schemata.definitions.HDRUK import *
 
@@ -11,7 +11,7 @@ an = annotations.summary.organisation
 
 class Organisation(BaseOrganisation):
 
-    identifier: Optional[int] = Field(
+    identifier: Union[constr(min_length=2, max_length=50), int] = Field(
         None, **an.identifier.__dict__, json_schema_extra={"guidance": an.identifier.guidance}
     )
 

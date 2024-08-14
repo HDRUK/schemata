@@ -11,8 +11,8 @@ class Observation(BaseModel):
     class Config:
         extra = "forbid" 
     
-    measuredNode: StatisticalPopulationConstrainedV2 = Field(
-        ..., **an.measuredNode.__dict__, json_schema_extra={"guidance": an.measuredNode.guidance}
+    observedNode: StatisticalPopulationConstrainedV2 = Field(
+        ..., **an.observedNode.__dict__, json_schema_extra={"guidance": an.observedNode.guidance}
     )
 
     measuredValue: int = Field(..., **an.measuredValue.__dict__, json_schema_extra={"guidance": an.measuredValue.guidance})

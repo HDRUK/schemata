@@ -21,10 +21,6 @@ class Access(BaseModel):
         json_schema_extra={"guidance": an.accessServiceCategory.guidance}
     )
 
-    accessMode: Optional[AccessMode] = Field(
-        "New project", **an.accessMode.__dict__, json_schema_extra={"guidance": an.accessMode.guidance}
-    )
-
     accessService: Optional[LongDescription] = Field(
         None, **an.accessService.__dict__, json_schema_extra={"guidance": an.accessService.guidance}
     )
