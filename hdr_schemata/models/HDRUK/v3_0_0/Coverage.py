@@ -36,7 +36,7 @@ class Coverage(BaseModel):
     )
 
     materialType: Optional[List[MaterialTypeCategoriesV2]] = Field(
-        "None/not available",
+        None,
         **an.materialType.__dict__,
         json_schema_extra={"guidance": an.materialType.guidance}
     )
