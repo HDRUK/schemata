@@ -36,7 +36,4 @@ class Access(BaseModel):
     accessServiceCategory: Optional[CommaSeparatedValues] = Field(
         None, **an.accessServiceCategory.__dict__
     )
-
-    accessMode: Optional[AccessMode] = Field(
-        "New project", **an.accessMode.__dict__
-    )
+    

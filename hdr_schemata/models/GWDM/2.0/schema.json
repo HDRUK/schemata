@@ -122,19 +122,6 @@
                                     "TRE/SDE"
                               ],
                               "title": "Access/governance requirements"
-                        },
-                        "accessMode": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/AccessMode"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": "New project",
-                              "description": "Indication of the application type to enable research access.",
-                              "title": "Access mode"
                         }
                   },
                   "required": [
@@ -144,14 +131,6 @@
                   ],
                   "title": "Access",
                   "type": "object"
-            },
-            "AccessMode": {
-                  "enum": [
-                        "Join research consortium",
-                        "New project"
-                  ],
-                  "title": "AccessMode",
-                  "type": "string"
             },
             "Accessibility": {
                   "additionalProperties": false,
