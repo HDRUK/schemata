@@ -20,7 +20,7 @@ from .ICD_0_3 import ICD_0_3
 from .IsPartOfEnum import IsPartOfEnum
 from .Isocountrycode import Isocountrycode
 from .Language import Language
-from .Language import LanguageEnum
+from .LanguageEnum import LanguageEnum
 from .LongAbstractText import LongAbstractText
 from .LongDescription import LongDescription
 from .MaterialTypeCategories import MaterialTypeCategories, MaterialTypeCategoriesV2
