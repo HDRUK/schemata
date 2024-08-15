@@ -20,7 +20,7 @@ from .ICD_0_3 import ICD_0_3
 from .IsPartOfEnum import IsPartOfEnum
 from .Isocountrycode import Isocountrycode
 from .Language import Language
-from .LanguageEnum import LanguageEnum
+from .Language import LanguageEnum
 from .LongAbstractText import LongAbstractText
 from .LongDescription import LongDescription
 from .MaterialTypeCategories import MaterialTypeCategories, MaterialTypeCategoriesV2
@@ -39,7 +39,10 @@ from .ShortTitle import ShortTitle
 from .Source import Source, SourceV2
 from .StandardisedDataModels import StandardisedDataModels
 from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
-from .StatisticalPopulationConstrained import StatisticalPopulationConstrained, StatisticalPopulationConstrainedV2
+from .StatisticalPopulationConstrained import (
+    StatisticalPopulationConstrained,
+    StatisticalPopulationConstrainedV2,
+)
 from .Ternary import Ternary
 from .TimeLag import TimeLag, TimeLagV2
 from .TissueCollectionTypeEnum import TissueCollectionTypeEnum

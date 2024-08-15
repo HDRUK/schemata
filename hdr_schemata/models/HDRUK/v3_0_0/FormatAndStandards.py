@@ -11,24 +11,24 @@ class FormatAndStandards(BaseModel):
     class Config:
         extra = "forbid"
 
-    vocabularyEncodingScheme: List[ControlledVocabulary] = Field(
-        ...,
+    vocabularyEncodingScheme: List[ControlledVocabularyEnum] = Field(
+        None,
         **an.vocabularyEncodingScheme.__dict__,
         json_schema_extra={"guidance": an.vocabularyEncodingScheme.guidance}
     )
 
-    conformsTo: List[StandardisedDataModels] = Field(
-        ...,
+    conformsTo: List[StandardisedDataModelsEnum] = Field(
+        None,
         **an.conformsTo.__dict__,
         json_schema_extra={"guidance": an.conformsTo.guidance}
     )
 
-    language: List[Language] = Field(
-        ...,
+    language: List[LanguageEnum] = Field(
+        None,
         **an.language.__dict__,
         json_schema_extra={"guidance": an.language.guidance}
     )
 
     format: List[Format] = Field(
-        ..., **an.format.__dict__, json_schema_extra={"guidance": an.format.guidance}
+        None, **an.format.__dict__, json_schema_extra={"guidance": an.format.guidance}
     )
