@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from enum import Enum
 
-class EthnicityBin(Enum):
+class EthnicityEnum(Enum):
     WHITE___BRITISH = 'White - British'
     WHITE___IRISH = 'White - Irish'
     WHITE___ANY_OTHER_WHITE_BACKGROUND = 'White - Any other White background'
@@ -20,7 +20,3 @@ class EthnicityBin(Enum):
     OTHER_ETHNIC_GROUPS___ANY_OTHER_ETHNIC_GROUP = 'Other Ethnic Groups - Any other ethnic group'
     NOT_STATED = 'Not stated'
     NOT_KNOWN = 'Not known'
-
-class Ethnicity(BaseModel):
-    bin: EthnicityBin
-    count: int

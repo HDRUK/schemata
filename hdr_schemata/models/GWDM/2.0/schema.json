@@ -179,10 +179,15 @@
             "Age": {
                   "properties": {
                         "bin": {
-                              "$ref": "#/$defs/AgeBin"
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/AgeEnum"
+                                    }
+                              ],
+                              "title": "Age bin"
                         },
                         "count": {
-                              "title": "Count",
+                              "title": "Age count",
                               "type": "integer"
                         }
                   },
@@ -193,7 +198,7 @@
                   "title": "Age",
                   "type": "object"
             },
-            "AgeBin": {
+            "AgeEnum": {
                   "enum": [
                         "0-6 days",
                         "7-27 days",
@@ -220,7 +225,7 @@
                         "65-99 years",
                         "100+ years"
                   ],
-                  "title": "AgeBin",
+                  "title": "AgeEnum",
                   "type": "string"
             },
             "AgeRange": {
@@ -679,13 +684,18 @@
                                           "type": "integer"
                                     }
                               ],
-                              "title": "Diseasecode"
+                              "title": "Disease code"
                         },
                         "diseaseCodeVocabulary": {
-                              "$ref": "#/$defs/DiseaseCodeVocabulary"
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/DiseaseCodeEnum"
+                                    }
+                              ],
+                              "title": "Disease code vocabulary"
                         },
                         "count": {
-                              "title": "Count",
+                              "title": "Disease count",
                               "type": "integer"
                         }
                   },
@@ -697,13 +707,13 @@
                   "title": "Disease",
                   "type": "object"
             },
-            "DiseaseCodeVocabulary": {
+            "DiseaseCodeEnum": {
                   "enum": [
                         "ICD10",
                         "SNOMED CT",
                         "MeSH"
                   ],
-                  "title": "DiseaseCodeVocabulary",
+                  "title": "DiseaseCodeEnum",
                   "type": "string"
             },
             "Doi": {
@@ -721,10 +731,15 @@
             "Ethnicity": {
                   "properties": {
                         "bin": {
-                              "$ref": "#/$defs/EthnicityBin"
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/EthnicityEnum"
+                                    }
+                              ],
+                              "title": "Ethnicity bin"
                         },
                         "count": {
-                              "title": "Count",
+                              "title": "Ethnicity count",
                               "type": "integer"
                         }
                   },
@@ -735,7 +750,7 @@
                   "title": "Ethnicity",
                   "type": "object"
             },
-            "EthnicityBin": {
+            "EthnicityEnum": {
                   "enum": [
                         "White - British",
                         "White - Irish",
@@ -756,7 +771,7 @@
                         "Not stated",
                         "Not known"
                   ],
-                  "title": "EthnicityBin",
+                  "title": "EthnicityEnum",
                   "type": "string"
             },
             "Followup": {
@@ -848,10 +863,15 @@
             "GenderAssignedAtBirth": {
                   "properties": {
                         "bin": {
-                              "$ref": "#/$defs/GenderBin"
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/GenderEnum"
+                                    }
+                              ],
+                              "title": "Gender assigned at birth bin"
                         },
                         "count": {
-                              "title": "Count",
+                              "title": "Gender assigned at birth count",
                               "type": "integer"
                         }
                   },
@@ -862,12 +882,12 @@
                   "title": "GenderAssignedAtBirth",
                   "type": "object"
             },
-            "GenderBin": {
+            "GenderEnum": {
                   "enum": [
                         "male",
                         "female"
                   ],
-                  "title": "GenderBin",
+                  "title": "GenderEnum",
                   "type": "string"
             },
             "Linkage": {

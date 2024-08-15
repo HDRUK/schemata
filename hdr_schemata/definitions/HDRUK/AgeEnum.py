@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from enum import Enum
 
-class AgeBin(Enum):
+class AgeEnum(Enum):
     DAYS_0_6 = '0-6 days'
     DAYS_7_27 = '7-27 days'
     MONTHS_1_11 = '1-11 months'
@@ -26,8 +26,3 @@ class AgeBin(Enum):
     YEARS_90_94 = '90-94 years'
     YEARS_65_99 = '65-99 years'
     YEARS_100_PLUS = '100+ years'
-
-class Age(BaseModel):
-    bin: AgeBin
-    count: int
-

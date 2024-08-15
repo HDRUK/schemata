@@ -1,7 +1,7 @@
 from .AbstractText import AbstractText
 from .AccessMode import AccessMode
 from .AccessService import AccessService
-from .Age import Age
+from .AgeEnum import AgeEnum
 from .AgeRange import AgeRange
 from .Assay import Assay
 from .CommaSeparatedIntegers import CommaSeparatedIntegers
@@ -13,14 +13,14 @@ from .DatasetType import DatasetType, DatasetTypeV2, DatasetSubType
 from .DataUseRequirements import DataUseRequirements, DataUseRequirementsV2
 from .DeliveryLeadTime import DeliveryLeadTime, DeliveryLeadTimeV2
 from .Description import Description
-from .Disease import Disease
+from .DiseaseCodeEnum import DiseaseCodeEnum
 from .Doi import Doi
-from .Ethnicity import Ethnicity
+from .EthnicityEnum import EthnicityEnum
 from .EmailAddress import EmailAddress
 from .EndDateEnum import EndDateEnum
 from .Followup import Followup
 from .Format import Format
-from .GenderAssignedAtBirth import GenderAssignedAtBirth
+from .GenderEnum import GenderEnum
 from .ICD_0_3 import ICD_0_3
 from .IsPartOfEnum import IsPartOfEnum
 from .Isocountrycode import Isocountrycode

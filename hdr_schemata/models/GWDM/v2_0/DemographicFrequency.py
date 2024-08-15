@@ -1,8 +1,12 @@
 from typing import Optional, List, Union
 from pydantic import BaseModel, Field
-from hdr_schemata.definitions.HDRUK import *
 
 from .annotations import annotations
+
+from .Age import Age
+from .Disease import Disease
+from .Ethnicity import Ethnicity
+from .GenderAssignedAtBirth import GenderAssignedAtBirth
 
 an = annotations.demographicFrequency
 
@@ -13,18 +17,28 @@ class DemographicFrequency(BaseModel):
 
     age: Optional[List[Age]] = Field(
         ..., 
-        **an.age.__dict__, 
+        title=an.age.title,
+        description=an.age.description,
         # json_schema_extra={"guidance": an.age.guidance}
     )
 
     ethnicity: Optional[List[Ethnicity]] = Field(
-        ..., **an.ethnicity.__dict__, # json_schema_extra={"guidance": an.ethnicity.guidance}
+        ...,
+        title=an.ethnicity.title,
+        description=an.ethnicity.description,
+        # json_schema_extra={"guidance": an.ethnicity.guidance}
     )
 
     genderAssignedAtBirth: Optional[List[GenderAssignedAtBirth]] = Field(
-        ..., **an.genderAssignedAtBirth.__dict__, # json_schema_extra={"guidance": an.genderAssignedAtBirth.guidance}
+        ..., 
+        title=an.genderAssignedAtBirth.title,
+        description=an.genderAssignedAtBirth.description, 
+        # json_schema_extra={"guidance": an.genderAssignedAtBirth.guidance}
     )
 
     disease: Optional[List[Disease]] = Field(
-        ..., **an.disease.__dict__, # json_schema_extra={"guidance": an.disease.guidance}
+        ...,
+        title=an.disease.title,
+        description=an.disease.description,
+        # json_schema_extra={"guidance": an.disease.guidance}
     )

@@ -409,15 +409,33 @@ demographicFrequency:
   age:
     title: "Age"
     description: "Array of age bins and their corresponding counts."
+    bin:
+      title: "Age bin"
+    count:
+      title: "Age count"
   ethnicity:
     title: "Ethnicity"
     description: "Array of ethnicity bins and their corresponding counts."
+    bin:
+      title: "Ethnicity bin"
+    count:
+      title: "Ethnicity count"
   genderAssignedAtBirth:
     title: "Gender assigned at birth"
     description: "Gender assigned at birth, male or female, and their corresponding counts."
+    bin:
+      title: "Gender assigned at birth bin"
+    count:
+      title: "Gender assigned at birth count"
   disease:
     title: "Disease"
     description: "Array of diseases and their corresponding counts."
+    diseaseCode:
+      title: "Disease code"
+    diseaseCodeVocabulary:
+      title: "Disease code vocabulary"
+    count:
+      title: "Disease count"
 omics: 
   title: "Omics"
   description: "Omics"

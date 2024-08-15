@@ -1664,7 +1664,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Age bin",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1703,7 +1703,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Age count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1714,7 +1714,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Ethnicity bin",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1747,7 +1747,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Ethnicity count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1758,7 +1758,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Gender assigned at birth bin",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1775,7 +1775,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Gender assigned at birth count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1786,7 +1786,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Disease code",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1797,7 +1797,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Disease code vocabulary",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1815,7 +1815,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Disease count",
                   "description": null,
                   "guidance": "",
                   "examples": null,

@@ -1664,12 +1664,12 @@
                               {
                                     "name": "bin",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Age bin",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "AgeBin['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
+                                          "AgeEnum['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1677,7 +1677,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Age count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1705,12 +1705,12 @@
                               {
                                     "name": "bin",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Ethnicity bin",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "EthnicityBin['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
+                                          "EthnicityEnum['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1718,7 +1718,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Ethnicity count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1746,12 +1746,12 @@
                               {
                                     "name": "bin",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Gender assigned at birth bin",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "GenderBin['male','female']"
+                                          "GenderEnum['male','female']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1759,7 +1759,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Gender assigned at birth count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1787,7 +1787,7 @@
                               {
                                     "name": "diseaseCode",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Disease code",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1801,12 +1801,12 @@
                               {
                                     "name": "diseaseCodeVocabulary",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Disease code vocabulary",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "DiseaseCodeVocabulary['ICD10','SNOMED CT','MeSH']"
+                                          "DiseaseCodeEnum['ICD10','SNOMED CT','MeSH']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1814,7 +1814,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Disease count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
