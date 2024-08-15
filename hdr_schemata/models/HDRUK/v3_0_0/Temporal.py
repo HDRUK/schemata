@@ -14,19 +14,27 @@ class Temporal(BaseModel):
         extra = "forbid"
 
     publishingFrequency: PeriodicityV2 = Field(
-        ..., **an.publishingFrequency.__dict__, json_schema_extra={"guidance": an.publishingFrequency.guidance}
+        None,
+        **an.publishingFrequency.__dict__,
+        json_schema_extra={"guidance": an.publishingFrequency.guidance}
     )
 
     distributionReleaseDate: Optional[Union[date, datetime]] = Field(
-        None, **an.distributionReleaseDate.__dict__, json_schema_extra={"guidance": an.distributionReleaseDate.guidance}
+        None,
+        **an.distributionReleaseDate.__dict__,
+        json_schema_extra={"guidance": an.distributionReleaseDate.guidance}
     )
 
     startDate: Union[date, datetime] = Field(
-        ..., **an.startDate.__dict__, json_schema_extra={"guidance": an.startDate.guidance}
+        None,
+        **an.startDate.__dict__,
+        json_schema_extra={"guidance": an.startDate.guidance}
     )
-    
+
     endDate: Optional[Union[date, datetime, EndDateEnum]] = Field(
         None, **an.endDate.__dict__, json_schema_extra={"guidance": an.endDate.guidance}
     )
 
-    timeLag: TimeLagV2 = Field(..., **an.timeLag.__dict__, json_schema_extra={"guidance": an.timeLag.guidance})
+    timeLag: TimeLagV2 = Field(
+        None, **an.timeLag.__dict__, json_schema_extra={"guidance": an.timeLag.guidance}
+    )

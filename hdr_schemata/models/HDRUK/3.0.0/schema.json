@@ -2001,6 +2001,7 @@
                                           "$ref": "#/$defs/PeriodicityV2"
                                     }
                               ],
+                              "default": null,
                               "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
                               "guidance": "Please indicate the frequency of publishing.- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.- Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/.  Options:- Static: Dataset published once.- Irregular: Dataset published at uneven intervals.- Continuous: Dataset published without interruption.- Biennial: Dataset published every two years.- Annual: Dataset published occurs once a year.- Biannual: Dataset published twice a year.- Quarterly: Dataset published every three months.- Bimonthly: Dataset published every two months.- Monthly: Dataset published once a month.- Biweekly: Dataset published every two weeks.- Weekly: Dataset published once a week.- Twice weekly: Dataset published twice a week.- Daily: Dataset published once a day.- Other: Dataset published using other interval.",
                               "title": "Publishing frequency"
@@ -2035,6 +2036,7 @@
                                           "type": "string"
                                     }
                               ],
+                              "default": null,
                               "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "guidance": "The start of the time period that the dataset provides coverage for.- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "title": "Start date"
@@ -2067,16 +2069,12 @@
                                           "$ref": "#/$defs/TimeLagV2"
                                     }
                               ],
+                              "default": null,
                               "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
                               "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.- Less than 1 week: Typical time lag of less than a week.- 1-2 weeks: Typical time-lag of one to two weeks.- 2-4 weeks: Typical time-lag of two to four weeks.- 1-2 months: Typical time-lag of one to two months.- 2-6 months: Typical time-lag of two to six months.- 6 months plus: Typical time-lag of more than six months.- Variable: Variable time-lag.- Not applicable: Not Applicable i.e. static dataset.- Other: Other time-lag.",
                               "title": "Time lag"
                         }
                   },
-                  "required": [
-                        "publishingFrequency",
-                        "startDate",
-                        "timeLag"
-                  ],
                   "title": "Temporal",
                   "type": "object"
             },
