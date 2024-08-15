@@ -138,8 +138,8 @@
                   "guidance": "**Example**: https://ror.org/053fq8t95\\nIf your organisation does not have a ROR identifier please use the \u201csuggest and institute\u201d function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform",
                   "examples": null,
                   "is_list": false,
-                  "is_optional": true,
-                  "types": "int",
+                  "is_optional": false,
+                  "types": "str",
                   "location": "summary.dataCustodian.identifier"
             },
             {
@@ -326,7 +326,7 @@
             {
                   "required": false,
                   "title": "Associated media",
-                  "description": "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
+                  "description": "Please provide any media associated with the Gateway Organisation using a valid URL for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
                   "guidance": "- Please provide any media associated with the Gateway Organisation **using a valid URL** for the content.\\n- This is an opportunity to **provide additional context** that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question.\\n- Note: media assets should be hosted by the organisation.\n- **Example**: This could be a **link to a PDF Document** that describes methodology or further detail about the datasets, or a graph or chart that provides further context about the dataset.\\n- If you are providing multiple links for associated media, we recommend that you separate these with a comma.",
                   "examples": [
                         "PDF document that describes study protocol - https://link.to/document.pdf"
@@ -615,7 +615,6 @@
                               "Transcriptomics",
                               "Epigenomics",
                               "Metabolomics",
-                              "Multiomics",
                               "Metagenomics",
                               "Genomics",
                               "Lipidomics",
@@ -917,28 +916,12 @@
             },
             {
                   "required": false,
-                  "title": "Access mode",
-                  "description": "Indication of the application type to enable research access.",
-                  "guidance": "Indicate whether a Researcher will need to join a consortium to enable access to the dataset, or if a Researcher will need to submit an application which describes a specific project and required dataset fields required.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Join research consortium",
-                              "New project"
-                        ]
-                  },
-                  "location": "accessibility.access.accessMode"
-            },
-            {
-                  "required": false,
                   "title": "Access service description",
                   "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                   "guidance": "Please provide a brief description of the data access services that are available including:\\n- environment that is currently available to researchers\\n- additional consultancy and services\\n- any indication of costs associated\\n\\n  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.\\n  **Note**: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                   "examples": [
-                        "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                        "https://re-docs.genomicsengland.co.uk/tutorials/",
+                        "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
                   ],
                   "is_list": false,
                   "is_optional": true,
@@ -1626,7 +1609,7 @@
                               "Number of scans per modality"
                         ]
                   },
-                  "location": "observations.measuredNode"
+                  "location": "observations.observedNode"
             },
             {
                   "required": true,
