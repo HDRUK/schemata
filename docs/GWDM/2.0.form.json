@@ -107,7 +107,7 @@
                   "location": "summary.title"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Short Title",
                   "description": "A shorter descriptive title of the dataset",
                   "guidance": "",
@@ -125,7 +125,7 @@
                   "location": "summary.shortTitle"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "DOI Name",
                   "description": "DOI associated to this dataset",
                   "guidance": "- Please note: This is **not** the DOI of the publication(s) associated with the dataset.\\n- All HDR UK registered **datasets** should either have a **(DOI)** or be working towards obtaining one.\\n- If a DOI is available, please provide the DOI.\\n- **What happens if I do not have a DOI?**: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service.",
@@ -160,7 +160,7 @@
                   "location": "summary.abstract"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Keywords",
                   "description": "Comma separated key words associated to this dataset.",
                   "guidance": "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches.",
@@ -177,7 +177,7 @@
                   "location": "summary.keywords"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Controlled Keywords",
                   "description": "Keywords that have been filtered and limited",
                   "guidance": "",
@@ -192,7 +192,7 @@
                   "location": "summary.controlledKeywords"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Contact Point",
                   "description": "email of a person who can be the main contact point of this dataset",
                   "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.\\n**Note:** An employee's email address can only be provided on a temporary basis and if one is provided, **you must obtain explicit consent for this purpose**.",
@@ -205,7 +205,7 @@
                   "location": "summary.contactPoint"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Dataset type",
                   "description": "What type of dataset is this?",
                   "guidance": "",
@@ -221,7 +221,7 @@
                   "location": "summary.datasetType"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Description",
                   "description": "Longer description of the dataset in detail",
                   "guidance": "",
@@ -239,7 +239,7 @@
                   "location": "summary.description"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Organisation Name",
                   "description": "Name of the organisation",
                   "guidance": "",
@@ -472,7 +472,7 @@
                   "location": "provenance.origin.imageContrast"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Start Date",
                   "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                   "guidance": "- The start of the time period that the dataset provides coverage for.\\n- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
@@ -561,7 +561,7 @@
                   "location": "provenance.temporal.distributionReleaseDate"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Data Use Limitation",
                   "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
                   "guidance": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.\\n- **General research use**: This data use limitation indicates that use is allowed for general research use for any research purpose.\\n- **Genetic studies only**: This data use limitation indicates that use is limited to genetic studies only (i.e., no phenotype-only research).\\n- **No general methods research**: This data use limitation indicates that use includes methods development research(e.g., development of software or algorithms) only within the bounds of other use limitations.\\n- **No restriction**: This data use limitation indicates there is no restriction on use.\\n- **Research-specific restrictions**: This data use limitation indicates that use is limited to studies of a certain research type.\\n- **Research use only**: This data use limitation indicates that use is limited to research purposes (e.g., does not include its use in clinical care).\\n- **No linkage**: This data use limitation indicates there is a restriction on linking to any other datasets",
@@ -576,7 +576,7 @@
                   "location": "accessibility.usage.dataUseLimitation"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Data Use Requirements",
                   "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
                   "guidance": "- Please indicate if there are any additional conditions set for use if any, multiple requirements may be provided.\\n- Please ensure that these restrictions are documented in access rights information.\\n- **Collaboration required**: This requirement indicates that the requestor must either agree to join a research consortium or collaborate with the primary study investigator(s).\\n- **Ethics approval required**: This requirement indicates that the requestor must provide documentation of local institutional review board (IRB)/ ethics review board (ERB) approval.\\n- **Geographical restrictions**: This requirement indicates that use is limited to within a specific geographic region.\\n- **Institution-specific restrictions**: This requirement indicates that use is limited to use within an approved institution.\\n- **Not for profit use**: This requirement indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.\\n- **Project-specific restrictions**: This requirement indicates that use is limited to use within an approved project.\\n- **Publication moratorium**: This requirement indicates that requestor agrees not to publish results of studies until a specific date.\\n- **Publication required**: This requirement indicates that requestor agrees to make results of studies using the data available to the larger scientific community.\\n- **Return to database or resource**: This requirement indicates that the requestor must return derived/enriched data to the database/resource.\\n- **Time limit on use**: This requirement indicates that use is approved for a specific number of months.\\n- **User-specific restriction**: This requirement indicates that use is limited to use by approved users.",
@@ -591,7 +591,7 @@
                   "location": "accessibility.usage.dataUseRequirement"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Organisation Name",
                   "description": "Name of the organisation",
                   "guidance": "",
@@ -626,7 +626,7 @@
                   "location": "accessibility.usage.resourceCreator.rorId"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Access Rights",
                   "description": "Please provide details for the data access rights",
                   "guidance": "- The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both separated by a comma.\\n- If such a resource or the underlying process doesn\u2019t exist, please provide \u201cIn Progress\u201d, until both the process and the documentation are ready.",
@@ -700,7 +700,7 @@
                   "location": "accessibility.access.deliveryLeadTime"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Jurisdiction",
                   "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                   "guidance": "A full list of country codes can be found here (alpha-2 column): https://www.iso.org/obp/ui/#search/code/",
@@ -715,10 +715,10 @@
                   "location": "accessibility.access.jurisdiction"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Data Controller",
                   "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
-                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England'",
+                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England",
                   "examples": [
                         "NHS England"
                   ],
@@ -770,23 +770,6 @@
             },
             {
                   "required": false,
-                  "title": "Access mode",
-                  "description": "Indication of the application type to enable research access.",
-                  "guidance": "Indicate whether a Researcher will need to join a consortium to enable access to the dataset, or if a Researcher will need to submit an application which describes a specific project and required dataset fields required.",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Join research consortium",
-                              "New project"
-                        ]
-                  },
-                  "location": "accessibility.access.accessMode"
-            },
-            {
-                  "required": true,
                   "title": "Controlled Vocabulary",
                   "description": "Code value of the ontology vocabulary encoding",
                   "guidance": "",
@@ -803,7 +786,7 @@
                   "location": "accessibility.formatAndStandards.vocabularyEncodingSchemes"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Conforms To",
                   "description": "What the vocabulary conforms to.",
                   "guidance": "- List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.\\n- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- **HL7 FHIR**: <https://www.hl7.org/fhir/>.\\n- **HL7 V2**: <https://www.hl7.org/implement/standards/product_section.cfm?section=13>.\\n- **HL7 CDA**: <https://www.hl7.org/implement/standards/product_section.cfm?section=10>.\\n- **HL7 CCOW**: <https://www.hl7.org/implement/standards/product_section.cfm?section=16>.\\n- **DICOM**: <https://www.dicomstandard.org/>.\\n- **I2B2**: <https://www.i2b2.org/>.\\n- **IHE**: <https://www.ihe.net/resources/profiles/>.\\n- **OMOP**: <https://www.ohdsi.org/data-standardization/the-common-data-model/>.\\n- **openEHR**: <https://www.openehr.org/>.\\n- **Sentinel**: <https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model>.\\n- **PCORnet**: <https://pcornet.org/data-driven-common-model/>.\\n- **CDISC**: <https://www.cdisc.org/standards/data-exchange/odm>.\\n- **Local**: In-house developed data model.\\n- **Other**: Other standardised data model.\\n- **NHS Data Dictionary**: <https://www.datadictionary.nhs.uk/>.\\n- **NHS Scotland Data Dictionary**: <https://www.ndc.scot.nhs.uk/Data-Dictionary/>.\\n- **NHS Wales Data Dictionary**: <https://www.datadictionary.wales.nhs.uk/>.",
@@ -820,7 +803,7 @@
                   "location": "accessibility.formatAndStandards.conformsTo"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Language Code(s)",
                   "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
                   "guidance": "",
@@ -837,7 +820,7 @@
                   "location": "accessibility.formatAndStandards.languages"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Dataset Format",
                   "description": "Format(s) the dataset can be made available in",
                   "guidance": "",
@@ -1064,7 +1047,7 @@
                   "required": true,
                   "title": "Statistical Population",
                   "description": "Please select one of the following statistical populations for you observation",
-                  "guidance": "",
+                  "guidance": "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n-**Findings**: Unique findings included in the dataset such as diagnoses'\\n-**Number of scans per modality**: Unique scans for a specified imaging method modality (e.g. 12 x-rays)",
                   "examples": [
                         "PERSONS"
                   ],
@@ -1079,7 +1062,7 @@
                               "Number of scans per modality"
                         ]
                   },
-                  "location": "observations.measuredNode"
+                  "location": "observations.observedNode"
             },
             {
                   "required": true,
@@ -1425,7 +1408,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Age bin",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1464,7 +1447,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Age count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1475,7 +1458,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Ethnicity bin",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1508,7 +1491,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Ethnicity count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1519,7 +1502,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Gender assigned at birth bin",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1536,7 +1519,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Gender assigned at birth count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1547,7 +1530,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Disease code",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1558,7 +1541,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Disease code vocabulary",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1576,7 +1559,7 @@
             },
             {
                   "required": true,
-                  "title": null,
+                  "title": "Disease count",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1586,7 +1569,7 @@
                   "location": "demographicFrequency.disease.count"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Omics assay",
                   "description": "The specific 'omics assay that generated the dataset.",
                   "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
@@ -1618,7 +1601,7 @@
                   "location": "omics.assay"
             },
             {
-                  "required": true,
+                  "required": false,
                   "title": "Omics Platform",
                   "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
                   "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",

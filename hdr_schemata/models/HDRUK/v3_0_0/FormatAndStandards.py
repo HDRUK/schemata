@@ -29,11 +29,6 @@ class FormatAndStandards(BaseModel):
         json_schema_extra={"guidance": an.language.guidance}
     )
 
-<<<<<<< HEAD
     format: List[Format] = Field(
         None, **an.format.__dict__, json_schema_extra={"guidance": an.format.guidance}
-=======
-    format: Union[List[Format], Optional[CommaSeparatedValues]] = Field(
-        ..., **an.format.__dict__, json_schema_extra={"guidance": an.format.guidance}
->>>>>>> 5c24292 (debugging from onboarding form)
     )

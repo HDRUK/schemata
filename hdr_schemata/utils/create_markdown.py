@@ -258,4 +258,4 @@ from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 # create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
 # create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
 # create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
-# create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
+create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")

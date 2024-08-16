@@ -14,11 +14,11 @@ class Usage(BaseModel):
         extra = "forbid"
 
     dataUseLimitation: Optional[CommaSeparatedValues] = Field(
-        ..., **an.dataUseLimitation.__dict__
+        None, **an.dataUseLimitation.__dict__
     )
 
     dataUseRequirement: Optional[CommaSeparatedValues] = Field(
-        ..., **an.dataUseRequirements.__dict__
+        None, **an.dataUseRequirements.__dict__
     )
 
     resourceCreator: Optional[Organisation] = Field(None, **an.resourceCreator.__dict__)

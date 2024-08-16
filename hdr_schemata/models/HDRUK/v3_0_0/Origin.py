@@ -20,7 +20,7 @@ class Origin(BaseModel):
     )
 
     datasetSubType: Optional[List[DatasetSubType]] = Field(
-        ..., **an.datasetSubType.__dict__, json_schema_extra={"guidance": an.datasetSubType.guidance}
+        None, **an.datasetSubType.__dict__, json_schema_extra={"guidance": an.datasetSubType.guidance}
     )
     
     source: Optional[List[SourceV2]] = Field(

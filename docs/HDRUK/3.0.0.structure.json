@@ -65,7 +65,7 @@
                   },
                   {
                         "name": "url",
-                        "required": true,
+                        "required": false,
                         "title": "revision url",
                         "description": "Some url with a reference to the record of a previous version of this dataset",
                         "guidance": "",
@@ -169,7 +169,7 @@
                         "subItems": [
                               {
                                     "name": "identifier",
-                                    "required": false,
+                                    "required": true,
                                     "title": "identifier",
                                     "description": "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation.",
                                     "guidance": "Example: https://ror.org/053fq8t95If your organisation does not have a ROR identifier please use the \u201csuggest and institute\u201d function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform",
@@ -271,7 +271,7 @@
                   },
                   {
                         "name": "keywords",
-                        "required": true,
+                        "required": false,
                         "title": "Keywords",
                         "description": "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
                         "guidance": "Please provide relevant and specific keywords that can improve the search engine optimization of your dataset.- Please enter one keyword at a time and click Add New Field to add further keywords.- Text from the title is automatically included in the search, there is no need to include this in the keywords.- Include words that researcher may include in their searches.",
@@ -357,7 +357,7 @@
             "subItems": [
                   {
                         "name": "description",
-                        "required": false,
+                        "required": true,
                         "title": "Description",
                         "description": "A free-text description of the dataset.A URL can also be provided as the description of the dataset.Gateway Feature: Keywords and text may be extracted out of the description and indexed for search.",
                         "guidance": "An HTML account of the data that provides context and scope of the data, limited to 10000 characters, and/or a resolvable URL that describes the dataset.- Additional information can be recorded and included using the Associated media field.",
@@ -419,7 +419,7 @@
             "subItems": [
                   {
                         "name": "spatial",
-                        "required": false,
+                        "required": true,
                         "title": "Geographic coverage",
                         "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:- For locations in the UK: ONS standards- For locations in other countries: ISO 3166-1 & ISO 3166-2",
                         "guidance": "The geographical area covered by the dataset.- Please provide a valid location.- For locations in the UK, this location should conform to ONS standards.- For locations in other countries we use ISO 3166-1 & ISO 3166-2.",
@@ -596,7 +596,7 @@
                               },
                               {
                                     "name": "datasetSubType",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Dataset sub-type",
                                     "description": "The sub-type of the dataset content. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType ('proteomics', 'transcriptomics', 'epigenomics', 'metabolomics', 'metagenomics', 'genomics', 'lipidomics') is selected",
                                     "guidance": "Sub-types include those listed below under each data type. Datasets can have more than one sub-type associated.- Health and disease: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.- Treatments/Interventions: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.- Measurements/Tests- Includes any data related to laboratory or other diagnostics.- Imaging types: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.- *Imaging area of the body: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.- Omics: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType is selected.- Socioeconomic: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.- *Lifestyle: Includes any data related to smoking, physical activity, dietary habits or alcohol.- Registry: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.- Environment and energy: Includes any data related to the monitoring or study of environmental or energy factors or events.- *Information and communication: Includes any data related to the study or application of information and communication.- Politics*: Includes any data related to political views, activities, voting, etc.",
@@ -651,7 +651,7 @@
                   },
                   {
                         "name": "temporal",
-                        "required": false,
+                        "required": true,
                         "title": "Temporal Coverage",
                         "description": "Dates and other temporal coverage information.",
                         "guidance": "",
@@ -902,7 +902,7 @@
                               },
                               {
                                     "name": "jurisdiction",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Jurisdiction",
                                     "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                                     "guidance": "A full list of country codes can be found here (alpha-2 column): https://www.iso.org/obp/ui/#search/code/",
@@ -918,7 +918,7 @@
                               },
                               {
                                     "name": "dataController",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Data Controller",
                                     "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
                                     "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England",
@@ -1060,7 +1060,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1075,7 +1075,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1090,7 +1090,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1122,7 +1122,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1137,7 +1137,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1152,7 +1152,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1182,7 +1182,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1197,7 +1197,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1212,7 +1212,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1242,7 +1242,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1257,7 +1257,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1272,7 +1272,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1464,7 +1464,7 @@
                         "subItems": [
                               {
                                     "name": "name",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Table name",
                                     "description": "The name of a table in a dataset.",
                                     "guidance": "",
@@ -1650,7 +1650,7 @@
             "subItems": [
                   {
                         "name": "age",
-                        "required": true,
+                        "required": false,
                         "title": "Age",
                         "description": "Array of age bins and their corresponding counts.",
                         "guidance": "",
@@ -1691,7 +1691,7 @@
                   },
                   {
                         "name": "ethnicity",
-                        "required": true,
+                        "required": false,
                         "title": "Ethnicity",
                         "description": "Array of ethnicity bins and their corresponding counts.",
                         "guidance": "",
@@ -1732,7 +1732,7 @@
                   },
                   {
                         "name": "genderAssignedAtBirth",
-                        "required": true,
+                        "required": false,
                         "title": "Gender assigned at birth",
                         "description": "Gender assigned at birth, male or female, and their corresponding counts.",
                         "guidance": "",
@@ -1773,7 +1773,7 @@
                   },
                   {
                         "name": "disease",
-                        "required": true,
+                        "required": false,
                         "title": "Disease",
                         "description": "Array of diseases and their corresponding counts.",
                         "guidance": "",
@@ -1844,7 +1844,7 @@
             "subItems": [
                   {
                         "name": "assay",
-                        "required": true,
+                        "required": false,
                         "title": "Omics assay",
                         "description": "The specific 'omics assay that generated the dataset.",
                         "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
@@ -1858,7 +1858,7 @@
                   },
                   {
                         "name": "platform",
-                        "required": true,
+                        "required": false,
                         "title": "Omics Platform",
                         "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
                         "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",

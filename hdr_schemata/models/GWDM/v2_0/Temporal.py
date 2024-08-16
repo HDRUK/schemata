@@ -12,7 +12,7 @@ class Temporal(BaseModel):
     class Config:
         extra = "forbid"
 
-    startDate: Optional[Union[date, datetime]] = Field(..., **an.startDate.__dict__)
+    startDate: Optional[Union[date, datetime]] = Field(None, **an.startDate.__dict__)
     endDate: Optional[Union[date, datetime]] = Field(None, **an.endDate.__dict__)
     timeLag: TimeLag = Field(..., **an.timeLag.__dict__)
 

@@ -34,11 +34,11 @@ class Access(BaseModel):
     )
 
     jurisdiction: Optional[List[Isocountrycode]] = Field(
-        ..., **an.jurisdiction.__dict__, json_schema_extra={"guidance": an.jurisdiction.guidance}
+        None, **an.jurisdiction.__dict__, json_schema_extra={"guidance": an.jurisdiction.guidance}
     )
     
     dataController: Optional[LongDescription] = Field(
-        ..., **an.dataController.__dict__, json_schema_extra={"guidance": an.dataController.guidance}
+        None, **an.dataController.__dict__, json_schema_extra={"guidance": an.dataController.guidance}
     )
     
     dataProcessor: Optional[LongDescription] = Field(

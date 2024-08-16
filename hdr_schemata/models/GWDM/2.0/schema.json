@@ -25,6 +25,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please provide details for the data access rights",
                               "title": "Access Rights"
                         },
@@ -79,6 +80,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                               "title": "Jurisdiction"
                         },
@@ -91,6 +93,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
                               "title": "Data Controller"
                         },
@@ -124,11 +127,6 @@
                               "title": "Access/governance requirements"
                         }
                   },
-                  "required": [
-                        "accessRights",
-                        "jurisdiction",
-                        "dataController"
-                  ],
                   "title": "Access",
                   "type": "object"
             },
@@ -424,6 +422,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The name of a table in a dataset.",
                               "title": "Table Name"
                         },
@@ -452,7 +451,6 @@
                         }
                   },
                   "required": [
-                        "name",
                         "columns"
                   ],
                   "title": "DataTable",
@@ -615,6 +613,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Array of age bins and their corresponding counts.",
                               "title": "Age"
                         },
@@ -630,6 +629,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Array of ethnicity bins and their corresponding counts.",
                               "title": "Ethnicity"
                         },
@@ -645,6 +645,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Gender assigned at birth, male or female, and their corresponding counts.",
                               "title": "Gender assigned at birth"
                         },
@@ -660,16 +661,11 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Array of diseases and their corresponding counts.",
                               "title": "Disease"
                         }
                   },
-                  "required": [
-                        "age",
-                        "ethnicity",
-                        "genderAssignedAtBirth",
-                        "disease"
-                  ],
                   "title": "DemographicFrequency",
                   "type": "object"
             },
@@ -799,6 +795,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Code value of the ontology vocabulary encoding",
                               "examples": [
                                     "OPCS4,NHS NATIONAL CODES,ICD10,OTHER"
@@ -814,6 +811,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "What the vocabulary conforms to.",
                               "examples": [
                                     "LOCAL,NHS DATA DICTIONARY"
@@ -829,6 +827,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
                               "examples": [
                                     "en"
@@ -844,6 +843,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Format(s) the dataset can be made available in",
                               "examples": [
                                     "CSV,JSON,SQL database table"
@@ -851,12 +851,6 @@
                               "title": "Dataset Format"
                         }
                   },
-                  "required": [
-                        "vocabularyEncodingSchemes",
-                        "conformsTo",
-                        "languages",
-                        "formats"
-                  ],
                   "title": "FormatAndStandards",
                   "type": "object"
             },
@@ -1152,6 +1146,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The specific 'omics assay that generated the dataset.",
                               "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
                               "title": "Omics assay"
@@ -1165,15 +1160,12 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
                               "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
                               "title": "Omics Platform"
                         }
                   },
-                  "required": [
-                        "assay",
-                        "platform"
-                  ],
                   "title": "Omics",
                   "type": "object"
             },
@@ -1188,6 +1180,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "title": "Organisation Name"
                         },
@@ -1222,9 +1215,6 @@
                               "title": "Research Organization Registry Identifier"
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Organisation",
                   "type": "object"
             },
@@ -1554,6 +1544,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "A shorter descriptive title of the dataset",
                               "examples": [
                                     "ONS 2011 Census Wales (CENW)"
@@ -1569,6 +1560,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "DOI associated to this dataset",
                               "examples": [
                                     "10.1093/ije/dyx196"
@@ -1596,6 +1588,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Comma separated key words associated to this dataset.",
                               "examples": [
                                     "Preprints,Papers,HDR UK"
@@ -1611,6 +1604,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Keywords that have been filtered and limited",
                               "title": "Controlled Keywords"
                         },
@@ -1624,6 +1618,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "email of a person who can be the main contact point of this dataset",
                               "example": [
                                     "blah.blah@blah.com"
@@ -1639,6 +1634,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "What type of dataset is this?",
                               "title": "Dataset type"
                         },
@@ -1651,6 +1647,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Longer description of the dataset in detail",
                               "examples": [
                                     "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\\n\\nThis will include:\\n- Papers\\n- COVID-19 Papers\\n- COVID-19 Preprint"
@@ -1666,6 +1663,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Link to details about the publisher of this dataset",
                               "title": "Publisher"
                         },
@@ -1711,15 +1709,7 @@
                   },
                   "required": [
                         "title",
-                        "shortTitle",
-                        "doiName",
-                        "abstract",
-                        "keywords",
-                        "controlledKeywords",
-                        "contactPoint",
-                        "datasetType",
-                        "description",
-                        "publisher"
+                        "abstract"
                   ],
                   "title": "Summary",
                   "type": "object"
@@ -1741,6 +1731,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "title": "Start Date"
                         },
@@ -1799,7 +1790,6 @@
                         }
                   },
                   "required": [
-                        "startDate",
                         "timeLag",
                         "accrualPeriodicity"
                   ],
@@ -2128,6 +2118,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
                               "title": "Data Use Limitation"
                         },
@@ -2140,6 +2131,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
                               "title": "Data Use Requirements"
                         },
@@ -2157,10 +2149,6 @@
                               "title": "Citation Requirements'"
                         }
                   },
-                  "required": [
-                        "dataUseLimitation",
-                        "dataUseRequirement"
-                  ],
                   "title": "Usage",
                   "type": "object"
             }
@@ -2215,9 +2203,7 @@
                               "$ref": "#/$defs/Accessibility"
                         }
                   ],
-                  "default": null,
-                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
-                  "title": "Accessibility"
+                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets."
             },
             "linkage": {
                   "anyOf": [
@@ -2309,7 +2295,8 @@
       },
       "required": [
             "required",
-            "summary"
+            "summary",
+            "accessibility"
       ],
       "title": "Gwdm20",
       "type": "object"

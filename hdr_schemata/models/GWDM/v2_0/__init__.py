@@ -48,7 +48,7 @@ class Gwdm20(BaseModel):
     )
 
     accessibility: Accessibility = Field(
-        None, description=an.accessibility.description, title=an.accessibility.title
+        ..., description=an.accessibility.description, title=an.accessibility.title
     )
 
     linkage: Optional[Linkage] = Field(

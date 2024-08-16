@@ -12,7 +12,7 @@ an = annotations.summary.organisation
 class Organisation(BaseOrganisation):
 
     identifier: Union[constr(min_length=2, max_length=50), int] = Field(
-        None, **an.identifier.__dict__, json_schema_extra={"guidance": an.identifier.guidance}
+        ..., **an.identifier.__dict__, json_schema_extra={"guidance": an.identifier.guidance}
     )
 
     name: OneHundredFiftyCharacters = Field(

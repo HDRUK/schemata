@@ -10,7 +10,7 @@ an = annotations.summary.publisher
 
 class Publisher(BaseModel):
 
-    publisherName: Optional[Name] = Field(..., **an.publisherName.__dict__)
+    publisherName: Optional[Name] = Field(None, **an.publisherName.__dict__)
 
     publisherGatewayId: Optional[constr(min_length=2, max_length=50)] = Field(
         None, **an.publisherGatewayId.__dict__

@@ -9,5 +9,5 @@ class Provenance(BaseModel):
     class Config:
         extra = 'forbid'
 
-    origin: Optional[Origin] = None
+    origin: Optional[Origin] = Field(None)
     temporal: Temporal

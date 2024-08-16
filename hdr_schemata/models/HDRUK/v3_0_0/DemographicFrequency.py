@@ -16,28 +16,28 @@ class DemographicFrequency(BaseModel):
         extra = "forbid"
 
     age: Optional[List[Age]] = Field(
-        ..., 
+        None, 
         title=an.age.title,
         description=an.age.description,
         # json_schema_extra={"guidance": an.age.guidance}
     )
 
     ethnicity: Optional[List[Ethnicity]] = Field(
-        ...,
+        None,
         title=an.ethnicity.title,
         description=an.ethnicity.description,
         # json_schema_extra={"guidance": an.ethnicity.guidance}
     )
 
     genderAssignedAtBirth: Optional[List[GenderAssignedAtBirth]] = Field(
-        ..., 
+        None, 
         title=an.genderAssignedAtBirth.title,
         description=an.genderAssignedAtBirth.description, 
         # json_schema_extra={"guidance": an.genderAssignedAtBirth.guidance}
     )
 
     disease: Optional[List[Disease]] = Field(
-        ...,
+        None,
         title=an.disease.title,
         description=an.disease.description,
         # json_schema_extra={"guidance": an.disease.guidance}

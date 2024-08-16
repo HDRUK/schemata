@@ -29,12 +29,8 @@ class Summary(BaseModel):
         ..., **an.populationSize.__dict__, json_schema_extra={"guidance": an.populationSize.guidance}
     )
 
-<<<<<<< HEAD
-    keywords: Optional[List[OneHundredFiftyCharacters]] = (
-=======
-    keywords: Optional[Union[List[OneHundredFiftyCharacters], CommaSeparatedValues]] = (
->>>>>>> 5c24292 (debugging from onboarding form)
-        Field(..., **an.keywords.__dict__, json_schema_extra={"guidance": an.keywords.guidance})
+    keywords: Optional[Union[List[OneHundredFiftyCharacters], CommaSeparatedValues]] = Field(
+        None, **an.keywords.__dict__, json_schema_extra={"guidance": an.keywords.guidance}
     )
 
     doiName: Optional[Doi] = Field(

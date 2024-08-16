@@ -12,13 +12,13 @@ class Omics(BaseModel):
         extra = "forbid"
 
     assay: Optional[Assay] = Field(
-        ..., 
+        None, 
         **an.assay.__dict__, 
         json_schema_extra={"guidance": an.assay.guidance}
     )
 
     platform: Optional[Platform] = Field(
-        ..., 
+        None, 
         **an.platform.__dict__, 
         json_schema_extra={"guidance": an.platform.guidance}
     )

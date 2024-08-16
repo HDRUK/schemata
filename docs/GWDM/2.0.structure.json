@@ -158,7 +158,7 @@
                   },
                   {
                         "name": "shortTitle",
-                        "required": true,
+                        "required": false,
                         "title": "Short Title",
                         "description": "A shorter descriptive title of the dataset",
                         "guidance": "",
@@ -175,7 +175,7 @@
                   },
                   {
                         "name": "doiName",
-                        "required": true,
+                        "required": false,
                         "title": "DOI Name",
                         "description": "DOI associated to this dataset",
                         "guidance": "Please note: This is not the DOI of the publication(s) associated with the dataset.- All HDR UK registered datasets should either have a (DOI) or be working towards obtaining one.- If a DOI is available, please provide the DOI.- What happens if I do not have a DOI?: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service.",
@@ -208,7 +208,7 @@
                   },
                   {
                         "name": "keywords",
-                        "required": true,
+                        "required": false,
                         "title": "Keywords",
                         "description": "Comma separated key words associated to this dataset.",
                         "guidance": "Please provide relevant and specific keywords that can improve the search engine optimization of your dataset.- Please enter one keyword at a time and click Add New Field to add further keywords.- Text from the title is automatically included in the search, there is no need to include this in the keywords.- Include words that researcher may include in their searches.",
@@ -225,7 +225,7 @@
                   },
                   {
                         "name": "controlledKeywords",
-                        "required": true,
+                        "required": false,
                         "title": "Controlled Keywords",
                         "description": "Keywords that have been filtered and limited",
                         "guidance": "",
@@ -240,7 +240,7 @@
                   },
                   {
                         "name": "contactPoint",
-                        "required": true,
+                        "required": false,
                         "title": "Contact Point",
                         "description": "email of a person who can be the main contact point of this dataset",
                         "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.Note: An employee's email address can only be provided on a temporary basis and if one is provided, you must obtain explicit consent for this purpose.",
@@ -256,7 +256,7 @@
                   },
                   {
                         "name": "datasetType",
-                        "required": true,
+                        "required": false,
                         "title": "Dataset type",
                         "description": "What type of dataset is this?",
                         "guidance": "",
@@ -271,7 +271,7 @@
                   },
                   {
                         "name": "description",
-                        "required": true,
+                        "required": false,
                         "title": "Description",
                         "description": "Longer description of the dataset in detail",
                         "guidance": "",
@@ -288,7 +288,7 @@
                   },
                   {
                         "name": "publisher",
-                        "required": true,
+                        "required": false,
                         "title": "Publisher",
                         "description": "Link to details about the publisher of this dataset",
                         "guidance": "",
@@ -302,7 +302,7 @@
                         "subItems": [
                               {
                                     "name": "name",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Organisation Name",
                                     "description": "Name of the organisation",
                                     "guidance": "",
@@ -590,7 +590,7 @@
                         "subItems": [
                               {
                                     "name": "startDate",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Start Date",
                                     "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                                     "guidance": "The start of the time period that the dataset provides coverage for.- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
@@ -665,7 +665,7 @@
       },
       {
             "name": "accessibility",
-            "required": false,
+            "required": true,
             "title": "Accessibility",
             "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
             "guidance": "",
@@ -692,7 +692,7 @@
                         "subItems": [
                               {
                                     "name": "dataUseLimitation",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Data Use Limitation",
                                     "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
                                     "guidance": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.- General research use: This data use limitation indicates that use is allowed for general research use for any research purpose.- Genetic studies only: This data use limitation indicates that use is limited to genetic studies only (i.e., no phenotype-only research).- No general methods research: This data use limitation indicates that use includes methods development research(e.g., development of software or algorithms) only within the bounds of other use limitations.- No restriction: This data use limitation indicates there is no restriction on use.- Research-specific restrictions: This data use limitation indicates that use is limited to studies of a certain research type.- Research use only: This data use limitation indicates that use is limited to research purposes (e.g., does not include its use in clinical care).- No linkage: This data use limitation indicates there is a restriction on linking to any other datasets",
@@ -707,7 +707,7 @@
                               },
                               {
                                     "name": "dataUseRequirement",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Data Use Requirements",
                                     "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
                                     "guidance": "Please indicate if there are any additional conditions set for use if any, multiple requirements may be provided.- Please ensure that these restrictions are documented in access rights information.- Collaboration required: This requirement indicates that the requestor must either agree to join a research consortium or collaborate with the primary study investigator(s).- Ethics approval required: This requirement indicates that the requestor must provide documentation of local institutional review board (IRB)/ ethics review board (ERB) approval.- Geographical restrictions: This requirement indicates that use is limited to within a specific geographic region.- Institution-specific restrictions: This requirement indicates that use is limited to use within an approved institution.- Not for profit use: This requirement indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.- Project-specific restrictions: This requirement indicates that use is limited to use within an approved project.- Publication moratorium: This requirement indicates that requestor agrees not to publish results of studies until a specific date.- Publication required: This requirement indicates that requestor agrees to make results of studies using the data available to the larger scientific community.- Return to database or resource: This requirement indicates that the requestor must return derived/enriched data to the database/resource.- Time limit on use: This requirement indicates that use is approved for a specific number of months.- User-specific restriction: This requirement indicates that use is limited to use by approved users.",
@@ -738,7 +738,7 @@
                                     "subItems": [
                                           {
                                                 "name": "name",
-                                                "required": true,
+                                                "required": false,
                                                 "title": "Organisation Name",
                                                 "description": "Name of the organisation",
                                                 "guidance": "",
@@ -798,7 +798,7 @@
                         "subItems": [
                               {
                                     "name": "accessRights",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Access Rights",
                                     "description": "Please provide details for the data access rights",
                                     "guidance": "The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both separated by a comma.- If such a resource or the underlying process doesn\u2019t exist, please provide \u201cIn Progress\u201d, until both the process and the documentation are ready.",
@@ -859,7 +859,7 @@
                               },
                               {
                                     "name": "jurisdiction",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Jurisdiction",
                                     "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                                     "guidance": "A full list of country codes can be found here (alpha-2 column): https://www.iso.org/obp/ui/#search/code/",
@@ -874,10 +874,10 @@
                               },
                               {
                                     "name": "dataController",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Data Controller",
                                     "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
-                                    "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England'",
+                                    "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England",
                                     "examples": [
                                           "NHS England"
                                     ],
@@ -923,20 +923,6 @@
                                     "is_list": false,
                                     "is_optional": true,
                                     "subItems": []
-                              },
-                              {
-                                    "name": "accessMode",
-                                    "required": false,
-                                    "title": "Access mode",
-                                    "description": "Indication of the application type to enable research access.",
-                                    "guidance": "Indicate whether a Researcher will need to join a consortium to enable access to the dataset, or if a Researcher will need to submit an application which describes a specific project and required dataset fields required.",
-                                    "examples": null,
-                                    "type": [
-                                          "AccessMode['Join research consortium','New project']",
-                                          "null"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": true
                               }
                         ]
                   },
@@ -956,7 +942,7 @@
                         "subItems": [
                               {
                                     "name": "vocabularyEncodingSchemes",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Controlled Vocabulary",
                                     "description": "Code value of the ontology vocabulary encoding",
                                     "guidance": "",
@@ -973,7 +959,7 @@
                               },
                               {
                                     "name": "conformsTo",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Conforms To",
                                     "description": "What the vocabulary conforms to.",
                                     "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- HL7 FHIR: https://www.hl7.org/fhir/.- HL7 V2: https://www.hl7.org/implement/standards/product_section.cfm?section=13.- HL7 CDA: https://www.hl7.org/implement/standards/product_section.cfm?section=10.- HL7 CCOW: https://www.hl7.org/implement/standards/product_section.cfm?section=16.- DICOM: https://www.dicomstandard.org/.- I2B2: https://www.i2b2.org/.- IHE: https://www.ihe.net/resources/profiles/.- OMOP: https://www.ohdsi.org/data-standardization/the-common-data-model/.- openEHR: https://www.openehr.org/.- Sentinel: https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model.- PCORnet: https://pcornet.org/data-driven-common-model/.- CDISC: https://www.cdisc.org/standards/data-exchange/odm.- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary: https://www.datadictionary.nhs.uk/.- NHS Scotland Data Dictionary: https://www.ndc.scot.nhs.uk/Data-Dictionary/.- NHS Wales Data Dictionary: https://www.datadictionary.wales.nhs.uk/.",
@@ -990,7 +976,7 @@
                               },
                               {
                                     "name": "languages",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Language Code(s)",
                                     "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
                                     "guidance": "",
@@ -1007,7 +993,7 @@
                               },
                               {
                                     "name": "formats",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Dataset Format",
                                     "description": "Format(s) the dataset can be made available in",
                                     "guidance": "",
@@ -1277,11 +1263,11 @@
             "is_optional": true,
             "subItems": [
                   {
-                        "name": "measuredNode",
+                        "name": "observedNode",
                         "required": true,
                         "title": "Statistical Population",
                         "description": "Please select one of the following statistical populations for you observation",
-                        "guidance": "",
+                        "guidance": "Persons: Unique persons recorded in the dataset- Events: Unique events such as procedures and prescriptions within the dataset-Findings: Unique findings included in the dataset such as diagnoses'-Number of scans per modality: Unique scans for a specified imaging method modality (e.g. 12 x-rays)",
                         "examples": [
                               "PERSONS"
                         ],
@@ -1364,7 +1350,7 @@
             "subItems": [
                   {
                         "name": "name",
-                        "required": true,
+                        "required": false,
                         "title": "Table Name",
                         "description": "The name of a table in a dataset.",
                         "guidance": "",
@@ -1892,7 +1878,7 @@
             "subItems": [
                   {
                         "name": "age",
-                        "required": true,
+                        "required": false,
                         "title": "Age",
                         "description": "Array of age bins and their corresponding counts.",
                         "guidance": "",
@@ -1906,12 +1892,12 @@
                               {
                                     "name": "bin",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Age bin",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "AgeBin['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
+                                          "AgeEnum['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1919,7 +1905,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Age count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1933,7 +1919,7 @@
                   },
                   {
                         "name": "ethnicity",
-                        "required": true,
+                        "required": false,
                         "title": "Ethnicity",
                         "description": "Array of ethnicity bins and their corresponding counts.",
                         "guidance": "",
@@ -1947,12 +1933,12 @@
                               {
                                     "name": "bin",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Ethnicity bin",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "EthnicityBin['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
+                                          "EthnicityEnum['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1960,7 +1946,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Ethnicity count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -1974,7 +1960,7 @@
                   },
                   {
                         "name": "genderAssignedAtBirth",
-                        "required": true,
+                        "required": false,
                         "title": "Gender assigned at birth",
                         "description": "Gender assigned at birth, male or female, and their corresponding counts.",
                         "guidance": "",
@@ -1988,12 +1974,12 @@
                               {
                                     "name": "bin",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Gender assigned at birth bin",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "GenderBin['male','female']"
+                                          "GenderEnum['male','female']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -2001,7 +1987,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Gender assigned at birth count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -2015,7 +2001,7 @@
                   },
                   {
                         "name": "disease",
-                        "required": true,
+                        "required": false,
                         "title": "Disease",
                         "description": "Array of diseases and their corresponding counts.",
                         "guidance": "",
@@ -2029,7 +2015,7 @@
                               {
                                     "name": "diseaseCode",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Disease code",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -2043,12 +2029,12 @@
                               {
                                     "name": "diseaseCodeVocabulary",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Disease code vocabulary",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "DiseaseCodeVocabulary['ICD10','SNOMED CT','MeSH']"
+                                          "DiseaseCodeEnum['ICD10','SNOMED CT','MeSH']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -2056,7 +2042,7 @@
                               {
                                     "name": "count",
                                     "required": true,
-                                    "title": null,
+                                    "title": "Disease count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,
@@ -2086,7 +2072,7 @@
             "subItems": [
                   {
                         "name": "assay",
-                        "required": true,
+                        "required": false,
                         "title": "Omics assay",
                         "description": "The specific 'omics assay that generated the dataset.",
                         "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
@@ -2100,7 +2086,7 @@
                   },
                   {
                         "name": "platform",
-                        "required": true,
+                        "required": false,
                         "title": "Omics Platform",
                         "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
                         "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
