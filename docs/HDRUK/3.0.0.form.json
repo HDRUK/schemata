@@ -296,7 +296,7 @@
                   "required": false,
                   "title": "Alternate dataset identifiers",
                   "description": "Alternate dataset identifiers or local identifiers.",
-                  "guidance": "",
+                  "guidance": "Alternate dataset identifiers or local identifiers.",
                   "examples": null,
                   "is_list": false,
                   "is_optional": true,
@@ -311,7 +311,7 @@
                   "required": false,
                   "title": "Description",
                   "description": "A free-text description of the dataset.\\nA URL can also be provided as the description of the dataset.\\nGateway Feature: Keywords and text may be extracted out of the description and indexed for search.",
-                  "guidance": "- An HTML account of the data that **provides context and scope** of the data, **limited to 3000 characters, and/or a resolvable URL** that describes the dataset.\\n- Additional information can be recorded and included using the Associated media field.",
+                  "guidance": "- An HTML account of the data that **provides context and scope** of the data, **limited to 10000 characters, and/or a resolvable URL** that describes the dataset.\\n- Additional information can be recorded and included using the Associated media field.",
                   "examples": null,
                   "is_list": false,
                   "is_optional": false,
@@ -992,7 +992,7 @@
                   "required": true,
                   "title": "Data Controller",
                   "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
-                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England'",
+                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England",
                   "examples": [
                         "NHS England"
                   ],
@@ -1664,7 +1664,7 @@
             },
             {
                   "required": true,
-                  "title": "Age bin",
+                  "title": "Age grouping",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1714,7 +1714,7 @@
             },
             {
                   "required": true,
-                  "title": "Ethnicity bin",
+                  "title": "Ethnicity grouping",
                   "description": null,
                   "guidance": "",
                   "examples": null,
@@ -1758,7 +1758,7 @@
             },
             {
                   "required": true,
-                  "title": "Gender assigned at birth bin",
+                  "title": "Gender assigned at birth",
                   "description": null,
                   "guidance": "",
                   "examples": null,

@@ -118,7 +118,7 @@
                               "examples": [
                                     "NHS England"
                               ],
-                              "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England'",
+                              "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England",
                               "title": "Data Controller"
                         },
                         "dataProcessor": {
@@ -211,7 +211,7 @@
                                           "$ref": "#/$defs/AgeEnum"
                                     }
                               ],
-                              "title": "Age bin"
+                              "title": "Age grouping"
                         },
                         "count": {
                               "title": "Age count",
@@ -944,7 +944,7 @@
                               ],
                               "default": null,
                               "description": "A free-text description of the dataset.A URL can also be provided as the description of the dataset.Gateway Feature: Keywords and text may be extracted out of the description and indexed for search.",
-                              "guidance": "An HTML account of the data that provides context and scope of the data, limited to 3000 characters, and/or a resolvable URL that describes the dataset.- Additional information can be recorded and included using the Associated media field.",
+                              "guidance": "An HTML account of the data that provides context and scope of the data, limited to 10000 characters, and/or a resolvable URL that describes the dataset.- Additional information can be recorded and included using the Associated media field.",
                               "title": "Description"
                         },
                         "associatedMedia": {
@@ -1182,7 +1182,7 @@
                                           "$ref": "#/$defs/EthnicityEnum"
                                     }
                               ],
-                              "title": "Ethnicity bin"
+                              "title": "Ethnicity grouping"
                         },
                         "count": {
                               "title": "Ethnicity count",
@@ -1275,7 +1275,24 @@
                               "type": "array"
                         },
                         "format": {
+<<<<<<< HEAD
                               "default": null,
+=======
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Format"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+>>>>>>> 5c24292 (debugging from onboarding form)
                               "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
                               "examples": [
                                     "text/tab-separated-values",
@@ -1302,7 +1319,7 @@
                                           "$ref": "#/$defs/GenderEnum"
                                     }
                               ],
-                              "title": "Gender assigned at birth bin"
+                              "title": "Gender assigned at birth"
                         },
                         "count": {
                               "title": "Gender assigned at birth count",
@@ -2208,6 +2225,9 @@
                                           "type": "array"
                                     },
                                     {
+                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                    },
+                                    {
                                           "type": "null"
                                     }
                               ],
@@ -2277,6 +2297,7 @@
                               ],
                               "default": null,
                               "description": "Alternate dataset identifiers or local identifiers.",
+                              "guidance": "Alternate dataset identifiers or local identifiers.",
                               "title": "Alternate dataset identifiers"
                         }
                   },
