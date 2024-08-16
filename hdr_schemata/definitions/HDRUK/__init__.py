@@ -39,7 +39,10 @@ from .ShortTitle import ShortTitle
 from .Source import Source, SourceV2
 from .StandardisedDataModels import StandardisedDataModels
 from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
-from .StatisticalPopulationConstrained import StatisticalPopulationConstrained, StatisticalPopulationConstrainedV2
+from .StatisticalPopulationConstrained import (
+    StatisticalPopulationConstrained,
+    StatisticalPopulationConstrainedV2,
+)
 from .Ternary import Ternary
 from .TimeLag import TimeLag, TimeLagV2
 from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
