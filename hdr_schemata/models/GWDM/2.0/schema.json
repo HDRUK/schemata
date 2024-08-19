@@ -61,7 +61,7 @@
                         "deliveryLeadTime": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/DeliveryLeadTime"
+                                          "$ref": "#/$defs/DeliveryLeadTimeV2"
                                     },
                                     {
                                           "type": "null"
@@ -583,20 +583,20 @@
                   ],
                   "title": "DatasetType"
             },
-            "DeliveryLeadTime": {
+            "DeliveryLeadTimeV2": {
                   "enum": [
-                        "LESS 1 WEEK",
-                        "1-2 WEEKS",
-                        "2-4 WEEKS",
-                        "1-2 MONTHS",
-                        "2-6 MONTHS",
-                        "MORE 6 MONTHS",
-                        "VARIABLE",
-                        "NOT APPLICABLE",
-                        "OTHER",
-                        null
+                        "Less than 1 week",
+                        "1-2 weeks",
+                        "2-4 weeks",
+                        "1-2 months",
+                        "2-6 months",
+                        "More than 6 months",
+                        "Variable",
+                        "Not applicable",
+                        "Other"
                   ],
-                  "title": "DeliveryLeadTime"
+                  "title": "DeliveryLeadTimeV2",
+                  "type": "string"
             },
             "DemographicFrequency": {
                   "additionalProperties": false,
@@ -1277,25 +1277,25 @@
                   "title": "Origin",
                   "type": "object"
             },
-            "Periodicity": {
+            "PeriodicityV2": {
                   "enum": [
-                        "STATIC",
-                        "IRREGULAR",
-                        "CONTINUOUS",
-                        "BIENNIAL",
-                        "ANNUAL",
-                        "BIANNUAL",
-                        "QUARTERLY",
-                        "BIMONTHLY",
-                        "MONTHLY",
-                        "BIWEEKLY",
-                        "WEEKLY",
-                        "SEMIWEEKLY",
-                        "DAILY",
-                        "OTHER",
+                        "Static",
+                        "Irregular",
+                        "Continuous",
+                        "Biennial",
+                        "Annual",
+                        "Biannual",
+                        "Quarterly",
+                        "Bimonthly",
+                        "Monthly",
+                        "Biweekly",
+                        "Weekly",
+                        "Twice a week",
+                        "Daily",
+                        "Other",
                         null
                   ],
-                  "title": "Periodicity"
+                  "title": "PeriodicityV2"
             },
             "Pipeline": {
                   "enum": [
@@ -1756,7 +1756,7 @@
                         "timeLag": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/TimeLag"
+                                          "$ref": "#/$defs/TimeLagV2"
                                     }
                               ],
                               "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
@@ -1765,10 +1765,11 @@
                         "accrualPeriodicity": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/Periodicity"
+                                          "$ref": "#/$defs/PeriodicityV2"
                                     }
                               ],
-                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/"
+                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                              "title": "Periodicity"
                         },
                         "distributionReleaseDate": {
                               "anyOf": [
@@ -1805,21 +1806,20 @@
                   "title": "Ternary",
                   "type": "string"
             },
-            "TimeLag": {
+            "TimeLagV2": {
                   "enum": [
-                        "LESS 1 WEEK",
-                        "1-2 WEEKS",
-                        "2-4 WEEKS",
-                        "1-2 MONTHS",
-                        "2-6 MONTHS",
-                        "MORE 6 MONTHS",
-                        "VARIABLE",
-                        "NO TIMELAG",
-                        "NOT APPLICABLE",
-                        "OTHER",
-                        null
+                        "Less than 1 week",
+                        "1-2 weeks",
+                        "2-4 weeks",
+                        "1-2 months",
+                        "2-6 months",
+                        "6 months plus",
+                        "Variable",
+                        "Not applicable",
+                        "Other"
                   ],
-                  "title": "TimeLag"
+                  "title": "TimeLagV2",
+                  "type": "string"
             },
             "TissueSampleMetadata": {
                   "properties": {

@@ -626,7 +626,7 @@
                                     "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.- Less than 1 week: Typical time lag of less than a week.- 1-2 weeks: Typical time-lag of one to two weeks.- 2-4 weeks: Typical time-lag of two to four weeks.- 1-2 months: Typical time-lag of one to two months.- 2-6 months: Typical time-lag of two to six months.- 6 months plus: Typical time-lag of more than six months.- Variable: Variable time-lag.- Not applicable: Not Applicable i.e. static dataset.- Other: Other time-lag.",
                                     "examples": null,
                                     "type": [
-                                          "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]"
+                                          "TimeLagV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','6 months plus','Variable','Not applicable','Other']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -639,7 +639,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]"
+                                          "PeriodicityV2['Static','Irregular','Continuous','Biennial','Annual','Biannual','Quarterly','Bimonthly','Monthly','Biweekly','Weekly','Twice a week','Daily','Other',null]"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -851,7 +851,7 @@
                                     "guidance": "Less than 1 week: Access request process typically processed in less than a week.- 1-2 weeks: Access request process typically processed in one to two weeks.- 2-4 weeks: Access request process typically processed in two to four weeks.- 1-2 months: Access request process typically processed in one to two months.- 2-6 months: Access request process typically processed in two to six months.- More than 6 months: Access request process typically processed in more than six months.- Variable: Access request lead time is variable.- Not applicable: Access request process duration is not applicable.- Other: If the typical timeframe does not fit into the broad ranges i.e. lightweight application vs linked data application, please choose \u201cOther\u201d and indicate the typical timeframe within the description for the dataset.",
                                     "examples": null,
                                     "type": [
-                                          "DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null]",
+                                          "DeliveryLeadTimeV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','More than 6 months','Variable','Not applicable','Other']",
                                           "null"
                                     ],
                                     "is_list": false,

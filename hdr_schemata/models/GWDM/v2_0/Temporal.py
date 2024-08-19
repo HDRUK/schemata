@@ -14,9 +14,9 @@ class Temporal(BaseModel):
 
     startDate: Optional[Union[date, datetime]] = Field(None, **an.startDate.__dict__)
     endDate: Optional[Union[date, datetime]] = Field(None, **an.endDate.__dict__)
-    timeLag: TimeLag = Field(..., **an.timeLag.__dict__)
+    timeLag: TimeLagV2 = Field(..., **an.timeLag.__dict__)
 
-    accrualPeriodicity: Periodicity = Field(..., **an.accrualPeriodicity.__dict__)
+    accrualPeriodicity: PeriodicityV2 = Field(..., **an.accrualPeriodicity.__dict__)
 
     distributionReleaseDate: Optional[Union[date, datetime]] = Field(
         None, **an.distributionReleaseDate.__dict__

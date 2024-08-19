@@ -504,17 +504,15 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "LESS 1 WEEK",
-                              "1-2 WEEKS",
-                              "2-4 WEEKS",
-                              "1-2 MONTHS",
-                              "2-6 MONTHS",
-                              "MORE 6 MONTHS",
-                              "VARIABLE",
-                              "NO TIMELAG",
-                              "NOT APPLICABLE",
-                              "OTHER",
-                              null
+                              "Less than 1 week",
+                              "1-2 weeks",
+                              "2-4 weeks",
+                              "1-2 months",
+                              "2-6 months",
+                              "6 months plus",
+                              "Variable",
+                              "Not applicable",
+                              "Other"
                         ]
                   },
                   "location": "provenance.temporal.timeLag"
@@ -530,20 +528,20 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "STATIC",
-                              "IRREGULAR",
-                              "CONTINUOUS",
-                              "BIENNIAL",
-                              "ANNUAL",
-                              "BIANNUAL",
-                              "QUARTERLY",
-                              "BIMONTHLY",
-                              "MONTHLY",
-                              "BIWEEKLY",
-                              "WEEKLY",
-                              "SEMIWEEKLY",
-                              "DAILY",
-                              "OTHER",
+                              "Static",
+                              "Irregular",
+                              "Continuous",
+                              "Biennial",
+                              "Annual",
+                              "Biannual",
+                              "Quarterly",
+                              "Bimonthly",
+                              "Monthly",
+                              "Biweekly",
+                              "Weekly",
+                              "Twice a week",
+                              "Daily",
+                              "Other",
                               null
                         ]
                   },
@@ -685,16 +683,15 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "LESS 1 WEEK",
-                              "1-2 WEEKS",
-                              "2-4 WEEKS",
-                              "1-2 MONTHS",
-                              "2-6 MONTHS",
-                              "MORE 6 MONTHS",
-                              "VARIABLE",
-                              "NOT APPLICABLE",
-                              "OTHER",
-                              null
+                              "Less than 1 week",
+                              "1-2 weeks",
+                              "2-4 weeks",
+                              "1-2 months",
+                              "2-6 months",
+                              "More than 6 months",
+                              "Variable",
+                              "Not applicable",
+                              "Other"
                         ]
                   },
                   "location": "accessibility.access.deliveryLeadTime"

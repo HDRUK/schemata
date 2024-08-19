@@ -21,7 +21,7 @@ class Access(BaseModel):
         None, **an.accessRequestCost.__dict__
     )
 
-    deliveryLeadTime: Optional[DeliveryLeadTime] = Field(
+    deliveryLeadTime: Optional[DeliveryLeadTimeV2] = Field(
         None, **an.deliveryLeadTime.__dict__
     )
 
