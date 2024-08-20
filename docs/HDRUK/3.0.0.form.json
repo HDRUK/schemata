@@ -161,7 +161,7 @@
             {
                   "required": false,
                   "title": "Organisation Logo",
-                  "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.",
+                  "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.  If a logo is not submitted this will default to the logo for the team submitting the metadata.",
                   "guidance": "",
                   "examples": null,
                   "is_list": false,
@@ -177,7 +177,7 @@
             {
                   "required": false,
                   "title": "Organisation Description",
-                  "description": "Please provide a URL that describes the organisation.",
+                  "description": "Please provide a URL that describes the organisation.  If a description is not provided this will default to the description of the team submitting the metadata.",
                   "guidance": "",
                   "examples": null,
                   "is_list": false,
@@ -208,7 +208,7 @@
             {
                   "required": false,
                   "title": "Organisation Membership",
-                  "description": "Please indicate if the organisation is an Alliance Member or a Hub.'",
+                  "description": "Please indicate if the organisation is an Alliance Member or a Hub.  If this field is not submitted this will default to the membership for the team submitting the metadata.",
                   "guidance": "",
                   "examples": null,
                   "is_list": false,
