@@ -193,7 +193,7 @@
             {
                   "required": true,
                   "title": "contact point",
-                  "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.",
+                  "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata.",
                   "guidance": "",
                   "examples": null,
                   "is_list": false,

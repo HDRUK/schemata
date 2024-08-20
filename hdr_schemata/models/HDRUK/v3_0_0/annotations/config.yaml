@@ -53,16 +53,16 @@ summary:
       description: "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata."
     logo:
       title: "Organisation Logo"
-      description: "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg."
+      description: "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.  If an logo is not submitted this will default to the logo for the team submitting the metadata."
     description:
       title: "Organisation Description"
-      description: "Please provide a URL that describes the organisation."
+      description: "Please provide a URL that describes the organisation.  If an description is not provided this will default to the description of the team submitting the metadata."
     contactPoint:
       title: "contact point"
-      description: "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers."
+      description: "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata."
     memberOf:
       title: "Organisation Membership"
-      description: "Please indicate if the organisation is an Alliance Member or a Hub."
+      description: "Please indicate if the organisation is an Alliance Member or a Hub.  If this field is not submitted this will default to the membership for the team submitting the metadata."
   alternateIdentifiers:
     title: "Alternate dataset identifiers"
     description: "Alternate dataset identifiers or local identifiers."
