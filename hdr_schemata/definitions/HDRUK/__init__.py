@@ -18,7 +18,7 @@ from .Doi import Doi
 from .EthnicityEnum import EthnicityEnum
 from .EmailAddress import EmailAddress
 from .EndDateEnum import EndDateEnum
-from .Followup import Followup
+from .Followup import Followup, FollowupV2
 from .Format import Format
 from .GenderEnum import GenderEnum
 from .ICD_0_3 import ICD_0_3
@@ -30,7 +30,7 @@ from .LongAbstractText import LongAbstractText
 from .LongDescription import LongDescription
 from .MaterialTypeCategories import MaterialTypeCategories, MaterialTypeCategoriesV2
 from .MeasuredProperty import MeasuredProperty
-from .MemberOf import MemberOf
+from .MemberOf import MemberOf, MemberOfV2
 from .Name import Name
 from .OneHundredFiftyCharacters import OneHundredFiftyCharacters
 from .Periodicity import Periodicity, PeriodicityV2

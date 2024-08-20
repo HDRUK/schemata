@@ -428,7 +428,7 @@
                         "followUp": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Followup"
+                                          "$ref": "#/$defs/FollowupV2"
                                     },
                                     {
                                           "type": "null"
@@ -707,7 +707,7 @@
                         "Cardiovascular",
                         "Cancer",
                         "Rare diseases",
-                        "Metabolic and Endocrine",
+                        "Metabolic and endocrine",
                         "Neurological",
                         "Reproductive",
                         "Maternity and neonatology",
@@ -716,8 +716,8 @@
                         "Musculoskeletal",
                         "Vision",
                         "Renal and urogenital",
-                        "Oral and Gastrointestinal",
-                        "Cognitive Function",
+                        "Oral and gastrointestinal",
+                        "Cognitive function",
                         "Hearing",
                         "Others",
                         "Vaccines",
@@ -744,9 +744,9 @@
                         "Genomics",
                         "Lipidomics",
                         "Education",
-                        "Crime and Justice",
+                        "Crime and justice",
                         "Ethnicity",
-                        "Housing ",
+                        "Housing",
                         "Labour",
                         "Ageing ",
                         "Economics",
@@ -758,12 +758,12 @@
                         "Finances",
                         "Family circumstance",
                         "Smoking",
-                        "Physical Activity",
+                        "Physical activity",
                         "Dietary habits",
                         "Alcohol",
-                        "Disease Registry (research)",
-                        "National Disease Registries and Audits",
-                        "Births and Deaths",
+                        "Disease registry (research)",
+                        "National disease registries and audits",
+                        "Births and deaths",
                         "Not applicable"
                   ],
                   "title": "DatasetSubType",
@@ -1217,18 +1217,18 @@
                   "title": "EthnicityEnum",
                   "type": "string"
             },
-            "Followup": {
+            "FollowupV2": {
                   "enum": [
-                        "0 - 6 MONTHS",
-                        "6 - 12 MONTHS",
-                        "1 - 10 YEARS",
-                        "> 10 YEARS",
-                        "UNKNOWN",
-                        "CONTINUOUS",
-                        "OTHER",
+                        "0 - 6 Months",
+                        "6 - 12 Months",
+                        "1 - 10 Years",
+                        "> 10 Years",
+                        "Unknown",
+                        "Continuous",
+                        "Other",
                         null
                   ],
-                  "title": "Followup"
+                  "title": "FollowupV2"
             },
             "Format": {
                   "minLength": 1,
@@ -1573,14 +1573,14 @@
             "MeasuredProperty": {
                   "title": "MeasuredProperty"
             },
-            "MemberOf": {
+            "MemberOfV2": {
                   "enum": [
-                        "HUB",
-                        "ALLIANCE",
-                        "OTHER",
+                        "Hub",
+                        "Alliance",
+                        "Other",
                         "NCS"
                   ],
-                  "title": "MemberOf",
+                  "title": "MemberOfV2",
                   "type": "string"
             },
             "Name": {
@@ -1770,7 +1770,7 @@
                         "memberOf": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/MemberOf"
+                                          "$ref": "#/$defs/MemberOfV2"
                                     },
                                     {
                                           "type": "null"

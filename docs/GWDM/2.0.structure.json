@@ -444,7 +444,7 @@
                         "guidance": "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).-0 - 6 MONTHS: Data typically available for a patient over a 0-6 month period.-6 - 12 MONTHS: Data typically available for a patient over a 6-12 month period.-1 - 10 YEARS: Data typically available for a patient over a 1-10 year period.-> 10 YEARS: Data typically available for a patient for over a 10 year period.-CONTINUOUS: Data for patients is being regularly added to and updated.-UNKNOWN: Timespan is Unknown.-OTHER: Data available for a patient over another time period.",
                         "examples": null,
                         "type": [
-                              "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]",
+                              "FollowupV2['0 - 6 Months','6 - 12 Months','1 - 10 Years','> 10 Years','Unknown','Continuous','Other',null]",
                               "null"
                         ],
                         "is_list": false,

@@ -307,7 +307,7 @@
                         "followUp": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Followup"
+                                          "$ref": "#/$defs/FollowupV2"
                                     },
                                     {
                                           "type": "null"
@@ -770,18 +770,18 @@
                   "title": "EthnicityEnum",
                   "type": "string"
             },
-            "Followup": {
+            "FollowupV2": {
                   "enum": [
-                        "0 - 6 MONTHS",
-                        "6 - 12 MONTHS",
-                        "1 - 10 YEARS",
-                        "> 10 YEARS",
-                        "UNKNOWN",
-                        "CONTINUOUS",
-                        "OTHER",
+                        "0 - 6 Months",
+                        "6 - 12 Months",
+                        "1 - 10 Years",
+                        "> 10 Years",
+                        "Unknown",
+                        "Continuous",
+                        "Other",
                         null
                   ],
-                  "title": "Followup"
+                  "title": "FollowupV2"
             },
             "FormatAndStandards": {
                   "additionalProperties": false,

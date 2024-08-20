@@ -216,9 +216,9 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "HUB",
-                              "ALLIANCE",
-                              "OTHER",
+                              "Hub",
+                              "Alliance",
+                              "Other",
                               "NCS"
                         ]
                   },
@@ -468,13 +468,13 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "0 - 6 MONTHS",
-                              "6 - 12 MONTHS",
-                              "1 - 10 YEARS",
-                              "> 10 YEARS",
-                              "UNKNOWN",
-                              "CONTINUOUS",
-                              "OTHER",
+                              "0 - 6 Months",
+                              "6 - 12 Months",
+                              "1 - 10 Years",
+                              "> 10 Years",
+                              "Unknown",
+                              "Continuous",
+                              "Other",
                               null
                         ]
                   },
@@ -582,7 +582,7 @@
                               "Cardiovascular",
                               "Cancer",
                               "Rare diseases",
-                              "Metabolic and Endocrine",
+                              "Metabolic and endocrine",
                               "Neurological",
                               "Reproductive",
                               "Maternity and neonatology",
@@ -591,8 +591,8 @@
                               "Musculoskeletal",
                               "Vision",
                               "Renal and urogenital",
-                              "Oral and Gastrointestinal",
-                              "Cognitive Function",
+                              "Oral and gastrointestinal",
+                              "Cognitive function",
                               "Hearing",
                               "Others",
                               "Vaccines",
@@ -619,9 +619,9 @@
                               "Genomics",
                               "Lipidomics",
                               "Education",
-                              "Crime and Justice",
+                              "Crime and justice",
                               "Ethnicity",
-                              "Housing ",
+                              "Housing",
                               "Labour",
                               "Ageing ",
                               "Economics",
@@ -633,12 +633,12 @@
                               "Finances",
                               "Family circumstance",
                               "Smoking",
-                              "Physical Activity",
+                              "Physical activity",
                               "Dietary habits",
                               "Alcohol",
-                              "Disease Registry (research)",
-                              "National Disease Registries and Audits",
-                              "Births and Deaths",
+                              "Disease registry (research)",
+                              "National disease registries and audits",
+                              "Births and deaths",
                               "Not applicable"
                         ]
                   },

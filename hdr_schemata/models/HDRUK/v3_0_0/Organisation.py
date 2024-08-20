@@ -36,7 +36,7 @@ class Organisation(BaseModel):
         **an.contactPoint.__dict__
     )
 
-    memberOf: Optional[MemberOf] = Field(
+    memberOf: Optional[MemberOfV2] = Field(
         None,
         **an.memberOf.__dict__,
     )    

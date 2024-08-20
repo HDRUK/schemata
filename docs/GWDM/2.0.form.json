@@ -361,13 +361,13 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "0 - 6 MONTHS",
-                              "6 - 12 MONTHS",
-                              "1 - 10 YEARS",
-                              "> 10 YEARS",
-                              "UNKNOWN",
-                              "CONTINUOUS",
-                              "OTHER",
+                              "0 - 6 Months",
+                              "6 - 12 Months",
+                              "1 - 10 Years",
+                              "> 10 Years",
+                              "Unknown",
+                              "Continuous",
+                              "Other",
                               null
                         ]
                   },
