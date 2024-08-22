@@ -633,22 +633,6 @@
                               "description": "Array of ethnicity bins and their corresponding counts.",
                               "title": "Ethnicity"
                         },
-                        "genderAssignedAtBirth": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "$ref": "#/$defs/GenderAssignedAtBirth"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Gender assigned at birth, male or female, and their corresponding counts.",
-                              "title": "Gender assigned at birth"
-                        },
                         "disease": {
                               "anyOf": [
                                     {
@@ -853,36 +837,6 @@
                   },
                   "title": "FormatAndStandards",
                   "type": "object"
-            },
-            "GenderAssignedAtBirth": {
-                  "properties": {
-                        "bin": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/GenderEnum"
-                                    }
-                              ],
-                              "title": "Gender assigned at birth bin"
-                        },
-                        "count": {
-                              "title": "Gender assigned at birth count",
-                              "type": "integer"
-                        }
-                  },
-                  "required": [
-                        "bin",
-                        "count"
-                  ],
-                  "title": "GenderAssignedAtBirth",
-                  "type": "object"
-            },
-            "GenderEnum": {
-                  "enum": [
-                        "male",
-                        "female"
-                  ],
-                  "title": "GenderEnum",
-                  "type": "string"
             },
             "Linkage": {
                   "additionalProperties": false,
@@ -2276,7 +2230,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes.",
+                  "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
                   "title": "Demographic frequency"
             },
             "omics": {
