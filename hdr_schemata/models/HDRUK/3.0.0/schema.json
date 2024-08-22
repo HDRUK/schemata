@@ -586,10 +586,16 @@
             "DataUseLimitationV2": {
                   "enum": [
                         "General research use",
+                        "Commercial research use",
                         "Genetic studies only",
                         "No general methods research",
                         "No restriction",
+                        "Geographical restrictions",
+                        "Institution-specific restrictions",
+                        "Not for profit use",
+                        "Project-specific restrictions",
                         "Research-specific restrictions",
+                        "User-specific restrictions",
                         "Research use only",
                         "No linkage"
                   ],
@@ -599,15 +605,16 @@
             "DataUseRequirementsV2": {
                   "enum": [
                         "Collaboration required",
-                        "Ethics approval required",
-                        "Geographical restrictions",
-                        "Institution-specific restrictions",
-                        "Not for profit use",
                         "Project-specific restrictions",
+                        "Ethics approval required",
+                        "Institution-specific restrictions",
+                        "Geographical restrictions",
                         "Publication moratorium",
                         "Publication required",
                         "Return to database or resource",
                         "Time limit on use",
+                        "Disclosure control",
+                        "Not for profit use",
                         "User-specific restriction"
                   ],
                   "title": "DataUseRequirementsV2",
