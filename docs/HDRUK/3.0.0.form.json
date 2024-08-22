@@ -1535,7 +1535,7 @@
                   "required": false,
                   "title": "Investigations",
                   "description": "Please provide link to any active projects that are using the dataset.",
-                  "guidance": "- Please provide the website address(es) which document information related to active projects utilising the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\\n- **Example**: <https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps>",
+                  "guidance": "- Please provide the website address(es) which document information related to active projects utilising the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, type in each website and press enter to add it to the list.\\n- **Example**: <https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps>",
                   "examples": null,
                   "is_list": true,
                   "is_optional": true,
@@ -1567,7 +1567,7 @@
                   "required": false,
                   "title": "Publication about the dataset",
                   "description": "DOIs for publications which describe the dataset.",
-                  "guidance": "- Please provide the DOIs for publications which describe the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate citation.\\n- **Example**: <https://doi.org/10.1093/ije/dyab028>",
+                  "guidance": "- Please provide the DOIs for publications which describe the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, type in each citation and press enter to add it to the list.\\n- **Example**: <https://doi.org/10.1093/ije/dyab028>",
                   "examples": [
                         "https://doi.org/10.1093/ije/dyab028"
                   ],
@@ -1584,7 +1584,7 @@
                   "required": false,
                   "title": "Publication using the dataset",
                   "description": "DOIs for publications which use the dataset for analysis.",
-                  "guidance": "- Please provide the DOIs for publications which have used the dataset in their analysis.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate citation.\\n- **Example**: <https://doi.org/10.1001/jamapediatrics.2016.3633>",
+                  "guidance": "- Please provide the DOIs for publications which have used the dataset in their analysis.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, type in each citation and press enter to add it to the list.\\n- **Example**: <https://doi.org/10.1001/jamapediatrics.2016.3633>",
                   "examples": [
                         "https://doi.org/10.1001/jamapediatrics.2016.3633"
                   ],

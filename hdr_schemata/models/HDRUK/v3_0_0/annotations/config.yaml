@@ -304,13 +304,13 @@ enrichmentAndLinkage:
   
   
   publicationAboutDataset:
-    guidance: "- Please provide the DOIs for publications which describe the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate citation.\\n- **Example**: <https://doi.org/10.1093/ije/dyab028>"
+    guidance: "- Please provide the DOIs for publications which describe the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, type in each citation and press enter to add it to the list.\\n- **Example**: <https://doi.org/10.1093/ije/dyab028>"
     title: "Publication about the dataset"
     examples: 
       - "https://doi.org/10.1093/ije/dyab028"
     description: "DOIs for publications which describe the dataset."
   publicationUsingDataset:
-    guidance: "- Please provide the DOIs for publications which have used the dataset in their analysis.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate citation.\\n- **Example**: <https://doi.org/10.1001/jamapediatrics.2016.3633>"
+    guidance: "- Please provide the DOIs for publications which have used the dataset in their analysis.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, type in each citation and press enter to add it to the list.\\n- **Example**: <https://doi.org/10.1001/jamapediatrics.2016.3633>"
     title: "Publication using the dataset"
     examples:
       - "https://doi.org/10.1001/jamapediatrics.2016.3633"
@@ -323,7 +323,7 @@ enrichmentAndLinkage:
     description: "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use. Multiple tools may be provided. Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/"
   
   investigations:
-    guidance: "- Please provide the website address(es) which document information related to active projects utilising the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\\n- **Example**: <https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps>"
+    guidance: "- Please provide the website address(es) which document information related to active projects utilising the dataset.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, type in each website and press enter to add it to the list.\\n- **Example**: <https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps>"
     title: "Investigations"
     description: "Please provide link to any active projects that are using the dataset."
 documentation:
