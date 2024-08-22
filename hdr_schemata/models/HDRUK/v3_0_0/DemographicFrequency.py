@@ -6,7 +6,6 @@ from .annotations import annotations
 from .Age import Age
 from .Disease import Disease
 from .Ethnicity import Ethnicity
-from .GenderAssignedAtBirth import GenderAssignedAtBirth
 
 an = annotations.demographicFrequency
 
@@ -27,13 +26,6 @@ class DemographicFrequency(BaseModel):
         title=an.ethnicity.title,
         description=an.ethnicity.description,
         # json_schema_extra={"guidance": an.ethnicity.guidance}
-    )
-
-    genderAssignedAtBirth: Optional[List[GenderAssignedAtBirth]] = Field(
-        None, 
-        title=an.genderAssignedAtBirth.title,
-        description=an.genderAssignedAtBirth.description, 
-        # json_schema_extra={"guidance": an.genderAssignedAtBirth.guidance}
     )
 
     disease: Optional[List[Disease]] = Field(

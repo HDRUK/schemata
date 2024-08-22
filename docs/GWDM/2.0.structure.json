@@ -1866,7 +1866,7 @@
             "name": "demographicFrequency",
             "required": false,
             "title": "Demographic frequency",
-            "description": "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes.",
+            "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
             "guidance": "",
             "examples": null,
             "type": [
@@ -1947,47 +1947,6 @@
                                     "name": "count",
                                     "required": true,
                                     "title": "Ethnicity count",
-                                    "description": null,
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "int"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": false
-                              }
-                        ]
-                  },
-                  {
-                        "name": "genderAssignedAtBirth",
-                        "required": false,
-                        "title": "Gender assigned at birth",
-                        "description": "Gender assigned at birth, male or female, and their corresponding counts.",
-                        "guidance": "",
-                        "examples": null,
-                        "type": [
-                              "GenderAssignedAtBirth"
-                        ],
-                        "is_list": true,
-                        "is_optional": true,
-                        "subItems": [
-                              {
-                                    "name": "bin",
-                                    "required": true,
-                                    "title": "Gender assigned at birth bin",
-                                    "description": null,
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "GenderEnum['male','female']"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": false
-                              },
-                              {
-                                    "name": "count",
-                                    "required": true,
-                                    "title": "Gender assigned at birth count",
                                     "description": null,
                                     "guidance": "",
                                     "examples": null,

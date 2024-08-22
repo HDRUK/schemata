@@ -498,24 +498,6 @@
             },
             {
                   "required": false,
-                  "title": "Gender",
-                  "description": "Male, Female, Other",
-                  "guidance": "Options are limited to Male/Female/Other.",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Male",
-                              "Female",
-                              "Other"
-                        ]
-                  },
-                  "location": "coverage.gender"
-            },
-            {
-                  "required": false,
                   "title": "Purpose of dataset collection",
                   "description": "Please indicate the purpose(s) that the dataset was collected.",
                   "guidance": "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: Data collected in compliance with statutory requirements.\\n- **Other**: Data collected for other purpose.",
@@ -1762,34 +1744,6 @@
                   "is_optional": false,
                   "types": "int",
                   "location": "demographicFrequency.ethnicity.count"
-            },
-            {
-                  "required": true,
-                  "title": "Gender assigned at birth",
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "male",
-                              "female"
-                        ]
-                  },
-                  "location": "demographicFrequency.genderAssignedAtBirth.bin"
-            },
-            {
-                  "required": true,
-                  "title": "Gender assigned at birth count",
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": "int",
-                  "location": "demographicFrequency.genderAssignedAtBirth.count"
             },
             {
                   "required": true,

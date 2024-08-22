@@ -50,7 +50,3 @@ class Coverage(BaseModel):
     pathway: Optional[Description] = Field(
         None, **an.pathway.__dict__, json_schema_extra={"guidance": an.pathway.guidance}
     )
-
-    gender: Optional[List[GenderType]] = Field(
-        None, **an.gender.__dict__, json_schema_extra={"guidance": an.gender.guidance}
-    )

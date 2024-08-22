@@ -354,10 +354,6 @@ coverage:
     guidance: "- Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage.\\n- This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway."
     title: "Patient pathway description"
     description: "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway."
-  gender:
-    guidance: "Options are limited to Male/Female/Other."
-    title: "Gender"
-    description: "Male, Female, Other"
   materialType:
     guidance: "Indicate the specimen type, can be several values from the list below:\\n- Availability of physical samples associated with the dataset.\\n- If samples are available, please indicate the types of samples that are available.\\n- More than one type may be provided.\\n- If samples are not yet available, please provide **“Availability to be confirmed”**.\\n- If samples are not available, then please provide **“Not available”**.\\n- **Not available**: Samples associated with the dataset are not available.\\n- **Bone marrow**: Bone marrow samples associated with the data are available.\\n- **Cancer cell lines**: Cancer cell line samples associated with the data are available.\\n- **CDNA/MRNA**: CDNA/MRNA samples associated with the data are available.\\n- **Core biopsy**: Core biopsy samples associated with the data are available.\\n- **DNA**: DNA samples associated with the data are available.\\n- **Entire body organ**: Entire body organ associated with the data are available.\\n- **Faeces**: Faeces samples associated with the data are available.\\n- **Immortalized cell lines**: Immortalized cell line samples associated with the data are available.\\n- **Isolated pathogen**: Isolated pathogen associated with the data are available.\\n- **MicroRNA**: MicroRNA samples associated with the data are available.\\n- **Peripheral blood cells**: Peripheral blood cell samples associated with the data are available.\\n- **Plasma**: Plasma samples associated with the data are available.\\n- **PM Tissue**: PM Tissue samples associated with the data are available.\\n- **Primary cells**: Primary cell samples associated with the data are available.\\n- **RNA**: RNA samples associated with the data are available.\\n- **Saliva**: Saliva samples associated with the data are available.\\n- **Serum**: Serum samples associated with the data are available.\\n- **Swabs**: Swab samples associated with the data are available.\\n- **Tissue**: Tissue samples associated with the data are available.\\n- **Urine**: Urine samples associated with the data are available.\\n- **Whole blood**: Whole blood samples associated with the data are available.\\n- **Availability to be confirmed**: Availability of samples is currently being confirmed.\\n- **Other**: Other types of sample available."
     title: "Biological sample availability"
@@ -406,7 +402,7 @@ datasetDescriptor:
     title: "Url of a dataset"
 demographicFrequency:
   title: "Demographic frequency"
-  description: "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes."
+  description: "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes."
   age:
     title: "Age"
     description: "Array of age bins and their corresponding counts."
@@ -421,13 +417,6 @@ demographicFrequency:
       title: "Ethnicity grouping"
     count:
       title: "Ethnicity count"
-  genderAssignedAtBirth:
-    title: "Gender assigned at birth"
-    description: "Gender assigned at birth, male or female, and their corresponding counts."
-    bin:
-      title: "Gender assigned at birth"
-    count:
-      title: "Gender assigned at birth count"
   disease:
     title: "Disease"
     description: "Array of diseases and their corresponding counts."

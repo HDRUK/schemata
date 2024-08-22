@@ -1499,34 +1499,6 @@
             },
             {
                   "required": true,
-                  "title": "Gender assigned at birth bin",
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "male",
-                              "female"
-                        ]
-                  },
-                  "location": "demographicFrequency.genderAssignedAtBirth.bin"
-            },
-            {
-                  "required": true,
-                  "title": "Gender assigned at birth count",
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": false,
-                  "is_optional": false,
-                  "types": "int",
-                  "location": "demographicFrequency.genderAssignedAtBirth.count"
-            },
-            {
-                  "required": true,
                   "title": "Disease code",
                   "description": null,
                   "guidance": "",

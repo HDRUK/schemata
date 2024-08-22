@@ -561,7 +561,7 @@ tissuesSampleCollection:
       description: "Restrictions on the use of the tissue sample"
 demographicFrequency:
   title: "Demographic frequency"
-  description: "An object containing demographic frequency data categorised by age, ethnicity, gender assigned at birth, and disease attributes."
+  description: "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes."
   age:
     title: "Age"
     description: "Array of age bins and their corresponding counts."
@@ -576,13 +576,6 @@ demographicFrequency:
       title: "Ethnicity bin"
     count:
       title: "Ethnicity count"
-  genderAssignedAtBirth:
-    title: "Gender assigned at birth"
-    description: "Gender assigned at birth, male or female, and their corresponding counts."
-    bin:
-      title: "Gender assigned at birth bin"
-    count:
-      title: "Gender assigned at birth count"
   disease:
     title: "Disease"
     description: "Array of diseases and their corresponding counts."
