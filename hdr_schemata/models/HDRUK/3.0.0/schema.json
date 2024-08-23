@@ -2142,9 +2142,6 @@
                                           "type": "array"
                                     },
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
                                           "type": "null"
                                     }
                               ],

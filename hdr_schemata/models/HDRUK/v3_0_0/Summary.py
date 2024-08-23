@@ -29,7 +29,7 @@ class Summary(BaseModel):
         ..., **an.populationSize.__dict__, json_schema_extra={"guidance": an.populationSize.guidance}
     )
 
-    keywords: Optional[Union[List[OneHundredFiftyCharacters], CommaSeparatedValues]] = Field(
+    keywords: Optional[List[OneHundredFiftyCharacters]] = Field(
         None, **an.keywords.__dict__, json_schema_extra={"guidance": an.keywords.guidance}
     )
 
