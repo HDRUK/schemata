@@ -21,10 +21,6 @@ class Access(BaseModel):
         json_schema_extra={"guidance": an.accessServiceCategory.guidance}
     )
 
-    accessMode: Optional[AccessMode] = Field(
-        "New project", **an.accessMode.__dict__, json_schema_extra={"guidance": an.accessMode.guidance}
-    )
-
     accessService: Optional[LongDescription] = Field(
         None, **an.accessService.__dict__, json_schema_extra={"guidance": an.accessService.guidance}
     )
@@ -37,12 +33,12 @@ class Access(BaseModel):
         None, **an.deliveryLeadTime.__dict__, json_schema_extra={"guidance": an.deliveryLeadTime.guidance}
     )
 
-    jurisdiction: Union[Optional[CommaSeparatedValues], List[Isocountrycode]] = Field(
-        ..., **an.jurisdiction.__dict__, json_schema_extra={"guidance": an.jurisdiction.guidance}
+    jurisdiction: Optional[List[Isocountrycode]] = Field(
+        None, **an.jurisdiction.__dict__, json_schema_extra={"guidance": an.jurisdiction.guidance}
     )
     
     dataController: Optional[LongDescription] = Field(
-        ..., **an.dataController.__dict__, json_schema_extra={"guidance": an.dataController.guidance}
+        None, **an.dataController.__dict__, json_schema_extra={"guidance": an.dataController.guidance}
     )
     
     dataProcessor: Optional[LongDescription] = Field(

@@ -12,7 +12,7 @@ class Access(BaseModel):
         extra = "forbid"
 
     accessRights: Optional[CommaSeparatedValues] = Field(
-        ..., **an.accessRights.__dict__
+        None, **an.accessRights.__dict__
     )
 
     accessService: Optional[LongDescription] = Field(None, **an.accessService.__dict__)
@@ -21,22 +21,18 @@ class Access(BaseModel):
         None, **an.accessRequestCost.__dict__
     )
 
-    deliveryLeadTime: Optional[DeliveryLeadTime] = Field(
+    deliveryLeadTime: Optional[DeliveryLeadTimeV2] = Field(
         None, **an.deliveryLeadTime.__dict__
     )
 
     jurisdiction: Optional[CommaSeparatedValues] = Field(
-        ..., **an.jurisdiction.__dict__
+        None, **an.jurisdiction.__dict__
     )
 
-    dataController: Optional[LongDescription] = Field(..., **an.dataController.__dict__)
+    dataController: Optional[LongDescription] = Field(None, **an.dataController.__dict__)
 
     dataProcessor: Optional[LongDescription] = Field(None, **an.dataProcessor.__dict__)
 
     accessServiceCategory: Optional[CommaSeparatedValues] = Field(
         None, **an.accessServiceCategory.__dict__
-    )
-
-    accessMode: Optional[AccessMode] = Field(
-        "New project", **an.accessMode.__dict__
     )

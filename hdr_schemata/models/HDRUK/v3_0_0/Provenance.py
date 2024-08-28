@@ -17,5 +17,5 @@ class Provenance(BaseModel):
     )
 
     temporal: Temporal = Field(
-        None, description=an.temporal.description, title=an.temporal.title
+        ..., description=an.temporal.description, title=an.temporal.title
     )

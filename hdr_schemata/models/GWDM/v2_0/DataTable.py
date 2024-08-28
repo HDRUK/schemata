@@ -14,7 +14,7 @@ class DataTable(BaseModel):
         extra = "forbid"
 
     name: Optional[constr(min_length=1, max_length=500)] = Field(
-        ..., **an.name.__dict__
+        None, **an.name.__dict__
     )
     description: Optional[constr(min_length=1, max_length=20000)] = Field(
         None, **an.description.__dict__

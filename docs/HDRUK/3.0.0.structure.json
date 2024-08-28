@@ -65,7 +65,7 @@
                   },
                   {
                         "name": "url",
-                        "required": true,
+                        "required": false,
                         "title": "revision url",
                         "description": "Some url with a reference to the record of a previous version of this dataset",
                         "guidance": "",
@@ -155,7 +155,7 @@
                         "subItems": []
                   },
                   {
-                        "name": "dataProvider",
+                        "name": "dataCustodian",
                         "required": true,
                         "title": "Dataset Custodian",
                         "description": "This is the organisation responsible for running or supporting the data access request process, as well as enquiries about a dataset. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
@@ -169,18 +169,17 @@
                         "subItems": [
                               {
                                     "name": "identifier",
-                                    "required": false,
+                                    "required": true,
                                     "title": "identifier",
                                     "description": "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation.",
                                     "guidance": "Example: https://ror.org/053fq8t95If your organisation does not have a ROR identifier please use the \u201csuggest and institute\u201d function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "null"
+                                          "str",
+                                          "int"
                                     ],
                                     "is_list": false,
-                                    "is_optional": true,
-                                    "subItems": []
+                                    "is_optional": false
                               },
                               {
                                     "name": "name",
@@ -200,7 +199,7 @@
                                     "name": "logo",
                                     "required": false,
                                     "title": "Organisation Logo",
-                                    "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.",
+                                    "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.  If a logo is not submitted this will default to the logo for the team submitting the metadata.",
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
@@ -215,7 +214,7 @@
                                     "name": "description",
                                     "required": false,
                                     "title": "Organisation Description",
-                                    "description": "Please provide a URL that describes the organisation.",
+                                    "description": "Please provide a URL that describes the organisation.  If a description is not provided this will default to the description of the team submitting the metadata.",
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
@@ -230,7 +229,7 @@
                                     "name": "contactPoint",
                                     "required": true,
                                     "title": "contact point",
-                                    "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.",
+                                    "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata.",
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
@@ -245,11 +244,11 @@
                                     "name": "memberOf",
                                     "required": false,
                                     "title": "Organisation Membership",
-                                    "description": "Please indicate if the organisation is an Alliance Member or a Hub.'",
+                                    "description": "Please indicate if the organisation is an Alliance Member or a Hub.  If this field is not submitted this will default to the membership for the team submitting the metadata.",
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "MemberOf['HUB','ALLIANCE','OTHER','NCS']",
+                                          "MemberOfV2['Hub','Alliance','Other','NCS']",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -272,7 +271,7 @@
                   },
                   {
                         "name": "keywords",
-                        "required": true,
+                        "required": false,
                         "title": "Keywords",
                         "description": "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
                         "guidance": "Please provide relevant and specific keywords that can improve the search engine optimization of your dataset.- Please enter one keyword at a time and click Add New Field to add further keywords.- Text from the title is automatically included in the search, there is no need to include this in the keywords.- Include words that researcher may include in their searches.",
@@ -329,7 +328,7 @@
                         "required": false,
                         "title": "Alternate dataset identifiers",
                         "description": "Alternate dataset identifiers or local identifiers.",
-                        "guidance": "",
+                        "guidance": "Alternate dataset identifiers or local identifiers.",
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
@@ -358,10 +357,10 @@
             "subItems": [
                   {
                         "name": "description",
-                        "required": false,
+                        "required": true,
                         "title": "Description",
                         "description": "A free-text description of the dataset.A URL can also be provided as the description of the dataset.Gateway Feature: Keywords and text may be extracted out of the description and indexed for search.",
-                        "guidance": "An HTML account of the data that provides context and scope of the data, limited to 3000 characters, and/or a resolvable URL that describes the dataset.- Additional information can be recorded and included using the Associated media field.",
+                        "guidance": "An HTML account of the data that provides context and scope of the data, limited to 10000 characters, and/or a resolvable URL that describes the dataset.- Additional information can be recorded and included using the Associated media field.",
                         "examples": null,
                         "type": [
                               "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]"
@@ -374,7 +373,7 @@
                         "name": "associatedMedia",
                         "required": false,
                         "title": "Associated media",
-                        "description": "Please provide any media associated with the Gateway Organisation using a valid URI for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
+                        "description": "Please provide any media associated with the Gateway Organisation using a valid URL for the content. This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question. The following formats will be accepted .jpg, .png or .svg, .pdf, .xslx or .docx. Note: media asset can be hosted by the organisation or uploaded using the onboarding portal.",
                         "guidance": "Please provide any media associated with the Gateway Organisation using a valid URL for the content.- This is an opportunity to provide additional context that could be useful for researchers wanting to understand more about the dataset and its relevance to their research question.- Note: media assets should be hosted by the organisation.Example: This could be a link to a PDF Document that describes methodology or further detail about the datasets, or a graph or chart that provides further context about the dataset.- If you are providing multiple links for associated media, we recommend that you separate these with a comma.",
                         "examples": [
                               "PDF document that describes study protocol - https://link.to/document.pdf"
@@ -498,14 +497,14 @@
                         "is_optional": true
                   },
                   {
-                        "name": "followup",
+                        "name": "followUp",
                         "required": false,
                         "title": "Follow-up",
                         "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period). In a prospective cohort study, after baseline information is collected, participants are followed \u201clongitudinally\u201d i.e. new information is collected about them for a period of time afterward. This is known as the \u201cfollow up period\u201d. What is the typical time span of follow up, e.g. 1 year, 5 years? If there are multiple cohorts in the dataset with varying follow up periods, please provide the longest follow up period.",
                         "guidance": "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).-0 - 6 MONTHS: Data typically available for a patient over a 0-6 month period.-6 - 12 MONTHS: Data typically available for a patient over a 6-12 month period.-1 - 10 YEARS: Data typically available for a patient over a 1-10 year period.-> 10 YEARS: Data typically available for a patient for over a 10 year period.-CONTINUOUS: Data for patients is being regularly added to and updated.-UNKNOWN: Timespan is Unknown.-OTHER: Data available for a patient over another time period.",
                         "examples": null,
                         "type": [
-                              "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null]",
+                              "FollowupV2['0 - 6 Months','6 - 12 Months','1 - 10 Years','> 10 Years','Unknown','Continuous','Other',null]",
                               "null"
                         ],
                         "is_list": false,
@@ -525,19 +524,6 @@
                         "is_list": false,
                         "is_optional": true,
                         "subItems": []
-                  },
-                  {
-                        "name": "gender",
-                        "required": false,
-                        "title": "Gender",
-                        "description": "Male, Female, Other",
-                        "guidance": "Options are limited to Male/Female/Other.",
-                        "examples": null,
-                        "type": [
-                              "GenderType['Male','Female','Other']"
-                        ],
-                        "is_list": true,
-                        "is_optional": true
                   }
             ]
       },
@@ -577,7 +563,7 @@
                                     "guidance": "Research cohort: Data collected for a defined group of people.- Study: Data collected for a specific research study.- Disease registry: Data collected as part of a disease registry.- Trial: Data collected for as part of a clinical trial.- Care: Data collected as part of routine clinical care.- Audit: Data collected as part of an audit programme.- Administrative: Data collected for administrative and management information purposes.- Financial: Data collected either for payments or for billing.- Statutory: Data collected in compliance with statutory requirements.- Other: Data collected for other purpose.",
                                     "examples": null,
                                     "type": [
-                                          "PurposeV2['Research cohort','Study','Disease registry','Trial','Care','Audit','Administrative','Financial','Statuatory','Other',null]"
+                                          "PurposeV2['Research cohort','Study','Disease registry','Trial','Care','Audit','Administrative','Financial','Statutory','Other',null]"
                                     ],
                                     "is_list": true,
                                     "is_optional": true
@@ -592,21 +578,20 @@
                                     "type": [
                                           "DatasetTypeV2['Health and disease','Treatments/Interventions','Measurements/Tests','Imaging types','Imaging area of the body','Omics','Socioeconomic','Lifestyle','Registry','Environment and energy','Information and communication','Politics']"
                                     ],
-                                    "is_list": false,
+                                    "is_list": true,
                                     "is_optional": false
                               },
                               {
                                     "name": "datasetSubType",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Dataset sub-type",
                                     "description": "The sub-type of the dataset content. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType ('proteomics', 'transcriptomics', 'epigenomics', 'metabolomics', 'metagenomics', 'genomics', 'lipidomics') is selected",
                                     "guidance": "Sub-types include those listed below under each data type. Datasets can have more than one sub-type associated.- Health and disease: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.- Treatments/Interventions: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.- Measurements/Tests- Includes any data related to laboratory or other diagnostics.- Imaging types: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.- *Imaging area of the body: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.- Omics: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType is selected.- Socioeconomic: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.- *Lifestyle: Includes any data related to smoking, physical activity, dietary habits or alcohol.- Registry: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.- Environment and energy: Includes any data related to the monitoring or study of environmental or energy factors or events.- *Information and communication: Includes any data related to the study or application of information and communication.- Politics*: Includes any data related to political views, activities, voting, etc.",
                                     "examples": null,
                                     "type": [
-                                          "DatasetSubType['Mental health','Cardiovascular','Cancer','Rare diseases','Metabolic and Endocrine','Neurological','Reproductive','Maternity and neonatology','Respiratory','Immunity','Musculoskeletal','Vision','Renal and urogenital','Oral and Gastrointestinal','Cognitive Function','Hearing','Others','Vaccines','Preventive','Therapeutic','Laboratory','Other diagnostics','CT','MRI','PET','X-ray','Ultrasound','Pathology','Head','Chest','Arm','Abdomen','Leg','Proteomics','Transcriptomics','Epigenomics','Metabolomics','Multiomics','Metagenomics','Genomics','Education','Crime and Justice','Ethnicity','Housing ','Labour','Ageing ','Economics','Marital status','Social support','Deprivation','Religion','Occupation','Finances','Family circumstance','Smoking','Physical Activity','Dietary habits','Alcohol','Disease Registry (research)','National Disease Registries and Audits','Births and Deaths','Not applicable']",
-                                          "null"
+                                          "DatasetSubType['Mental health','Cardiovascular','Cancer','Rare diseases','Metabolic and endocrine','Neurological','Reproductive','Maternity and neonatology','Respiratory','Immunity','Musculoskeletal','Vision','Renal and urogenital','Oral and gastrointestinal','Cognitive function','Hearing','Others','Vaccines','Preventive','Therapeutic','Laboratory','Other diagnostics','CT','MRI','PET','X-ray','Ultrasound','Pathology','Head','Chest','Arm','Abdomen','Leg','Proteomics','Transcriptomics','Epigenomics','Metabolomics','Metagenomics','Genomics','Lipidomics','Education','Crime and justice','Ethnicity','Housing','Labour','Ageing ','Economics','Marital status','Social support','Deprivation','Religion','Occupation','Finances','Family circumstance','Smoking','Physical activity','Dietary habits','Alcohol','Disease registry (research)','National disease registries and audits','Births and deaths','Not applicable']"
                                     ],
-                                    "is_list": false,
+                                    "is_list": true,
                                     "is_optional": true
                               },
                               {
@@ -653,7 +638,7 @@
                   },
                   {
                         "name": "temporal",
-                        "required": false,
+                        "required": true,
                         "title": "Temporal Coverage",
                         "description": "Dates and other temporal coverage information.",
                         "guidance": "",
@@ -666,7 +651,7 @@
                         "subItems": [
                               {
                                     "name": "publishingFrequency",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Publishing frequency",
                                     "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
                                     "guidance": "Please indicate the frequency of publishing.- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.- Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/.  Options:- Static: Dataset published once.- Irregular: Dataset published at uneven intervals.- Continuous: Dataset published without interruption.- Biennial: Dataset published every two years.- Annual: Dataset published occurs once a year.- Biannual: Dataset published twice a year.- Quarterly: Dataset published every three months.- Bimonthly: Dataset published every two months.- Monthly: Dataset published once a month.- Biweekly: Dataset published every two weeks.- Weekly: Dataset published once a week.- Twice weekly: Dataset published twice a week.- Daily: Dataset published once a day.- Other: Dataset published using other interval.",
@@ -724,7 +709,7 @@
                               },
                               {
                                     "name": "timeLag",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Time lag",
                                     "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
                                     "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.- Less than 1 week: Typical time lag of less than a week.- 1-2 weeks: Typical time-lag of one to two weeks.- 2-4 weeks: Typical time-lag of two to four weeks.- 1-2 months: Typical time-lag of one to two months.- 2-6 months: Typical time-lag of two to six months.- 6 months plus: Typical time-lag of more than six months.- Variable: Variable time-lag.- Not applicable: Not Applicable i.e. static dataset.- Other: Other time-lag.",
@@ -774,7 +759,7 @@
                                     "guidance": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.- General research use: This data use limitation indicates that use is allowed for general research use for any research purpose.- Genetic studies only: This data use limitation indicates that use is limited to genetic studies only (i.e., no phenotype-only research).- No general methods research: This data use limitation indicates that use includes methods development research(e.g., development of software or algorithms) only within the bounds of other use limitations.- No restriction: This data use limitation indicates there is no restriction on use.- Research-specific restrictions: This data use limitation indicates that use is limited to studies of a certain research type.- Research use only: This data use limitation indicates that use is limited to research purposes (e.g., does not include its use in clinical care).- No linkage: This data use limitation indicates there is a restriction on linking to any other datasets",
                                     "examples": null,
                                     "type": [
-                                          "DataUseLimitationV2['General research use','Genetic studies only','No general methods research','No restriction','Research-specific restrictions','Research use only','No linkage']"
+                                          "DataUseLimitationV2['General research use','Commercial research use','Genetic studies only','No general methods research','No restriction','Geographical restrictions','Institution-specific restrictions','Not for profit use','Project-specific restrictions','Research-specific restrictions','User-specific restrictions','Research use only','No linkage']"
                                     ],
                                     "is_list": true,
                                     "is_optional": true
@@ -787,7 +772,7 @@
                                     "guidance": "Please indicate if there are any additional conditions set for use if any, multiple requirements may be provided.- Please ensure that these restrictions are documented in access rights information.- Collaboration required: This requirement indicates that the requestor must either agree to join a research consortium or collaborate with the primary study investigator(s).- Ethics approval required: This requirement indicates that the requestor must provide documentation of local institutional review board (IRB)/ ethics review board (ERB) approval.- Geographical restrictions: This requirement indicates that use is limited to within a specific geographic region.- Institution-specific restrictions: This requirement indicates that use is limited to use within an approved institution.- Not for profit use: This requirement indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.- Project-specific restrictions: This requirement indicates that use is limited to use within an approved project.- Publication moratorium: This requirement indicates that requestor agrees not to publish results of studies until a specific date.- Publication required: This requirement indicates that requestor agrees to make results of studies using the data available to the larger scientific community.- Return to database or resource: This requirement indicates that the requestor must return derived/enriched data to the database/resource.- Time limit on use: This requirement indicates that use is approved for a specific number of months.- User-specific restriction: This requirement indicates that use is limited to use by approved users.",
                                     "examples": null,
                                     "type": [
-                                          "DataUseRequirementsV2['Collaboration required','Ethics approval required','Geographical restrictions','Institution-specific restrictions','Not for profit use','Project-specific restrictions','Publication moratorium','Publication required','Return to database or resource','Time limit on use','User-specific restriction']"
+                                          "DataUseRequirementsV2['Collaboration required','Project-specific restrictions','Ethics approval required','Institution-specific restrictions','Geographical restrictions','Publication moratorium','Publication required','Return to database or resource','Time limit on use','Disclosure control','Not for profit use','User-specific restriction']"
                                     ],
                                     "is_list": true,
                                     "is_optional": true
@@ -856,27 +841,14 @@
                                     "is_optional": true
                               },
                               {
-                                    "name": "accessMode",
-                                    "required": false,
-                                    "title": "Access mode",
-                                    "description": "Indication of the application type to enable research access.",
-                                    "guidance": "Indicate whether a Researcher will need to join a consortium to enable access to the dataset, or if a Researcher will need to submit an application which describes a specific project and required dataset fields required.",
-                                    "examples": null,
-                                    "type": [
-                                          "AccessMode['Join research consortium','New project']",
-                                          "null"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": true
-                              },
-                              {
                                     "name": "accessService",
                                     "required": false,
                                     "title": "Access service description",
                                     "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                                     "guidance": "Please provide a brief description of the data access services that are available including:- environment that is currently available to researchers- additional consultancy and services- any indication of costs associated  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.  Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                                     "examples": [
-                                          "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                                          "https://re-docs.genomicsengland.co.uk/tutorials/",
+                                          "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
                                     ],
                                     "type": [
                                           "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
@@ -917,26 +889,24 @@
                               },
                               {
                                     "name": "jurisdiction",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Jurisdiction",
                                     "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                                     "guidance": "A full list of country codes can be found here (alpha-2 column): https://www.iso.org/obp/ui/#search/code/",
                                     "examples": null,
                                     "type": [
-                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List",
-                                          "null"
+                                          "Isocountrycode[{'pattern': '^[A-Z]{2}(-[A-Z]{2,3})?$', 'type': 'string'}]"
                                     ],
-                                    "is_list": false,
+                                    "is_list": true,
                                     "is_optional": true,
                                     "subItems": []
                               },
                               {
                                     "name": "dataController",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Data Controller",
                                     "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
-                                    "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England'",
+                                    "guidance": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.- Example: NHS England",
                                     "examples": [
                                           "NHS England"
                                     ],
@@ -984,7 +954,7 @@
                         "subItems": [
                               {
                                     "name": "vocabularyEncodingScheme",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Controlled vocabulary",
                                     "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
                                     "guidance": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset.- If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- Notes: More than one vocabulary may be provided.- Local: Local Coding Standard.- OPCS4: https://www.datadictionary.nhs.uk/web_site_content/supporting_information/clinical_coding/opcs_classification_of_interventions_and_procedures.asp.- READ: https://digital.nhs.uk/services/terminology-and-classifications/read-codes.- SNOMED CT: http://www.snomed.org/.- SNOMED RT: https://confluence.ihtsdotools.org/display/DOCGLOSS/SNOMED+RT.- DM+D: https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/scci0052-dictionary-of-medicines-and-devices-dm-d.- NHS National Codes: https://www.datadictionary.nhs.uk/.- ODS: https://digital.nhs.uk/services/organisation-data-service.- LOINC: https://loinc.org/.- ICD10: https://www.who.int/classifications/icd/icdonlineversions/en/.- ICD10CM: https://www.cdc.gov/nchs/icd/icd10cm.htm.- ICD10PCS: https://ec.europa.eu/eip/ageing/standards/healthcare/e-health/icd-10-pcs_en.- ICD9CM: https://www.cdc.gov/nchs/icd/icd9cm.htm.- ICD9: https://www.cdc.gov/nchs/icd/icd9.htm.- ICDO3: https://www.who.int/classifications/icd/adaptations/oncology/en/.- AMT: https://www.digitalhealth.gov.au/about-the-agency/tenders-and-offers/community-pharmacy-software-industry-partnership-offer/Webinar%20-%20Australian%20Medicines%20Terminology%20(AMT)%20and%20Implementation%20Options%2001032017.pdf.- APC: https://www.acep.org/administration/reimbursement/reimbursement-faqs/apc-ambulatory-payment-classifications-faq/.- ATC: https://www.whocc.no/atc_ddd_index/.- CIEL: https://github.com/OpenConceptLab/ocl_web/wiki/CIEL.- HPO: https://hpo.jax.org/app/.- CPT4: https://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/Downloads/SubjecttoCLIA.pdf.- DPD: https://health-products.canada.ca/dpd-bdpp/index-eng.jsp.- DRG: http://www.euro.who.int/__data/assets/pdf_file/0004/162265/e96538.pdf.- HEMONC: https://hemonc.org/wiki/Main_Page.- JMDC: https://www.jmdc.co.jp/en/.- KCD7: https://forums.ohdsi.org/t/adding-kcd7-code-korean-icd-10-to-the-omop-vocabulary/7576.- MULTUM: https://www.cerner.com/solutions/drug-database.- NAACCR: https://www.naaccr.org/.- NDC: https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory.- NDFRT <:https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/index.html>.- OXMIS: https://oxrisk.com/oxmis/.- RXNORM: https://www.nlm.nih.gov/research/umls/rxnorm/index.html.- RXNORM EXTENSION: https://www.nlm.nih.gov/research/umls/rxnorm/index.html.- SPL: https://www.fda.gov/industry/fda-resources-data-standards/structured-product-labeling-resources.- Other: Please indicate if there is another standard that you are using. This will trigger a support ticket where you can request the addition of the terminology to the HOP.- NHS Scotland National Codes: https://www.ndc.scot.nhs.uk/Data-Dictionary/.- NHS Wales National Codes: http://www.datadictionary.wales.nhs.uk/",
@@ -997,7 +967,7 @@
                               },
                               {
                                     "name": "conformsTo",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Alignment with standardised data models",
                                     "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
                                     "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- HL7 FHIR: https://www.hl7.org/fhir/.- HL7 V2: https://www.hl7.org/implement/standards/product_section.cfm?section=13.- HL7 CDA: https://www.hl7.org/implement/standards/product_section.cfm?section=10.- HL7 CCOW: https://www.hl7.org/implement/standards/product_section.cfm?section=16.- DICOM: https://www.dicomstandard.org/.- I2B2: https://www.i2b2.org/.- IHE: https://www.ihe.net/resources/profiles/.- OMOP: https://www.ohdsi.org/data-standardization/the-common-data-model/.- openEHR: https://www.openehr.org/.- Sentinel: https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model.- PCORnet: https://pcornet.org/data-driven-common-model/.- CDISC: https://www.cdisc.org/standards/data-exchange/odm.- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary: https://www.datadictionary.nhs.uk/.- NHS Scotland Data Dictionary: https://www.ndc.scot.nhs.uk/Data-Dictionary/.- NHS Wales Data Dictionary: https://www.datadictionary.wales.nhs.uk/.",
@@ -1012,7 +982,7 @@
                               },
                               {
                                     "name": "language",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Language",
                                     "description": "This should list all the languages in which the dataset metadata and underlying data is made available complaint with ISO 639.",
                                     "guidance": "https://www.iso.org/iso-639-language-code- aa: Afar- ab: Abkhazian- af: Afrikaans- ak: Akan- sq: Albanian- am: Amharic- ar: Arabic- an: Aragonese- hy: Armenian- as: Assamese- av: Avaric- ae: Avestan- ay: Aymara- az: Azerbaijani- ba: Bashkir- bm: Bambara- eu: Basque- be: Belarusian- bn: Bengali- bh: Bihari languages- bi: Bislama- bo: Tibetan- bs: Bosnian- br: Breton- bg: Bulgarian- my: Burmese- ca: Catalan; Valencian- cs: Czech- ch: Chamorro- ce: Chechen- zh: Chinese- cu: Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic- cv: Chuvash- kw: Cornish- co: Corsican- cr: Cree- cy: Welsh- cs: Czech- da: Danish- de: German- dv: Divehi; Dhivehi; Maldivian- nl: Dutch; Flemish- dz: Dzongkha- el: Greek, Modern (1453-)- en: English- eo: Esperanto- et: Estonian- eu: Basque- ee: Ewe- fo: Faroese- fa: Persian- fj: Fijian- fi: Finnish- fr: French- fy: Western Frisian- ff: Fulah- ka: Georgian- de: German- gd: Gaelic; Scottish Gaelic- ga: Irish- gl: Galician- gv: Manx- el: Greek, Modern (1453-)- gn: Guarani- gu: Gujarati- ht: Haitian; Haitian Creole- ha: Hausa- ho: Hiri Motu- hr: Croatian- hu: Hungarian- hy: Armenian- ig: Igbo- is: Icelandic- io: Ido- ii: Sichuan Yi; Nuosu- iu: Inuktitut- ie: Interlingue; Occidental- ia: Interlingua (International Auxiliary Language Association)- id: Indonesian- ik: Inupiaq- is: Icelandic- it: Italian- jv: Javanese- ja: Japanese- kl: Kalaallisut; Greenlandic- kn: Kannada- ks: Kashmiri- ka: Georgian- kr: Kanuri- kk: Kazakh- km: Central Khmer- ki: Kikuyu; Gikuyu- rw: Kinyarwanda- ky: Kirghiz; Kyrgyz- kv: Komi- kg: Kongo- ko: Korean- kj: Kuanyama; Kwanyama- ku: Kurdish- lo: Lao- la: Latin- lv: Latvian- li: Limburgan; Limburger; limburgish- ln: Lingala- lt: Lithuanian- lb: Luxembourgish; Letzeburgesch- lu: Luba-Katanga- lg: Ganda- mk: Macedonian- mh: Marshallese- ml: Malayalam- mi: Maori- mr: Marathi- ms: Malay- mk: Macedonian- mg: Malagasy- mt: Maltese- mn: Mongolian- mi: Maori- ms: Malay- my: Burmese- na: Nauru- nv: Navajo; Navaho- nr: Ndebele, South; South Ndebele- nd: Ndebele, North; North Ndebele- ng: Ndonga- ne: Nepali- nl: Dutch; Flemish- nn: Norwegian Nynorsk; Nynorsk, Norwegian- nb: Bokm\u00e5l, Norwegian; Norwegian Bokm\u00e5l- no: Norwegian- ny: Chichewa; Chewa; Nyanja- oc: Occitan (post 1500)- oj: Ojibwa- or: Oriya- om: Oromo- os: Ossetian; Ossetic- pa: Panjabi; Punjabi- fa: Persian- pi: Pali- pl: Polish- pt: Portuguese- ps: Pushto; Pashto- qu: Quechua- rm: Romansh- ro: Romanian; Moldavian; Moldovan- rn: Rundi- ru: Russian- sg: Sango- sa: Sanskrit- si: Sinhala; Sinhalese- sk: Slovak- sl: Slovenian- se: Northern Sami- sm: Samoan- sn: Shona- sd: Sindhi- so: Somali- st: Sotho, Southern- es: Spanish; Castilian- sq: Albanian- sc: Sardinian- sr: Serbian- ss: Swati- su: Sundanese- sw: Swahili- sv: Swedish- ty: Tahitian- ta: Tamil- tt: Tatar- te: Telugu- tg: Tajik- tl: Tagalog- th: Thai- bo: Tibetan- ti: Tigrinya- to: Tonga (Tonga Islands)- tn: Tswana- ts: Tsonga- tk: Turkmen- tr: Turkish- tw: Twi- ug: Uighur; Uyghur- uk: Ukrainian- ur: Urdu- uz: Uzbek- ve: Venda- vi: Vietnamese- vo: Volap\u00fck- cy: Welsh- wa: Walloon- wo: Wolof- xh: Xhosa- yi: Yiddish- yo: Yoruba- za: Zhuang; Chuang- zh: Chinese- zu: Zulu",
@@ -1025,7 +995,7 @@
                               },
                               {
                                     "name": "format",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Format",
                                     "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
                                     "guidance": "If multiple formats are available, please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml.- Please enter one format type at a time and click Add New Field to add further keywords.- Note: If your file format is not included in the current list of formats, please indicate other.- Example: text/tab-separated-values, application/sql, text/csv, image/diacom-rle",
@@ -1075,7 +1045,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1090,7 +1060,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1105,7 +1075,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1137,7 +1107,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1152,7 +1122,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1167,7 +1137,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1197,7 +1167,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1212,7 +1182,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1227,7 +1197,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1257,7 +1227,7 @@
                         "subItems": [
                               {
                                     "name": "pid",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Persistent identifier of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1272,7 +1242,7 @@
                               },
                               {
                                     "name": "title",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Title of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1287,7 +1257,7 @@
                               },
                               {
                                     "name": "url",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Url of a dataset",
                                     "description": null,
                                     "guidance": "",
@@ -1307,7 +1277,7 @@
                         "required": false,
                         "title": "Investigations",
                         "description": "Please provide link to any active projects that are using the dataset.",
-                        "guidance": "Please provide the website address(es) which document information related to active projects utilising the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, please click on '+' symbol to enter each separate website.- Example: https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps",
+                        "guidance": "Please provide the website address(es) which document information related to active projects utilising the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each website and press enter to add it to the list.- Example: https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps",
                         "examples": null,
                         "type": [
                               "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
@@ -1335,7 +1305,7 @@
                         "required": false,
                         "title": "Publication about the dataset",
                         "description": "DOIs for publications which describe the dataset.",
-                        "guidance": "Please provide the DOIs for publications which describe the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, please click on '+' symbol to enter each separate citation.- Example: https://doi.org/10.1093/ije/dyab028",
+                        "guidance": "Please provide the DOIs for publications which describe the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: https://doi.org/10.1093/ije/dyab028",
                         "examples": [
                               "https://doi.org/10.1093/ije/dyab028"
                         ],
@@ -1351,7 +1321,7 @@
                         "required": false,
                         "title": "Publication using the dataset",
                         "description": "DOIs for publications which use the dataset for analysis.",
-                        "guidance": "Please provide the DOIs for publications which have used the dataset in their analysis.- Please split your existing list of citations into separate fields.- To add multiple entries, please click on '+' symbol to enter each separate citation.- Example: https://doi.org/10.1001/jamapediatrics.2016.3633",
+                        "guidance": "Please provide the DOIs for publications which have used the dataset in their analysis.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: https://doi.org/10.1001/jamapediatrics.2016.3633",
                         "examples": [
                               "https://doi.org/10.1001/jamapediatrics.2016.3633"
                         ],
@@ -1387,7 +1357,7 @@
                               "Persons"
                         ],
                         "type": [
-                              "StatisticalPopulationConstrainedV2['Person','Event','Findings','Number of scans per modality']"
+                              "StatisticalPopulationConstrainedV2['Persons','Events','Findings','Number of scans per modality']"
                         ],
                         "is_list": false,
                         "is_optional": false
@@ -1479,7 +1449,7 @@
                         "subItems": [
                               {
                                     "name": "name",
-                                    "required": true,
+                                    "required": false,
                                     "title": "Table name",
                                     "description": "The name of a table in a dataset.",
                                     "guidance": "",
@@ -1646,6 +1616,203 @@
                         "is_list": true,
                         "is_optional": true,
                         "subItems": []
+                  }
+            ]
+      },
+      {
+            "name": "demographicFrequency",
+            "required": false,
+            "title": "Demographic frequency",
+            "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "DemographicFrequency",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "age",
+                        "required": false,
+                        "title": "Age",
+                        "description": "Array of age bins and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Age"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "bin",
+                                    "required": true,
+                                    "title": "Age grouping",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "AgeEnum['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": "Age count",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  },
+                  {
+                        "name": "ethnicity",
+                        "required": false,
+                        "title": "Ethnicity",
+                        "description": "Array of ethnicity bins and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Ethnicity"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "bin",
+                                    "required": true,
+                                    "title": "Ethnicity grouping",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "EthnicityEnum['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": "Ethnicity count",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  },
+                  {
+                        "name": "disease",
+                        "required": false,
+                        "title": "Disease",
+                        "description": "Array of diseases and their corresponding counts.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Disease"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "diseaseCode",
+                                    "required": true,
+                                    "title": "Disease code",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "str",
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "diseaseCodeVocabulary",
+                                    "required": true,
+                                    "title": "Disease code vocabulary",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "DiseaseCodeEnum['ICD10','SNOMED CT','MeSH']"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              },
+                              {
+                                    "name": "count",
+                                    "required": true,
+                                    "title": "Disease count",
+                                    "description": null,
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "int"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false
+                              }
+                        ]
+                  }
+            ]
+      },
+      {
+            "name": "omics",
+            "required": false,
+            "title": "Omics",
+            "description": "Omics",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "Omics",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "assay",
+                        "required": false,
+                        "title": "Omics assay",
+                        "description": "The specific 'omics assay that generated the dataset.",
+                        "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
+                        "examples": null,
+                        "type": [
+                              "Assay['NMR spectroscopy','mass-spectrometry','whole genome sequencing','exome sequencing','genotyping by array','transcriptome profiling by high-throughput sequencing','transcriptome profiling by array','amplicon sequencing','methylation binding domain sequencing','methylation profiling by high-throughput sequencing','genomic variant calling','chromatin accessibility profiling by high-throughput sequencing','histone modification profiling by high-throughput sequencing','chromatin immunoprecipitation sequencing','whole genome shotgun sequencing','whole transcriptome sequencing','targeted mutation analysis']",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
+                  },
+                  {
+                        "name": "platform",
+                        "required": false,
+                        "title": "Omics Platform",
+                        "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                        "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                        "examples": null,
+                        "type": [
+                              "Platform['Other','NMR Nightingale','Metabolon','Biocrates','Illumina','Oxford Nanopore','454','Hi-C','HiFi']",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true
                   }
             ]
       }

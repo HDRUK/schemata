@@ -21,16 +21,16 @@ class Summary(BaseModel):
         ..., **an.abstract.__dict__, json_schema_extra={"guidance": an.abstract.guidance}
     )
     
-    dataProvider: Organisation = Field(
-        ..., title=an.dataProvider.title, description=an.dataProvider.description
+    dataCustodian: Organisation = Field(
+        ..., title=an.dataCustodian.title, description=an.dataCustodian.description
     )
 
     populationSize: int = Field(
         ..., **an.populationSize.__dict__, json_schema_extra={"guidance": an.populationSize.guidance}
     )
 
-    keywords: Optional[List[OneHundredFiftyCharacters]] = (
-        Field(..., **an.keywords.__dict__, json_schema_extra={"guidance": an.keywords.guidance})
+    keywords: Optional[List[OneHundredFiftyCharacters]] = Field(
+        None, **an.keywords.__dict__, json_schema_extra={"guidance": an.keywords.guidance}
     )
 
     doiName: Optional[Doi] = Field(

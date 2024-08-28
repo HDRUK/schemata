@@ -13,4 +13,4 @@ class Revision(BaseModel):
         extra = "forbid"
 
     version: Semver = Field(..., **an.version.__dict__)
-    url: Optional[Url] = Field(..., **an.url.__dict__)
+    url: Optional[Url] = Field(None, **an.url.__dict__)

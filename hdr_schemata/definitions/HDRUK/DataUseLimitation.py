@@ -17,9 +17,15 @@ class DataUseLimitation(Enum):
 
 class DataUseLimitationV2(Enum):
     GENERAL_RESEARCH_USE = 'General research use'
+    COMMERCIAL_RESEARCH_USE = 'Commercial research use'
     GENETIC_STUDIES_ONLY = 'Genetic studies only'
     NO_GENERAL_METHODS_RESEARCH = 'No general methods research'
     NO_RESTRICTION = 'No restriction'
+    GEOGRAPHICAL_RESTRICTIONS = 'Geographical restrictions'
+    INSTITUTION_SPECIFIC_RESTRICTIONS = 'Institution-specific restrictions'
+    NOT_FOR_PROFIT_USE = 'Not for profit use'
+    PROJECT_SPECIFIC_RESTRICTIONS = 'Project-specific restrictions'
     RESEARCH_SPECIFIC_RESTRICTIONS = 'Research-specific restrictions'
+    USER_SPECIFIC_RESTRICTIONS = 'User-specific restrictions'
     RESEARCH_USE_ONLY = 'Research use only'
     NO_LINKAGE = 'No linkage'

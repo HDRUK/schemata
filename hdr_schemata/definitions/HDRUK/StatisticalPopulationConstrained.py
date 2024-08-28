@@ -6,7 +6,7 @@ class StatisticalPopulationConstrained(Enum):
     FINDINGS = 'FINDINGS'
 
 class StatisticalPopulationConstrainedV2(Enum):
-    PERSON = 'Person'
-    EVENT = 'Event'
+    PERSONS = 'Persons'
+    EVENTS = 'Events'
     FINDINGS = 'Findings'
     NUMBER_OF_SCANS_PER_MODALITY = 'Number of scans per modality'

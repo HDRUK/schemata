@@ -41,16 +41,12 @@ class Coverage(BaseModel):
         json_schema_extra={"guidance": an.materialType.guidance}
     )
 
-    followup: Optional[Followup] = Field(
+    followUp: Optional[FollowupV2] = Field(
         "UNKNOWN",
-        **an.followup.__dict__,
-        json_schema_extra={"guidance": an.followup.guidance}
+        **an.followUp.__dict__,
+        json_schema_extra={"guidance": an.followUp.guidance}
     )
 
     pathway: Optional[Description] = Field(
         None, **an.pathway.__dict__, json_schema_extra={"guidance": an.pathway.guidance}
-    )
-
-    gender: Optional[List[GenderType]] = Field(
-        None, **an.gender.__dict__, json_schema_extra={"guidance": an.gender.guidance}
     )

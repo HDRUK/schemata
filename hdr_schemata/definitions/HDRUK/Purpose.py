@@ -24,6 +24,6 @@ class PurposeV2(Enum):
     AUDIT = 'Audit'
     ADMINISTRATIVE = 'Administrative'
     FINANCIAL = 'Financial'
-    STATUATORY = 'Statuatory'
+    STATUTORY = 'Statutory'
     OTHER = 'Other'
     NoneType_None = None
