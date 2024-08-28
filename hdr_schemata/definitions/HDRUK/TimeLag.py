@@ -19,7 +19,7 @@ class TimeLagV2(Enum):
     TWO_FOUR_WEEKS = '2-4 weeks'
     ONE_TWO_MONTHS = '1-2 months'
     TWO_SIX_MONTHS = '2-6 months'
-    SIX_MONTHS_PLUS = '6 months plus'
+    SIX_MONTHS_PLUS = 'More than 6 months'
     VARIABLE = 'Variable'
     NOT_APPLICABLE = 'Not applicable'
     OTHER = 'Other'
