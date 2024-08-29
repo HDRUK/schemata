@@ -626,7 +626,7 @@
                                     "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.- Less than 1 week: Typical time lag of less than a week.- 1-2 weeks: Typical time-lag of one to two weeks.- 2-4 weeks: Typical time-lag of two to four weeks.- 1-2 months: Typical time-lag of one to two months.- 2-6 months: Typical time-lag of two to six months.- 6 months plus: Typical time-lag of more than six months.- Variable: Variable time-lag.- Not applicable: Not Applicable i.e. static dataset.- Other: Other time-lag.",
                                     "examples": null,
                                     "type": [
-                                          "TimeLagV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','6 months plus','Variable','Not applicable','Other']"
+                                          "TimeLagV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','More than 6 months','Variable','Not applicable','Other']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
