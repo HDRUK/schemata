@@ -66,7 +66,7 @@
                         "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
                   ],
                   "is_list": false,
-                  "is_optional": false,
+                  "is_optional": true,
                   "types": {
                         "title": "Url",
                         "format": "uri",
@@ -1593,5 +1593,6 @@
                   },
                   "location": "omics.platform"
             }
-      ]
+      ],
+      "url_regex": "(https?:\\/\\/)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?$"
 }
