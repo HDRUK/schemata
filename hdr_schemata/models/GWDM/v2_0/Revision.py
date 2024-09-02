@@ -1,5 +1,6 @@
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 from hdr_schemata.definitions.HDRUK import *
+from typing import Optional
 
 from .annotations import annotations
 
@@ -13,7 +14,7 @@ class Revision(BaseModel):
         **an.version.__dict__,
     )
 
-    url: Url = Field(
+    url: Optional[Url] = Field(
         ...,
         **an.url.__dict__,
     )

@@ -219,6 +219,7 @@ def create_markdown(Model, path, name):
 
     form = {}
     form["schema_fields"] = []
+    form["url_regex"] = "^\s*((https?:\/\/)*([a-zA-Z0-9-]+\.?)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?(\n)?)+$"
     form_structure(structure, form)
     with open(f"{path}/{name}.form.json", "w") as f:
         json.dump(form, f, indent=6)

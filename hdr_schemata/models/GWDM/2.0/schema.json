@@ -1368,9 +1368,12 @@
                               "type": "string"
                         },
                         "url": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
                               "description": "Some url with a reference to the record of a previous version of this dataset",
