@@ -14,7 +14,7 @@ class Temporal(BaseModel):
         extra = "forbid"
 
     publishingFrequency: PeriodicityV2 = Field(
-        None,
+        ...,
         **an.publishingFrequency.__dict__,
         json_schema_extra={"guidance": an.publishingFrequency.guidance}
     )
@@ -36,5 +36,5 @@ class Temporal(BaseModel):
     )
 
     timeLag: TimeLagV2 = Field(
-        None, **an.timeLag.__dict__, json_schema_extra={"guidance": an.timeLag.guidance}
+        ..., **an.timeLag.__dict__, json_schema_extra={"guidance": an.timeLag.guidance}
     )

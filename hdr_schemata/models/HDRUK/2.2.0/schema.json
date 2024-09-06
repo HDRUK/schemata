@@ -368,7 +368,6 @@
                               ],
                               "default": null,
                               "description": "Male, Female, Other",
-                              "guidance": "Options are limited to Male/Female/Other.",
                               "title": "Gender"
                         },
                         "biologicalsamples": {

@@ -25,6 +25,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please provide details for the data access rights",
                               "title": "Access Rights"
                         },
@@ -60,7 +61,7 @@
                         "deliveryLeadTime": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/DeliveryLeadTime"
+                                          "$ref": "#/$defs/DeliveryLeadTimeV2"
                                     },
                                     {
                                           "type": "null"
@@ -79,6 +80,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
                               "title": "Jurisdiction"
                         },
@@ -91,6 +93,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
                               "title": "Data Controller"
                         },
@@ -122,36 +125,10 @@
                                     "TRE/SDE"
                               ],
                               "title": "Access/governance requirements"
-                        },
-                        "accessMode": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/AccessMode"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": "New project",
-                              "description": "Indication of the application type to enable research access.",
-                              "title": "Access mode"
                         }
                   },
-                  "required": [
-                        "accessRights",
-                        "jurisdiction",
-                        "dataController"
-                  ],
                   "title": "Access",
                   "type": "object"
-            },
-            "AccessMode": {
-                  "enum": [
-                        "Join research consortium",
-                        "New project"
-                  ],
-                  "title": "AccessMode",
-                  "type": "string"
             },
             "Accessibility": {
                   "additionalProperties": false,
@@ -197,6 +174,58 @@
                   "title": "Accessibility",
                   "type": "object"
             },
+            "Age": {
+                  "properties": {
+                        "bin": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/AgeEnum"
+                                    }
+                              ],
+                              "title": "Age bin"
+                        },
+                        "count": {
+                              "title": "Age count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "Age",
+                  "type": "object"
+            },
+            "AgeEnum": {
+                  "enum": [
+                        "0-6 days",
+                        "7-27 days",
+                        "1-11 months",
+                        "1-4 years",
+                        "5-9 years",
+                        "10-14 years",
+                        "15-19 years",
+                        "20-14 years",
+                        "25-29 years",
+                        "30-34 years",
+                        "35-39 years",
+                        "40-44 years",
+                        "45-49 years",
+                        "50-54 years",
+                        "55-59 years",
+                        "60-64 years",
+                        "65-69 years",
+                        "70-74 years",
+                        "75-79 years",
+                        "80-84 years",
+                        "85-89 years",
+                        "90-94 years",
+                        "65-99 years",
+                        "100+ years"
+                  ],
+                  "title": "AgeEnum",
+                  "type": "string"
+            },
             "AgeRange": {
                   "anyOf": [
                         {
@@ -208,6 +237,29 @@
                         }
                   ],
                   "title": "AgeRange"
+            },
+            "Assay": {
+                  "enum": [
+                        "NMR spectroscopy",
+                        "mass-spectrometry",
+                        "whole genome sequencing",
+                        "exome sequencing",
+                        "genotyping by array",
+                        "transcriptome profiling by high-throughput sequencing",
+                        "transcriptome profiling by array",
+                        "amplicon sequencing",
+                        "methylation binding domain sequencing",
+                        "methylation profiling by high-throughput sequencing",
+                        "genomic variant calling",
+                        "chromatin accessibility profiling by high-throughput sequencing",
+                        "histone modification profiling by high-throughput sequencing",
+                        "chromatin immunoprecipitation sequencing",
+                        "whole genome shotgun sequencing",
+                        "whole transcriptome sequencing",
+                        "targeted mutation analysis"
+                  ],
+                  "title": "Assay",
+                  "type": "string"
             },
             "CommaSeparatedValues": {
                   "anyOf": [
@@ -252,10 +304,10 @@
                               "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
                               "title": "Pathway"
                         },
-                        "followup": {
+                        "followUp": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Followup"
+                                          "$ref": "#/$defs/FollowupV2"
                                     },
                                     {
                                           "type": "null"
@@ -370,6 +422,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The name of a table in a dataset.",
                               "title": "Table Name"
                         },
@@ -398,7 +451,6 @@
                         }
                   },
                   "required": [
-                        "name",
                         "columns"
                   ],
                   "title": "DataTable",
@@ -531,20 +583,118 @@
                   ],
                   "title": "DatasetType"
             },
-            "DeliveryLeadTime": {
+            "DeliveryLeadTimeV2": {
                   "enum": [
-                        "LESS 1 WEEK",
-                        "1-2 WEEKS",
-                        "2-4 WEEKS",
-                        "1-2 MONTHS",
-                        "2-6 MONTHS",
-                        "MORE 6 MONTHS",
-                        "VARIABLE",
-                        "NOT APPLICABLE",
-                        "OTHER",
-                        null
+                        "Less than 1 week",
+                        "1-2 weeks",
+                        "2-4 weeks",
+                        "1-2 months",
+                        "2-6 months",
+                        "More than 6 months",
+                        "Variable",
+                        "Not applicable",
+                        "Other"
                   ],
-                  "title": "DeliveryLeadTime"
+                  "title": "DeliveryLeadTimeV2",
+                  "type": "string"
+            },
+            "DemographicFrequency": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "age": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Age"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Array of age bins and their corresponding counts.",
+                              "title": "Age"
+                        },
+                        "ethnicity": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Ethnicity"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Array of ethnicity bins and their corresponding counts.",
+                              "title": "Ethnicity"
+                        },
+                        "disease": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/Disease"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Array of diseases and their corresponding counts.",
+                              "title": "Disease"
+                        }
+                  },
+                  "title": "DemographicFrequency",
+                  "type": "object"
+            },
+            "Disease": {
+                  "properties": {
+                        "diseaseCode": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "integer"
+                                    }
+                              ],
+                              "title": "Disease code"
+                        },
+                        "diseaseCodeVocabulary": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/DiseaseCodeEnum"
+                                    }
+                              ],
+                              "title": "Disease code vocabulary"
+                        },
+                        "count": {
+                              "title": "Disease count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "diseaseCode",
+                        "diseaseCodeVocabulary",
+                        "count"
+                  ],
+                  "title": "Disease",
+                  "type": "object"
+            },
+            "DiseaseCodeEnum": {
+                  "enum": [
+                        "ICD10",
+                        "SNOMED CT",
+                        "MeSH"
+                  ],
+                  "title": "DiseaseCodeEnum",
+                  "type": "string"
             },
             "Doi": {
                   "anyOf": [
@@ -558,18 +708,64 @@
                   ],
                   "title": "Doi"
             },
-            "Followup": {
+            "Ethnicity": {
+                  "properties": {
+                        "bin": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/EthnicityEnum"
+                                    }
+                              ],
+                              "title": "Ethnicity bin"
+                        },
+                        "count": {
+                              "title": "Ethnicity count",
+                              "type": "integer"
+                        }
+                  },
+                  "required": [
+                        "bin",
+                        "count"
+                  ],
+                  "title": "Ethnicity",
+                  "type": "object"
+            },
+            "EthnicityEnum": {
                   "enum": [
-                        "0 - 6 MONTHS",
-                        "6 - 12 MONTHS",
-                        "1 - 10 YEARS",
-                        "> 10 YEARS",
-                        "UNKNOWN",
-                        "CONTINUOUS",
-                        "OTHER",
+                        "White - British",
+                        "White - Irish",
+                        "White - Any other White background",
+                        "Mixed - White and Black Caribbean",
+                        "Mixed - White and Black African",
+                        "Mixed - White and Asian",
+                        "Mixed - Any other mixed background",
+                        "Asian or Asian British - Indian",
+                        "Asian or Asian British - Pakistani",
+                        "Asian or Asian British - Bangladeshi",
+                        "Asian or Asian British - Any other Asian background",
+                        "Black or Black British - Caribbean",
+                        "Black or Black British - African",
+                        "Black or Black British - Any other Black background",
+                        "Other Ethnic Groups - Chinese",
+                        "Other Ethnic Groups - Any other ethnic group",
+                        "Not stated",
+                        "Not known"
+                  ],
+                  "title": "EthnicityEnum",
+                  "type": "string"
+            },
+            "FollowupV2": {
+                  "enum": [
+                        "0 - 6 Months",
+                        "6 - 12 Months",
+                        "1 - 10 Years",
+                        "> 10 Years",
+                        "Unknown",
+                        "Continuous",
+                        "Other",
                         null
                   ],
-                  "title": "Followup"
+                  "title": "FollowupV2"
             },
             "FormatAndStandards": {
                   "additionalProperties": false,
@@ -583,6 +779,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Code value of the ontology vocabulary encoding",
                               "examples": [
                                     "OPCS4,NHS NATIONAL CODES,ICD10,OTHER"
@@ -598,6 +795,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "What the vocabulary conforms to.",
                               "examples": [
                                     "LOCAL,NHS DATA DICTIONARY"
@@ -613,6 +811,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Language code(s) of the language of the dataset metadata and underlying data is made available.",
                               "examples": [
                                     "en"
@@ -628,6 +827,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Format(s) the dataset can be made available in",
                               "examples": [
                                     "CSV,JSON,SQL database table"
@@ -635,12 +835,6 @@
                               "title": "Dataset Format"
                         }
                   },
-                  "required": [
-                        "vocabularyEncodingSchemes",
-                        "conformsTo",
-                        "languages",
-                        "formats"
-                  ],
                   "title": "FormatAndStandards",
                   "type": "object"
             },
@@ -894,6 +1088,41 @@
                   "title": "Observation",
                   "type": "object"
             },
+            "Omics": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "assay": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Assay"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The specific 'omics assay that generated the dataset.",
+                              "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
+                              "title": "Omics assay"
+                        },
+                        "platform": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Platform"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                              "guidance": "The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.",
+                              "title": "Omics Platform"
+                        }
+                  },
+                  "title": "Omics",
+                  "type": "object"
+            },
             "Organisation": {
                   "properties": {
                         "name": {
@@ -905,6 +1134,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Name of the organisation",
                               "title": "Organisation Name"
                         },
@@ -939,9 +1169,6 @@
                               "title": "Research Organization Registry Identifier"
                         }
                   },
-                  "required": [
-                        "name"
-                  ],
                   "title": "Organisation",
                   "type": "object"
             },
@@ -1004,25 +1231,25 @@
                   "title": "Origin",
                   "type": "object"
             },
-            "Periodicity": {
+            "PeriodicityV2": {
                   "enum": [
-                        "STATIC",
-                        "IRREGULAR",
-                        "CONTINUOUS",
-                        "BIENNIAL",
-                        "ANNUAL",
-                        "BIANNUAL",
-                        "QUARTERLY",
-                        "BIMONTHLY",
-                        "MONTHLY",
-                        "BIWEEKLY",
-                        "WEEKLY",
-                        "SEMIWEEKLY",
-                        "DAILY",
-                        "OTHER",
+                        "Static",
+                        "Irregular",
+                        "Continuous",
+                        "Biennial",
+                        "Annual",
+                        "Biannual",
+                        "Quarterly",
+                        "Bimonthly",
+                        "Monthly",
+                        "Biweekly",
+                        "Weekly",
+                        "Twice a week",
+                        "Daily",
+                        "Other",
                         null
                   ],
-                  "title": "Periodicity"
+                  "title": "PeriodicityV2"
             },
             "Pipeline": {
                   "enum": [
@@ -1030,6 +1257,21 @@
                         "Not available"
                   ],
                   "title": "Pipeline",
+                  "type": "string"
+            },
+            "Platform": {
+                  "enum": [
+                        "Other",
+                        "NMR Nightingale",
+                        "Metabolon",
+                        "Biocrates",
+                        "Illumina",
+                        "Oxford Nanopore",
+                        "454",
+                        "Hi-C",
+                        "HiFi"
+                  ],
+                  "title": "Platform",
                   "type": "string"
             },
             "Provenance": {
@@ -1075,7 +1317,7 @@
                         "issued": {
                               "description": "Datetime stamp of when this metadata version was initially issued",
                               "format": "date-time",
-                              "title": "Metadata Issued Datetime',",
+                              "title": "Metadata Issued Datetime",
                               "type": "string"
                         },
                         "modified": {
@@ -1126,9 +1368,12 @@
                               "type": "string"
                         },
                         "url": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
                               "description": "Some url with a reference to the record of a previous version of this dataset",
@@ -1225,8 +1470,8 @@
             },
             "StatisticalPopulationConstrainedV2": {
                   "enum": [
-                        "Person",
-                        "Event",
+                        "Persons",
+                        "Events",
                         "Findings",
                         "Number of scans per modality"
                   ],
@@ -1256,6 +1501,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "A shorter descriptive title of the dataset",
                               "examples": [
                                     "ONS 2011 Census Wales (CENW)"
@@ -1271,6 +1517,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "DOI associated to this dataset",
                               "examples": [
                                     "10.1093/ije/dyx196"
@@ -1298,6 +1545,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Comma separated key words associated to this dataset.",
                               "examples": [
                                     "Preprints,Papers,HDR UK"
@@ -1313,6 +1561,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Keywords that have been filtered and limited",
                               "title": "Controlled Keywords"
                         },
@@ -1326,6 +1575,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "email of a person who can be the main contact point of this dataset",
                               "example": [
                                     "blah.blah@blah.com"
@@ -1341,6 +1591,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "What type of dataset is this?",
                               "title": "Dataset type"
                         },
@@ -1353,6 +1604,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Longer description of the dataset in detail",
                               "examples": [
                                     "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations\\n\\nThis will include:\\n- Papers\\n- COVID-19 Papers\\n- COVID-19 Preprint"
@@ -1368,6 +1620,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Link to details about the publisher of this dataset",
                               "title": "Publisher"
                         },
@@ -1413,15 +1666,7 @@
                   },
                   "required": [
                         "title",
-                        "shortTitle",
-                        "doiName",
-                        "abstract",
-                        "keywords",
-                        "controlledKeywords",
-                        "contactPoint",
-                        "datasetType",
-                        "description",
-                        "publisher"
+                        "abstract"
                   ],
                   "title": "Summary",
                   "type": "object"
@@ -1443,6 +1688,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "title": "Start Date"
                         },
@@ -1467,7 +1713,7 @@
                         "timeLag": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/TimeLag"
+                                          "$ref": "#/$defs/TimeLagV2"
                                     }
                               ],
                               "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
@@ -1476,10 +1722,11 @@
                         "accrualPeriodicity": {
                               "allOf": [
                                     {
-                                          "$ref": "#/$defs/Periodicity"
+                                          "$ref": "#/$defs/PeriodicityV2"
                                     }
                               ],
-                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/"
+                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                              "title": "Periodicity"
                         },
                         "distributionReleaseDate": {
                               "anyOf": [
@@ -1501,7 +1748,6 @@
                         }
                   },
                   "required": [
-                        "startDate",
                         "timeLag",
                         "accrualPeriodicity"
                   ],
@@ -1517,21 +1763,20 @@
                   "title": "Ternary",
                   "type": "string"
             },
-            "TimeLag": {
+            "TimeLagV2": {
                   "enum": [
-                        "LESS 1 WEEK",
-                        "1-2 WEEKS",
-                        "2-4 WEEKS",
-                        "1-2 MONTHS",
-                        "2-6 MONTHS",
-                        "MORE 6 MONTHS",
-                        "VARIABLE",
-                        "NO TIMELAG",
-                        "NOT APPLICABLE",
-                        "OTHER",
-                        null
+                        "Less than 1 week",
+                        "1-2 weeks",
+                        "2-4 weeks",
+                        "1-2 months",
+                        "2-6 months",
+                        "More than 6 months",
+                        "Variable",
+                        "Not applicable",
+                        "Other"
                   ],
-                  "title": "TimeLag"
+                  "title": "TimeLagV2",
+                  "type": "string"
             },
             "TissueSampleMetadata": {
                   "properties": {
@@ -1830,6 +2075,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the DUO to include a value for NO LINKAGE",
                               "title": "Data Use Limitation"
                         },
@@ -1842,6 +2088,7 @@
                                           "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
                               "title": "Data Use Requirements"
                         },
@@ -1859,10 +2106,6 @@
                               "title": "Citation Requirements'"
                         }
                   },
-                  "required": [
-                        "dataUseLimitation",
-                        "dataUseRequirement"
-                  ],
                   "title": "Usage",
                   "type": "object"
             }
@@ -1917,9 +2160,7 @@
                               "$ref": "#/$defs/Accessibility"
                         }
                   ],
-                  "default": null,
-                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
-                  "title": "Accessibility"
+                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets."
             },
             "linkage": {
                   "anyOf": [
@@ -1981,11 +2222,38 @@
                   "default": null,
                   "description": "metedata for tissue samples",
                   "title": "Tissue Sample Collection"
+            },
+            "demographicFrequency": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/DemographicFrequency"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
+                  "title": "Demographic frequency"
+            },
+            "omics": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Omics"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Omics",
+                  "title": "Omics"
             }
       },
       "required": [
             "required",
-            "summary"
+            "summary",
+            "accessibility"
       ],
       "title": "Gwdm20",
       "type": "object"

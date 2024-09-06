@@ -9,4 +9,9 @@ class MemberOf(Enum):
     OTHER = 'OTHER'
     NCS = 'NCS'
 
+class MemberOfV2(Enum):
+    HUB = 'Hub'
+    ALLIANCE = 'Alliance'
+    OTHER = 'Other'
+    NCS = 'NCS'
 

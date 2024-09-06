@@ -10,10 +10,12 @@ import json
 from .Required import Required
 from .Summary import Summary
 from .Coverage import Coverage
+from .DemographicFrequency import DemographicFrequency
 from .Provenance import Provenance
 from .Accessibility import Accessibility
 from .Linkage import Linkage
 from .Observations import Observation
+from .Omics import Omics
 from .DataTable import DataTable
 from .TissuesSampleCollection import TissuesSampleCollection
 
@@ -46,7 +48,7 @@ class Gwdm20(BaseModel):
     )
 
     accessibility: Accessibility = Field(
-        None, description=an.accessibility.description, title=an.accessibility.title
+        ..., description=an.accessibility.description, title=an.accessibility.title
     )
 
     linkage: Optional[Linkage] = Field(
@@ -67,6 +69,18 @@ class Gwdm20(BaseModel):
         None,
         description=an.tissuesSampleCollection.description,
         title=an.tissuesSampleCollection.title,
+    )
+
+    demographicFrequency: Optional[DemographicFrequency] = Field(
+        None,
+        description=an.demographicFrequency.description,
+        title=an.demographicFrequency.title
+    )
+
+    omics: Optional[Omics] = Field(
+        None,
+        description=an.omics.description,
+        title=an.omics.title
     )
 
     @classmethod

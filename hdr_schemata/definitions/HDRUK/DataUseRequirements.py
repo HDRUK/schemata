@@ -17,13 +17,14 @@ class DataUseRequirements(Enum):
 
 class DataUseRequirementsV2(Enum):
     COLLABORATION_REQUIRED = 'Collaboration required'
-    ETHICS_APPROVAL_REQUIRED = 'Ethics approval required'
-    GEOGRAPHICAL_RESTRICTIONS = 'Geographical restrictions'
-    INSTITUTION_SPECIFIC_RESTRICTIONS = 'Institution-specific restrictions'
-    NOT_FOR_PROFIT_USE = 'Not for profit use'
     PROJECT_SPECIFIC_RESTRICTIONS = 'Project-specific restrictions'
+    ETHICS_APPROVAL_REQUIRED = 'Ethics approval required'
+    INSTITUTION_SPECIFIC_RESTRICTIONS = 'Institution-specific restrictions'
+    GEOGRAPHICAL_RESTRICTIONS = 'Geographical restrictions'
     PUBLICATION_MORATORIUM = 'Publication moratorium'
     PUBLICATION_REQUIRED = 'Publication required'
     RETURN_TO_DATABASE_OR_RESOURCE = 'Return to database or resource'
     TIME_LIMIT_ON_USE = 'Time limit on use'
+    DISCLOSURE_CONTROL = 'Disclosure control'
+    NOT_FOR_PROFIT_USE = 'Not for profit use'
     USER_SPECIFIC_RESTRICTION = 'User-specific restriction'

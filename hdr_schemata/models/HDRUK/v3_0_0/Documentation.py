@@ -12,7 +12,7 @@ class Documentation(BaseModel):
         extra = "forbid"
 
     description: Description = Field(
-        None, **an.description.__dict__, json_schema_extra={"guidance": an.description.guidance}
+        ..., **an.description.__dict__, json_schema_extra={"guidance": an.description.guidance}
     )
 
     associatedMedia: Optional[
