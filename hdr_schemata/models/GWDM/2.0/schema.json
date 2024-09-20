@@ -570,19 +570,6 @@
                   "title": "DatasetLinkage",
                   "type": "object"
             },
-            "DatasetType": {
-                  "anyOf": [
-                        {
-                              "maxLength": 100,
-                              "minLength": 2,
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "DatasetType"
-            },
             "DeliveryLeadTimeV2": {
                   "enum": [
                         "Less than 1 week",
@@ -1585,7 +1572,7 @@
                         "datasetType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/DatasetType"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
@@ -1640,7 +1627,7 @@
                         "datasetSubType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/DatasetType"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"

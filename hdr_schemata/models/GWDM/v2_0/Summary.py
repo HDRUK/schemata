@@ -31,7 +31,7 @@ class Summary(BaseModel):
 
     contactPoint: Optional[EmailStr] = Field(None, **an.contactPoint.__dict__)
 
-    datasetType: Optional[DatasetType] = Field(None, **an.datasetType.__dict__)
+    datasetType: Optional[CommaSeparatedValues] = Field(None, **an.datasetType.__dict__)
 
     description: Optional[LongDescription] = Field(None, **an.description.__dict__)
 
@@ -43,8 +43,8 @@ class Summary(BaseModel):
 
     populationSize: Optional[int] = Field(None, **an.populationSize.__dict__)
 
-    datasetSubType: Optional[DatasetType] = Field(None, **an.datasetSubType.__dict__)
+    datasetSubType: Optional[CommaSeparatedValues] = Field(
+        None, **an.datasetSubType.__dict__
+    )
 
     inPipeline: Optional[Pipeline] = Field("Not available", **an.inPipeline.__dict__)
-
-
