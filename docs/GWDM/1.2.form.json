@@ -341,9 +341,9 @@
             },
             {
                   "required": false,
-                  "title": "Follow-up",
-                  "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period). In a prospective cohort study, after baseline information is collected, participants are followed \u201clongitudinally\u201d i.e. new information is collected about them for a period of time afterward. This is known as the \u201cfollow up period\u201d. What is the typical time span of follow up, e.g. 1 year, 5 years? If there are multiple cohorts in the dataset with varying follow up periods, please provide the longest follow up period.",
-                  "guidance": "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).\\n-**0 - 6 MONTHS**: Data typically available for a patient over a 0-6 month period.\\n-**6 - 12 MONTHS**: Data typically available for a patient over a 6-12 month period.\\n-**1 - 10 YEARS**: Data typically available for a patient over a 1-10 year period.\\n-**> 10 YEARS**: Data typically available for a patient for over a 10 year period.\\n-**CONTINUOUS**: Data for patients is being regularly added to and updated.\\n-**UNKNOWN**: Timespan is Unknown.\\n-**OTHER**: Data available for a patient over another time period.",
+                  "title": "Followup",
+                  "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period)",
+                  "guidance": "",
                   "examples": null,
                   "is_list": false,
                   "is_optional": true,
@@ -383,7 +383,7 @@
                   "required": false,
                   "title": "Gender",
                   "description": "Cohort description: Male, Female, Other",
-                  "guidance": "Options are limited to Male/Female/Other.",
+                  "guidance": "",
                   "examples": null,
                   "is_list": false,
                   "is_optional": true,
@@ -704,7 +704,8 @@
                   "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                   "guidance": "Please provide a brief description of the data access services that are available including:\\n- environment that is currently available to researchers\\n- additional consultancy and services\\n- any indication of costs associated\\n\\n  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.\\n  **Note**: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
                   "examples": [
-                        "https://cnfl.extge.co.uk/display/GERE/Research+Environment+User+Guide"
+                        "https://re-docs.genomicsengland.co.uk/tutorials/",
+                        "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
                   ],
                   "is_list": false,
                   "is_optional": true,
@@ -776,7 +777,7 @@
                   "required": true,
                   "title": "Data Controller",
                   "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
-                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England'",
+                  "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England",
                   "examples": [
                         "NHS England"
                   ],
@@ -1433,5 +1434,6 @@
                   },
                   "location": "tissuesSampleCollection.tissueSampleMetadata.useRestrictions"
             }
-      ]
+      ],
+      "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"
 }

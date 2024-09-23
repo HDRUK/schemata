@@ -263,7 +263,7 @@
                         "guidance": "",
                         "examples": null,
                         "type": [
-                              "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -368,7 +368,7 @@
                         "guidance": "",
                         "examples": null,
                         "type": [
-                              "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
+                              "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
