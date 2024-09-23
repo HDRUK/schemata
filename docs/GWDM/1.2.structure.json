@@ -102,7 +102,7 @@
                                           "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
                                     ],
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]"
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
                                     ],
                                     "is_list": false,
                                     "is_optional": false,

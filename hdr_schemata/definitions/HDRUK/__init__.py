@@ -54,5 +54,5 @@ from .TimeLag import TimeLag, TimeLagV2
 from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
 from .TissueDataCategoriesEnum import TissueDataCategoriesEnum
 from .TwoHundredFiftyFiveCharacters import TwoHundredFiftyFiveCharacters
-from .Url import Url
+from .Url import Url, UrlV2
 from .Uuidv4 import Uuidv4

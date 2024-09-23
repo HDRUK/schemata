@@ -1934,7 +1934,7 @@
                         "url": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/Url"
+                                          "$ref": "#/$defs/UrlV2"
                                     },
                                     {
                                           "type": "null"
@@ -2341,7 +2341,8 @@
             "Url": {
                   "anyOf": [
                         {
-                              "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                              "format": "uri",
+                              "minLength": 1,
                               "type": "string"
                         },
                         {
@@ -2349,6 +2350,18 @@
                         }
                   ],
                   "title": "Url"
+            },
+            "UrlV2": {
+                  "anyOf": [
+                        {
+                              "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "UrlV2"
             },
             "Usage": {
                   "additionalProperties": false,

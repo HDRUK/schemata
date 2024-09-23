@@ -65,7 +65,7 @@
                   "is_list": false,
                   "is_optional": true,
                   "types": {
-                        "title": "Url",
+                        "title": "UrlV2",
                         "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
                         "type": "string"
                   },
@@ -167,7 +167,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "summary.dataCustodian.logo"
@@ -410,7 +411,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "coverage.datasetCompleteness"
@@ -1360,7 +1362,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.derivedFrom.url"
@@ -1407,7 +1410,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.isPartOf.url"
@@ -1454,7 +1458,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.linkableDatasets.url"
@@ -1501,7 +1506,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.similarToDatasets.url"
@@ -1516,7 +1522,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.investigations"
@@ -1531,7 +1538,8 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
+                        "format": "uri",
+                        "minLength": 1,
                         "type": "string"
                   },
                   "location": "enrichmentAndLinkage.tools"

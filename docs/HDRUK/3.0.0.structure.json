@@ -11,7 +11,7 @@
             ],
             "type": [
                   "Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}]",
-                  "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                  "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                   "null"
             ],
             "is_list": false,
@@ -73,7 +73,7 @@
                               "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
                         ],
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                              "UrlV2[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -203,7 +203,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -476,7 +476,7 @@
                               "https://bhfdatasciencecentre.org/dashboard/"
                         ],
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -1081,7 +1081,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1143,7 +1143,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1203,7 +1203,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1263,7 +1263,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1280,7 +1280,7 @@
                         "guidance": "Please provide the website address(es) which document information related to active projects utilising the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each website and press enter to add it to the list.- Example: https://dataloch.org/insights/projects-delivered/data-driven-innovation-multi-morbidity-report-partner-gps",
                         "examples": null,
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]"
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
                         ],
                         "is_list": true,
                         "is_optional": true,
@@ -1294,7 +1294,7 @@
                         "guidance": "Please provide the URL of any analysis tools or models that have been created for this dataset and are available for further use.- Multiple tools may be provided.- Note: We encourage users to adopt a model along the lines of https://www.ga4gh.org/news/tool-registry-service-api-enabling-an-interoperable-library-of-genomics-analysis-tools/",
                         "examples": null,
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]"
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
                         ],
                         "is_list": true,
                         "is_optional": true,
@@ -1611,7 +1611,7 @@
                         "guidance": "",
                         "examples": null,
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]"
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
                         ],
                         "is_list": true,
                         "is_optional": true,

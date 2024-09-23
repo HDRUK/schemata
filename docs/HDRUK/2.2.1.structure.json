@@ -11,7 +11,7 @@
             ],
             "type": [
                   "Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}]",
-                  "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                  "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                   "null"
             ],
             "is_list": false,
@@ -73,7 +73,7 @@
                               "https://api.service.nhs.uk/health-research-data-catalogue/datasetrevisions/841f7da2-b018-41f6-b4ae-2e0aadab6561"
                         ],
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                               "null"
                         ],
                         "is_list": false,
@@ -175,7 +175,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -204,7 +204,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
                                     ],
                                     "is_list": false,
@@ -1169,7 +1169,7 @@
                         "guidance": "",
                         "examples": null,
                         "type": [
-                              "Url[{'anyOf': [{'pattern': '^\\\\s*((https?:\\\\/\\\\/)*([a-zA-Z0-9-]+\\\\.?)+[a-zA-Z]{2,}(:\\\\d+)?(\\\\/[^\\\\s]*)?(\\\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]"
+                              "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
                         ],
                         "is_list": true,
                         "is_optional": true,
