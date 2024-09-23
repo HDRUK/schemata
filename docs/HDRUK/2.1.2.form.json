@@ -66,8 +66,7 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "format": "uri",
-                        "minLength": 1,
+                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
                         "type": "string"
                   },
                   "location": "revisions.url"
@@ -140,8 +139,7 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "format": "uri",
-                        "minLength": 1,
+                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
                         "type": "string"
                   },
                   "location": "summary.publisher.identifier"
@@ -172,8 +170,7 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "format": "uri",
-                        "minLength": 1,
+                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
                         "type": "string"
                   },
                   "location": "summary.publisher.logo"
@@ -944,5 +941,6 @@
                   },
                   "location": "observations.measuredProperty"
             }
-      ]
+      ],
+      "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"
 }

@@ -69,8 +69,7 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "format": "uri",
-                        "minLength": 1,
+                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
                         "type": "string"
                   },
                   "location": "required.revisions.url"
@@ -213,9 +212,8 @@
                   "is_list": false,
                   "is_optional": true,
                   "types": {
-                        "title": "DatasetType",
-                        "maxLength": 100,
-                        "minLength": 2,
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
                         "type": "string"
                   },
                   "location": "summary.datasetType"
@@ -293,9 +291,8 @@
                   "is_list": false,
                   "is_optional": true,
                   "types": {
-                        "title": "DatasetType",
-                        "maxLength": 100,
-                        "minLength": 2,
+                        "title": "CommaSeparatedValues",
+                        "pattern": "([^,]+)",
                         "type": "string"
                   },
                   "location": "summary.datasetSubType"
@@ -402,8 +399,7 @@
                   "is_optional": true,
                   "types": {
                         "title": "Url",
-                        "format": "uri",
-                        "minLength": 1,
+                        "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
                         "type": "string"
                   },
                   "location": "coverage.datasetCompleteness"
@@ -1594,5 +1590,5 @@
                   "location": "omics.platform"
             }
       ],
-      "url_regex": "(https?:\\/\\/)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?$"
+      "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"
 }
