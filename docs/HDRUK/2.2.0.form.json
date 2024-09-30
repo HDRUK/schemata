@@ -1209,5 +1209,6 @@
                   },
                   "location": "tissuesSampleCollection.collectionType"
             }
-      ]
+      ],
+      "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"
 }
