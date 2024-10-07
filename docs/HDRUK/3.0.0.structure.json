@@ -419,7 +419,7 @@
             "subItems": [
                   {
                         "name": "spatial",
-                        "required": false,
+                        "required": true,
                         "title": "Geographic coverage",
                         "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:- For locations in the UK: ONS standards- For locations in other countries: ISO 3166-1 & ISO 3166-2",
                         "guidance": "The geographical area covered by the dataset.- Please provide a valid location.- For locations in the UK, this location should conform to ONS standards.- For locations in other countries we use ISO 3166-1 & ISO 3166-2.",
@@ -679,7 +679,7 @@
                               },
                               {
                                     "name": "startDate",
-                                    "required": false,
+                                    "required": true,
                                     "title": "Start date",
                                     "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                                     "guidance": "The start of the time period that the dataset provides coverage for.- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
@@ -1654,7 +1654,7 @@
                                     "guidance": "",
                                     "examples": null,
                                     "type": [
-                                          "AgeEnum['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-14 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','65-99 years','100+ years']"
+                                          "AgeEnum['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-24 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','95-99 years','100+ years']"
                                     ],
                                     "is_list": false,
                                     "is_optional": false
@@ -1794,7 +1794,7 @@
                         "guidance": "The specific 'omics assay that generated the dataset. If the assay used to generate your dataset is not listed, please contract the gateway team by submitting an enquiry.",
                         "examples": null,
                         "type": [
-                              "Assay['NMR spectroscopy','mass-spectrometry','whole genome sequencing','exome sequencing','genotyping by array','transcriptome profiling by high-throughput sequencing','transcriptome profiling by array','amplicon sequencing','methylation binding domain sequencing','methylation profiling by high-throughput sequencing','genomic variant calling','chromatin accessibility profiling by high-throughput sequencing','histone modification profiling by high-throughput sequencing','chromatin immunoprecipitation sequencing','whole genome shotgun sequencing','whole transcriptome sequencing','targeted mutation analysis']",
+                              "Assay['NMR spectroscopy','Mass-spectrometry','Whole genome sequencing','Exome sequencing','Genotyping by array','Transcriptome profiling by high-throughput sequencing','Transcriptome profiling by array','Amplicon sequencing','Methylation binding domain sequencing','Methylation profiling by high-throughput sequencing','Genomic variant calling','Chromatin accessibility profiling by high-throughput sequencing','Histone modification profiling by high-throughput sequencing','Chromatin immunoprecipitation sequencing','Whole genome shotgun sequencing','Whole transcriptome sequencing','Targeted mutation analysis']",
                               "null"
                         ],
                         "is_list": false,
