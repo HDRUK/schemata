@@ -14,7 +14,7 @@ class Coverage(BaseModel):
         extra = "forbid"
 
     spatial: Union[CommaSeparatedValues, List[Url]] = Field(
-        None, **an.spatial.__dict__, json_schema_extra={"guidance": an.spatial.guidance}
+        ..., **an.spatial.__dict__, json_schema_extra={"guidance": an.spatial.guidance}
     )
 
     typicalAgeRangeMin: Optional[int] = Field(
