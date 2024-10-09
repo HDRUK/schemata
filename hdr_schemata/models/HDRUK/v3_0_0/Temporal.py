@@ -26,7 +26,7 @@ class Temporal(BaseModel):
     )
 
     startDate: Union[date, datetime] = Field(
-        None,
+        ...,
         **an.startDate.__dict__,
         json_schema_extra={"guidance": an.startDate.guidance}
     )
