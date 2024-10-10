@@ -1305,9 +1305,9 @@
                         "required": false,
                         "title": "Publication about the dataset",
                         "description": "DOIs for publications which describe the dataset.",
-                        "guidance": "Please provide the DOIs for publications which describe the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: https://doi.org/10.1093/ije/dyab028",
+                        "guidance": "Please provide the DOIs for publications which describe the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: <10.1093/ije/dyab028>",
                         "examples": [
-                              "https://doi.org/10.1093/ije/dyab028"
+                              "10.1093/ije/dyab028"
                         ],
                         "type": [
                               "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]"
@@ -1321,9 +1321,9 @@
                         "required": false,
                         "title": "Publication using the dataset",
                         "description": "DOIs for publications which use the dataset for analysis.",
-                        "guidance": "Please provide the DOIs for publications which have used the dataset in their analysis.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: https://doi.org/10.1001/jamapediatrics.2016.3633",
+                        "guidance": "Please provide the DOIs for publications which have used the dataset in their analysis.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: <10.1001/jamapediatrics.2016.3633>",
                         "examples": [
-                              "https://doi.org/10.1001/jamapediatrics.2016.3633"
+                              "10.1001/jamapediatrics.2016.3633"
                         ],
                         "type": [
                               "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}]"

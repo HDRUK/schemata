@@ -349,7 +349,6 @@
                                           "type": "array"
                                     }
                               ],
-                              "default": null,
                               "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:- For locations in the UK: ONS standards- For locations in other countries: ISO 3166-1 & ISO 3166-2",
                               "examples": [
                                     "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
@@ -454,6 +453,9 @@
                               "title": "Patient pathway description"
                         }
                   },
+                  "required": [
+                        "spatial"
+                  ],
                   "title": "Coverage",
                   "type": "object"
             },
@@ -1116,9 +1118,9 @@
                               "default": null,
                               "description": "DOIs for publications which describe the dataset.",
                               "examples": [
-                                    "https://doi.org/10.1093/ije/dyab028"
+                                    "10.1093/ije/dyab028"
                               ],
-                              "guidance": "Please provide the DOIs for publications which describe the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: https://doi.org/10.1093/ije/dyab028",
+                              "guidance": "Please provide the DOIs for publications which describe the dataset.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: <10.1093/ije/dyab028>",
                               "title": "Publication about the dataset"
                         },
                         "publicationUsingDataset": {
@@ -1136,9 +1138,9 @@
                               "default": null,
                               "description": "DOIs for publications which use the dataset for analysis.",
                               "examples": [
-                                    "https://doi.org/10.1001/jamapediatrics.2016.3633"
+                                    "10.1001/jamapediatrics.2016.3633"
                               ],
-                              "guidance": "Please provide the DOIs for publications which have used the dataset in their analysis.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: https://doi.org/10.1001/jamapediatrics.2016.3633",
+                              "guidance": "Please provide the DOIs for publications which have used the dataset in their analysis.- Please split your existing list of citations into separate fields.- To add multiple entries, type in each citation and press enter to add it to the list.- Example: <10.1001/jamapediatrics.2016.3633>",
                               "title": "Publication using the dataset"
                         }
                   },
@@ -2269,7 +2271,6 @@
                                           "type": "string"
                                     }
                               ],
-                              "default": null,
                               "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "guidance": "The start of the time period that the dataset provides coverage for.- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                               "title": "Start date"
@@ -2309,6 +2310,7 @@
                   },
                   "required": [
                         "publishingFrequency",
+                        "startDate",
                         "timeLag"
                   ],
                   "title": "Temporal",
