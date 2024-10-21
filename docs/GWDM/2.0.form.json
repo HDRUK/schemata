@@ -924,7 +924,7 @@
                         "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.derivedFrom.pid"
+                  "location": "linkage.datasetLinkage.isDerivedFrom.pid"
             },
             {
                   "required": false,
@@ -940,7 +940,7 @@
                         "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.derivedFrom.title"
+                  "location": "linkage.datasetLinkage.isDerivedFrom.title"
             },
             {
                   "required": false,
@@ -956,7 +956,7 @@
                         "minLength": 1,
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.derivedFrom.url"
+                  "location": "linkage.datasetLinkage.isDerivedFrom.url"
             },
             {
                   "required": false,
@@ -1020,7 +1020,7 @@
                         "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.linkableDatasets.pid"
+                  "location": "linkage.datasetLinkage.linkedDatasets.pid"
             },
             {
                   "required": false,
@@ -1036,7 +1036,7 @@
                         "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.linkableDatasets.title"
+                  "location": "linkage.datasetLinkage.linkedDatasets.title"
             },
             {
                   "required": false,
@@ -1052,7 +1052,7 @@
                         "minLength": 1,
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.linkableDatasets.url"
+                  "location": "linkage.datasetLinkage.linkedDatasets.url"
             },
             {
                   "required": false,
@@ -1068,7 +1068,7 @@
                         "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.similarToDatasets.pid"
+                  "location": "linkage.datasetLinkage.isMemberOf.pid"
             },
             {
                   "required": false,
@@ -1084,7 +1084,7 @@
                         "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.similarToDatasets.title"
+                  "location": "linkage.datasetLinkage.isMemberOf.title"
             },
             {
                   "required": false,
@@ -1100,7 +1100,7 @@
                         "minLength": 1,
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.similarToDatasets.url"
+                  "location": "linkage.datasetLinkage.isMemberOf.url"
             },
             {
                   "required": false,

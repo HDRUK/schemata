@@ -547,7 +547,7 @@
             "DatasetLinkage": {
                   "additionalProperties": false,
                   "properties": {
-                        "derivedFrom": {
+                        "isDerivedFrom": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -560,8 +560,11 @@
                                     }
                               ],
                               "default": null,
-                              "description": "If applicable, please provide DOIs or links to datasets from which data in this dataset has been derived or calculated from.",
-                              "title": "Derived from"
+                              "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
+                              "examples": [
+                                    "Data will be minimised as appropriate relative to the data access application"
+                              ],
+                              "title": "Derivations"
                         },
                         "isPartOf": {
                               "anyOf": [
@@ -576,13 +579,13 @@
                                     }
                               ],
                               "default": null,
-                              "description": "This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data. Complete only if the dataset is part of a group or family of datasets i.e. Hospital Episode Statistics has several constituents. If your dataset is not part of a group, please enter \u201cNOT APPLICABLE\u201d **Example**: Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS).",
+                              "description": "If the dataset is part of a group or family",
                               "examples": [
-                                    "Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)"
+                                    "UKCRC Tissue Directory and Coordination Centre"
                               ],
-                              "title": "Is part of"
+                              "title": "Is PartOf"
                         },
-                        "linkableDatasets": {
+                        "linkedDatasets": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -595,10 +598,13 @@
                                     }
                               ],
                               "default": null,
-                              "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked.",
-                              "title": "Linked datasets"
+                              "description": "Links to other datasets.",
+                              "examples": [
+                                    "Yes. To any SAIL dataset & reference data.,ALL"
+                              ],
+                              "title": "Linked Datasets"
                         },
-                        "similarToDatasets": {
+                        "isMemberOf": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -611,8 +617,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc.",
-                              "title": "Similar to datasets"
+                              "description": "Dataset is a member of XXX(?)",
+                              "title": "Is MemberOf"
                         }
                   },
                   "title": "DatasetLinkage",

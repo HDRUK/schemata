@@ -13,18 +13,18 @@ class DatasetLinkage(BaseModel):
     class Config:
         extra = "forbid"
 
-    derivedFrom: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.derivedFrom.__dict__
+    isDerivedFrom: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.isDerivedFrom.__dict__
     )
 
     isPartOf: Optional[List[DatasetDescriptor]] = Field(
         None, **an.isPartOf.__dict__
     )
 
-    linkableDatasets: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.linkableDatasets.__dict__
+    linkedDatasets: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.linkedDatasets.__dict__
     )
 
-    similarToDatasets: Optional[List[DatasetDescriptor]] = Field(
-        None, **an.similarToDatasets.__dict__
+    isMemberOf: Optional[List[DatasetDescriptor]] = Field(
+        None, **an.isMemberOf.__dict__
     )
