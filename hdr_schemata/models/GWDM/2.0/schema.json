@@ -502,69 +502,117 @@
                   "title": "DataValue",
                   "type": "object"
             },
-            "DatasetLinkage": {
-                  "additionalProperties": false,
+            "DatasetDescriptor": {
                   "properties": {
-                        "isDerivedFrom": {
+                        "pid": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
-                              "examples": [
-                                    "Data will be minimised as appropriate relative to the data access application"
+                              "title": "Persistent identifier of a dataset"
+                        },
+                        "title": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
                               ],
-                              "title": "Derivations"
+                              "default": null,
+                              "title": "Title of a dataset"
+                        },
+                        "url": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Url of a dataset"
+                        }
+                  },
+                  "title": "DatasetDescriptor",
+                  "type": "object"
+            },
+            "DatasetLinkage": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "derivedFrom": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "If applicable, please provide DOIs or links to datasets from which data in this dataset has been derived or calculated from.",
+                              "title": "Derived from"
                         },
                         "isPartOf": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "If the dataset is part of a group or family",
+                              "description": "This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data. Complete only if the dataset is part of a group or family of datasets i.e. Hospital Episode Statistics has several constituents. If your dataset is not part of a group, please enter \u201cNOT APPLICABLE\u201d **Example**: Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS).",
                               "examples": [
-                                    "UKCRC Tissue Directory and Coordination Centre"
+                                    "Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)"
                               ],
-                              "title": "Is PartOf"
+                              "title": "Is part of"
                         },
-                        "isMemberOf": {
+                        "linkableDatasets": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Dataset is a member of XXX(?)",
-                              "title": "Is MemberOf"
+                              "description": "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked.",
+                              "title": "Linked datasets"
                         },
-                        "linkedDatasets": {
+                        "similarToDatasets": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "Links to other datasets.",
-                              "examples": [
-                                    "Yes. To any SAIL dataset & reference data.,ALL"
-                              ],
-                              "title": "Linked Datasets"
+                              "description": "Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc.",
+                              "title": "Similar to datasets"
                         }
                   },
                   "title": "DatasetLinkage",
@@ -1109,6 +1157,12 @@
                   },
                   "title": "Omics",
                   "type": "object"
+            },
+            "OneHundredFiftyCharacters": {
+                  "maxLength": 150,
+                  "minLength": 2,
+                  "title": "OneHundredFiftyCharacters",
+                  "type": "string"
             },
             "Organisation": {
                   "properties": {

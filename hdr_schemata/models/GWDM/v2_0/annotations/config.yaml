@@ -386,27 +386,23 @@ linkage:
       - "https://digital.nhs.uk/services/data-access-request-service-dars/register-of-approved-data-releases"
     title: "Investigations"
 
-  isDerivedFrom:
-    description: "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset"
-    examples:
-      - "Data will be minimised as appropriate relative to the data access application"
-    title: Derivations
-
+  derivedFrom:
+    title: "Derived from"
+    description: "If applicable, please provide DOIs or links to datasets from which data in this dataset has been derived or calculated from."
+  
   isPartOf:
-    description: "If the dataset is part of a group or family"
-    examples:
-      - "UKCRC Tissue Directory and Coordination Centre"
-    title: "Is PartOf"
-
-  isMemberOf:
-    description: "Dataset is a member of XXX(?)"
-    title: "Is MemberOf"
-
-  linkedDatasets:
-    description: "Links to other datasets."
-    examples:
-      - "Yes. To any SAIL dataset & reference data.,ALL"
-    title: "Linked Datasets"
+    title: "Is part of"
+    description: "This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data. Complete only if the dataset is part of a group or family of datasets i.e. Hospital Episode Statistics has several constituents. If your dataset is not part of a group, please enter “NOT APPLICABLE” **Example**: Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)."
+    examples: 
+      - "Hospital Episodes Statistics datasets (A&E, APC, OP, AC MSDS)"
+  
+  similarToDatasets:
+    title: "Similar to datasets"
+    description: "Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc."
+  
+  linkableDatasets:
+    title: "Linked datasets"
+    description: "If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked."
 
   syntheticDataWebLink:
     description: Links to locations of information and or raw downloads of synthetic data associated with this dataset
@@ -419,6 +415,14 @@ linkage:
   publicationUsingDataset:
     description: DOIs for publications which use the dataset for analysis.
     title: Publication using the dataset
+
+datasetDescriptor:
+  pid:
+    title: "Persistent identifier of a dataset"
+  title:
+    title: "Title of a dataset"
+  url:
+    title: "Url of a dataset"
 
 structuralMetadata:
   description: Descriptions of all tables and data elements that can be included in the dataset

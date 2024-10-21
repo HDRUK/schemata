@@ -319,7 +319,7 @@
                   "required": false,
                   "title": "Geographic Coverage",
                   "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
-                  "guidance": "- The geographical area covered by the dataset.\\n- Please provide a valid location.\\n- For locations in the UK, this location should conform to [ONS standards](https://geoportal.statistics.gov.uk/datasets/ons::index-of-place-names-in-great-britain-november-2021/about).\\n- For locations in other countries we use [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes).",
+                  "guidance": "- The geographical area covered by the dataset.\\n- Please provide a valid location.\\n- For locations in the UK, this location should conform to [ONS standards](https://geoportal.statistics.gov.uk/datasets/208d9884575647c29f0dd5a1184e711a/about).\\n- For locations in other countries we use [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes).",
                   "examples": [
                         "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
                   ],
@@ -912,69 +912,195 @@
             },
             {
                   "required": false,
-                  "title": "Derivations",
-                  "description": "Indicate if derived datasets or predefined extracts are available and the type of derivation available. Notes. Single or multiple dimensions can be provided as a derived extract alongside the dataset",
-                  "guidance": "",
-                  "examples": [
-                        "Data will be minimised as appropriate relative to the data access application"
-                  ],
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": {
-                        "title": "CommaSeparatedValues",
-                        "pattern": "([^,]+)",
-                        "type": "string"
-                  },
-                  "location": "linkage.datasetLinkage.isDerivedFrom"
-            },
-            {
-                  "required": false,
-                  "title": "Is PartOf",
-                  "description": "If the dataset is part of a group or family",
-                  "guidance": "",
-                  "examples": [
-                        "UKCRC Tissue Directory and Coordination Centre"
-                  ],
-                  "is_list": false,
-                  "is_optional": true,
-                  "types": {
-                        "title": "CommaSeparatedValues",
-                        "pattern": "([^,]+)",
-                        "type": "string"
-                  },
-                  "location": "linkage.datasetLinkage.isPartOf"
-            },
-            {
-                  "required": false,
-                  "title": "Is MemberOf",
-                  "description": "Dataset is a member of XXX(?)",
+                  "title": "Persistent identifier of a dataset",
+                  "description": null,
                   "guidance": "",
                   "examples": null,
                   "is_list": false,
                   "is_optional": true,
                   "types": {
-                        "title": "CommaSeparatedValues",
-                        "pattern": "([^,]+)",
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.isMemberOf"
+                  "location": "linkage.datasetLinkage.derivedFrom.pid"
             },
             {
                   "required": false,
-                  "title": "Linked Datasets",
-                  "description": "Links to other datasets.",
+                  "title": "Title of a dataset",
+                  "description": null,
                   "guidance": "",
-                  "examples": [
-                        "Yes. To any SAIL dataset & reference data.,ALL"
-                  ],
+                  "examples": null,
                   "is_list": false,
                   "is_optional": true,
                   "types": {
-                        "title": "CommaSeparatedValues",
-                        "pattern": "([^,]+)",
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
                         "type": "string"
                   },
-                  "location": "linkage.datasetLinkage.linkedDatasets"
+                  "location": "linkage.datasetLinkage.derivedFrom.title"
+            },
+            {
+                  "required": false,
+                  "title": "Url of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.derivedFrom.url"
+            },
+            {
+                  "required": false,
+                  "title": "Persistent identifier of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.isPartOf.pid"
+            },
+            {
+                  "required": false,
+                  "title": "Title of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.isPartOf.title"
+            },
+            {
+                  "required": false,
+                  "title": "Url of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.isPartOf.url"
+            },
+            {
+                  "required": false,
+                  "title": "Persistent identifier of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.linkableDatasets.pid"
+            },
+            {
+                  "required": false,
+                  "title": "Title of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.linkableDatasets.title"
+            },
+            {
+                  "required": false,
+                  "title": "Url of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.linkableDatasets.url"
+            },
+            {
+                  "required": false,
+                  "title": "Persistent identifier of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.similarToDatasets.pid"
+            },
+            {
+                  "required": false,
+                  "title": "Title of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.similarToDatasets.title"
+            },
+            {
+                  "required": false,
+                  "title": "Url of a dataset",
+                  "description": null,
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "linkage.datasetLinkage.similarToDatasets.url"
             },
             {
                   "required": false,
