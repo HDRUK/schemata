@@ -502,13 +502,58 @@
                   "title": "DataValue",
                   "type": "object"
             },
+            "DatasetDescriptor": {
+                  "properties": {
+                        "pid": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Persistent identifier of a dataset"
+                        },
+                        "title": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Title of a dataset"
+                        },
+                        "url": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Url of a dataset"
+                        }
+                  },
+                  "title": "DatasetDescriptor",
+                  "type": "object"
+            },
             "DatasetLinkage": {
                   "additionalProperties": false,
                   "properties": {
                         "isDerivedFrom": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
@@ -524,7 +569,10 @@
                         "isPartOf": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
@@ -537,23 +585,13 @@
                               ],
                               "title": "Is PartOf"
                         },
-                        "isMemberOf": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Dataset is a member of XXX(?)",
-                              "title": "Is MemberOf"
-                        },
                         "linkedDatasets": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
                                     },
                                     {
                                           "type": "null"
@@ -565,6 +603,22 @@
                                     "Yes. To any SAIL dataset & reference data.,ALL"
                               ],
                               "title": "Linked Datasets"
+                        },
+                        "isMemberOf": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/DatasetDescriptor"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Dataset is a member of XXX(?)",
+                              "title": "Is MemberOf"
                         }
                   },
                   "title": "DatasetLinkage",
@@ -1109,6 +1163,12 @@
                   },
                   "title": "Omics",
                   "type": "object"
+            },
+            "OneHundredFiftyCharacters": {
+                  "maxLength": 150,
+                  "minLength": 2,
+                  "title": "OneHundredFiftyCharacters",
+                  "type": "string"
             },
             "Organisation": {
                   "properties": {

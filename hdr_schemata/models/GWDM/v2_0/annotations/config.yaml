@@ -407,7 +407,7 @@ linkage:
     examples:
       - "Yes. To any SAIL dataset & reference data.,ALL"
     title: "Linked Datasets"
-
+    
   syntheticDataWebLink:
     description: Links to locations of information and or raw downloads of synthetic data associated with this dataset
     title: "Synthetic Data Web Links"
@@ -419,6 +419,14 @@ linkage:
   publicationUsingDataset:
     description: DOIs for publications which use the dataset for analysis.
     title: Publication using the dataset
+
+datasetDescriptor:
+  pid:
+    title: "Persistent identifier of a dataset"
+  title:
+    title: "Title of a dataset"
+  url:
+    title: "Url of a dataset"
 
 structuralMetadata:
   description: Descriptions of all tables and data elements that can be included in the dataset

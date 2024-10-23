@@ -1130,12 +1130,57 @@
                                           "Data will be minimised as appropriate relative to the data access application"
                                     ],
                                     "type": [
-                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "null"
+                                          "DatasetDescriptor"
                                     ],
-                                    "is_list": false,
+                                    "is_list": true,
                                     "is_optional": true,
-                                    "subItems": []
+                                    "subItems": [
+                                          {
+                                                "name": "pid",
+                                                "required": false,
+                                                "title": "Persistent identifier of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "title",
+                                                "required": false,
+                                                "title": "Title of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "url",
+                                                "required": false,
+                                                "title": "Url of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
                               },
                               {
                                     "name": "isPartOf",
@@ -1147,27 +1192,57 @@
                                           "UKCRC Tissue Directory and Coordination Centre"
                                     ],
                                     "type": [
-                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "null"
+                                          "DatasetDescriptor"
                                     ],
-                                    "is_list": false,
+                                    "is_list": true,
                                     "is_optional": true,
-                                    "subItems": []
-                              },
-                              {
-                                    "name": "isMemberOf",
-                                    "required": false,
-                                    "title": "Is MemberOf",
-                                    "description": "Dataset is a member of XXX(?)",
-                                    "guidance": "",
-                                    "examples": null,
-                                    "type": [
-                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "null"
-                                    ],
-                                    "is_list": false,
-                                    "is_optional": true,
-                                    "subItems": []
+                                    "subItems": [
+                                          {
+                                                "name": "pid",
+                                                "required": false,
+                                                "title": "Persistent identifier of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "title",
+                                                "required": false,
+                                                "title": "Title of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "url",
+                                                "required": false,
+                                                "title": "Url of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
                               },
                               {
                                     "name": "linkedDatasets",
@@ -1179,12 +1254,117 @@
                                           "Yes. To any SAIL dataset & reference data.,ALL"
                                     ],
                                     "type": [
-                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "null"
+                                          "DatasetDescriptor"
                                     ],
-                                    "is_list": false,
+                                    "is_list": true,
                                     "is_optional": true,
-                                    "subItems": []
+                                    "subItems": [
+                                          {
+                                                "name": "pid",
+                                                "required": false,
+                                                "title": "Persistent identifier of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "title",
+                                                "required": false,
+                                                "title": "Title of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "url",
+                                                "required": false,
+                                                "title": "Url of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "isMemberOf",
+                                    "required": false,
+                                    "title": "Is MemberOf",
+                                    "description": "Dataset is a member of XXX(?)",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "DatasetDescriptor"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "pid",
+                                                "required": false,
+                                                "title": "Persistent identifier of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "title",
+                                                "required": false,
+                                                "title": "Title of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "url",
+                                                "required": false,
+                                                "title": "Url of a dataset",
+                                                "description": null,
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
                               }
                         ]
                   },
