@@ -88,7 +88,9 @@
             "title": "Metadata Issued Datetime",
             "description": "Datetime stamp of when this metadata version was initially issued",
             "guidance": "",
-            "examples": null,
+            "examples": [
+                  "2024-10-24T00:00:00.000Z"
+            ],
             "type": [
                   "datetime"
             ],
@@ -101,7 +103,9 @@
             "title": "Last Modified Datetime",
             "description": "Datetime stamp of when this metadata was last modified",
             "guidance": "",
-            "examples": null,
+            "examples": [
+                  "2024-10-24T00:00:00.000Z"
+            ],
             "type": [
                   "datetime"
             ],
@@ -173,7 +177,9 @@
                                     "title": "identifier",
                                     "description": "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation.",
                                     "guidance": "Example: https://ror.org/053fq8t95If your organisation does not have a ROR identifier please use the \u201csuggest and institute\u201d function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform",
-                                    "examples": null,
+                                    "examples": [
+                                          "30f16703-28bc-4f45-9ce5-625d2d3db27d"
+                                    ],
                                     "type": [
                                           "str",
                                           "int"
@@ -187,7 +193,9 @@
                                     "title": "Name of data provider",
                                     "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
                                     "guidance": "In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.",
-                                    "examples": null,
+                                    "examples": [
+                                          "Health Data Research UK"
+                                    ],
                                     "type": [
                                           "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
                                     ],
@@ -231,7 +239,9 @@
                                     "title": "contact point",
                                     "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata.",
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          "test@test.co.uk"
+                                    ],
                                     "type": [
                                           "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
                                           "List"
@@ -262,7 +272,9 @@
                         "title": "Dataset population size",
                         "description": "Input the number of people captured within the dataset.",
                         "guidance": "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the Observations fields. The filter also allows for Researchers to search datasets which have no population size reported, but will not pull any population size captured in the Observations section.",
-                        "examples": null,
+                        "examples": [
+                              1000
+                        ],
                         "type": [
                               "int"
                         ],
@@ -314,7 +326,7 @@
                         "description": "Please provide a valid email address that can be used to coordinate data access requests.",
                         "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.Note: An employee's email address can only be provided on a temporary basis and if one is provided, you must obtain explicit consent for this purpose.",
                         "examples": [
-                              "SAILDatabank@swansea.ac.uk"
+                              "gateway@hdruk.ac.uk"
                         ],
                         "type": [
                               "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]"
@@ -361,7 +373,9 @@
                         "title": "Description",
                         "description": "A free-text description of the dataset.A URL can also be provided as the description of the dataset.Gateway Feature: Keywords and text may be extracted out of the description and indexed for search.",
                         "guidance": "An HTML account of the data that provides context and scope of the data, limited to 10000 characters, and/or a resolvable URL that describes the dataset.- Additional information can be recorded and included using the Associated media field.",
-                        "examples": null,
+                        "examples": [
+                              "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+                        ],
                         "type": [
                               "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]"
                         ],
@@ -424,6 +438,7 @@
                         "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:- For locations in the UK: ONS standards- For locations in other countries: ISO 3166-1 & ISO 3166-2",
                         "guidance": "The geographical area covered by the dataset.- Please provide a valid location.- For locations in the UK, this location should conform to ONS standards.- For locations in other countries we use ISO 3166-1 & ISO 3166-2.",
                         "examples": [
+                              "United Kingdom",
                               "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
                         ],
                         "type": [
@@ -574,7 +589,9 @@
                                     "title": "Dataset type",
                                     "description": "The topic areas to which the dataset content relates.",
                                     "guidance": "Types include those listed below. Datasets can have more than one type associated.- Health and disease: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.- Treatments/Interventions: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.- Measurements/Tests: Includes any data related to laboratory or other diagnostics.- Imaging types: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.- Imaging area of the body: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.- Omics: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.- Socioeconomic: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.- Lifestyle: Includes any data related to smoking, physical activity, dietary habits or alcohol.- Registry: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.- Environment and energy: Includes any data related to the monitoring or study of environmental or energy factors or events.- Information and communication: Includes any data related to the study or application of information and communication.- Politics: Includes any data related to political views, activities, voting, etc.",
-                                    "examples": null,
+                                    "examples": [
+                                          "Health and disease"
+                                    ],
                                     "type": [
                                           "DatasetTypeV2['Health and disease','Treatments/Interventions','Measurements/Tests','Imaging types','Imaging area of the body','Omics','Socioeconomic','Lifestyle','Registry','Environment and energy','Information and communication','Politics']"
                                     ],
@@ -655,7 +672,9 @@
                                     "title": "Publishing frequency",
                                     "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
                                     "guidance": "Please indicate the frequency of publishing.- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.- Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/.  Options:- Static: Dataset published once.- Irregular: Dataset published at uneven intervals.- Continuous: Dataset published without interruption.- Biennial: Dataset published every two years.- Annual: Dataset published occurs once a year.- Biannual: Dataset published twice a year.- Quarterly: Dataset published every three months.- Bimonthly: Dataset published every two months.- Monthly: Dataset published once a month.- Biweekly: Dataset published every two weeks.- Weekly: Dataset published once a week.- Twice weekly: Dataset published twice a week.- Daily: Dataset published once a day.- Other: Dataset published using other interval.",
-                                    "examples": null,
+                                    "examples": [
+                                          "Continuous"
+                                    ],
                                     "type": [
                                           "PeriodicityV2['Static','Irregular','Continuous','Biennial','Annual','Biannual','Quarterly','Bimonthly','Monthly','Biweekly','Weekly','Twice a week','Daily','Other',null]"
                                     ],
@@ -668,7 +687,9 @@
                                     "title": "Distribution release date",
                                     "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
                                     "guidance": "Please indicate the frequency the dataset is published.- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.- Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
-                                    "examples": null,
+                                    "examples": [
+                                          "2024-10-24T00:00:00.000Z"
+                                    ],
                                     "type": [
                                           "date",
                                           "datetime",
@@ -683,7 +704,9 @@
                                     "title": "Start date",
                                     "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                                     "guidance": "The start of the time period that the dataset provides coverage for.- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
-                                    "examples": null,
+                                    "examples": [
+                                          "2024-10-24T00:00:00.000Z"
+                                    ],
                                     "type": [
                                           "date",
                                           "datetime"
@@ -697,7 +720,9 @@
                                     "title": "End date",
                                     "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
                                     "guidance": "The end of the time period that the dataset provides coverage for.- If the dataset is \u201cContinuous\u201d and has no known end date, please leave blank.- If there are multiple cohorts in the dataset with varying end dates, please provide the latest date.",
-                                    "examples": null,
+                                    "examples": [
+                                          "2024-10-24T00:00:00.000Z"
+                                    ],
                                     "type": [
                                           "date",
                                           "datetime",
@@ -713,7 +738,9 @@
                                     "title": "Time lag",
                                     "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
                                     "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.- Less than 1 week: Typical time lag of less than a week.- 1-2 weeks: Typical time-lag of one to two weeks.- 2-4 weeks: Typical time-lag of two to four weeks.- 1-2 months: Typical time-lag of one to two months.- 2-6 months: Typical time-lag of two to six months.- 6 months plus: Typical time-lag of more than six months.- Variable: Variable time-lag.- Not applicable: Not Applicable i.e. static dataset.- Other: Other time-lag.",
-                                    "examples": null,
+                                    "examples": [
+                                          "Not applicable"
+                                    ],
                                     "type": [
                                           "TimeLagV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','More than 6 months','Variable','Not applicable','Other']"
                                     ],
@@ -816,7 +843,9 @@
                                     "title": "Access rights",
                                     "description": "Please provide details for the data access rights.",
                                     "guidance": "The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both separated by a comma.- If such a resource or the underlying process doesn\u2019t exist, please provide \u201cIn Progress\u201d, until both the process and the documentation are ready.",
-                                    "examples": null,
+                                    "examples": [
+                                          "In Progress"
+                                    ],
                                     "type": [
                                           "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]"
                                     ],
@@ -958,7 +987,10 @@
                                     "title": "Controlled vocabulary",
                                     "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
                                     "guidance": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset.- If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- Notes: More than one vocabulary may be provided.- Local: Local Coding Standard.- OPCS4: https://www.datadictionary.nhs.uk/web_site_content/supporting_information/clinical_coding/opcs_classification_of_interventions_and_procedures.asp.- READ: https://digital.nhs.uk/services/terminology-and-classifications/read-codes.- SNOMED CT: http://www.snomed.org/.- SNOMED RT: https://confluence.ihtsdotools.org/display/DOCGLOSS/SNOMED+RT.- DM+D: https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/scci0052-dictionary-of-medicines-and-devices-dm-d.- NHS National Codes: https://www.datadictionary.nhs.uk/.- ODS: https://digital.nhs.uk/services/organisation-data-service.- LOINC: https://loinc.org/.- ICD10: https://www.who.int/classifications/icd/icdonlineversions/en/.- ICD10CM: https://www.cdc.gov/nchs/icd/icd10cm.htm.- ICD10PCS: https://ec.europa.eu/eip/ageing/standards/healthcare/e-health/icd-10-pcs_en.- ICD9CM: https://www.cdc.gov/nchs/icd/icd9cm.htm.- ICD9: https://www.cdc.gov/nchs/icd/icd9.htm.- ICDO3: https://www.who.int/classifications/icd/adaptations/oncology/en/.- AMT: https://www.digitalhealth.gov.au/about-the-agency/tenders-and-offers/community-pharmacy-software-industry-partnership-offer/Webinar%20-%20Australian%20Medicines%20Terminology%20(AMT)%20and%20Implementation%20Options%2001032017.pdf.- APC: https://www.acep.org/administration/reimbursement/reimbursement-faqs/apc-ambulatory-payment-classifications-faq/.- ATC: https://www.whocc.no/atc_ddd_index/.- CIEL: https://github.com/OpenConceptLab/ocl_web/wiki/CIEL.- HPO: https://hpo.jax.org/app/.- CPT4: https://www.cms.gov/Regulations-and-Guidance/Legislation/CLIA/Downloads/SubjecttoCLIA.pdf.- DPD: https://health-products.canada.ca/dpd-bdpp/index-eng.jsp.- DRG: http://www.euro.who.int/__data/assets/pdf_file/0004/162265/e96538.pdf.- HEMONC: https://hemonc.org/wiki/Main_Page.- JMDC: https://www.jmdc.co.jp/en/.- KCD7: https://forums.ohdsi.org/t/adding-kcd7-code-korean-icd-10-to-the-omop-vocabulary/7576.- MULTUM: https://www.cerner.com/solutions/drug-database.- NAACCR: https://www.naaccr.org/.- NDC: https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory.- NDFRT <:https://www.nlm.nih.gov/research/umls/sourcereleasedocs/current/NDFRT/index.html>.- OXMIS: https://oxrisk.com/oxmis/.- RXNORM: https://www.nlm.nih.gov/research/umls/rxnorm/index.html.- RXNORM EXTENSION: https://www.nlm.nih.gov/research/umls/rxnorm/index.html.- SPL: https://www.fda.gov/industry/fda-resources-data-standards/structured-product-labeling-resources.- Other: Please indicate if there is another standard that you are using. This will trigger a support ticket where you can request the addition of the terminology to the HOP.- NHS Scotland National Codes: https://www.ndc.scot.nhs.uk/Data-Dictionary/.- NHS Wales National Codes: http://www.datadictionary.wales.nhs.uk/",
-                                    "examples": null,
+                                    "examples": [
+                                          "LOCAL",
+                                          "ICD10"
+                                    ],
                                     "type": [
                                           "ControlledVocabularyEnum['LOCAL','OPCS4','READ','SNOMED CT','SNOMED RT','DM PLUS D','DM+D','NHS NATIONAL CODES','NHS SCOTLAND NATIONAL CODES','NHS WALES NATIONAL CODES','ODS','LOINC','ICD10','ICD10CM','ICD10PCS','ICD9CM','ICD9','ICDO3','AMT','APC','ATC','CIEL','HPO','CPT4','DPD','DRG','HEMONC','JMDC','KCD7','MULTUM','NAACCR','NDC','NDFRT','OXMIS','RXNORM','RXNORM EXTENSION','SPL','OTHER']"
                                     ],
@@ -972,7 +1004,8 @@
                                     "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
                                     "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- HL7 FHIR: https://www.hl7.org/fhir/.- HL7 V2: https://www.hl7.org/implement/standards/product_section.cfm?section=13.- HL7 CDA: https://www.hl7.org/implement/standards/product_section.cfm?section=10.- HL7 CCOW: https://www.hl7.org/implement/standards/product_section.cfm?section=16.- DICOM: https://www.dicomstandard.org/.- I2B2: https://www.i2b2.org/.- IHE: https://www.ihe.net/resources/profiles/.- OMOP: https://www.ohdsi.org/data-standardization/the-common-data-model/.- openEHR: https://www.openehr.org/.- Sentinel: https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model.- PCORnet: https://pcornet.org/data-driven-common-model/.- CDISC: https://www.cdisc.org/standards/data-exchange/odm.- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary: https://www.datadictionary.nhs.uk/.- NHS Scotland Data Dictionary: https://www.ndc.scot.nhs.uk/Data-Dictionary/.- NHS Wales Data Dictionary: https://www.datadictionary.wales.nhs.uk/.",
                                     "examples": [
-                                          "LOCAL,NHS DATA DICTIONARY"
+                                          "LOCAL",
+                                          "NHS DATA DICTIONARY"
                                     ],
                                     "type": [
                                           "StandardisedDataModelsEnum['HL7 FHIR','HL7 V2','HL7 CDA','HL7 CCOW','LOINC','DICOM','I2B2','IHE','OMOP','OPENEHR','SENTINEL','PCORNET','CDISC','NHS DATA DICTIONARY','NHS SCOTLAND DATA DICTIONARY','NHS WALES DATA DICTIONARY','LOCAL','OTHER']"
@@ -986,7 +1019,9 @@
                                     "title": "Language",
                                     "description": "This should list all the languages in which the dataset metadata and underlying data is made available complaint with ISO 639.",
                                     "guidance": "https://www.iso.org/iso-639-language-code- aa: Afar- ab: Abkhazian- af: Afrikaans- ak: Akan- sq: Albanian- am: Amharic- ar: Arabic- an: Aragonese- hy: Armenian- as: Assamese- av: Avaric- ae: Avestan- ay: Aymara- az: Azerbaijani- ba: Bashkir- bm: Bambara- eu: Basque- be: Belarusian- bn: Bengali- bh: Bihari languages- bi: Bislama- bo: Tibetan- bs: Bosnian- br: Breton- bg: Bulgarian- my: Burmese- ca: Catalan; Valencian- cs: Czech- ch: Chamorro- ce: Chechen- zh: Chinese- cu: Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic- cv: Chuvash- kw: Cornish- co: Corsican- cr: Cree- cy: Welsh- cs: Czech- da: Danish- de: German- dv: Divehi; Dhivehi; Maldivian- nl: Dutch; Flemish- dz: Dzongkha- el: Greek, Modern (1453-)- en: English- eo: Esperanto- et: Estonian- eu: Basque- ee: Ewe- fo: Faroese- fa: Persian- fj: Fijian- fi: Finnish- fr: French- fy: Western Frisian- ff: Fulah- ka: Georgian- de: German- gd: Gaelic; Scottish Gaelic- ga: Irish- gl: Galician- gv: Manx- el: Greek, Modern (1453-)- gn: Guarani- gu: Gujarati- ht: Haitian; Haitian Creole- ha: Hausa- ho: Hiri Motu- hr: Croatian- hu: Hungarian- hy: Armenian- ig: Igbo- is: Icelandic- io: Ido- ii: Sichuan Yi; Nuosu- iu: Inuktitut- ie: Interlingue; Occidental- ia: Interlingua (International Auxiliary Language Association)- id: Indonesian- ik: Inupiaq- is: Icelandic- it: Italian- jv: Javanese- ja: Japanese- kl: Kalaallisut; Greenlandic- kn: Kannada- ks: Kashmiri- ka: Georgian- kr: Kanuri- kk: Kazakh- km: Central Khmer- ki: Kikuyu; Gikuyu- rw: Kinyarwanda- ky: Kirghiz; Kyrgyz- kv: Komi- kg: Kongo- ko: Korean- kj: Kuanyama; Kwanyama- ku: Kurdish- lo: Lao- la: Latin- lv: Latvian- li: Limburgan; Limburger; limburgish- ln: Lingala- lt: Lithuanian- lb: Luxembourgish; Letzeburgesch- lu: Luba-Katanga- lg: Ganda- mk: Macedonian- mh: Marshallese- ml: Malayalam- mi: Maori- mr: Marathi- ms: Malay- mk: Macedonian- mg: Malagasy- mt: Maltese- mn: Mongolian- mi: Maori- ms: Malay- my: Burmese- na: Nauru- nv: Navajo; Navaho- nr: Ndebele, South; South Ndebele- nd: Ndebele, North; North Ndebele- ng: Ndonga- ne: Nepali- nl: Dutch; Flemish- nn: Norwegian Nynorsk; Nynorsk, Norwegian- nb: Bokm\u00e5l, Norwegian; Norwegian Bokm\u00e5l- no: Norwegian- ny: Chichewa; Chewa; Nyanja- oc: Occitan (post 1500)- oj: Ojibwa- or: Oriya- om: Oromo- os: Ossetian; Ossetic- pa: Panjabi; Punjabi- fa: Persian- pi: Pali- pl: Polish- pt: Portuguese- ps: Pushto; Pashto- qu: Quechua- rm: Romansh- ro: Romanian; Moldavian; Moldovan- rn: Rundi- ru: Russian- sg: Sango- sa: Sanskrit- si: Sinhala; Sinhalese- sk: Slovak- sl: Slovenian- se: Northern Sami- sm: Samoan- sn: Shona- sd: Sindhi- so: Somali- st: Sotho, Southern- es: Spanish; Castilian- sq: Albanian- sc: Sardinian- sr: Serbian- ss: Swati- su: Sundanese- sw: Swahili- sv: Swedish- ty: Tahitian- ta: Tamil- tt: Tatar- te: Telugu- tg: Tajik- tl: Tagalog- th: Thai- bo: Tibetan- ti: Tigrinya- to: Tonga (Tonga Islands)- tn: Tswana- ts: Tsonga- tk: Turkmen- tr: Turkish- tw: Twi- ug: Uighur; Uyghur- uk: Ukrainian- ur: Urdu- uz: Uzbek- ve: Venda- vi: Vietnamese- vo: Volap\u00fck- cy: Welsh- wa: Walloon- wo: Wolof- xh: Xhosa- yi: Yiddish- yo: Yoruba- za: Zhuang; Chuang- zh: Chinese- zu: Zulu",
-                                    "examples": null,
+                                    "examples": [
+                                          "en"
+                                    ],
                                     "type": [
                                           "LanguageEnum['aa','ab','ae','af','ak','am','an','ar','as','av','ay','az','ba','be','bg','bh','bi','bm','bn','bo','br','bs','ca','ce','ch','co','cr','cs','cu','cv','cy','da','de','dv','dz','ee','el','en','eo','es','et','eu','fa','ff','fi','fj','fo','fr','fy','ga','gd','gl','gn','gu','gv','ha','he','hi','ho','hr','ht','hu','hy','hz','ia','id','ie','ig','ii','ik','io','is','it','iu','ja','jv','ka','kg','ki','kj','kk','kl','km','kn','ko','kr','ks','ku','kv','kw','ky','la','lb','lg','li','ln','lo','lt','lu','lv','mg','mh','mi','mk','ml','mn','mr','ms','mt','my','na','nb','nd','ne','ng','nl','nn','no','nr','nv','ny','oc','oj','om','or','os','pa','pi','pl','ps','pt','qu','rm','rn','ro','ru','rw','sa','sc','sd','se','sg','si','sk','sl','sm','sn','so','sq','sr','ss','st','su','sv','sw','ta','te','tg','th','ti','tk','tl','tn','to','tr','ts','tt','tw','ty','ug','uk','ur','uz','ve','vi','vo','wa','wo','xh','yi','yo','za','zh','zu']"
                                     ],
@@ -1368,7 +1403,9 @@
                         "title": "Measured value",
                         "description": "An integer value size of the measured property, such as \u20181000\u2019 for 1000 people in the study or \u201887\u2019 for 87 MRI scans in the dataset.",
                         "guidance": "An integer value size of the measured property, such as \u20181000\u2019 for 1000 people in the study or \u201887\u2019 for 87 MRI scans in the dataset.",
-                        "examples": null,
+                        "examples": [
+                              1000
+                        ],
                         "type": [
                               "int"
                         ],
@@ -1396,7 +1433,9 @@
                         "title": "Observation date",
                         "description": "Provide the date, or datetime that the observation was made. Multiple observations of the same property can be provided, for example an observation of cumulative COVID positive cases by specimen on the 1/1/2021 with a measuredValue of 2000000, and a second observation entry on 8/2/2021 recording a measuredValue of as 3100000.",
                         "guidance": "Provide the date, or datetime that the observation was made. Multiple observations of the same property can be provided, for example an observation of cumulative COVID positive cases by specimen on the 1/1/2021 with a measuredValue of 2000000, and a second observation entry on 8/2/2021 recording a measuredValue of as 3100000.",
-                        "examples": null,
+                        "examples": [
+                              "2024-10-24"
+                        ],
                         "type": [
                               "date",
                               "datetime"
@@ -1410,7 +1449,9 @@
                         "title": "Measured property",
                         "description": "Descriptive term for the observation property measured. For example, people, procedures, x-rays, or diagnosis of type 1 diabetes. This could also be a specific SNOMED CT term.",
                         "guidance": "Descriptive term for the observation property measured.",
-                        "examples": null,
+                        "examples": [
+                              "Count"
+                        ],
                         "type": [
                               "MeasuredProperty[{}]"
                         ],
@@ -1652,7 +1693,9 @@
                                     "title": "Age grouping",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          "30-34 years"
+                                    ],
                                     "type": [
                                           "AgeEnum['0-6 days','7-27 days','1-11 months','1-4 years','5-9 years','10-14 years','15-19 years','20-24 years','25-29 years','30-34 years','35-39 years','40-44 years','45-49 years','50-54 years','55-59 years','60-64 years','65-69 years','70-74 years','75-79 years','80-84 years','85-89 years','90-94 years','95-99 years','100+ years']"
                                     ],
@@ -1665,7 +1708,9 @@
                                     "title": "Age count",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          1000
+                                    ],
                                     "type": [
                                           "int"
                                     ],
@@ -1693,7 +1738,9 @@
                                     "title": "Ethnicity grouping",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          "Black or Black British - Any other Black background"
+                                    ],
                                     "type": [
                                           "EthnicityEnum['White - British','White - Irish','White - Any other White background','Mixed - White and Black Caribbean','Mixed - White and Black African','Mixed - White and Asian','Mixed - Any other mixed background','Asian or Asian British - Indian','Asian or Asian British - Pakistani','Asian or Asian British - Bangladeshi','Asian or Asian British - Any other Asian background','Black or Black British - Caribbean','Black or Black British - African','Black or Black British - Any other Black background','Other Ethnic Groups - Chinese','Other Ethnic Groups - Any other ethnic group','Not stated','Not known']"
                                     ],
@@ -1706,7 +1753,9 @@
                                     "title": "Ethnicity count",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          1000
+                                    ],
                                     "type": [
                                           "int"
                                     ],
@@ -1734,7 +1783,9 @@
                                     "title": "Disease code",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          "J45"
+                                    ],
                                     "type": [
                                           "str",
                                           "int"
@@ -1748,7 +1799,9 @@
                                     "title": "Disease code vocabulary",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          "ICD10"
+                                    ],
                                     "type": [
                                           "DiseaseCodeEnum['ICD10','SNOMED CT','MeSH']"
                                     ],
@@ -1761,7 +1814,9 @@
                                     "title": "Disease count",
                                     "description": null,
                                     "guidance": "",
-                                    "examples": null,
+                                    "examples": [
+                                          1000
+                                    ],
                                     "type": [
                                           "int"
                                     ],
