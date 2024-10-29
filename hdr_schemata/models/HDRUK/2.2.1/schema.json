@@ -945,7 +945,8 @@
                               ],
                               "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
                               "examples": [
-                                    "LOCAL,NHS DATA DICTIONARY"
+                                    "LOCAL",
+                                    "NHS DATA DICTIONARY"
                               ],
                               "guidance": "- List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.\\n- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- **HL7 FHIR**: <https://www.hl7.org/fhir/>.\\n- **HL7 V2**: <https://www.hl7.org/implement/standards/product_section.cfm?section=13>.\\n- **HL7 CDA**: <https://www.hl7.org/implement/standards/product_section.cfm?section=10>.\\n- **HL7 CCOW**: <https://www.hl7.org/implement/standards/product_section.cfm?section=16>.\\n- **DICOM**: <https://www.dicomstandard.org/>.\\n- **I2B2**: <https://www.i2b2.org/>.\\n- **IHE**: <https://www.ihe.net/resources/profiles/>.\\n- **OMOP**: <https://www.ohdsi.org/data-standardization/the-common-data-model/>.\\n- **openEHR**: <https://www.openehr.org/>.\\n- **Sentinel**: <https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model>.\\n- **PCORnet**: <https://pcornet.org/data-driven-common-model/>.\\n- **CDISC**: <https://www.cdisc.org/standards/data-exchange/odm>.\\n- **Local**: In-house developed data model.\\n- **Other**: Other standardised data model.\\n- **NHS Data Dictionary**: <https://www.datadictionary.nhs.uk/>.\\n- **NHS Scotland Data Dictionary**: <https://www.ndc.scot.nhs.uk/Data-Dictionary/>.\\n- **NHS Wales Data Dictionary**: <https://www.datadictionary.wales.nhs.uk/>.",
                               "title": "Alignment with standardised data models"
@@ -1343,6 +1344,9 @@
                                     }
                               ],
                               "description": "Descriptive term for the observation property measured. For example, people, procedures, x-rays, or diagnosis of type 1 diabetes. This could also be a specific SNOMED CT term.",
+                              "examples": [
+                                    "Count"
+                              ],
                               "guidance": "Descriptive term for the observation property measured.",
                               "title": "Measured property"
                         }
