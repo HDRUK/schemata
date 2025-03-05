@@ -19,7 +19,7 @@
                         "accessRights": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -74,7 +74,7 @@
                         "jurisdiction": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -113,7 +113,7 @@
                         "accessServiceCategory": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -261,24 +261,24 @@
                   "title": "Assay",
                   "type": "string"
             },
-            "CommaSeparatedValues": {
+            "CommaSeparatedValuesV2": {
                   "anyOf": [
                         {
-                              "pattern": "([^,]+)",
+                              "pattern": "^(.*?)(?:;,;|$)$",
                               "type": "string"
                         },
                         {
                               "type": "null"
                         }
                   ],
-                  "title": "CommaSeparatedValues"
+                  "title": "CommaSeparatedValuesV2"
             },
             "Coverage": {
                   "properties": {
                         "spatial": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -814,7 +814,7 @@
                         "vocabularyEncodingSchemes": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -830,7 +830,7 @@
                         "conformsTo": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -846,7 +846,7 @@
                         "languages": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -862,7 +862,7 @@
                         "formats": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -885,7 +885,7 @@
                         "isGeneratedUsing": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -898,7 +898,7 @@
                         "associatedMedia": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -914,7 +914,7 @@
                         "dataUses": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -927,7 +927,7 @@
                         "isReferenceIn": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -940,7 +940,7 @@
                         "tools": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -969,7 +969,7 @@
                         "investigations": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -985,7 +985,7 @@
                         "syntheticDataWebLink": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1188,6 +1188,9 @@
                         "gatewayId": {
                               "anyOf": [
                                     {
+                                          "type": "integer"
+                                    },
+                                    {
                                           "maxLength": 50,
                                           "minLength": 2,
                                           "type": "string"
@@ -1225,7 +1228,7 @@
                         "purpose": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1238,7 +1241,7 @@
                         "source": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1251,7 +1254,7 @@
                         "collectionSituation": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1349,10 +1352,8 @@
                   "properties": {
                         "gatewayId": {
                               "description": "Associated identifier (number) that is the BigInt key in our SQL database for the dataset version associated with this metadata",
-                              "maxLength": 50,
-                              "minLength": 1,
                               "title": "Gateway Identifier",
-                              "type": "string"
+                              "type": "integer"
                         },
                         "gatewayPid": {
                               "description": "A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens",
@@ -1488,7 +1489,7 @@
                         "dataCategories": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1586,7 +1587,7 @@
                         "keywords": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1602,7 +1603,7 @@
                         "controlledKeywords": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1632,7 +1633,7 @@
                         "datasetType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1687,7 +1688,7 @@
                         "datasetSubType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1858,7 +1859,7 @@
                         "sampleType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1902,7 +1903,7 @@
                         "anatomicalSiteOntologyCode": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1915,7 +1916,7 @@
                         "anatomicalSiteOntologyDescription": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1928,7 +1929,7 @@
                         "anatomicalSiteFreeText": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1941,7 +1942,7 @@
                         "sampleContentDiagnosis": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1954,7 +1955,7 @@
                         "useRestrictions": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1973,7 +1974,7 @@
                         "id": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1986,7 +1987,7 @@
                         "dataCategories": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -1999,7 +2000,7 @@
                         "materialType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2012,7 +2013,7 @@
                         "accessConditions": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2025,7 +2026,7 @@
                         "collectionType": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2038,7 +2039,7 @@
                         "disease": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2051,7 +2052,7 @@
                         "storageTemperature": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2064,7 +2065,7 @@
                         "sampleAgeRange": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2116,7 +2117,7 @@
                         "dataUseLimitation": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
@@ -2129,7 +2130,7 @@
                         "dataUseRequirement": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
+                                          "$ref": "#/$defs/CommaSeparatedValuesV2"
                                     },
                                     {
                                           "type": "null"
