@@ -1188,9 +1188,7 @@
                         "gatewayId": {
                               "anyOf": [
                                     {
-                                          "maxLength": 50,
-                                          "minLength": 2,
-                                          "type": "string"
+                                          "type": "int"
                                     },
                                     {
                                           "type": "null"
@@ -1349,10 +1347,8 @@
                   "properties": {
                         "gatewayId": {
                               "description": "Associated identifier (number) that is the BigInt key in our SQL database for the dataset version associated with this metadata",
-                              "maxLength": 50,
-                              "minLength": 1,
                               "title": "Gateway Identifier",
-                              "type": "string"
+                              "type": "int"
                         },
                         "gatewayPid": {
                               "description": "A unique persistent identifier for the metadata version. This is a 128-bit unique identifiers, as 32 hexadecimal digits separated by hyphens",

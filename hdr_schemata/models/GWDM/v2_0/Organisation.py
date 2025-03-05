@@ -10,7 +10,7 @@ an = annotations.organisation
 class Organisation(BaseModel):
     name: Optional[Name] = Field(None, **an.name.__dict__)
 
-    gatewayId: Optional[constr(min_length=2, max_length=50)] = Field(
+    gatewayId: Optional[int] = Field(
         None, **an.gatewayId.__dict__
     )
 
