@@ -1,6 +1,7 @@
-from typing import Optional, Union, List
+from typing import Optional
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
+from hdr_schemata.definitions.HDRUK.CommaSeparatedValues import CommaSeparatedValuesV2
 
 from .Organisation import Organisation
 
@@ -13,11 +14,11 @@ class Usage(BaseModel):
     class Config:
         extra = "forbid"
 
-    dataUseLimitation: Optional[CommaSeparatedValues] = Field(
+    dataUseLimitation: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.dataUseLimitation.__dict__
     )
 
-    dataUseRequirement: Optional[CommaSeparatedValues] = Field(
+    dataUseRequirement: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.dataUseRequirements.__dict__
     )
 

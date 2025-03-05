@@ -1,10 +1,9 @@
-from datetime import date, datetime
-from enum import Enum
-from typing import List, Optional, Union
+from typing import Optional
 
-from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
+from pydantic import BaseModel, EmailStr, Field
 
 from hdr_schemata.definitions.HDRUK import *
+from hdr_schemata.definitions.HDRUK.CommaSeparatedValues import CommaSeparatedValuesV2
 
 from .Organisation import Organisation
 
@@ -23,15 +22,15 @@ class Summary(BaseModel):
 
     abstract: LongAbstractText = Field(..., **an.abstract.__dict__)
 
-    keywords: Optional[CommaSeparatedValues] = Field(None, **an.keywords.__dict__)
+    keywords: Optional[CommaSeparatedValuesV2] = Field(None, **an.keywords.__dict__)
 
-    controlledKeywords: Optional[CommaSeparatedValues] = Field(
+    controlledKeywords: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.controlledKeywords.__dict__
     )
 
     contactPoint: Optional[EmailStr] = Field(None, **an.contactPoint.__dict__)
 
-    datasetType: Optional[CommaSeparatedValues] = Field(None, **an.datasetType.__dict__)
+    datasetType: Optional[CommaSeparatedValuesV2] = Field(None, **an.datasetType.__dict__)
 
     description: Optional[LongDescription] = Field(None, **an.description.__dict__)
 
@@ -43,7 +42,7 @@ class Summary(BaseModel):
 
     populationSize: Optional[int] = Field(None, **an.populationSize.__dict__)
 
-    datasetSubType: Optional[CommaSeparatedValues] = Field(
+    datasetSubType: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.datasetSubType.__dict__
     )
 

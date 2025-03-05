@@ -1,9 +1,10 @@
-from typing import Optional, Union, List
+from typing import Optional, Union
 from pydantic import BaseModel, Field, constr
 from datetime import date, datetime
 from .SampleDonor import SampleDonor
 
-from hdr_schemata.definitions.HDRUK import CommaSeparatedValues
+from hdr_schemata.definitions.HDRUK.CommaSeparatedValues import CommaSeparatedValuesV2
+
 
 
 from .annotations import annotations
@@ -18,7 +19,7 @@ class TissueSampleMetadata(BaseModel):
         None, title=an.sampleDonor.title, description=an.sampleDonor.description
     )
 
-    sampleType: Optional[CommaSeparatedValues] = Field(None, **an.sampleType.__dict__)
+    sampleType: Optional[CommaSeparatedValuesV2] = Field(None, **an.sampleType.__dict__)
 
     storageTemperature: Optional[str] = Field(None, **an.storageTemperature.__dict__)
 
@@ -26,22 +27,22 @@ class TissueSampleMetadata(BaseModel):
         None, **an.creationDate.__dict__
     )
 
-    anatomicalSiteOntologyCode: Optional[CommaSeparatedValues] = Field(
+    anatomicalSiteOntologyCode: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.anatomicalSiteOntologyCode.__dict__
     )
 
-    anatomicalSiteOntologyDescription: Optional[CommaSeparatedValues] = Field(
+    anatomicalSiteOntologyDescription: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.anatomicalSiteOntologyDescription.__dict__
     )
 
-    anatomicalSiteFreeText: Optional[CommaSeparatedValues] = Field(
+    anatomicalSiteFreeText: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.anatomicalSiteFreeText.__dict__
     )
 
-    sampleContentDiagnosis: Optional[CommaSeparatedValues] = Field(
+    sampleContentDiagnosis: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.sampleContentDiagnosis.__dict__
     )
 
-    useRestrictions: Optional[CommaSeparatedValues] = Field(
+    useRestrictions: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.useRestrictions.__dict__
     )

@@ -1,7 +1,8 @@
 from typing import Optional, Union
 from datetime import date, datetime
 from pydantic import BaseModel, Field, constr
-from hdr_schemata.definitions.HDRUK import CommaSeparatedValues
+from hdr_schemata.definitions.HDRUK.CommaSeparatedValues import CommaSeparatedValuesV2
+
 
 
 from .annotations import annotations
@@ -16,6 +17,6 @@ class SampleDonor(BaseModel):
 
     birthDate: Optional[Union[date, datetime]] = Field(None, **an.birthDate.__dict__)
 
-    dataCategories: Optional[CommaSeparatedValues] = Field(
+    dataCategories: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.dataCategories.__dict__
     )

@@ -1,6 +1,7 @@
-from typing import Optional, List, Union
-from pydantic import BaseModel, Field, constr
+from typing import Optional
+from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *
+from hdr_schemata.definitions.HDRUK.CommaSeparatedValues import CommaSeparatedValuesV2
 
 from .annotations import annotations
 
@@ -11,7 +12,7 @@ class Access(BaseModel):
     class Config:
         extra = "forbid"
 
-    accessRights: Optional[CommaSeparatedValues] = Field(
+    accessRights: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.accessRights.__dict__
     )
 
@@ -25,7 +26,7 @@ class Access(BaseModel):
         None, **an.deliveryLeadTime.__dict__
     )
 
-    jurisdiction: Optional[CommaSeparatedValues] = Field(
+    jurisdiction: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.jurisdiction.__dict__
     )
 
@@ -33,6 +34,6 @@ class Access(BaseModel):
 
     dataProcessor: Optional[LongDescription] = Field(None, **an.dataProcessor.__dict__)
 
-    accessServiceCategory: Optional[CommaSeparatedValues] = Field(
+    accessServiceCategory: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.accessServiceCategory.__dict__
     )
