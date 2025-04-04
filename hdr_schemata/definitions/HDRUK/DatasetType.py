@@ -1,5 +1,5 @@
-from typing import Optional
-from pydantic import RootModel,constr
+from typing import Optional, List, Union
+from pydantic import BaseModel, RootModel, constr
 from enum import Enum
 
 #note: contructed as a string of max_length=100
@@ -91,3 +91,38 @@ class DatasetSubType(Enum):
     BIRTHS_AND_DEATHS = 'Births and deaths'
     # OTHERS = 'Others'
     NOT_APPLICABLE = 'Not applicable'
+
+
+class HealthAndDiseaseSubTypes(Enum):
+    MENTAL_HEALTH = 'Mental health'
+    CARDIOVASCULAR = 'Cardiovascular'
+    CANCER = 'Cancer'
+    RARE_DISEASES = 'Rare diseases'
+    METABOLIC_AND_ENDOCRINE = 'Metabolic and endocrine'
+    NEUROLOGICAL = 'Neurological'
+    REPRODUCTIVE = 'Reproductive'
+    MATERNITY_AND_NEONATOLOGY = 'Maternity and neonatology'
+    RESPIRATORY = 'Respiratory'
+    IMMUNITY = 'Immunity'
+    MUSCULOSKELETAL = 'Musculoskeletal'
+    VISION = 'Vision'
+    RENAL_AND_UROGENITAL = 'Renal and urogenital'
+    ORAL_AND_GASTROINTESTINAL = 'Oral and gastrointestinal'
+    COGNITIVE_FUNCTION = 'Cognitive function'
+    HEARING = 'Hearing'
+    OTHERS = 'Others'
+
+class HealthAndDisease(BaseModel):
+    subtypes: Optional[List[HealthAndDiseaseSubTypes]]
+
+class TreatmentsInterventionsSubTypes(Enum):
+    VACCINES = 'Vaccines'
+    PREVENTIVE = 'Preventive'
+    THERAPEUTIC = 'Therapeutic'
+    OTHERS = 'Others'
+
+class TreatmentsInterventions(BaseModel):
+    subtypes: Optional[List[TreatmentsInterventionsSubTypes]]
+
+class DatasetTypeV3(BaseModel):
+    dataType: Union[HealthAndDisease, TreatmentsInterventions]
