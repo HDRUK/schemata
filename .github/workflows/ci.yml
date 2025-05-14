@@ -72,7 +72,7 @@ jobs:
             }}
           inputs: |
             {
-              "schemata_branch": "${{ steps.extract_branch.outputs.branch }}",
+              "schemata_branch": "${{ steps.extract_branch.outputs.branch }}"
             }
           token: ${{ secrets.GH_TOKEN }}
 
