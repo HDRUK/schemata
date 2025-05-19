@@ -244,7 +244,7 @@
                                     ],
                                     "type": [
                                           "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List"
+                                          "typing.List[hdr_schemata.definitions.HDRUK.EmailAddress.EmailAddress]"
                                     ],
                                     "is_list": false,
                                     "is_optional": false,
@@ -344,7 +344,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List",
+                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
                               "null"
                         ],
                         "is_list": false,
@@ -394,7 +394,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List",
+                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
                               "null"
                         ],
                         "is_list": false,
@@ -443,7 +443,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "List"
+                              "typing.List[hdr_schemata.definitions.HDRUK.Url.Url]"
                         ],
                         "is_list": false,
                         "is_optional": false,
@@ -815,7 +815,7 @@
                                     ],
                                     "type": [
                                           "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "List",
+                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
                                           "null"
                                     ],
                                     "is_list": false,
