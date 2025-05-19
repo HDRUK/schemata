@@ -1692,6 +1692,22 @@
                   "location": "observations.measuredProperty"
             },
             {
+                  "required": false,
+                  "title": "Synthetic data web links",
+                  "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "structuralMetadata.syntheticDataWebLink"
+            },
+            {
                   "required": true,
                   "title": "Age grouping",
                   "description": null,
