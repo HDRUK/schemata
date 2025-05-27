@@ -6,6 +6,7 @@ on:
       - dev
       - preprod
       - master
+      - features/GAT-7119
 
 permissions:
   id-token: write
@@ -14,9 +15,9 @@ permissions:
 jobs:
   deploy-and-trigger:
     runs-on: ubuntu-latest
-    env: |-
+    environment: |-
       ${{
-         github.ref_name == 'dev' && 'dev'
+         github.ref_name == 'features/GAT-7119' && 'dev'
       || github.ref_name == 'preprod' && 'preprod'
       || github.ref_name == 'master' && 'prod'
       }}
@@ -52,9 +53,3 @@ jobs:
             --add-header="x-goog-meta-github-sha=${{ github.sha }}"
           echo "✅ Upload complete"
 
-      - name: Get list of changed files
-        run: |
-          CHANGED_FILES="$(git diff --name-only HEAD^ HEAD)"
-          echo "CHANGED_FILES<<EOF" >> $GITHUB_ENV
-          echo "$CHANGED_FILES" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
