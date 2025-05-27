@@ -1,0 +1,52 @@
+name: Upload Repo to GCS and Trigger API
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-and-trigger:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Google Auth
+        id: auth
+        uses: "google-github-actions/auth@v2"
+        with:
+          token_format: "access_token"
+          project_id: "${{ secrets.PROJECT_ID }}"
+          workload_identity_provider: "${{ secrets.WIF_PROVIDER }}"
+          service_account: "${{ secrets.WIF_SERVICE_ACCOUNT }}"
+
+      - name: "Set up Cloud SDK"
+        id: setupsdk
+        uses: "google-github-actions/setup-gcloud@v2"
+        with:
+          version: ">= 363.0.0"
+
+      - name: Upload all files to GCS bucket
+        run: |
+          echo "⬆️ Uploading full repository to gs://schemata/"
+          gcloud storage cp . "gs://schemata/" \
+            --recursive \
+            --cache-control="no-cache, max-age=0" \
+            --predefined-acl=publicRead \
+            --add-header="x-goog-meta-github-sha=${{ github.sha }}"
+          echo "✅ Upload complete"
+
+      - name: Get list of changed files
+        run: |
+          CHANGED_FILES="$(git diff --name-only HEAD^ HEAD)"
+          echo "CHANGED_FILES<<EOF" >> $GITHUB_ENV
+          echo "$CHANGED_FILES" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
