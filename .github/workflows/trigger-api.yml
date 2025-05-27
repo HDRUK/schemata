@@ -44,8 +44,8 @@ jobs:
 
       - name: Upload all files to GCS bucket
         run: |
-          echo "⬆️ Uploading full repository to gs://schemata/"
-          gcloud storage cp . "gs://schemata/" \
+          echo "⬆️ Uploading full repository to gs://${{ vars.GCP_BUCKET }}/"
+          gcloud storage cp . "gs://${{ vars.GCP_BUCKET }}/" \
             --recursive \
             --cache-control="no-cache, max-age=0" \
             --predefined-acl=publicRead \
