@@ -6,6 +6,7 @@ on:
       - dev
       - preprod
       - master
+      - features/GAT-7119
 
 permissions:
   id-token: write
@@ -16,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: |-
       ${{
-         github.ref_name == 'dev' && 'dev'
+         github.ref_name == 'features/GAT-7119' && 'dev'
       || github.ref_name == 'preprod' && 'preprod'
       || github.ref_name == 'master' && 'prod'
       }}
@@ -41,6 +42,12 @@ jobs:
         uses: "google-github-actions/setup-gcloud@v2"
         with:
           version: ">= 363.0.0"
+
+      - name: Delete existing contents from GCS bucket
+        run: |
+          echo "🧹 Deleting existing files from gs://${{ vars.GCP_BUCKET }}/"
+          gcloud storage rm gs://${{ vars.GCP_BUCKET }}/** --recursive || echo "No files to delete or bucket is already clean"
+          echo "✅ Bucket cleaned"
 
       - name: Upload all files to GCS bucket
         run: |
