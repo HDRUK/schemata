@@ -49,7 +49,6 @@ jobs:
           gcloud storage cp . "gs://${{ vars.GCP_BUCKET }}/" \
             --recursive \
             --cache-control="no-cache, max-age=0" \
-            --predefined-acl=publicRead \
             --additional-headers="x-goog-meta-github-sha=${{ github.sha }}"
           echo "✅ Upload complete"
 
