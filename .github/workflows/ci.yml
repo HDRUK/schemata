@@ -2,7 +2,7 @@ name: Pytest
 
 on:
   push:
-    branches: [dev, main]
+    branches: [dev, preprod, master]
   pull_request:
     types: [opened, edited, synchronize]
 
