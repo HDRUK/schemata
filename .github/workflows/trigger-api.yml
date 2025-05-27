@@ -17,8 +17,8 @@ jobs:
     env: |-
       ${{
          github.ref_name == 'dev' && 'dev'
-      || github.base_ref == 'preprod' && 'preprod'
-      || github.base_ref == 'master' && 'prod'
+      || github.ref_name == 'preprod' && 'preprod'
+      || github.ref_name == 'master' && 'prod'
       }}
 
     steps:
