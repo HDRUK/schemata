@@ -6,7 +6,6 @@ on:
       - dev
       - preprod
       - master
-      - features/GAT-7119
 
 permissions:
   id-token: write
@@ -17,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: |-
       ${{
-         github.ref_name == 'features/GAT-7119' && 'dev'
+         github.ref_name == 'dev' && 'dev'
       || github.ref_name == 'preprod' && 'preprod'
       || github.ref_name == 'master' && 'prod'
       }}
