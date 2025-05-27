@@ -50,6 +50,6 @@ jobs:
             --recursive \
             --cache-control="no-cache, max-age=0" \
             --predefined-acl=publicRead \
-            --add-header="x-goog-meta-github-sha=${{ github.sha }}"
+            --additional-headers="x-goog-meta-github-sha=${{ github.sha }}"
           echo "✅ Upload complete"
 
