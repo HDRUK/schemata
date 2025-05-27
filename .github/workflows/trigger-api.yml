@@ -3,7 +3,9 @@ name: Upload Repo to GCS and Trigger API
 on:
   push:
     branches:
-      - main
+      - dev
+      - preprod
+      - master
 
 permissions:
   id-token: write
