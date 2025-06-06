@@ -9,7 +9,16 @@ from .CommaSeparatedValues import CommaSeparatedValues
 from .ControlledVocabulary import ControlledVocabulary
 from .ControlledVocabularyEnum import ControlledVocabularyEnum
 from .DataUseLimitation import DataUseLimitation, DataUseLimitationV2
-from .DatasetType import DatasetType, DatasetTypeV2, DatasetSubType
+from .DatasetType import (
+    DatasetType, 
+    DatasetTypeV2, 
+    DatasetSubType, 
+    HealthAndDiseaseSubTypes, 
+    HealthAndDisease,
+    TreatmentsInterventionsSubTypes,
+    TreatmentsInterventions,
+    DatasetTypeV3
+)
 from .DataUseRequirements import DataUseRequirements, DataUseRequirementsV2
 from .DeliveryLeadTime import DeliveryLeadTime, DeliveryLeadTimeV2
 from .Description import Description
