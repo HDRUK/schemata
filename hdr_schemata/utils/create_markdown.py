@@ -158,7 +158,7 @@ def form_structure(data, form, parent=None):
         if subItems:
             form_structure(subItems, form, parent=k)
 
-        if "structuralMetadata" in k:
+        if "structuralMetadata.tables" in k:
             continue
 
         types = item.pop("types")
