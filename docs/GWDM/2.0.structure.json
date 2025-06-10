@@ -246,7 +246,7 @@
                         "description": "email of a person who can be the main contact point of this dataset",
                         "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.Note: An employee's email address can only be provided on a temporary basis and if one is provided, you must obtain explicit consent for this purpose.",
                         "examples": [
-                              "gateway@hdruk.ac.uk"
+                              "SAILDatabank@swansea.ac.uk"
                         ],
                         "type": [
                               "EmailStr",
@@ -352,9 +352,7 @@
                         "title": "Population size",
                         "description": "Summary population size of the cohort",
                         "guidance": "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the Observations fields. The filter also allows for Researchers to search datasets which have no population size reported, but will not pull any population size captured in the Observations section.",
-                        "examples": [
-                              1000
-                        ],
+                        "examples": null,
                         "type": [
                               "int",
                               "null"
@@ -597,9 +595,7 @@
                                     "title": "Start Date",
                                     "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
                                     "guidance": "The start of the time period that the dataset provides coverage for.- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
-                                    "examples": [
-                                          "2024-10-24T00:00:00.000Z"
-                                    ],
+                                    "examples": null,
                                     "type": [
                                           "date",
                                           "datetime",
@@ -614,9 +610,7 @@
                                     "title": "End Date",
                                     "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.'",
                                     "guidance": "The end of the time period that the dataset provides coverage for.- If the dataset is \u201cContinuous\u201d and has no known end date, please leave blank.- If there are multiple cohorts in the dataset with varying end dates, please provide the latest date.",
-                                    "examples": [
-                                          "2024-10-24T00:00:00.000Z"
-                                    ],
+                                    "examples": null,
                                     "type": [
                                           "date",
                                           "datetime",
@@ -631,9 +625,7 @@
                                     "title": "Time Lag",
                                     "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset",
                                     "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.- Less than 1 week: Typical time lag of less than a week.- 1-2 weeks: Typical time-lag of one to two weeks.- 2-4 weeks: Typical time-lag of two to four weeks.- 1-2 months: Typical time-lag of one to two months.- 2-6 months: Typical time-lag of two to six months.- 6 months plus: Typical time-lag of more than six months.- Variable: Variable time-lag.- Not applicable: Not Applicable i.e. static dataset.- Other: Other time-lag.",
-                                    "examples": [
-                                          "Not applicable"
-                                    ],
+                                    "examples": null,
                                     "type": [
                                           "TimeLagV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','More than 6 months','Variable','Not applicable','Other']"
                                     ],
@@ -659,9 +651,7 @@
                                     "title": "Release Date",
                                     "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
                                     "guidance": "Please indicate the frequency the dataset is published.- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.- Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
-                                    "examples": [
-                                          "2024-10-24T00:00:00.000Z"
-                                    ],
+                                    "examples": null,
                                     "type": [
                                           "date",
                                           "datetime",
@@ -813,9 +803,7 @@
                                     "title": "Access Rights",
                                     "description": "Please provide details for the data access rights",
                                     "guidance": "The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both separated by a comma.- If such a resource or the underlying process doesn\u2019t exist, please provide \u201cIn Progress\u201d, until both the process and the documentation are ready.",
-                                    "examples": [
-                                          "In Progress"
-                                    ],
+                                    "examples": null,
                                     "type": [
                                           "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
                                           "null"
@@ -975,7 +963,7 @@
                                     "required": false,
                                     "title": "Conforms To",
                                     "description": "What the vocabulary conforms to.",
-                                    "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- HL7 FHIR- HL7 V2- HL7 CDA- HL7 CCOW- DICOM- I2B2- IHE- OMOP- openEHR- Sentinel- PCORnet- CDISC- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary- NHS Scotland Data Dictionary- NHS Wales Data Dictionary",
+                                    "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- HL7 FHIR: https://www.hl7.org/fhir/.- HL7 V2: https://www.hl7.org/implement/standards/product_section.cfm?section=13.- HL7 CDA: https://www.hl7.org/implement/standards/product_section.cfm?section=10.- HL7 CCOW: https://www.hl7.org/implement/standards/product_section.cfm?section=16.- DICOM: https://www.dicomstandard.org/.- I2B2: https://www.i2b2.org/.- IHE: https://www.ihe.net/resources/profiles/.- OMOP: https://www.ohdsi.org/data-standardization/the-common-data-model/.- openEHR: https://www.openehr.org/.- Sentinel: https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model.- PCORnet: https://pcornet.org/data-driven-common-model/.- CDISC: https://www.cdisc.org/standards/data-exchange/odm.- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary: https://www.datadictionary.nhs.uk/.- NHS Scotland Data Dictionary: https://www.ndc.scot.nhs.uk/Data-Dictionary/.- NHS Wales Data Dictionary: https://www.datadictionary.wales.nhs.uk/.",
                                     "examples": [
                                           "LOCAL,NHS DATA DICTIONARY"
                                     ],
@@ -1476,9 +1464,7 @@
                         "title": "Measured Value",
                         "description": "Please provide the population size associated with the population type the dataset i.e. 1000 people in a study, or 87 images (MRI) of Knee Usage Note: Used with Statistical Population, which specifies the type of the population in the dataset.",
                         "guidance": "An integer value size of the measured property, such as \u20181000\u2019 for 1000 people in the study or \u201887\u2019 for 87 MRI scans in the dataset.",
-                        "examples": [
-                              1000
-                        ],
+                        "examples": null,
                         "type": [
                               "int"
                         ],
@@ -1506,9 +1492,7 @@
                         "title": "Observation Date",
                         "description": "Please provide the date that the observation was made. Some datasets may be continuously updated and the number of records will change regularly, so the observation date provides users with the date that the analysis or query was run to generate the particular observation. Multiple observations can be made i.e. an observation of cumulative COVID positive cases by specimen on the 1/1/2021 could be 2M. On the 8/1/2021 a new observation could be 2.1M. Users can add multiple observations.",
                         "guidance": "Provide the date, or datetime that the observation was made. Multiple observations of the same property can be provided, for example an observation of cumulative COVID positive cases by specimen on the 1/1/2021 with a measuredValue of 2000000, and a second observation entry on 8/2/2021 recording a measuredValue of as 3100000.",
-                        "examples": [
-                              "2024-10-24"
-                        ],
+                        "examples": null,
                         "type": [
                               "date",
                               "datetime"
@@ -1522,9 +1506,7 @@
                         "title": "Measured Property",
                         "description": "Initially this will be defaulted to \"COUNT\"",
                         "guidance": "Descriptive term for the observation property measured.",
-                        "examples": [
-                              "Count"
-                        ],
+                        "examples": null,
                         "type": [
                               "MeasuredProperty[{}]"
                         ],
