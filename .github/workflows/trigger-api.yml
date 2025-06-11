@@ -1,0 +1,59 @@
+name: Upload Repo to GCS and Trigger API
+
+on:
+  push:
+    branches:
+      - dev
+      - preprod
+      - master
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-and-trigger:
+    runs-on: ubuntu-latest
+    environment: |-
+      ${{
+         github.ref_name == 'dev' && 'dev'
+      || github.ref_name == 'preprod' && 'preprod'
+      || github.ref_name == 'master' && 'prod'
+      }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Google Auth
+        id: auth
+        uses: "google-github-actions/auth@v2"
+        with:
+          token_format: "access_token"
+          project_id: "${{ secrets.PROJECT_ID }}"
+          workload_identity_provider: "${{ secrets.WIF_PROVIDER }}"
+          service_account: "${{ secrets.WIF_SERVICE_ACCOUNT }}"
+
+      - name: "Set up Cloud SDK"
+        id: setupsdk
+        uses: "google-github-actions/setup-gcloud@v2"
+        with:
+          version: ">= 363.0.0"
+
+      - name: Delete existing contents from GCS bucket
+        run: |
+          echo "🧹 Deleting existing files from gs://${{ vars.GCP_BUCKET }}/"
+          gcloud storage rm gs://${{ vars.GCP_BUCKET }}/** --recursive || echo "No files to delete or bucket is already clean"
+          echo "✅ Bucket cleaned"
+
+      - name: Upload all files to GCS bucket
+        run: |
+          echo "⬆️ Uploading full repository to gs://${{ vars.GCP_BUCKET }}/"
+          gcloud storage cp . "gs://${{ vars.GCP_BUCKET }}/" \
+            --recursive \
+            --cache-control="no-cache, max-age=0" \
+            --additional-headers="x-goog-meta-github-sha=${{ github.sha }}"
+          echo "✅ Upload complete"
+

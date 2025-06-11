@@ -71,7 +71,7 @@ class DatasetSubType(Enum):
     ETHNICITY = 'Ethnicity'
     HOUSING_ = 'Housing'
     LABOUR = 'Labour'
-    AGEING_ = 'Ageing '
+    AGEING = 'Ageing'
     ECONOMICS = 'Economics'
     MARITAL_STATUS = 'Marital status'
     SOCIAL_SUPPORT = 'Social support'
