@@ -1692,7 +1692,7 @@
                                     "Health Data Research UK"
                               ],
                               "guidance": "In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.",
-                              "title": "Name of data provider"
+                              "title": "Name of Data Custodian"
                         },
                         "logo": {
                               "anyOf": [
@@ -2213,7 +2213,7 @@
                               "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.\\n**Note:** An employee's email address can only be provided on a temporary basis and if one is provided, **you must obtain explicit consent for this purpose**.",
                               "title": "Contact point"
                         },
-                        "alternateIdentifiers": {
+                        "datasetAliases": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/CommaSeparatedValues"
@@ -2236,9 +2236,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Alternate dataset identifiers or local identifiers.",
-                              "guidance": "Alternate dataset identifiers or local identifiers.",
-                              "title": "Alternate dataset identifiers"
+                              "description": "Dataset & BioSample alias or alternate names.",
+                              "guidance": "Alternate name, acronym or other identifier for the Dataset and/or BioSamples.",
+                              "title": "Dataset & BioSample alias"
                         }
                   },
                   "required": [
