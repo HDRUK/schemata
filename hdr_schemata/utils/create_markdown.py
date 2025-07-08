@@ -239,6 +239,7 @@ from hdr_schemata.models.HDRUK import Hdruk213
 from hdr_schemata.models.HDRUK import Hdruk220  
 from hdr_schemata.models.HDRUK import Hdruk221
 from hdr_schemata.models.HDRUK import Hdruk300
+from hdr_schemata.models.HDRUK import Hdruk400
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
@@ -250,6 +251,7 @@ create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
 create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
 create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
 create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
+create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
