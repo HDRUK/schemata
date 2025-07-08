@@ -246,11 +246,11 @@ from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 
   
-# create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
-# create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
-# create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
-# create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
-# create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
+create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
+create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
+create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
+create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
+create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
 create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
@@ -258,7 +258,7 @@ from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20   
 
-# create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
-# create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
-# create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
-# create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
+create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
+create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
+create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
+create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
