@@ -729,6 +729,9 @@
                                           "$ref": "#/$defs/Socioeconomic"
                                     },
                                     {
+                                          "$ref": "#/$defs/Lifestyle"
+                                    },
+                                    {
                                           "$ref": "#/$defs/Registry"
                                     },
                                     {
@@ -1622,6 +1625,40 @@
                         "zu"
                   ],
                   "title": "LanguageEnum",
+                  "type": "string"
+            },
+            "Lifestyle": {
+                  "properties": {
+                        "subtypes": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/LifestyleSubTypes"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "title": "Subtypes"
+                        }
+                  },
+                  "required": [
+                        "subtypes"
+                  ],
+                  "title": "Lifestyle",
+                  "type": "object"
+            },
+            "LifestyleSubTypes": {
+                  "enum": [
+                        "Smoking",
+                        "Physical activity",
+                        "Dietary habits",
+                        "Alcohol",
+                        "Others"
+                  ],
+                  "title": "LifestyleSubTypes",
                   "type": "string"
             },
             "LongDescription": {

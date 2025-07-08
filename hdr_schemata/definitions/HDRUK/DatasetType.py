@@ -227,6 +227,7 @@ class DatasetTypeV3(BaseModel):
         ImagingAreaOfTheBody,
         OmicsDataType,
         Socioeconomic,
+        Lifestyle,
         Registry,
         EnvironmentAndEnergy,
         InformationAndCommunication,
