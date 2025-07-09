@@ -154,7 +154,7 @@ class ImagingAreaOfTheBodySubTypes(Enum):
 class ImagingAreaOfTheBody(BaseModel):
     subtypes: Optional[List[ImagingAreaOfTheBodySubTypes]]
 
-class OmicsSubTypes(Enum):
+class OmicsDataTypeSubTypes(Enum):
     PROTEOMICS = 'Proteomics'
     TRANSCRIPTOMICS = 'Transcriptomics'
     EPIGENOMICS = 'Epigenomics'
@@ -165,7 +165,7 @@ class OmicsSubTypes(Enum):
     OTHERS = 'Others'
 
 class OmicsDataType(BaseModel):
-    subtypes: Optional[List[OmicsSubTypes]]
+    subtypes: Optional[List[OmicsDataTypeSubTypes]]
 
 class SocioeconomicSubTypes(Enum):
     EDUCATION = 'Education'

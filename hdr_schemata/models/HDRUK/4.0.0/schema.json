@@ -1876,7 +1876,7 @@
                               "anyOf": [
                                     {
                                           "items": {
-                                                "$ref": "#/$defs/OmicsSubTypes"
+                                                "$ref": "#/$defs/OmicsDataTypeSubTypes"
                                           },
                                           "type": "array"
                                     },
@@ -1893,7 +1893,7 @@
                   "title": "OmicsDataType",
                   "type": "object"
             },
-            "OmicsSubTypes": {
+            "OmicsDataTypeSubTypes": {
                   "enum": [
                         "Proteomics",
                         "Transcriptomics",
@@ -1904,7 +1904,7 @@
                         "Lipidomics",
                         "Others"
                   ],
-                  "title": "OmicsSubTypes",
+                  "title": "OmicsDataTypeSubTypes",
                   "type": "string"
             },
             "OneHundredFiftyCharacters": {
@@ -2265,7 +2265,7 @@
                         "url": {
                               "anyOf": [
                                     {
-                                          "$ref": "#/$defs/UrlV2"
+                                          "$ref": "#/$defs/Url"
                                     },
                                     {
                                           "type": "null"
@@ -2776,18 +2776,6 @@
                         }
                   ],
                   "title": "Url"
-            },
-            "UrlV2": {
-                  "anyOf": [
-                        {
-                              "pattern": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "UrlV2"
             },
             "Usage": {
                   "additionalProperties": false,
