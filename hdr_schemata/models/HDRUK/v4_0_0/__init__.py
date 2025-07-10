@@ -4,6 +4,7 @@ from typing import Optional, List
 from pydantic import Field
 
 from .Provenance import Provenance
+from .Revision import Revision
 
 from .annotations import annotations as an
 
@@ -12,6 +13,10 @@ class Hdruk400(Hdruk300):
 
     provenance: Optional[Provenance] = Field(
         None, description=an.provenance.description, title=an.provenance.title
+    )
+
+    revisions: List[Revision] = Field(
+        ..., description=an.revisions.description, title=an.revisions.title
     )
 
     @classmethod

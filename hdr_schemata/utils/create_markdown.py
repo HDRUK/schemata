@@ -97,13 +97,17 @@ def get_fields(structure, model: type[BaseModel]):
             "is_optional": is_optional,
         }
 
-        while hasattr(t, "__args__"):
-            t = t.__args__[0]
-
-        if isinstance(t, type) and issubclass(t, BaseModel):
+        if hasattr(t, "__args__"):
             subItems = []
-            get_fields(subItems, t)
+            for t in t.__args__:
+                if isinstance(t, type) and issubclass(t, BaseModel):
+                    get_fields(subItems, t)
             value["subItems"] = subItems
+        else: 
+            if isinstance(t, type) and issubclass(t, BaseModel):
+                subItems = []
+                get_fields(subItems, t)
+                value["subItems"] = subItems
 
         structure.append(value)
 
@@ -177,7 +181,19 @@ def form_structure(data, form, parent=None):
                     else:
                         info = t_sch
                 elif issubclass(t, BaseModel):
-                    continue
+                    if t.__name__ == 'DatasetTypeV3':
+                        options = []
+                        t_sch = t.model_json_schema()
+                        dataTypes = t_sch["properties"]["dataType"]["anyOf"]
+                        dataTypes = [d["$ref"].split("/")[-1] for d in dataTypes]
+                        for d in dataTypes:
+                            if d + "SubTypes" in t_sch["$defs"].keys():
+                                options.append({"title": d, "options": t_sch["$defs"][d + "SubTypes"]["enum"]})
+                            else:
+                                options.append({"title": d, "options": [t_sch["$defs"]["NotApplicableSubTypes"]["const"]]})
+                        info = {"title": t_sch["title"], "type": "nested", "options": options}
+                    else:
+                        continue
                 else:
                     info = t.__name__
             except:
