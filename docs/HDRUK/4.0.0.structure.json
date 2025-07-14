@@ -338,11 +338,11 @@
                         "subItems": []
                   },
                   {
-                        "name": "alternateIdentifiers",
+                        "name": "datasetAliases",
                         "required": false,
-                        "title": "Alternate dataset identifiers",
-                        "description": "Alternate dataset identifiers or local identifiers.",
-                        "guidance": "Alternate dataset identifiers or local identifiers.",
+                        "title": "Dataset & BioSample alias",
+                        "description": "Dataset & BioSample alias or alternate names.",
+                        "guidance": "Alternate name, acronym or other identifier for the Dataset and/or BioSamples.",
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
