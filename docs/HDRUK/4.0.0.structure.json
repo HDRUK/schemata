@@ -191,7 +191,7 @@
                               {
                                     "name": "name",
                                     "required": true,
-                                    "title": "Name of data provider",
+                                    "title": "Name of Data Custodian",
                                     "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
                                     "guidance": "In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.",
                                     "examples": [
@@ -338,11 +338,11 @@
                         "subItems": []
                   },
                   {
-                        "name": "alternateIdentifiers",
+                        "name": "datasetAliases",
                         "required": false,
-                        "title": "Alternate dataset identifiers",
-                        "description": "Alternate dataset identifiers or local identifiers.",
-                        "guidance": "Alternate dataset identifiers or local identifiers.",
+                        "title": "Dataset & BioSample alias",
+                        "description": "Dataset & BioSample alias or alternate names.",
+                        "guidance": "Alternate name, acronym or other identifier for the Dataset and/or BioSamples.",
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",

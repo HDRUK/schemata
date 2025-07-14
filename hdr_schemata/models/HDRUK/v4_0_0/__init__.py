@@ -7,7 +7,7 @@ from .Provenance import Provenance
 from .Revision import Revision
 
 from .annotations import annotations as an
-
+from .Summary import Summary
 
 class Hdruk400(Hdruk300):
 
@@ -17,6 +17,10 @@ class Hdruk400(Hdruk300):
 
     revisions: List[Revision] = Field(
         ..., description=an.revisions.description, title=an.revisions.title
+    )
+
+    summary: Summary = Field(
+        ..., description=an.summary._description, title=an.summary._title
     )
 
     @classmethod
