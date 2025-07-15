@@ -113,7 +113,8 @@ class HealthAndDiseaseSubTypes(Enum):
     OTHERS = 'Others'
 
 class HealthAndDisease(BaseModel):
-    subtypes: Optional[List[HealthAndDiseaseSubTypes]]
+    healthAndDisease: Optional[List[HealthAndDiseaseSubTypes]]
+
 
 class TreatmentsInterventionsSubTypes(Enum):
     VACCINES = 'Vaccines'
