@@ -1,5 +1,5 @@
 from typing import Optional, List, Union
-from pydantic import BaseModel, RootModel, constr
+from pydantic import BaseModel, Field, RootModel, constr
 from enum import Enum
 
 #note: contructed as a string of max_length=100
@@ -113,7 +113,8 @@ class HealthAndDiseaseSubTypes(Enum):
     OTHERS = 'Others'
 
 class HealthAndDisease(BaseModel):
-    healthAndDisease: Optional[List[HealthAndDiseaseSubTypes]]
+    name: str = Field("Health and disease", Literal=True)
+    subTypes: Optional[List[HealthAndDiseaseSubTypes]]
 
 
 class TreatmentsInterventionsSubTypes(Enum):
@@ -123,7 +124,8 @@ class TreatmentsInterventionsSubTypes(Enum):
     OTHERS = 'Others'
 
 class TreatmentsInterventions(BaseModel):
-    subtypes: Optional[List[TreatmentsInterventionsSubTypes]]
+    name: str = Field("Treatments/Interventions", Literal=True)
+    subTypes: Optional[List[TreatmentsInterventionsSubTypes]]
 
 class MeasurementsTestsSubTypes(Enum):
     LABORATORY = 'Laboratory'

@@ -1244,7 +1244,13 @@
             },
             "HealthAndDisease": {
                   "properties": {
-                        "healthAndDisease": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Health and disease",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1256,11 +1262,11 @@
                                           "type": "null"
                                     }
                               ],
-                              "title": "Healthanddisease"
+                              "title": "Subtypes"
                         }
                   },
                   "required": [
-                        "healthAndDisease"
+                        "subTypes"
                   ],
                   "title": "HealthAndDisease",
                   "type": "object"
@@ -2720,7 +2726,13 @@
             },
             "TreatmentsInterventions": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Treatments/Interventions",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2736,7 +2748,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "TreatmentsInterventions",
                   "type": "object"
