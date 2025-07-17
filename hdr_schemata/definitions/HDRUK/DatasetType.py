@@ -1,5 +1,5 @@
-from typing import Optional
-from pydantic import RootModel,constr
+from typing import Optional, List, Union
+from pydantic import BaseModel, RootModel, constr
 from enum import Enum
 
 #note: contructed as a string of max_length=100
@@ -91,3 +91,145 @@ class DatasetSubType(Enum):
     BIRTHS_AND_DEATHS = 'Births and deaths'
     # OTHERS = 'Others'
     NOT_APPLICABLE = 'Not applicable'
+
+
+class HealthAndDiseaseSubTypes(Enum):
+    MENTAL_HEALTH = 'Mental health'
+    CARDIOVASCULAR = 'Cardiovascular'
+    CANCER = 'Cancer'
+    RARE_DISEASES = 'Rare diseases'
+    METABOLIC_AND_ENDOCRINE = 'Metabolic and endocrine'
+    NEUROLOGICAL = 'Neurological'
+    REPRODUCTIVE = 'Reproductive'
+    MATERNITY_AND_NEONATOLOGY = 'Maternity and neonatology'
+    RESPIRATORY = 'Respiratory'
+    IMMUNITY = 'Immunity'
+    MUSCULOSKELETAL = 'Musculoskeletal'
+    VISION = 'Vision'
+    RENAL_AND_UROGENITAL = 'Renal and urogenital'
+    ORAL_AND_GASTROINTESTINAL = 'Oral and gastrointestinal'
+    COGNITIVE_FUNCTION = 'Cognitive function'
+    HEARING = 'Hearing'
+    OTHERS = 'Others'
+
+class HealthAndDisease(BaseModel):
+    subtypes: Optional[List[HealthAndDiseaseSubTypes]]
+
+class TreatmentsInterventionsSubTypes(Enum):
+    VACCINES = 'Vaccines'
+    PREVENTIVE = 'Preventive'
+    THERAPEUTIC = 'Therapeutic'
+    OTHERS = 'Others'
+
+class TreatmentsInterventions(BaseModel):
+    subtypes: Optional[List[TreatmentsInterventionsSubTypes]]
+
+class MeasurementsTestsSubTypes(Enum):
+    LABORATORY = 'Laboratory'
+    OTHER_DIAGNOSTICS = 'Other diagnostics'
+
+class MeasurementsTests(BaseModel):
+    subtypes: Optional[List[MeasurementsTestsSubTypes]]
+
+class ImagingTypesSubTypes(Enum):
+    CT = 'CT'
+    MRI = 'MRI'
+    PET = 'PET'
+    X_RAY = 'X-ray'
+    ULTRASOUND = 'Ultrasound'
+    PATHOLOGY = 'Pathology'
+    OTHERS = 'Others'
+
+class ImagingTypes(BaseModel):
+    subtypes: Optional[List[ImagingTypesSubTypes]]
+
+class ImagingAreaOfTheBodySubTypes(Enum):
+    HEAD = 'Head'
+    CHEST = 'Chest'
+    ARM = 'Arm'
+    ABDOMEN = 'Abdomen'
+    LEG = 'Leg'
+    OTHERS = 'Others'
+
+class ImagingAreaOfTheBody(BaseModel):
+    subtypes: Optional[List[ImagingAreaOfTheBodySubTypes]]
+
+class OmicsDataTypeSubTypes(Enum):
+    PROTEOMICS = 'Proteomics'
+    TRANSCRIPTOMICS = 'Transcriptomics'
+    EPIGENOMICS = 'Epigenomics'
+    METABOLOMICS = 'Metabolomics'
+    METAGENOMICS = 'Metagenomics'
+    GENOMICS = 'Genomics'
+    LIPIDOMICS = 'Lipidomics'
+    OTHERS = 'Others'
+
+class OmicsDataType(BaseModel):
+    subtypes: Optional[List[OmicsDataTypeSubTypes]]
+
+class SocioeconomicSubTypes(Enum):
+    EDUCATION = 'Education'
+    CRIME_AND_JUSTICE = 'Crime and justice'
+    ETHNICITY = 'Ethnicity'
+    HOUSING_ = 'Housing'
+    LABOUR = 'Labour'
+    AGEING = 'Ageing'
+    ECONOMICS = 'Economics'
+    MARITAL_STATUS = 'Marital status'
+    SOCIAL_SUPPORT = 'Social support'
+    DEPRIVATION = 'Deprivation'
+    RELIGION = 'Religion'
+    OCCUPATION = 'Occupation'
+    FINANCES = 'Finances'
+    FAMILY_CIRCUMSTANCE = 'Family circumstance'
+    OTHERS = 'Others'
+
+class Socioeconomic(BaseModel):
+    subtypes: Optional[List[SocioeconomicSubTypes]]
+
+class LifestyleSubTypes(Enum):
+    SMOKING = 'Smoking'
+    PHYSICAL_ACTIVITY = 'Physical activity'
+    DIETARY_HABITS = 'Dietary habits'
+    ALCOHOL = 'Alcohol'
+    OTHERS = 'Others'
+
+class Lifestyle(BaseModel):
+    subtypes: Optional[List[LifestyleSubTypes]]
+
+class RegistrySubTypes(Enum):
+    DISEASE_REGISTRY_RESEARCH = 'Disease registry (research)'
+    NATIONAL_DISEASE_REGISTRIES_AND_AUDITS = 'National disease registries and audits'
+    BIRTHS_AND_DEATHS = 'Births and deaths'
+    OTHERS = 'Others'
+
+class Registry(BaseModel):
+    subtypes: Optional[List[RegistrySubTypes]]
+
+class NotApplicableSubTypes(Enum):
+    NOT_APPLICABLE = 'Not applicable'
+
+class EnvironmentAndEnergy(BaseModel):
+    subtypes: Optional[List[NotApplicableSubTypes]]
+
+class InformationAndCommunication(BaseModel):
+    subtypes: Optional[List[NotApplicableSubTypes]]
+
+class Politics(BaseModel):
+    subtypes: Optional[List[NotApplicableSubTypes]]
+
+class DatasetTypeV3(BaseModel):
+    dataType: Union[
+        HealthAndDisease, 
+        TreatmentsInterventions, 
+        MeasurementsTests, 
+        ImagingTypes,
+        ImagingAreaOfTheBody,
+        OmicsDataType,
+        Socioeconomic,
+        Lifestyle,
+        Registry,
+        EnvironmentAndEnergy,
+        InformationAndCommunication,
+        Politics
+    ]

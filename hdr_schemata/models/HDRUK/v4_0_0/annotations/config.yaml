@@ -1,0 +1,97 @@
+provenance:
+  title: "Provenance"
+  description: "Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness."
+  origin:
+    title: "Origin Coverage"
+    description: "Coverage by origin (geographical and situations)."
+    datasetType:
+      guidance: "Types include those listed below. Datasets can have more than one type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- **Measurements/Tests**: Includes any data related to laboratory or other diagnostics.\\n- **Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- **Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- **Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.\\n- **Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- **Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- **Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- **Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- **Information and communication**: Includes any data related to the study or application of information and communication.\\n- **Politics**: Includes any data related to political views, activities, voting, etc."
+      title: "Dataset type"
+      description: "The topic areas to which the dataset content relates."
+      examples:
+        - "Health and disease"
+    datasetSubType:
+      guidance: "Sub-types include those listed below under each data type. Datasets can have more than one sub-type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- *Measurements/Tests**- Includes any data related to laboratory or other diagnostics.\\n- *Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- *Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- *Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType is selected.\\n- *Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- *Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- *Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- *Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- *Information and communication**: Includes any data related to the study or application of information and communication.\\n- *Politics**: Includes any data related to political views, activities, voting, etc."
+      title: "Dataset sub-type"
+      description: "The sub-type of the dataset content. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType ('proteomics', 'transcriptomics', 'epigenomics', 'metabolomics', 'metagenomics', 'genomics', 'lipidomics') is selected"
+
+summary:
+  dataCustodian:
+    title: "Dataset Custodian"
+    description: "This is the organisation responsible for running or supporting the data access request process, as well as enquiries about a dataset. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank."
+  contactPoint:
+    guidance: "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.\\n**Note:** An employee's email address can only be provided on a temporary basis and if one is provided, **you must obtain explicit consent for this purpose**."
+    examples:
+      - "gateway@hdruk.ac.uk"
+    title: "Contact point"
+    description: "Please provide a valid email address that can be used to coordinate data access requests."
+  doiName:
+    guidance: "- Please note: This is **not** the DOI of the publication(s) associated with the dataset.\\n- All HDR UK registered **datasets** should either have a **(DOI)** or be working towards obtaining one.\\n- If a DOI is available, please provide the DOI.\\n- **What happens if I do not have a DOI?**: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service."
+    title: "Digital Object Identifier (DOI) for dataset"
+    examples: 
+      - 10.1093/ije/dyx196
+    description: "DOI associated to this dataset. Find out more about DOIs here: [https://www.doi.org/the-identifier/what-is-a-doi/](https://www.doi.org/the-identifier/what-is-a-doi/)"
+  populationSize:
+    guidance: "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the **Observations** fields. The filter also allows for Researchers to search datasets which have no population size reported, but will **not** pull any population size captured in the **Observations** section."
+    title: "Dataset population size"
+    description: "Input the number of people captured within the dataset."
+    examples: 
+      - 1000
+  keywords:
+    guidance: "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches."
+    title: "Keywords"
+    examples: 
+      - Outpatient Care
+      - Socioeconomic Deprivation
+      - Infant Morbidity 
+      - Learning disability
+      - Primary Care Prescription
+      - Accident and Emergency Admissions
+    description: "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users."
+  title:
+    guidance: "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report"
+    examples:
+      - "North West London COVID-19 Patient Level Situation Report"
+      - "Scottish Morbidity Record (SMR)"
+    title: "Title"
+    description: "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers."
+  abstract:
+    guidance: "- The abstract should provide a **clear and brief descriptive** signpost for researchers who are searching for data that may be relevant to their research.\\n- The abstract should allow the reader to determine the **scope of the data collection and accurately summarise its content**.\\n- Effective abstracts should **avoid long sentences and abbreviations** where possible.\\n- **Note**: Researchers will view Titles and the first line of Abstracts (list view) when searching for datasets and choosing whether to explore their content further.\\n- **Abstracts should be different from the full description** for a dataset.\\n- **Example**: CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+    examples:
+      - "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web® including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+    title: "Dataset abstract"
+    description: "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible."
+  organisation:
+    identifier:
+      guidance: "**Example**: https://ror.org/053fq8t95\\nIf your organisation does not have a ROR identifier please use the “suggest and institute” function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform"
+      title: "identifier"
+      description: "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation."
+      examples:
+        - "30f16703-28bc-4f45-9ce5-625d2d3db27d"
+    name:
+      guidance: In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.
+      title: "Name of Data Custodian"
+      description: "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata."
+      examples:
+        - "Health Data Research UK"
+    logo:
+      title: "Organisation Logo"
+      description: "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.  If a logo is not submitted this will default to the logo for the team submitting the metadata."
+    description:
+      title: "Organisation Description"
+      description: "Please provide a URL that describes the organisation.  If a description is not provided this will default to the description of the team submitting the metadata."
+    contactPoint:
+      title: "contact point"
+      description: "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata."
+      examples:
+        - "test@test.co.uk"
+    memberOf:
+      title: "Organisation Membership"
+      description: "Please indicate if the organisation is an Alliance Member or a Hub.  If this field is not submitted this will default to the membership for the team submitting the metadata."
+  datasetAliases:
+    title: "Dataset & BioSample alias"
+    description: "Dataset & BioSample alias or alternate names."
+    guidance: "Alternate name, acronym or other identifier for the Dataset and/or BioSamples."
+
+
+
