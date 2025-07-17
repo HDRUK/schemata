@@ -1085,6 +1085,12 @@
             },
             "EnvironmentAndEnergy": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Environment And Energy",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -1296,6 +1302,12 @@
             },
             "ImagingAreaOfTheBody": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Imaging Area Of The Body",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -1331,6 +1343,12 @@
             },
             "ImagingTypes": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Imaging Types",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -1367,6 +1385,12 @@
             },
             "InformationAndCommunication": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Information And Communication",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -1585,6 +1609,12 @@
             },
             "Lifestyle": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Socioeconomic",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -1665,6 +1695,12 @@
             },
             "MeasurementsTests": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Measurements Tests",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -1828,6 +1864,12 @@
             },
             "OmicsDataType": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Omics DataType",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -2138,6 +2180,12 @@
             },
             "Politics": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Politics",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -2209,6 +2257,12 @@
             },
             "Registry": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Registry",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
@@ -2328,6 +2382,12 @@
             },
             "Socioeconomic": {
                   "properties": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Socioeconomic",
+                              "title": "Name",
+                              "type": "string"
+                        },
                         "subtypes": {
                               "anyOf": [
                                     {
