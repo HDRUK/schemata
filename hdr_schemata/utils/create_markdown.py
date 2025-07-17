@@ -175,16 +175,16 @@ def form_structure(data, form, parent=None):
                 if "Union" in str(t):
                     print("in union")
                     options = []
-                    for i, subt in enumerate(t.__args__):
-                        if i < 2:
-                            print(subt.__name__)
-                            t_sch = subt.model_json_schema()
-                            print(t_sch)
+                    for subt in t.__args__:
+                        t_sch = subt.model_json_schema()
+                        polite_title = t_sch["properties"]["name"]["default"]
+                        if subt.__name__ + "SubTypes" in t_sch["$defs"]:
                             dataTypes = t_sch["$defs"][subt.__name__ + "SubTypes"]["enum"]
-                            print(dataTypes)
-                            polite_title = t_sch["properties"]["name"]["default"]
-                            print(polite_title)
                             options.append({"title": polite_title, "options": dataTypes})
+                        else :
+                            dataTypes = t_sch["$defs"]["NotApplicableSubTypes"]
+                            options.append({"title": polite_title, "options": ['Not Applicable']})
+
                     info = {"title": t.__name__, "type": "nested", "options": options}
                 elif issubclass(t, RootModel):
                     t_sch = t.model_json_schema()

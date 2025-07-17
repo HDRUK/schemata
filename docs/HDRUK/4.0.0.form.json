@@ -581,6 +581,106 @@
                                           "Therapeutic",
                                           "Others"
                                     ]
+                              },
+                              {
+                                    "title": "Measurements Tests",
+                                    "options": [
+                                          "Laboratory",
+                                          "Other diagnostics"
+                                    ]
+                              },
+                              {
+                                    "title": "Imaging Types",
+                                    "options": [
+                                          "CT",
+                                          "MRI",
+                                          "PET",
+                                          "X-ray",
+                                          "Ultrasound",
+                                          "Pathology",
+                                          "Others"
+                                    ]
+                              },
+                              {
+                                    "title": "Imaging Area Of The Body",
+                                    "options": [
+                                          "Head",
+                                          "Chest",
+                                          "Arm",
+                                          "Abdomen",
+                                          "Leg",
+                                          "Others"
+                                    ]
+                              },
+                              {
+                                    "title": "Omics DataType",
+                                    "options": [
+                                          "Proteomics",
+                                          "Transcriptomics",
+                                          "Epigenomics",
+                                          "Metabolomics",
+                                          "Metagenomics",
+                                          "Genomics",
+                                          "Lipidomics",
+                                          "Others"
+                                    ]
+                              },
+                              {
+                                    "title": "Socioeconomic",
+                                    "options": [
+                                          "Education",
+                                          "Crime and justice",
+                                          "Ethnicity",
+                                          "Housing",
+                                          "Labour",
+                                          "Ageing",
+                                          "Economics",
+                                          "Marital status",
+                                          "Social support",
+                                          "Deprivation",
+                                          "Religion",
+                                          "Occupation",
+                                          "Finances",
+                                          "Family circumstance",
+                                          "Others"
+                                    ]
+                              },
+                              {
+                                    "title": "Socioeconomic",
+                                    "options": [
+                                          "Smoking",
+                                          "Physical activity",
+                                          "Dietary habits",
+                                          "Alcohol",
+                                          "Others"
+                                    ]
+                              },
+                              {
+                                    "title": "Registry",
+                                    "options": [
+                                          "Disease registry (research)",
+                                          "National disease registries and audits",
+                                          "Births and deaths",
+                                          "Others"
+                                    ]
+                              },
+                              {
+                                    "title": "Environment And Energy",
+                                    "options": [
+                                          "Not Applicable"
+                                    ]
+                              },
+                              {
+                                    "title": "Information And Communication",
+                                    "options": [
+                                          "Not Applicable"
+                                    ]
+                              },
+                              {
+                                    "title": "Politics",
+                                    "options": [
+                                          "Not Applicable"
+                                    ]
                               }
                         ]
                   },
