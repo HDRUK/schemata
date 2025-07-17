@@ -173,7 +173,6 @@ def form_structure(data, form, parent=None):
                 continue
             try:
                 if "Union" in str(t):
-                    print("in union")
                     options = []
                     for subt in t.__args__:
                         t_sch = subt.model_json_schema()
