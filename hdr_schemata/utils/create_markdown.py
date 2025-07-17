@@ -172,7 +172,21 @@ def form_structure(data, form, parent=None):
             if t == "null":
                 continue
             try:
-                if issubclass(t, RootModel):
+                if "Union" in str(t):
+                    print("in union")
+                    options = []
+                    for i, subt in enumerate(t.__args__):
+                        if i < 2:
+                            print(subt.__name__)
+                            t_sch = subt.model_json_schema()
+                            print(t_sch)
+                            dataTypes = t_sch["$defs"][subt.__name__ + "SubTypes"]["enum"]
+                            print(dataTypes)
+                            polite_title = t_sch["properties"]["name"]["default"]
+                            print(polite_title)
+                            options.append({"title": polite_title, "options": dataTypes})
+                    info = {"title": t.__name__, "type": "nested", "options": options}
+                elif issubclass(t, RootModel):
                     t_sch = t.model_json_schema()
                     # Merge dicts with title and the types info in anyOf
                     if "anyOf" in t_sch:
@@ -262,11 +276,11 @@ from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 
   
-create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
-create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
-create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
-create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
-create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
+# create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
+# create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
+# create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
+# create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
+# create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
 create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
@@ -274,7 +288,7 @@ from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20   
 
-create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
-create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
-create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
-create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
+# create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
+# create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
+# create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
+# create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
