@@ -183,7 +183,7 @@ def form_structure(data, form, parent=None):
                             options.append({"title": polite_title, "options": dataTypes})
                         else :
                             dataTypes = t_sch["$defs"]["NotApplicableSubTypes"]
-                            options.append({"title": polite_title, "options": ['Not Applicable']})
+                            options.append({"title": polite_title, "options": ['Not applicable']})
 
                     info = {"title": t.__name__, "type": "nested", "options": options}
                 elif issubclass(t, RootModel):
