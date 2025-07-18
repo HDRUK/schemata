@@ -1091,7 +1091,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1107,7 +1107,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "EnvironmentAndEnergy",
                   "type": "object"
@@ -1308,7 +1308,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1324,7 +1324,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "ImagingAreaOfTheBody",
                   "type": "object"
@@ -1349,7 +1349,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1365,7 +1365,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "ImagingTypes",
                   "type": "object"
@@ -1391,7 +1391,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1407,7 +1407,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "InformationAndCommunication",
                   "type": "object"
@@ -1615,7 +1615,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1631,7 +1631,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Lifestyle",
                   "type": "object"
@@ -1701,7 +1701,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1717,7 +1717,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "MeasurementsTests",
                   "type": "object"
@@ -1870,7 +1870,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1886,7 +1886,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "OmicsDataType",
                   "type": "object"
@@ -2040,9 +2040,6 @@
                               "items": {
                                     "anyOf": [
                                           {
-                                                "$ref": "#/$defs/Registry"
-                                          },
-                                          {
                                                 "$ref": "#/$defs/HealthAndDisease"
                                           },
                                           {
@@ -2067,6 +2064,9 @@
                                                 "$ref": "#/$defs/Lifestyle"
                                           },
                                           {
+                                                "$ref": "#/$defs/Registry"
+                                          },
+                                          {
                                                 "$ref": "#/$defs/EnvironmentAndEnergy"
                                           },
                                           {
@@ -2074,6 +2074,9 @@
                                           },
                                           {
                                                 "$ref": "#/$defs/Politics"
+                                          },
+                                          {
+                                                "type": "null"
                                           }
                                     ]
                               },
@@ -2186,7 +2189,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2202,7 +2205,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Politics",
                   "type": "object"
@@ -2263,7 +2266,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2279,7 +2282,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Registry",
                   "type": "object"
@@ -2388,7 +2391,7 @@
                               "title": "Name",
                               "type": "string"
                         },
-                        "subtypes": {
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2404,7 +2407,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Socioeconomic",
                   "type": "object"
