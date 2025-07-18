@@ -2074,9 +2074,6 @@
                                           },
                                           {
                                                 "$ref": "#/$defs/Politics"
-                                          },
-                                          {
-                                                "type": "null"
                                           }
                                     ]
                               },
