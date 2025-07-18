@@ -135,7 +135,7 @@ class MeasurementsTestsSubTypes(Enum):
 
 class MeasurementsTests(BaseModel):
     name: str = Field("Measurements Tests", Literal=True)
-    subtypes: Optional[List[MeasurementsTestsSubTypes]]
+    subTypes: Optional[List[MeasurementsTestsSubTypes]]
 
 class ImagingTypesSubTypes(Enum):
     CT = 'CT'
@@ -148,7 +148,7 @@ class ImagingTypesSubTypes(Enum):
 
 class ImagingTypes(BaseModel):
     name: str = Field("Imaging Types", Literal=True)
-    subtypes: Optional[List[ImagingTypesSubTypes]]
+    subTypes: Optional[List[ImagingTypesSubTypes]]
 
 class ImagingAreaOfTheBodySubTypes(Enum):
     HEAD = 'Head'
@@ -160,7 +160,7 @@ class ImagingAreaOfTheBodySubTypes(Enum):
 
 class ImagingAreaOfTheBody(BaseModel):
     name: str = Field("Imaging Area Of The Body", Literal=True)
-    subtypes: Optional[List[ImagingAreaOfTheBodySubTypes]]
+    subTypes: Optional[List[ImagingAreaOfTheBodySubTypes]]
 
 class OmicsDataTypeSubTypes(Enum):
     PROTEOMICS = 'Proteomics'
@@ -174,7 +174,7 @@ class OmicsDataTypeSubTypes(Enum):
 
 class OmicsDataType(BaseModel):
     name: str = Field("Omics DataType", Literal=True)
-    subtypes: Optional[List[OmicsDataTypeSubTypes]]
+    subTypes: Optional[List[OmicsDataTypeSubTypes]]
 
 class SocioeconomicSubTypes(Enum):
     EDUCATION = 'Education'
@@ -195,7 +195,7 @@ class SocioeconomicSubTypes(Enum):
 
 class Socioeconomic(BaseModel):
     name: str = Field("Socioeconomic", Literal=True)
-    subtypes: Optional[List[SocioeconomicSubTypes]]
+    subTypes: Optional[List[SocioeconomicSubTypes]]
 
 class LifestyleSubTypes(Enum):
     SMOKING = 'Smoking'
@@ -206,7 +206,7 @@ class LifestyleSubTypes(Enum):
 
 class Lifestyle(BaseModel):
     name: str = Field("Socioeconomic", Literal=True)
-    subtypes: Optional[List[LifestyleSubTypes]]
+    subTypes: Optional[List[LifestyleSubTypes]]
 
 class RegistrySubTypes(Enum):
     DISEASE_REGISTRY_RESEARCH = 'Disease registry (research)'
@@ -216,22 +216,22 @@ class RegistrySubTypes(Enum):
 
 class Registry(BaseModel):
     name: str = Field("Registry", Literal=True)
-    subtypes: Optional[List[RegistrySubTypes]]
+    subTypes: Optional[List[RegistrySubTypes]]
 
 class NotApplicableSubTypes(Enum):
     NOT_APPLICABLE = 'Not applicable'
 
 class EnvironmentAndEnergy(BaseModel):
     name: str = Field("Environment And Energy", Literal=True)
-    subtypes: Optional[List[NotApplicableSubTypes]]
+    subTypes: Optional[List[NotApplicableSubTypes]]
 
 class InformationAndCommunication(BaseModel):
     name: str = Field("Information And Communication", Literal=True)
-    subtypes: Optional[List[NotApplicableSubTypes]]
+    subTypes: Optional[List[NotApplicableSubTypes]]
 
 class Politics(BaseModel):
     name: str = Field("Politics", Literal=True)
-    subtypes: Optional[List[NotApplicableSubTypes]]
+    subTypes: Optional[List[NotApplicableSubTypes]]
 
 class DatasetTypeV3(BaseModel):
     dataType: Union[
