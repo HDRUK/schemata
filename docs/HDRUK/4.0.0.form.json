@@ -539,257 +539,6 @@
             },
             {
                   "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Mental health",
-                              "Cardiovascular",
-                              "Cancer",
-                              "Rare diseases",
-                              "Metabolic and endocrine",
-                              "Neurological",
-                              "Reproductive",
-                              "Maternity and neonatology",
-                              "Respiratory",
-                              "Immunity",
-                              "Musculoskeletal",
-                              "Vision",
-                              "Renal and urogenital",
-                              "Oral and gastrointestinal",
-                              "Cognitive function",
-                              "Hearing",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Vaccines",
-                              "Preventive",
-                              "Therapeutic",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Laboratory",
-                              "Other diagnostics"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "CT",
-                              "MRI",
-                              "PET",
-                              "X-ray",
-                              "Ultrasound",
-                              "Pathology",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Head",
-                              "Chest",
-                              "Arm",
-                              "Abdomen",
-                              "Leg",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Proteomics",
-                              "Transcriptomics",
-                              "Epigenomics",
-                              "Metabolomics",
-                              "Metagenomics",
-                              "Genomics",
-                              "Lipidomics",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Education",
-                              "Crime and justice",
-                              "Ethnicity",
-                              "Housing",
-                              "Labour",
-                              "Ageing",
-                              "Economics",
-                              "Marital status",
-                              "Social support",
-                              "Deprivation",
-                              "Religion",
-                              "Occupation",
-                              "Finances",
-                              "Family circumstance",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Smoking",
-                              "Physical activity",
-                              "Dietary habits",
-                              "Alcohol",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Disease registry (research)",
-                              "National disease registries and audits",
-                              "Births and deaths",
-                              "Others"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Not applicable"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Not applicable"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
-                  "title": null,
-                  "description": null,
-                  "guidance": "",
-                  "examples": null,
-                  "is_list": true,
-                  "is_optional": true,
-                  "types": {
-                        "type": "string",
-                        "options": [
-                              "Not applicable"
-                        ]
-                  },
-                  "location": "provenance.origin.datasetType.dataType.subtypes"
-            },
-            {
-                  "required": true,
                   "title": "Dataset type",
                   "description": "The topic areas to which the dataset content relates.",
                   "guidance": "Types include those listed below. Datasets can have more than one type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- **Measurements/Tests**: Includes any data related to laboratory or other diagnostics.\\n- **Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- **Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- **Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.\\n- **Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- **Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- **Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- **Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- **Information and communication**: Includes any data related to the study or application of information and communication.\\n- **Politics**: Includes any data related to political views, activities, voting, etc.",
@@ -799,11 +548,11 @@
                   "is_list": true,
                   "is_optional": false,
                   "types": {
-                        "title": "DatasetTypeV3",
+                        "title": "Union",
                         "type": "nested",
                         "options": [
                               {
-                                    "title": "HealthAndDisease",
+                                    "title": "Health and disease",
                                     "options": [
                                           "Mental health",
                                           "Cardiovascular",
@@ -825,7 +574,7 @@
                                     ]
                               },
                               {
-                                    "title": "TreatmentsInterventions",
+                                    "title": "Treatments/Interventions",
                                     "options": [
                                           "Vaccines",
                                           "Preventive",
@@ -834,14 +583,14 @@
                                     ]
                               },
                               {
-                                    "title": "MeasurementsTests",
+                                    "title": "Measurements Tests",
                                     "options": [
                                           "Laboratory",
                                           "Other diagnostics"
                                     ]
                               },
                               {
-                                    "title": "ImagingTypes",
+                                    "title": "Imaging Types",
                                     "options": [
                                           "CT",
                                           "MRI",
@@ -853,7 +602,7 @@
                                     ]
                               },
                               {
-                                    "title": "ImagingAreaOfTheBody",
+                                    "title": "Imaging Area Of The Body",
                                     "options": [
                                           "Head",
                                           "Chest",
@@ -864,7 +613,7 @@
                                     ]
                               },
                               {
-                                    "title": "OmicsDataType",
+                                    "title": "Omics DataType",
                                     "options": [
                                           "Proteomics",
                                           "Transcriptomics",
@@ -897,7 +646,7 @@
                                     ]
                               },
                               {
-                                    "title": "Lifestyle",
+                                    "title": "Socioeconomic",
                                     "options": [
                                           "Smoking",
                                           "Physical activity",
@@ -916,13 +665,13 @@
                                     ]
                               },
                               {
-                                    "title": "EnvironmentAndEnergy",
+                                    "title": "Environment And Energy",
                                     "options": [
                                           "Not applicable"
                                     ]
                               },
                               {
-                                    "title": "InformationAndCommunication",
+                                    "title": "Information And Communication",
                                     "options": [
                                           "Not applicable"
                                     ]
