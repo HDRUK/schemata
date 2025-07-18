@@ -2040,6 +2040,9 @@
                               "items": {
                                     "anyOf": [
                                           {
+                                                "$ref": "#/$defs/Registry"
+                                          },
+                                          {
                                                 "$ref": "#/$defs/HealthAndDisease"
                                           },
                                           {
@@ -2062,9 +2065,6 @@
                                           },
                                           {
                                                 "$ref": "#/$defs/Lifestyle"
-                                          },
-                                          {
-                                                "$ref": "#/$defs/Registry"
                                           },
                                           {
                                                 "$ref": "#/$defs/EnvironmentAndEnergy"
