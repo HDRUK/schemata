@@ -1546,7 +1546,7 @@
             {
                   "required": false,
                   "title": "Synthetic data web links",
-                  "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset.",
+                  "description": "Please provide the website address(es) with information on your synthetic dataset creation, or the location where a synthetic version of the dataset can be accessed.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, select from the drop-down list, or add to the drop-down. Click the 'x' symbol to remove any entries.\\n- **Example**: https://www.pioneerdatahub.co.uk/dataset/synthetic-dataset-patients-at-risk-of-sudden-death-hypertrophic-cardiomyopathy/",
                   "guidance": "",
                   "examples": null,
                   "is_list": true,
