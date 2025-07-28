@@ -1364,7 +1364,7 @@
                         "required": false,
                         "title": "Ethnicity",
                         "description": "Array of bins, based off the UK Office for National Statistics (ONS) census groupings, and their corresponding counts as represented within the dataset.",
-                        "guidance": "",
+                        "guidance": "Enter the count of population represented in the dataset within the ethnicity bins provided. Clearly indicate where ethnicity is not stated or not known. Ensure you apply low number suppression and rounding where appropriate.",
                         "examples": null,
                         "type": [
                               "Ethnicity"
@@ -1378,7 +1378,7 @@
                         "required": false,
                         "title": "Disease",
                         "description": "Array of health conditions or diseases (based around ICD-10, SNOMED CT and MeSH disease vocabularies) and their corresponding counts as represented within the dataset.",
-                        "guidance": "",
+                        "guidance": "Create bins based on standard vocabulary (ICD-10, SNOMED CT or MeSH) and disease code. Then enter the count of population represented in the dataset within the disease bins created. Ensure you apply low number suppression and rounding where appropriate.",
                         "examples": null,
                         "type": [
                               "Disease"
