@@ -279,7 +279,7 @@ from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 # create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
 # create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
 # create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
-# create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
+create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
 create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10

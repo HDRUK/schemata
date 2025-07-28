@@ -734,7 +734,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Array of age bins and their corresponding counts.",
+                              "description": "Array of bins, based off the UK Office for National Statistics (ONS) groupings, and their corresponding counts as represented within the dataset.",
                               "title": "Age"
                         },
                         "ethnicity": {
@@ -750,7 +750,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Array of ethnicity bins and their corresponding counts.",
+                              "description": "Array of bins, based off the UK Office for National Statistics (ONS) census groupings, and their corresponding counts as represented within the dataset.",
                               "title": "Ethnicity"
                         },
                         "disease": {
@@ -766,7 +766,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Array of diseases and their corresponding counts.",
+                              "description": "Array of health conditions or diseases (based around ICD-10, SNOMED CT and MeSH disease vocabularies) and their corresponding counts as represented within the dataset.",
                               "title": "Disease"
                         }
                   },
@@ -3075,7 +3075,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
+                  "description": "The statistical characteristics of a population or group within the dataset.",
                   "title": "Demographic frequency"
             },
             "omics": {
