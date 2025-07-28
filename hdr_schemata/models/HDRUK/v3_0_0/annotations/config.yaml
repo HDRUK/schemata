@@ -448,10 +448,11 @@ datasetDescriptor:
     title: "Url of a dataset"
 demographicFrequency:
   title: "Demographic frequency"
-  description: "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes."
+  description: "The statistical characteristics of a population or group within the dataset."
   age:
     title: "Age"
-    description: "Array of age bins and their corresponding counts."
+    description: "Array of bins, based off the UK Office for National Statistics (ONS) groupings, and their corresponding counts as represented within the dataset."
+    guidance: "Enter the count of population represented in the dataset within the age bins, based on the dataset’s definition of age (e.g., age at date of admission, age at date of diagnosis). If granular data is not captured for ages <1 month, then all persons <1 year old are stored in the 1-11 months category. Ensure you apply low number suppression and rounding where appropriate."
     bin:
       title: "Age grouping"
       examples:
@@ -462,7 +463,8 @@ demographicFrequency:
         - 1000
   ethnicity:
     title: "Ethnicity"
-    description: "Array of ethnicity bins and their corresponding counts."
+    description: "Array of bins, based off the UK Office for National Statistics (ONS) census groupings, and their corresponding counts as represented within the dataset."
+    guidance: "Enter the count of population represented in the dataset within the ethnicity bins provided. Clearly indicate where ethnicity is not stated or not known. Ensure you apply low number suppression and rounding where appropriate."
     bin:
       title: "Ethnicity grouping"
       examples:
@@ -473,7 +475,8 @@ demographicFrequency:
         - 1000
   disease:
     title: "Disease"
-    description: "Array of diseases and their corresponding counts."
+    description: "Array of health conditions or diseases (based around ICD-10, SNOMED CT and MeSH disease vocabularies) and their corresponding counts as represented within the dataset."
+    guidance: "Create bins based on standard vocabulary (ICD-10, SNOMED CT or MeSH) and disease code. Then enter the count of population represented in the dataset within the disease bins created. Ensure you apply low number suppression and rounding where appropriate."
     diseaseCode:
       title: "Disease code"
       examples:
