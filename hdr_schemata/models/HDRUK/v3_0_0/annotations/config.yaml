@@ -58,8 +58,8 @@ summary:
       examples:
         - "30f16703-28bc-4f45-9ce5-625d2d3db27d"
     name:
-      guidance: In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.
-      title: "Name of data provider"
+      guidance: In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Custodians such as Cambridge Blood and Stem Cell Biobank.
+      title: "Name of Data Custodian"
       description: "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata."
       examples:
         - "Health Data Research UK"
@@ -187,7 +187,8 @@ structuralMetadata:
       description: "The name of a table in a dataset."
     syntheticDataWebLink:
       title: "Synthetic data web links"
-      description: "Links to locations of information and or raw downloads of synthetic data associated with this dataset."
+      description: "Please provide the website address(es) with information on your synthetic dataset creation, or the location where a synthetic version of the dataset can be accessed.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, select from the drop-down list, or add to the drop-down. Click the 'x' symbol to remove any entries.\\n- **Example**: https://www.pioneerdatahub.co.uk/dataset/synthetic-dataset-patients-at-risk-of-sudden-death-hypertrophic-cardiomyopathy/"
+  
     description:
       title: "Table description"
       description: "A description of a table in a dataset."
