@@ -222,11 +222,11 @@ class NotApplicableSubTypes(Enum):
     NOT_APPLICABLE = 'Not applicable'
 
 class EnvironmentAndEnergy(BaseModel):
-    name: str = Field("Environment And Energy", Literal=True)
+    name: str = Field("Environment and energy", Literal=True)
     subTypes: Optional[List[NotApplicableSubTypes]]
 
 class InformationAndCommunication(BaseModel):
-    name: str = Field("Information And Communication", Literal=True)
+    name: str = Field("Information and communication", Literal=True)
     subTypes: Optional[List[NotApplicableSubTypes]]
 
 class Politics(BaseModel):
