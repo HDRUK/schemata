@@ -1089,7 +1089,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Environment And Energy",
+                              "default": "Environment and energy",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1389,7 +1389,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Information And Communication",
+                              "default": "Information and communication",
                               "title": "Name",
                               "type": "string"
                         },
