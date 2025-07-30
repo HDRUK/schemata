@@ -1,3 +1,4 @@
+from hdr_schemata.definitions.HDRUK.DatasetType import EnvironmentAndEnergy, ImagingAreaOfTheBody, ImagingTypes, InformationAndCommunication, Lifestyle, MeasurementsTests, OmicsDataType, Politics, Registry, Socioeconomic
 from hdr_schemata.models.HDRUK.v3_0_0.Origin import Origin as BaseOrigin
 from typing import Optional, List, Union
 from pydantic import BaseModel, Field
@@ -11,7 +12,20 @@ an = annotations.provenance.origin
 
 class Origin(BaseOrigin):
 
-    datasetType: List[DatasetTypeV3] = Field(
+    datasetType: List[Union[
+        HealthAndDisease, 
+        TreatmentsInterventions, 
+        MeasurementsTests, 
+        ImagingTypes,
+        ImagingAreaOfTheBody,
+        OmicsDataType,
+        Socioeconomic,
+        Lifestyle,
+        Registry,
+        EnvironmentAndEnergy,
+        InformationAndCommunication,
+        Politics
+    ]] = Field(
         ..., **an.datasetType.__dict__, json_schema_extra={"guidance": an.datasetType.guidance}
     )
 
