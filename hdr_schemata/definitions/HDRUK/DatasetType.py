@@ -1,5 +1,5 @@
 from typing import Optional, List, Union
-from pydantic import BaseModel, RootModel, constr
+from pydantic import BaseModel, Field, RootModel, constr
 from enum import Enum
 
 #note: contructed as a string of max_length=100
@@ -39,12 +39,14 @@ class DatasetSubType(Enum):
     COGNITIVE_FUNCTION = 'Cognitive function'
     HEARING = 'Hearing'
     OTHERS = 'Others'
+    # OTHERS = 'Others'
     VACCINES = 'Vaccines'
     PREVENTIVE = 'Preventive'
     THERAPEUTIC = 'Therapeutic'
     # OTHERS = 'Others'
     LABORATORY = 'Laboratory'
     OTHER_DIAGNOSTICS = 'Other diagnostics'
+    # OTHERS = 'Others'
     CT = 'CT'
     MRI = 'MRI'
     PET = 'PET'
@@ -113,7 +115,9 @@ class HealthAndDiseaseSubTypes(Enum):
     OTHERS = 'Others'
 
 class HealthAndDisease(BaseModel):
-    subtypes: Optional[List[HealthAndDiseaseSubTypes]]
+    name: str = Field("Health and disease", Literal=True)
+    subTypes: Optional[List[HealthAndDiseaseSubTypes]]
+
 
 class TreatmentsInterventionsSubTypes(Enum):
     VACCINES = 'Vaccines'
@@ -122,14 +126,16 @@ class TreatmentsInterventionsSubTypes(Enum):
     OTHERS = 'Others'
 
 class TreatmentsInterventions(BaseModel):
-    subtypes: Optional[List[TreatmentsInterventionsSubTypes]]
+    name: str = Field("Treatments/Interventions", Literal=True)
+    subTypes: Optional[List[TreatmentsInterventionsSubTypes]]
 
 class MeasurementsTestsSubTypes(Enum):
     LABORATORY = 'Laboratory'
     OTHER_DIAGNOSTICS = 'Other diagnostics'
 
 class MeasurementsTests(BaseModel):
-    subtypes: Optional[List[MeasurementsTestsSubTypes]]
+    name: str = Field("Measurements Tests", Literal=True)
+    subTypes: Optional[List[MeasurementsTestsSubTypes]]
 
 class ImagingTypesSubTypes(Enum):
     CT = 'CT'
@@ -141,7 +147,8 @@ class ImagingTypesSubTypes(Enum):
     OTHERS = 'Others'
 
 class ImagingTypes(BaseModel):
-    subtypes: Optional[List[ImagingTypesSubTypes]]
+    name: str = Field("Imaging Types", Literal=True)
+    subTypes: Optional[List[ImagingTypesSubTypes]]
 
 class ImagingAreaOfTheBodySubTypes(Enum):
     HEAD = 'Head'
@@ -152,7 +159,8 @@ class ImagingAreaOfTheBodySubTypes(Enum):
     OTHERS = 'Others'
 
 class ImagingAreaOfTheBody(BaseModel):
-    subtypes: Optional[List[ImagingAreaOfTheBodySubTypes]]
+    name: str = Field("Imaging Area Of The Body", Literal=True)
+    subTypes: Optional[List[ImagingAreaOfTheBodySubTypes]]
 
 class OmicsDataTypeSubTypes(Enum):
     PROTEOMICS = 'Proteomics'
@@ -165,7 +173,8 @@ class OmicsDataTypeSubTypes(Enum):
     OTHERS = 'Others'
 
 class OmicsDataType(BaseModel):
-    subtypes: Optional[List[OmicsDataTypeSubTypes]]
+    name: str = Field("Omics DataType", Literal=True)
+    subTypes: Optional[List[OmicsDataTypeSubTypes]]
 
 class SocioeconomicSubTypes(Enum):
     EDUCATION = 'Education'
@@ -185,7 +194,8 @@ class SocioeconomicSubTypes(Enum):
     OTHERS = 'Others'
 
 class Socioeconomic(BaseModel):
-    subtypes: Optional[List[SocioeconomicSubTypes]]
+    name: str = Field("Socioeconomic", Literal=True)
+    subTypes: Optional[List[SocioeconomicSubTypes]]
 
 class LifestyleSubTypes(Enum):
     SMOKING = 'Smoking'
@@ -195,7 +205,8 @@ class LifestyleSubTypes(Enum):
     OTHERS = 'Others'
 
 class Lifestyle(BaseModel):
-    subtypes: Optional[List[LifestyleSubTypes]]
+    name: str = Field("Socioeconomic", Literal=True)
+    subTypes: Optional[List[LifestyleSubTypes]]
 
 class RegistrySubTypes(Enum):
     DISEASE_REGISTRY_RESEARCH = 'Disease registry (research)'
@@ -204,19 +215,23 @@ class RegistrySubTypes(Enum):
     OTHERS = 'Others'
 
 class Registry(BaseModel):
-    subtypes: Optional[List[RegistrySubTypes]]
+    name: str = Field("Registry", Literal=True)
+    subTypes: Optional[List[RegistrySubTypes]]
 
 class NotApplicableSubTypes(Enum):
     NOT_APPLICABLE = 'Not applicable'
 
 class EnvironmentAndEnergy(BaseModel):
-    subtypes: Optional[List[NotApplicableSubTypes]]
+    name: str = Field("Environment And Energy", Literal=True)
+    subTypes: Optional[List[NotApplicableSubTypes]]
 
 class InformationAndCommunication(BaseModel):
-    subtypes: Optional[List[NotApplicableSubTypes]]
+    name: str = Field("Information And Communication", Literal=True)
+    subTypes: Optional[List[NotApplicableSubTypes]]
 
 class Politics(BaseModel):
-    subtypes: Optional[List[NotApplicableSubTypes]]
+    name: str = Field("Politics", Literal=True)
+    subTypes: Optional[List[NotApplicableSubTypes]]
 
 class DatasetTypeV3(BaseModel):
     dataType: Union[

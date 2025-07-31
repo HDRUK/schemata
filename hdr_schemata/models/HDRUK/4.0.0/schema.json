@@ -703,56 +703,6 @@
                   "title": "DatasetDescriptor",
                   "type": "object"
             },
-            "DatasetTypeV3": {
-                  "properties": {
-                        "dataType": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/HealthAndDisease"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/TreatmentsInterventions"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/MeasurementsTests"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/ImagingTypes"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/ImagingAreaOfTheBody"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/OmicsDataType"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/Socioeconomic"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/Lifestyle"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/Registry"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/EnvironmentAndEnergy"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/InformationAndCommunication"
-                                    },
-                                    {
-                                          "$ref": "#/$defs/Politics"
-                                    }
-                              ],
-                              "title": "Datatype"
-                        }
-                  },
-                  "required": [
-                        "dataType"
-                  ],
-                  "title": "DatasetTypeV3",
-                  "type": "object"
-            },
             "DeliveryLeadTimeV2": {
                   "enum": [
                         "Less than 1 week",
@@ -1135,7 +1085,13 @@
             },
             "EnvironmentAndEnergy": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Environment And Energy",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1151,7 +1107,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "EnvironmentAndEnergy",
                   "type": "object"
@@ -1294,7 +1250,13 @@
             },
             "HealthAndDisease": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Health and disease",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1310,7 +1272,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "HealthAndDisease",
                   "type": "object"
@@ -1340,7 +1302,13 @@
             },
             "ImagingAreaOfTheBody": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Imaging Area Of The Body",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1356,7 +1324,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "ImagingAreaOfTheBody",
                   "type": "object"
@@ -1375,7 +1343,13 @@
             },
             "ImagingTypes": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Imaging Types",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1391,7 +1365,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "ImagingTypes",
                   "type": "object"
@@ -1411,7 +1385,13 @@
             },
             "InformationAndCommunication": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Information And Communication",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1427,7 +1407,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "InformationAndCommunication",
                   "type": "object"
@@ -1629,7 +1609,13 @@
             },
             "Lifestyle": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Socioeconomic",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1645,7 +1631,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Lifestyle",
                   "type": "object"
@@ -1709,7 +1695,13 @@
             },
             "MeasurementsTests": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Measurements Tests",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1725,7 +1717,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "MeasurementsTests",
                   "type": "object"
@@ -1872,7 +1864,13 @@
             },
             "OmicsDataType": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Omics DataType",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -1888,7 +1886,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "OmicsDataType",
                   "type": "object"
@@ -2040,7 +2038,44 @@
                               ],
                               "guidance": "Types include those listed below. Datasets can have more than one type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- **Measurements/Tests**: Includes any data related to laboratory or other diagnostics.\\n- **Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- **Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- **Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.\\n- **Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- **Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- **Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- **Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- **Information and communication**: Includes any data related to the study or application of information and communication.\\n- **Politics**: Includes any data related to political views, activities, voting, etc.",
                               "items": {
-                                    "$ref": "#/$defs/DatasetTypeV3"
+                                    "anyOf": [
+                                          {
+                                                "$ref": "#/$defs/HealthAndDisease"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/TreatmentsInterventions"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/MeasurementsTests"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/ImagingTypes"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/ImagingAreaOfTheBody"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/OmicsDataType"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Socioeconomic"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Lifestyle"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Registry"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/EnvironmentAndEnergy"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/InformationAndCommunication"
+                                          },
+                                          {
+                                                "$ref": "#/$defs/Politics"
+                                          }
+                                    ]
                               },
                               "title": "Dataset type",
                               "type": "array"
@@ -2145,7 +2180,13 @@
             },
             "Politics": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Politics",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2161,7 +2202,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Politics",
                   "type": "object"
@@ -2216,7 +2257,13 @@
             },
             "Registry": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Registry",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2232,7 +2279,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Registry",
                   "type": "object"
@@ -2335,7 +2382,13 @@
             },
             "Socioeconomic": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Socioeconomic",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2351,7 +2404,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "Socioeconomic",
                   "type": "object"
@@ -2733,7 +2786,13 @@
             },
             "TreatmentsInterventions": {
                   "properties": {
-                        "subtypes": {
+                        "name": {
+                              "Literal": true,
+                              "default": "Treatments/Interventions",
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "subTypes": {
                               "anyOf": [
                                     {
                                           "items": {
@@ -2749,7 +2808,7 @@
                         }
                   },
                   "required": [
-                        "subtypes"
+                        "subTypes"
                   ],
                   "title": "TreatmentsInterventions",
                   "type": "object"
