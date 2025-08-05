@@ -1613,7 +1613,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Socioeconomic",
+                              "default": "Lifestyle",
                               "title": "Name",
                               "type": "string"
                         },
