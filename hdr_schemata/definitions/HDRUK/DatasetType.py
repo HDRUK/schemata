@@ -205,7 +205,7 @@ class LifestyleSubTypes(Enum):
     OTHERS = 'Others'
 
 class Lifestyle(BaseModel):
-    name: str = Field("Socioeconomic", Literal=True)
+    name: str = Field("Lifestyle", Literal=True)
     subTypes: Optional[List[LifestyleSubTypes]]
 
 class RegistrySubTypes(Enum):
