@@ -583,14 +583,14 @@
                                     ]
                               },
                               {
-                                    "title": "Measurements Tests",
+                                    "title": "Measurements/Tests",
                                     "options": [
                                           "Laboratory",
                                           "Other diagnostics"
                                     ]
                               },
                               {
-                                    "title": "Imaging Types",
+                                    "title": "Imaging types",
                                     "options": [
                                           "CT",
                                           "MRI",
@@ -613,7 +613,7 @@
                                     ]
                               },
                               {
-                                    "title": "Omics DataType",
+                                    "title": "Omics",
                                     "options": [
                                           "Proteomics",
                                           "Transcriptomics",

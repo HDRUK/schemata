@@ -1347,7 +1347,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Imaging Types",
+                              "default": "Imaging types",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1699,7 +1699,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Measurements Tests",
+                              "default": "Measurements/Tests",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1868,7 +1868,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Omics DataType",
+                              "default": "Omics",
                               "title": "Name",
                               "type": "string"
                         },
