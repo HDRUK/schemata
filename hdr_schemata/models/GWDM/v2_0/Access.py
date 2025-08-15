@@ -11,7 +11,7 @@ class Access(BaseModel):
     class Config:
         extra = "forbid"
 
-    accessRights: Optional[CommaSeparatedValues] = Field(
+    accessRights: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.accessRights.__dict__
     )
 
@@ -25,7 +25,7 @@ class Access(BaseModel):
         None, **an.deliveryLeadTime.__dict__
     )
 
-    jurisdiction: Optional[CommaSeparatedValues] = Field(
+    jurisdiction: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.jurisdiction.__dict__
     )
 
@@ -33,6 +33,6 @@ class Access(BaseModel):
 
     dataProcessor: Optional[LongDescription] = Field(None, **an.dataProcessor.__dict__)
 
-    accessServiceCategory: Optional[CommaSeparatedValues] = Field(
+    accessServiceCategory: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.accessServiceCategory.__dict__
     )

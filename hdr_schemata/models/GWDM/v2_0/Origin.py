@@ -12,11 +12,11 @@ class Origin(BaseModel):
     class Config:
         extra = "forbid"
 
-    purpose: Optional[CommaSeparatedValues] = Field(None, **an.purpose.__dict__)
+    purpose: Optional[CommaSeparatedValuesV2] = Field(None, **an.purpose.__dict__)
 
-    source: Optional[CommaSeparatedValues] = Field(None, **an.source.__dict__)
+    source: Optional[CommaSeparatedValuesV2] = Field(None, **an.source.__dict__)
 
-    collectionSituation: Optional[CommaSeparatedValues] = Field(
+    collectionSituation: Optional[CommaSeparatedValuesV2] = Field(
         None, **an.collectionSituation.__dict__
     )
 
