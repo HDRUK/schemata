@@ -190,9 +190,9 @@
                               {
                                     "name": "name",
                                     "required": true,
-                                    "title": "Name of data provider",
+                                    "title": "Name of Data Custodian",
                                     "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
-                                    "guidance": "In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.",
+                                    "guidance": "In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Custodians such as Cambridge Blood and Stem Cell Biobank.",
                                     "examples": [
                                           "Health Data Research UK"
                                     ],
@@ -1648,7 +1648,7 @@
                         "name": "syntheticDataWebLink",
                         "required": false,
                         "title": "Synthetic data web links",
-                        "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset.",
+                        "description": "Please provide the website address(es) with information on your synthetic dataset creation, or the location where a synthetic version of the dataset can be accessed.- Please split your existing list of citations into separate fields.- To add multiple entries, select from the drop-down list, or add to the drop-down. Click the 'x' symbol to remove any entries.- Example: https://www.pioneerdatahub.co.uk/dataset/synthetic-dataset-patients-at-risk-of-sudden-death-hypertrophic-cardiomyopathy/",
                         "guidance": "",
                         "examples": null,
                         "type": [
@@ -1664,7 +1664,7 @@
             "name": "demographicFrequency",
             "required": false,
             "title": "Demographic frequency",
-            "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
+            "description": "The statistical characteristics of a population or group within the dataset.",
             "guidance": "",
             "examples": null,
             "type": [
@@ -1678,7 +1678,7 @@
                         "name": "age",
                         "required": false,
                         "title": "Age",
-                        "description": "Array of age bins and their corresponding counts.",
+                        "description": "Array of bins, based off the UK Office for National Statistics (ONS) groupings, and their corresponding counts as represented within the dataset.",
                         "guidance": "",
                         "examples": null,
                         "type": [
@@ -1723,8 +1723,8 @@
                         "name": "ethnicity",
                         "required": false,
                         "title": "Ethnicity",
-                        "description": "Array of ethnicity bins and their corresponding counts.",
-                        "guidance": "",
+                        "description": "Array of bins, based off the UK Office for National Statistics (ONS) census groupings, and their corresponding counts as represented within the dataset.",
+                        "guidance": "Enter the count of population represented in the dataset within the ethnicity bins provided. Clearly indicate where ethnicity is not stated or not known. Ensure you apply low number suppression and rounding where appropriate.",
                         "examples": null,
                         "type": [
                               "Ethnicity"
@@ -1768,8 +1768,8 @@
                         "name": "disease",
                         "required": false,
                         "title": "Disease",
-                        "description": "Array of diseases and their corresponding counts.",
-                        "guidance": "",
+                        "description": "Array of health conditions or diseases (based around ICD-10, SNOMED CT and MeSH disease vocabularies) and their corresponding counts as represented within the dataset.",
+                        "guidance": "Create bins based on standard vocabulary (ICD-10, SNOMED CT or MeSH) and disease code. Then enter the count of population represented in the dataset within the disease bins created. Ensure you apply low number suppression and rounding where appropriate.",
                         "examples": null,
                         "type": [
                               "Disease"

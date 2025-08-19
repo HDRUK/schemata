@@ -97,18 +97,24 @@ def get_fields(structure, model: type[BaseModel]):
             "is_optional": is_optional,
         }
 
-        if hasattr(t, "__args__"):
+        while hasattr(t, "__args__"):
+            
+            t = t.__args__[0]
+               
+            
+        
+        if isinstance(t, type) and issubclass(t, BaseModel):
             subItems = []
-            for t in t.__args__:
-                if isinstance(t, type) and issubclass(t, BaseModel):
-                    get_fields(subItems, t)
+            
+            get_fields(subItems, t)
+            # Don't ask and I wont lie, but I will run away and cry in the sink.
+            if str(t.__name__) == "HealthAndDisease":
+                subItems.pop()
+                subItems.pop()
             value["subItems"] = subItems
-        else: 
-            if isinstance(t, type) and issubclass(t, BaseModel):
-                subItems = []
-                get_fields(subItems, t)
-                value["subItems"] = subItems
-
+            
+       
+       
         structure.append(value)
 
 
@@ -175,6 +181,7 @@ def form_structure(data, form, parent=None):
                 if "Union" in str(t):
                     options = []
                     for subt in t.__args__:
+                       
                         t_sch = subt.model_json_schema()
                         polite_title = t_sch["properties"]["name"]["default"]
                         if subt.__name__ + "SubTypes" in t_sch["$defs"]:
@@ -194,19 +201,7 @@ def form_structure(data, form, parent=None):
                     else:
                         info = t_sch
                 elif issubclass(t, BaseModel):
-                    if t.__name__ == 'DatasetTypeV3':
-                        options = []
-                        t_sch = t.model_json_schema()
-                        dataTypes = t_sch["properties"]["dataType"]["anyOf"]
-                        dataTypes = [d["$ref"].split("/")[-1] for d in dataTypes]
-                        for d in dataTypes:
-                            if d + "SubTypes" in t_sch["$defs"].keys():
-                                options.append({"title": d, "options": t_sch["$defs"][d + "SubTypes"]["enum"]})
-                            else:
-                                options.append({"title": d, "options": [t_sch["$defs"]["NotApplicableSubTypes"]["const"]]})
-                        info = {"title": t_sch["title"], "type": "nested", "options": options}
-                    else:
-                        continue
+                    continue
                 else:
                     info = t.__name__
             except:
@@ -269,6 +264,7 @@ from hdr_schemata.models.HDRUK import Hdruk220
 from hdr_schemata.models.HDRUK import Hdruk221
 from hdr_schemata.models.HDRUK import Hdruk300
 from hdr_schemata.models.HDRUK import Hdruk400
+
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
 from hdr_schemata.models.GWDM.v1_2 import Gwdm12
@@ -282,10 +278,10 @@ from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 # create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
 create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
 
-from hdr_schemata.models.GWDM.v1_1 import Gwdm10
-from hdr_schemata.models.GWDM.v1_1 import Gwdm11
-from hdr_schemata.models.GWDM.v1_2 import Gwdm12
-from hdr_schemata.models.GWDM.v2_0 import Gwdm20   
+# from hdr_schemata.models.GWDM.v1_1 import Gwdm10
+# from hdr_schemata.models.GWDM.v1_1 import Gwdm11
+# from hdr_schemata.models.GWDM.v1_2 import Gwdm12
+# from hdr_schemata.models.GWDM.v2_0 import Gwdm20   
 
 # create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
 # create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
