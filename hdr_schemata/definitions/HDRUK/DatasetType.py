@@ -134,7 +134,7 @@ class MeasurementsTestsSubTypes(Enum):
     OTHER_DIAGNOSTICS = 'Other diagnostics'
 
 class MeasurementsTests(BaseModel):
-    name: str = Field("Measurements Tests", Literal=True)
+    name: str = Field("Measurements/Tests", Literal=True)
     subTypes: Optional[List[MeasurementsTestsSubTypes]]
 
 class ImagingTypesSubTypes(Enum):
@@ -147,7 +147,7 @@ class ImagingTypesSubTypes(Enum):
     OTHERS = 'Others'
 
 class ImagingTypes(BaseModel):
-    name: str = Field("Imaging Types", Literal=True)
+    name: str = Field("Imaging types", Literal=True)
     subTypes: Optional[List[ImagingTypesSubTypes]]
 
 class ImagingAreaOfTheBodySubTypes(Enum):
@@ -173,7 +173,7 @@ class OmicsDataTypeSubTypes(Enum):
     OTHERS = 'Others'
 
 class OmicsDataType(BaseModel):
-    name: str = Field("Omics DataType", Literal=True)
+    name: str = Field("Omics", Literal=True)
     subTypes: Optional[List[OmicsDataTypeSubTypes]]
 
 class SocioeconomicSubTypes(Enum):
@@ -205,7 +205,7 @@ class LifestyleSubTypes(Enum):
     OTHERS = 'Others'
 
 class Lifestyle(BaseModel):
-    name: str = Field("Socioeconomic", Literal=True)
+    name: str = Field("Lifestyle", Literal=True)
     subTypes: Optional[List[LifestyleSubTypes]]
 
 class RegistrySubTypes(Enum):
@@ -222,11 +222,11 @@ class NotApplicableSubTypes(Enum):
     NOT_APPLICABLE = 'Not applicable'
 
 class EnvironmentAndEnergy(BaseModel):
-    name: str = Field("Environment And Energy", Literal=True)
+    name: str = Field("Environment and energy", Literal=True)
     subTypes: Optional[List[NotApplicableSubTypes]]
 
 class InformationAndCommunication(BaseModel):
-    name: str = Field("Information And Communication", Literal=True)
+    name: str = Field("Information and communication", Literal=True)
     subTypes: Optional[List[NotApplicableSubTypes]]
 
 class Politics(BaseModel):

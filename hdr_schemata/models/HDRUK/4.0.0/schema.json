@@ -734,7 +734,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Array of age bins and their corresponding counts.",
+                              "description": "Array of bins, based off the UK Office for National Statistics (ONS) groupings, and their corresponding counts as represented within the dataset.",
                               "title": "Age"
                         },
                         "ethnicity": {
@@ -750,7 +750,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Array of ethnicity bins and their corresponding counts.",
+                              "description": "Array of bins, based off the UK Office for National Statistics (ONS) census groupings, and their corresponding counts as represented within the dataset.",
+                              "guidance": "Enter the count of population represented in the dataset within the ethnicity bins provided. Clearly indicate where ethnicity is not stated or not known. Ensure you apply low number suppression and rounding where appropriate.",
                               "title": "Ethnicity"
                         },
                         "disease": {
@@ -766,7 +767,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Array of diseases and their corresponding counts.",
+                              "description": "Array of health conditions or diseases (based around ICD-10, SNOMED CT and MeSH disease vocabularies) and their corresponding counts as represented within the dataset.",
+                              "guidance": "Create bins based on standard vocabulary (ICD-10, SNOMED CT or MeSH) and disease code. Then enter the count of population represented in the dataset within the disease bins created. Ensure you apply low number suppression and rounding where appropriate.",
                               "title": "Disease"
                         }
                   },
@@ -1087,7 +1089,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Environment And Energy",
+                              "default": "Environment and energy",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1345,7 +1347,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Imaging Types",
+                              "default": "Imaging types",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1387,7 +1389,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Information And Communication",
+                              "default": "Information and communication",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1611,7 +1613,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Socioeconomic",
+                              "default": "Lifestyle",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1697,7 +1699,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Measurements Tests",
+                              "default": "Measurements/Tests",
                               "title": "Name",
                               "type": "string"
                         },
@@ -1866,7 +1868,7 @@
                   "properties": {
                         "name": {
                               "Literal": true,
-                              "default": "Omics DataType",
+                              "default": "Omics",
                               "title": "Name",
                               "type": "string"
                         },
@@ -2509,7 +2511,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Links to locations of information and or raw downloads of synthetic data associated with this dataset.",
+                              "description": "Please provide the website address(es) with information on your synthetic dataset creation, or the location where a synthetic version of the dataset can be accessed.\\n- Please split your existing list of citations into separate fields.\\n- To add multiple entries, select from the drop-down list, or add to the drop-down. Click the 'x' symbol to remove any entries.\\n- **Example**: https://www.pioneerdatahub.co.uk/dataset/synthetic-dataset-patients-at-risk-of-sudden-death-hypertrophic-cardiomyopathy/",
                               "title": "Synthetic data web links"
                         }
                   },
@@ -3075,7 +3077,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
+                  "description": "The statistical characteristics of a population or group within the dataset.",
                   "title": "Demographic frequency"
             },
             "omics": {
