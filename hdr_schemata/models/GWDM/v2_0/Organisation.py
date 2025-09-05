@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 from pydantic import AnyUrl, BaseModel, EmailStr, Field, constr
 from hdr_schemata.definitions.HDRUK import *
 
@@ -10,7 +10,7 @@ an = annotations.organisation
 class Organisation(BaseModel):
     name: Optional[Name] = Field(None, **an.name.__dict__)
 
-    gatewayId: Optional[constr(min_length=2, max_length=50)] = Field(
+    gatewayId: Optional[Union[int, constr(min_length=2, max_length=50)]] = Field(
         None, **an.gatewayId.__dict__
     )
 

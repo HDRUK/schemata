@@ -13,7 +13,7 @@ an = annotations.coverage
 
 class Coverage(BaseModel):
 
-    spatial: Optional[CommaSeparatedValues] = Field(None, **an.spatial.__dict__)
+    spatial: Optional[CommaSeparatedValuesV2] = Field(None, **an.spatial.__dict__)
 
     pathway: Optional[LongDescription] = Field(None, **an.pathway.__dict__)
 

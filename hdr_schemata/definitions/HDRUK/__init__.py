@@ -5,7 +5,7 @@ from .AgeEnum import AgeEnum
 from .AgeRange import AgeRange
 from .Assay import Assay
 from .CommaSeparatedIntegers import CommaSeparatedIntegers
-from .CommaSeparatedValues import CommaSeparatedValues
+from .CommaSeparatedValues import CommaSeparatedValues, CommaSeparatedValuesV2
 from .ControlledVocabulary import ControlledVocabulary
 from .ControlledVocabularyEnum import ControlledVocabularyEnum
 from .DataUseLimitation import DataUseLimitation, DataUseLimitationV2
