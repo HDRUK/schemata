@@ -5,16 +5,85 @@ provenance:
     title: "Origin Coverage"
     description: "Coverage by origin (geographical and situations)."
     datasetType:
-      guidance: "Types include those listed below. Datasets can have more than one type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- **Measurements/Tests**: Includes any data related to laboratory or other diagnostics.\\n- **Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- **Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- **Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.\\n- **Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- **Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- **Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- **Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- **Information and communication**: Includes any data related to the study or application of information and communication.\\n- **Politics**: Includes any data related to political views, activities, voting, etc."
       title: "Dataset type"
-      description: "The topic areas to which the dataset content relates."
-      examples:
-        - "Health and disease"
-    datasetSubType:
-      guidance: "Sub-types include those listed below under each data type. Datasets can have more than one sub-type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- *Measurements/Tests**- Includes any data related to laboratory or other diagnostics.\\n- *Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- *Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- *Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType is selected.\\n- *Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- *Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- *Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- *Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- *Information and communication**: Includes any data related to the study or application of information and communication.\\n- *Politics**: Includes any data related to political views, activities, voting, etc."
-      title: "Dataset sub-type"
-      description: "The sub-type of the dataset content. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType ('proteomics', 'transcriptomics', 'epigenomics', 'metabolomics', 'metagenomics', 'genomics', 'lipidomics') is selected"
+      description: "Select one or more dataset types. For each selected type, you may optionally add one or more sub-types that further describe the content."
+      guidance: |
+        Datasets can have multiple types. Each selected type has its own optional sub-types.
 
+        Types and sub-types:
+
+        - **Health and disease**
+          Sub-types: Mental health; Cardiovascular; Cancer; Rare diseases; Metabolic and endocrine; Neurological;
+          Reproductive; Maternity and neonatology; Respiratory; Immunity; Musculoskeletal; Vision; Renal and urogenital;
+          Oral and gastrointestinal; Cognitive function; Hearing; Others.
+
+        - **Treatments/Interventions**
+          Sub-types: Vaccines; Preventive; Therapeutic; Others.
+
+        - **Measurements/Tests**
+          Sub-types: Laboratory; Other diagnostics.
+
+        - **Imaging types**
+          Sub-types: CT; MRI; PET; X-ray; Ultrasound; Pathology; Others.
+
+        - **Imaging Area Of The Body**
+          Sub-types: Head; Chest; Arm; Abdomen; Leg; Others.
+
+        - **Omics**
+          Sub-types: Proteomics; Transcriptomics; Epigenomics; Metabolomics; Metagenomics; Genomics; Lipidomics; Others.
+          Note: If more than one Omics sub-type is selected, the catalogue may additionally tag the dataset as **Multiomics**.
+
+        - **Socioeconomic**
+          Sub-types: Education; Crime and justice; Ethnicity; Housing; Labour; Ageing; Economics; Marital status;
+          Social support; Deprivation; Religion; Occupation; Finances; Family circumstance; Others.
+
+        - **Lifestyle**
+          Sub-types: Smoking; Physical activity; Dietary habits; Alcohol; Others.
+
+        - **Registry**
+          Sub-types: Disease registry (research); National disease registries and audits; Births and deaths; Others.
+
+        - **Environment and energy**
+          Sub-types: Not applicable.
+
+        - **Information and communication**
+          Sub-types: Not applicable.
+
+        - **Politics**
+          Sub-types: Not applicable.
+
+      examples:
+        - |
+          Single type without sub-types:
+          [
+            { "name": "Environment and energy" }
+          ]
+        - |
+          Multiple types with sub-types:
+          [
+            {
+              "name": "Health and disease",
+              "subTypes": ["Cancer", "Respiratory"]
+            },
+            {
+              "name": "Imaging types",
+              "subTypes": ["CT", "MRI"]
+            },
+            {
+              "name": "Omics",
+              "subTypes": ["Genomics", "Transcriptomics"]
+            }
+          ]
+        - |
+          Imaging area example:
+          [
+            {
+              "name": "Imaging Area Of The Body",
+              "subTypes": ["Chest", "Abdomen"]
+            }
+          ]
+
+    # Note: `datasetSubType` is no longer a separate field. Sub-types are chosen per entry in `datasetType`.
 summary:
   dataCustodian:
     title: "Dataset Custodian"
