@@ -42,7 +42,7 @@ class Coverage(BaseModel):
     )
 
     followUp: Optional[FollowupV2] = Field(
-        "Unknown",
+        "UNKNOWN",
         **an.followUp.__dict__,
         json_schema_extra={"guidance": an.followUp.guidance}
     )
