@@ -411,10 +411,13 @@
                         "name": "spatial",
                         "required": false,
                         "title": "Geographic Coverage",
-                        "description": "The geographical area covered by the dataset. It is recommended that links are to entries in a well-maintained gazetteer such as https://www.geonames.org/ or https://what3words.com/daring.lion.race.",
+                        "description": "The geographical area covered by the dataset.",
                         "guidance": "The geographical area covered by the dataset.- Please provide a valid location.- For locations in the UK, this location should conform to ONS standards.- For locations in other countries we use ISO 3166-1 & ISO 3166-2.",
                         "examples": [
-                              "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                              "England",
+                              "East Ayrshire",
+                              "Ardoyne",
+                              "Powys"
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
