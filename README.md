@@ -55,6 +55,8 @@ Run `python create_json_schema.py`. This will modify the contents of `hdr_schema
 pip install -e .
 ```
 
+You will also have to update the json templates. From the repo folder run `python create_example.py`
+
 ### Update docs
 
 Finally, update the Markdown docs with:
