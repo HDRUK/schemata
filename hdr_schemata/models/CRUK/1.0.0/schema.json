@@ -17,11 +17,7 @@
                   "additionalProperties": false,
                   "properties": {
                         "accessRights": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/LongDescription"
-                                    }
-                              ],
+                              "$ref": "#/$defs/LongDescription",
                               "description": "Please provide details for the data access rights.",
                               "examples": [
                                     "In Progress"
@@ -178,11 +174,7 @@
                               "title": "Usage"
                         },
                         "access": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Access"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Access",
                               "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
                               "title": "Accessibility"
                         },
@@ -209,11 +201,7 @@
             "Age": {
                   "properties": {
                         "bin": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/AgeEnum"
-                                    }
-                              ],
+                              "$ref": "#/$defs/AgeEnum",
                               "examples": [
                                     "30-34 years"
                               ],
@@ -472,11 +460,7 @@
             "DataColumn": {
                   "properties": {
                         "name": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Name"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Name",
                               "description": "The name of a column in a table.",
                               "title": "Column name"
                         },
@@ -529,16 +513,6 @@
                   ],
                   "title": "DataColumn",
                   "type": "object"
-            },
-            "DatasetFilters": {
-                  "type": "array",
-                  "items": {
-                        "type": "string",
-                        "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}"
-
-                  },
-                  "title": "Dataset Filters",
-                  "description": "A list of categorization tags (ids) for the dataset."
             },
             "DataTable": {
                   "additionalProperties": false,
@@ -642,11 +616,7 @@
             "DataValue": {
                   "properties": {
                         "name": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Name"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Name",
                               "description": "Unique value in a column.",
                               "title": "Value name"
                         },
@@ -726,6 +696,15 @@
                   },
                   "title": "DatasetDescriptor",
                   "type": "object"
+            },
+            "DatasetFilters": {
+                  "description": "A list of categorization tags (ids) for the dataset.",
+                  "items": {
+                        "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
+                        "type": "string"
+                  },
+                  "title": "Dataset Filters",
+                  "type": "array"
             },
             "DeliveryLeadTimeV2": {
                   "enum": [
@@ -829,11 +808,7 @@
                               "title": "Disease code"
                         },
                         "diseaseCodeVocabulary": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/DiseaseCodeEnum"
-                                    }
-                              ],
+                              "$ref": "#/$defs/DiseaseCodeEnum",
                               "examples": [
                                     "ICD10"
                               ],
@@ -868,11 +843,7 @@
                   "additionalProperties": false,
                   "properties": {
                         "description": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Description"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Description",
                               "description": "A free-text description of the dataset.\\nA URL can also be provided as the description of the dataset.\\nGateway Feature: Keywords and text may be extracted out of the description and indexed for search.",
                               "examples": [
                                     "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
@@ -1141,11 +1112,7 @@
             "Ethnicity": {
                   "properties": {
                         "bin": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/EthnicityEnum"
-                                    }
-                              ],
+                              "$ref": "#/$defs/EthnicityEnum",
                               "examples": [
                                     "Black or Black British - Any other Black background"
                               ],
@@ -1326,36 +1293,37 @@
                   "title": "HealthAndDiseaseSubTypes",
                   "type": "string"
             },
-            "Icons": {
-      "anyOf": [
-            {
-                  "items": {
-                        "type": "string"
-                  },
-                  "type": "array"
-            },
-            {
-                  "type": "null"
-            }
-      ],
-      "description": "A list of icon identifiers associated with the dataset, derived from dataset filters.",
-      "title": "Icons"
-},
             "Image": {
                   "additionalProperties": false,
                   "properties": {
                         "image": {
-                              "description": "An image file.",
-                              "title": "Image",
-                              "type": "string",
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
                               "contentMediaType": "image/*",
-                              "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB."
+                              "default": null,
+                              "description": "An image file.",
+                              "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB.",
+                              "title": "Image"
                         },
                         "description": {
-                               "$ref": "#/$defs/Description"
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Description"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null
                         }
                   },
-                  "title": "Diagram",
+                  "title": "Image",
                   "type": "object"
             },
             "ImagingAreaOfTheBody": {
@@ -1708,7 +1676,7 @@
             "LineSeparatedValues": {
                   "anyOf": [
                         {
-                              "pattern": "([^\\r\\n]+)",
+                              "pattern": "([^\\\\r\\\\n]+)",
                               "type": "string"
                         },
                         {
@@ -1814,24 +1782,22 @@
                   "title": "Name"
             },
             "NotApplicableSubTypes": {
-                  "const": "Not applicable",
-                  "title": "NotApplicableSubTypes"
+                  "enum": [
+                        "Not applicable"
+                  ],
+                  "title": "NotApplicableSubTypes",
+                  "type": "string"
             },
             "Observation": {
                   "additionalProperties": false,
                   "properties": {
-                        "observedNode":
-                        {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/AbstractText"
-                                    }
-                              ],
-                              "description": "Brief description of what is being measured.",
+                        "observedNode": {
+                              "$ref": "#/$defs/StatisticalPopulationConstrainedV2",
+                              "description": "Please select one of the following broad notes for your measured observation. Indicating whether the measured property is a recording of unique persons, events, findings or scans per modality.",
                               "examples": [
                                     "Persons"
                               ],
-                              "guidance": "Limit to between 5 and 500 characters",
+                              "guidance": "- **Persons**: Unique persons recorded in the dataset\\n- **Events**: Unique events such as procedures and prescriptions within the dataset\\n-**Findings**: Unique findings included in the dataset such as diagnoses'\\n-**Number of scans per modality**: Unique scans for a specified imaging method modality (e.g. 12 x-rays)",
                               "title": "Dataset volume measure"
                         },
                         "measuredValue": {
@@ -1876,11 +1842,7 @@
                               "title": "Observation date"
                         },
                         "measuredProperty": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/MeasuredProperty"
-                                    }
-                              ],
+                              "$ref": "#/$defs/MeasuredProperty",
                               "description": "Descriptive term for the observation property measured. For example, people, procedures, x-rays, or diagnosis of type 1 diabetes. This could also be a specific SNOMED CT term.",
                               "examples": [
                                     "Count"
@@ -2004,11 +1966,7 @@
                               "title": "identifier"
                         },
                         "name": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    }
-                              ],
+                              "$ref": "#/$defs/OneHundredFiftyCharacters",
                               "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
                               "examples": [
                                     "Health Data Research UK"
@@ -2279,75 +2237,105 @@
                   "type": "object"
             },
             "Project": {
-                  "properties" : {
+                  "additionalProperties": false,
+                  "properties": {
                         "projectName": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
-                              "title": "Project Title",
-                              "description": "May or may not be different to the Dataset Title"
+                              "default": null,
+                              "description": "May or may not be different to the Dataset Title",
+                              "title": "Project Title"
                         },
                         "leadResearcher": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
+                              "description": "",
                               "examples": [
                                     "Dr Smith"
                               ],
-                              "title": "Lead Researcher",
-                              "description": ""
-
+                              "title": "Lead Researcher"
                         },
                         "leadResearchInstitute": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
+                              "description": "",
                               "examples": [
                                     "Sussex University"
                               ],
-                              "title": "Lead Research Institute",
-                              "description": ""
-
+                              "title": "Lead Research Institute"
                         },
                         "grantNumbers": {
-                              "allOf": [
+                              "anyOf": [
                                     {
                                           "$ref": "#/$defs/LineSeparatedValues"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "List of grant numbers separated by a line break",
-
                               "examples": [
                                     "A354t",
                                     "ropguadg"
                               ],
                               "guidance": "Normally specified on the grant acceptance letter",
-
                               "title": "Grant number(s)"
                         },
-
                         "projectStartDate": {
-                              "allOf": [
+                              "anyOf": [
                                     {
-                                          "$ref": "#/$defs/StartDate"
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Starting date of project grant.",
                               "guidance": "Date on which the dataset project starts. This is normally set out in the grant contract and will be different from the start of any data collection",
                               "title": "Project Start Date"
                         },
                         "projectEndDate": {
-                              "allOf": [
+                              "anyOf": [
                                     {
-                                          "$ref": "#/$defs/EndDate"
+                                          "format": "date",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "format": "date-time",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
                                     }
                               ],
+                              "default": null,
                               "description": "Current end date of project grant.",
                               "guidance": "Date on which the dataset project is currently projected to finish. This is normally set out in the grant contract and will be different from the end of any data collection",
                               "title": "Project End Date"
@@ -2361,14 +2349,19 @@
                                     },
                                     {
                                           "type": "null"
-                                    }],
+                                    }
+                              ],
+                              "default": null,
                               "description": "data and biospecimens expected to result from the grant.",
+                              "examples": [
+                                    "Longitudinal genomic data including somatic mutations"
+                              ],
                               "guidance": "Short paragraph setting out the types of data / biospecimens likely to result from the grant and the cancers covered",
-                              "examples": ["Longitudinal genomic data including somatic mutations"],
                               "title": "Project Scope"
-
                         }
-                  }
+                  },
+                  "title": "Project",
+                  "type": "object"
             },
             "Provenance": {
                   "additionalProperties": false,
@@ -2387,11 +2380,7 @@
                               "title": "Origin Coverage"
                         },
                         "temporal": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Temporal"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Temporal",
                               "description": "Dates and other temporal coverage information.",
                               "title": "Temporal Coverage"
                         }
@@ -2461,11 +2450,7 @@
                   "additionalProperties": false,
                   "properties": {
                         "version": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Semver"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Semver",
                               "description": "Version number used for previous version of this dataset",
                               "examples": [
                                     "6.0.0"
@@ -2683,11 +2668,7 @@
                   "additionalProperties": false,
                   "properties": {
                         "title": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    }
-                              ],
+                              "$ref": "#/$defs/OneHundredFiftyCharacters",
                               "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
                               "examples": [
                                     "North West London COVID-19 Patient Level Situation Report",
@@ -2697,27 +2678,17 @@
                               "title": "Title"
                         },
                         "funders": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/LineSeparatedValues"
-                                    }
-                              ],
+                              "$ref": "#/$defs/LineSeparatedValues",
                               "description": "List of Funders separated by a line break",
                               "examples": [
                                     "CRUK",
                                     "University of Sussex"
                               ],
                               "guidance": "Put each funder on a new line",
-
                               "title": "Funded by"
                         },
-
                         "abstract": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/AbstractText"
-                                    }
-                              ],
+                              "$ref": "#/$defs/AbstractText",
                               "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible.",
                               "examples": [
                                     "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
@@ -2726,11 +2697,7 @@
                               "title": "Dataset abstract"
                         },
                         "dataCustodian": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/Organisation"
-                                    }
-                              ],
+                              "$ref": "#/$defs/Organisation",
                               "description": "This is the organisation responsible for running or supporting the data access request process, as well as enquiries about a dataset. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
                               "title": "Dataset Custodian"
                         },
@@ -2786,11 +2753,7 @@
                               "title": "Digital Object Identifier (DOI) for dataset"
                         },
                         "contactPoint": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/EmailAddress"
-                                    }
-                              ],
+                              "$ref": "#/$defs/EmailAddress",
                               "description": "Please provide a valid email address that can be used to coordinate data access requests.",
                               "examples": [
                                     "gateway@hdruk.ac.uk"
@@ -2828,9 +2791,9 @@
                   },
                   "required": [
                         "title",
+                        "funders",
                         "abstract",
                         "dataCustodian",
-                        "funders",
                         "populationSize",
                         "contactPoint"
                   ],
@@ -2841,11 +2804,7 @@
                   "additionalProperties": false,
                   "properties": {
                         "publishingFrequency": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/PeriodicityV2"
-                                    }
-                              ],
+                              "$ref": "#/$defs/PeriodicityV2",
                               "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
                               "examples": [
                                     "Continuous"
@@ -2919,11 +2878,7 @@
                               "title": "End date"
                         },
                         "timeLag": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/TimeLagV2"
-                                    }
-                              ],
+                              "$ref": "#/$defs/TimeLagV2",
                               "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
                               "examples": [
                                     "Not applicable"
@@ -3097,15 +3052,6 @@
       },
       "additionalProperties": false,
       "properties": {
-            "icons": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Icons"
-                        }
-                  ],
-                  "description": "Calculated categorization icons added during export.",
-                  "title": "Icons"
-            },
             "identifier": {
                   "anyOf": [
                         {
@@ -3127,11 +3073,7 @@
                   "title": "Dataset identifier"
             },
             "version": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Semver"
-                        }
-                  ],
+                  "$ref": "#/$defs/Semver",
                   "description": "Dataset metadata version.",
                   "examples": [
                         "1.1.0"
@@ -3165,23 +3107,10 @@
                   "title": "Last Modified Datetime",
                   "type": "string"
             },
-            "project": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Project"
-                        }
-                  ]
-
-            },
             "summary": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Summary"
-                        }
-                  ],
+                  "$ref": "#/$defs/Summary",
                   "description": "Summary of metadata describing key pieces of information."
             },
-
             "documentation": {
                   "anyOf": [
                         {
@@ -3194,18 +3123,6 @@
                   "default": null,
                   "description": "Documentation can include a rich text description of the dataset or links to media such as documents, images, presentations, videos or links to data dictionaries, profiles or dashboards. Organisations are required to confirm that they have permission to distribute any additional media.",
                   "title": "Documentation"
-            },
-            "datasetFilters": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/DatasetFilters"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "Categorization tags regarding cancer type, data type, and access."
             },
             "coverage": {
                   "anyOf": [
@@ -3234,11 +3151,7 @@
                   "title": "Provenance"
             },
             "accessibility": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Accessibility"
-                        }
-                  ],
+                  "$ref": "#/$defs/Accessibility",
                   "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets."
             },
             "enrichmentAndLinkage": {
@@ -3275,21 +3188,6 @@
                   "description": "Descriptions of all tables and data elements that can be included in the dataset.",
                   "title": "Structural metadata"
             },
-            "erd": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/Image"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "Visual representation of data table relationships.",
-                  "title": "Entity Relationship Diagram",
-                  "guidance": "Please upload an image file (max 5MB) showing the relationship between the different tables"
-
-            },
             "demographicFrequency": {
                   "anyOf": [
                         {
@@ -3315,8 +3213,37 @@
                   "default": null,
                   "description": "Omics",
                   "title": "Omics"
+            },
+            "project": {
+                  "$ref": "#/$defs/Project",
+                  "default": null
+            },
+            "datasetFilters": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/DatasetFilters"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Categorization tags regarding cancer type, data type, and access."
+            },
+            "erd": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Image"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Visual representation of data table relationships.",
+                  "guidance": "Please upload an image file (max 5MB) showing the relationship between the different tables",
+                  "title": "Entity Relationship Diagram"
             }
-
       },
       "required": [
             "identifier",
@@ -3328,6 +3255,6 @@
             "accessibility",
             "observations"
       ],
-      "title": "Hdruk400",
+      "title": "Cruk100",
       "type": "object"
 }
