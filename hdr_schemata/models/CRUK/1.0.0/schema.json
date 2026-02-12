@@ -1293,6 +1293,21 @@
                   "title": "HealthAndDiseaseSubTypes",
                   "type": "string"
             },
+            "Icons": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "description": "A list of icon identifiers associated with the dataset, derived from dataset filters.",
+                  "title": "Icons"
+            },
             "Image": {
                   "additionalProperties": false,
                   "properties": {
@@ -3213,6 +3228,19 @@
                   "default": null,
                   "description": "Omics",
                   "title": "Omics"
+            },
+            "icons": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Icons"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Calculated categorization icons added during export.",
+                  "title": "Icons"
             },
             "project": {
                   "$ref": "#/$defs/Project",
