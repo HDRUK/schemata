@@ -10,6 +10,7 @@ from hdr_schemata.models.HDRUK.v4_0_0.annotations import annotations as an
 from hdr_schemata.models.HDRUK.v3_0_0.annotations import annotations as an_v3
 
 from .DatasetFilters import DatasetFilters
+from .Icons import Icons
 from .Image import Image
 from .Project import Project
 from .Summary import Summary
@@ -17,6 +18,11 @@ from .StructuralMetadata import StructuralMetadata
 
 
 class Cruk100(Hdruk400):
+    icons: Optional[Icons] = Field(
+        None,
+        title="Icons",
+        description="Calculated categorization icons added during export.",
+    )
     summary: Summary = Field(
         ..., description=an.summary._description, title=an.summary._title
     )
