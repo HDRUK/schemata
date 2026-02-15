@@ -15,6 +15,9 @@
             "1.2",
             "2.0"
       ],
+      "CRUK": [
+            "1.0.0"
+      ],
       "SchemaOrg": [
             "BioSchema",
             "default",
