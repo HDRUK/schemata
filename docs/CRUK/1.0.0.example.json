@@ -1,0 +1,188 @@
+{
+      "identifier": null,
+      "version": "1.1.0",
+      "revisions": [
+            {
+                  "version": "6.0.0",
+                  "url": null
+            }
+      ],
+      "issued": "2024-10-24T00:00:00.000Z",
+      "modified": "2024-10-24T00:00:00.000Z",
+      "summary": {
+            "title": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations",
+            "funders": "CRUK",
+            "abstract": "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner.",
+            "dataCustodian": {
+                  "identifier": "30f16703-28bc-4f45-9ce5-625d2d3db27d",
+                  "name": "Health Data Research UK",
+                  "logo": null,
+                  "description": null,
+                  "contactPoint": "test@test.co.uk",
+                  "memberOf": null
+            },
+            "populationSize": 1000,
+            "keywords": [
+                  "Preprints,Papers,HDR UK"
+            ],
+            "doiName": null,
+            "contactPoint": "gateway@hdruk.ac.uk",
+            "datasetAliases": null
+      },
+      "documentation": {
+            "description": "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.",
+            "associatedMedia": null,
+            "inPipeline": null
+      },
+      "coverage": {
+            "spatial": "United Kingdom",
+            "typicalAgeRangeMin": null,
+            "typicalAgeRangeMax": null,
+            "datasetCompleteness": null,
+            "materialType": null,
+            "followUp": null,
+            "pathway": null
+      },
+      "provenance": {
+            "origin": {
+                  "purpose": null,
+                  "datasetType": [
+                        "Health and disease"
+                  ],
+                  "source": null,
+                  "collectionSource": null,
+                  "imageContrast": null
+            },
+            "temporal": {
+                  "publishingFrequency": "Continuous",
+                  "distributionReleaseDate": null,
+                  "startDate": "2024-10-24T00:00:00.000Z",
+                  "endDate": null,
+                  "timeLag": "Not applicable"
+            }
+      },
+      "accessibility": {
+            "usage": {
+                  "dataUseLimitation": null,
+                  "dataUseRequirements": null,
+                  "resourceCreator": null
+            },
+            "access": {
+                  "accessRights": "In Progress",
+                  "accessServiceCategory": null,
+                  "accessService": null,
+                  "accessRequestCost": null,
+                  "deliveryLeadTime": null,
+                  "jurisdiction": null,
+                  "dataController": null,
+                  "dataProcessor": null
+            },
+            "formatAndStandards": {
+                  "vocabularyEncodingScheme": [
+                        "LOCAL",
+                        "ICD10"
+                  ],
+                  "conformsTo": [
+                        "LOCAL",
+                        "NHS DATA DICTIONARY"
+                  ],
+                  "language": [
+                        "en"
+                  ],
+                  "format": [
+                        "text/tab-separated-values",
+                        "application/sql",
+                        "text/csv",
+                        "image/diacom-rle"
+                  ]
+            }
+      },
+      "enrichmentAndLinkage": {
+            "derivedFrom": [
+                  {
+                        "pid": null,
+                        "title": null,
+                        "url": null
+                  }
+            ],
+            "isPartOf": [
+                  {
+                        "pid": null,
+                        "title": null,
+                        "url": null
+                  }
+            ],
+            "linkableDatasets": [
+                  {
+                        "pid": null,
+                        "title": null,
+                        "url": null
+                  }
+            ],
+            "similarToDatasets": [
+                  {
+                        "pid": null,
+                        "title": null,
+                        "url": null
+                  }
+            ],
+            "investigations": null,
+            "tools": null,
+            "publicationAboutDataset": [
+                  "10.1093/ije/dyab028"
+            ],
+            "publicationUsingDataset": [
+                  "10.1001/jamapediatrics.2016.3633"
+            ]
+      },
+      "observations": [
+            {
+                  "observedNode": "Persons",
+                  "measuredValue": 1000,
+                  "disambiguatingDescription": null,
+                  "observationDate": "2024-10-24",
+                  "measuredProperty": "Count"
+            }
+      ],
+      "structuralMetadata": null,
+      "demographicFrequency": {
+            "age": [
+                  {
+                        "bin": "30-34 years",
+                        "count": 1000
+                  }
+            ],
+            "ethnicity": [
+                  {
+                        "bin": "Black or Black British - Any other Black background",
+                        "count": 1000
+                  }
+            ],
+            "disease": [
+                  {
+                        "diseaseCode": "J45",
+                        "diseaseCodeVocabulary": "ICD10",
+                        "count": 1000
+                  }
+            ]
+      },
+      "omics": {
+            "assay": null,
+            "platform": null
+      },
+      "icons": null,
+      "project": {
+            "projectName": null,
+            "leadResearcher": null,
+            "leadResearchInstitute": null,
+            "grantNumbers": null,
+            "projectStartDate": null,
+            "projectEndDate": null,
+            "projectScope": null
+      },
+      "datasetFilters": null,
+      "erd": {
+            "image": null,
+            "description": null
+      }
+}
