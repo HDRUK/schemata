@@ -10,9 +10,9 @@
       "issued": "2024-10-24T00:00:00.000Z",
       "modified": "2024-10-24T00:00:00.000Z",
       "summary": {
-            "title": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations",
+            "title": "North West London COVID-19 Patient Level Situation Report",
             "funders": "CRUK",
-            "abstract": "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner.",
+            "abstract": "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.",
             "dataCustodian": {
                   "identifier": "30f16703-28bc-4f45-9ce5-625d2d3db27d",
                   "name": "Health Data Research UK",
@@ -23,7 +23,12 @@
             },
             "populationSize": 1000,
             "keywords": [
-                  "Preprints,Papers,HDR UK"
+                  "Outpatient Care",
+                  "Socioeconomic Deprivation",
+                  "Infant Morbidity",
+                  "Learning disability",
+                  "Primary Care Prescription",
+                  "Accident and Emergency Admissions"
             ],
             "doiName": null,
             "contactPoint": "gateway@hdruk.ac.uk",
