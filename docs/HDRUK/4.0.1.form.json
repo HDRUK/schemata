@@ -101,10 +101,11 @@
             {
                   "required": true,
                   "title": "Title",
-                  "description": "The main title of the dataset",
+                  "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
                   "guidance": "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report",
                   "examples": [
-                        "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations"
+                        "North West London COVID-19 Patient Level Situation Report",
+                        "Scottish Morbidity Record (SMR)"
                   ],
                   "is_list": false,
                   "is_optional": false,
@@ -136,11 +137,11 @@
             },
             {
                   "required": true,
-                  "title": "Abstract",
-                  "description": "Longer abstract detailing the dataset.",
+                  "title": "Dataset abstract",
+                  "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible.",
                   "guidance": "- The abstract should provide a **clear and brief descriptive** signpost for researchers who are searching for data that may be relevant to their research.\\n- The abstract should allow the reader to determine the **scope of the data collection and accurately summarise its content**.\\n- Effective abstracts should **avoid long sentences and abbreviations** where possible.\\n- **Note**: Researchers will view Titles and the first line of Abstracts (list view) when searching for datasets and choosing whether to explore their content further.\\n- **Abstracts should be different from the full description** for a dataset.\\n- **Example**: CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.",
                   "examples": [
-                        "COVID-19 Key Worker Testing Results data is required by NHS Digital to support COVID-19 requests for linkage, analysis and dissemination to other organisations who require the data in a timely manner."
+                        "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
                   ],
                   "is_list": false,
                   "is_optional": false,
@@ -253,8 +254,8 @@
             },
             {
                   "required": true,
-                  "title": "Population size",
-                  "description": "Summary population size of the cohort",
+                  "title": "Dataset population size",
+                  "description": "Input the number of people captured within the dataset.",
                   "guidance": "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the **Observations** fields. The filter also allows for Researchers to search datasets which have no population size reported, but will **not** pull any population size captured in the **Observations** section.",
                   "examples": [
                         1000
@@ -267,10 +268,15 @@
             {
                   "required": false,
                   "title": "Keywords",
-                  "description": "Comma separated key words associated to this dataset.",
+                  "description": "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
                   "guidance": "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches.",
                   "examples": [
-                        "Preprints,Papers,HDR UK"
+                        "Outpatient Care",
+                        "Socioeconomic Deprivation",
+                        "Infant Morbidity",
+                        "Learning disability",
+                        "Primary Care Prescription",
+                        "Accident and Emergency Admissions"
                   ],
                   "is_list": true,
                   "is_optional": true,
@@ -284,8 +290,8 @@
             },
             {
                   "required": false,
-                  "title": "DOI Name",
-                  "description": "DOI associated to this dataset",
+                  "title": "Digital Object Identifier (DOI) for dataset",
+                  "description": "DOI associated to this dataset. Find out more about DOIs here: [https://www.doi.org/the-identifier/what-is-a-doi/](https://www.doi.org/the-identifier/what-is-a-doi/)",
                   "guidance": "- Please note: This is **not** the DOI of the publication(s) associated with the dataset.\\n- All HDR UK registered **datasets** should either have a **(DOI)** or be working towards obtaining one.\\n- If a DOI is available, please provide the DOI.\\n- **What happens if I do not have a DOI?**: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service.",
                   "examples": [
                         "10.1093/ije/dyx196"
@@ -301,8 +307,8 @@
             },
             {
                   "required": true,
-                  "title": "Contact Point",
-                  "description": "email of a person who can be the main contact point of this dataset",
+                  "title": "Contact point",
+                  "description": "Please provide a valid email address that can be used to coordinate data access requests.",
                   "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.\\n**Note:** An employee's email address can only be provided on a temporary basis and if one is provided, **you must obtain explicit consent for this purpose**.",
                   "examples": [
                         "gateway@hdruk.ac.uk"
@@ -1951,7 +1957,7 @@
                   "types": {
                         "description": "A list of categorization tags (ids) for the dataset.",
                         "items": {
-                              "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
+                              "pattern": "\\{\\s*\\\"id\\\":\\s*\\\"(\\d+_){0,5}\\d+\\\",\\s*\\\"label\\\":\\s*\\\".{0,150}\\\",\\s*\\\"category\\\":\\s*\\\".{0,150}\\\",\\s*\\\"primaryGroup\\\":\\s*\\\"(cancer-type|data-type|access-type)\\\",\\s*\\\"description\\\":\\s*\\\".{0,150}\\\"\\s*\\}",
                               "type": "string"
                         },
                         "title": "Dataset Filters",
