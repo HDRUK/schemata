@@ -17,7 +17,7 @@ from .Summary import Summary
 from .StructuralMetadata import StructuralMetadata
 
 
-class Cruk100(Hdruk400):
+class Hdruk401(Hdruk400):
     icons: Optional[Icons] = Field(
         None,
         title="Icons",
@@ -52,6 +52,6 @@ class Cruk100(Hdruk400):
     )
 
     @classmethod
-    def save_schema(cls, location="./1.0.0/schema.json"):
+    def save_schema(cls, location="./4.0.1/schema.json"):
         with open(location, "w") as f:
             json.dump(cls.model_json_schema(), f, indent=6)

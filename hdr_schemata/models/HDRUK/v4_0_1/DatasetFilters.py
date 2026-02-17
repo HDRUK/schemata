@@ -8,9 +8,9 @@ class DatasetFilters(
         list[
             constr(
                 pattern=(
-                    r'\{\s*"id":\s*"(\d+_){0,5}\d+",\s*"label":\s*".{0,150}",\s*'
-                    r'"category":\s*".{0,150}",\s*"primaryGroup":\s*'
-                    r'"(cancer-type|data-type|access-type)",\s*"description":\s*".{0,150}"\s*\}'
+                    r'\{\s*\"id\":\s*\"(\d+_){0,5}\d+\",\s*\"label\":\s*\".{0,150}\",\s*'
+                    r'\"category\":\s*\".{0,150}\",\s*\"primaryGroup\":\s*'
+                    r'\"(cancer-type|data-type|access-type)\",\s*\"description\":\s*\".{0,150}\"\s*\}'
                 )
             )
         ]
