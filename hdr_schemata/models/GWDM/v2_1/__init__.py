@@ -3,8 +3,16 @@ from __future__ import annotations
 import json
 from typing import Any, Dict, Optional
 
+from pydantic import Field
+
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 from hdr_schemata.models.HDRUK.v4_1_0 import Hdruk410
+from hdr_schemata.models.HDRUK.v4_1_0.DatasetFilters import DatasetFilters
+from hdr_schemata.models.HDRUK.v4_1_0.Icons import Icons
+from hdr_schemata.models.HDRUK.v4_1_0.Image import Image
+from hdr_schemata.models.HDRUK.v4_1_0.Project import Project
+
+from .Summary import Summary
 
 
 def _truncate(value: Optional[str], max_length: int) -> Optional[str]:
@@ -14,6 +22,28 @@ def _truncate(value: Optional[str], max_length: int) -> Optional[str]:
 
 
 class Gwdm21(Gwdm20):
+    summary: Summary = Field(..., description="Summary of metadata describing key pieces of information.")
+    icons: Optional[Icons] = Field(
+        None,
+        title="Icons",
+        description="Calculated categorization icons added during export.",
+    )
+    project: Optional[Project] = Field(None, title="Project")
+    datasetFilters: Optional[DatasetFilters] = Field(
+        None,
+        description="Categorization tags regarding cancer type, data type, and access.",
+    )
+    erd: Optional[Image] = Field(
+        None,
+        title="Entity Relationship Diagram",
+        description="Visual representation of data table relationships.",
+        json_schema_extra={
+            "guidance": (
+                "Please upload an image file (max 5MB) showing the relationship between the different tables"
+            )
+        },
+    )
+
     @classmethod
     def save_schema(cls, location: str = "./2.1/schema.json") -> None:
         with open(location, "w") as f:
@@ -42,6 +72,10 @@ class Gwdm21(Gwdm20):
             "contactPoint": contact_point,
         }
 
+        funders_value = getattr(summary, "funders", None)
+        if funders_value is not None and hasattr(funders_value, "root"):
+            funders_value = funders_value.root
+
         payload: Dict[str, Any] = {
             "identifier": self.required.gatewayPid,
             "version": self.required.version,
@@ -50,7 +84,7 @@ class Gwdm21(Gwdm20):
             "modified": self.required.modified,
             "summary": {
                 "title": _truncate(summary.title, 150),
-                "funders": publisher_name or "Unknown",
+                "funders": funders_value or publisher_name or "Unknown",
                 "abstract": _truncate(summary.abstract, 500),
                 "dataCustodian": data_custodian,
                 "populationSize": summary.populationSize or 0,
@@ -72,6 +106,14 @@ class Gwdm21(Gwdm20):
             payload["omics"] = self.omics
         if self.structuralMetadata is not None:
             payload["structuralMetadata"] = {"tables": self.structuralMetadata}
+        if self.icons is not None:
+            payload["icons"] = self.icons
+        if self.project is not None:
+            payload["project"] = self.project
+        if self.datasetFilters is not None:
+            payload["datasetFilters"] = self.datasetFilters
+        if self.erd is not None:
+            payload["erd"] = self.erd
 
         return payload
 
