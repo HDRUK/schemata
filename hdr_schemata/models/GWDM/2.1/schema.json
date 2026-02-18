@@ -547,7 +547,7 @@
             "DatasetFilters": {
                   "description": "A list of categorization tags (ids) for the dataset.",
                   "items": {
-                        "pattern": "\\{\\s*\\\"id\\\":\\s*\\\"(\\d+_){0,5}\\d+\\\",\\s*\\\"label\\\":\\s*\\\".{0,150}\\\",\\s*\\\"category\\\":\\s*\\\".{0,150}\\\",\\s*\\\"primaryGroup\\\":\\s*\\\"(cancer-type|data-type|access-type)\\\",\\s*\\\"description\\\":\\s*\\\".{0,150}\\\"\\s*\\}",
+                        "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
                         "type": "string"
                   },
                   "title": "Dataset Filters",
