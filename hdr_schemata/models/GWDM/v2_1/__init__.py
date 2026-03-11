@@ -6,11 +6,11 @@ from typing import Any, Dict, Optional
 from pydantic import Field
 
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
-from hdr_schemata.models.HDRUK.v4_1_0 import Hdruk410
-from hdr_schemata.models.HDRUK.v4_1_0.DatasetFilters import DatasetFilters
-from hdr_schemata.models.HDRUK.v4_1_0.Icons import Icons
-from hdr_schemata.models.HDRUK.v4_1_0.Image import Image
-from hdr_schemata.models.HDRUK.v4_1_0.Project import Project
+from hdr_schemata.models.HDRUK.v4_0_1 import Hdruk401
+from hdr_schemata.models.HDRUK.v4_0_1.DatasetFilters import DatasetFilters
+from hdr_schemata.models.HDRUK.v4_0_1.Icons import Icons
+from hdr_schemata.models.HDRUK.v4_0_1.Image import Image
+from hdr_schemata.models.HDRUK.v4_0_1.Project import Project
 
 from .Summary import Summary
 
@@ -49,7 +49,7 @@ class Gwdm21(Gwdm20):
         with open(location, "w") as f:
             json.dump(cls.model_json_schema(), f, indent=6)
 
-    def to_hdruk410_payload(self) -> Dict[str, Any]:
+    def to_hdruk401_payload(self) -> Dict[str, Any]:
         summary = self.summary
         publisher = getattr(summary, "publisher", None)
         publisher_name = getattr(publisher, "name", None) if publisher else None
@@ -117,5 +117,5 @@ class Gwdm21(Gwdm20):
 
         return payload
 
-    def to_hdruk410(self) -> Hdruk410:
-        return Hdruk410.model_validate(self.to_hdruk410_payload())
+    def to_hdruk401(self) -> Hdruk401:
+        return Hdruk401.model_validate(self.to_hdruk401_payload())
