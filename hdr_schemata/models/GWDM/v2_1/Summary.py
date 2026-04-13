@@ -5,7 +5,7 @@ from typing import Optional
 from pydantic import Field
 
 from hdr_schemata.models.GWDM.v2_0.Summary import Summary as Gwdm20Summary
-from hdr_schemata.models.HDRUK.v4_0_1.LineSeparatedValues import LineSeparatedValues
+from hdr_schemata.models.HDRUK.v4_1_0.LineSeparatedValues import LineSeparatedValues
 
 
 class Summary(Gwdm20Summary):
