@@ -1,0 +1,97 @@
+{
+    "identifier": "a7ddefbd-31d9-4703-a738-256e4689f76a",
+    "version": "1.0.0",
+    "revisions": [
+        {
+            "version": "1.0.0",
+            "url": "https://example.org/datasets/a7ddefbd-31d9-4703-a738-256e4689f76a"
+        }
+    ],
+    "issued": "2020-08-05T14:35:59Z",
+    "modified": "2021-01-28T14:15:46Z",
+    "summary": {
+        "title": "CRUK DataHub Example Dataset",
+        "abstract": "Example CRUK dataset record extending HDRUK 4.0.0 with CRUK-specific fields.",
+        "dataCustodian": {
+            "identifier": "hdr-uk",
+            "name": "HEALTH DATA RESEARCH UK",
+            "contactPoint": "susheel.varma@hdruk.ac.uk"
+        },
+        "populationSize": 575,
+        "keywords": [
+            "Cancer",
+            "CRUK",
+            "Example"
+        ],
+        "doiName": "10.1093/ije/dyx196",
+        "contactPoint": "susheel.varma@hdruk.ac.uk"
+    },
+    "accessibility": {
+        "formatAndStandards": {
+            "language": "en",
+            "vocabularyEncodingScheme": "OTHER",
+            "format": [
+                "CSV",
+                "JSON"
+            ],
+            "conformsTo": "OTHER"
+        },
+        "usage": {
+            "dataUseLimitation": "GENERAL RESEARCH USE",
+            "resourceCreator": "HDR UK Science Team",
+            "dataUseRequirements": "RETURN TO DATABASE OR RESOURCE",
+            "isReferencedBy": [
+                "10.5281/zenodo.326615"
+            ],
+            "investigations": [
+                "https://github.com/HDRUK/papers"
+            ]
+        },
+        "access": {
+            "dataController": "HDR UK",
+            "jurisdiction": "GB-ENG",
+            "dataProcessor": "HDR UK",
+            "accessService": "https://github.com/HDRUK/papers",
+            "accessRights": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
+            "accessRequestCost": "Free",
+            "deliveryLeadTime": "OTHER"
+        }
+    },
+    "observations": [
+        {
+            "observedNode": "FINDINGS",
+            "measuredValue": 575,
+            "disambiguatingDescription": "Example observation count",
+            "observationDate": "2020-11-27",
+            "measuredProperty": "Count"
+        }
+    ],
+    "datasetFilters": [
+        "{\"id\":\"1\",\"label\":\"Breast\",\"category\":\"Cancer\",\"primaryGroup\":\"cancer-type\",\"description\":\"Breast cancer\"}"
+    ],
+    "icons": [
+        "icon-a",
+        "icon-b"
+    ],
+    "erd": null,
+    "projectGrants": [
+        {
+            "pid": "CRUK-PROJ-001",
+            "projectGrantName": "CRUK Example Grant Title",
+            "leadResearcher": "Dr Smith",
+            "leadResearchInstitute": "Sussex University",
+            "grantNumber": "ABC123",
+            "projectGrantStartDate": "2020-01-01",
+            "projectGrantEndDate": "2024-12-31",
+            "projectGrantScope": "Longitudinal genomic data including somatic mutations"
+        }
+    ],
+    "otherDataTypes": [
+        {
+            "title": "Mammograms",
+            "description": "2D images of both normal and malignant breasts",
+            "format": "image/jpeg"
+        }
+    ]
+}
+
