@@ -28,38 +28,44 @@
     },
     "accessibility": {
         "formatAndStandards": {
-            "language": "en",
-            "vocabularyEncodingScheme": "OTHER",
+            "language": [
+                "en"
+            ],
+            "vocabularyEncodingScheme": [
+                "OTHER"
+            ],
             "format": [
                 "CSV",
                 "JSON"
             ],
-            "conformsTo": "OTHER"
+            "conformsTo": [
+                "OTHER"
+            ]
         },
         "usage": {
-            "dataUseLimitation": "GENERAL RESEARCH USE",
-            "resourceCreator": "HDR UK Science Team",
-            "dataUseRequirements": "RETURN TO DATABASE OR RESOURCE",
-            "isReferencedBy": [
-                "10.5281/zenodo.326615"
+            "dataUseLimitation": [
+                "General research use"
             ],
-            "investigations": [
-                "https://github.com/HDRUK/papers"
+            "resourceCreator": "HDR UK Science Team",
+            "dataUseRequirements": [
+                "Return to database or resource"
             ]
         },
         "access": {
             "dataController": "HDR UK",
-            "jurisdiction": "GB-ENG",
+            "jurisdiction": [
+                "GB-ENG"
+            ],
             "dataProcessor": "HDR UK",
             "accessService": "https://github.com/HDRUK/papers",
             "accessRights": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
             "accessRequestCost": "Free",
-            "deliveryLeadTime": "OTHER"
+            "deliveryLeadTime": "Other"
         }
     },
     "observations": [
         {
-            "observedNode": "FINDINGS",
+            "observedNode": "Findings",
             "measuredValue": 575,
             "disambiguatingDescription": "Example observation count",
             "observationDate": "2020-11-27",
@@ -67,7 +73,13 @@
         }
     ],
     "datasetFilters": [
-        "{\"id\":\"1\",\"label\":\"Breast\",\"category\":\"Cancer\",\"primaryGroup\":\"cancer-type\",\"description\":\"Breast cancer\"}"
+        {
+            "id": "1",
+            "label": "Breast",
+            "category": "Cancer",
+            "primaryGroup": "cancer-type",
+            "description": "Breast cancer"
+        }
     ],
     "icons": [
         "icon-a",
