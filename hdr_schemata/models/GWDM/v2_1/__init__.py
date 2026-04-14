@@ -6,7 +6,7 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, constr
 
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
-from hdr_schemata.models.CRUK.v1_0_0 import Cruk100
+from hdr_schemata.models.CRUK.v1_0_0 import Cruk100, DatasetFilter as CrukDatasetFilter
 from hdr_schemata.models.HDRUK.v4_0_0 import Hdruk400
 from hdr_schemata.definitions.HDRUK import Description, OneHundredFiftyCharacters
 
@@ -224,7 +224,21 @@ class Gwdm21(Gwdm20):
         if self.icons is not None:
             payload["icons"] = self.icons
         if self.datasetFilters is not None:
-            payload["datasetFilters"] = self.datasetFilters
+            filters: List[Dict[str, Any]] = []
+            for item in self.datasetFilters:
+                if item is None:
+                    continue
+                raw = item.root if hasattr(item, "root") else item
+                if not isinstance(raw, str):
+                    continue
+                try:
+                    obj = json.loads(raw)
+                except Exception:
+                    continue
+                if isinstance(obj, dict):
+                    # Validate/normalize against CRUK DatasetFilter shape
+                    filters.append(CrukDatasetFilter.model_validate(obj).model_dump(mode="json"))
+            payload["datasetFilters"] = filters or None
         if self.erd is not None:
             # CRUK expects a URL; GWDM carries an Image object. Prefer the image string if present.
             image_value = getattr(self.erd, "image", None)

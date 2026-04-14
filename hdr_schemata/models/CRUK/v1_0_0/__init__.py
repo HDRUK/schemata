@@ -1,5 +1,5 @@
 import json
-from typing import List, Optional
+from typing import List, Literal, Optional
 
 from pydantic import BaseModel, Field, constr
 
@@ -12,9 +12,17 @@ from hdr_schemata.definitions.HDRUK import (
 from hdr_schemata.models.HDRUK.v4_0_0 import Hdruk400
 
 
-DatasetFilterItem = constr(
-    pattern=r'\{\s*"id":\s*"(\d+_){0,5}\d+",\s*"label":\s*".{0,150}",\s*"category":\s*".{0,150}",\s*"primaryGroup":\s*"(cancer-type|data-type|access-type)",\s*"description":\s*".{0,150}"\s*\}'
-)
+class DatasetFilter(BaseModel):
+    class Config:
+        extra = "forbid"
+
+    id: constr(pattern=r"(\d+_){0,5}\d+") = Field(..., title="Id")
+    label: constr(min_length=0, max_length=150) = Field(..., title="Label")
+    category: constr(min_length=0, max_length=150) = Field(..., title="Category")
+    primaryGroup: Literal["cancer-type", "data-type", "access-type"] = Field(
+        ..., title="Primary group"
+    )
+    description: constr(min_length=0, max_length=150) = Field(..., title="Description")
 
 
 class DataTable(BaseModel):
@@ -137,7 +145,7 @@ class Cruk100(Hdruk400):
     class Config:
         extra = "forbid"
 
-    datasetFilters: Optional[List[DatasetFilterItem]] = Field(
+    datasetFilters: Optional[List[DatasetFilter]] = Field(
         None,
         title="Dataset Filters",
     )
