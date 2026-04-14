@@ -2,10 +2,11 @@ from __future__ import annotations
 
 from typing import Optional
 
-from pydantic import Field
+from pydantic import Field, constr
 
 from hdr_schemata.models.GWDM.v2_0.Summary import Summary as Gwdm20Summary
-from hdr_schemata.models.HDRUK.v4_1_0.LineSeparatedValues import LineSeparatedValues
+
+LineSeparatedValues = constr(pattern=r"([^\r\n]+)")
 
 
 class Summary(Gwdm20Summary):

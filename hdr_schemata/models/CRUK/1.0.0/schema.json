@@ -563,20 +563,6 @@
                               "description": "A description of a table in a dataset.",
                               "title": "Table description"
                         },
-                        "size": {
-                              "anyOf": [
-                                    {
-                                          "type": "integer"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Number of Complete Entries.",
-                              "guidance": "Provides a measure of the completeness of the data set. A row which includes n/a against columns that are not relevant or not applicable should still be counted as complete.",
-                              "title": "Table size"
-                        },
                         "columns": {
                               "description": "A list of columns contained within a table in a dataset.",
                               "items": {
@@ -716,15 +702,6 @@
                   },
                   "title": "DatasetDescriptor",
                   "type": "object"
-            },
-            "DatasetFilters": {
-                  "description": "A list of categorization tags (ids) for the dataset.",
-                  "items": {
-                        "pattern": "\\{\\s*\\\"id\\\":\\s*\\\"(\\d+_){0,5}\\d+\\\",\\s*\\\"label\\\":\\s*\\\".{0,150}\\\",\\s*\\\"category\\\":\\s*\\\".{0,150}\\\",\\s*\\\"primaryGroup\\\":\\s*\\\"(cancer-type|data-type|access-type)\\\",\\s*\\\"description\\\":\\s*\\\".{0,150}\\\"\\s*\\}",
-                        "type": "string"
-                  },
-                  "title": "Dataset Filters",
-                  "type": "array"
             },
             "DeliveryLeadTimeV2": {
                   "enum": [
@@ -1325,54 +1302,6 @@
                   "title": "HealthAndDiseaseSubTypes",
                   "type": "string"
             },
-            "Icons": {
-                  "anyOf": [
-                        {
-                              "items": {
-                                    "type": "string"
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "description": "A list of icon identifiers associated with the dataset, derived from dataset filters.",
-                  "title": "Icons"
-            },
-            "Image": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "image": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "contentMediaType": "image/*",
-                              "default": null,
-                              "description": "An image file.",
-                              "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB.",
-                              "title": "Image"
-                        },
-                        "description": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Description"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null
-                        }
-                  },
-                  "title": "Image",
-                  "type": "object"
-            },
             "ImagingAreaOfTheBody": {
                   "properties": {
                         "name": {
@@ -1719,18 +1648,6 @@
                   ],
                   "title": "LifestyleSubTypes",
                   "type": "string"
-            },
-            "LineSeparatedValues": {
-                  "anyOf": [
-                        {
-                              "pattern": "([^\\\\r\\\\n]+)",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "LineSeparatedValues"
             },
             "LongDescription": {
                   "anyOf": [
@@ -2220,6 +2137,53 @@
                   "title": "Origin",
                   "type": "object"
             },
+            "OtherDataType": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "title": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "examples": [
+                                    "Mammograms",
+                                    "Patient recordings"
+                              ],
+                              "guidance": "Short descriptive titles",
+                              "title": "Title"
+                        },
+                        "description": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/ShortDescription"
+                                    }
+                              ],
+                              "examples": [
+                                    "2D images of both normal and malignant breasts",
+                                    "audio-tapes of oncology consultations"
+                              ],
+                              "guidance": "A description of the data type.",
+                              "title": "Data description"
+                        },
+                        "format": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/Format"
+                                    }
+                              ],
+                              "description": "Format drawn from https://www.iana.org/assignments/media-types/media-types.xhtml.",
+                              "guidance": "https://www.iana.org/assignments/media-types/media-types.xhtml lists the commonly used formats for different media (such as video/image/audio) etc. If your format is not included in the list set out there, please indicate other and specify in the description."
+                        }
+                  },
+                  "required": [
+                        "title",
+                        "description",
+                        "format"
+                  ],
+                  "title": "OtherDataType",
+                  "type": "object"
+            },
             "PeriodicityV2": {
                   "enum": [
                         "Static",
@@ -2292,10 +2256,9 @@
                   "title": "Politics",
                   "type": "object"
             },
-            "Project": {
-                  "additionalProperties": false,
+            "ProjectGrant": {
                   "properties": {
-                        "projectName": {
+                        "pid": {
                               "anyOf": [
                                     {
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
@@ -2305,98 +2268,68 @@
                                     }
                               ],
                               "default": null,
-                              "description": "May or may not be different to the Dataset Title",
-                              "title": "Project Title"
+                              "title": "Persistent identifier of the study"
+                        },
+                        "projectGrantName": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate.",
+                              "title": "Project Grant Title"
                         },
                         "leadResearcher": {
-                              "anyOf": [
+                              "allOf": [
                                     {
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
-                              "default": null,
-                              "description": "",
                               "examples": [
                                     "Dr Smith"
                               ],
                               "title": "Lead Researcher"
                         },
                         "leadResearchInstitute": {
-                              "anyOf": [
+                              "allOf": [
                                     {
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    },
-                                    {
-                                          "type": "null"
                                     }
                               ],
-                              "default": null,
-                              "description": "",
                               "examples": [
                                     "Sussex University"
                               ],
                               "title": "Lead Research Institute"
                         },
-                        "grantNumbers": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/LineSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "List of grant numbers separated by a line break",
+                        "grantNumber": {
+                              "description": "List of CRUK and any other grant numbers.",
                               "examples": [
-                                    "A354t",
-                                    "ropguadg"
+                                    "ABC123"
                               ],
                               "guidance": "Normally specified on the grant acceptance letter",
-                              "title": "Grant number(s)"
+                              "title": "Grant number(s)",
+                              "type": "string"
                         },
-                        "projectStartDate": {
+                        "projectGrantStartDate": {
+                              "description": "Starting date of projectGrant grant.",
+                              "guidance": "Date on which the dataset projectGrant starts. This is normally set out in the grant contract and will be different from the start of any data collection",
+                              "title": "Project Start Date",
+                              "type": "string"
+                        },
+                        "projectGrantEndDate": {
                               "anyOf": [
                                     {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
                                           "type": "string"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
-                              "default": null,
-                              "description": "Starting date of project grant.",
-                              "guidance": "Date on which the dataset project starts. This is normally set out in the grant contract and will be different from the start of any data collection",
-                              "title": "Project Start Date"
-                        },
-                        "projectEndDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
                               "description": "Current end date of project grant.",
                               "guidance": "Date on which the dataset project is currently projected to finish. This is normally set out in the grant contract and will be different from the end of any data collection",
                               "title": "Project End Date"
                         },
-                        "projectScope": {
+                        "projectGrantScope": {
                               "anyOf": [
                                     {
                                           "maxLength": 500,
@@ -2416,7 +2349,15 @@
                               "title": "Project Scope"
                         }
                   },
-                  "title": "Project",
+                  "required": [
+                        "projectGrantName",
+                        "leadResearcher",
+                        "leadResearchInstitute",
+                        "grantNumber",
+                        "projectGrantStartDate",
+                        "projectGrantEndDate"
+                  ],
+                  "title": "ProjectGrant",
                   "type": "object"
             },
             "Provenance": {
@@ -2745,20 +2686,6 @@
                               "guidance": "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report",
                               "title": "Title"
                         },
-                        "funders": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/LineSeparatedValues"
-                                    }
-                              ],
-                              "description": "List of Funders separated by a line break",
-                              "examples": [
-                                    "CRUK",
-                                    "University of Sussex"
-                              ],
-                              "guidance": "Put each funder on a new line",
-                              "title": "Funded by"
-                        },
                         "abstract": {
                               "allOf": [
                                     {
@@ -2875,7 +2802,6 @@
                   },
                   "required": [
                         "title",
-                        "funders",
                         "abstract",
                         "dataCustodian",
                         "populationSize",
@@ -3318,10 +3244,29 @@
                   "description": "Omics",
                   "title": "Omics"
             },
+            "datasetFilters": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "title": "Dataset Filters"
+            },
             "icons": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/Icons"
+                              "items": {
+                                    "type": "string"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"
@@ -3331,31 +3276,10 @@
                   "description": "Calculated categorization icons added during export.",
                   "title": "Icons"
             },
-            "project": {
-                  "allOf": [
-                        {
-                              "$ref": "#/$defs/Project"
-                        }
-                  ],
-                  "default": null,
-                  "title": "Project"
-            },
-            "datasetFilters": {
-                  "anyOf": [
-                        {
-                              "$ref": "#/$defs/DatasetFilters"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "Categorization tags regarding cancer type, data type, and access."
-            },
             "erd": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/Image"
+                              "$ref": "#/$defs/Url"
                         },
                         {
                               "type": "null"
@@ -3365,6 +3289,36 @@
                   "description": "Visual representation of data table relationships.",
                   "guidance": "Please upload an image file (max 5MB) showing the relationship between the different tables",
                   "title": "Entity Relationship Diagram"
+            },
+            "projectGrants": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/ProjectGrant"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "title": "Associated Project Grants"
+            },
+            "otherDataTypes": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/OtherDataType"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "title": "Other data types"
             }
       },
       "required": [
@@ -3377,6 +3331,6 @@
             "accessibility",
             "observations"
       ],
-      "title": "Hdruk410",
+      "title": "Cruk100",
       "type": "object"
 }

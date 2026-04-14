@@ -1,35 +1,120 @@
 from __future__ import annotations
 
 import json
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
-from pydantic import Field
+from pydantic import BaseModel, Field, constr
 
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
-from hdr_schemata.models.HDRUK.v4_1_0 import Hdruk410
-from hdr_schemata.models.HDRUK.v4_1_0.DatasetFilters import DatasetFilters
-from hdr_schemata.models.HDRUK.v4_1_0.Icons import Icons
-from hdr_schemata.models.HDRUK.v4_1_0.Image import Image
-from hdr_schemata.models.HDRUK.v4_1_0.Project import Project
+from hdr_schemata.models.CRUK.v1_0_0 import Cruk100
+from hdr_schemata.models.HDRUK.v4_0_0 import Hdruk400
+from hdr_schemata.definitions.HDRUK import Description, OneHundredFiftyCharacters
 
-from .Summary import Summary
+from .Summary import LineSeparatedValues, Summary
+
+
+DatasetFilterItem = constr(
+    pattern=r'\{\s*"id":\s*"(\d+_){0,5}\d+",\s*"label":\s*".{0,150}",\s*"category":\s*".{0,150}",\s*"primaryGroup":\s*"(cancer-type|data-type|access-type)",\s*"description":\s*".{0,150}"\s*\}'
+)
+
+
+class Image(BaseModel):
+    class Config:
+        extra = "forbid"
+
+    image: Optional[str] = Field(
+        None,
+        title="Image",
+        description="An image file.",
+        json_schema_extra={
+            "contentMediaType": "image/*",
+            "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB.",
+        },
+    )
+    description: Optional[Description] = Field(None)
+
+
+class Project(BaseModel):
+    class Config:
+        extra = "forbid"
+
+    projectName: Optional[OneHundredFiftyCharacters] = Field(
+        None,
+        title="Project Title",
+        description="May or may not be different to the Dataset Title",
+    )
+    leadResearcher: Optional[OneHundredFiftyCharacters] = Field(
+        None,
+        title="Lead Researcher",
+        examples=["Dr Smith"],
+        description="",
+    )
+    leadResearchInstitute: Optional[OneHundredFiftyCharacters] = Field(
+        None,
+        title="Lead Research Institute",
+        examples=["Sussex University"],
+        description="",
+    )
+    grantNumbers: Optional[LineSeparatedValues] = Field(
+        None,
+        title="Grant number(s)",
+        description="List of grant numbers separated by a line break",
+        examples=["A354t", "ropguadg"],
+        json_schema_extra={"guidance": "Normally specified on the grant acceptance letter"},
+    )
+    projectStartDate: Optional[str] = Field(
+        None,
+        title="Project Start Date",
+        description="Starting date of project grant.",
+        json_schema_extra={
+            "guidance": (
+                "Date on which the dataset project starts. This is normally set out in the grant contract "
+                "and will be different from the start of any data collection"
+            )
+        },
+    )
+    projectEndDate: Optional[str] = Field(
+        None,
+        title="Project End Date",
+        description="Current end date of project grant.",
+        json_schema_extra={
+            "guidance": (
+                "Date on which the dataset project is currently projected to finish. This is normally set "
+                "out in the grant contract and will be different from the end of any data collection"
+            )
+        },
+    )
+    projectScope: Optional[constr(min_length=5, max_length=500)] = Field(
+        None,
+        title="Project Scope",
+        description="data and biospecimens expected to result from the grant.",
+        examples=["Longitudinal genomic data including somatic mutations"],
+        json_schema_extra={
+            "guidance": (
+                "Short paragraph setting out the types of data / biospecimens likely to result from the "
+                "grant and the cancers covered"
+            )
+        },
+    )
 
 
 def _truncate(value: Optional[str], max_length: int) -> Optional[str]:
     if value is None:
         return None
+    if hasattr(value, "root"):
+        value = value.root
     return value[:max_length]
 
 
 class Gwdm21(Gwdm20):
     summary: Summary = Field(..., description="Summary of metadata describing key pieces of information.")
-    icons: Optional[Icons] = Field(
+    icons: Optional[List[str]] = Field(
         None,
         title="Icons",
         description="Calculated categorization icons added during export.",
     )
     project: Optional[Project] = Field(None, title="Project")
-    datasetFilters: Optional[DatasetFilters] = Field(
+    datasetFilters: Optional[List[DatasetFilterItem]] = Field(
         None,
         description="Categorization tags regarding cancer type, data type, and access.",
     )
@@ -49,7 +134,7 @@ class Gwdm21(Gwdm20):
         with open(location, "w") as f:
             json.dump(cls.model_json_schema(), f, indent=6)
 
-    def to_hdruk410_payload(self) -> Dict[str, Any]:
+    def to_hdruk400_payload(self) -> Dict[str, Any]:
         summary = self.summary
         publisher = getattr(summary, "publisher", None)
         publisher_name = getattr(publisher, "name", None) if publisher else None
@@ -76,15 +161,35 @@ class Gwdm21(Gwdm20):
         if funders_value is not None and hasattr(funders_value, "root"):
             funders_value = funders_value.root
 
+        revisions_value = self.required.revisions
+        if revisions_value is not None and hasattr(revisions_value, "root"):
+            revisions_value = revisions_value.root
+        if isinstance(revisions_value, list):
+            revisions_value = [
+                r.model_dump(mode="json") if hasattr(r, "model_dump") else r for r in revisions_value
+            ]
+
+        observations_value = self.observations or []
+        if isinstance(observations_value, list):
+            observations_value = [
+                o.model_dump(mode="json") if hasattr(o, "model_dump") else o for o in observations_value
+            ]
+
+        accessibility_value = (
+            self.accessibility.model_dump(mode="json")
+            if hasattr(self.accessibility, "model_dump")
+            else self.accessibility
+        )
+
         payload: Dict[str, Any] = {
-            "identifier": self.required.gatewayPid,
+            # HDRUK allows uuid/url identifiers; gatewayId is the closest.
+            "identifier": self.required.gatewayId,
             "version": self.required.version,
-            "revisions": self.required.revisions,
+            "revisions": revisions_value or [],
             "issued": self.required.issued,
             "modified": self.required.modified,
             "summary": {
                 "title": _truncate(summary.title, 150),
-                "funders": funders_value or publisher_name or "Unknown",
                 "abstract": _truncate(summary.abstract, 500),
                 "dataCustodian": data_custodian,
                 "populationSize": summary.populationSize or 0,
@@ -92,8 +197,8 @@ class Gwdm21(Gwdm20):
                 "doiName": getattr(summary, "doiName", None),
                 "contactPoint": contact_point,
             },
-            "accessibility": self.accessibility,
-            "observations": self.observations or [],
+            "accessibility": accessibility_value,
+            "observations": observations_value,
         }
 
         if self.coverage is not None:
@@ -106,16 +211,28 @@ class Gwdm21(Gwdm20):
             payload["omics"] = self.omics
         if self.structuralMetadata is not None:
             payload["structuralMetadata"] = {"tables": self.structuralMetadata}
+        return payload
+
+    def to_hdruk400(self) -> Hdruk400:
+        return Hdruk400.model_validate(self.to_hdruk400_payload())
+
+    def to_cruk100_payload(self) -> Dict[str, Any]:
+        payload = self.to_hdruk400_payload()
+
+        # CRUK 1.0.0 extends HDRUK 4.0.0 with additional fields.
+        # GWDM 2.1 already has these fields, so pass them through.
         if self.icons is not None:
             payload["icons"] = self.icons
-        if self.project is not None:
-            payload["project"] = self.project
         if self.datasetFilters is not None:
             payload["datasetFilters"] = self.datasetFilters
         if self.erd is not None:
-            payload["erd"] = self.erd
+            # CRUK expects a URL; GWDM carries an Image object. Prefer the image string if present.
+            image_value = getattr(self.erd, "image", None)
+            if image_value is not None and hasattr(image_value, "root"):
+                image_value = image_value.root
+            payload["erd"] = image_value
 
         return payload
 
-    def to_hdruk410(self) -> Hdruk410:
-        return Hdruk410.model_validate(self.to_hdruk410_payload())
+    def to_cruk100(self) -> Cruk100:
+        return Cruk100.model_validate(self.to_cruk100_payload())
