@@ -17,9 +17,7 @@ from hdr_schemata.definitions.HDRUK import Description, OneHundredFiftyCharacter
 from .Summary import LineSeparatedValues, Summary
 
 
-DatasetFilterItem = constr(
-    pattern=r'\{\s*"id":\s*"(\d+_){0,5}\d+",\s*"label":\s*".{0,150}",\s*"category":\s*".{0,150}",\s*"primaryGroup":\s*"(cancer-type|data-type|access-type)",\s*"description":\s*".{0,150}"\s*\}'
-)
+DatasetFilter = CrukDatasetFilter
 
 
 class Image(BaseModel):
@@ -59,7 +57,7 @@ class Gwdm21(Gwdm20):
     projectGrants: Optional[List[ProjectGrant]] = Field(
         None, title="Associated Project Grants"
     )
-    datasetFilters: Optional[List[DatasetFilterItem]] = Field(
+    datasetFilters: Optional[List[DatasetFilter]] = Field(
         None,
         description="Categorization tags regarding cancer type, data type, and access.",
     )
@@ -169,21 +167,11 @@ class Gwdm21(Gwdm20):
         if self.icons is not None:
             payload["icons"] = self.icons
         if self.datasetFilters is not None:
-            filters: List[Dict[str, Any]] = []
-            for item in self.datasetFilters:
-                if item is None:
-                    continue
-                raw = item.root if hasattr(item, "root") else item
-                if not isinstance(raw, str):
-                    continue
-                try:
-                    obj = json.loads(raw)
-                except Exception:
-                    continue
-                if isinstance(obj, dict):
-                    # Validate/normalize against CRUK DatasetFilter shape
-                    filters.append(CrukDatasetFilter.model_validate(obj).model_dump(mode="json"))
-            payload["datasetFilters"] = filters or None
+            payload["datasetFilters"] = [
+                df.model_dump(mode="json") if hasattr(df, "model_dump") else df
+                for df in self.datasetFilters
+                if df is not None
+            ] or None
         if self.projectGrants is not None:
             payload["projectGrants"] = [
                 pg.model_dump(mode="json") if hasattr(pg, "model_dump") else pg

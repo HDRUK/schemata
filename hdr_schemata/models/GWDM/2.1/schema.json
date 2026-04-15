@@ -544,6 +544,52 @@
                   "title": "DatasetDescriptor",
                   "type": "object"
             },
+            "DatasetFilter": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "id": {
+                              "pattern": "(\\d+_){0,5}\\d+",
+                              "title": "Id",
+                              "type": "string"
+                        },
+                        "label": {
+                              "maxLength": 150,
+                              "minLength": 0,
+                              "title": "Label",
+                              "type": "string"
+                        },
+                        "category": {
+                              "maxLength": 150,
+                              "minLength": 0,
+                              "title": "Category",
+                              "type": "string"
+                        },
+                        "primaryGroup": {
+                              "enum": [
+                                    "cancer-type",
+                                    "data-type",
+                                    "access-type"
+                              ],
+                              "title": "Primary group",
+                              "type": "string"
+                        },
+                        "description": {
+                              "maxLength": 150,
+                              "minLength": 0,
+                              "title": "Description",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "id",
+                        "label",
+                        "category",
+                        "primaryGroup",
+                        "description"
+                  ],
+                  "title": "DatasetFilter",
+                  "type": "object"
+            },
             "DatasetLinkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -2500,8 +2546,7 @@
                   "anyOf": [
                         {
                               "items": {
-                                    "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
-                                    "type": "string"
+                                    "$ref": "#/$defs/DatasetFilter"
                               },
                               "type": "array"
                         },
