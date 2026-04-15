@@ -544,15 +544,6 @@
                   "title": "DatasetDescriptor",
                   "type": "object"
             },
-            "DatasetFilters": {
-                  "description": "A list of categorization tags (ids) for the dataset.",
-                  "items": {
-                        "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
-                        "type": "string"
-                  },
-                  "title": "Dataset Filters",
-                  "type": "array"
-            },
             "DatasetLinkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -901,6 +892,39 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
+            "Image": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "image": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "contentMediaType": "image/*",
+                              "default": null,
+                              "description": "An image file.",
+                              "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB.",
+                              "title": "Image"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Description"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null
+                        }
+                  },
+                  "title": "Image",
+                  "type": "object"
+            },
             "Linkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -1066,18 +1090,6 @@
                   ],
                   "title": "LongAbstractText"
             },
-            "LineSeparatedValues": {
-                  "anyOf": [
-                        {
-                              "pattern": "([^\\\\r\\\\n]+)",
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "LineSeparatedValues"
-            },
             "LongDescription": {
                   "anyOf": [
                         {
@@ -1090,54 +1102,6 @@
                         }
                   ],
                   "title": "LongDescription"
-            },
-            "Icons": {
-                  "anyOf": [
-                        {
-                              "items": {
-                                    "type": "string"
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "description": "A list of icon identifiers associated with the dataset, derived from dataset filters.",
-                  "title": "Icons"
-            },
-            "Image": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "image": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "contentMediaType": "image/*",
-                              "default": null,
-                              "description": "An image file.",
-                              "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB.",
-                              "title": "Image"
-                        },
-                        "description": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Description"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null
-                        }
-                  },
-                  "title": "Image",
-                  "type": "object"
             },
             "MeasuredProperty": {
                   "title": "MeasuredProperty"
@@ -1388,132 +1352,6 @@
                   "title": "Pipeline",
                   "type": "string"
             },
-            "Project": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "projectName": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "May or may not be different to the Dataset Title",
-                              "title": "Project Title"
-                        },
-                        "leadResearcher": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "",
-                              "examples": [
-                                    "Dr Smith"
-                              ],
-                              "title": "Lead Researcher"
-                        },
-                        "leadResearchInstitute": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "",
-                              "examples": [
-                                    "Sussex University"
-                              ],
-                              "title": "Lead Research Institute"
-                        },
-                        "grantNumbers": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/LineSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "List of grant numbers separated by a line break",
-                              "examples": [
-                                    "A354t",
-                                    "ropguadg"
-                              ],
-                              "guidance": "Normally specified on the grant acceptance letter",
-                              "title": "Grant number(s)"
-                        },
-                        "projectStartDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Starting date of project grant.",
-                              "guidance": "Date on which the dataset project starts. This is normally set out in the grant contract and will be different from the start of any data collection",
-                              "title": "Project Start Date"
-                        },
-                        "projectEndDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Current end date of project grant.",
-                              "guidance": "Date on which the dataset project is currently projected to finish. This is normally set out in the grant contract and will be different from the end of any data collection",
-                              "title": "Project End Date"
-                        },
-                        "projectScope": {
-                              "anyOf": [
-                                    {
-                                          "maxLength": 500,
-                                          "minLength": 5,
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "description": "data and biospecimens expected to result from the grant.",
-                              "examples": [
-                                    "Longitudinal genomic data including somatic mutations"
-                              ],
-                              "guidance": "Short paragraph setting out the types of data / biospecimens likely to result from the grant and the cancers covered",
-                              "title": "Project Scope"
-                        }
-                  },
-                  "title": "Project",
-                  "type": "object"
-            },
             "Platform": {
                   "enum": [
                         "Other",
@@ -1528,6 +1366,110 @@
                   ],
                   "title": "Platform",
                   "type": "string"
+            },
+            "ProjectGrant": {
+                  "properties": {
+                        "pid": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Persistent identifier of the study"
+                        },
+                        "projectGrantName": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate.",
+                              "title": "Project Grant Title"
+                        },
+                        "leadResearcher": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "examples": [
+                                    "Dr Smith"
+                              ],
+                              "title": "Lead Researcher"
+                        },
+                        "leadResearchInstitute": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "examples": [
+                                    "Sussex University"
+                              ],
+                              "title": "Lead Research Institute"
+                        },
+                        "grantNumber": {
+                              "description": "List of CRUK and any other grant numbers.",
+                              "examples": [
+                                    "ABC123"
+                              ],
+                              "guidance": "Normally specified on the grant acceptance letter",
+                              "title": "Grant number(s)",
+                              "type": "string"
+                        },
+                        "projectGrantStartDate": {
+                              "description": "Starting date of projectGrant grant.",
+                              "guidance": "Date on which the dataset projectGrant starts. This is normally set out in the grant contract and will be different from the start of any data collection",
+                              "title": "Project Start Date",
+                              "type": "string"
+                        },
+                        "projectGrantEndDate": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Current end date of project grant.",
+                              "guidance": "Date on which the dataset project is currently projected to finish. This is normally set out in the grant contract and will be different from the end of any data collection",
+                              "title": "Project End Date"
+                        },
+                        "projectGrantScope": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 500,
+                                          "minLength": 5,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "data and biospecimens expected to result from the grant.",
+                              "examples": [
+                                    "Longitudinal genomic data including somatic mutations"
+                              ],
+                              "guidance": "Short paragraph setting out the types of data / biospecimens likely to result from the grant and the cancers covered",
+                              "title": "Project Scope"
+                        }
+                  },
+                  "required": [
+                        "projectGrantName",
+                        "leadResearcher",
+                        "leadResearchInstitute",
+                        "grantNumber",
+                        "projectGrantStartDate",
+                        "projectGrantEndDate"
+                  ],
+                  "title": "ProjectGrant",
+                  "type": "object"
             },
             "Provenance": {
                   "additionalProperties": false,
@@ -1747,24 +1689,6 @@
                               ],
                               "title": "Title"
                         },
-                        "funders": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/LineSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "List of Funders separated by a line break",
-                              "examples": [
-                                    "CRUK",
-                                    "University of Sussex"
-                              ],
-                              "guidance": "Put each funder on a new line",
-                              "title": "Funded by"
-                        },
                         "shortTitle": {
                               "anyOf": [
                                     {
@@ -1935,6 +1859,25 @@
                               "default": "Not available",
                               "description": "Indicate whether this dataset is currently available for Researchers to request access.",
                               "title": "Dataset pipeline status"
+                        },
+                        "funders": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "([^\\r\\n]+)",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "List of Funders separated by a line break",
+                              "examples": [
+                                    "CRUK",
+                                    "University of Sussex"
+                              ],
+                              "guidance": "Put each funder on a new line",
+                              "title": "Funded by"
                         }
                   },
                   "required": [
@@ -2525,7 +2468,10 @@
             "icons": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/Icons"
+                              "items": {
+                                    "type": "string"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"
@@ -2535,29 +2481,37 @@
                   "description": "Calculated categorization icons added during export.",
                   "title": "Icons"
             },
-            "project": {
+            "projectGrants": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/Project"
+                              "items": {
+                                    "$ref": "#/$defs/ProjectGrant"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"
                         }
                   ],
                   "default": null,
-                  "title": "Project"
+                  "title": "Associated Project Grants"
             },
             "datasetFilters": {
                   "anyOf": [
                         {
-                              "$ref": "#/$defs/DatasetFilters"
+                              "items": {
+                                    "pattern": "\\{\\s*\"id\":\\s*\"(\\d+_){0,5}\\d+\",\\s*\"label\":\\s*\".{0,150}\",\\s*\"category\":\\s*\".{0,150}\",\\s*\"primaryGroup\":\\s*\"(cancer-type|data-type|access-type)\",\\s*\"description\":\\s*\".{0,150}\"\\s*\\}",
+                                    "type": "string"
+                              },
+                              "type": "array"
                         },
                         {
                               "type": "null"
                         }
                   ],
                   "default": null,
-                  "description": "Categorization tags regarding cancer type, data type, and access."
+                  "description": "Categorization tags regarding cancer type, data type, and access.",
+                  "title": "Datasetfilters"
             },
             "erd": {
                   "anyOf": [
