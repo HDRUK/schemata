@@ -10,6 +10,11 @@ from hdr_schemata.definitions.HDRUK import (
     Url,
 )
 from hdr_schemata.models.HDRUK.v4_0_0 import Hdruk400
+from hdr_schemata.models.HDRUK.v3_0_0.DataTable import DataTable as BaseDataTable
+from hdr_schemata.models.HDRUK.v3_0_0.StructuralMetadata import (
+    StructuralMetadata as BaseStructuralMetadata,
+)
+from hdr_schemata.models.HDRUK.v4_0_0.Summary import Summary as BaseSummary
 
 
 class DatasetFilter(BaseModel):
@@ -25,10 +30,7 @@ class DatasetFilter(BaseModel):
     description: constr(min_length=0, max_length=150) = Field(..., title="Description")
 
 
-class DataTable(BaseModel):
-    class Config:
-        extra = "forbid"
-
+class DataTable(BaseDataTable):
     size: Optional[int] = Field(
         None,
         title="Table size",
@@ -39,6 +41,37 @@ class DataTable(BaseModel):
                 "columns that are not relevant or not applicable should still be counted as complete."
             )
         },
+    )
+
+
+class StructuralMetadata(BaseStructuralMetadata):
+    class Config:
+        extra = "forbid"
+
+    # Override `tables` so CRUK's schema uses CRUK `DataTable` (adds `size`).
+    tables: Optional[List[DataTable]] = Field(
+        None,
+        description="Tables in the dataset",
+        title="Tables",
+    )
+
+
+class Summary(BaseSummary):
+    class Config:
+        extra = "forbid"
+
+    # Optional-by-absence (not nullable). If provided, must be a 150-char string.
+    leadResearcher: OneHundredFiftyCharacters = Field(
+        default=None,
+        title="Lead Researcher",
+        description="Lead for the dataset. This need not be the same as the lead for the underlying grant",
+        examples=["Professor Karen Blogs", "Dr A Dataset"],
+    )
+    leadResearchInstitute: OneHundredFiftyCharacters = Field(
+        default=None,
+        title="Lead Research Institute",
+        description="",
+        examples=["Sussex University"],
     )
 
 
@@ -144,6 +177,19 @@ class ProjectGrant(BaseModel):
 class Cruk100(Hdruk400):
     class Config:
         extra = "forbid"
+
+    # Override HDRUK 4.0.0 summary for CRUK-specific lead fields.
+    summary: Summary = Field(
+        ...,
+        description="Summary of metadata describing key pieces of information.",
+    )
+
+    # Override structural metadata so DataTable includes `size`.
+    structuralMetadata: Optional[StructuralMetadata] = Field(
+        None,
+        description="Descriptions of all tables and data elements that can be included in the dataset.",
+        title="Structural metadata",
+    )
 
     datasetFilters: Optional[List[DatasetFilter]] = Field(
         None,

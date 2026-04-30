@@ -548,6 +548,20 @@
                               "description": "The name of a table in a dataset.",
                               "title": "Table name"
                         },
+                        "size": {
+              "anyOf": [
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Number of Complete Entries.",
+              "guidance": "Provides a measure of the completeness of the data set. A row which includes n/a against columns that are not relevant or not applicable should still be counted as complete.",
+              "title": "Table size"
+            },
                         "description": {
                               "anyOf": [
                                     {
@@ -2732,6 +2746,33 @@
                               "guidance": "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report",
                               "title": "Title"
                         },
+                        "leadResearcher": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/OneHundredFiftyCharacters"
+                }
+              ],
+              "default": null,
+              "description": "Lead for the dataset. This need not be the same as the lead for the underlying grant",
+              "examples": [
+                "Professor Karen Blogs",
+                "Dr A Dataset"
+              ],
+              "title": "Lead Researcher"
+            },
+                        "leadResearchInstitute": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/OneHundredFiftyCharacters"
+                }
+              ],
+              "default": null,
+              "examples": [
+                "Sussex University"
+              ],
+              "title": "Lead Research Institute",
+              "description": ""
+            },
                         "abstract": {
                               "allOf": [
                                     {
