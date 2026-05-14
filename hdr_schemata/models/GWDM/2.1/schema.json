@@ -1433,7 +1433,7 @@
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
                                     }
                               ],
-                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate.",
+                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate).",
                               "title": "Project Grant Title"
                         },
                         "leadResearcher": {
@@ -1909,20 +1909,18 @@
                         "funders": {
                               "anyOf": [
                                     {
-                                          "pattern": "([^\\r\\n]+)",
-                                          "type": "string"
+                                          "$ref": "#/$defs/CommaSeparatedValues"
                                     },
                                     {
                                           "type": "null"
                                     }
                               ],
                               "default": null,
-                              "description": "List of Funders separated by a line break",
+                              "description": "Comma-separated list of funders for this dataset.",
                               "examples": [
-                                    "CRUK",
-                                    "University of Sussex"
+                                    "CRUK,University of Sussex"
                               ],
-                              "guidance": "Put each funder on a new line",
+                              "guidance": "Separate each funder with a comma.",
                               "title": "Funded by"
                         }
                   },

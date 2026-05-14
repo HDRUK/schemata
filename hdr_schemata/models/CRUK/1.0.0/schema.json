@@ -2336,7 +2336,7 @@
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
                                     }
                               ],
-                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate.",
+                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate).",
                               "title": "Project Grant Title"
                         },
                         "leadResearcher": {

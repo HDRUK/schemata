@@ -118,7 +118,7 @@ class ProjectGrant(BaseModel):
         title="Project Grant Title",
         description=(
             "The Project Grant Title should be unique to the CRUK datahub. "
-            "(Add your institute or name if necessary to disambiguate."
+            "(Add your institute or name if necessary to disambiguate)."
         ),
     )
     leadResearcher: OneHundredFiftyCharacters = Field(
