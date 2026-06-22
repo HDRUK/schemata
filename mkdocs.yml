@@ -8,11 +8,29 @@ theme:
     #favicon: images/favicon.png
     features:
         - navigation.sections
+        - navigation.tabs
+        - navigation.top
+        - content.code.copy
+        - content.tabs.link
 extra_css:
     - stylesheets/custom.css
 
+markdown_extensions:
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+          alternate_style: true
+    - pymdownx.highlight:
+          anchor_linenums: true
+
 nav:
-    - Welcome: index.md
+    - Home: index.md
+    - Contributing:
+          - Overview: contributing/index.md
+          - Writing a schema: contributing/writing.md
+          - Releasing a version: contributing/releasing.md
+          - Publishing docs: contributing/publishing.md
     - Schemata:
           - Gateway Data Model (GWDM):
                 - Version 1.0: GWDM/1.0.md

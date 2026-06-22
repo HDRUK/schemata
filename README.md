@@ -1,23 +1,54 @@
-New collection of schemas for Enhanced Gateway
+# schemata-2
 
+Canonical metadata schema definitions for the HDR UK Gateway platform. Schemas are authored as Pydantic v2 models; JSON Schema files and Markdown documentation are auto-generated from them.
+
+Full documentation: **https://hdruk.github.io/schemata-2/**
+
+## Setup
+
+```bash
+pip install -e .              # install package in editable mode
+pip install -r requirements.txt  # docs and test dependencies
+```
+
+## Commands
+
+```bash
+# Run tests
+pytest hdr_schemata/tests/
+
+# Regenerate schema.json files and available.json (run before committing model changes)
+python hdr_schemata/utils/build.py
+
+# Regenerate docs/ markdown from Pydantic models
+python hdr_schemata/utils/create_markdown.py
+```
+
+## Docs
+
+```bash
+mkdocs serve           # local preview at http://127.0.0.1:8000
+mkdocs build --strict  # validate all pages build without errors
+mkdocs gh-deploy --force  # deploy to GitHub Pages (master branch; CI does this automatically)
+```
 
 ## Modifying a schema
 
 The below is a walkthrough of the steps required to make a change to an existing schema, by way of
 an example. Other changes will require slightly different steps.
 
-In this example, we wish to modify the type of a field (`accessibility.formatAndStandards.conformsTo`) 
+In this example, we wish to modify the type of a field (`accessibility.formatAndStandards.conformsTo`)
 in the HDRUK 2.2.1 schema.
 
 ### Modify schema files
 
-The schema definition in `hdr_schemata/models/HDRUK/2.2.1/schema.json` is 
-generated from the contents of `hdr_schemata/models/HDRUK/v2_2_1`, building 
-upon the contents of previous versions. `v2_1_2 is the "base model" all
+The schema definition in `hdr_schemata/models/HDRUK/2.2.1/schema.json` is
+generated from the contents of `hdr_schemata/models/HDRUK/v2_2_1`, building
+upon the contents of previous versions. `v2_1_2` is the "base model" all
 current schemas are derived from.
 
 We create a new `FormatAndStandards.py` in the
-`v2_2_1` directory, with the boilerplate taken from `v2_1_2/FormatAndStandards.py`. Into this file we import 
+`v2_2_1` directory, with the boilerplate taken from `v2_1_2/FormatAndStandards.py`. Into this file we import
 ```python
 from hdr_schemata.models.HDRUK.v2_2_0 import (
     FormatAndStandards as BaseFormatAndStandards,
@@ -46,19 +77,13 @@ class Accessibility(BaseAccessibility):
     )
 ```
 
-The changes to the schema are now ready to process.
+### Regenerate schema JSON and docs
 
-### Create schema json
-
-Run `python create_json_schema.py`. This will modify the contents of `hdr_schemata/models/HDRUK/2.2.1/schema.json` as appropriate. You may need to install the repo as a local package:
 ```bash
-pip install -e .
+python hdr_schemata/utils/build.py          # updates schema.json + available.json
+python hdr_schemata/utils/create_markdown.py  # updates docs/
 ```
 
-### Update docs
+After merging to `master`, the updated docs are automatically published at `https://hdruk.github.io/schemata-2/`.
 
-Finally, update the Markdown docs with:
-```bash
-python hdr_schemata/utils/create_markdown.py
-```
-to generate the Markdown in `docs/`. After merging, this will be available at `https://hdruk.github.io/schemata-2/`.
+See the [full contributing guide](https://hdruk.github.io/schemata-2/contributing/) for more detail on writing new versions, the release workflow, and local doc previews.
