@@ -6,6 +6,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 
 from hdr_schemata.models.GWDM.v2_0 import Gwdm20
+from hdr_schemata.models.GWDM.v2_1 import DatasetFilter, ProjectGrant, Image
 from hdr_schemata.models.GWDM.v2_0.DataTable import DataTable
 from hdr_schemata.models.GWDM.v2_0.DemographicFrequency import DemographicFrequency
 from hdr_schemata.models.GWDM.v2_0.Linkage import Linkage
@@ -79,6 +80,28 @@ class Gwdm30(BaseModel):
         None,
         title="Quality Annotations",
         description="Quality annotation records for this dataset (dqv:QualityAnnotation).",
+    )
+    icons: Optional[List[str]] = Field(
+        None,
+        title="Icons",
+        description="Calculated categorization icons added during export.",
+    )
+    projectGrants: Optional[List[ProjectGrant]] = Field(
+        None, title="Associated Project Grants"
+    )
+    datasetFilters: Optional[List[DatasetFilter]] = Field(
+        None,
+        description="Categorization tags regarding cancer type, data type, and access.",
+    )
+    erd: Optional[Image] = Field(
+        None,
+        title="Entity Relationship Diagram",
+        description="Visual representation of data table relationships.",
+        json_schema_extra={
+            "guidance": (
+                "Please upload an image file (max 5MB) showing the relationship between the different tables"
+            )
+        },
     )
 
     @classmethod

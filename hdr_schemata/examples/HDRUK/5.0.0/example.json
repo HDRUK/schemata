@@ -1,0 +1,137 @@
+{
+    "@context": "https://hdruk.github.io/schemata-2/context/5.0.0.jsonld",
+    "@id": "https://web.www.healthdatagateway.org/dataset/a7ddefbd-31d9-4703-a738-256e4689f76a",
+    "@type": "healthdcatap:HealthDataset",
+    "identifier": "a7ddefbd-31d9-4703-a738-256e4689f76a",
+    "version": "5.0.0",
+    "issued": "2020-08-05T14:35:59Z",
+    "modified": "2024-01-15T10:00:00Z",
+    "revisions": [
+        {
+            "version": "4.0.0",
+            "url": "https://web.www.healthdatagateway.org/dataset/a7ddefbd-31d9-4703-a738-256e4689f76a"
+        }
+    ],
+    "summary": {
+        "title": "HDR UK Papers & Preprints",
+        "abstract": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations",
+        "dataCustodian": {
+            "identifier": "https://ror.org/01cyxyk11",
+            "name": "Health Data Research UK",
+            "contactPoint": "info@hdruk.ac.uk"
+        },
+        "populationSize": 5000,
+        "contactPoint": "info@hdruk.ac.uk",
+        "doiName": "10.1093/ije/dyx196",
+        "keywords": [
+            "Preprints",
+            "Papers",
+            "HDR UK"
+        ],
+        "shortTitle": "HDR UK Papers",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+        "landingPage": "https://web.www.healthdatagateway.org/dataset/a7ddefbd-31d9-4703-a738-256e4689f76a",
+        "creator": {
+            "name": "Health Data Research UK",
+            "rorId": "https://ror.org/01cyxyk11",
+            "gatewayId": "hdruk"
+        },
+        "theme": [
+            "http://eurovoc.europa.eu/data_resource",
+            "http://id.loc.gov/authorities/subjects/sh85059616"
+        ],
+        "controlledKeywords": "research,health data,publications"
+    },
+    "documentation": {
+        "description": "Publications that mention HDR-UK (or any variant thereof) in Acknowledgements or Author Affiliations. Includes papers, COVID-19 papers, and preprints.",
+        "associatedMedia": [
+            "https://github.com/HDRUK/papers"
+        ],
+        "inPipeline": "Not available"
+    },
+    "coverage": {
+        "spatial": "https://www.geonames.org/countries/GB/united-kingdom.html",
+        "followUp": "Unknown",
+        "pathway": "NOT APPLICABLE",
+        "typicalAgeRangeMin": 18,
+        "typicalAgeRangeMax": 99,
+        "populationCoverage": "Researchers and academics affiliated with or acknowledging HDR UK across all clinical specialties.",
+        "numberOfUniqueIndividuals": 5000,
+        "numberOfRecords": 15000
+    },
+    "provenance": {
+        "origin": {
+            "purpose": ["Other"],
+            "datasetType": [
+                {"name": "Health and disease", "subTypes": null}
+            ],
+            "source": ["Machine generated"]
+        },
+        "temporal": {
+            "startDate": "2020-03-31",
+            "endDate": "2024-12-31",
+            "timeLag": "Not applicable",
+            "publishingFrequency": "Daily",
+            "distributionReleaseDate": "2024-01-15"
+        },
+        "retentionPeriod": {
+            "startDate": "2020-03-31",
+            "endDate": "2030-12-31"
+        }
+    },
+    "accessibility": {
+        "usage": {
+            "dataUseLimitation": ["General research use"],
+            "dataUseRequirements": ["Return to database or resource"],
+            "resourceCreator": "HDR UK Science Team"
+        },
+        "access": {
+            "accessRights": "https://raw.githubusercontent.com/HDRUK/papers/master/LICENSE",
+            "accessService": "https://github.com/HDRUK/papers",
+            "accessRequestCost": "Free",
+            "deliveryLeadTime": "Less than 1 week",
+            "jurisdiction": ["GB-ENG"],
+            "dataController": "Health Data Research UK",
+            "dataProcessor": "Health Data Research UK",
+            "legalBasis": "GDPR Art.6(1)(e) - public task; GDPR Art.9(2)(j) - scientific research",
+            "applicableLegislation": "UK GDPR; Data Protection Act 2018",
+            "personalData": "No directly identifiable personal data. Aggregated publication metadata only."
+        },
+        "formatAndStandards": {
+            "vocabularyEncodingScheme": ["OTHER"],
+            "conformsTo": ["OTHER"],
+            "language": ["en"],
+            "format": ["CSV", "JSON"]
+        }
+    },
+    "observations": [
+        {
+            "observedNode": "Findings",
+            "measuredValue": 15000,
+            "disambiguatingDescription": "Total publication records mentioning HDR UK",
+            "observationDate": "2024-01-15",
+            "measuredProperty": "Count"
+        }
+    ],
+    "distributions": [
+        {
+            "title": "CSV download",
+            "description": "Full dataset as a comma-separated values file.",
+            "accessUrl": "https://github.com/HDRUK/papers/releases",
+            "downloadUrl": "https://github.com/HDRUK/papers/releases/latest/download/papers.csv",
+            "mediaType": "text/csv",
+            "format": "CSV",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "issued": "2024-01-15"
+        }
+    ],
+    "qualityAnnotations": [
+        {
+            "annotationType": "duf_score",
+            "qualityDimension": "completeness",
+            "qualityValue": "0.92",
+            "qualityDescription": "92% completeness score from the HDR UK Dataset Utility Framework assessment.",
+            "annotationDate": "2024-01-10"
+        }
+    ]
+}

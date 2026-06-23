@@ -100,6 +100,11 @@ def build() -> int:
 
     total = sum(len(v) for v in available.values())
     print(f"\navailable.json written ({total} schemas across {len(available)} families)")
+
+    print("\nGenerating docs...")
+    from hdr_schemata.utils.create_markdown import build_docs
+    build_docs()
+
     return 0
 
 

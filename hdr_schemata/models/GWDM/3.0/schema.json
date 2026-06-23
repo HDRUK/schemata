@@ -718,6 +718,52 @@
                   "title": "DatasetDescriptor",
                   "type": "object"
             },
+            "DatasetFilter": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "id": {
+                              "pattern": "(\\d+_){0,5}\\d+",
+                              "title": "Id",
+                              "type": "string"
+                        },
+                        "label": {
+                              "maxLength": 150,
+                              "minLength": 0,
+                              "title": "Label",
+                              "type": "string"
+                        },
+                        "category": {
+                              "maxLength": 150,
+                              "minLength": 0,
+                              "title": "Category",
+                              "type": "string"
+                        },
+                        "primaryGroup": {
+                              "enum": [
+                                    "cancer-type",
+                                    "data-type",
+                                    "access-type"
+                              ],
+                              "title": "Primary group",
+                              "type": "string"
+                        },
+                        "description": {
+                              "maxLength": 150,
+                              "minLength": 0,
+                              "title": "Description",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "id",
+                        "label",
+                        "category",
+                        "primaryGroup",
+                        "description"
+                  ],
+                  "title": "DatasetFilter",
+                  "type": "object"
+            },
             "DatasetLinkage": {
                   "additionalProperties": false,
                   "properties": {
@@ -867,6 +913,19 @@
                   },
                   "title": "DemographicFrequency",
                   "type": "object"
+            },
+            "Description": {
+                  "anyOf": [
+                        {
+                              "maxLength": 10000,
+                              "minLength": 2,
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "title": "Description"
             },
             "Disease": {
                   "properties": {
@@ -1214,6 +1273,39 @@
                         }
                   },
                   "title": "FormatAndStandards",
+                  "type": "object"
+            },
+            "Image": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "image": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "contentMediaType": "image/*",
+                              "default": null,
+                              "description": "An image file.",
+                              "guidance": "Upload an image file (PNG, JPG, SVG) Max file size: 5MB.",
+                              "title": "Image"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Description"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null
+                        }
+                  },
+                  "title": "Image",
                   "type": "object"
             },
             "Linkage": {
@@ -1657,6 +1749,110 @@
                   ],
                   "title": "Platform",
                   "type": "string"
+            },
+            "ProjectGrant": {
+                  "properties": {
+                        "pid": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Persistent identifier of the study"
+                        },
+                        "projectGrantName": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "description": "The Project Grant Title should be unique to the CRUK datahub. (Add your institute or name if necessary to disambiguate).",
+                              "title": "Project Grant Title"
+                        },
+                        "leadResearcher": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "examples": [
+                                    "Dr Smith"
+                              ],
+                              "title": "Lead Researcher"
+                        },
+                        "leadResearchInstitute": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    }
+                              ],
+                              "examples": [
+                                    "Sussex University"
+                              ],
+                              "title": "Lead Research Institute"
+                        },
+                        "grantNumber": {
+                              "description": "List of CRUK and any other grant numbers.",
+                              "examples": [
+                                    "ABC123"
+                              ],
+                              "guidance": "Normally specified on the grant acceptance letter",
+                              "title": "Grant number(s)",
+                              "type": "string"
+                        },
+                        "projectGrantStartDate": {
+                              "description": "Starting date of projectGrant grant.",
+                              "guidance": "Date on which the dataset projectGrant starts. This is normally set out in the grant contract and will be different from the start of any data collection",
+                              "title": "Project Start Date",
+                              "type": "string"
+                        },
+                        "projectGrantEndDate": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "description": "Current end date of project grant.",
+                              "guidance": "Date on which the dataset project is currently projected to finish. This is normally set out in the grant contract and will be different from the end of any data collection",
+                              "title": "Project End Date"
+                        },
+                        "projectGrantScope": {
+                              "anyOf": [
+                                    {
+                                          "maxLength": 500,
+                                          "minLength": 5,
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "data and biospecimens expected to result from the grant.",
+                              "examples": [
+                                    "Longitudinal genomic data including somatic mutations"
+                              ],
+                              "guidance": "Short paragraph setting out the types of data / biospecimens likely to result from the grant and the cancers covered",
+                              "title": "Project Scope"
+                        }
+                  },
+                  "required": [
+                        "projectGrantName",
+                        "leadResearcher",
+                        "leadResearchInstitute",
+                        "grantNumber",
+                        "projectGrantStartDate",
+                        "projectGrantEndDate"
+                  ],
+                  "title": "ProjectGrant",
+                  "type": "object"
             },
             "Provenance": {
                   "additionalProperties": false,
@@ -2907,6 +3103,67 @@
                   "default": null,
                   "description": "Quality annotation records for this dataset (dqv:QualityAnnotation).",
                   "title": "Quality Annotations"
+            },
+            "icons": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Calculated categorization icons added during export.",
+                  "title": "Icons"
+            },
+            "projectGrants": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/ProjectGrant"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "title": "Associated Project Grants"
+            },
+            "datasetFilters": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/DatasetFilter"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Categorization tags regarding cancer type, data type, and access.",
+                  "title": "Datasetfilters"
+            },
+            "erd": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/Image"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Visual representation of data table relationships.",
+                  "guidance": "Please upload an image file (max 5MB) showing the relationship between the different tables",
+                  "title": "Entity Relationship Diagram"
             }
       },
       "required": [
