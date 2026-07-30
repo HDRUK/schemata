@@ -5,7 +5,7 @@ on:
     branches:
       - dev
       - preprod
-      - master
+      - main
 
 permissions:
   id-token: write
@@ -18,7 +18,7 @@ jobs:
       ${{
          github.ref_name == 'dev' && 'dev'
       || github.ref_name == 'preprod' && 'preprod'
-      || github.ref_name == 'master' && 'prod'
+      || github.ref_name == 'main' && 'prod'
       }}
 
     steps:
