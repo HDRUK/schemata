@@ -23,7 +23,7 @@ setuptools.setup(
         #"pydantic[email]==2.0.3",
         "pydantic==2.4.2",
         "email-validator==2.1.0.post1",
-        "pytest==7.4.2"
+        "pytest==9.0.3"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
