@@ -13,9 +13,8 @@ an = annotations.required
 
 
 class Required(BaseModel):
-    gatewayId: constr(min_length=1, max_length=50) = Field(
-        ..., description=an.gatewayId.description, title=an.gatewayId.title
-    )
+    gatewayId: int = Field(..., description=an.gatewayId.description, title=an.gatewayId.title)
+
     gatewayPid: constr(min_length=2, max_length=50) = Field(
         ..., description=an.gatewayPid.description, title=an.gatewayPid.title
     )
