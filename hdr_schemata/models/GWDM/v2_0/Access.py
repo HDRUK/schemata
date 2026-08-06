@@ -25,7 +25,7 @@ class Access(BaseModel):
         None, **an.deliveryLeadTime.__dict__
     )
 
-    jurisdiction: Optional[CommaSeparatedValues] = Field(
+    jurisdiction: Optional[CountryCodeEnum] = Field(
         None, **an.jurisdiction.__dict__
     )
 

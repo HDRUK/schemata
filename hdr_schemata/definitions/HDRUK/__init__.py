@@ -6,6 +6,7 @@ from .AgeRange import AgeRange
 from .Assay import Assay
 from .CommaSeparatedIntegers import CommaSeparatedIntegers
 from .CommaSeparatedValues import CommaSeparatedValues
+from .CountryCodeEnum import CountryCodeEnum
 from .ControlledVocabulary import ControlledVocabulary
 from .ControlledVocabularyEnum import ControlledVocabularyEnum
 from .DataUseLimitation import DataUseLimitation, DataUseLimitationV2

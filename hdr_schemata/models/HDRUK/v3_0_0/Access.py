@@ -33,7 +33,7 @@ class Access(BaseModel):
         None, **an.deliveryLeadTime.__dict__, json_schema_extra={"guidance": an.deliveryLeadTime.guidance}
     )
 
-    jurisdiction: Optional[List[Isocountrycode]] = Field(
+    jurisdiction: Optional[List[CountryCodeEnum]] = Field(
         None, **an.jurisdiction.__dict__, json_schema_extra={"guidance": an.jurisdiction.guidance}
     )
     
