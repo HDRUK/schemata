@@ -438,8 +438,10 @@
                         "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:- For locations in the UK: ONS standards- For locations in other countries: ISO 3166-1 & ISO 3166-2",
                         "guidance": "The geographical area covered by the dataset.- Please provide a valid location.- For locations in the UK, this location should conform to ONS standards.- For locations in other countries we use ISO 3166-1 & ISO 3166-2.",
                         "examples": [
-                              "United Kingdom",
-                              "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                              "England",
+                              "East Ayrshire",
+                              "Ardoyne",
+                              "Powys"
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
