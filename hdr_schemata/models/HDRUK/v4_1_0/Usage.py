@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import *
 
@@ -15,4 +15,10 @@ class Usage(BaseUsage):
         None,
         title=an.dataUsePermissions.title,
         description=an.dataUsePermissions.description,
+    )
+
+    duoCodes: Optional[List[DuoCodesEnum]] = Field(
+        None,
+        **an.duoCodes.__dict__,
+        json_schema_extra={"guidance": an.duoCodes.guidance}
     )

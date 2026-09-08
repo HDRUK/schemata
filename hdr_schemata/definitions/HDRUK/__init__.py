@@ -60,6 +60,7 @@ from .StatisticalPopulationConstrained import (
 )
 from .Ternary import Ternary
 from .YesNo import YesNo
+from .DuoCodesEnum import DuoCodesEnum
 from .TimeLag import TimeLag, TimeLagV2
 from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
 from .TissueDataCategoriesEnum import TissueDataCategoriesEnum

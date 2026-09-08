@@ -1,6 +1,8 @@
 from pydantic import ValidationError
+import csv
 import json
 from hdr_schemata.models.HDRUK import Hdruk212, Hdruk410
+from hdr_schemata.definitions.HDRUK import DuoCodesEnum
 
 
 def get_metadata(model, version):
@@ -108,3 +110,51 @@ class TestHdruk410:
         metadata["accessibility"]["usage"]["dataUsePermissions"] = {}
         dataset = Hdruk410(**metadata)
         assert dataset.accessibility.usage.dataUsePermissions.patientRecontact == "No"
+
+    def test_duo_codes_accepts_valid_codes(self):
+        metadata = json.loads(json.dumps(self.metadata))
+        metadata["accessibility"]["usage"]["duoCodes"] = [
+            "DUO:0000042",
+            "DUO:0000021",
+        ]
+        assert Hdruk410(**metadata) != None
+
+    def test_duo_codes_rejects_nonexistent_code(self):
+        metadata = json.loads(json.dumps(self.metadata))
+        metadata["accessibility"]["usage"]["duoCodes"] = ["DUO:9999999"]
+        try:
+            Hdruk410(**metadata)
+            assert False, "expected ValidationError for a nonexistent DUO code"
+        except ValidationError:
+            pass
+
+    def test_duo_codes_rejects_owl_only_hierarchy_terms(self):
+        # DUO:0000032 ("population research") exists in the ontology's class
+        # hierarchy (duo.owl) but not in DUO's own separately maintained flat
+        # export (duo.csv) - deliberately excluded from the vendored enum,
+        # not an oversight, so pin it as a rejected value.
+        metadata = json.loads(json.dumps(self.metadata))
+        metadata["accessibility"]["usage"]["duoCodes"] = ["DUO:0000032"]
+        try:
+            Hdruk410(**metadata)
+            assert False, "expected ValidationError for an OWL-hierarchy-only DUO term"
+        except ValidationError:
+            pass
+
+    def test_dataset_without_duo_codes_still_validates(self):
+        metadata = json.loads(json.dumps(self.metadata))
+        assert "duoCodes" not in metadata["accessibility"]["usage"]
+        assert Hdruk410(**metadata) != None
+
+
+def test_duo_codes_enum_matches_vendored_source():
+    with open("../definitions/HDRUK/vendor/duo.csv") as f:
+        vendored_ids = {row["id"] for row in csv.DictReader(f)}
+
+    enum_ids = {member.value for member in DuoCodesEnum}
+
+    assert enum_ids == vendored_ids, (
+        "DuoCodesEnum has drifted from vendor/duo.csv - "
+        f"in enum but not vendored: {enum_ids - vendored_ids}, "
+        f"in vendored file but not enum: {vendored_ids - enum_ids}"
+    )
