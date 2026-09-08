@@ -78,3 +78,33 @@ class TestHdruk410:
         metadata = json.loads(json.dumps(self.metadata))
         metadata["accessibility"]["formatAndStandards"]["conformsTo"] = ["LOCAL"]
         assert Hdruk410(**metadata) != None
+
+    def test_patient_recontact_accepts_yes_no(self):
+        for value in ["Yes", "No"]:
+            metadata = json.loads(json.dumps(self.metadata))
+            metadata["accessibility"]["usage"]["dataUsePermissions"] = {
+                "patientRecontact": value
+            }
+            assert Hdruk410(**metadata) != None
+
+    def test_patient_recontact_rejects_invalid_value(self):
+        metadata = json.loads(json.dumps(self.metadata))
+        metadata["accessibility"]["usage"]["dataUsePermissions"] = {
+            "patientRecontact": "Not stated"
+        }
+        try:
+            Hdruk410(**metadata)
+            assert False, "expected ValidationError for an invalid patientRecontact value"
+        except ValidationError:
+            pass
+
+    def test_dataset_without_patient_recontact_still_validates(self):
+        metadata = json.loads(json.dumps(self.metadata))
+        assert "dataUsePermissions" not in metadata["accessibility"]["usage"]
+        assert Hdruk410(**metadata) != None
+
+    def test_patient_recontact_defaults_to_no_when_omitted(self):
+        metadata = json.loads(json.dumps(self.metadata))
+        metadata["accessibility"]["usage"]["dataUsePermissions"] = {}
+        dataset = Hdruk410(**metadata)
+        assert dataset.accessibility.usage.dataUsePermissions.patientRecontact == "No"

@@ -597,6 +597,30 @@
                   "title": "DataUseLimitationV2",
                   "type": "string"
             },
+            "DataUsePermissions": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "patientRecontact": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/YesNo"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": "No",
+                              "description": "Indicates whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.",
+                              "examples": [
+                                    "No"
+                              ],
+                              "guidance": "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\n- **No**: The people within this dataset cannot be recontacted.",
+                              "title": "Patient recontact"
+                        }
+                  },
+                  "title": "DataUsePermissions",
+                  "type": "object"
+            },
             "DataUseRequirementsV2": {
                   "enum": [
                         "Collaboration required",
@@ -2907,6 +2931,19 @@
                               ],
                               "guidance": "- Please provide the text that you would like included as part of any citation that credits this dataset.\\n- This is typically just the name of the publisher. No employee details should be provided.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\\n- **Example**: National Services Scotland",
                               "title": "Citation requirements"
+                        },
+                        "dataUsePermissions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DataUsePermissions"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Permissions relating to how people and materials within this dataset may be used, beyond the general access and use conditions described elsewhere in this section.",
+                              "title": "Data Use Permissions"
                         }
                   },
                   "title": "Usage",
@@ -2917,6 +2954,14 @@
                   "minLength": 36,
                   "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
                   "title": "Uuidv4",
+                  "type": "string"
+            },
+            "YesNo": {
+                  "enum": [
+                        "Yes",
+                        "No"
+                  ],
+                  "title": "YesNo",
                   "type": "string"
             }
       },

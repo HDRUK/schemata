@@ -4,6 +4,7 @@ from hdr_schemata.definitions.HDRUK import *
 from typing import Optional
 
 from .FormatAndStandards import FormatAndStandards
+from .Usage import Usage
 
 from .annotations import annotations
 
@@ -19,4 +20,8 @@ class Accessibility(BaseAccessibility):
         None,
         title=an.formatAndStandards.title,
         description=an.formatAndStandards.description,
+    )
+
+    usage: Optional[Usage] = Field(
+        None, title=an.usage.title, description=an.usage.description
     )
