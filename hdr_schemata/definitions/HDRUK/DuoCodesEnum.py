@@ -8,12 +8,15 @@ from enum import Enum
 # `hdr_schemata/tests/test_hdruk.py::test_duo_codes_enum_matches_vendored_source`
 # parses that file at test time and asserts every row here matches it
 # exactly, so this class can't silently drift from what's actually vendored.
+#
+# `label` appends the code because it is what form hydration renders as the
+# option label (via option_titles in the generated *.form.json).
 
 class DuoCodesEnum(Enum):
     def __new__(cls, code, label):
         obj = object.__new__(cls)
         obj._value_ = code
-        obj.label = label
+        obj.label = f"{label} ({code})"
         return obj
 
     DATA_USE_PERMISSION = ("DUO:0000001", "data use permission")

@@ -79,6 +79,8 @@ class TestHdruk410:
     def test_dataset_without_new_optional_fields_still_validates(self):
         metadata = json.loads(json.dumps(self.metadata))
         metadata["accessibility"]["formatAndStandards"]["conformsTo"] = ["LOCAL"]
+        metadata["accessibility"]["usage"].pop("duoCodes")
+        metadata["accessibility"]["usage"].pop("dataUsePermissions")
         assert Hdruk410(**metadata) != None
 
     def test_patient_recontact_accepts_yes_no(self):
@@ -102,7 +104,7 @@ class TestHdruk410:
 
     def test_dataset_without_patient_recontact_still_validates(self):
         metadata = json.loads(json.dumps(self.metadata))
-        assert "dataUsePermissions" not in metadata["accessibility"]["usage"]
+        metadata["accessibility"]["usage"].pop("dataUsePermissions")
         assert Hdruk410(**metadata) != None
 
     def test_patient_recontact_defaults_to_no_when_omitted(self):
@@ -143,7 +145,7 @@ class TestHdruk410:
 
     def test_dataset_without_duo_codes_still_validates(self):
         metadata = json.loads(json.dumps(self.metadata))
-        assert "duoCodes" not in metadata["accessibility"]["usage"]
+        metadata["accessibility"]["usage"].pop("duoCodes")
         assert Hdruk410(**metadata) != None
 
 
@@ -163,7 +165,7 @@ def test_duo_codes_enum_matches_vendored_source():
     drifted = {
         member.value: (member.label, vendored[member.value])
         for member in DuoCodesEnum
-        if member.label != vendored[member.value]
+        if member.label != f"{vendored[member.value]} ({member.value})"
     }
     assert not drifted, (
         f"DuoCodesEnum labels have drifted from vendor/duo.csv: {drifted}"

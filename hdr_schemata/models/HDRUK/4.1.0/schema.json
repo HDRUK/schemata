@@ -2991,7 +2991,7 @@
                               "default": null,
                               "description": "Machine-readable codes from the GA4GH Data Use Ontology describing the permitted or restricted uses of this dataset, for interoperability with other GA4GH-compliant systems.",
                               "examples": [
-                                    "DUO:0000042"
+                                    "general research use (DUO:0000042)"
                               ],
                               "guidance": "Please select any GA4GH Data Use Ontology (DUO) codes that describe the permitted or restricted uses of this dataset, e.g. DUO:0000042 (general research use), DUO:0000021 (ethics approval required). Multiple codes may apply to the same dataset. This is separate from Data use limitation/Data use requirements above, which use HDR UK's own free-text categories rather than the GA4GH ontology's identifiers.",
                               "title": "GA4GH Data Use Ontology (DUO) codes"
