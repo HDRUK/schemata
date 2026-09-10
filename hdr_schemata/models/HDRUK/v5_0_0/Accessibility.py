@@ -2,14 +2,9 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from hdr_schemata.models.HDRUK.v3_0_0.FormatAndStandards import FormatAndStandards
-from hdr_schemata.models.HDRUK.v3_0_0.Usage import Usage
-from hdr_schemata.models.HDRUK.v3_0_0 import Hdruk300
-from hdr_schemata.models.HDRUK.v3_0_0.annotations import annotations
-
 from .Access import Access
-
-an = annotations.accessibility
+from .FormatAndStandards import FormatAndStandards
+from .Usage import Usage
 
 
 class Accessibility(BaseModel):
@@ -17,13 +12,19 @@ class Accessibility(BaseModel):
         extra = "forbid"
 
     usage: Optional[Usage] = Field(
-        None, title=an.usage.title, description=an.usage.description
+        None,
+        title="Usage",
+        description="Information on the permitted uses, limitations, and attribution requirements for the dataset.",
     )
 
-    access: Access = Field(..., description=an.description, title=an.title)
+    access: Access = Field(
+        ...,
+        title="Access",
+        description="Details of how to request and obtain access to the dataset, including rights, costs, and jurisdiction.",
+    )
 
     formatAndStandards: Optional[FormatAndStandards] = Field(
         None,
-        title=an.formatAndStandards.title,
-        description=an.formatAndStandards.description,
+        title="Format and Standards",
+        description="Technical standards and formats used in the dataset, including vocabularies, data models, language, and file formats.",
     )

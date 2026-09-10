@@ -222,6 +222,8 @@ def form_structure(data, form, parent=None):
                 ...
             if type(t) == enum.EnumMeta:
                 info = {"type": "string", "options": [m.value for m in t]}
+                if all(hasattr(m, "label") for m in t):
+                    info["option_titles"] = [m.label for m in t]
 
             if info:
                 infos.append(info)
@@ -336,13 +338,58 @@ def create_markdown(Model, path, name):
     print(f"  docs/{name}")
 
 
+class _OpaqueYamlTag:
+    def __init__(self, suffix):
+        self.suffix = suffix
+
+    def __eq__(self, other):
+        return isinstance(other, _OpaqueYamlTag) and other.suffix == self.suffix
+
+    def __hash__(self):
+        return hash(self.suffix)
+
+
+def _mkdocs_yaml_handlers():
+    import yaml
+
+    class Loader(yaml.SafeLoader):
+        pass
+
+    class Dumper(yaml.SafeDumper):
+        pass
+
+    Loader.add_multi_constructor(
+        "tag:yaml.org,2002:python/name:",
+        lambda loader, suffix, node: _OpaqueYamlTag(suffix),
+    )
+    Dumper.add_representer(
+        _OpaqueYamlTag,
+        lambda dumper, data: dumper.represent_scalar(
+            f"tag:yaml.org,2002:python/name:{data.suffix}", ""
+        ),
+    )
+    return Loader, Dumper
+
+
+def _merge_nav_section(existing, generated):
+    generated_keys = {key for entry in generated for key in entry}
+    preserved = [
+        entry
+        for entry in existing or []
+        if not (isinstance(entry, dict) and generated_keys.issuperset(entry))
+    ]
+    return generated + preserved
+
+
 def _update_mkdocs_nav(nav_entries: dict, changelog_entries: dict):
     """Update the Schemata and Schema Change Log sections of mkdocs.yml."""
     import yaml
 
+    Loader, Dumper = _mkdocs_yaml_handlers()
+
     mkdocs_path = REPO_ROOT / "mkdocs.yml"
     with open(mkdocs_path) as f:
-        config = yaml.safe_load(f)
+        config = yaml.load(f, Loader=Loader)
 
     for item in config.get("nav", []):
         if not isinstance(item, dict):
@@ -354,10 +401,13 @@ def _update_mkdocs_nav(nav_entries: dict, changelog_entries: dict):
                     continue
                 for display_name, (docs_subdir, versions) in nav_entries.items():
                     if display_name in section:
-                        section[display_name] = [
-                            {f"Version {v}": f"{docs_subdir}/{v}.md"}
-                            for v in versions
-                        ]
+                        section[display_name] = _merge_nav_section(
+                            section[display_name],
+                            [
+                                {f"Version {v}": f"{docs_subdir}/{v}.md"}
+                                for v in versions
+                            ],
+                        )
 
         if "Schema Change Log" in item:
             for section in item["Schema Change Log"]:
@@ -367,13 +417,23 @@ def _update_mkdocs_nav(nav_entries: dict, changelog_entries: dict):
                     # Match on either the full display name or the short subdir name (e.g. "GWDM")
                     key = display_name if display_name in section else (docs_subdir if docs_subdir in section else None)
                     if key:
-                        section[key] = [
-                            {v: f"{docs_subdir}/{v}.change.md"}
-                            for v in versions
-                        ]
+                        section[key] = _merge_nav_section(
+                            section[key],
+                            [
+                                {v: f"{docs_subdir}/{v}.change.md"}
+                                for v in versions
+                            ],
+                        )
 
     with open(mkdocs_path, "w") as f:
-        yaml.dump(config, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
+        yaml.dump(
+            config,
+            f,
+            Dumper=Dumper,
+            default_flow_style=False,
+            allow_unicode=True,
+            sort_keys=False,
+        )
 
 
 def build_docs():

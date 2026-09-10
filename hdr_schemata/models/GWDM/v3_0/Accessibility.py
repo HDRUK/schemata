@@ -2,13 +2,9 @@ from typing import Optional
 
 from pydantic import BaseModel, Field
 
-from hdr_schemata.models.GWDM.v2_0.annotations import annotations as v20_an
-
 from .Access import Access
 from .FormatAndStandards import FormatAndStandards
 from .Usage import Usage
-
-an = v20_an.accessibility
 
 
 class Accessibility(BaseModel):
@@ -16,13 +12,17 @@ class Accessibility(BaseModel):
         extra = "forbid"
 
     usage: Optional[Usage] = Field(
-        None, title=an.usage.title, description=an.usage.description
+        None,
+        title="Usage",
+        description="This section includes information about how the data can be used and how it is currently being used.",
     )
     access: Access = Field(
-        ..., title=an.access.title, description=an.access.description
+        ...,
+        title="Access",
+        description="This section includes information about data access",
     )
     formatAndStandards: Optional[FormatAndStandards] = Field(
         None,
         title="Format and Standards",
-        description="Format and standards information for the dataset.",
+        description="Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
     )

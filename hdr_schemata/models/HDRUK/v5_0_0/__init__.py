@@ -3,7 +3,6 @@ from typing import Any, Dict, List, Optional
 
 from pydantic import ConfigDict, Field
 
-from hdr_schemata.definitions.HDRUK import Url
 from hdr_schemata.models.HDRUK.v4_0_0 import Hdruk400
 
 from .Accessibility import Accessibility
@@ -12,13 +11,11 @@ from .Distribution import Distribution
 from .Provenance import Provenance
 from .QualityAnnotation import QualityAnnotation
 from .Summary import Summary
-from .annotations import annotations as an
 
 
 class Hdruk500(Hdruk400):
     model_config = ConfigDict(populate_by_name=True, extra="forbid")
 
-    # JSON-LD document identity — optional affordances for DCAT/HealthDCAT-AP interoperability
     context: Optional[str] = Field(
         "https://hdruk.github.io/schemata-2/context/5.0.0.jsonld",
         alias="@context",
@@ -45,39 +42,44 @@ class Hdruk500(Hdruk400):
         ),
     )
 
-    # Extended sub-models
     summary: Summary = Field(
-        ..., description=an.summary._description, title=an.summary._title
+        ...,
+        title="Summary",
+        description="High-level descriptive metadata about the dataset.",
     )
 
     coverage: Optional[Coverage] = Field(
-        None, description=an.coverage.description, title=an.coverage.title
+        None,
+        title="Coverage",
+        description="Demographic and geographic coverage of the dataset population.",
     )
 
     accessibility: Accessibility = Field(
-        ..., description=an.accessibility.description, title=an.accessibility.title
+        ...,
+        title="Accessibility",
+        description="Access rights, permitted uses, and technical format information.",
     )
 
     provenance: Optional[Provenance] = Field(
-        None, description=an.provenance.description, title=an.provenance.title
+        None,
+        title="Provenance",
+        description="Origin, temporal coverage, and retention information for the dataset.",
     )
 
-    # New top-level DCAT/DQV collections
     distributions: Optional[List[Distribution]] = Field(
         None,
-        title=an.distributions.title,
-        description=an.distributions.description,
+        title="Distributions",
+        description="DCAT-compliant distribution records for this dataset. Each distribution represents a specific downloadable or accessible form of the data (dcat:distribution).",
     )
 
     qualityAnnotations: Optional[List[QualityAnnotation]] = Field(
         None,
-        title=an.qualityAnnotations.title,
-        description=an.qualityAnnotations.description,
+        title="Quality Annotations",
+        description="Quality annotation records documenting data quality scores, certifications, or assessments (dqv:QualityAnnotation).",
     )
 
     @classmethod
     def model_json_schema(cls, by_alias: bool = True, **kwargs) -> Dict[str, Any]:
-        """Override to default by_alias=True so @context/@id/@type appear in the schema."""
         return super().model_json_schema(by_alias=by_alias, **kwargs)
 
     @classmethod

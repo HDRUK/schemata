@@ -22,8 +22,12 @@
                                           "$ref": "#/$defs/LongDescription"
                                     }
                               ],
-                              "description": "A URL or description of the conditions under which the dataset can be accessed (dcterms:accessRights).",
-                              "title": "Access Rights"
+                              "description": "Please provide details for the data access rights.",
+                              "examples": [
+                                    "In Progress"
+                              ],
+                              "guidance": "- The URL of a webpage where the data access request process and/or guidance is provided. If there is more than one access process i.e. industry vs academic please provide both separated by a comma.\\n- If such a resource or the underlying process doesn\u2019t exist, please provide \u201cIn Progress\u201d, until both the process and the documentation are ready.",
+                              "title": "Access rights"
                         },
                         "accessServiceCategory": {
                               "anyOf": [
@@ -35,8 +39,12 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Categorisation of the access service type available for this dataset.",
-                              "title": "Access Service Category"
+                              "description": "The method a Researcher will use to access the dataset, if approved.",
+                              "examples": [
+                                    "TRE/SDE"
+                              ],
+                              "guidance": "Select the category which best matches how a Researcher will access the dataset, if approved for access. If the access method changes based on the data required for the project (e.g. the dataset can be shared via secure email if the extract is fully anonymised, but must be accessed via a TRE/SDE if the extract is only pseudonymised) then select 'varies based on project'.",
+                              "title": "Access method category"
                         },
                         "accessService": {
                               "anyOf": [
@@ -48,8 +56,13 @@
                                     }
                               ],
                               "default": null,
-                              "description": "A link or description of the service used to access the dataset (dcat:accessService).",
-                              "title": "Access Service"
+                              "description": "Please provide a brief description of the data access services that are available including: environment that is currently available to researchers; additional consultancy and services; any indication of costs associated. If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers Note: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                              "examples": [
+                                    "https://re-docs.genomicsengland.co.uk/tutorials/",
+                                    "https://publichealthscotland.scot/services/data-research-and-innovation-services/electronic-data-research-and-innovation-service-edris/national-safe-haven-nsh/"
+                              ],
+                              "guidance": "Please provide a brief description of the data access services that are available including:\\n- environment that is currently available to researchers\\n- additional consultancy and services\\n- any indication of costs associated\\n\\n  If no environment is currently available, please indicate the current plans and timelines when and how data will be made available to researchers.\\n  **Note**: This value will be used as default access environment for all datasets submitted by the organisation. However, there will be the opportunity to overwrite this value for each dataset.",
+                              "title": "Access service description"
                         },
                         "accessRequestCost": {
                               "anyOf": [
@@ -61,8 +74,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indication of any costs associated with accessing the dataset (healthdcatap:accessRequestCost).",
-                              "title": "Access Request Cost"
+                              "description": "Please provide link(s) to a webpage or description detailing the service or cost model for processing data access requests.",
+                              "guidance": "This information should cover the costs and/or services available to different audiences (i.e. academic, commercial, non-UK, etc.). This can be in the form of text or a URL.",
+                              "title": "Access request cost"
                         },
                         "deliveryLeadTime": {
                               "anyOf": [
@@ -74,8 +88,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Typical time between submitting an access request and receiving data access (healthdcatap:deliveryLeadTime).",
-                              "title": "Delivery Lead Time"
+                              "description": "Please provide an indication of the typical processing times based on the types of requests typically received.",
+                              "guidance": "- **Less than 1 week**: Access request process typically processed in less than a week.\\n- **1-2 weeks**: Access request process typically processed in one to two weeks.\\n- **2-4 weeks**: Access request process typically processed in two to four weeks.\\n- **1-2 months**: Access request process typically processed in one to two months.\\n- **2-6 months**: Access request process typically processed in two to six months.\\n- **More than 6 months**: Access request process typically processed in more than six months.\\n- **Variable**: Access request lead time is variable.\\n- **Not applicable**: Access request process duration is not applicable.\\n- **Other**: If the typical timeframe does not fit into the broad ranges i.e. lightweight application vs linked data application, please choose \u201cOther\u201d and indicate the typical timeframe within the description for the dataset.",
+                              "title": "Time to dataset access"
                         },
                         "jurisdiction": {
                               "anyOf": [
@@ -90,7 +105,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "ISO 3166-2 country/region code(s) indicating where the data controller is legally registered.",
+                              "description": "Please use country code from ISO 3166-1 country codes and the associated ISO 3166-2 for regions, cities, states etc. for the country/state under whose laws the data subjects' data is collected, processed and stored.",
+                              "guidance": "A full list of country codes can be found here (alpha-2 column): https://www.iso.org/obp/ui/#search/code/",
                               "title": "Jurisdiction"
                         },
                         "dataController": {
@@ -103,7 +119,11 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Organisation that determines the purposes and means of processing personal data (dpv:hasDataController).",
+                              "description": "Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.",
+                              "examples": [
+                                    "NHS England"
+                              ],
+                              "guidance": "- Data Controller means a person/entity who (either alone or jointly or in common with other persons/entities) determines the purposes for which and the way any Data Subject data, specifically personal data or are to be processed.\\n- Notes: For most organisations this will be the same as the Data Custodian of the dataset. If this is not the case, please indicate that there is a different controller.\\n- If there is a different controller please complete the Data Processor attribute to indicate if the Data Custodian is a Processor rather than the Data Controller.\\n- In some cases, there may be multiple Data Controllers i.e. GP data. If this is the case, please indicate the fact in a free-text field and describe the data sharing arrangement or a link to it, so that this can be understood by research users.\\n- Example: NHS England",
                               "title": "Data Controller"
                         },
                         "dataProcessor": {
@@ -116,47 +136,13 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Organisation that processes personal data on behalf of the data controller (dpv:hasDataProcessor).",
+                              "description": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.",
+                              "examples": [
+                                    "Not Applicable",
+                                    "SAIL"
+                              ],
+                              "guidance": "A Data Processor, in relation to any Data Subject data, specifically personal data, means any person/entity (other than an employee of the data controller) who processes the data on behalf of the data controller.\\n- Notes: Required to complete if the Data Custodian is the Data Processor rather than the Data Controller.\\n- If the Publisher is also the Data Controller please provide \u201cNot Applicable\u201d.\\n- Examples: Not Applicable, SAIL",
                               "title": "Data Processor"
-                        },
-                        "legalBasis": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Legal basis under which personal data in this dataset is processed (dpv:hasLegalBasis). Reference the relevant legislation or DPV concept, e.g. 'GDPR Art.9(2)(j) - scientific research'.",
-                              "title": "Legal Basis"
-                        },
-                        "applicableLegislation": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Legislation governing the access and use of this dataset (dcatap:applicableLegislation), e.g. 'UK GDPR', 'Health and Social Care (Safety and Quality) Act 2015'.",
-                              "title": "Applicable Legislation"
-                        },
-                        "personalData": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Description of the categories of personal data held in the dataset (dpv:hasPersonalData). Reference DPV personal data categories or describe the types of identifiers and sensitive data present.",
-                              "title": "Personal Data"
                         }
                   },
                   "required": [
@@ -188,7 +174,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Information on the permitted uses, limitations, and attribution requirements for the dataset.",
+                              "description": "This section includes information about how the data can be used and how it is currently being used.",
                               "title": "Usage"
                         },
                         "access": {
@@ -197,7 +183,8 @@
                                           "$ref": "#/$defs/Access"
                                     }
                               ],
-                              "description": "Details of how to request and obtain access to the dataset, including rights, costs, and jurisdiction."
+                              "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
+                              "title": "Accessibility"
                         },
                         "formatAndStandards": {
                               "anyOf": [
@@ -209,7 +196,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Technical standards and formats used in the dataset, including vocabularies, data models, language, and file formats.",
+                              "description": "Section includes technical attributes for language vocabularies, sizes etc. and gives researchers facts about and processing the underlying data in the dataset.",
                               "title": "Format and Standards"
                         }
                   },
@@ -371,8 +358,13 @@
                                           "type": "array"
                                     }
                               ],
-                              "description": "Geographic area(s) covered by the dataset (dcterms:spatial). Use GeoNames URIs or ISO country codes.",
-                              "title": "Spatial Coverage"
+                              "description": "The geographical area covered by the dataset. It is recommended that links are to entries in one of the recommended standards:\\n- For locations in the UK: [ONS standards](https://geoportal.statistics.gov.uk/datasets/208d9884575647c29f0dd5a1184e711a/about)\\n- For locations in other countries: [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes)",
+                              "examples": [
+                                    "United Kingdom",
+                                    "https://www.geonames.org/2635167/united-kingdom-of-great-britain-and-northern-ireland.html"
+                              ],
+                              "guidance": "- The geographical area covered by the dataset.\\n- Please provide a valid location.\\n- For locations in the UK, this location should conform to [ONS standards](https://geoportal.statistics.gov.uk/datasets/208d9884575647c29f0dd5a1184e711a/about).\\n- For locations in other countries we use [ISO 3166-1 & ISO 3166-2](https://github.com/HDRUK/reference-codes).",
+                              "title": "Geographic coverage"
                         },
                         "typicalAgeRangeMin": {
                               "anyOf": [
@@ -384,8 +376,12 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Minimum age (in years) of individuals represented in the dataset.",
-                              "title": "Typical Age Range Min"
+                              "description": "Please indicate the minimum age in years of participants in the dataset as a whole number (integer).",
+                              "examples": [
+                                    18
+                              ],
+                              "guidance": "- Please indicate the minimum of the age range in whole years of participants in the dataset.\\n- **What if my dataset has participants of all \u201cAll Ages\u201d or \u201cAny Ages\u201d?**: In that case, please enter 0.",
+                              "title": "Minimum age range"
                         },
                         "typicalAgeRangeMax": {
                               "anyOf": [
@@ -397,8 +393,12 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Maximum age (in years) of individuals represented in the dataset.",
-                              "title": "Typical Age Range Max"
+                              "description": "Please indicate the maximum age in years of participants in the dataset as a whole number (integer).",
+                              "examples": [
+                                    90
+                              ],
+                              "guidance": "- Please indicate the maximum of the age range in whole years of participants in the dataset.\\n- **What if my dataset has participants of all \u201cAll Ages\u201d or \u201cAny Ages\u201d?**: In that case, please enter 150.",
+                              "title": "Maximum age range"
                         },
                         "datasetCompleteness": {
                               "anyOf": [
@@ -410,8 +410,12 @@
                                     }
                               ],
                               "default": null,
-                              "description": "URL to a completeness assessment report for this dataset.",
-                              "title": "Dataset Completeness"
+                              "description": "The URL where a Researcher can learn more about the completeness of the dataset.",
+                              "examples": [
+                                    "https://bhfdatasciencecentre.org/dashboard/"
+                              ],
+                              "guidance": "If your organisation has a publicly available site which contains information on the completeness of a dataset, add that URL here.\\n**Example**: https://bhfdatasciencecentre.org/dashboard/",
+                              "title": "Dataset coverage/completeness/quality"
                         },
                         "materialType": {
                               "anyOf": [
@@ -426,8 +430,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Type(s) of biological material covered by the dataset.",
-                              "title": "Material Type"
+                              "description": "The type of biospecimen saved from a biological entity.",
+                              "guidance": "Indicate the specimen type, can be several values from the list below:\\n- Availability of physical samples associated with the dataset.\\n- If samples are available, please indicate the types of samples that are available.\\n- More than one type may be provided.\\n- If samples are not yet available, please provide **\u201cAvailability to be confirmed\u201d**.\\n- If samples are not available, then please provide **\u201cNot available\u201d**.\\n- **Not available**: Samples associated with the dataset are not available.\\n- **Bone marrow**: Bone marrow samples associated with the data are available.\\n- **Cancer cell lines**: Cancer cell line samples associated with the data are available.\\n- **CDNA/MRNA**: CDNA/MRNA samples associated with the data are available.\\n- **Core biopsy**: Core biopsy samples associated with the data are available.\\n- **DNA**: DNA samples associated with the data are available.\\n- **Entire body organ**: Entire body organ associated with the data are available.\\n- **Faeces**: Faeces samples associated with the data are available.\\n- **Immortalized cell lines**: Immortalized cell line samples associated with the data are available.\\n- **Isolated pathogen**: Isolated pathogen associated with the data are available.\\n- **MicroRNA**: MicroRNA samples associated with the data are available.\\n- **Peripheral blood cells**: Peripheral blood cell samples associated with the data are available.\\n- **Plasma**: Plasma samples associated with the data are available.\\n- **PM Tissue**: PM Tissue samples associated with the data are available.\\n- **Primary cells**: Primary cell samples associated with the data are available.\\n- **RNA**: RNA samples associated with the data are available.\\n- **Saliva**: Saliva samples associated with the data are available.\\n- **Serum**: Serum samples associated with the data are available.\\n- **Swabs**: Swab samples associated with the data are available.\\n- **Tissue**: Tissue samples associated with the data are available.\\n- **Urine**: Urine samples associated with the data are available.\\n- **Whole blood**: Whole blood samples associated with the data are available.\\n- **Availability to be confirmed**: Availability of samples is currently being confirmed.\\n- **Other**: Other types of sample available.",
+                              "title": "Biological sample availability"
                         },
                         "followUp": {
                               "anyOf": [
@@ -439,8 +444,9 @@
                                     }
                               ],
                               "default": "Unknown",
-                              "description": "Typical follow-up period for individuals in the dataset.",
-                              "title": "Follow Up"
+                              "description": "If known, what is the typical time span that a patient appears in the dataset (follow up period). In a prospective cohort study, after baseline information is collected, participants are followed \u201clongitudinally\u201d i.e. new information is collected about them for a period of time afterward. This is known as the \u201cfollow up period\u201d. What is the typical time span of follow up, e.g. 1 year, 5 years? If there are multiple cohorts in the dataset with varying follow up periods, please provide the longest follow up period.",
+                              "guidance": "If known, please indicate the typical time span that a patient appears in the dataset (follow up period).\\n-**0 - 6 MONTHS**: Data typically available for a patient over a 0-6 month period.\\n-**6 - 12 MONTHS**: Data typically available for a patient over a 6-12 month period.\\n-**1 - 10 YEARS**: Data typically available for a patient over a 1-10 year period.\\n-**> 10 YEARS**: Data typically available for a patient for over a 10 year period.\\n-**CONTINUOUS**: Data for patients is being regularly added to and updated.\\n-**UNKNOWN**: Timespan is Unknown.\\n-**OTHER**: Data available for a patient over another time period.",
+                              "title": "Follow-up"
                         },
                         "pathway": {
                               "anyOf": [
@@ -452,114 +458,15 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Description of any clinical pathway or care pathway documented in the dataset.",
-                              "title": "Pathway"
-                        },
-                        "populationCoverage": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Plain-text description of the population represented in the dataset (healthdcatap:populationCoverage). Include demographic scope, inclusion/exclusion criteria, and geographic focus where applicable.",
-                              "title": "Population Coverage"
-                        },
-                        "numberOfUniqueIndividuals": {
-                              "anyOf": [
-                                    {
-                                          "minimum": 0,
-                                          "type": "integer"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Count of unique individuals (patients, participants) represented in the dataset (healthdcatap:numberOfUniqueIndividuals).",
-                              "title": "Number of Unique Individuals"
-                        },
-                        "numberOfRecords": {
-                              "anyOf": [
-                                    {
-                                          "minimum": 0,
-                                          "type": "integer"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Total number of rows or records in the dataset (healthdcatap:numberOfRecords). May exceed numberOfUniqueIndividuals for longitudinal datasets.",
-                              "title": "Number of Records"
+                              "description": "Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage. This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                              "guidance": "- Please indicate if the dataset is representative of the patient pathway and any limitations the dataset may have with respect to pathway coverage.\\n- This could include if the dataset is from a single speciality or area, a single tier of care, linked across two tiers (e.g. primary and secondary care), or an integrated care record covering the whole patient pathway.",
+                              "title": "Patient pathway description"
                         }
                   },
                   "required": [
                         "spatial"
                   ],
                   "title": "Coverage",
-                  "type": "object"
-            },
-            "Creator": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "name": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Name of the person or organisation that created the dataset (foaf:name).",
-                              "title": "Creator Name"
-                        },
-                        "rorId": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Research Organization Registry identifier URI, e.g. https://ror.org/XXXXXXXX.",
-                              "title": "ROR ID"
-                        },
-                        "orcidId": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "ORCID identifier URI, e.g. https://orcid.org/XXXX-XXXX-XXXX-XXXX.",
-                              "title": "ORCID ID"
-                        },
-                        "gatewayId": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "HDR UK Gateway identifier for the creator organisation.",
-                              "title": "Gateway ID"
-                        }
-                  },
-                  "title": "Creator",
                   "type": "object"
             },
             "DataColumn": {
@@ -689,6 +596,30 @@
                   ],
                   "title": "DataUseLimitationV2",
                   "type": "string"
+            },
+            "DataUsePermissions": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "patientRecontact": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/YesNo"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": "No",
+                              "description": "Indicates whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.",
+                              "examples": [
+                                    "No"
+                              ],
+                              "guidance": "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\\n- **No**: The people within this dataset cannot be recontacted.",
+                              "title": "Patient recontact"
+                        }
+                  },
+                  "title": "DataUsePermissions",
+                  "type": "object"
             },
             "DataUseRequirementsV2": {
                   "enum": [
@@ -933,167 +864,6 @@
                   "title": "DiseaseCodeEnum",
                   "type": "string"
             },
-            "Distribution": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "title": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Display name of this distribution (dct:title).",
-                              "title": "Distribution Title"
-                        },
-                        "description": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Human-readable description of this distribution (dct:description).",
-                              "title": "Distribution Description"
-                        },
-                        "accessUrl": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "URL of a resource that gives access to the distribution (dcat:accessURL). May point to a data service or landing page.",
-                              "title": "Access URL"
-                        },
-                        "downloadUrl": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Direct URL to download the distribution file (dcat:downloadURL).",
-                              "title": "Download URL"
-                        },
-                        "mediaType": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "IANA media type of the distribution, e.g. text/csv, application/json (dcat:mediaType).",
-                              "title": "Media Type"
-                        },
-                        "format": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "File format label of the distribution, e.g. CSV, Parquet (dct:format).",
-                              "title": "Format"
-                        },
-                        "byteSize": {
-                              "anyOf": [
-                                    {
-                                          "minimum": 0,
-                                          "type": "integer"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Size of the distribution in bytes (dcat:byteSize).",
-                              "title": "Byte Size"
-                        },
-                        "licenseUrl": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Licence URI for this specific distribution; overrides the dataset-level licence if provided (dct:license).",
-                              "title": "Licence URL"
-                        },
-                        "accessService": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Data service that provides access to this distribution (dcat:accessService).",
-                              "title": "Access Service"
-                        },
-                        "issued": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Date this distribution was first published (dct:issued).",
-                              "title": "Issued"
-                        },
-                        "modified": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Date this distribution was last modified (dct:modified).",
-                              "title": "Modified"
-                        }
-                  },
-                  "title": "Distribution",
-                  "type": "object"
-            },
             "Documentation": {
                   "additionalProperties": false,
                   "properties": {
@@ -1171,6 +941,37 @@
                         }
                   ],
                   "title": "Doi"
+            },
+            "DuoCodesEnum": {
+                  "enum": [
+                        "DUO:0000001",
+                        "DUO:0000004",
+                        "DUO:0000006",
+                        "DUO:0000007",
+                        "DUO:0000011",
+                        "DUO:0000012",
+                        "DUO:0000015",
+                        "DUO:0000016",
+                        "DUO:0000017",
+                        "DUO:0000018",
+                        "DUO:0000019",
+                        "DUO:0000020",
+                        "DUO:0000021",
+                        "DUO:0000022",
+                        "DUO:0000024",
+                        "DUO:0000025",
+                        "DUO:0000026",
+                        "DUO:0000027",
+                        "DUO:0000028",
+                        "DUO:0000029",
+                        "DUO:0000042",
+                        "DUO:0000043",
+                        "DUO:0000044",
+                        "DUO:0000045",
+                        "DUO:0000046"
+                  ],
+                  "title": "DuoCodesEnum",
+                  "type": "string"
             },
             "EmailAddress": {
                   "anyOf": [
@@ -1442,23 +1243,37 @@
                   "additionalProperties": false,
                   "properties": {
                         "vocabularyEncodingScheme": {
-                              "description": "Controlled vocabularies or ontologies used to encode dataset values.",
+                              "description": "List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset. If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition. Notes: More than one vocabulary may be provided.",
+                              "examples": [
+                                    "LOCAL",
+                                    "ICD10"
+                              ],
+                              "guidance": "- List any relevant terminologies / ontologies / controlled vocabularies, such as ICD 10 Codes, NHS Data Dictionary National Codes or SNOMED CT International, that are being used by the dataset.\\n- If the controlled vocabularies are local standards, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- Notes: More than one vocabulary may be provided.\\n- **Local**: Local Coding Standard.\\n- [**OPCS4**](https://digital.nhs.uk/data-and-information/information-standards/governance/latest-activity/standards-and-collections/dapb0084-opcs-classification-of-interventions-and-procedures/)\\n- [**READ**](https://digital.nhs.uk/services/terminology-and-classifications/read-codes)\\n- [**SNOMED CT**](http://www.snomed.org/)\\n- [**SNOMED RT**](https://confluence.ihtsdotools.org/display/DOCGLOSS/SNOMED+RT)\\n- [**DM+D**](https://digital.nhs.uk/data-and-information/information-standards/information-standards-and-data-collections-including-extractions/publications-and-notifications/standards-and-collections/scci0052-dictionary-of-medicines-and-devices-dm-d)\\n- [**NHS National Codes**](https://www.datadictionary.nhs.uk/)\\n- [**ODS**](https://digital.nhs.uk/services/organisation-data-service)\\n- [**LOINC**](https://loinc.org/)\\n- [**ICD10**](https://www.who.int/classifications/icd/icdonlineversions/en/)\\n- [**ICD10CM**](https://www.cdc.gov/nchs/icd/icd10cm.htm)\\n- [**ICD10PCS**](https://ec.europa.eu/eip/ageing/standards/healthcare/e-health/icd-10-pcs_en)\\n- [**ICD9CM**](https://www.cdc.gov/nchs/icd/icd9cm.htm)\\n- [**ICD9**](https://www.cdc.gov/nchs/icd/icd9.htm)\\n- [**ICDO3**](https://www.who.int/standards/classifications/other-classifications/international-classification-of-diseases-for-oncology)\\n- [**AMT**](https://www.digitalhealth.gov.au/healthcare-providers/product-releases)\\n- [**APC**](https://www.acep.org/administration/reimbursement/reimbursement-faqs/apc-ambulatory-payment-classifications-faq/)\\n- [**ATC**](https://www.whocc.no/atc_ddd_index/)\\n- [**CIEL**](https://github.com/OpenConceptLab/ocl_web/wiki/CIEL)\\n- [**HPO**](https://hpo.jax.org/app/)\\n- [**CPT4**](https://www.ama-assn.org/practice-management/cpt)\\n- [**DPD**](https://health-products.canada.ca/dpd-bdpp/index-eng.jsp)\\n- [**DRG**](https://www.who.int/publications/i/item/WHO-UHC-HGF-Guidance-20.10)\\n- [**HEMONC**](https://hemonc.org/wiki/Main_Page)\\n- [**JMDC**](https://www.jmdc.co.jp/en/)\\n- [**KCD7**](https://forums.ohdsi.org/t/adding-kcd7-code-korean-icd-10-to-the-omop-vocabulary/7576)\\n- [**MULTUM**](https://www.cerner.com/solutions/drug-database)\\n- [**NAACCR**](https://www.naaccr.org/)\\n- [**NDC**](https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory)\\n- [**NDFRT**](https://bioportal.bioontology.org/ontologies/NDFRT)\\n- [**OXMIS**](https://oxrisk.com/oxmis/)\\n- [**RXNORM**](https://www.nlm.nih.gov/research/umls/rxnorm/index.html)\\n- [**RXNORM EXTENSION**](https://www.nlm.nih.gov/research/umls/rxnorm/index.html)\\n- [**SPL**](https://www.fda.gov/industry/fda-resources-data-standards/structured-product-labeling-resources)\\n- **Other**: Please indicate if there is another standard that you are using. This will trigger a support ticket where you can request the addition of the terminology to the HOP.\\n- [**NHS Scotland National Codes**](https://www.ndc.scot.nhs.uk/Data-Dictionary/)\\n- [**NHS Wales National Codes**](http://www.datadictionary.wales.nhs.uk/)",
                               "items": {
                                     "$ref": "#/$defs/ControlledVocabularyEnum"
                               },
-                              "title": "Vocabulary Encoding Scheme",
+                              "title": "Controlled vocabulary",
                               "type": "array"
                         },
                         "conformsTo": {
-                              "description": "Standardised data models or specifications this dataset conforms to.",
+                              "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
+                              "examples": [
+                                    "LOCAL",
+                                    "NHS DATA DICTIONARY"
+                              ],
+                              "guidance": "- List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.\\n- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- [**HL7 FHIR**](https://www.hl7.org/fhir/)\\n- [**HL7 V2**](https://www.hl7.org/implement/standards/product_section.cfm?section=13)\\n- [**HL7 CDA**](https://www.hl7.org/implement/standards/product_section.cfm?section=10)\\n- [**HL7 CCOW**](https://www.hl7.org/implement/standards/product_section.cfm?section=16)\\n- [**DICOM**](https://www.dicomstandard.org/)\\n- [**I2B2**](https://www.i2b2.org/)\\n- [**IHE**](https://www.ihe.net/resources/profiles/)\\n- [**OMOP**](https://www.ohdsi.org/data-standardization/the-common-data-model/)\\n- [**openEHR**](https://www.openehr.org/)\\n- [**Sentinel**](https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model)\\n- [**PCORnet**](https://pcornet.org/data-driven-common-model/)\\n- [**CDISC**](https://www.cdisc.org/standards/data-exchange/odm)\\n- **Local**: In-house developed data model.\\n- **Other**: Other standardised data model.\\n- [**NHS Data Dictionary**](https://www.datadictionary.nhs.uk/)\\n- [**NHS Scotland Data Dictionary**](https://www.ndc.scot.nhs.uk/Data-Dictionary/)\\n- [**NHS Wales Data Dictionary**](https://www.datadictionary.wales.nhs.uk/)\\n- [**BNF**](https://www.bnf.org/)\\n- [**DDI**](https://ddialliance.org/Specification)\\n- [**DCAT**](https://www.w3.org/TR/vocab-dcat-3/)",
                               "items": {
-                                    "$ref": "#/$defs/StandardisedDataModelsEnum"
+                                    "$ref": "#/$defs/StandardisedDataModelsEnumV2"
                               },
-                              "title": "Conforms To",
+                              "title": "Alignment with standardised data models",
                               "type": "array"
                         },
                         "language": {
-                              "description": "Language(s) in which the dataset content is expressed (ISO 639-1).",
+                              "description": "This should list all the languages in which the dataset metadata and underlying data is made available complaint with ISO 639.",
+                              "examples": [
+                                    "en"
+                              ],
+                              "guidance": "https://www.iso.org/iso-639-language-code\\n- **aa**: Afar\\n- **ab**: Abkhazian\\n- **af**: Afrikaans\\n- **ak**: Akan\\n- **sq**: Albanian\\n- **am**: Amharic\\n- **ar**: Arabic\\n- **an**: Aragonese\\n- **hy**: Armenian\\n- **as**: Assamese\\n- **av**: Avaric\\n- **ae**: Avestan\\n- **ay**: Aymara\\n- **az**: Azerbaijani\\n- **ba**: Bashkir\\n- **bm**: Bambara\\n- **eu**: Basque\\n- **be**: Belarusian\\n- **bn**: Bengali\\n- **bh**: Bihari languages\\n- **bi**: Bislama\\n- **bo**: Tibetan\\n- **bs**: Bosnian\\n- **br**: Breton\\n- **bg**: Bulgarian\\n- **my**: Burmese\\n- **ca**: Catalan; Valencian\\n- **cs**: Czech\\n- **ch**: Chamorro\\n- **ce**: Chechen\\n- **zh**: Chinese\\n- **cu**: Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic\\n- **cv**: Chuvash\\n- **kw**: Cornish\\n- **co**: Corsican\\n- **cr**: Cree\\n- **cy**: Welsh\\n- **cs**: Czech\\n- **da**: Danish\\n- **de**: German\\n- **dv**: Divehi; Dhivehi; Maldivian\\n- **nl**: Dutch; Flemish\\n- **dz**: Dzongkha\\n- **el**: Greek, Modern (1453-)\\n- **en**: English\\n- **eo**: Esperanto\\n- **et**: Estonian\\n- **eu**: Basque\\n- **ee**: Ewe\\n- **fo**: Faroese\\n- **fa**: Persian\\n- **fj**: Fijian\\n- **fi**: Finnish\\n- **fr**: French\\n- **fy**: Western Frisian\\n- **ff**: Fulah\\n- **ka**: Georgian\\n- **de**: German\\n- **gd**: Gaelic; Scottish Gaelic\\n- **ga**: Irish\\n- **gl**: Galician\\n- **gv**: Manx\\n- **el**: Greek, Modern (1453-)\\n- **gn**: Guarani\\n- **gu**: Gujarati\\n- **ht**: Haitian; Haitian Creole\\n- **ha**: Hausa\\n- **ho**: Hiri Motu\\n- **hr**: Croatian\\n- **hu**: Hungarian\\n- **hy**: Armenian\\n- **ig**: Igbo\\n- **is**: Icelandic\\n- **io**: Ido\\n- **ii**: Sichuan Yi; Nuosu\\n- **iu**: Inuktitut\\n- **ie**: Interlingue; Occidental\\n- **ia**: Interlingua (International Auxiliary Language Association)\\n- **id**: Indonesian\\n- **ik**: Inupiaq\\n- **is**: Icelandic\\n- **it**: Italian\\n- **jv**: Javanese\\n- **ja**: Japanese\\n- **kl**: Kalaallisut; Greenlandic\\n- **kn**: Kannada\\n- **ks**: Kashmiri\\n- **ka**: Georgian\\n- **kr**: Kanuri\\n- **kk**: Kazakh\\n- **km**: Central Khmer\\n- **ki**: Kikuyu; Gikuyu\\n- **rw**: Kinyarwanda\\n- **ky**: Kirghiz; Kyrgyz\\n- **kv**: Komi\\n- **kg**: Kongo\\n- **ko**: Korean\\n- **kj**: Kuanyama; Kwanyama\\n- **ku**: Kurdish\\n- **lo**: Lao\\n- **la**: Latin\\n- **lv**: Latvian\\n- **li**: Limburgan; Limburger; limburgish\\n- **ln**: Lingala\\n- **lt**: Lithuanian\\n- **lb**: Luxembourgish; Letzeburgesch\\n- **lu**: Luba-Katanga\\n- **lg**: Ganda\\n- **mk**: Macedonian\\n- **mh**: Marshallese\\n- **ml**: Malayalam\\n- **mi**: Maori\\n- **mr**: Marathi\\n- **ms**: Malay\\n- **mk**: Macedonian\\n- **mg**: Malagasy\\n- **mt**: Maltese\\n- **mn**: Mongolian\\n- **mi**: Maori\\n- **ms**: Malay\\n- **my**: Burmese\\n- **na**: Nauru\\n- **nv**: Navajo; Navaho\\n- **nr**: Ndebele, South; South Ndebele\\n- **nd**: Ndebele, North; North Ndebele\\n- **ng**: Ndonga\\n- **ne**: Nepali\\n- **nl**: Dutch; Flemish\\n- **nn**: Norwegian Nynorsk; Nynorsk, Norwegian\\n- **nb**: Bokm\u00e5l, Norwegian; Norwegian Bokm\u00e5l\\n- **no**: Norwegian\\n- **ny**: Chichewa; Chewa; Nyanja\\n- **oc**: Occitan (post 1500)\\n- **oj**: Ojibwa\\n- **or**: Oriya\\n- **om**: Oromo\\n- **os**: Ossetian; Ossetic\\n- **pa**: Panjabi; Punjabi\\n- **fa**: Persian\\n- **pi**: Pali\\n- **pl**: Polish\\n- **pt**: Portuguese\\n- **ps**: Pushto; Pashto\\n- **qu**: Quechua\\n- **rm**: Romansh\\n- **ro**: Romanian; Moldavian; Moldovan\\n- **rn**: Rundi\\n- **ru**: Russian\\n- **sg**: Sango\\n- **sa**: Sanskrit\\n- **si**: Sinhala; Sinhalese\\n- **sk**: Slovak\\n- **sl**: Slovenian\\n- **se**: Northern Sami\\n- **sm**: Samoan\\n- **sn**: Shona\\n- **sd**: Sindhi\\n- **so**: Somali\\n- **st**: Sotho, Southern\\n- **es**: Spanish; Castilian\\n- **sq**: Albanian\\n- **sc**: Sardinian\\n- **sr**: Serbian\\n- **ss**: Swati\\n- **su**: Sundanese\\n- **sw**: Swahili\\n- **sv**: Swedish\\n- **ty**: Tahitian\\n- **ta**: Tamil\\n- **tt**: Tatar\\n- **te**: Telugu\\n- **tg**: Tajik\\n- **tl**: Tagalog\\n- **th**: Thai\\n- **bo**: Tibetan\\n- **ti**: Tigrinya\\n- **to**: Tonga (Tonga Islands)\\n- **tn**: Tswana\\n- **ts**: Tsonga\\n- **tk**: Turkmen\\n- **tr**: Turkish\\n- **tw**: Twi\\n- **ug**: Uighur; Uyghur\\n- **uk**: Ukrainian\\n- **ur**: Urdu\\n- **uz**: Uzbek\\n- **ve**: Venda\\n- **vi**: Vietnamese\\n- **vo**: Volap\u00fck\\n- **cy**: Welsh\\n- **wa**: Walloon\\n- **wo**: Wolof\\n- **xh**: Xhosa\\n- **yi**: Yiddish\\n- **yo**: Yoruba\\n- **za**: Zhuang; Chuang\\n- **zh**: Chinese\\n- **zu**: Zulu",
                               "items": {
                                     "$ref": "#/$defs/LanguageEnum"
                               },
@@ -1466,7 +1281,14 @@
                               "type": "array"
                         },
                         "format": {
-                              "description": "File or data format(s) in which the dataset is available.",
+                              "description": "If multiple formats are available please specify. See application, audio, image, message, model, multipart, text, video, https://www.iana.org/assignments/media-types/media-types.xhtml Note: If your file format is not included in the current list of formats, please indicate other. If you are using the HOP you will be directed to a service desk page where you can request your additional format. If not please go to: https://metadata.atlassian.net/servicedesk/customer/portal/4 to request your format.",
+                              "examples": [
+                                    "text/tab-separated-values",
+                                    "application/sql",
+                                    "text/csv",
+                                    "image/diacom-rle"
+                              ],
+                              "guidance": "- If multiple formats are available, please specify. See application, audio, image, message, model, multipart, text, video, <https://www.iana.org/assignments/media-types/media-types.xhtml>.\\n- Please **enter one format type at a time** and click **Add New Field** to add further keywords.\\n- Note: If your file format is not included in the current list of formats, please indicate other.\\n- **Example**: text/tab-separated-values, application/sql, text/csv, image/diacom-rle",
                               "items": {
                                     "$ref": "#/$defs/Format"
                               },
@@ -2160,8 +1982,12 @@
                                           "type": "integer"
                                     }
                               ],
-                              "description": "Identifier for the organisation, e.g. a ROR URI or an internal numeric ID.",
-                              "title": "Organisation Identifier"
+                              "description": "Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation.",
+                              "examples": [
+                                    "30f16703-28bc-4f45-9ce5-625d2d3db27d"
+                              ],
+                              "guidance": "**Example**: https://ror.org/053fq8t95\\nIf your organisation does not have a ROR identifier please use the \u201csuggest and institute\u201d function here: https://docs.google.com/forms/d/e/1FAIpQLSdJYaMTCwS7muuTa-B_CnAtCSkKzt19lkirAKG4u7umH9Nosg/viewform",
+                              "title": "identifier"
                         },
                         "name": {
                               "allOf": [
@@ -2169,8 +1995,12 @@
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
                                     }
                               ],
-                              "description": "Full name of the organisation that acts as data custodian.",
-                              "title": "Organisation Name"
+                              "description": "The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.",
+                              "examples": [
+                                    "Health Data Research UK"
+                              ],
+                              "guidance": "In most this will be the same as the Team you have on the Gateway. However, in some cases this will be different. For example, Tissue Directory are a Team on the Gateway but coordinate activities across a number of Data Providers such as Cambridge Blood and Stem Cell Biobank.",
+                              "title": "Name of Data Custodian"
                         },
                         "logo": {
                               "anyOf": [
@@ -2182,8 +2012,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "URL of the organisation's logo image.",
-                              "title": "Logo"
+                              "description": "Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.  If a logo is not submitted this will default to the logo for the team submitting the metadata.",
+                              "title": "Organisation Logo"
                         },
                         "description": {
                               "anyOf": [
@@ -2195,7 +2025,7 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Short description of the organisation.",
+                              "description": "Please provide a URL that describes the organisation.  If a description is not provided this will default to the description of the team submitting the metadata.",
                               "title": "Organisation Description"
                         },
                         "contactPoint": {
@@ -2210,8 +2040,11 @@
                                           "type": "array"
                                     }
                               ],
-                              "description": "Email address(es) for enquiries about this dataset.",
-                              "title": "Contact Point"
+                              "description": "Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata.",
+                              "examples": [
+                                    "test@test.co.uk"
+                              ],
+                              "title": "contact point"
                         },
                         "memberOf": {
                               "anyOf": [
@@ -2223,8 +2056,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Indicates membership of a broader organisational network or federation.",
-                              "title": "Member Of"
+                              "description": "Please indicate if the organisation is an Alliance Member or a Hub.  If this field is not submitted this will default to the membership for the team submitting the metadata.",
+                              "title": "Organisation Membership"
                         }
                   },
                   "required": [
@@ -2251,11 +2084,16 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The intended purpose(s) for which the dataset was originally collected.",
-                              "title": "Purpose"
+                              "description": "Please indicate the purpose(s) that the dataset was collected.",
+                              "guidance": "- **Research cohort**: Data collected for a defined group of people.\\n- **Study**: Data collected for a specific research study.\\n- **Disease registry**: Data collected as part of a disease registry.\\n- **Trial**: Data collected for as part of a clinical trial.\\n- **Care**: Data collected as part of routine clinical care.\\n- **Audit**: Data collected as part of an audit programme.\\n- **Administrative**: Data collected for administrative and management information purposes.\\n- **Financial**: Data collected either for payments or for billing.\\n- **Statutory**: Data collected in compliance with statutory requirements.\\n- **Other**: Data collected for other purpose.",
+                              "title": "Purpose of dataset collection"
                         },
                         "datasetType": {
-                              "description": "Categorisation of the dataset by clinical or research domain (dcterms:type).",
+                              "description": "The topic areas to which the dataset content relates.",
+                              "examples": [
+                                    "Health and disease"
+                              ],
+                              "guidance": "Types include those listed below. Datasets can have more than one type associated.\\n- **Health and disease**: Includes any data related to mental health, cardiovascular, cancer, rare diseases, metabolic and endocrine, neurological, reproductive, maternity and neonatology, respiratory, immunity, musculoskeletal, vision, renal and urogenital, oral and gastrointestinal, cognitive function or hearing.\\n- **Treatments/Interventions**: Includes any data related to treatment or interventions related to vaccines or which are preventative or therapeutic in nature.\\n- **Measurements/Tests**: Includes any data related to laboratory or other diagnostics.\\n- **Imaging types**: Includes any data related to CT, MRI, PET, x-ray, ultrasound or pathology imaging.\\n- **Imaging area of the body**: Indicates whether the dataset relates to head, chest, arm abdomen or leg imaging.\\n- **Omics**: Includes any data related to proteomics, transcriptomics, epigenomics, metabolomics, multiomics, metagenomics or genomics.\\n- **Socioeconomic**: Includes any data related to education, crime and justice, ethnicity, housing, labour, ageing, economics, marital status, social support, deprivation, religion, occupation, finances or family circumstances.\\n- **Lifestyle**: Includes any data related to smoking, physical activity, dietary habits or alcohol.\\n- **Registry**: Includes any data related to disease registries for research, national disease registries, audits, or birth and deaths records.\\n- **Environment and energy**: Includes any data related to the monitoring or study of environmental or energy factors or events.\\n- **Information and communication**: Includes any data related to the study or application of information and communication.\\n- **Politics**: Includes any data related to political views, activities, voting, etc.",
                               "items": {
                                     "anyOf": [
                                           {
@@ -2296,7 +2134,7 @@
                                           }
                                     ]
                               },
-                              "title": "Dataset Type",
+                              "title": "Dataset type",
                               "type": "array"
                         },
                         "source": {
@@ -2312,8 +2150,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "How the data in this dataset was originally collected or generated.",
-                              "title": "Source"
+                              "description": "Please indicate the source of the data extraction.",
+                              "guidance": " - **EPR**: Data Extracted from Electronic Patient Record.\\n- **Electronic survey**: Data has been extracted from electronic surveys.\\n- **LIMS**: Data has been extracted from a laboratory information management system.\\n- **Paper-based**: Data has been extracted from paper forms.\\n- **Free text NLP**: Data has been extracted from unstructured freetext using natural language processing.\\n- **Machine generated**: Data has been machine generated i.e. imaging.\\n- **Other**: Data has been extracted by other means.",
+                              "title": "Source of data extraction"
                         },
                         "collectionSource": {
                               "anyOf": [
@@ -2328,8 +2167,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The setting or context in which the data was collected (healthdcatap:collectionSource).",
-                              "title": "Collection Source"
+                              "description": "Please indicate the setting(s) where data was collected. Multiple settings may be provided.",
+                              "guidance": "- **Cohort, study, trial**: Cohort, study or trial data collection as part of protocol.\\n- **Clinic**: Specific clinic such as antenatal clinic.\\n- **Primary care - Referrals**: General medical practitioner referral to another service.\\n- **Primary care - Clinic**: General medical practitioner practice.\\n- **Primary care - Out of hours**: General medical practitioner care or advice outside of standard hours.\\n- **Secondary care - Accident and emergency**: Accident emergency department.\\n- **Secondary care - Outpatients**: Outpatient care.\\n- **Secondary care - In-patients**: In-patient care.\\n- **Secondary care - Ambulance**: Care provided in association with ambulance service.\\n- **Secondary care - ICU**: Intensive care units, also referred to as critical care units (CCUs) or intensive therapy units (ITUs).\\n- **Prescribing - Community pharmacy**: Pharmacy based in the community.\\n- **Prescribing - Community pharmacy**: Pharmacy based in a hospital setting.\\n- **Patient report outcome**: Reported by patient.\\n- **Wearables**: Data collection devices worn on the body.\\n- **Local authority**: Local authority or entity associated with a local authority.\\n- **National government**: National government or entity associated with the national government.\\n- **Community**: Community settings.\\n- **Services**: Services such as drug misuse or blood transfusion.\\n- **Home**: Home setting.\\n- **Private**: Private medical clinic.\\n- **Social care - Health care at home**: service provided in the home or residence of a person.\\n- **Social care - Other social data**: service provided in a setting outside of the person's home or residence.\\n- **Census**: collected as part of census.\\n- **Other**: Other setting.",
+                              "title": "Collection source setting"
                         },
                         "imageContrast": {
                               "anyOf": [
@@ -2341,8 +2181,9 @@
                                     }
                               ],
                               "default": "Not stated",
-                              "description": "Whether imaging data in this dataset uses contrast agents.",
-                              "title": "Image Contrast"
+                              "description": "Indicate whether usage of imaging contrast is captured within the dataset.",
+                              "guidance": "If any contrast media or contrast agents were used in creating the images within the dataset and the contrast is known, mark 'Yes'. If this information is not known or not captured, indicate 'Not stated'. If there was no contrast used in the images, mark 'No'.",
+                              "title": "Image contrast"
                         }
                   },
                   "required": [
@@ -2436,8 +2277,8 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Information about how and why the data was originally collected.",
-                              "title": "Origin"
+                              "description": "Coverage by origin (geographical and situations).",
+                              "title": "Origin Coverage"
                         },
                         "temporal": {
                               "allOf": [
@@ -2445,20 +2286,8 @@
                                           "$ref": "#/$defs/Temporal"
                                     }
                               ],
-                              "description": "Temporal coverage and publishing frequency of the dataset."
-                        },
-                        "retentionPeriod": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/RetentionPeriod"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Period for which the dataset (or records within it) is retained (healthdcatap:retentionPeriod). Provide start and/or end dates to indicate when data will be deleted or archived.",
-                              "title": "Retention Period"
+                              "description": "Dates and other temporal coverage information.",
+                              "title": "Temporal Coverage"
                         }
                   },
                   "required": [
@@ -2482,100 +2311,6 @@
                         null
                   ],
                   "title": "PurposeV2"
-            },
-            "QualityAnnotation": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "annotationType": {
-                              "anyOf": [
-                                    {
-                                          "enum": [
-                                                "duf_score",
-                                                "certification"
-                                          ],
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Category of quality annotation: 'duf_score' for a numeric quality score, or 'certification' for a formal certification.",
-                              "title": "Annotation Type"
-                        },
-                        "qualityDimension": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The quality dimension being measured, e.g. completeness, accuracy, timeliness (dqv:inDimension).",
-                              "title": "Quality Dimension"
-                        },
-                        "qualityValue": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "The score, grade, or pass/fail result for this quality annotation (dqv:value).",
-                              "title": "Quality Value"
-                        },
-                        "qualityDescription": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Human-readable description of the quality annotation (skos:note).",
-                              "title": "Quality Description"
-                        },
-                        "certificationUrl": {
-                              "anyOf": [
-                                    {
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "URL linking to the full certification or assessment report.",
-                              "title": "Certification URL"
-                        },
-                        "annotationDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Date when this quality annotation was recorded (prov:generatedAtTime).",
-                              "title": "Annotation Date"
-                        }
-                  },
-                  "title": "QualityAnnotation",
-                  "type": "object"
             },
             "Registry": {
                   "properties": {
@@ -2615,49 +2350,6 @@
                   ],
                   "title": "RegistrySubTypes",
                   "type": "string"
-            },
-            "RetentionPeriod": {
-                  "additionalProperties": false,
-                  "properties": {
-                        "startDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Start of the data retention period.",
-                              "title": "Retention Start Date"
-                        },
-                        "endDate": {
-                              "anyOf": [
-                                    {
-                                          "format": "date",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "format": "date-time",
-                                          "type": "string"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "End of the data retention period.",
-                              "title": "Retention End Date"
-                        }
-                  },
-                  "title": "RetentionPeriod",
-                  "type": "object"
             },
             "Revision": {
                   "additionalProperties": false,
@@ -2745,19 +2437,6 @@
                   ],
                   "title": "ShortDescription"
             },
-            "ShortTitle": {
-                  "anyOf": [
-                        {
-                              "maxLength": 100,
-                              "minLength": 2,
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "title": "ShortTitle"
-            },
             "Socioeconomic": {
                   "properties": {
                         "name": {
@@ -2821,7 +2500,7 @@
                   "title": "SourceV2",
                   "type": "string"
             },
-            "StandardisedDataModelsEnum": {
+            "StandardisedDataModelsEnumV2": {
                   "enum": [
                         "HL7 FHIR",
                         "HL7 V2",
@@ -2840,9 +2519,12 @@
                         "NHS SCOTLAND DATA DICTIONARY",
                         "NHS WALES DATA DICTIONARY",
                         "LOCAL",
-                        "OTHER"
+                        "OTHER",
+                        "BNF",
+                        "DDI",
+                        "DCAT"
                   ],
-                  "title": "StandardisedDataModelsEnum",
+                  "title": "StandardisedDataModelsEnumV2",
                   "type": "string"
             },
             "StatisticalPopulationConstrainedV2": {
@@ -2903,7 +2585,12 @@
                                           "$ref": "#/$defs/OneHundredFiftyCharacters"
                                     }
                               ],
-                              "description": "Full title of the dataset.",
+                              "description": "Title of the dataset limited to 150 characters. It should provide a short description of the dataset and be unique across the gateway. If your title is not unique, please add a prefix with your organisation name or identifier to differentiate it from other datasets within the Gateway. Good titles should summarise the content of the dataset and if relevant, the region the dataset covers.",
+                              "examples": [
+                                    "North West London COVID-19 Patient Level Situation Report",
+                                    "Scottish Morbidity Record (SMR)"
+                              ],
+                              "guidance": "- The **title** should provide a short description of the dataset and be **unique** across the gateway.\\n- If your title is not unique, please **add a prefix with your organisation name or identifier** to differentiate it from other datasets within the Gateway.\\n- If an accronym is widely used the dataset name, please add it in brackets () at the end of the title.\\n- Good titles should summarise the content of the dataset and if relevant, **the region the dataset covers**.\\n- **Example**: North West London COVID-19 Patient Level Situation Report",
                               "title": "Title"
                         },
                         "abstract": {
@@ -2912,8 +2599,12 @@
                                           "$ref": "#/$defs/AbstractText"
                                     }
                               ],
-                              "description": "Concise description of the dataset, its purpose, and the data it contains.",
-                              "title": "Abstract"
+                              "description": "Provide a clear and brief descriptive signpost for researchers who are searching for data that may be relevant to their research. The abstract should allow the reader to determine the scope of the data collection and accurately summarise its content. The optimal length is one paragraph (limited to 255 characters) and effective abstracts should avoid long sentences and abbreviations where possible.",
+                              "examples": [
+                                    "CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice."
+                              ],
+                              "guidance": "- The abstract should provide a **clear and brief descriptive** signpost for researchers who are searching for data that may be relevant to their research.\\n- The abstract should allow the reader to determine the **scope of the data collection and accurately summarise its content**.\\n- Effective abstracts should **avoid long sentences and abbreviations** where possible.\\n- **Note**: Researchers will view Titles and the first line of Abstracts (list view) when searching for datasets and choosing whether to explore their content further.\\n- **Abstracts should be different from the full description** for a dataset.\\n- **Example**: CPRD Aurum contains primary care data contributed by General Practitioner (GP) practices using EMIS Web\u00ae including patient registration information and all care events that GPs have chosen to record as part of their usual medical practice.",
+                              "title": "Dataset abstract"
                         },
                         "dataCustodian": {
                               "allOf": [
@@ -2921,22 +2612,17 @@
                                           "$ref": "#/$defs/Organisation"
                                     }
                               ],
-                              "description": "The organisation responsible for managing access to this dataset (dcterms:publisher).",
-                              "title": "Data Custodian"
+                              "description": "This is the organisation responsible for running or supporting the data access request process, as well as enquiries about a dataset. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.",
+                              "title": "Dataset Custodian"
                         },
                         "populationSize": {
-                              "description": "Approximate number of unique individuals represented in the dataset.",
-                              "title": "Population Size",
-                              "type": "integer"
-                        },
-                        "contactPoint": {
-                              "allOf": [
-                                    {
-                                          "$ref": "#/$defs/EmailAddress"
-                                    }
+                              "description": "Input the number of people captured within the dataset.",
+                              "examples": [
+                                    1000
                               ],
-                              "description": "Primary email address for enquiries about this dataset (dcat:contactPoint).",
-                              "title": "Contact Point"
+                              "guidance": "This number informs a filter for Researchers to differentiate dataset search results based on the number of people in the dataset, and does not pull from the **Observations** fields. The filter also allows for Researchers to search datasets which have no population size reported, but will **not** pull any population size captured in the **Observations** section.",
+                              "title": "Dataset population size",
+                              "type": "integer"
                         },
                         "keywords": {
                               "anyOf": [
@@ -2951,7 +2637,16 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Free-text keywords describing the dataset content (dcat:keyword).",
+                              "description": "Please provide a list of relevant and specific keywords that can improve the search engine optimisation (SEO) of your dataset as a comma separated list. Notes: Onboarding portal will suggest keywords based on title, abstract and description. We are compiling a standardised list of keywords and synonyms across datasets to make filtering easier for users.",
+                              "examples": [
+                                    "Outpatient Care",
+                                    "Socioeconomic Deprivation",
+                                    "Infant Morbidity",
+                                    "Learning disability",
+                                    "Primary Care Prescription",
+                                    "Accident and Emergency Admissions"
+                              ],
+                              "guidance": "- Please provide **relevant** and **specific keywords** that can **improve the search engine optimization** of your dataset.\\n- Please **enter one keyword at a time** and click **Add New Field** to add further keywords.\\n- Text from the title is automatically included in the search, there is no need to include this in the keywords.\\n- Include words that researcher may include in their searches.",
                               "title": "Keywords"
                         },
                         "doiName": {
@@ -2964,8 +2659,25 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Digital Object Identifier for this dataset (dcterms:identifier).",
-                              "title": "DOI Name"
+                              "description": "DOI associated to this dataset. Find out more about DOIs here: [https://www.doi.org/the-identifier/what-is-a-doi/](https://www.doi.org/the-identifier/what-is-a-doi/)",
+                              "examples": [
+                                    "10.1093/ije/dyx196"
+                              ],
+                              "guidance": "- Please note: This is **not** the DOI of the publication(s) associated with the dataset.\\n- All HDR UK registered **datasets** should either have a **(DOI)** or be working towards obtaining one.\\n- If a DOI is available, please provide the DOI.\\n- **What happens if I do not have a DOI?**: Contact your academic organisation to find out if there is an existing relationship with a DOI provider. If that is not available, sites such as figshare offer free services to mint a DOI for your dataset. Subsequent versions of the Metadata Exchange will provide a DOI minting service.",
+                              "title": "Digital Object Identifier (DOI) for dataset"
+                        },
+                        "contactPoint": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/EmailAddress"
+                                    }
+                              ],
+                              "description": "Please provide a valid email address that can be used to coordinate data access requests.",
+                              "examples": [
+                                    "gateway@hdruk.ac.uk"
+                              ],
+                              "guidance": "Organisations are expected to provide a dedicated email address associated with the data access request process. If no contact point is provided in this field, this field will be defaulted to the teams support email provided in the teams setting.\\n**Note:** An employee's email address can only be provided on a temporary basis and if one is provided, **you must obtain explicit consent for this purpose**.",
+                              "title": "Contact point"
                         },
                         "datasetAliases": {
                               "anyOf": [
@@ -2974,7 +2686,14 @@
                                     },
                                     {
                                           "items": {
-                                                "$ref": "#/$defs/ShortDescription"
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/ShortDescription"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
                                           },
                                           "type": "array"
                                     },
@@ -2983,91 +2702,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Alternative names or acronyms for the dataset (dcterms:alternative).",
-                              "title": "Dataset Aliases"
-                        },
-                        "shortTitle": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/ShortTitle"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Abbreviated or acronym title for the dataset, used in list/card views (dcterms:alternative).",
-                              "title": "Short Title"
-                        },
-                        "licenseUrl": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "URI of the dataset-level licence (dct:license). Use a recognised licence URI such as https://creativecommons.org/licenses/by/4.0/.",
-                              "title": "Licence URL"
-                        },
-                        "landingPage": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Url"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "URL of a human-readable landing page for the dataset (dcat:landingPage).",
-                              "title": "Landing Page"
-                        },
-                        "creator": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/Creator"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Entity responsible for originally creating the dataset (dct:creator). May differ from the data custodian.",
-                              "title": "Creator"
-                        },
-                        "theme": {
-                              "anyOf": [
-                                    {
-                                          "items": {
-                                                "format": "uri",
-                                                "minLength": 1,
-                                                "type": "string"
-                                          },
-                                          "type": "array"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Array of controlled vocabulary concept URIs categorising the dataset by subject area (dcat:theme). Use EuroVoc or NHS Data Dictionary URIs where available.",
-                              "title": "Theme"
-                        },
-                        "controlledKeywords": {
-                              "anyOf": [
-                                    {
-                                          "$ref": "#/$defs/CommaSeparatedValues"
-                                    },
-                                    {
-                                          "type": "null"
-                                    }
-                              ],
-                              "default": null,
-                              "description": "Curated subset of keywords drawn from a controlled vocabulary. Complements free-text keywords.",
-                              "title": "Controlled Keywords"
+                              "description": "Dataset & BioSample alias or alternate names.",
+                              "guidance": "Alternate name, acronym or other identifier for the Dataset and/or BioSamples.",
+                              "title": "Dataset & BioSample alias"
                         }
                   },
                   "required": [
@@ -3089,8 +2726,12 @@
                                           "$ref": "#/$defs/PeriodicityV2"
                                     }
                               ],
-                              "description": "How frequently the dataset is updated and published (dcterms:accrualPeriodicity).",
-                              "title": "Publishing Frequency"
+                              "description": "Please indicate the frequency of distribution release. If a dataset is distributed regularly please choose a distribution release periodicity from the constrained list and indicate the next release date. When the release date becomes historical, a new release date will be calculated based on the publishing periodicity. If a dataset has been published and will remain static please indicate that it is static and indicated when it was released. If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null. If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null. Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/",
+                              "examples": [
+                                    "Continuous"
+                              ],
+                              "guidance": "Please indicate the frequency of publishing.\\n- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.\\n- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.\\n- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.\\n- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.\\n- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.\\n- Notes: see https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/.\\n\\n  Options:\\n- **Static**: Dataset published once.\\n- **Irregular**: Dataset published at uneven intervals.\\n- **Continuous**: Dataset published without interruption.\\n- **Biennial**: Dataset published every two years.\\n- **Annual**: Dataset published occurs once a year.\\n- **Biannual**: Dataset published twice a year.\\n- **Quarterly**: Dataset published every three months.\\n- **Bimonthly**: Dataset published every two months.\\n- **Monthly**: Dataset published once a month.\\n- **Biweekly**: Dataset published every two weeks.\\n- **Weekly**: Dataset published once a week.\\n- **Twice weekly**: Dataset published twice a week.\\n- **Daily**: Dataset published once a day.\\n- **Other**: Dataset published using other interval.",
+                              "title": "Publishing frequency"
                         },
                         "distributionReleaseDate": {
                               "anyOf": [
@@ -3107,8 +2748,12 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Date this specific dataset version or distribution was released.",
-                              "title": "Distribution Release Date"
+                              "description": "Date of the latest release of the dataset. If this is a regular release i.e. quarterly, or this is a static dataset please complete this alongside Periodicity. If this is Irregular or Continuously released please leave this blank. Notes: Periodicity and release date will be used to determine when the next release is expected. E.g. if the release date is documented as 01/01/2020 and it is now 20/04/2020 and there is a quarterly release schedule, the latest release will be calculated as 01/04/2020.",
+                              "examples": [
+                                    "2024-10-24T00:00:00.000Z"
+                              ],
+                              "guidance": "- Please indicate the frequency the dataset is published.\\n- If a dataset is published regularly please choose a publishing periodicity from the constrained list and indicate the next release date.\\n- When the release date becomes historical, a new release date will be calculated based on the publishing periodicity.\\n- If a dataset has been published and will remain static please indicate that it is static and indicate when it was released.\\n- If a dataset is released on an irregular basis or \u201con-demand\u201d please indicate that it is Irregular and leave release date as null.\\n- If a dataset can be published in real-time or near-real-time please indicate that it is continuous and leave release date as null.\\n- Notes: see [https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/](https://www.dublincore.org/specifications/dublin-core/collection-description/frequency/)",
+                              "title": "Distribution release date"
                         },
                         "startDate": {
                               "anyOf": [
@@ -3121,8 +2766,12 @@
                                           "type": "string"
                                     }
                               ],
-                              "description": "The earliest date of data collection in the dataset.",
-                              "title": "Start Date"
+                              "description": "The start of the time period that the dataset provides coverage for. If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
+                              "examples": [
+                                    "2024-10-24T00:00:00.000Z"
+                              ],
+                              "guidance": "- The start of the time period that the dataset provides coverage for.\\n- If there are multiple cohorts in the dataset with varying start dates, please provide the earliest date and use the description or the media attribute to provide more information.",
+                              "title": "Start date"
                         },
                         "endDate": {
                               "anyOf": [
@@ -3142,8 +2791,12 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The latest date of data collection in the dataset, or an open-ended indicator.",
-                              "title": "End Date"
+                              "description": "The end of the time period that the dataset provides coverage for. If the dataset is \u201cContinuous\u201d and has no known end date, please state continuous. If there are multiple cohorts in the dataset with varying end dates, please provide the latest date and use the description or the media attribute to provide more information.",
+                              "examples": [
+                                    "2024-10-24T00:00:00.000Z"
+                              ],
+                              "guidance": "- The end of the time period that the dataset provides coverage for.\\n- If the dataset is **\u201cContinuous\u201d** and has no known end date, **please leave blank**.\\n- If there are **multiple cohorts** in the dataset with varying end dates, please provide the **latest date**.",
+                              "title": "End date"
                         },
                         "timeLag": {
                               "allOf": [
@@ -3151,8 +2804,12 @@
                                           "$ref": "#/$defs/TimeLagV2"
                                     }
                               ],
-                              "description": "Typical delay between data collection and the data becoming available in the dataset.",
-                              "title": "Time Lag"
+                              "description": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.",
+                              "examples": [
+                                    "Not applicable"
+                              ],
+                              "guidance": "Please indicate the typical time-lag between an event and the data for that event appearing in the dataset.\\n- **Less than 1 week**: Typical time lag of less than a week.\\n- **1-2 weeks**: Typical time-lag of one to two weeks.\\n- **2-4 weeks**: Typical time-lag of two to four weeks.\\n- **1-2 months**: Typical time-lag of one to two months.\\n- **2-6 months**: Typical time-lag of two to six months.\\n- **6 months plus**: Typical time-lag of more than six months.\\n- **Variable**: Variable time-lag.\\n- **Not applicable**: Not Applicable i.e. static dataset.\\n- **Other**: Other time-lag.",
+                              "title": "Time lag"
                         }
                   },
                   "required": [
@@ -3255,8 +2912,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Any limitations on how this dataset may be used (GA4GH DUO).",
-                              "title": "Data Use Limitation"
+                              "description": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used. NOTE: we have extended the Data Use Ontology to include a value for NO LINKAGE.",
+                              "guidance": "Please provide an indication of consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.\\n- **General research use**: This data use limitation indicates that use is allowed for general research use for any research purpose.\\n- **Genetic studies only**: This data use limitation indicates that use is limited to genetic studies only (i.e., no phenotype-only research).\\n- **No general methods research**: This data use limitation indicates that use includes methods development research(e.g., development of software or algorithms) only within the bounds of other use limitations.\\n- **No restriction**: This data use limitation indicates there is no restriction on use.\\n- **Research-specific restrictions**: This data use limitation indicates that use is limited to studies of a certain research type.\\n- **Research use only**: This data use limitation indicates that use is limited to research purposes (e.g., does not include its use in clinical care).\\n- **No linkage**: This data use limitation indicates there is a restriction on linking to any other datasets",
+                              "title": "Data use limitation"
                         },
                         "dataUseRequirements": {
                               "anyOf": [
@@ -3271,8 +2929,9 @@
                                     }
                               ],
                               "default": null,
-                              "description": "Conditions that must be met by anyone using this dataset (GA4GH DUO).",
-                              "title": "Data Use Requirements"
+                              "description": "Please indicate fit here are any additional conditions set for use if any, multiple requirements may be provided. Please ensure that these restrictions are documented in access rights information.",
+                              "guidance": "- Please indicate if there are any additional conditions set for use if any, multiple requirements may be provided.\\n- Please ensure that these restrictions are documented in access rights information.\\n- **Collaboration required**: This requirement indicates that the requestor must either agree to join a research consortium or collaborate with the primary study investigator(s).\\n- **Ethics approval required**: This requirement indicates that the requestor must provide documentation of local institutional review board (IRB)/ ethics review board (ERB) approval.\\n- **Geographical restrictions**: This requirement indicates that use is limited to within a specific geographic region.\\n- **Institution-specific restrictions**: This requirement indicates that use is limited to use within an approved institution.\\n- **Not for profit use**: This requirement indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.\\n- **Project-specific restrictions**: This requirement indicates that use is limited to use within an approved project.\\n- **Publication moratorium**: This requirement indicates that requestor agrees not to publish results of studies until a specific date.\\n- **Publication required**: This requirement indicates that requestor agrees to make results of studies using the data available to the larger scientific community.\\n- **Return to database or resource**: This requirement indicates that the requestor must return derived/enriched data to the database/resource.\\n- **Time limit on use**: This requirement indicates that use is approved for a specific number of months.\\n- **User-specific restriction**: This requirement indicates that use is limited to use by approved users.",
+                              "title": "Data use requirements"
                         },
                         "resourceCreator": {
                               "anyOf": [
@@ -3281,7 +2940,14 @@
                                     },
                                     {
                                           "items": {
-                                                "$ref": "#/$defs/ShortDescription"
+                                                "anyOf": [
+                                                      {
+                                                            "$ref": "#/$defs/ShortDescription"
+                                                      },
+                                                      {
+                                                            "type": "null"
+                                                      }
+                                                ]
                                           },
                                           "type": "array"
                                     },
@@ -3290,8 +2956,45 @@
                                     }
                               ],
                               "default": null,
-                              "description": "The person or organisation that created this resource.",
-                              "title": "Resource Creator"
+                              "description": "Please provide the text that you would like included as part of any citation that credits this dataset. This is typically just the name of the publisher.   No employee details should be provided.",
+                              "examples": [
+                                    "National Services Scotland"
+                              ],
+                              "guidance": "- Please provide the text that you would like included as part of any citation that credits this dataset.\\n- This is typically just the name of the publisher. No employee details should be provided.\\n- To add multiple entries, please click on **'+' symbol** to enter each separate website.\\n- **Example**: National Services Scotland",
+                              "title": "Citation requirements"
+                        },
+                        "dataUsePermissions": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/DataUsePermissions"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Permissions relating to how people and materials within this dataset may be used, beyond the general access and use conditions described elsewhere in this section.",
+                              "title": "Data Use Permissions"
+                        },
+                        "duoCodes": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/DuoCodesEnum"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Machine-readable codes from the GA4GH Data Use Ontology describing the permitted or restricted uses of this dataset, for interoperability with other GA4GH-compliant systems.",
+                              "examples": [
+                                    "DUO:0000042"
+                              ],
+                              "guidance": "Please select any GA4GH Data Use Ontology (DUO) codes that describe the permitted or restricted uses of this dataset, e.g. DUO:0000042 (general research use), DUO:0000021 (ethics approval required). Multiple codes may apply to the same dataset. This is separate from Data use limitation/Data use requirements above, which use HDR UK's own free-text categories rather than the GA4GH ontology's identifiers.",
+                              "title": "GA4GH Data Use Ontology (DUO) codes"
                         }
                   },
                   "title": "Usage",
@@ -3302,6 +3005,14 @@
                   "minLength": 36,
                   "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
                   "title": "Uuidv4",
+                  "type": "string"
+            },
+            "YesNo": {
+                  "enum": [
+                        "Yes",
+                        "No"
+                  ],
+                  "title": "YesNo",
                   "type": "string"
             }
       },
@@ -3372,7 +3083,7 @@
                               "$ref": "#/$defs/Summary"
                         }
                   ],
-                  "description": "High-level descriptive metadata about the dataset."
+                  "description": "Summary of metadata describing key pieces of information."
             },
             "documentation": {
                   "anyOf": [
@@ -3397,7 +3108,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Demographic and geographic coverage of the dataset population.",
+                  "description": "This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
                   "title": "Coverage"
             },
             "provenance": {
@@ -3410,7 +3121,7 @@
                         }
                   ],
                   "default": null,
-                  "description": "Origin, temporal coverage, and retention information for the dataset.",
+                  "description": "Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.",
                   "title": "Provenance"
             },
             "accessibility": {
@@ -3419,7 +3130,7 @@
                               "$ref": "#/$defs/Accessibility"
                         }
                   ],
-                  "description": "Access rights, permitted uses, and technical format information."
+                  "description": "Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets."
             },
             "enrichmentAndLinkage": {
                   "anyOf": [
@@ -3480,77 +3191,6 @@
                   "default": null,
                   "description": "Omics",
                   "title": "Omics"
-            },
-            "@context": {
-                  "anyOf": [
-                        {
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": "https://hdruk.github.io/schemata-2/context/5.0.0.jsonld",
-                  "description": "URI of the JSON-LD context document that maps HDRUK field names to their DCAT, HealthDCAT-AP, and Dublin Core equivalents. When present, this document is directly consumable by a JSON-LD processor as a healthdcatap:HealthDataset.",
-                  "title": "JSON-LD Context"
-            },
-            "@id": {
-                  "anyOf": [
-                        {
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "URI uniquely identifying this dataset record (dcat:Dataset identifier).",
-                  "title": "Dataset URI"
-            },
-            "@type": {
-                  "anyOf": [
-                        {
-                              "type": "string"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": "healthdcatap:HealthDataset",
-                  "description": "RDF type of this record. Defaults to healthdcatap:HealthDataset, which is a subclass of dcat:Dataset.",
-                  "title": "RDF Type"
-            },
-            "distributions": {
-                  "anyOf": [
-                        {
-                              "items": {
-                                    "$ref": "#/$defs/Distribution"
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "DCAT-compliant distribution records for this dataset. Each distribution represents a specific downloadable or accessible form of the data (dcat:distribution).",
-                  "title": "Distributions"
-            },
-            "qualityAnnotations": {
-                  "anyOf": [
-                        {
-                              "items": {
-                                    "$ref": "#/$defs/QualityAnnotation"
-                              },
-                              "type": "array"
-                        },
-                        {
-                              "type": "null"
-                        }
-                  ],
-                  "default": null,
-                  "description": "Quality annotation records documenting data quality scores, certifications, or assessments (dqv:QualityAnnotation).",
-                  "title": "Quality Annotations"
             }
       },
       "required": [
@@ -3563,6 +3203,6 @@
             "accessibility",
             "observations"
       ],
-      "title": "Hdruk500",
+      "title": "Hdruk410",
       "type": "object"
 }

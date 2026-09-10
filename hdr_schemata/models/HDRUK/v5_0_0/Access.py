@@ -1,11 +1,66 @@
-from typing import Optional
+from typing import List, Optional
 
-from pydantic import Field
+from pydantic import BaseModel, Field
 
-from hdr_schemata.models.HDRUK.v3_0_0.Access import Access as Access300
+from hdr_schemata.definitions.HDRUK import (
+    AccessService,
+    DeliveryLeadTimeV2,
+    Isocountrycode,
+    LongDescription,
+)
 
 
-class Access(Access300):
+class Access(BaseModel):
+    class Config:
+        extra = "forbid"
+
+    accessRights: LongDescription = Field(
+        ...,
+        title="Access Rights",
+        description="A URL or description of the conditions under which the dataset can be accessed (dcterms:accessRights).",
+    )
+
+    accessServiceCategory: Optional[AccessService] = Field(
+        None,
+        title="Access Service Category",
+        description="Categorisation of the access service type available for this dataset.",
+    )
+
+    accessService: Optional[LongDescription] = Field(
+        None,
+        title="Access Service",
+        description="A link or description of the service used to access the dataset (dcat:accessService).",
+    )
+
+    accessRequestCost: Optional[LongDescription] = Field(
+        None,
+        title="Access Request Cost",
+        description="Indication of any costs associated with accessing the dataset (healthdcatap:accessRequestCost).",
+    )
+
+    deliveryLeadTime: Optional[DeliveryLeadTimeV2] = Field(
+        None,
+        title="Delivery Lead Time",
+        description="Typical time between submitting an access request and receiving data access (healthdcatap:deliveryLeadTime).",
+    )
+
+    jurisdiction: Optional[List[Isocountrycode]] = Field(
+        None,
+        title="Jurisdiction",
+        description="ISO 3166-2 country/region code(s) indicating where the data controller is legally registered.",
+    )
+
+    dataController: Optional[LongDescription] = Field(
+        None,
+        title="Data Controller",
+        description="Organisation that determines the purposes and means of processing personal data (dpv:hasDataController).",
+    )
+
+    dataProcessor: Optional[LongDescription] = Field(
+        None,
+        title="Data Processor",
+        description="Organisation that processes personal data on behalf of the data controller (dpv:hasDataProcessor).",
+    )
 
     legalBasis: Optional[str] = Field(
         None,

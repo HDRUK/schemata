@@ -2,23 +2,32 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
-from hdr_schemata.definitions.HDRUK import CommaSeparatedValues
-from hdr_schemata.models.GWDM.v2_0.annotations import annotations as v20_an
-
-an = v20_an.accessibility.formatAndStandards
-
 
 class FormatAndStandards(BaseModel):
     class Config:
         extra = "forbid"
 
-    vocabularyEncodingSchemes: Optional[CommaSeparatedValues] = Field(
-        None, **an.vocabularyEncodingSchemes.__dict__
+    vocabularyEncodingSchemes: Optional[List[str]] = Field(
+        None,
+        title="Controlled Vocabulary",
+        description="Code value of the ontology vocabulary encoding",
+        examples=[["OPCS4", "NHS NATIONAL CODES", "ICD10", "OTHER"]],
     )
-    conformsTo: Optional[CommaSeparatedValues] = Field(None, **an.conformsTo.__dict__)
-    languages: Optional[CommaSeparatedValues] = Field(None, **an.languages.__dict__)
+    conformsTo: Optional[List[str]] = Field(
+        None,
+        title="Conforms To",
+        description="What the vocabulary conforms to.",
+        examples=[["LOCAL", "NHS DATA DICTIONARY"]],
+    )
+    languages: Optional[List[str]] = Field(
+        None,
+        title="Language Code(s)",
+        description="Language code(s) of the language of the dataset metadata and underlying data is made available.",
+        examples=[["en"]],
+    )
     formats: Optional[List[str]] = Field(
         None,
-        title=an.formats.title,
-        description=an.formats.description,
+        title="Dataset Format",
+        description="Format(s) the dataset can be made available in",
+        examples=["CSV,JSON,SQL database table"],
     )

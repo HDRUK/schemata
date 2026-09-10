@@ -5,25 +5,22 @@ from typing import List, Optional
 
 from pydantic import BaseModel, Field
 
-from hdr_schemata.models.GWDM.v2_0 import Gwdm20
-from hdr_schemata.models.GWDM.v2_1 import DatasetFilter, ProjectGrant, Image
-from hdr_schemata.models.GWDM.v2_0.DataTable import DataTable
-from hdr_schemata.models.GWDM.v2_0.DemographicFrequency import DemographicFrequency
-from hdr_schemata.models.GWDM.v2_0.Linkage import Linkage
-from hdr_schemata.models.GWDM.v2_0.Observations import Observation
-from hdr_schemata.models.GWDM.v2_0.Omics import Omics
-from hdr_schemata.models.GWDM.v2_0.Required import Required
-from hdr_schemata.models.GWDM.v2_0.TissuesSampleCollection import TissuesSampleCollection
-from hdr_schemata.models.GWDM.v2_0.annotations import annotations as v20_an
-
 from .Accessibility import Accessibility
 from .Coverage import Coverage
+from .DatasetFilter import DatasetFilter
+from .DataTable import DataTable
+from .DemographicFrequency import DemographicFrequency
 from .Distribution import Distribution
+from .Image import Image
+from .Linkage import Linkage
+from .Observations import Observation
+from .Omics import Omics
+from .ProjectGrant import ProjectGrant
 from .Provenance import Provenance
 from .QualityAnnotation import QualityAnnotation
+from .Required import Required
 from .Summary import Summary
-
-an = v20_an
+from .TissuesSampleCollection import TissuesSampleCollection
 
 
 class Gwdm30(BaseModel):
@@ -31,45 +28,59 @@ class Gwdm30(BaseModel):
         extra = "forbid"
 
     required: Required = Field(
-        ..., description=an.required.description, title=an.required.title
+        ...,
+        title="Required",
+        description="Required metadata needed for the GWDM",
     )
     summary: Summary = Field(
-        ..., description=an.summary._description, title=an.summary._title
+        ...,
+        title="Summary",
+        description="Summary of metadata describing key pieces of information.",
     )
     coverage: Optional[Coverage] = Field(
-        None, description=an.coverage.description, title=an.coverage.title
+        None,
+        title="Coverage",
+        description="This information includes attributes for geographical and temporal coverage, cohort details etc. to enable a deeper understanding of the dataset content so that researchers can make decisions about the relevance of the underlying data.",
     )
     provenance: Optional[Provenance] = Field(
-        None, description=an.provenance.description, title=an.provenance.title
+        None,
+        title="Provenance",
+        description="Provenance information allows researchers to understand data within the context of its origins and can be an indicator of quality, authenticity and timeliness.",
     )
     accessibility: Accessibility = Field(
-        ..., description=an.accessibility.description, title=an.accessibility.title
+        ...,
+        title="Accessibility",
+        description="Accessibility information allows researchers to understand access, usage, limitations, formats, standards and linkage or interoperability with toolsets.",
     )
     linkage: Optional[Linkage] = Field(
-        None, description=an.linkage.description, title=an.linkage.title
+        None,
+        title="Linkage",
+        description="Metadata for various linkages with datasets and other gateway entities",
     )
     observations: Optional[List[Observation]] = Field(
-        None, description=an.observations.description, title=an.observations.title
+        None,
+        title="Observations",
+        description="This section provides an overview of observations of your dataset linked to specific points in time. Multiple observations about the dataset are encouraged to be provided, including multiple observations of the same property at different timepoints. At least one observation is required.",
     )
     structuralMetadata: Optional[List[DataTable]] = Field(
         None,
-        description=an.structuralMetadata.description,
-        title=an.structuralMetadata.title,
+        title="Structural metadata",
+        description="Descriptions of all tables and data elements that can be included in the dataset.",
     )
     tissuesSampleCollection: Optional[List[TissuesSampleCollection]] = Field(
         None,
-        description=an.tissuesSampleCollection.description,
-        title=an.tissuesSampleCollection.title,
+        title="Tissue Sample Collection",
+        description="metedata for tissue samples",
     )
     demographicFrequency: Optional[DemographicFrequency] = Field(
         None,
-        description=an.demographicFrequency.description,
-        title=an.demographicFrequency.title,
+        title="Demographic frequency",
+        description="An object containing demographic frequency data categorised by age, ethnicity, and disease attributes.",
     )
     omics: Optional[Omics] = Field(
         None,
-        description=an.omics.description,
-        title=an.omics.title,
+        title="Omics",
+        description="Omics",
     )
     distributions: Optional[List[Distribution]] = Field(
         None,

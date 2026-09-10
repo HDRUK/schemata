@@ -3,7 +3,8 @@ from typing import Optional, Union
 
 from pydantic import BaseModel, Field
 
-from hdr_schemata.models.HDRUK.v4_0_0.Provenance import Provenance as Provenance400
+from .Origin import Origin
+from .Temporal import Temporal
 
 
 class RetentionPeriod(BaseModel):
@@ -22,7 +23,21 @@ class RetentionPeriod(BaseModel):
     )
 
 
-class Provenance(Provenance400):
+class Provenance(BaseModel):
+    class Config:
+        extra = "forbid"
+
+    origin: Optional[Origin] = Field(
+        None,
+        title="Origin",
+        description="Information about how and why the data was originally collected.",
+    )
+
+    temporal: Temporal = Field(
+        ...,
+        title="Temporal",
+        description="Temporal coverage and publishing frequency of the dataset.",
+    )
 
     retentionPeriod: Optional[RetentionPeriod] = Field(
         None,

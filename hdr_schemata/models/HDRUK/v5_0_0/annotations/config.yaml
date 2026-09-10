@@ -1,7 +1,0 @@
-distributions:
-  title: "Distributions"
-  description: "DCAT-compliant distribution records for this dataset. Each distribution represents a specific downloadable or accessible form of the data (dcat:distribution)."
-
-qualityAnnotations:
-  title: "Quality Annotations"
-  description: "Quality annotation records documenting data quality scores, certifications, or assessments (dqv:QualityAnnotation)."

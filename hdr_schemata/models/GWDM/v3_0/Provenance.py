@@ -3,8 +3,8 @@ from typing import Optional, Union
 
 from pydantic import BaseModel, Field
 
-from hdr_schemata.models.GWDM.v2_0.Origin import Origin
-from hdr_schemata.models.GWDM.v2_0.Temporal import Temporal
+from .Origin import Origin
+from .Temporal import Temporal
 
 
 class RetentionPeriod(BaseModel):
