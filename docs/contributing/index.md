@@ -24,7 +24,6 @@ hdr_schemata/
       v2_2_1/        # overrides only what changes from v2_2_0
       2.2.1/         # generated schema.json (dotted version name)
       __init__.py    # version registry — import each vX_Y_Z class here
-      create_json_schema.py
     GWDM/            # same pattern
     CRUK/
     SchemaOrg/

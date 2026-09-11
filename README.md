@@ -17,12 +17,39 @@ pip install -r requirements.txt  # docs and test dependencies
 # Run tests
 pytest hdr_schemata/tests/
 
-# Regenerate schema.json files and available.json (run before committing model changes)
-python hdr_schemata/utils/build.py
+# Regenerate everything: schema.json files, available.json, docs/ and the mkdocs nav
+python -m hdr_schemata.build
 
-# Regenerate docs/ markdown from Pydantic models
-python hdr_schemata/utils/create_markdown.py
+# Verify the committed output matches the models, without writing anything
+python -m hdr_schemata.build --check
 ```
+
+## Regenerating schemas and docs
+
+**If you add or modify a schema, you must run `python -m hdr_schemata.build` and commit
+the result.** This is a manual step. One command produces every derived artefact:
+
+| Output | Contents |
+|--------|----------|
+| `hdr_schemata/models/{family}/{version}/schema.json` | the published JSON Schema |
+| `available.json` | the list of families and versions |
+| `docs/{family}/{version}.md` | human-readable field reference |
+| `docs/{family}/{version}.form.json` | form schema consumed by the Gateway UI |
+| `docs/{family}/{version}.structure.json` | structural definition |
+| `docs/{family}/{version}.change.md` | generated diff against the previous version |
+| `mkdocs.yml` | the `nav` entries for the above |
+
+Versions are discovered from each family's `__init__.py`, so registering your new class
+there is what makes it build.
+
+CI runs `python -m hdr_schemata.build --check` and fails with a list of stale files if
+the committed output does not match the models.
+
+> **Requires Python 3.11 with `pydantic==2.4.2`** (the pin in `setup.py`). The generated
+> markdown and `form.json` depend on the interpreter's type-annotation reprs: on 3.9 the
+> generator drops whole field blocks from `form.json` and renders `typing.List[...]`
+> instead of `List`. Building on another version will produce a spurious diff that CI
+> then rejects.
 
 ## Docs
 
@@ -80,8 +107,7 @@ class Accessibility(BaseAccessibility):
 ### Regenerate schema JSON and docs
 
 ```bash
-python hdr_schemata/utils/build.py          # updates schema.json + available.json
-python hdr_schemata/utils/create_markdown.py  # updates docs/
+python -m hdr_schemata.build
 ```
 
 After merging to `master`, the updated docs are automatically published at `https://hdruk.github.io/schemata-2/`.

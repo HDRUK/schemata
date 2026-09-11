@@ -47,18 +47,13 @@ jobs:
           python -m pip install -e .
           python -m pip install -r requirements.txt
 
-      - name: Check schemas and available.json are up to date
-        run: |
-          python hdr_schemata/utils/build.py
-          git diff --exit-code || \
-            (echo "ERROR: schema.json or available.json is out of sync with Pydantic models. Run 'python hdr_schemata/utils/build.py' locally and commit the result." && exit 1)
+      - name: Check schemas and docs are up to date
+        run: python -m hdr_schemata.build --check
 
       - name: Run pytest
         run: |
           cd hdr_schemata/tests/
-          pytest test_gwdm.py
-          pytest test_hdruk.py
-          pytest test_schemaOrg.py
+          pytest
 
       - name: Extract branch name
         shell: bash
