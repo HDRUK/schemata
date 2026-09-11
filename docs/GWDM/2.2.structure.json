@@ -790,6 +790,36 @@
                                                 "is_optional": true
                                           }
                                     ]
+                              },
+                              {
+                                    "name": "duoCodes",
+                                    "required": false,
+                                    "title": "GA4GH Data Use Ontology (DUO) codes",
+                                    "description": "Machine-readable codes from the GA4GH Data Use Ontology describing the permitted or restricted uses of this dataset, for interoperability with other GA4GH-compliant systems.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "patientRecontact",
+                                    "required": false,
+                                    "title": "Patient recontact",
+                                    "description": "Indicates whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
                               }
                         ]
                   },

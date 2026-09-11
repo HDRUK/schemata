@@ -155,6 +155,7 @@ def test_duo_codes_enum_matches_vendored_source():
 
     vendored_ids = set(vendored)
     enum_ids = {member.value for member in DuoCodesEnum}
+    vendored_ids = set(vendored.keys())
 
     assert enum_ids == vendored_ids, (
         "DuoCodesEnum has drifted from vendor/duo.csv - "
@@ -162,11 +163,12 @@ def test_duo_codes_enum_matches_vendored_source():
         f"in vendored file but not enum: {vendored_ids - enum_ids}"
     )
 
-    drifted = {
-        member.value: (member.label, vendored[member.value])
+    mismatched_labels = [
+        (member.value, member.label, vendored[member.value])
         for member in DuoCodesEnum
         if member.label != f"{vendored[member.value]} ({member.value})"
-    }
-    assert not drifted, (
-        f"DuoCodesEnum labels have drifted from vendor/duo.csv: {drifted}"
+    ]
+    assert mismatched_labels == [], (
+        "DuoCodesEnum labels have drifted from vendor/duo.csv - "
+        f"(code, enum label, vendored label): {mismatched_labels}"
     )
