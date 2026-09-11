@@ -207,7 +207,16 @@ def form_structure(data, form, parent=None):
             except:
                 ...
             if type(t) == enum.EnumMeta:
-                info = {"type": "string", "options": [m.value for m in t]}
+                if any(hasattr(m, "label") for m in t):
+                    info = {
+                        "type": "string",
+                        "options": [
+                            {"value": m.value, "label": getattr(m, "label", m.value)}
+                            for m in t
+                        ],
+                    }
+                else:
+                    info = {"type": "string", "options": [m.value for m in t]}
 
             if info:
                 infos.append(info)

@@ -819,31 +819,106 @@
                   "types": {
                         "type": "string",
                         "options": [
-                              "DUO:0000001",
-                              "DUO:0000004",
-                              "DUO:0000006",
-                              "DUO:0000007",
-                              "DUO:0000011",
-                              "DUO:0000012",
-                              "DUO:0000015",
-                              "DUO:0000016",
-                              "DUO:0000017",
-                              "DUO:0000018",
-                              "DUO:0000019",
-                              "DUO:0000020",
-                              "DUO:0000021",
-                              "DUO:0000022",
-                              "DUO:0000024",
-                              "DUO:0000025",
-                              "DUO:0000026",
-                              "DUO:0000027",
-                              "DUO:0000028",
-                              "DUO:0000029",
-                              "DUO:0000042",
-                              "DUO:0000043",
-                              "DUO:0000044",
-                              "DUO:0000045",
-                              "DUO:0000046"
+                              {
+                                    "value": "DUO:0000001",
+                                    "label": "data use permission"
+                              },
+                              {
+                                    "value": "DUO:0000004",
+                                    "label": "no restriction"
+                              },
+                              {
+                                    "value": "DUO:0000006",
+                                    "label": "health or medical or biomedical research"
+                              },
+                              {
+                                    "value": "DUO:0000007",
+                                    "label": "disease specific research"
+                              },
+                              {
+                                    "value": "DUO:0000011",
+                                    "label": "population origins or ancestry research only"
+                              },
+                              {
+                                    "value": "DUO:0000012",
+                                    "label": "research specific restrictions"
+                              },
+                              {
+                                    "value": "DUO:0000015",
+                                    "label": "no general methods research"
+                              },
+                              {
+                                    "value": "DUO:0000016",
+                                    "label": "genetic studies only"
+                              },
+                              {
+                                    "value": "DUO:0000017",
+                                    "label": "data use modifier"
+                              },
+                              {
+                                    "value": "DUO:0000018",
+                                    "label": "not for profit, non commercial use only"
+                              },
+                              {
+                                    "value": "DUO:0000019",
+                                    "label": "publication required"
+                              },
+                              {
+                                    "value": "DUO:0000020",
+                                    "label": "collaboration required"
+                              },
+                              {
+                                    "value": "DUO:0000021",
+                                    "label": "ethics approval required"
+                              },
+                              {
+                                    "value": "DUO:0000022",
+                                    "label": "geographical restriction"
+                              },
+                              {
+                                    "value": "DUO:0000024",
+                                    "label": "publication moratorium"
+                              },
+                              {
+                                    "value": "DUO:0000025",
+                                    "label": "time limit on use"
+                              },
+                              {
+                                    "value": "DUO:0000026",
+                                    "label": "user specific restriction"
+                              },
+                              {
+                                    "value": "DUO:0000027",
+                                    "label": "project specific restriction"
+                              },
+                              {
+                                    "value": "DUO:0000028",
+                                    "label": "institution specific restriction"
+                              },
+                              {
+                                    "value": "DUO:0000029",
+                                    "label": "return to database or resource"
+                              },
+                              {
+                                    "value": "DUO:0000042",
+                                    "label": "general research use"
+                              },
+                              {
+                                    "value": "DUO:0000043",
+                                    "label": "clinical care use"
+                              },
+                              {
+                                    "value": "DUO:0000044",
+                                    "label": "population origins or ancestry research prohibited"
+                              },
+                              {
+                                    "value": "DUO:0000045",
+                                    "label": "not for profit organisation use only"
+                              },
+                              {
+                                    "value": "DUO:0000046",
+                                    "label": "non-commercial use only"
+                              }
                         ]
                   },
                   "location": "accessibility.usage.duoCodes"
