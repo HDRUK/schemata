@@ -149,12 +149,23 @@ class TestHdruk410:
 
 def test_duo_codes_enum_matches_vendored_source():
     with open("../definitions/HDRUK/vendor/duo.csv") as f:
-        vendored_ids = {row["id"] for row in csv.DictReader(f)}
+        vendored = {row["id"]: row["label"] for row in csv.DictReader(f)}
 
     enum_ids = {member.value for member in DuoCodesEnum}
+    vendored_ids = set(vendored.keys())
 
     assert enum_ids == vendored_ids, (
         "DuoCodesEnum has drifted from vendor/duo.csv - "
         f"in enum but not vendored: {enum_ids - vendored_ids}, "
         f"in vendored file but not enum: {vendored_ids - enum_ids}"
+    )
+
+    mismatched_labels = [
+        (member.value, member.label, vendored[member.value])
+        for member in DuoCodesEnum
+        if member.label != vendored[member.value]
+    ]
+    assert mismatched_labels == [], (
+        "DuoCodesEnum labels have drifted from vendor/duo.csv - "
+        f"(code, enum label, vendored label): {mismatched_labels}"
     )
