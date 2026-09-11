@@ -244,7 +244,7 @@
                                     ],
                                     "type": [
                                           "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[hdr_schemata.definitions.HDRUK.EmailAddress.EmailAddress]"
+                                          "List"
                                     ],
                                     "is_list": false,
                                     "is_optional": false,
@@ -344,7 +344,7 @@
                         "examples": null,
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -394,7 +394,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.Url.Url]]",
+                              "List",
                               "null"
                         ],
                         "is_list": false,
@@ -443,7 +443,7 @@
                         ],
                         "type": [
                               "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]",
-                              "typing.List[hdr_schemata.definitions.HDRUK.Url.Url]"
+                              "List"
                         ],
                         "is_list": false,
                         "is_optional": false,
@@ -593,7 +593,7 @@
                                           "Health and disease"
                                     ],
                                     "type": [
-                                          "typing.Union[hdr_schemata.definitions.HDRUK.DatasetType.HealthAndDisease, hdr_schemata.definitions.HDRUK.DatasetType.TreatmentsInterventions, hdr_schemata.definitions.HDRUK.DatasetType.MeasurementsTests, hdr_schemata.definitions.HDRUK.DatasetType.ImagingTypes, hdr_schemata.definitions.HDRUK.DatasetType.ImagingAreaOfTheBody, hdr_schemata.definitions.HDRUK.DatasetType.OmicsDataType, hdr_schemata.definitions.HDRUK.DatasetType.Socioeconomic, hdr_schemata.definitions.HDRUK.DatasetType.Lifestyle, hdr_schemata.definitions.HDRUK.DatasetType.Registry, hdr_schemata.definitions.HDRUK.DatasetType.EnvironmentAndEnergy, hdr_schemata.definitions.HDRUK.DatasetType.InformationAndCommunication, hdr_schemata.definitions.HDRUK.DatasetType.Politics]"
+                                          "Union"
                                     ],
                                     "is_list": true,
                                     "is_optional": false,
@@ -803,7 +803,7 @@
                                     ],
                                     "type": [
                                           "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]",
-                                          "typing.List[typing.Optional[hdr_schemata.definitions.HDRUK.ShortDescription.ShortDescription]]",
+                                          "List",
                                           "null"
                                     ],
                                     "is_list": false,
