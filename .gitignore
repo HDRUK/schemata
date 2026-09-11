@@ -21,3 +21,5 @@ env/
 
 # Ignore mac files
 *DS_store
+
+site/

@@ -5,10 +5,33 @@ import json
 import typing
 import enum
 import os
+import importlib
+import inspect
+from pathlib import Path
 from hdr_schemata.utils.markdown_cleaner import clean_markdown_from_json
 from hdr_schemata.utils.markdown_cleaner import replace_new_lines_with_breaks
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+REPO_ROOT = Path(dir_path).parent.parent
+DOCS_DIR = REPO_ROOT / "docs"
+
+# Families to generate docs for: family_key -> (nav display name, docs subfolder)
+DOC_FAMILIES = {
+    "GWDM": ("Gateway Data Model (GWDM)", "GWDM"),
+    "HDRUK": ("HDRUK", "HDRUK"),
+}
+
+
+def _version_str(version_dir_name: str) -> str:
+    """v1_0 -> '1.0', v2_1_2 -> '2.1.2'"""
+    return version_dir_name[1:].replace("_", ".")
+
+
+def _version_sort_key(version_str: str) -> tuple:
+    try:
+        return tuple(int(x) for x in version_str.split("."))
+    except ValueError:
+        return (0,)
 
 
 def extract_type_info(type_hint):
@@ -98,23 +121,17 @@ def get_fields(structure, model: type[BaseModel]):
         }
 
         while hasattr(t, "__args__"):
-            
             t = t.__args__[0]
-               
-            
-        
+
         if isinstance(t, type) and issubclass(t, BaseModel):
             subItems = []
-            
             get_fields(subItems, t)
             # Don't ask and I wont lie, but I will run away and cry in the sink.
             if str(t.__name__) == "HealthAndDisease":
                 subItems.pop()
                 subItems.pop()
             value["subItems"] = subItems
-            
-       
-       
+
         structure.append(value)
 
 
@@ -126,7 +143,7 @@ def json_to_markdown(structure, level=2):
         subItems = field.pop("subItems", None)
         description = field.pop("description")
         examples = field.pop("examples")
-        
+
         # Removing the is_optional fields from the markdown docs
         del field["is_optional"]
 
@@ -146,7 +163,7 @@ def json_to_markdown(structure, level=2):
 {heading} {name}
 
 {description}
-        
+
 {table}
 
 {examples}
@@ -157,6 +174,7 @@ def json_to_markdown(structure, level=2):
             md += json_to_markdown(subItems, level=level + 1)
 
     return md
+
 
 def form_structure(data, form, parent=None):
     data = copy.deepcopy(data)
@@ -181,13 +199,12 @@ def form_structure(data, form, parent=None):
                 if "Union" in str(t):
                     options = []
                     for subt in t.__args__:
-                       
                         t_sch = subt.model_json_schema()
                         polite_title = t_sch["properties"]["name"]["default"]
                         if subt.__name__ + "SubTypes" in t_sch["$defs"]:
                             dataTypes = t_sch["$defs"][subt.__name__ + "SubTypes"]["enum"]
                             options.append({"title": polite_title, "options": dataTypes})
-                        else :
+                        else:
                             dataTypes = t_sch["$defs"]["NotApplicableSubTypes"]
                             options.append({"title": polite_title, "options": ['Not applicable']})
 
@@ -231,6 +248,75 @@ def form_structure(data, form, parent=None):
         form["schema_fields"].append(item)
 
 
+def _flatten_fields(fields, prefix=""):
+    """Recursively flatten nested structure.json into {dotted_path: field_dict}."""
+    result = {}
+    for field in fields:
+        path = f"{prefix}.{field['name']}" if prefix else field['name']
+        result[path] = {k: v for k, v in field.items() if k != "subItems"}
+        if field.get("subItems"):
+            result.update(_flatten_fields(field["subItems"], prefix=path))
+    return result
+
+
+def _diff_structures(old_fields: dict, new_fields: dict):
+    old_keys = set(old_fields)
+    new_keys = set(new_fields)
+
+    added = sorted(new_keys - old_keys)
+    removed = sorted(old_keys - new_keys)
+
+    modified = []
+    for key in sorted(old_keys & new_keys):
+        old, new = old_fields[key], new_fields[key]
+        changes = []
+        if old.get("type") != new.get("type"):
+            changes.append(f"type `{'|'.join(old.get('type', []))}` → `{'|'.join(new.get('type', []))}`")
+        if old.get("required") != new.get("required"):
+            changes.append("became required" if new.get("required") else "became optional")
+        if old.get("is_list") != new.get("is_list"):
+            changes.append("is now a list" if new.get("is_list") else "is no longer a list")
+        if changes:
+            modified.append((key, changes))
+
+    return added, removed, modified
+
+
+def generate_change_md(old_version: str, new_version: str, old_structure: list, new_structure: list) -> str:
+    old_fields = _flatten_fields(old_structure)
+    new_fields = _flatten_fields(new_structure)
+    added, removed, modified = _diff_structures(old_fields, new_fields)
+
+    lines = [f"## Changes from {old_version} -> {new_version}\n"]
+
+    if not added and not removed and not modified:
+        lines.append("No structural changes detected.\n")
+        return "\n".join(lines)
+
+    if added:
+        lines.append("### Added\n")
+        for path in added:
+            field = new_fields[path]
+            opt = " *(optional)*" if not field.get("required") else ""
+            desc = field.get("description") or field.get("title") or ""
+            lines.append(f"- **`{path}`**{opt}: {desc}")
+        lines.append("")
+
+    if removed:
+        lines.append("### Removed\n")
+        for path in removed:
+            lines.append(f"- **`{path}`**")
+        lines.append("")
+
+    if modified:
+        lines.append("### Modified\n")
+        for path, changes in modified:
+            lines.append(f"- **`{path}`**: {'; '.join(changes)}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
 def create_markdown(Model, path, name):
 
     def remove_types(data):
@@ -242,14 +328,13 @@ def create_markdown(Model, path, name):
     structure = []
     get_fields(structure, Model)
 
-
     form = {}
     form["schema_fields"] = []
     form["url_regex"] = "^\s*((https?:\/\/)*([a-zA-Z0-9-]+\.?)+[a-zA-Z]{2,}(:\d+)?(\/[^\s]*)?(\n)?)+$"
     form_structure(structure, form)
     with open(f"{path}/{name}.form.json", "w") as f:
         json.dump(form, f, indent=6)
-    
+
     with open(f"{path}/{name}.structure.json", "w") as f:
         remove_types(structure)
         json.dump(clean_markdown_from_json(structure), f, indent=6)
@@ -257,37 +342,155 @@ def create_markdown(Model, path, name):
     md = json_to_markdown(structure)
     with open(f"{path}/{name}.md", "w") as f:
         f.write(md)
-    print(f"Done {path}/{name}")
+    print(f"  docs/{name}")
 
 
-from hdr_schemata.models.HDRUK import Hdruk212
-from hdr_schemata.models.HDRUK import Hdruk213
-from hdr_schemata.models.HDRUK import Hdruk220  
-from hdr_schemata.models.HDRUK import Hdruk221
-from hdr_schemata.models.HDRUK import Hdruk300
-from hdr_schemata.models.HDRUK import Hdruk400
-from hdr_schemata.models.HDRUK import Hdruk410
+class _OpaqueYamlTag:
+    def __init__(self, suffix):
+        self.suffix = suffix
 
-from hdr_schemata.models.GWDM.v1_1 import Gwdm10
-from hdr_schemata.models.GWDM.v1_1 import Gwdm11
-from hdr_schemata.models.GWDM.v1_2 import Gwdm12
-from hdr_schemata.models.GWDM.v2_0 import Gwdm20
+    def __eq__(self, other):
+        return isinstance(other, _OpaqueYamlTag) and other.suffix == self.suffix
 
-  
-# create_markdown(Hdruk220, dir_path+"/../../docs/HDRUK", "2.2.0")
-# create_markdown(Hdruk221, dir_path+"/../../docs/HDRUK", "2.2.1")
-# create_markdown(Hdruk212, dir_path+"/../../docs/HDRUK", "2.1.2")
-# create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
-# create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
-create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
-create_markdown(Hdruk410, dir_path+"/../../docs/HDRUK", "4.1.0")
+    def __hash__(self):
+        return hash(self.suffix)
 
-# from hdr_schemata.models.GWDM.v1_1 import Gwdm10
-# from hdr_schemata.models.GWDM.v1_1 import Gwdm11
-# from hdr_schemata.models.GWDM.v1_2 import Gwdm12
-# from hdr_schemata.models.GWDM.v2_0 import Gwdm20   
 
-# create_markdown(Gwdm10, dir_path+"/../../docs/GWDM", "1.0")
-# create_markdown(Gwdm11, dir_path+"/../../docs/GWDM", "1.1")
-# create_markdown(Gwdm12, dir_path+"/../../docs/GWDM", "1.2")
-# create_markdown(Gwdm20, dir_path+"/../../docs/GWDM", "2.0")
+def _mkdocs_yaml_handlers():
+    import yaml
+
+    class Loader(yaml.SafeLoader):
+        pass
+
+    class Dumper(yaml.SafeDumper):
+        pass
+
+    Loader.add_multi_constructor(
+        "tag:yaml.org,2002:python/name:",
+        lambda loader, suffix, node: _OpaqueYamlTag(suffix),
+    )
+    Dumper.add_representer(
+        _OpaqueYamlTag,
+        lambda dumper, data: dumper.represent_scalar(
+            f"tag:yaml.org,2002:python/name:{data.suffix}", ""
+        ),
+    )
+    return Loader, Dumper
+
+
+def _merge_nav_section(existing, generated):
+    generated_keys = {key for entry in generated for key in entry}
+    preserved = [
+        entry
+        for entry in existing or []
+        if not (isinstance(entry, dict) and generated_keys.issuperset(entry))
+    ]
+    return generated + preserved
+
+
+def _update_mkdocs_nav(nav_entries: dict, changelog_entries: dict):
+    """Update the Schemata and Schema Change Log sections of mkdocs.yml."""
+    import yaml
+
+    Loader, Dumper = _mkdocs_yaml_handlers()
+
+    mkdocs_path = REPO_ROOT / "mkdocs.yml"
+    with open(mkdocs_path) as f:
+        config = yaml.load(f, Loader=Loader)
+
+    for item in config.get("nav", []):
+        if not isinstance(item, dict):
+            continue
+
+        if "Schemata" in item:
+            for section in item["Schemata"]:
+                if not isinstance(section, dict):
+                    continue
+                for display_name, (docs_subdir, versions) in nav_entries.items():
+                    if display_name in section:
+                        section[display_name] = _merge_nav_section(
+                            section[display_name],
+                            [
+                                {f"Version {v}": f"{docs_subdir}/{v}.md"}
+                                for v in versions
+                            ],
+                        )
+
+        if "Schema Change Log" in item:
+            for section in item["Schema Change Log"]:
+                if not isinstance(section, dict):
+                    continue
+                for display_name, (docs_subdir, versions) in changelog_entries.items():
+                    # Match on either the full display name or the short subdir name (e.g. "GWDM")
+                    key = display_name if display_name in section else (docs_subdir if docs_subdir in section else None)
+                    if key:
+                        section[key] = _merge_nav_section(
+                            section[key],
+                            [
+                                {v: f"{docs_subdir}/{v}.change.md"}
+                                for v in versions
+                            ],
+                        )
+
+    with open(mkdocs_path, "w") as f:
+        yaml.dump(
+            config,
+            f,
+            Dumper=Dumper,
+            default_flow_style=False,
+            allow_unicode=True,
+            sort_keys=False,
+        )
+
+
+def build_docs():
+    nav_entries = {}
+    changelog_entries = {}
+
+    for family, (display_name, docs_subdir) in DOC_FAMILIES.items():
+        print(f"{family}")
+        docs_path = DOCS_DIR / docs_subdir
+        docs_path.mkdir(exist_ok=True)
+
+        family_module = importlib.import_module(f"hdr_schemata.models.{family}")
+
+        seen = {}
+        for name, cls in inspect.getmembers(family_module, inspect.isclass):
+            if not (isinstance(cls, type) and issubclass(cls, BaseModel)):
+                continue
+            mod = cls.__module__
+            if not mod.startswith(f"hdr_schemata.models.{family}.v"):
+                continue
+            version_dir = mod.split(".")[-1]
+            if version_dir not in seen:
+                seen[version_dir] = (name, cls)
+
+        versions = []
+        structures = {}
+        for version_dir in sorted(seen, key=lambda d: _version_sort_key(_version_str(d))):
+            _, cls = seen[version_dir]
+            version_str = _version_str(version_dir)
+            create_markdown(cls, str(docs_path), version_str)
+            versions.append(version_str)
+            with open(docs_path / f"{version_str}.structure.json") as f:
+                structures[version_str] = json.load(f)
+
+        changelog_versions = []
+        for i in range(1, len(versions)):
+            old_v, new_v = versions[i - 1], versions[i]
+            md = generate_change_md(old_v, new_v, structures[old_v], structures[new_v])
+            change_path = docs_path / f"{new_v}.change.md"
+            with open(change_path, "w") as f:
+                f.write(md)
+            print(f"  changelog {old_v} -> {new_v}")
+            changelog_versions.append(new_v)
+
+        nav_entries[display_name] = (docs_subdir, versions)
+        changelog_entries[display_name] = (docs_subdir, changelog_versions)
+
+    _update_mkdocs_nav(nav_entries, changelog_entries)
+    print("\nmkdocs.yml nav updated")
+
+
+if __name__ == "__main__":
+    build_docs()
