@@ -60,6 +60,32 @@ that a version's annotations do not depend on the order families are imported in
 the per-family `test_json_schema` tests compare an in-process build against the
 committed `schema.json`.
 
+## Retiring a version
+
+Removing a version's import from the family `__init__.py` de-registers it: it stops being
+built, drops out of `available.json`, and loses its documentation page.
+
+That last part is the dangerous one. `available.json` is the registry traser compiles its
+schemas from, and `gateway-api-2` hands traser the schema version stored on each dataset
+record. A version that disappears from `available.json` stops resolving, and every stored
+record stamped with it starts failing validation.
+
+So unless you are certain nothing references the version, **freeze it instead of removing
+it**:
+
+1. Remove its import from the family `__init__.py`.
+2. Add it to `frozen.json`.
+3. Leave `hdr_schemata/models/{family}/{version}/schema.json` exactly where it is.
+4. Delete its `docs/{family}/{version}.*` pages; the mkdocs nav prunes itself.
+5. Run `python -m hdr_schemata.build` and confirm `available.json` is unchanged.
+
+The build merges frozen versions back into `available.json` and fails if one of their
+`schema.json` files has gone missing. `test_frozen.py` pins all three invariants: frozen
+versions stay published, keep their schema on disk, and are not also registered.
+
+Only delete a version outright once you have confirmed no stored record and no downstream
+service still refers to it.
+
 ## Branch and PR workflow
 
 ```

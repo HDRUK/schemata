@@ -6,6 +6,9 @@ Schemas are defined as [Pydantic v2](https://docs.pydantic.dev/latest/) `BaseMod
 
 `v2_1_2` is the root base for all HDRUK schemas. Every later version imports the previous version's top-level class and subclasses it:
 
+!!! note "The root base is not a published version"
+    `v2_1_2` and `v2_1_3` are frozen — they stay in the tree because everything from `v2_2_0` upwards inherits their models and annotations, but they are no longer registered in `hdr_schemata/models/HDRUK/__init__.py` and so are not rebuilt or documented. Edit them only when you intend to change every later version.
+
 ```python
 # hdr_schemata/models/HDRUK/v2_2_1/__init__.py
 
@@ -104,13 +107,13 @@ Add an import to the family's `__init__.py` so `build.py` picks it up:
 ```python
 # hdr_schemata/models/HDRUK/__init__.py
 
-from .v2_1_2 import Hdruk212
-from .v2_1_3 import Hdruk213
+from .v2_2_0 import Hdruk220
+from .v2_2_1 import Hdruk221
 # ... existing versions ...
 from .vX_Y_Z import HdrukXYZ   # add this line
 ```
 
-`build.py` discovers versions by inspecting classes exported from the family `__init__.py` — anything not imported here will be invisible to the build.
+`build.py` discovers versions by inspecting classes exported from the family `__init__.py` — anything not imported here will be invisible to the build. Removing a line is therefore how a version is retired; if it is still published, add it to `frozen.json` at the same time so it stays in `available.json`.
 
 ### 5. Add a test
 
@@ -151,4 +154,4 @@ Both call `model_rebuild(force=True)` internally — call them after the class i
 
 ## GWDM schemas
 
-The GWDM family follows the same directory and inheritance conventions. The root base is `v1_0`. Version directories are named `v1_0`, `v1_1`, `v2_0`, `v3_0` etc. (no patch component for minor versions). Registration is in `hdr_schemata/models/GWDM/__init__.py`.
+The GWDM family follows the same directory and inheritance conventions. The root base is `v2_0`, which is independent of the frozen 1.x line rather than derived from it. Version directories are named `v2_0`, `v2_1`, `v2_2` etc. (no patch component for minor versions). Registration is in `hdr_schemata/models/GWDM/__init__.py`.
