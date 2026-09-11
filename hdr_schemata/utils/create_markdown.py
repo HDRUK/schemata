@@ -378,12 +378,19 @@ def _mkdocs_yaml_handlers():
     return Loader, Dumper
 
 
+def _nav_target_exists(entry):
+    if not isinstance(entry, dict):
+        return True
+    return all((DOCS_DIR / target).is_file() for target in entry.values())
+
+
 def _merge_nav_section(existing, generated):
     generated_keys = {key for entry in generated for key in entry}
     preserved = [
         entry
         for entry in existing or []
         if not (isinstance(entry, dict) and generated_keys.issuperset(entry))
+        and _nav_target_exists(entry)
     ]
     return generated + preserved
 

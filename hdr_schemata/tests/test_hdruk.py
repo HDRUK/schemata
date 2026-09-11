@@ -1,7 +1,8 @@
 from pydantic import ValidationError
 import csv
 import json
-from hdr_schemata.models.HDRUK import Hdruk212, Hdruk410
+from hdr_schemata.models.HDRUK import Hdruk410
+from hdr_schemata.models.HDRUK.v2_1_2 import Hdruk212
 from hdr_schemata.definitions.HDRUK import DuoCodesEnum
 
 

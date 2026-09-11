@@ -21,7 +21,7 @@ pip install -r requirements.txt  # docs and test dependencies
 hdr_schemata/
   models/
     HDRUK/
-      v2_1_2/        # base model — all HDRUK versions derive from here
+      v2_1_2/        # base model — all HDRUK versions derive from here (frozen: not itself published)
       v2_2_1/        # overrides only what changes from v2_2_0
       2.2.1/         # generated schema.json (dotted version name)
       __init__.py    # version registry — import each vX_Y_Z class here
