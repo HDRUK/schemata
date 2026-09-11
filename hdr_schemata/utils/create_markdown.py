@@ -8,8 +8,8 @@ import os
 import importlib
 import inspect
 from pathlib import Path
-from markdown_cleaner import clean_markdown_from_json
-from markdown_cleaner import replace_new_lines_with_breaks
+from hdr_schemata.utils.markdown_cleaner import clean_markdown_from_json
+from hdr_schemata.utils.markdown_cleaner import replace_new_lines_with_breaks
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 REPO_ROOT = Path(dir_path).parent.parent

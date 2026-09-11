@@ -18,10 +18,7 @@ from .Summary import Summary
 
 from .annotations import annotations as an
 
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../utils")))
-from markdown_cleaner import clean_markdown_from_json
+from hdr_schemata.utils.markdown_cleaner import clean_markdown_from_json
 
 
 class Hdruk300(BaseModel):
