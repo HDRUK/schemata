@@ -12,6 +12,6 @@ accessibility:
       patientRecontact:
         title: "Patient recontact"
         description: "Indicates whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study."
-        guidance: "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\n- **No**: The people within this dataset cannot be recontacted."
+        guidance: "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\\n- **No**: The people within this dataset cannot be recontacted."
         examples:
           - "No"

@@ -13,13 +13,15 @@ from enum import Enum
 # unchanged) alongside its human-readable label (`.label`), so consumers that
 # need to show a code's meaning (e.g. form hydration/docs) don't need a
 # separate reverse lookup against the vendored CSV - one source of truth.
+# `.label` appends the code because form hydration renders it verbatim as the
+# option label (via option_titles in the generated *.form.json).
 
 
 class DuoCodesEnum(Enum):
     def __new__(cls, code, label):
         obj = object.__new__(cls)
         obj._value_ = code
-        obj.label = label
+        obj.label = f"{label} ({code})"
         return obj
 
     DATA_USE_PERMISSION = ("DUO:0000001", "data use permission")
