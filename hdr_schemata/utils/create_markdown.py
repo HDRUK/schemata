@@ -5,8 +5,8 @@ import json
 import typing
 import enum
 import os
-from markdown_cleaner import clean_markdown_from_json
-from markdown_cleaner import replace_new_lines_with_breaks
+from hdr_schemata.utils.markdown_cleaner import clean_markdown_from_json
+from hdr_schemata.utils.markdown_cleaner import replace_new_lines_with_breaks
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 

@@ -1,28 +1,8 @@
 import json
-import subprocess
-import sys
-from pathlib import Path
 
 from pydantic import ValidationError
 
 from hdr_schemata.models.GWDM import Gwdm10, Gwdm22
-
-
-def _gwdm10_model_json_schema_clean_process() -> dict:
-    """Build JSON Schema in a fresh interpreter to avoid $defs clashes with other models."""
-    root = Path(__file__).resolve().parents[2]
-    code = (
-        "import json, sys; "
-        f"sys.path.insert(0, {str(root)!r}); "
-        "from hdr_schemata.models.GWDM.v1_0 import Gwdm10; "
-        "print(json.dumps(Gwdm10.model_json_schema()))"
-    )
-    out = subprocess.check_output(
-        [sys.executable, "-c", code],
-        cwd=str(root),
-        text=True,
-    )
-    return json.loads(out)
 
 
 def get_metadata(model, version):
@@ -43,7 +23,7 @@ class TestGwdm10:
         assert Gwdm10(**self.metadata) != None
 
     def test_json_schema(self):
-        schema = _gwdm10_model_json_schema_clean_process()
+        schema = Gwdm10.model_json_schema()
         expected_keys = [
             "$defs",
             "additionalProperties",
@@ -57,23 +37,6 @@ class TestGwdm10:
         assert schema == self.json_schema
 
 
-def _gwdm22_model_json_schema_clean_process() -> dict:
-    """Build JSON Schema in a fresh interpreter to avoid $defs clashes with other models."""
-    root = Path(__file__).resolve().parents[2]
-    code = (
-        "import json, sys; "
-        f"sys.path.insert(0, {str(root)!r}); "
-        "from hdr_schemata.models.GWDM.v2_2 import Gwdm22; "
-        "print(json.dumps(Gwdm22.model_json_schema()))"
-    )
-    out = subprocess.check_output(
-        [sys.executable, "-c", code],
-        cwd=str(root),
-        text=True,
-    )
-    return json.loads(out)
-
-
 class TestGwdm22:
     metadata = get_metadata("GWDM", "2.2")
     json_schema = get_schema("GWDM", "2.2")
@@ -82,7 +45,7 @@ class TestGwdm22:
         assert Gwdm22(**self.metadata) != None
 
     def test_json_schema(self):
-        schema = _gwdm22_model_json_schema_clean_process()
+        schema = Gwdm22.model_json_schema()
         expected_keys = [
             "$defs",
             "additionalProperties",
