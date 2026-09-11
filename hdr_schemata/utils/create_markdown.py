@@ -207,7 +207,16 @@ def form_structure(data, form, parent=None):
             except:
                 ...
             if type(t) == enum.EnumMeta:
-                info = {"type": "string", "options": [m.value for m in t]}
+                if any(hasattr(m, "label") for m in t):
+                    info = {
+                        "type": "string",
+                        "options": [
+                            {"value": m.value, "label": getattr(m, "label", m.value)}
+                            for m in t
+                        ],
+                    }
+                else:
+                    info = {"type": "string", "options": [m.value for m in t]}
 
             if info:
                 infos.append(info)
@@ -264,6 +273,7 @@ from hdr_schemata.models.HDRUK import Hdruk220
 from hdr_schemata.models.HDRUK import Hdruk221
 from hdr_schemata.models.HDRUK import Hdruk300
 from hdr_schemata.models.HDRUK import Hdruk400
+from hdr_schemata.models.HDRUK import Hdruk410
 
 from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 from hdr_schemata.models.GWDM.v1_1 import Gwdm11
@@ -277,6 +287,7 @@ from hdr_schemata.models.GWDM.v2_0 import Gwdm20
 # create_markdown(Hdruk213, dir_path+"/../../docs/HDRUK", "2.1.3")
 # create_markdown(Hdruk300, dir_path+"/../../docs/HDRUK", "3.0.0")
 create_markdown(Hdruk400, dir_path+"/../../docs/HDRUK", "4.0.0")
+create_markdown(Hdruk410, dir_path+"/../../docs/HDRUK", "4.1.0")
 
 # from hdr_schemata.models.GWDM.v1_1 import Gwdm10
 # from hdr_schemata.models.GWDM.v1_1 import Gwdm11
