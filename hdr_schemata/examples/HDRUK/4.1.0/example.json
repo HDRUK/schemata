@@ -60,7 +60,14 @@
                   "dataUseRequirements": [],
                   "dataUseLimitation": [
                         "General research use"
-                  ]
+                  ],
+                  "duoCodes": [
+                        "DUO:0000042",
+                        "DUO:0000021"
+                  ],
+                  "dataUsePermissions": {
+                        "patientRecontact": "Yes"
+                  }
             }
       },
       "documentation": {
