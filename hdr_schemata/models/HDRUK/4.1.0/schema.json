@@ -946,102 +946,152 @@
                   "oneOf": [
                         {
                               "const": "DUO:0000001",
+                              "description": "A data item that is used to indicate consent permissions for datasets and/or materials, and relates to the purposes for which datasets and/or material might be removed, stored or used.",
+                              "shortcode": "",
                               "title": "data use permission"
                         },
                         {
                               "const": "DUO:0000004",
+                              "description": "This data use permission indicates there is no restriction on use.",
+                              "shortcode": "NRES",
                               "title": "no restriction"
                         },
                         {
                               "const": "DUO:0000006",
+                              "description": "This data use permission indicates that use is allowed for health/medical/biomedical purposes; does not include the study of population origins or ancestry.",
+                              "shortcode": "HMB",
                               "title": "health or medical or biomedical research"
                         },
                         {
                               "const": "DUO:0000007",
+                              "description": "This data use permission indicates that use is allowed provided it is related to the specified disease.",
+                              "shortcode": "DS",
                               "title": "disease specific research"
                         },
                         {
                               "const": "DUO:0000011",
+                              "description": "This data use permission indicates that use of the data is limited to the study of population origins or ancestry.",
+                              "shortcode": "POA",
                               "title": "population origins or ancestry research only"
                         },
                         {
                               "const": "DUO:0000012",
+                              "description": "This data use modifier indicates that use is limited to studies of a certain research type.",
+                              "shortcode": "RS",
                               "title": "research specific restrictions"
                         },
                         {
                               "const": "DUO:0000015",
+                              "description": "This data use modifier indicates that use does not allow methods development research (e.g., development of software or algorithms).",
+                              "shortcode": "NMDS",
                               "title": "no general methods research"
                         },
                         {
                               "const": "DUO:0000016",
+                              "description": "This data use modifier indicates that use is limited to genetic studies only (i.e., studies that include genotype research alone or both genotype and phenotype research, but not phenotype research exclusively)",
+                              "shortcode": "GSO",
                               "title": "genetic studies only"
                         },
                         {
                               "const": "DUO:0000017",
+                              "description": "Data use modifiers indicate additional conditions for use.",
+                              "shortcode": "",
                               "title": "data use modifier"
                         },
                         {
                               "const": "DUO:0000018",
+                              "description": "This data use modifier indicates that use of the data is limited to not-for-profit organizations and not-for-profit use, non-commercial use.",
+                              "shortcode": "NPUNCU",
                               "title": "not for profit, non commercial use only"
                         },
                         {
                               "const": "DUO:0000019",
+                              "description": "This data use modifier indicates that requestor agrees to make results of studies using the data available to the larger scientific community.",
+                              "shortcode": "PUB",
                               "title": "publication required"
                         },
                         {
                               "const": "DUO:0000020",
+                              "description": "This data use modifier indicates that the requestor must agree to collaboration with the primary study investigator(s).",
+                              "shortcode": "COL",
                               "title": "collaboration required"
                         },
                         {
                               "const": "DUO:0000021",
+                              "description": "This data use modifier indicates that the requestor must provide documentation of local IRB/ERB approval.",
+                              "shortcode": "IRB",
                               "title": "ethics approval required"
                         },
                         {
                               "const": "DUO:0000022",
+                              "description": "This data use modifier indicates that use is limited to within a specific geographic region.",
+                              "shortcode": "GS",
                               "title": "geographical restriction"
                         },
                         {
                               "const": "DUO:0000024",
+                              "description": "This data use modifier indicates that requestor agrees not to publish results of studies until a specific date.",
+                              "shortcode": "MOR",
                               "title": "publication moratorium"
                         },
                         {
                               "const": "DUO:0000025",
+                              "description": "This data use modifier indicates that use is approved for a specific number of months.",
+                              "shortcode": "TS",
                               "title": "time limit on use"
                         },
                         {
                               "const": "DUO:0000026",
+                              "description": "This data use modifier indicates that use is limited to use by approved users.",
+                              "shortcode": "US",
                               "title": "user specific restriction"
                         },
                         {
                               "const": "DUO:0000027",
+                              "description": "This data use modifier indicates that use is limited to use within an approved project.",
+                              "shortcode": "PS",
                               "title": "project specific restriction"
                         },
                         {
                               "const": "DUO:0000028",
+                              "description": "This data use modifier indicates that use is limited to use within an approved institution.",
+                              "shortcode": "IS",
                               "title": "institution specific restriction"
                         },
                         {
                               "const": "DUO:0000029",
+                              "description": "This data use modifier indicates that the requestor must return derived/enriched data to the database/resource.",
+                              "shortcode": "RTN",
                               "title": "return to database or resource"
                         },
                         {
                               "const": "DUO:0000042",
+                              "description": "This data use permission indicates that use is allowed for general research use for any research purpose.",
+                              "shortcode": "GRU",
                               "title": "general research use"
                         },
                         {
                               "const": "DUO:0000043",
+                              "description": "This data use modifier indicates that use is allowed for clinical use and care.",
+                              "shortcode": "CC",
                               "title": "clinical care use"
                         },
                         {
                               "const": "DUO:0000044",
+                              "description": "This data use modifier indicates use for purposes of population, origin, or ancestry research is prohibited.",
+                              "shortcode": "NPOA",
                               "title": "population origins or ancestry research prohibited"
                         },
                         {
                               "const": "DUO:0000045",
+                              "description": "This data use modifier indicates that use of the data is limited to not-for-profit organizations.",
+                              "shortcode": "NPU",
                               "title": "not for profit organisation use only"
                         },
                         {
                               "const": "DUO:0000046",
+                              "description": "This data use modifier indicates that use of the data is limited to not-for-profit use.",
+                              "shortcode": "NCU",
                               "title": "non-commercial use only"
                         }
                   ],

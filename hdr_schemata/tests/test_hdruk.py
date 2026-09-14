@@ -171,14 +171,18 @@ def test_duo_codes_schema_exposes_labelled_oneof():
         "a bare enum array has nowhere to hang one"
     )
     assert schema["type"] == "string"
-    assert [(option["const"], option["title"]) for option in schema["oneOf"]] == [
-        (member.value, member.label) for member in DuoCodesEnum
+    assert [
+        (option["const"], option["title"], option["shortcode"], option["description"])
+        for option in schema["oneOf"]
+    ] == [
+        (member.value, member.label, member.shortcode, member.description)
+        for member in DuoCodesEnum
     ]
 
 
 def test_duo_codes_enum_matches_vendored_source():
     with open("../definitions/HDRUK/vendor/duo.csv") as f:
-        vendored = {row["id"]: row["label"] for row in csv.DictReader(f)}
+        vendored = {row["id"]: row for row in csv.DictReader(f)}
 
     enum_ids = {member.value for member in DuoCodesEnum}
     vendored_ids = set(vendored.keys())
@@ -190,11 +194,31 @@ def test_duo_codes_enum_matches_vendored_source():
     )
 
     mismatched_labels = [
-        (member.value, member.label, vendored[member.value])
+        (member.value, member.label, vendored[member.value]["label"])
         for member in DuoCodesEnum
-        if member.label != vendored[member.value]
+        if member.label != vendored[member.value]["label"]
     ]
     assert mismatched_labels == [], (
         "DuoCodesEnum labels have drifted from vendor/duo.csv - "
         f"(code, enum label, vendored label): {mismatched_labels}"
+    )
+
+    mismatched_shortcodes = [
+        (member.value, member.shortcode, vendored[member.value]["shorthand"])
+        for member in DuoCodesEnum
+        if member.shortcode != vendored[member.value]["shorthand"]
+    ]
+    assert mismatched_shortcodes == [], (
+        "DuoCodesEnum shortcodes have drifted from vendor/duo.csv - "
+        f"(code, enum shortcode, vendored shorthand): {mismatched_shortcodes}"
+    )
+
+    mismatched_descriptions = [
+        (member.value, member.description, vendored[member.value]["description"])
+        for member in DuoCodesEnum
+        if member.description != vendored[member.value]["description"]
+    ]
+    assert mismatched_descriptions == [], (
+        "DuoCodesEnum descriptions have drifted from vendor/duo.csv - "
+        f"(code, enum description, vendored description): {mismatched_descriptions}"
     )
