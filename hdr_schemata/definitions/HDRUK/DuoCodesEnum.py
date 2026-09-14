@@ -47,3 +47,11 @@ class DuoCodesEnum(Enum):
     NPOA = ("DUO:0000044", "population origins or ancestry research prohibited")
     NPU = ("DUO:0000045", "not for profit organisation use only")
     NCU = ("DUO:0000046", "non-commercial use only")
+
+    @classmethod
+    def __get_pydantic_json_schema__(cls, core_schema, handler):
+        schema = handler.resolve_ref_schema(handler(core_schema))
+        schema.pop("enum", None)
+        schema["type"] = "string"
+        schema["oneOf"] = [{"const": m.value, "title": m.label} for m in cls]
+        return schema

@@ -163,6 +163,19 @@ def test_documented_duo_code_examples_are_valid_values():
     )
 
 
+def test_duo_codes_schema_exposes_labelled_oneof():
+    schema = get_schema("HDRUK", "4.1.0")["$defs"]["DuoCodesEnum"]
+
+    assert "enum" not in schema, (
+        "duoCodes publishes oneOf/const so each code can carry a title - "
+        "a bare enum array has nowhere to hang one"
+    )
+    assert schema["type"] == "string"
+    assert [(option["const"], option["title"]) for option in schema["oneOf"]] == [
+        (member.value, member.label) for member in DuoCodesEnum
+    ]
+
+
 def test_duo_codes_enum_matches_vendored_source():
     with open("../definitions/HDRUK/vendor/duo.csv") as f:
         vendored = {row["id"]: row["label"] for row in csv.DictReader(f)}
