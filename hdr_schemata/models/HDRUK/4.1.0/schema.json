@@ -614,7 +614,7 @@
                               "examples": [
                                     "No"
                               ],
-                              "guidance": "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\n- **No**: The people within this dataset cannot be recontacted.",
+                              "guidance": "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\\n- **No**: The people within this dataset cannot be recontacted.",
                               "title": "Patient recontact"
                         }
                   },
@@ -943,32 +943,107 @@
                   "title": "Doi"
             },
             "DuoCodesEnum": {
-                  "enum": [
-                        "DUO:0000001",
-                        "DUO:0000004",
-                        "DUO:0000006",
-                        "DUO:0000007",
-                        "DUO:0000011",
-                        "DUO:0000012",
-                        "DUO:0000015",
-                        "DUO:0000016",
-                        "DUO:0000017",
-                        "DUO:0000018",
-                        "DUO:0000019",
-                        "DUO:0000020",
-                        "DUO:0000021",
-                        "DUO:0000022",
-                        "DUO:0000024",
-                        "DUO:0000025",
-                        "DUO:0000026",
-                        "DUO:0000027",
-                        "DUO:0000028",
-                        "DUO:0000029",
-                        "DUO:0000042",
-                        "DUO:0000043",
-                        "DUO:0000044",
-                        "DUO:0000045",
-                        "DUO:0000046"
+                  "oneOf": [
+                        {
+                              "const": "DUO:0000001",
+                              "title": "data use permission"
+                        },
+                        {
+                              "const": "DUO:0000004",
+                              "title": "no restriction"
+                        },
+                        {
+                              "const": "DUO:0000006",
+                              "title": "health or medical or biomedical research"
+                        },
+                        {
+                              "const": "DUO:0000007",
+                              "title": "disease specific research"
+                        },
+                        {
+                              "const": "DUO:0000011",
+                              "title": "population origins or ancestry research only"
+                        },
+                        {
+                              "const": "DUO:0000012",
+                              "title": "research specific restrictions"
+                        },
+                        {
+                              "const": "DUO:0000015",
+                              "title": "no general methods research"
+                        },
+                        {
+                              "const": "DUO:0000016",
+                              "title": "genetic studies only"
+                        },
+                        {
+                              "const": "DUO:0000017",
+                              "title": "data use modifier"
+                        },
+                        {
+                              "const": "DUO:0000018",
+                              "title": "not for profit, non commercial use only"
+                        },
+                        {
+                              "const": "DUO:0000019",
+                              "title": "publication required"
+                        },
+                        {
+                              "const": "DUO:0000020",
+                              "title": "collaboration required"
+                        },
+                        {
+                              "const": "DUO:0000021",
+                              "title": "ethics approval required"
+                        },
+                        {
+                              "const": "DUO:0000022",
+                              "title": "geographical restriction"
+                        },
+                        {
+                              "const": "DUO:0000024",
+                              "title": "publication moratorium"
+                        },
+                        {
+                              "const": "DUO:0000025",
+                              "title": "time limit on use"
+                        },
+                        {
+                              "const": "DUO:0000026",
+                              "title": "user specific restriction"
+                        },
+                        {
+                              "const": "DUO:0000027",
+                              "title": "project specific restriction"
+                        },
+                        {
+                              "const": "DUO:0000028",
+                              "title": "institution specific restriction"
+                        },
+                        {
+                              "const": "DUO:0000029",
+                              "title": "return to database or resource"
+                        },
+                        {
+                              "const": "DUO:0000042",
+                              "title": "general research use"
+                        },
+                        {
+                              "const": "DUO:0000043",
+                              "title": "clinical care use"
+                        },
+                        {
+                              "const": "DUO:0000044",
+                              "title": "population origins or ancestry research prohibited"
+                        },
+                        {
+                              "const": "DUO:0000045",
+                              "title": "not for profit organisation use only"
+                        },
+                        {
+                              "const": "DUO:0000046",
+                              "title": "non-commercial use only"
+                        }
                   ],
                   "title": "DuoCodesEnum",
                   "type": "string"

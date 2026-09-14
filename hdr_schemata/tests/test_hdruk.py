@@ -1,7 +1,8 @@
 from pydantic import ValidationError
 import csv
 import json
-from hdr_schemata.models.HDRUK import Hdruk212, Hdruk410
+from hdr_schemata.models.HDRUK import Hdruk410
+from hdr_schemata.models.HDRUK.v2_1_2 import Hdruk212
 from hdr_schemata.definitions.HDRUK import DuoCodesEnum
 
 
@@ -79,6 +80,8 @@ class TestHdruk410:
     def test_dataset_without_new_optional_fields_still_validates(self):
         metadata = json.loads(json.dumps(self.metadata))
         metadata["accessibility"]["formatAndStandards"]["conformsTo"] = ["LOCAL"]
+        metadata["accessibility"]["usage"].pop("duoCodes")
+        metadata["accessibility"]["usage"].pop("dataUsePermissions")
         assert Hdruk410(**metadata) != None
 
     def test_patient_recontact_accepts_yes_no(self):
@@ -102,7 +105,7 @@ class TestHdruk410:
 
     def test_dataset_without_patient_recontact_still_validates(self):
         metadata = json.loads(json.dumps(self.metadata))
-        assert "dataUsePermissions" not in metadata["accessibility"]["usage"]
+        metadata["accessibility"]["usage"].pop("dataUsePermissions")
         assert Hdruk410(**metadata) != None
 
     def test_patient_recontact_defaults_to_no_when_omitted(self):
@@ -143,8 +146,34 @@ class TestHdruk410:
 
     def test_dataset_without_duo_codes_still_validates(self):
         metadata = json.loads(json.dumps(self.metadata))
-        assert "duoCodes" not in metadata["accessibility"]["usage"]
+        metadata["accessibility"]["usage"].pop("duoCodes")
         assert Hdruk410(**metadata) != None
+
+
+def test_documented_duo_code_examples_are_valid_values():
+    schema = get_schema("HDRUK", "4.1.0")
+    examples = schema["$defs"]["Usage"]["properties"]["duoCodes"]["examples"]
+    valid = {member.value for member in DuoCodesEnum}
+
+    assert examples, "duoCodes should document at least one example"
+    assert set(examples) <= valid, (
+        "duoCodes examples must be enum values, not the human-readable labels - "
+        "labels are for form option rendering only: "
+        f"{sorted(set(examples) - valid)}"
+    )
+
+
+def test_duo_codes_schema_exposes_labelled_oneof():
+    schema = get_schema("HDRUK", "4.1.0")["$defs"]["DuoCodesEnum"]
+
+    assert "enum" not in schema, (
+        "duoCodes publishes oneOf/const so each code can carry a title - "
+        "a bare enum array has nowhere to hang one"
+    )
+    assert schema["type"] == "string"
+    assert [(option["const"], option["title"]) for option in schema["oneOf"]] == [
+        (member.value, member.label) for member in DuoCodesEnum
+    ]
 
 
 def test_duo_codes_enum_matches_vendored_source():
