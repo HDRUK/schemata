@@ -1179,6 +1179,74 @@
                   "location": "observations.measuredProperty"
             },
             {
+                  "required": true,
+                  "title": "Table Name",
+                  "description": "The name of a table in a dataset.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "str",
+                  "location": "structuralMetadata.name"
+            },
+            {
+                  "required": false,
+                  "title": "Table Name",
+                  "description": "The name of a table in a dataset.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "str",
+                  "location": "structuralMetadata.description"
+            },
+            {
+                  "required": true,
+                  "title": "Column Name",
+                  "description": "The name of a column in a table.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "title": "Name"
+                  },
+                  "location": "structuralMetadata.elements.name"
+            },
+            {
+                  "required": true,
+                  "title": "Data Type",
+                  "description": "The data type of values in the column",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "str",
+                  "location": "structuralMetadata.elements.dataType"
+            },
+            {
+                  "required": false,
+                  "title": "Column Description",
+                  "description": "A description of a column in a table.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": "str",
+                  "location": "structuralMetadata.elements.description"
+            },
+            {
+                  "required": true,
+                  "title": "Sensitive",
+                  "description": "A True or False value, indicating if the field is sensitive or not",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": "bool",
+                  "location": "structuralMetadata.elements.sensitive"
+            },
+            {
                   "required": false,
                   "title": "Data Categories",
                   "description": "The type of data that is associated with the samples in the study. Can be several values MIABIS-2.0-13",

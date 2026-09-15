@@ -23,12 +23,22 @@ setuptools.setup(
         #"pydantic[email]==2.0.3",
         "pydantic==2.4.2",
         "email-validator==2.1.0.post1",
-        "pytest==7.4.2"
+        "pytest==7.4.2",
+        "PyYAML",
+        "pandas",
+        "tabulate",
+        "markdown",
+        "beautifulsoup4"
     ],
+    entry_points={
+        "console_scripts": [
+            "hdr-schemata-build=hdr_schemata.build:main",
+        ],
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.8',
+    python_requires='>=3.11',
 )

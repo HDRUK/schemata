@@ -53,12 +53,14 @@ from .ShortDescription import ShortDescription
 from .ShortTitle import ShortTitle
 from .Source import Source, SourceV2
 from .StandardisedDataModels import StandardisedDataModels
-from .StandardisedDataModelsEnum import StandardisedDataModelsEnum
+from .StandardisedDataModelsEnum import StandardisedDataModelsEnum, StandardisedDataModelsEnumV2
 from .StatisticalPopulationConstrained import (
     StatisticalPopulationConstrained,
     StatisticalPopulationConstrainedV2,
 )
 from .Ternary import Ternary
+from .YesNo import YesNo
+from .DuoCodesEnum import DuoCodesEnum
 from .TimeLag import TimeLag, TimeLagV2
 from .TissueCollectionTypeEnum import TissueCollectionTypeEnum
 from .TissueDataCategoriesEnum import TissueDataCategoriesEnum

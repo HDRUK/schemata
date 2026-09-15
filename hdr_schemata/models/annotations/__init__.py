@@ -1,6 +1,8 @@
-import yaml
+import copy
 import os
 from types import SimpleNamespace
+
+import yaml
 
 
 def dict_to_namespace(d):
@@ -13,22 +15,14 @@ def dict_to_namespace(d):
 
 
 def stitch_namespaces(base_namespace, update_namespace):
-    def update_nested(base, update):
-        for attr_name, attr_value in update.__dict__.items():
-            if isinstance(attr_value, SimpleNamespace):
-                base_attr = getattr(base, attr_name, None)
-                if isinstance(base_attr, SimpleNamespace):
-                    update_nested(base_attr, attr_value)
-                else:
-                    setattr(base, attr_name, attr_value)
-            else:
-                setattr(base, attr_name, attr_value)
-
-    stitched_namespace = SimpleNamespace()
-    update_nested(stitched_namespace, base_namespace)
-    update_nested(stitched_namespace, update_namespace)
-
-    return stitched_namespace
+    stitched = copy.deepcopy(base_namespace)
+    for attr_name, attr_value in update_namespace.__dict__.items():
+        base_attr = getattr(stitched, attr_name, None)
+        if isinstance(attr_value, SimpleNamespace) and isinstance(base_attr, SimpleNamespace):
+            setattr(stitched, attr_name, stitch_namespaces(base_attr, attr_value))
+        else:
+            setattr(stitched, attr_name, copy.deepcopy(attr_value))
+    return stitched
 
 
 def get_annotations(current_dir, base=None):
@@ -37,7 +31,7 @@ def get_annotations(current_dir, base=None):
     with open(yaml_file_path, "r") as stream:
         data = yaml.safe_load(stream)
         namespace = dict_to_namespace(data)
-        if base and isinstance(base, SimpleNamespace):
+        if isinstance(base, SimpleNamespace):
             namespace = stitch_namespaces(base, namespace)
         return namespace
 
