@@ -1,0 +1,8 @@
+accessibility:
+  usage:
+    duoCodes:
+      title: "GA4GH Data Use Ontology (DUO) codes"
+      description: "Machine-readable codes from the GA4GH Data Use Ontology describing the permitted or restricted uses of this dataset, for interoperability with other GA4GH-compliant systems."
+    patientRecontact:
+      title: "Patient recontact"
+      description: "Indicates whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study."
