@@ -1,8 +1,8 @@
-# schemata-2
+# schemata
 
 Canonical metadata schema definitions for the HDR UK Gateway platform. Schemas are authored as Pydantic v2 models; JSON Schema files and Markdown documentation are auto-generated from them.
 
-Full documentation: **https://hdruk.github.io/schemata-2/**
+Full documentation: **https://hdruk.github.io/schemata/**
 
 ## Setup
 
