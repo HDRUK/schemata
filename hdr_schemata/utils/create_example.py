@@ -37,6 +37,3 @@ def create_example(path):
     example = {item["name"]: make_example(item) for item in data}
     with open(f"{path}.example.json", "w") as f:
         json.dump(example, f, indent=6)
-
-create_template("./docs/HDRUK/4.0.0")
-create_example("./docs/HDRUK/4.0.0")
