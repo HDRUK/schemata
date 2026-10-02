@@ -1,0 +1,98 @@
+{
+      "identifier": "Uuidv4[{'maxLength': 36, 'minLength': 36, 'pattern': '^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$', 'type': 'string'}] | Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null",
+      "version": "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]",
+      "revisions": {
+            "version": "Semver[{'pattern': '^([0-9]+)\\\\.([0-9]+)\\\\.([0-9]+)$', 'type': 'string'}]",
+            "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null"
+      },
+      "issued": "datetime",
+      "modified": "datetime",
+      "summary": {
+            "title": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+            "abstract": "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "publisher": {
+                  "identifier": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "name": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                  "logo": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "description": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "contactPoint": "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "memberOf": "MemberOf['HUB','ALLIANCE','OTHER','NCS'] | null"
+            },
+            "contactPoint": "EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "keywords": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "alternateIdentifiers": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "doiName": "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}] | null"
+      },
+      "documentation": {
+            "description": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "associatedMedia": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "isPartOf": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null"
+      },
+      "coverage": {
+            "spatial": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "typicalAgeRange": "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "physicalSampleAvailability": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "followup": "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null] | null",
+            "pathway": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null"
+      },
+      "provenance": {
+            "origin": {
+                  "purpose": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "source": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "collectionSituation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null"
+            },
+            "temporal": {
+                  "accrualPeriodicity": "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]",
+                  "distributionReleaseDate": "date | datetime | null",
+                  "startDate": "date | datetime | null",
+                  "endDate": "date | datetime | EndDateEnum['CONTINUOUS',null] | null",
+                  "timeLag": "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]"
+            }
+      },
+      "accessibility": {
+            "usage": {
+                  "dataUseLimitation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "dataUseRequirements": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "resourceCreator": "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "investigations": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "isReferencedBy": "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}] | str | List | null"
+            },
+            "access": {
+                  "accessRights": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "accessService": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "accessRequestCost": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "deliveryLeadTime": "DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null] | null",
+                  "jurisdiction": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "dataController": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "dataProcessor": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "formatAndStandards": {
+                  "vocabularyEncodingScheme": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "conformsTo": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "language": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+                  "format": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null"
+            }
+      },
+      "enrichmentAndLinkage": {
+            "qualifiedRelation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "derivation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null",
+            "tools": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | List | null"
+      },
+      "observations": {
+            "observedNode": "StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']",
+            "measuredValue": "int",
+            "disambiguatingDescription": "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "observationDate": "date | datetime",
+            "measuredProperty": "MeasuredProperty[{}]"
+      },
+      "structuralMetadata": {
+            "name": "str | null",
+            "description": "str | null",
+            "elements": {
+                  "name": "Name[{}]",
+                  "dataType": "str",
+                  "description": "str | null",
+                  "sensitive": "bool"
+            }
+      }
+}

@@ -4,6 +4,7 @@ import argparse
 import importlib
 import inspect
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -12,6 +13,7 @@ from pydantic import BaseModel
 
 REPO_ROOT = Path(__file__).parent.parent
 MODELS_DIR = Path(__file__).parent / "models"
+EXAMPLES_DIR = Path(__file__).parent / "examples"
 DOCS_DIR = REPO_ROOT / "docs"
 AVAILABLE_JSON = REPO_ROOT / "available.json"
 FROZEN_JSON = REPO_ROOT / "frozen.json"
@@ -95,6 +97,19 @@ def _build_schemaorg(family_dir: Path) -> list:
     return SCHEMAORG_VERSIONS
 
 
+def _publish_examples() -> None:
+    from hdr_schemata.utils.create_example import create_template
+
+    for example in sorted(EXAMPLES_DIR.glob("*/*/example.json")):
+        family, version = example.parent.parent.name, example.parent.name
+        docs_base = DOCS_DIR / family / version
+        if not Path(f"{docs_base}.structure.json").is_file():
+            continue
+        shutil.copyfile(example, f"{docs_base}.example.json")
+        create_template(str(docs_base))
+        print(f"  {family}/{version} example and template")
+
+
 def generate() -> None:
     available = {}
 
@@ -128,11 +143,20 @@ def generate() -> None:
 
     build_docs()
 
+    print("\nPublishing examples and templates...")
+    _publish_examples()
+
 
 def _generated_paths() -> list:
     paths = [AVAILABLE_JSON, MKDOCS_YML]
     paths.extend(MODELS_DIR.glob("*/*/schema.json"))
-    for pattern in ("*/*.md", "*/*.form.json", "*/*.structure.json"):
+    for pattern in (
+        "*/*.md",
+        "*/*.form.json",
+        "*/*.structure.json",
+        "*/*.example.json",
+        "*/*.template.json",
+    ):
         paths.extend(DOCS_DIR.glob(pattern))
     return sorted(set(paths))
 
