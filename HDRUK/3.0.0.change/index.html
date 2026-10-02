@@ -1,0 +1,1948 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../2.2.1.change/">
+      
+      
+        <link rel="next" href="../4.0.0.change/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3.0.0 - HDRUK Schema</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="hdruk" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#changes-from-221-300" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="HDRUK Schema" class="md-header__button md-logo" aria-label="HDRUK Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HDRUK Schema
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3.0.0
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../contributing/" class="md-tabs__link">
+          
+  
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../GWDM/1.0/" class="md-tabs__link">
+          
+  
+  
+  Schemata
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../GWDM/1.1.change/" class="md-tabs__link">
+          
+  
+  
+  Schema Change Log
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HDRUK Schema" class="md-nav__button md-logo" aria-label="HDRUK Schema" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    HDRUK Schema
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contributing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing a schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/releasing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releasing a version
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/publishing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Publishing docs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schemata
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schemata
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gateway Data Model (GWDM)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gateway Data Model (GWDM)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 1.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 1.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HDRUK
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HDRUK
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.1.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1.3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.1.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 2.2.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 3.0.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.0.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 4.0.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Version 4.1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Schema Change Log
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Schema Change Log
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GWDM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    GWDM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.1.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/1.2.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.0.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.1.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GWDM/2.2.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HDRUK
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    HDRUK
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.1.3.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.1.3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.0.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.2.1.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2.2.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.0.0
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3.0.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes-from-221-300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes from 2.2.1 -&gt; 3.0.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changes from 2.2.1 -&gt; 3.0.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.0.0.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.0.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.1.0.change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.1.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes-from-221-300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes from 2.2.1 -&gt; 3.0.0
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Changes from 2.2.1 -&gt; 3.0.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Added
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modified
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>3.0.0</h1>
+
+<h2 id="changes-from-221-300">Changes from 2.2.1 -&gt; 3.0.0</h2>
+<h3 id="added">Added</h3>
+<ul>
+<li><strong><code>coverage.datasetCompleteness</code></strong> <em>(optional)</em>: The URL where a Researcher can learn more about the completeness of the dataset.</li>
+<li><strong><code>coverage.followUp</code></strong> <em>(optional)</em>: If known, what is the typical time span that a patient appears in the dataset (follow up period). In a prospective cohort study, after baseline information is collected, participants are followed “longitudinally” i.e. new information is collected about them for a period of time afterward. This is known as the “follow up period”. What is the typical time span of follow up, e.g. 1 year, 5 years? If there are multiple cohorts in the dataset with varying follow up periods, please provide the longest follow up period.</li>
+<li><strong><code>coverage.materialType</code></strong> <em>(optional)</em>: The type of biospecimen saved from a biological entity.</li>
+<li><strong><code>coverage.typicalAgeRangeMax</code></strong> <em>(optional)</em>: Please indicate the maximum age in years of participants in the dataset as a whole number (integer).</li>
+<li><strong><code>coverage.typicalAgeRangeMin</code></strong> <em>(optional)</em>: Please indicate the minimum age in years of participants in the dataset as a whole number (integer).</li>
+<li><strong><code>demographicFrequency</code></strong> <em>(optional)</em>: The statistical characteristics of a population or group within the dataset.</li>
+<li><strong><code>demographicFrequency.age</code></strong> <em>(optional)</em>: Array of bins, based off the UK Office for National Statistics (ONS) groupings, and their corresponding counts as represented within the dataset.</li>
+<li><strong><code>demographicFrequency.age.bin</code></strong>: Age grouping</li>
+<li><strong><code>demographicFrequency.age.count</code></strong>: Age count</li>
+<li><strong><code>demographicFrequency.disease</code></strong> <em>(optional)</em>: Array of health conditions or diseases (based around ICD-10, SNOMED CT and MeSH disease vocabularies) and their corresponding counts as represented within the dataset.</li>
+<li><strong><code>demographicFrequency.disease.count</code></strong>: Disease count</li>
+<li><strong><code>demographicFrequency.disease.diseaseCode</code></strong>: Disease code</li>
+<li><strong><code>demographicFrequency.disease.diseaseCodeVocabulary</code></strong>: Disease code vocabulary</li>
+<li><strong><code>demographicFrequency.ethnicity</code></strong> <em>(optional)</em>: Array of bins, based off the UK Office for National Statistics (ONS) census groupings, and their corresponding counts as represented within the dataset.</li>
+<li><strong><code>demographicFrequency.ethnicity.bin</code></strong>: Ethnicity grouping</li>
+<li><strong><code>demographicFrequency.ethnicity.count</code></strong>: Ethnicity count</li>
+<li><strong><code>documentation.inPipeline</code></strong> <em>(optional)</em>: Indicate whether this dataset is currently available for Researchers to request access.</li>
+<li><strong><code>enrichmentAndLinkage.derivedFrom</code></strong> <em>(optional)</em>: If applicable, please provide DOIs or links to datasets from which data in this dataset has been derived or calculated from.</li>
+<li><strong><code>enrichmentAndLinkage.derivedFrom.pid</code></strong> <em>(optional)</em>: Persistent identifier of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.derivedFrom.title</code></strong> <em>(optional)</em>: Title of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.derivedFrom.url</code></strong> <em>(optional)</em>: Url of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.investigations</code></strong> <em>(optional)</em>: Please provide link to any active projects that are using the dataset.</li>
+<li><strong><code>enrichmentAndLinkage.isPartOf</code></strong> <em>(optional)</em>: This relationship indicates that the dataset is a component or subset of a broader collection of related datasets. For example, clinical trial data for a specific drug may be part of a larger database of pharmaceutical research data. Complete only if the dataset is part of a group or family of datasets i.e. Hospital Episode Statistics has several constituents. If your dataset is not part of a group, please enter “NOT APPLICABLE” Example: Hospital Episodes Statistics datasets (A&amp;E, APC, OP, AC MSDS).</li>
+<li><strong><code>enrichmentAndLinkage.isPartOf.pid</code></strong> <em>(optional)</em>: Persistent identifier of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.isPartOf.title</code></strong> <em>(optional)</em>: Title of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.isPartOf.url</code></strong> <em>(optional)</em>: Url of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.linkableDatasets</code></strong> <em>(optional)</em>: If applicable, please provide the DOI of other datasets that have previously been linked to this dataset and their availability. If no DOI is available, please provide the title of the datasets that can be linked.</li>
+<li><strong><code>enrichmentAndLinkage.linkableDatasets.pid</code></strong> <em>(optional)</em>: Persistent identifier of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.linkableDatasets.title</code></strong> <em>(optional)</em>: Title of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.linkableDatasets.url</code></strong> <em>(optional)</em>: Url of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.publicationAboutDataset</code></strong> <em>(optional)</em>: DOIs for publications which describe the dataset.</li>
+<li><strong><code>enrichmentAndLinkage.publicationUsingDataset</code></strong> <em>(optional)</em>: DOIs for publications which use the dataset for analysis.</li>
+<li><strong><code>enrichmentAndLinkage.similarToDatasets</code></strong> <em>(optional)</em>: Datasets that are similar to each other in some way, collect similar patients, regional equivalent etc.</li>
+<li><strong><code>enrichmentAndLinkage.similarToDatasets.pid</code></strong> <em>(optional)</em>: Persistent identifier of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.similarToDatasets.title</code></strong> <em>(optional)</em>: Title of a dataset</li>
+<li><strong><code>enrichmentAndLinkage.similarToDatasets.url</code></strong> <em>(optional)</em>: Url of a dataset</li>
+<li><strong><code>omics</code></strong> <em>(optional)</em>: Omics</li>
+<li><strong><code>omics.assay</code></strong> <em>(optional)</em>: The specific 'omics assay that generated the dataset.</li>
+<li><strong><code>omics.platform</code></strong> <em>(optional)</em>: The specific technology or infrastructure used to perform the assay. If the omics platform used to create your dataset is not listed, please select other, a member of the gateway team will contact you to add an appropriate term(s) both to your record and to the metadata schema on your behalf.</li>
+<li><strong><code>provenance.origin.collectionSource</code></strong> <em>(optional)</em>: Please indicate the setting(s) where data was collected. Multiple settings may be provided.</li>
+<li><strong><code>provenance.origin.datasetSubType</code></strong> <em>(optional)</em>: The sub-type of the dataset content. Multiomics is selected on behalf of the submitter if more that one omics datasetSubType ('proteomics', 'transcriptomics', 'epigenomics', 'metabolomics', 'metagenomics', 'genomics', 'lipidomics') is selected</li>
+<li><strong><code>provenance.origin.datasetType</code></strong>: The topic areas to which the dataset content relates.</li>
+<li><strong><code>provenance.origin.imageContrast</code></strong> <em>(optional)</em>: Indicate whether usage of imaging contrast is captured within the dataset.</li>
+<li><strong><code>structuralMetadata.syntheticDataWebLink</code></strong> <em>(optional)</em>: Please provide the website address(es) with information on your synthetic dataset creation, or the location where a synthetic version of the dataset can be accessed.- Please split your existing list of citations into separate fields.- To add multiple entries, select from the drop-down list, or add to the drop-down. Click the 'x' symbol to remove any entries.- Example: https://www.pioneerdatahub.co.uk/dataset/synthetic-dataset-patients-at-risk-of-sudden-death-hypertrophic-cardiomyopathy/</li>
+<li><strong><code>structuralMetadata.tables</code></strong> <em>(optional)</em>: Tables in the dataset</li>
+<li><strong><code>structuralMetadata.tables.columns</code></strong>: A list of columns contained within a table in a dataset.</li>
+<li><strong><code>structuralMetadata.tables.columns.dataType</code></strong>: The data type of values in the column.</li>
+<li><strong><code>structuralMetadata.tables.columns.description</code></strong> <em>(optional)</em>: A description of a column in a table.</li>
+<li><strong><code>structuralMetadata.tables.columns.name</code></strong>: The name of a column in a table.</li>
+<li><strong><code>structuralMetadata.tables.columns.sensitive</code></strong>: A True or False value, indicating if the field is sensitive or not.</li>
+<li><strong><code>structuralMetadata.tables.columns.values</code></strong> <em>(optional)</em>: Values in a dataset.</li>
+<li><strong><code>structuralMetadata.tables.columns.values.description</code></strong> <em>(optional)</em>: A description of a unique value in a column.</li>
+<li><strong><code>structuralMetadata.tables.columns.values.frequency</code></strong> <em>(optional)</em>: The frequency of occurrance of a value in a column.</li>
+<li><strong><code>structuralMetadata.tables.columns.values.name</code></strong>: Unique value in a column.</li>
+<li><strong><code>structuralMetadata.tables.description</code></strong> <em>(optional)</em>: A description of a table in a dataset.</li>
+<li><strong><code>structuralMetadata.tables.name</code></strong> <em>(optional)</em>: The name of a table in a dataset.</li>
+<li><strong><code>summary.dataCustodian</code></strong>: This is the organisation responsible for running or supporting the data access request process, as well as enquiries about a dataset. In most this will be the same as the HDR UK Organisation (Hub or Alliance Member). However, in some cases this will be different i.e. Tissue Directory are an HDR UK Gateway organisation but coordinate activities across a number of data publishers i.e. Cambridge Blood and Stem Cell Biobank.</li>
+<li><strong><code>summary.dataCustodian.contactPoint</code></strong>: Organisation contact point(s) which will be used for receiving queries from HDR, and enquiries and data access requests from Researchers.  If a contact point is not provided this will default to the contact point for the team submitting the metadata.</li>
+<li><strong><code>summary.dataCustodian.description</code></strong> <em>(optional)</em>: Please provide a URL that describes the organisation.  If a description is not provided this will default to the description of the team submitting the metadata.</li>
+<li><strong><code>summary.dataCustodian.identifier</code></strong>: Please provide a Research Organization Registry (ROR) identifier (see https://ror.org/) for your organisation.</li>
+<li><strong><code>summary.dataCustodian.logo</code></strong> <em>(optional)</em>: Please provide a logo associated with the Gateway Organisation using a valid URL. The following formats will be accepted .jpg, .png or .svg.  If a logo is not submitted this will default to the logo for the team submitting the metadata.</li>
+<li><strong><code>summary.dataCustodian.memberOf</code></strong> <em>(optional)</em>: Please indicate if the organisation is an Alliance Member or a Hub.  If this field is not submitted this will default to the membership for the team submitting the metadata.</li>
+<li><strong><code>summary.dataCustodian.name</code></strong>: The organisation responsible for running or supporting the data access request process, as well as publishing and maintaining the metadata.</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li><strong><code>accessibility.usage.investigations</code></strong></li>
+<li><strong><code>accessibility.usage.isReferencedBy</code></strong></li>
+<li><strong><code>coverage.anthropometric</code></strong></li>
+<li><strong><code>coverage.biologicalsamples</code></strong></li>
+<li><strong><code>coverage.followup</code></strong></li>
+<li><strong><code>coverage.gender</code></strong></li>
+<li><strong><code>coverage.lifestyle</code></strong></li>
+<li><strong><code>coverage.physical</code></strong></li>
+<li><strong><code>coverage.psychological</code></strong></li>
+<li><strong><code>coverage.socioeconomic</code></strong></li>
+<li><strong><code>coverage.typicalAgeRange</code></strong></li>
+<li><strong><code>documentation.isPartOf</code></strong></li>
+<li><strong><code>enrichmentAndLinkage.derivation</code></strong></li>
+<li><strong><code>enrichmentAndLinkage.qualifiedRelation</code></strong></li>
+<li><strong><code>enrichmentAndLinkage.syntheticDataWebLink</code></strong></li>
+<li><strong><code>provenance.origin.collectionSituation</code></strong></li>
+<li><strong><code>structuralMetadata.description</code></strong></li>
+<li><strong><code>structuralMetadata.elements</code></strong></li>
+<li><strong><code>structuralMetadata.elements.dataType</code></strong></li>
+<li><strong><code>structuralMetadata.elements.description</code></strong></li>
+<li><strong><code>structuralMetadata.elements.name</code></strong></li>
+<li><strong><code>structuralMetadata.elements.sensitive</code></strong></li>
+<li><strong><code>structuralMetadata.name</code></strong></li>
+<li><strong><code>summary.datasetSubType</code></strong></li>
+<li><strong><code>summary.datasetType</code></strong></li>
+<li><strong><code>summary.publisher</code></strong></li>
+<li><strong><code>summary.publisher.contactPoint</code></strong></li>
+<li><strong><code>summary.publisher.description</code></strong></li>
+<li><strong><code>summary.publisher.identifier</code></strong></li>
+<li><strong><code>summary.publisher.logo</code></strong></li>
+<li><strong><code>summary.publisher.memberOf</code></strong></li>
+<li><strong><code>summary.publisher.name</code></strong></li>
+<li><strong><code>tissuesSampleCollection</code></strong></li>
+<li><strong><code>tissuesSampleCollection.collectionType</code></strong></li>
+<li><strong><code>tissuesSampleCollection.dataCategories</code></strong></li>
+<li><strong><code>tissuesSampleCollection.materialType</code></strong></li>
+<li><strong><code>tissuesSampleCollection.tissueSampleMetadata</code></strong></li>
+<li><strong><code>tissuesSampleCollection.tissueSampleMetadata.AnatomicalSiteOntologyCode</code></strong></li>
+<li><strong><code>tissuesSampleCollection.tissueSampleMetadata.creationDate</code></strong></li>
+</ul>
+<h3 id="modified">Modified</h3>
+<ul>
+<li><strong><code>accessibility.access.accessRequestCost</code></strong>: type <code>LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]|null</code></li>
+<li><strong><code>accessibility.access.accessRights</code></strong>: type <code>LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]|null</code> → <code>LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]</code></li>
+<li><strong><code>accessibility.access.accessServiceCategory</code></strong>: type <code>AccessService['TRE/SDE','Direct access','Open access','Varies based on project']</code> → <code>AccessService['TRE/SDE','Direct access','Open access','Varies based on project']|null</code>; is no longer a list</li>
+<li><strong><code>accessibility.access.dataController</code></strong>: became optional</li>
+<li><strong><code>accessibility.access.deliveryLeadTime</code></strong>: type <code>DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null]|null</code> → <code>DeliveryLeadTimeV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','More than 6 months','Variable','Not applicable','Other']|null</code></li>
+<li><strong><code>accessibility.access.jurisdiction</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>Isocountrycode[{'pattern': '^[A-Z]{2}(-[A-Z]{2,3})?$', 'type': 'string'}]</code>; became optional; is now a list</li>
+<li><strong><code>accessibility.formatAndStandards.conformsTo</code></strong>: type <code>StandardisedDataModels[{'$defs': {'StandardisedDataModelsEnum': {'enum': ['HL7 FHIR', 'HL7 V2', 'HL7 CDA', 'HL7 CCOW', 'LOINC', 'DICOM', 'I2B2', 'IHE', 'OMOP', 'OPENEHR', 'SENTINEL', 'PCORNET', 'CDISC', 'NHS DATA DICTIONARY', 'NHS SCOTLAND DATA DICTIONARY', 'NHS WALES DATA DICTIONARY', 'LOCAL', 'OTHER'], 'title': 'StandardisedDataModelsEnum', 'type': 'string'}}, 'anyOf': [{'$ref': '#/$defs/StandardisedDataModelsEnum'}, {'type': 'null'}], 'default': null}]</code> → <code>StandardisedDataModelsEnum['HL7 FHIR','HL7 V2','HL7 CDA','HL7 CCOW','LOINC','DICOM','I2B2','IHE','OMOP','OPENEHR','SENTINEL','PCORNET','CDISC','NHS DATA DICTIONARY','NHS SCOTLAND DATA DICTIONARY','NHS WALES DATA DICTIONARY','LOCAL','OTHER']</code></li>
+<li><strong><code>accessibility.formatAndStandards.format</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>Format[{'minLength': 1, 'type': 'string'}]</code>; is now a list</li>
+<li><strong><code>accessibility.formatAndStandards.language</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>LanguageEnum['aa','ab','ae','af','ak','am','an','ar','as','av','ay','az','ba','be','bg','bh','bi','bm','bn','bo','br','bs','ca','ce','ch','co','cr','cs','cu','cv','cy','da','de','dv','dz','ee','el','en','eo','es','et','eu','fa','ff','fi','fj','fo','fr','fy','ga','gd','gl','gn','gu','gv','ha','he','hi','ho','hr','ht','hu','hy','hz','ia','id','ie','ig','ii','ik','io','is','it','iu','ja','jv','ka','kg','ki','kj','kk','kl','km','kn','ko','kr','ks','ku','kv','kw','ky','la','lb','lg','li','ln','lo','lt','lu','lv','mg','mh','mi','mk','ml','mn','mr','ms','mt','my','na','nb','nd','ne','ng','nl','nn','no','nr','nv','ny','oc','oj','om','or','os','pa','pi','pl','ps','pt','qu','rm','rn','ro','ru','rw','sa','sc','sd','se','sg','si','sk','sl','sm','sn','so','sq','sr','ss','st','su','sv','sw','ta','te','tg','th','ti','tk','tl','tn','to','tr','ts','tt','tw','ty','ug','uk','ur','uz','ve','vi','vo','wa','wo','xh','yi','yo','za','zh','zu']</code>; is now a list</li>
+<li><strong><code>accessibility.formatAndStandards.vocabularyEncodingScheme</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>ControlledVocabularyEnum['LOCAL','OPCS4','READ','SNOMED CT','SNOMED RT','DM PLUS D','DM+D','NHS NATIONAL CODES','NHS SCOTLAND NATIONAL CODES','NHS WALES NATIONAL CODES','ODS','LOINC','ICD10','ICD10CM','ICD10PCS','ICD9CM','ICD9','ICDO3','AMT','APC','ATC','CIEL','HPO','CPT4','DPD','DRG','HEMONC','JMDC','KCD7','MULTUM','NAACCR','NDC','NDFRT','OXMIS','RXNORM','RXNORM EXTENSION','SPL','OTHER']</code>; is now a list</li>
+<li><strong><code>accessibility.usage.dataUseLimitation</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>DataUseLimitationV2['General research use','Commercial research use','Genetic studies only','No general methods research','No restriction','Geographical restrictions','Institution-specific restrictions','Not for profit use','Project-specific restrictions','Research-specific restrictions','User-specific restrictions','Research use only','No linkage']</code>; is now a list</li>
+<li><strong><code>accessibility.usage.dataUseRequirements</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>DataUseRequirementsV2['Collaboration required','Project-specific restrictions','Ethics approval required','Institution-specific restrictions','Geographical restrictions','Publication moratorium','Publication required','Return to database or resource','Time limit on use','Disclosure control','Not for profit use','User-specific restriction']</code>; is now a list</li>
+<li><strong><code>coverage.spatial</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List</code>; became required</li>
+<li><strong><code>documentation.description</code></strong>: type <code>Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]|null</code> → <code>Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}]</code>; became required</li>
+<li><strong><code>enrichmentAndLinkage.tools</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]</code>; is now a list</li>
+<li><strong><code>observations.measuredProperty</code></strong>: type <code>MeasuredProperty[{'maxLength': 100, 'minLength': 1, 'type': 'string'}]</code> → <code>MeasuredProperty[{}]</code></li>
+<li><strong><code>observations.observedNode</code></strong>: type <code>StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']</code> → <code>StatisticalPopulationConstrainedV2['Persons','Events','Findings','Number of scans per modality']</code></li>
+<li><strong><code>provenance.origin.purpose</code></strong>: type <code>Purpose['STUDY','DISEASE REGISTRY','TRIAL','CARE','AUDIT','ADMINISTRATIVE','FINANCIAL','STATUTORY','OTHER',null]</code> → <code>PurposeV2['Research cohort','Study','Disease registry','Trial','Care','Audit','Administrative','Financial','Statutory','Other',null]</code></li>
+<li><strong><code>provenance.origin.source</code></strong>: type <code>Source['EPR','ELECTRONIC SURVEY','LIMS','OTHER INFORMATION SYSTEM','PAPER BASED','FREETEXT NLP','MACHINE GENERATED','OTHER']</code> → <code>SourceV2['EPR','Electronic survey','LIMS','Paper-based','Free text NLP','Machine generated','Other']</code></li>
+<li><strong><code>provenance.temporal</code></strong>: type <code>Temporal|null</code> → <code>Temporal</code>; became required</li>
+<li><strong><code>provenance.temporal.publishingFrequency</code></strong>: type <code>Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]</code> → <code>PeriodicityV2['Static','Irregular','Continuous','Biennial','Annual','Biannual','Quarterly','Bimonthly','Monthly','Biweekly','Weekly','Twice a week','Daily','Other',null]</code></li>
+<li><strong><code>provenance.temporal.startDate</code></strong>: type <code>date|datetime|null</code> → <code>date|datetime</code></li>
+<li><strong><code>provenance.temporal.timeLag</code></strong>: type <code>TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]</code> → <code>TimeLagV2['Less than 1 week','1-2 weeks','2-4 weeks','1-2 months','2-6 months','More than 6 months','Variable','Not applicable','Other']</code></li>
+<li><strong><code>revisions.url</code></strong>: type <code>Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]|null</code> → <code>UrlV2[{'anyOf': [{'pattern': '^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\\n)?)+$', 'type': 'string'}, {'type': 'null'}]}]|null</code>; became optional</li>
+<li><strong><code>structuralMetadata</code></strong>: type <code>DataClass</code> → <code>StructuralMetadata|null</code>; is no longer a list</li>
+<li><strong><code>summary.abstract</code></strong>: type <code>AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]|null</code> → <code>AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]</code></li>
+<li><strong><code>summary.contactPoint</code></strong>: type <code>EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]|null</code> → <code>EmailAddress[{'anyOf': [{'format': 'email', 'type': 'string'}, {'type': 'null'}]}]</code></li>
+<li><strong><code>summary.keywords</code></strong>: type <code>CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}]|List|null</code> → <code>OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]</code>; became optional; is now a list</li>
+<li><strong><code>summary.populationSize</code></strong>: type <code>int|null</code> → <code>int</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.tabs", "navigation.top", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mermaid-zoom.js"></script>
+      
+    
+  </body>
+</html>
