@@ -1,0 +1,106 @@
+{
+      "required": {
+            "gatewayId": "str",
+            "gatewayPid": "str",
+            "issued": "datetime",
+            "modified": "datetime",
+            "revisions": {
+                  "version": "str",
+                  "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]"
+            }
+      },
+      "summary": {
+            "title": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+            "shortTitle": "ShortTitle[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "doiName": "Doi[{'anyOf': [{'pattern': '^10.\\\\d{4,9}/[-._;()/:a-zA-Z0-9]+$', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "abstract": "LongAbstractText[{'anyOf': [{'maxLength': 5000, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}]",
+            "keywords": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "controlledKeywords": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "contactPoint": "EmailStr | null",
+            "datasetType": "DatasetType[{'anyOf': [{'maxLength': 100, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "description": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "publisher": {
+                  "publisherName": "Name[{}] | null",
+                  "publisherGatewayId": "str | null"
+            }
+      },
+      "coverage": {
+            "spatial": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "physicalSampleAvailability": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "pathway": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "followup": "Followup['0 - 6 MONTHS','6 - 12 MONTHS','1 - 10 YEARS','> 10 YEARS','UNKNOWN','CONTINUOUS','OTHER',null] | null",
+            "typicalAgeRange": "AgeRange[{'anyOf': [{'pattern': 'Not Known|(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])-(150|1[0-4][0-9]|[0-9]|[1-8][0-9]|9[0-9])', 'type': 'string'}, {'type': 'null'}]}] | null"
+      },
+      "provenance": {
+            "origin": {
+                  "purpose": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "source": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "collectionSituation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "temporal": {
+                  "startDate": "date | datetime | null",
+                  "endDate": "date | datetime | null",
+                  "timeLag": "TimeLag['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NO TIMELAG','NOT APPLICABLE','OTHER',null]",
+                  "accrualPeriodicity": "Periodicity['STATIC','IRREGULAR','CONTINUOUS','BIENNIAL','ANNUAL','BIANNUAL','QUARTERLY','BIMONTHLY','MONTHLY','BIWEEKLY','WEEKLY','SEMIWEEKLY','DAILY','OTHER',null]",
+                  "distributionReleaseDate": "date | datetime | null"
+            }
+      },
+      "accessibility": {
+            "usage": {
+                  "dataUseLimitation": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "dataUseRequirement": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "resourceCreator": "ShortDescription[{'anyOf': [{'maxLength': 1000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "access": {
+                  "accessRights": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "accessService": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "accessRequestCost": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "deliveryLeadTime": "DeliveryLeadTime['LESS 1 WEEK','1-2 WEEKS','2-4 WEEKS','1-2 MONTHS','2-6 MONTHS','MORE 6 MONTHS','VARIABLE','NOT APPLICABLE','OTHER',null] | null",
+                  "jurisdiction": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "dataController": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "dataProcessor": "LongDescription[{'anyOf': [{'maxLength': 50000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "formatAndStandards": {
+                  "vocabularyEncodingSchemes": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "conformsTo": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "languages": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "formats": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null"
+            }
+      },
+      "linkage": {
+            "isGeneratedUsing": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "associatedMedia": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "dataUses": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "isReferenceIn": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "tools": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+            "datasetLinkage": {
+                  "isDerivedFrom": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "isPartOf": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "isMemberOf": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null",
+                  "linkedDatasets": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "investigations": "CommaSeparatedValues[{'anyOf': [{'pattern': '([^,]+)', 'type': 'string'}, {'type': 'null'}]}] | null"
+      },
+      "observations": {
+            "observedNode": "StatisticalPopulationConstrained['PERSONS','EVENTS','FINDINGS']",
+            "measuredValue": "int",
+            "disambiguatingDescription": "AbstractText[{'anyOf': [{'maxLength': 500, 'minLength': 5, 'type': 'string'}, {'type': 'null'}]}] | null",
+            "observationDate": "date | datetime",
+            "measuredProperty": "MeasuredProperty[{}]"
+      },
+      "structuralMetadata": {
+            "name": "str | null",
+            "description": "str | null",
+            "columns": {
+                  "name": "Name[{}]",
+                  "dataType": "str",
+                  "description": "str | null",
+                  "sensitive": "bool",
+                  "values": {
+                        "name": "Name[{}]",
+                        "description": "str | null",
+                        "frequency": "int | null"
+                  }
+            }
+      }
+}
