@@ -17,7 +17,7 @@ class FormatAndStandards(BaseModel):
         json_schema_extra={"guidance": an.vocabularyEncodingScheme.guidance}
     )
 
-    conformsTo: List[StandardisedDataModelsEnum] = Field(
+    conformsTo: List[StandardisedDataModelsEnumV1_1] = Field(
         ...,
         **an.conformsTo.__dict__,
         json_schema_extra={"guidance": an.conformsTo.guidance}

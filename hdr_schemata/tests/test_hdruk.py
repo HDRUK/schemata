@@ -1,7 +1,9 @@
 from pydantic import ValidationError
 import csv
 import json
-from hdr_schemata.models.HDRUK import Hdruk410
+from pathlib import Path
+import pytest
+from hdr_schemata.models.HDRUK import Hdruk300, Hdruk400, Hdruk410
 from hdr_schemata.models.HDRUK.v2_1_2 import Hdruk212
 from hdr_schemata.definitions.HDRUK import DuoCodesEnum
 
@@ -14,6 +16,63 @@ def get_metadata(model, version):
 def get_schema(model, version):
     metadata = json.load(open(f"../models/{model}/{version}/schema.json"))
     return metadata
+
+
+DOCS_DIR = Path(__file__).resolve().parents[2] / "docs"
+CONFORMS_TO = "accessibility.formatAndStandards.conformsTo"
+BNF_GUIDANCE_ENTRY = "- [**British National Formulary (BNF) codes**](https://bnf.nice.org.uk/)"
+
+
+def get_published_example(model, version):
+    return json.loads((DOCS_DIR / model / f"{version}.example.json").read_text())
+
+
+def get_form_field(model, version, location):
+    form = json.loads((DOCS_DIR / model / f"{version}.form.json").read_text())
+    return next(f for f in form["schema_fields"] if f.get("location") == location)
+
+
+def with_conforms_to(metadata, values):
+    metadata = json.loads(json.dumps(metadata))
+    metadata["accessibility"]["formatAndStandards"]["conformsTo"] = values
+    return metadata
+
+
+@pytest.mark.parametrize("model,version", [(Hdruk300, "3.0.0"), (Hdruk400, "4.0.0")])
+class TestConformsToBnf:
+    def test_accepts_bnf(self, model, version):
+        metadata = get_published_example("HDRUK", version)
+        assert model(**with_conforms_to(metadata, ["LOCAL", "BNF"])) != None
+
+    def test_rejects_invalid_standard(self, model, version):
+        metadata = get_published_example("HDRUK", version)
+        with pytest.raises(ValidationError):
+            model(**with_conforms_to(metadata, ["NOT_A_REAL_STANDARD"]))
+
+
+@pytest.mark.parametrize("version", ["3.0.0", "4.0.0", "4.1.0"])
+def test_conforms_to_form_offers_bnf(version):
+    assert "BNF" in get_form_field("HDRUK", version, CONFORMS_TO)["types"]["options"]
+
+
+@pytest.mark.parametrize("version", ["2.1.2", "2.1.3", "2.2.0", "2.2.1"])
+def test_conforms_to_schema_does_not_allow_bnf_before_3_0_0(version):
+    enum = get_schema("HDRUK", version)["$defs"]["StandardisedDataModelsEnum"]["enum"]
+    assert "BNF" not in enum
+
+
+def test_conforms_to_4_1_0_accepts_every_4_0_0_value():
+    v400 = set(get_form_field("HDRUK", "4.0.0", CONFORMS_TO)["types"]["options"])
+    v410 = set(get_form_field("HDRUK", "4.1.0", CONFORMS_TO)["types"]["options"])
+    assert v400 <= v410, f"4.0.0 values missing from 4.1.0: {sorted(v400 - v410)}"
+
+
+@pytest.mark.parametrize("version", ["3.0.0", "4.0.0", "4.1.0"])
+def test_conforms_to_guidance_lists_bnf_first(version):
+    guidance = get_form_field("HDRUK", version, CONFORMS_TO)["guidance"]
+    entries = guidance.split("\\n")
+    first_option = next(e for e in entries if e.startswith("- [**") or e.startswith("- **"))
+    assert first_option == BNF_GUIDANCE_ENTRY
 
 
 class TestHdruk212:
