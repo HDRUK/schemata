@@ -1263,9 +1263,9 @@
                                     "LOCAL",
                                     "NHS DATA DICTIONARY"
                               ],
-                              "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- HL7 FHIR- HL7 V2- HL7 CDA- HL7 CCOW- DICOM- I2B2- IHE- OMOP- openEHR- Sentinel- PCORnet- CDISC- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary- NHS Scotland Data Dictionary- NHS Wales Data Dictionary",
+                              "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- British National Formulary (BNF) codes- HL7 FHIR- HL7 V2- HL7 CDA- HL7 CCOW- DICOM- I2B2- IHE- OMOP- openEHR- Sentinel- PCORnet- CDISC- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary- NHS Scotland Data Dictionary- NHS Wales Data Dictionary",
                               "items": {
-                                    "$ref": "#/$defs/StandardisedDataModelsEnum"
+                                    "$ref": "#/$defs/StandardisedDataModelsEnumV1_1"
                               },
                               "title": "Alignment with standardised data models",
                               "type": "array"
@@ -2076,7 +2076,7 @@
                   "title": "SourceV2",
                   "type": "string"
             },
-            "StandardisedDataModelsEnum": {
+            "StandardisedDataModelsEnumV1_1": {
                   "enum": [
                         "HL7 FHIR",
                         "HL7 V2",
@@ -2095,9 +2095,10 @@
                         "NHS SCOTLAND DATA DICTIONARY",
                         "NHS WALES DATA DICTIONARY",
                         "LOCAL",
-                        "OTHER"
+                        "OTHER",
+                        "BNF"
                   ],
-                  "title": "StandardisedDataModelsEnum",
+                  "title": "StandardisedDataModelsEnumV1_1",
                   "type": "string"
             },
             "StatisticalPopulationConstrainedV2": {
