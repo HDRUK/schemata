@@ -1037,13 +1037,13 @@
                                     "required": true,
                                     "title": "Alignment with standardised data models",
                                     "description": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR. If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.",
-                                    "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- British National Formulary (BNF) codes- HL7 FHIR- HL7 V2- HL7 CDA- HL7 CCOW- DICOM- I2B2- IHE- OMOP- openEHR- Sentinel- PCORnet- CDISC- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary- NHS Scotland Data Dictionary- NHS Wales Data Dictionary",
+                                    "guidance": "List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.- British National Formulary (BNF) codes- HL7 FHIR- HL7 V2- HL7 CDA- HL7 CCOW- LOINC- DDI- DCAT- DICOM- I2B2- IHE- OMOP- openEHR- Sentinel- PCORnet- CDISC- Local: In-house developed data model.- Other: Other standardised data model.- NHS Data Dictionary- NHS Scotland Data Dictionary- NHS Wales Data Dictionary",
                                     "examples": [
                                           "LOCAL",
                                           "NHS DATA DICTIONARY"
                                     ],
                                     "type": [
-                                          "StandardisedDataModelsEnumV2['HL7 FHIR','HL7 V2','HL7 CDA','HL7 CCOW','LOINC','DICOM','I2B2','IHE','OMOP','OPENEHR','SENTINEL','PCORNET','CDISC','NHS DATA DICTIONARY','NHS SCOTLAND DATA DICTIONARY','NHS WALES DATA DICTIONARY','LOCAL','OTHER','BNF','DDI','DCAT']"
+                                          "StandardisedDataModelsEnumV2['BNF','HL7 FHIR','HL7 V2','HL7 CDA','HL7 CCOW','LOINC','DDI','DCAT','DICOM','I2B2','IHE','OMOP','OPENEHR','SENTINEL','PCORNET','CDISC','LOCAL','OTHER','NHS DATA DICTIONARY','NHS SCOTLAND DATA DICTIONARY','NHS WALES DATA DICTIONARY']"
                                     ],
                                     "is_list": true,
                                     "is_optional": false
