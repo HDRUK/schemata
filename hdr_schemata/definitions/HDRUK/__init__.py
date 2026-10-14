@@ -53,7 +53,11 @@ from .ShortDescription import ShortDescription
 from .ShortTitle import ShortTitle
 from .Source import Source, SourceV2
 from .StandardisedDataModels import StandardisedDataModels
-from .StandardisedDataModelsEnum import StandardisedDataModelsEnum, StandardisedDataModelsEnumV2
+from .StandardisedDataModelsEnum import (
+    StandardisedDataModelsEnum,
+    StandardisedDataModelsEnumV1_1,
+    StandardisedDataModelsEnumV2,
+)
 from .StatisticalPopulationConstrained import (
     StatisticalPopulationConstrained,
     StatisticalPopulationConstrainedV2,
