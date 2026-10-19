@@ -1,0 +1,87 @@
+revisions:
+  title: "Metadata Version Revisions"
+  description: "A list of persistent identifiers and version numbers for previous versions of metadata for this dataset."
+
+linkage:
+  title: "Linkage"
+  description: "Relationships between this dataset and other datasets, publications and tools."
+  waveOf:
+    title: "Wave of"
+    description: "The study this dataset is a wave or sub-study of."
+    guidance: "Complete only if this dataset is one wave, or a sub-study, of a larger population study. Identify the parent study record. Use population.wave to say which wave this is."
+
+accessibility:
+  usage:
+    patientRecontact:
+      title: "Participant recontact"
+      description: "Indicates whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study."
+      guidance: "Please indicate whether the people from whom the dataset is generated can be recontacted as part of a follow-up or new study.\\n- **Yes**: The people within this dataset can be recontacted, subject to any applicable ethical/consent requirements.\\n- **No**: The people within this dataset cannot be recontacted."
+
+population:
+  title: "Population"
+  description: "Population-research detail: study design, wave, recruitment, follow-up and eligibility."
+  studyDesign:
+    title: "Study design"
+    description: "Characteristics of the study design. Leave a value empty if it is not known; false means the study is known not to have that characteristic."
+    isLongitudinal:
+      title: "Longitudinal"
+      description: "Whether the study follows the same participants over time."
+    isFamilyBased:
+      title: "Family-based"
+      description: "Whether participants are recruited as families (related individuals) rather than as unrelated individuals."
+    isClinicalBased:
+      title: "Clinical-based sample"
+      description: "Whether participants are recruited through a clinical setting rather than from the general population."
+  wave:
+    title: "Wave"
+    description: "Which wave or sub-study of the parent study this dataset represents."
+    waveId:
+      title: "Wave identifier"
+      description: "Identifier for this wave, unique within the parent study."
+      examples:
+        - "wave-1"
+        - "genotyping-2015"
+    waveType:
+      title: "Wave type"
+      description: "Whether this is a contact wave (participants were contacted and data collected) or a sub-study (further analysis, such as an assay, of data or samples collected in an earlier wave)."
+    waveNumber:
+      title: "Wave number"
+      description: "Position of this contact wave within the parent study, starting from 1. Leave empty for sub-studies."
+    label:
+      title: "Wave label"
+      description: "Human-readable name for this wave."
+      examples:
+        - "2015 genotyping"
+  recruitment:
+    title: "Recruitment"
+    description: "How and when participants were recruited."
+    status:
+      title: "Recruitment status"
+      description: "Whether the study is currently recruiting."
+    startDate:
+      title: "Recruitment start date"
+      description: "Date recruitment began."
+    endDate:
+      title: "Recruitment end date"
+      description: "Date recruitment ended. Leave empty if recruitment is ongoing."
+    samplingMethod:
+      title: "Sampling method"
+      description: "How participants were identified and approached."
+  followUpSchedule:
+    title: "Follow-up schedule"
+    description: "Whether participants are actively re-contacted, and how often. This is different from coverage.followUp, which records how long, in total, a participant appears in the dataset."
+    frequency:
+      title: "Follow-up frequency"
+      description: "How often participants are re-contacted. Select 'No scheduled follow-up' if they are not re-contacted on a schedule."
+    note:
+      title: "Follow-up note"
+      description: "Any further detail on the follow-up schedule."
+  eligibility:
+    title: "Eligibility"
+    description: "Who could take part in the study."
+    inclusionCriteria:
+      title: "Inclusion criteria"
+      description: "Criteria a participant had to meet to take part."
+    exclusionCriteria:
+      title: "Exclusion criteria"
+      description: "Criteria that excluded a participant from taking part."
