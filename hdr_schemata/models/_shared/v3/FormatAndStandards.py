@@ -6,7 +6,7 @@ from .annotations import annotations
 
 an = annotations.accessibility.formatAndStandards
 
-from hdr_schemata.models.HDRUK.v3_0_0.FormatAndStandards import (
+from hdr_schemata.models._shared.v1.FormatAndStandards import (
     FormatAndStandards as BaseFormatAndStandards,
 )
 

@@ -1,4 +1,4 @@
-from hdr_schemata.models.HDRUK.v3_0_0 import Provenance as BaseProvenance
+from hdr_schemata.models._shared.v1.Provenance import Provenance as BaseProvenance
 from pydantic import Field
 from typing import Optional
 from .Origin import Origin

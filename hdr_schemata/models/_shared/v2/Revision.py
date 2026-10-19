@@ -1,4 +1,4 @@
-from hdr_schemata.models.HDRUK.v3_0_0.Revision import Revision as BaseRevision
+from hdr_schemata.models._shared.v1.Revision import Revision as BaseRevision
 from typing import Optional
 from pydantic import Field
 from hdr_schemata.definitions.HDRUK import *

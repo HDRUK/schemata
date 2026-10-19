@@ -7,15 +7,15 @@ from datetime import datetime
 # Shared-core sections are reused unchanged from pinned HDRUK versions. PRUK is
 # composed from them rather than inheriting a whole HDRUK model, so it owns its
 # own top-level shape and required fields.
-from hdr_schemata.models.HDRUK.v3_0_0.Coverage import Coverage
-from hdr_schemata.models.HDRUK.v3_0_0.DemographicFrequency import DemographicFrequency
-from hdr_schemata.models.HDRUK.v3_0_0.Documentation import Documentation
-from hdr_schemata.models.HDRUK.v3_0_0.Observations import Observation
-from hdr_schemata.models.HDRUK.v3_0_0.Omics import Omics
-from hdr_schemata.models.HDRUK.v3_0_0.StructuralMetadata import StructuralMetadata
-from hdr_schemata.models.HDRUK.v4_0_0.Provenance import Provenance
-from hdr_schemata.models.HDRUK.v4_0_0.Revision import Revision
-from hdr_schemata.models.HDRUK.v4_0_0.Summary import Summary
+from hdr_schemata.models._shared.v1.Coverage import Coverage
+from hdr_schemata.models._shared.v1.DemographicFrequency import DemographicFrequency
+from hdr_schemata.models._shared.v1.Documentation import Documentation
+from hdr_schemata.models._shared.v1.Observations import Observation
+from hdr_schemata.models._shared.v1.Omics import Omics
+from hdr_schemata.models._shared.v1.StructuralMetadata import StructuralMetadata
+from hdr_schemata.models._shared.v2.Provenance import Provenance
+from hdr_schemata.models._shared.v2.Revision import Revision
+from hdr_schemata.models._shared.v2.Summary import Summary
 
 from .Accessibility import Accessibility
 from .Linkage import Linkage

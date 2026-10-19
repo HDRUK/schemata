@@ -3,11 +3,11 @@ import json
 from typing import Optional, List
 from pydantic import Field
 
-from .Provenance import Provenance
-from .Revision import Revision
+from hdr_schemata.models._shared.v2.Provenance import Provenance
+from hdr_schemata.models._shared.v2.Revision import Revision
 
 from .annotations import annotations as an
-from .Summary import Summary
+from hdr_schemata.models._shared.v2.Summary import Summary
 
 class Hdruk400(Hdruk300):
 

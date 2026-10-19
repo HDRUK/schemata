@@ -1,12 +1,12 @@
 from pydantic import Field
 from typing import Optional
-from hdr_schemata.models.HDRUK.v4_1_0.FormatAndStandards import FormatAndStandards
+from hdr_schemata.models._shared.v3.FormatAndStandards import FormatAndStandards
 from .Usage import Usage
 from .annotations import annotations
 
 an = annotations.accessibility
 
-from hdr_schemata.models.HDRUK.v3_0_0.Accessibility import (
+from hdr_schemata.models._shared.v1.Accessibility import (
     Accessibility as BaseAccessibility,
 )
 
