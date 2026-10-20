@@ -8,7 +8,8 @@
                   "version": "str",
                   "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null"
             },
-            "version": "str"
+            "version": "str",
+            "recordType": "RecordType['dataset','caseStudy']"
       },
       "summary": {
             "title": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
@@ -235,5 +236,66 @@
                   "inclusionCriteria": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null",
                   "exclusionCriteria": "Description[{'anyOf': [{'maxLength': 10000, 'minLength': 2, 'type': 'string'}, {'type': 'null'}]}] | null"
             }
+      },
+      "crocod": {
+            "trialStatus": "TrialStatus['Ongoing','Completed','Terminated']",
+            "therapeuticArea": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+            "laySummary": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+            "background": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+            "trialDesign": {
+                  "categories": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+                  "designDescription": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+                  "registration": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null"
+            },
+            "governance": {
+                  "sponsor": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+                  "funder": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+                  "approvingBody": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null",
+                  "principalInvestigator": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}] | null",
+                  "contactPoints": "EmailStr"
+            },
+            "healthSystemsData": {
+                  "usedFor": "HealthSystemsDataUse['Recruitment','Pharmacovigilance','Outcome ascertainment']",
+                  "dataProvidersAppliedTo": {
+                        "gatewayId": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}] | null",
+                        "title": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                        "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null"
+                  },
+                  "datasetsAccessed": {
+                        "gatewayId": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}] | null",
+                        "title": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                        "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null"
+                  },
+                  "yearFirstAppliedFor": "Year[{'maximum': 2100, 'minimum': 1900, 'type': 'integer'}] | null"
+            },
+            "learnings": {
+                  "recruitment": {
+                        "tags": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                        "summary": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}] | null",
+                        "content": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null"
+                  },
+                  "pharmacovigilance": {
+                        "tags": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                        "summary": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}] | null",
+                        "content": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null"
+                  },
+                  "outcomeAscertainment": {
+                        "tags": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                        "summary": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}] | null",
+                        "content": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null"
+                  },
+                  "patientPublicInvolvement": {
+                        "tags": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                        "summary": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}] | null",
+                        "content": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null"
+                  },
+                  "additionalInsights": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}] | null"
+            },
+            "publications": {
+                  "gatewayId": "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}] | null",
+                  "title": "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                  "url": "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}] | null"
+            },
+            "readMore": "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]"
       }
 }

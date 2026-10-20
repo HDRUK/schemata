@@ -1,0 +1,120 @@
+id:
+  title: "Identifier"
+  description: "Numeric identifier for the case study page."
+pid:
+  title: "Persistent identifier"
+  description: "Persistent identifier for the case study."
+
+trialSummary:
+  title: "Trial summary"
+  description: "What the trial is and why it was run."
+  acronym:
+    title: "Trial acronym"
+    description: "Short name of the trial."
+    examples:
+      - "LENS"
+  fullTitle:
+    title: "Trial full title"
+    description: "Full title of the trial."
+  status:
+    title: "Trial status"
+    description: "Current status of the trial."
+  therapeuticArea:
+    title: "Therapeutic area"
+    description: "Disease or clinical area the trial addresses."
+  laySummary:
+    title: "Lay summary"
+    description: "Plain-language summary of the trial."
+  background:
+    title: "Background"
+    description: "Clinical and research background to the trial. May include links."
+
+trialDesign:
+  title: "Trial design"
+  description: "How the trial was designed, registered and run."
+  categories:
+    title: "Trial design (categories)"
+    description: "Design classification of the trial, for example masking, control and phase."
+    examples:
+      - "Double-masked, placebo-controlled RCT, phase IV"
+  designDescription:
+    title: "Trial design (description)"
+    description: "Description of the trial design."
+  registration:
+    title: "Trial registration"
+    description: "Registry identifiers for the trial. May include links."
+    examples:
+      - "NCT03439345, ISRCTN15073006"
+  startYear:
+    title: "Trial start date"
+    description: "Year the trial started."
+  endYear:
+    title: "Trial end date"
+    description: "Year the trial ended. Leave empty if the trial is ongoing."
+  numberOfParticipants:
+    title: "No. of randomised participants"
+    description: "Number of participants randomised. Must be a whole number greater than 0."
+
+governance:
+  title: "Governance"
+  description: "Who sponsored, funded, approved and led the trial."
+  sponsor:
+    title: "Sponsor"
+    description: "Sponsor of the trial. May include links."
+  funder:
+    title: "Funder"
+    description: "Funder of the trial. May include links."
+  approvingBody:
+    title: "Approving body (for data)"
+    description: "Body that approved access to the data. May include links."
+  principalInvestigator:
+    title: "Principal investigator"
+    description: "Name of the trial's principal investigator."
+  contactPoints:
+    title: "Trial contact information"
+    description: "Email addresses for contacting the trial team, where agreed."
+
+healthSystemsData:
+  title: "Health systems data"
+  description: "How the trial used health systems data (HSD), and which data it applied for."
+  usedFor:
+    title: "Health systems data (HSD) used for"
+    description: "What the trial used health systems data for."
+  participantLocations:
+    title: "Location of participants"
+    description: "Where the trial's participants were located."
+  dataProvidersAppliedTo:
+    title: "Data providers applied to"
+    description: "Data custodians the trial applied to for data, whether or not they are on the Gateway."
+  datasetsAccessed:
+    title: "Datasets accessed"
+    description: "Datasets the trial accessed, whether or not they are on the Gateway."
+  yearFirstAppliedFor:
+    title: "Date data first applied for"
+    description: "Year the trial first applied for health systems data."
+
+learnings:
+  title: "Learnings"
+  description: "What the trial learned from using health systems data, by area."
+  recruitment:
+    title: "Recruitment learnings"
+    description: "Learnings about using health systems data for recruitment."
+  pharmacovigilance:
+    title: "Pharmacovigilance learnings"
+    description: "Learnings about using health systems data for pharmacovigilance."
+  outcomeAscertainment:
+    title: "Outcome Ascertainment learnings"
+    description: "Learnings about using health systems data for outcome ascertainment."
+  patientPublicInvolvement:
+    title: "Patient and Public Involvement learnings"
+    description: "Learnings about patient and public involvement."
+  additionalInsights:
+    title: "Additional Insights"
+    description: "Any further insights from the trial."
+
+publications:
+  title: "Publications"
+  description: "Publications from the trial, whether or not they are on the Gateway."
+readMore:
+  title: "Read more"
+  description: "Further documents or links about the trial, such as the protocol or statistical analysis plan."

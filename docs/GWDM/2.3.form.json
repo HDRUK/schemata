@@ -89,6 +89,23 @@
                   "location": "required.version"
             },
             {
+                  "required": false,
+                  "title": "Record type",
+                  "description": "What kind of record this is. Records without a type are datasets.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "dataset",
+                              "caseStudy"
+                        ]
+                  },
+                  "location": "required.recordType"
+            },
+            {
                   "required": true,
                   "title": "Title",
                   "description": "The main title of the dataset",
@@ -2327,6 +2344,612 @@
                         "type": "string"
                   },
                   "location": "population.eligibility.exclusionCriteria"
+            },
+            {
+                  "required": true,
+                  "title": "Trial status",
+                  "description": "Current status of the trial.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Ongoing",
+                              "Completed",
+                              "Terminated"
+                        ]
+                  },
+                  "location": "crocod.trialStatus"
+            },
+            {
+                  "required": false,
+                  "title": "Therapeutic area",
+                  "description": "Disease or clinical area the trial addresses.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.therapeuticArea"
+            },
+            {
+                  "required": false,
+                  "title": "Lay summary",
+                  "description": "Plain-language summary of the trial, in full.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.laySummary"
+            },
+            {
+                  "required": false,
+                  "title": "Background",
+                  "description": "Clinical and research background to the trial, in full.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.background"
+            },
+            {
+                  "required": false,
+                  "title": "Trial design (categories)",
+                  "description": "Design classification of the trial, for example masking, control and phase.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.trialDesign.categories"
+            },
+            {
+                  "required": false,
+                  "title": "Trial design (description)",
+                  "description": "Description of the trial design.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.trialDesign.designDescription"
+            },
+            {
+                  "required": false,
+                  "title": "Trial registration",
+                  "description": "Registry identifiers for the trial.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.trialDesign.registration"
+            },
+            {
+                  "required": false,
+                  "title": "Sponsor",
+                  "description": "Sponsor of the trial.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.governance.sponsor"
+            },
+            {
+                  "required": false,
+                  "title": "Funder",
+                  "description": "Funder of the trial, in full.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.governance.funder"
+            },
+            {
+                  "required": false,
+                  "title": "Approving body (for data)",
+                  "description": "Body that approved access to the data.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.governance.approvingBody"
+            },
+            {
+                  "required": false,
+                  "title": "Principal investigator",
+                  "description": "Name of the trial's principal investigator.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.governance.principalInvestigator"
+            },
+            {
+                  "required": false,
+                  "title": "Trial contact information",
+                  "description": "Email addresses for contacting the trial team.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": "EmailStr",
+                  "location": "crocod.governance.contactPoints"
+            },
+            {
+                  "required": false,
+                  "title": "Health systems data (HSD) used for",
+                  "description": "What the trial used health systems data for.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "type": "string",
+                        "options": [
+                              "Recruitment",
+                              "Pharmacovigilance",
+                              "Outcome ascertainment"
+                        ]
+                  },
+                  "location": "crocod.healthSystemsData.usedFor"
+            },
+            {
+                  "required": false,
+                  "title": "Gateway identifier",
+                  "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.healthSystemsData.dataProvidersAppliedTo.gatewayId"
+            },
+            {
+                  "required": true,
+                  "title": "Title",
+                  "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.healthSystemsData.dataProvidersAppliedTo.title"
+            },
+            {
+                  "required": false,
+                  "title": "URL",
+                  "description": "Link to the entity, for entities that are not on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "crocod.healthSystemsData.dataProvidersAppliedTo.url"
+            },
+            {
+                  "required": false,
+                  "title": "Gateway identifier",
+                  "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.healthSystemsData.datasetsAccessed.gatewayId"
+            },
+            {
+                  "required": true,
+                  "title": "Title",
+                  "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.healthSystemsData.datasetsAccessed.title"
+            },
+            {
+                  "required": false,
+                  "title": "URL",
+                  "description": "Link to the entity, for entities that are not on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "crocod.healthSystemsData.datasetsAccessed.url"
+            },
+            {
+                  "required": false,
+                  "title": "Date data first applied for",
+                  "description": "Year the trial first applied for health systems data.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maximum": 2100,
+                        "minimum": 1900,
+                        "title": "Year",
+                        "type": "integer"
+                  },
+                  "location": "crocod.healthSystemsData.yearFirstAppliedFor"
+            },
+            {
+                  "required": false,
+                  "title": "Tags",
+                  "description": "Short statements, displayed as ticked boxes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.recruitment.tags"
+            },
+            {
+                  "required": false,
+                  "title": "Summary",
+                  "description": "One-line summary of the learnings, displayed as a subheading.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.recruitment.summary"
+            },
+            {
+                  "required": false,
+                  "title": "Learnings",
+                  "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.recruitment.content"
+            },
+            {
+                  "required": false,
+                  "title": "Tags",
+                  "description": "Short statements, displayed as ticked boxes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.pharmacovigilance.tags"
+            },
+            {
+                  "required": false,
+                  "title": "Summary",
+                  "description": "One-line summary of the learnings, displayed as a subheading.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.pharmacovigilance.summary"
+            },
+            {
+                  "required": false,
+                  "title": "Learnings",
+                  "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.pharmacovigilance.content"
+            },
+            {
+                  "required": false,
+                  "title": "Tags",
+                  "description": "Short statements, displayed as ticked boxes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.outcomeAscertainment.tags"
+            },
+            {
+                  "required": false,
+                  "title": "Summary",
+                  "description": "One-line summary of the learnings, displayed as a subheading.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.outcomeAscertainment.summary"
+            },
+            {
+                  "required": false,
+                  "title": "Learnings",
+                  "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.outcomeAscertainment.content"
+            },
+            {
+                  "required": false,
+                  "title": "Tags",
+                  "description": "Short statements, displayed as ticked boxes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.patientPublicInvolvement.tags"
+            },
+            {
+                  "required": false,
+                  "title": "Summary",
+                  "description": "One-line summary of the learnings, displayed as a subheading.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.patientPublicInvolvement.summary"
+            },
+            {
+                  "required": false,
+                  "title": "Learnings",
+                  "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.patientPublicInvolvement.content"
+            },
+            {
+                  "required": false,
+                  "title": "Additional Insights",
+                  "description": "Any further insights from the trial.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.learnings.additionalInsights"
+            },
+            {
+                  "required": false,
+                  "title": "Gateway identifier",
+                  "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "maxLength": 150,
+                        "minLength": 2,
+                        "title": "OneHundredFiftyCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.publications.gatewayId"
+            },
+            {
+                  "required": true,
+                  "title": "Title",
+                  "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": false,
+                  "types": {
+                        "maxLength": 255,
+                        "minLength": 2,
+                        "title": "TwoHundredFiftyFiveCharacters",
+                        "type": "string"
+                  },
+                  "location": "crocod.publications.title"
+            },
+            {
+                  "required": false,
+                  "title": "URL",
+                  "description": "Link to the entity, for entities that are not on the Gateway.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": false,
+                  "is_optional": true,
+                  "types": {
+                        "title": "Url",
+                        "format": "uri",
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "location": "crocod.publications.url"
+            },
+            {
+                  "required": false,
+                  "title": "Read more",
+                  "description": "Further documents or links about the trial.",
+                  "guidance": "",
+                  "examples": null,
+                  "is_list": true,
+                  "is_optional": true,
+                  "types": {
+                        "contentMediaType": "text/html",
+                        "maxLength": 50000,
+                        "minLength": 1,
+                        "title": "RichText",
+                        "type": "string"
+                  },
+                  "location": "crocod.readMore"
             }
       ],
       "url_regex": "^\\s*((https?:\\/\\/)*([a-zA-Z0-9-]+\\.?)+[a-zA-Z]{2,}(:\\d+)?(\\/[^\\s]*)?(\n)?)+$"

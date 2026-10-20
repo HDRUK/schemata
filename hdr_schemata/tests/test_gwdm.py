@@ -1,3 +1,4 @@
+import copy
 import json
 
 from pydantic import ValidationError
@@ -106,3 +107,32 @@ class TestGwdm23:
     def test_population_is_optional(self):
         metadata = {k: v for k, v in self.metadata.items() if k != "population"}
         assert Gwdm23(**metadata).population is None
+
+    def test_dataset_record_type_defaults_to_dataset(self):
+        dataset = Gwdm23(**self.metadata)
+        assert dataset.required.recordType.value == "dataset"
+        assert dataset.crocod is None
+
+
+class TestGwdm23CaseStudy:
+    metadata = json.load(open("../examples/GWDM/2.3/case_study.json"))
+
+    def test_validation(self):
+        assert Gwdm23(**self.metadata).required.recordType.value == "caseStudy"
+
+    def test_case_study_without_crocod_is_rejected(self):
+        metadata = {k: v for k, v in self.metadata.items() if k != "crocod"}
+        try:
+            Gwdm23(**metadata)
+            assert False, "expected ValidationError for a case study without crocod"
+        except ValidationError:
+            pass
+
+    def test_crocod_on_a_dataset_is_rejected(self):
+        metadata = copy.deepcopy(self.metadata)
+        metadata["required"]["recordType"] = "dataset"
+        try:
+            Gwdm23(**metadata)
+            assert False, "expected ValidationError for crocod on a dataset"
+        except ValidationError:
+            pass
