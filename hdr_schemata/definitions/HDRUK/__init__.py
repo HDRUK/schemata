@@ -71,3 +71,6 @@ from .TissueDataCategoriesEnum import TissueDataCategoriesEnum
 from .TwoHundredFiftyFiveCharacters import TwoHundredFiftyFiveCharacters
 from .Url import Url, UrlV2
 from .Uuidv4 import Uuidv4
+from .RecruitmentStatus import RecruitmentStatus
+from .FollowUpFrequency import FollowUpFrequency
+from .WaveType import WaveType

@@ -2,7 +2,7 @@ import json
 
 from pydantic import ValidationError
 
-from hdr_schemata.models.GWDM import Gwdm10, Gwdm22
+from hdr_schemata.models.GWDM import Gwdm10, Gwdm22, Gwdm23
 
 
 def get_metadata(model, version):
@@ -80,3 +80,29 @@ class TestGwdm22:
             assert False, "expected ValidationError for an unknown usage property"
         except ValidationError:
             pass
+
+
+class TestGwdm23:
+    metadata = get_metadata("GWDM", "2.3")
+    json_schema = get_schema("GWDM", "2.3")
+
+    def test_validation(self):
+        assert Gwdm23(**self.metadata) != None
+
+    def test_json_schema(self):
+        schema = Gwdm23.model_json_schema()
+        expected_keys = [
+            "$defs",
+            "additionalProperties",
+            "properties",
+            "required",
+            "title",
+            "type",
+        ]
+
+        assert list(schema.keys()) == expected_keys
+        assert schema == self.json_schema
+
+    def test_population_is_optional(self):
+        metadata = {k: v for k, v in self.metadata.items() if k != "population"}
+        assert Gwdm23(**metadata).population is None
