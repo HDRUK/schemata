@@ -125,6 +125,19 @@
                         ],
                         "is_list": false,
                         "is_optional": false
+                  },
+                  {
+                        "name": "recordType",
+                        "required": false,
+                        "title": "Record type",
+                        "description": "What kind of record this is. Records without a type are datasets.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "RecordType['dataset','caseStudy']"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
                   }
             ]
       },
@@ -2919,6 +2932,736 @@
                                     "subItems": []
                               }
                         ]
+                  }
+            ]
+      },
+      {
+            "name": "crocod",
+            "required": false,
+            "title": "Case study (CROCOD)",
+            "description": "Trial case study content that has no home in the core GWDM sections. Present only on records whose required.recordType is caseStudy. Title, acronym, participant count, trial years and participant locations are stored in summary, provenance.temporal and coverage instead.",
+            "guidance": "",
+            "examples": null,
+            "type": [
+                  "CaseStudy",
+                  "null"
+            ],
+            "is_list": false,
+            "is_optional": true,
+            "subItems": [
+                  {
+                        "name": "trialStatus",
+                        "required": true,
+                        "title": "Trial status",
+                        "description": "Current status of the trial.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "TrialStatus['Ongoing','Completed','Terminated']"
+                        ],
+                        "is_list": false,
+                        "is_optional": false
+                  },
+                  {
+                        "name": "therapeuticArea",
+                        "required": false,
+                        "title": "Therapeutic area",
+                        "description": "Disease or clinical area the trial addresses.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "laySummary",
+                        "required": false,
+                        "title": "Lay summary",
+                        "description": "Plain-language summary of the trial, in full.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "background",
+                        "required": false,
+                        "title": "Background",
+                        "description": "Clinical and research background to the trial, in full.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": []
+                  },
+                  {
+                        "name": "trialDesign",
+                        "required": false,
+                        "title": "Trial design",
+                        "description": "How the trial was designed and registered.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "TrialDesign",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "categories",
+                                    "required": false,
+                                    "title": "Trial design (categories)",
+                                    "description": "Design classification of the trial, for example masking, control and phase.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "designDescription",
+                                    "required": false,
+                                    "title": "Trial design (description)",
+                                    "description": "Description of the trial design.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "registration",
+                                    "required": false,
+                                    "title": "Trial registration",
+                                    "description": "Registry identifiers for the trial.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "governance",
+                        "required": false,
+                        "title": "Governance",
+                        "description": "Who sponsored, funded, approved and led the trial.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Governance",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "sponsor",
+                                    "required": false,
+                                    "title": "Sponsor",
+                                    "description": "Sponsor of the trial.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "funder",
+                                    "required": false,
+                                    "title": "Funder",
+                                    "description": "Funder of the trial, in full.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "approvingBody",
+                                    "required": false,
+                                    "title": "Approving body (for data)",
+                                    "description": "Body that approved access to the data.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "principalInvestigator",
+                                    "required": false,
+                                    "title": "Principal investigator",
+                                    "description": "Name of the trial's principal investigator.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "contactPoints",
+                                    "required": false,
+                                    "title": "Trial contact information",
+                                    "description": "Email addresses for contacting the trial team.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "EmailStr"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": true
+                              }
+                        ]
+                  },
+                  {
+                        "name": "healthSystemsData",
+                        "required": false,
+                        "title": "Health systems data",
+                        "description": "How the trial used health systems data (HSD), and which data it applied for.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "HealthSystemsData",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "usedFor",
+                                    "required": false,
+                                    "title": "Health systems data (HSD) used for",
+                                    "description": "What the trial used health systems data for.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "HealthSystemsDataUse['Recruitment','Pharmacovigilance','Outcome ascertainment']"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": true
+                              },
+                              {
+                                    "name": "dataProvidersAppliedTo",
+                                    "required": false,
+                                    "title": "Data providers applied to",
+                                    "description": "Data custodians the trial applied to for data, Gateway or not.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "EntityReference"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "gatewayId",
+                                                "required": false,
+                                                "title": "Gateway identifier",
+                                                "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "title",
+                                                "required": true,
+                                                "title": "Title",
+                                                "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": false,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "url",
+                                                "required": false,
+                                                "title": "URL",
+                                                "description": "Link to the entity, for entities that are not on the Gateway.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "datasetsAccessed",
+                                    "required": false,
+                                    "title": "Datasets accessed",
+                                    "description": "Datasets the trial accessed, Gateway or not.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "EntityReference"
+                                    ],
+                                    "is_list": true,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "gatewayId",
+                                                "required": false,
+                                                "title": "Gateway identifier",
+                                                "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "title",
+                                                "required": true,
+                                                "title": "Title",
+                                                "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": false,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "url",
+                                                "required": false,
+                                                "title": "URL",
+                                                "description": "Link to the entity, for entities that are not on the Gateway.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "yearFirstAppliedFor",
+                                    "required": false,
+                                    "title": "Date data first applied for",
+                                    "description": "Year the trial first applied for health systems data.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Year[{'maximum': 2100, 'minimum': 1900, 'type': 'integer'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "learnings",
+                        "required": false,
+                        "title": "Learnings",
+                        "description": "What the trial learned from using health systems data, by area.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "Learnings",
+                              "null"
+                        ],
+                        "is_list": false,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "recruitment",
+                                    "required": false,
+                                    "title": "Recruitment learnings",
+                                    "description": "Learnings about using health systems data for recruitment.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Learning",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "tags",
+                                                "required": false,
+                                                "title": "Tags",
+                                                "description": "Short statements, displayed as ticked boxes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
+                                                ],
+                                                "is_list": true,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "summary",
+                                                "required": false,
+                                                "title": "Summary",
+                                                "description": "One-line summary of the learnings, displayed as a subheading.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "content",
+                                                "required": false,
+                                                "title": "Learnings",
+                                                "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "pharmacovigilance",
+                                    "required": false,
+                                    "title": "Pharmacovigilance learnings",
+                                    "description": "Learnings about using health systems data for pharmacovigilance.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Learning",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "tags",
+                                                "required": false,
+                                                "title": "Tags",
+                                                "description": "Short statements, displayed as ticked boxes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
+                                                ],
+                                                "is_list": true,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "summary",
+                                                "required": false,
+                                                "title": "Summary",
+                                                "description": "One-line summary of the learnings, displayed as a subheading.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "content",
+                                                "required": false,
+                                                "title": "Learnings",
+                                                "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "outcomeAscertainment",
+                                    "required": false,
+                                    "title": "Outcome Ascertainment learnings",
+                                    "description": "Learnings about using health systems data for outcome ascertainment.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Learning",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "tags",
+                                                "required": false,
+                                                "title": "Tags",
+                                                "description": "Short statements, displayed as ticked boxes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
+                                                ],
+                                                "is_list": true,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "summary",
+                                                "required": false,
+                                                "title": "Summary",
+                                                "description": "One-line summary of the learnings, displayed as a subheading.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "content",
+                                                "required": false,
+                                                "title": "Learnings",
+                                                "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "patientPublicInvolvement",
+                                    "required": false,
+                                    "title": "Patient and Public Involvement learnings",
+                                    "description": "Learnings about patient and public involvement.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Learning",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": [
+                                          {
+                                                "name": "tags",
+                                                "required": false,
+                                                "title": "Tags",
+                                                "description": "Short statements, displayed as ticked boxes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]"
+                                                ],
+                                                "is_list": true,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "summary",
+                                                "required": false,
+                                                "title": "Summary",
+                                                "description": "One-line summary of the learnings, displayed as a subheading.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          },
+                                          {
+                                                "name": "content",
+                                                "required": false,
+                                                "title": "Learnings",
+                                                "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                                                "guidance": "",
+                                                "examples": null,
+                                                "type": [
+                                                      "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                                      "null"
+                                                ],
+                                                "is_list": false,
+                                                "is_optional": true,
+                                                "subItems": []
+                                          }
+                                    ]
+                              },
+                              {
+                                    "name": "additionalInsights",
+                                    "required": false,
+                                    "title": "Additional Insights",
+                                    "description": "Any further insights from the trial.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "publications",
+                        "required": false,
+                        "title": "Publications",
+                        "description": "Publications from the trial, Gateway or not.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "EntityReference"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": [
+                              {
+                                    "name": "gatewayId",
+                                    "required": false,
+                                    "title": "Gateway identifier",
+                                    "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "OneHundredFiftyCharacters[{'maxLength': 150, 'minLength': 2, 'type': 'string'}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "title",
+                                    "required": true,
+                                    "title": "Title",
+                                    "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "TwoHundredFiftyFiveCharacters[{'maxLength': 255, 'minLength': 2, 'type': 'string'}]"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": false,
+                                    "subItems": []
+                              },
+                              {
+                                    "name": "url",
+                                    "required": false,
+                                    "title": "URL",
+                                    "description": "Link to the entity, for entities that are not on the Gateway.",
+                                    "guidance": "",
+                                    "examples": null,
+                                    "type": [
+                                          "Url[{'anyOf': [{'format': 'uri', 'minLength': 1, 'type': 'string'}, {'type': 'null'}]}]",
+                                          "null"
+                                    ],
+                                    "is_list": false,
+                                    "is_optional": true,
+                                    "subItems": []
+                              }
+                        ]
+                  },
+                  {
+                        "name": "readMore",
+                        "required": false,
+                        "title": "Read more",
+                        "description": "Further documents or links about the trial.",
+                        "guidance": "",
+                        "examples": null,
+                        "type": [
+                              "RichText[{'contentMediaType': 'text/html', 'maxLength': 50000, 'minLength': 1, 'type': 'string'}]"
+                        ],
+                        "is_list": true,
+                        "is_optional": true,
+                        "subItems": []
                   }
             ]
       }

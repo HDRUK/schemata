@@ -261,6 +261,148 @@
                   "title": "Assay",
                   "type": "string"
             },
+            "CaseStudy": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "trialStatus": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/TrialStatus"
+                                    }
+                              ],
+                              "description": "Current status of the trial.",
+                              "title": "Trial status"
+                        },
+                        "therapeuticArea": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Disease or clinical area the trial addresses.",
+                              "title": "Therapeutic area"
+                        },
+                        "laySummary": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Plain-language summary of the trial, in full.",
+                              "title": "Lay summary"
+                        },
+                        "background": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Clinical and research background to the trial, in full.",
+                              "title": "Background"
+                        },
+                        "trialDesign": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/TrialDesign"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "How the trial was designed and registered.",
+                              "title": "Trial design"
+                        },
+                        "governance": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Governance"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Who sponsored, funded, approved and led the trial.",
+                              "title": "Governance"
+                        },
+                        "healthSystemsData": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/HealthSystemsData"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "How the trial used health systems data (HSD), and which data it applied for.",
+                              "title": "Health systems data"
+                        },
+                        "learnings": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Learnings"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "What the trial learned from using health systems data, by area.",
+                              "title": "Learnings"
+                        },
+                        "publications": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/EntityReference"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Publications from the trial, Gateway or not.",
+                              "title": "Publications"
+                        },
+                        "readMore": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/RichText"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Further documents or links about the trial.",
+                              "title": "Read more"
+                        }
+                  },
+                  "required": [
+                        "trialStatus"
+                  ],
+                  "title": "CaseStudy",
+                  "type": "object"
+            },
             "CommaSeparatedValues": {
                   "anyOf": [
                         {
@@ -857,6 +999,51 @@
                   "title": "Eligibility",
                   "type": "object"
             },
+            "EntityReference": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "gatewayId": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway.",
+                              "title": "Gateway identifier"
+                        },
+                        "title": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/TwoHundredFiftyFiveCharacters"
+                                    }
+                              ],
+                              "description": "Name of the entity, shown whether or not it is listed on the Gateway.",
+                              "title": "Title"
+                        },
+                        "url": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Url"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Link to the entity, for entities that are not on the Gateway.",
+                              "title": "URL"
+                        }
+                  },
+                  "required": [
+                        "title"
+                  ],
+                  "title": "EntityReference",
+                  "type": "object"
+            },
             "Ethnicity": {
                   "properties": {
                         "bin": {
@@ -1033,6 +1220,159 @@
                   "title": "FormatAndStandards",
                   "type": "object"
             },
+            "Governance": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "sponsor": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Sponsor of the trial.",
+                              "title": "Sponsor"
+                        },
+                        "funder": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Funder of the trial, in full.",
+                              "title": "Funder"
+                        },
+                        "approvingBody": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Body that approved access to the data.",
+                              "title": "Approving body (for data)"
+                        },
+                        "principalInvestigator": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Name of the trial's principal investigator.",
+                              "title": "Principal investigator"
+                        },
+                        "contactPoints": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "format": "email",
+                                                "type": "string"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Email addresses for contacting the trial team.",
+                              "title": "Trial contact information"
+                        }
+                  },
+                  "title": "Governance",
+                  "type": "object"
+            },
+            "HealthSystemsData": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "usedFor": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/HealthSystemsDataUse"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "What the trial used health systems data for.",
+                              "title": "Health systems data (HSD) used for"
+                        },
+                        "dataProvidersAppliedTo": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/EntityReference"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Data custodians the trial applied to for data, Gateway or not.",
+                              "title": "Data providers applied to"
+                        },
+                        "datasetsAccessed": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/EntityReference"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Datasets the trial accessed, Gateway or not.",
+                              "title": "Datasets accessed"
+                        },
+                        "yearFirstAppliedFor": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Year"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Year the trial first applied for health systems data.",
+                              "title": "Date data first applied for"
+                        }
+                  },
+                  "title": "HealthSystemsData",
+                  "type": "object"
+            },
+            "HealthSystemsDataUse": {
+                  "enum": [
+                        "Recruitment",
+                        "Pharmacovigilance",
+                        "Outcome ascertainment"
+                  ],
+                  "title": "HealthSystemsDataUse",
+                  "type": "string"
+            },
             "Image": {
                   "additionalProperties": false,
                   "properties": {
@@ -1064,6 +1404,127 @@
                         }
                   },
                   "title": "Image",
+                  "type": "object"
+            },
+            "Learning": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "tags": {
+                              "anyOf": [
+                                    {
+                                          "items": {
+                                                "$ref": "#/$defs/OneHundredFiftyCharacters"
+                                          },
+                                          "type": "array"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Short statements, displayed as ticked boxes.",
+                              "title": "Tags"
+                        },
+                        "summary": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/TwoHundredFiftyFiveCharacters"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "One-line summary of the learnings, displayed as a subheading.",
+                              "title": "Summary"
+                        },
+                        "content": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "The learnings in full. May include formatting, block quotes and attributed quotes.",
+                              "title": "Learnings"
+                        }
+                  },
+                  "title": "Learning",
+                  "type": "object"
+            },
+            "Learnings": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "recruitment": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Learning"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Learnings about using health systems data for recruitment.",
+                              "title": "Recruitment learnings"
+                        },
+                        "pharmacovigilance": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Learning"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Learnings about using health systems data for pharmacovigilance.",
+                              "title": "Pharmacovigilance learnings"
+                        },
+                        "outcomeAscertainment": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Learning"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Learnings about using health systems data for outcome ascertainment.",
+                              "title": "Outcome Ascertainment learnings"
+                        },
+                        "patientPublicInvolvement": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/Learning"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Learnings about patient and public involvement.",
+                              "title": "Patient and Public Involvement learnings"
+                        },
+                        "additionalInsights": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Any further insights from the trial.",
+                              "title": "Additional Insights"
+                        }
+                  },
+                  "title": "Learnings",
                   "type": "object"
             },
             "Linkage": {
@@ -1708,6 +2169,14 @@
                   "title": "Provenance",
                   "type": "object"
             },
+            "RecordType": {
+                  "enum": [
+                        "dataset",
+                        "caseStudy"
+                  ],
+                  "title": "RecordType",
+                  "type": "string"
+            },
             "Recruitment": {
                   "additionalProperties": false,
                   "properties": {
@@ -1831,6 +2300,16 @@
                               "pattern": "^\\d+\\.\\d+\\.\\d+$",
                               "title": "Dataset Version",
                               "type": "string"
+                        },
+                        "recordType": {
+                              "allOf": [
+                                    {
+                                          "$ref": "#/$defs/RecordType"
+                                    }
+                              ],
+                              "default": "dataset",
+                              "description": "What kind of record this is. Records without a type are datasets.",
+                              "title": "Record type"
                         }
                   },
                   "required": [
@@ -1878,6 +2357,13 @@
                   ],
                   "title": "Revision",
                   "type": "object"
+            },
+            "RichText": {
+                  "contentMediaType": "text/html",
+                  "maxLength": 50000,
+                  "minLength": 1,
+                  "title": "RichText",
+                  "type": "string"
             },
             "SampleDonor": {
                   "properties": {
@@ -2596,6 +3082,61 @@
                   "title": "TissuesSampleCollection",
                   "type": "object"
             },
+            "TrialDesign": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "categories": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Design classification of the trial, for example masking, control and phase.",
+                              "title": "Trial design (categories)"
+                        },
+                        "designDescription": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Description of the trial design.",
+                              "title": "Trial design (description)"
+                        },
+                        "registration": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/RichText"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "description": "Registry identifiers for the trial.",
+                              "title": "Trial registration"
+                        }
+                  },
+                  "title": "TrialDesign",
+                  "type": "object"
+            },
+            "TrialStatus": {
+                  "enum": [
+                        "Ongoing",
+                        "Completed",
+                        "Terminated"
+                  ],
+                  "title": "TrialStatus",
+                  "type": "string"
+            },
             "TwoHundredFiftyFiveCharacters": {
                   "maxLength": 255,
                   "minLength": 2,
@@ -2757,6 +3298,12 @@
                   ],
                   "title": "WaveType",
                   "type": "string"
+            },
+            "Year": {
+                  "maximum": 2100,
+                  "minimum": 1900,
+                  "title": "Year",
+                  "type": "integer"
             }
       },
       "additionalProperties": false,
@@ -2971,6 +3518,19 @@
                   "default": null,
                   "description": "Population-research detail: study design, wave, recruitment, follow-up and eligibility.",
                   "title": "Population"
+            },
+            "crocod": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/CaseStudy"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "Trial case study content that has no home in the core GWDM sections. Present only on records whose required.recordType is caseStudy. Title, acronym, participant count, trial years and participant locations are stored in summary, provenance.temporal and coverage instead.",
+                  "title": "Case study (CROCOD)"
             }
       },
       "required": [

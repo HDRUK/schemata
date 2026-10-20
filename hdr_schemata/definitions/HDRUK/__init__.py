@@ -74,3 +74,9 @@ from .Uuidv4 import Uuidv4
 from .RecruitmentStatus import RecruitmentStatus
 from .FollowUpFrequency import FollowUpFrequency
 from .WaveType import WaveType
+from .TrialStatus import TrialStatus
+from .HealthSystemsDataUse import HealthSystemsDataUse
+from .ParticipantLocation import ParticipantLocation
+from .Year import Year
+from .RichText import RichText
+from .RecordType import RecordType
