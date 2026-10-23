@@ -1,0 +1,1098 @@
+{
+      "$defs": {
+            "Agent": {
+                  "additionalProperties": false,
+                  "description": "foaf:Agent for creator: name only.",
+                  "properties": {
+                        "@id": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^(https?|mailto):\\S+$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "@Id"
+                        },
+                        "@type": {
+                              "const": "Agent",
+                              "title": "@Type"
+                        },
+                        "name": {
+                              "minLength": 1,
+                              "title": "Name",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "name"
+                  ],
+                  "title": "Agent",
+                  "type": "object"
+            },
+            "Column": {
+                  "additionalProperties": false,
+                  "description": "csvw:Column. HealthDCAT-AP requires name, title, description and datatype.",
+                  "properties": {
+                        "@type": {
+                              "const": "Column",
+                              "title": "@Type"
+                        },
+                        "columnName": {
+                              "minLength": 1,
+                              "title": "Columnname",
+                              "type": "string"
+                        },
+                        "columnTitle": {
+                              "minLength": 1,
+                              "title": "Columntitle",
+                              "type": "string"
+                        },
+                        "description": {
+                              "minLength": 1,
+                              "title": "Description",
+                              "type": "string"
+                        },
+                        "datatype": {
+                              "minLength": 1,
+                              "title": "Datatype",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "columnName",
+                        "columnTitle",
+                        "description",
+                        "datatype"
+                  ],
+                  "title": "Column",
+                  "type": "object"
+            },
+            "ConceptRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "Concept",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "ConceptRef",
+                  "type": "object"
+            },
+            "ContactPoint": {
+                  "additionalProperties": false,
+                  "description": "cv:ContactPoint, used by agents. Needs an email or a contact page.",
+                  "properties": {
+                        "@type": {
+                              "const": "ContactPoint",
+                              "title": "@Type"
+                        },
+                        "email": {
+                              "anyOf": [
+                                    {
+                                          "format": "email",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Email"
+                        },
+                        "contactPage": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^(https?|mailto):\\S+$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Contactpage"
+                        }
+                  },
+                  "required": [
+                        "@type"
+                  ],
+                  "title": "ContactPoint",
+                  "type": "object"
+            },
+            "Distribution": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@type": {
+                              "const": "Distribution",
+                              "title": "@Type"
+                        },
+                        "title": {
+                              "minLength": 1,
+                              "title": "Title",
+                              "type": "string"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Description"
+                        },
+                        "accessURL": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "Accessurl",
+                              "type": "string"
+                        },
+                        "applicableLegislation": {
+                              "items": {
+                                    "$ref": "#/$defs/LegalResourceRef"
+                              },
+                              "minItems": 1,
+                              "title": "Applicablelegislation",
+                              "type": "array"
+                        },
+                        "format": {
+                              "anyOf": [
+                                    {
+                                          "$ref": "#/$defs/MediaTypeOrExtentRef"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "title",
+                        "accessURL",
+                        "applicableLegislation"
+                  ],
+                  "title": "Distribution",
+                  "type": "object"
+            },
+            "DocumentRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "Document",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "DocumentRef",
+                  "type": "object"
+            },
+            "FrequencyRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "Frequency",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "FrequencyRef",
+                  "type": "object"
+            },
+            "HealthAgent": {
+                  "additionalProperties": false,
+                  "description": "foaf:Agent for publisher, custodian and hdab: exactly one cv:contactPoint.",
+                  "properties": {
+                        "@id": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^(https?|mailto):\\S+$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "@Id"
+                        },
+                        "@type": {
+                              "const": "Agent",
+                              "title": "@Type"
+                        },
+                        "name": {
+                              "minLength": 1,
+                              "title": "Name",
+                              "type": "string"
+                        },
+                        "contact": {
+                              "$ref": "#/$defs/ContactPoint"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "name",
+                        "contact"
+                  ],
+                  "title": "HealthAgent",
+                  "type": "object"
+            },
+            "Kind": {
+                  "additionalProperties": false,
+                  "description": "vcard:Kind, used by the dataset's dcat:contactPoint. Needs an email or a URL.",
+                  "properties": {
+                        "@type": {
+                              "const": "Kind",
+                              "title": "@Type"
+                        },
+                        "hasEmail": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^mailto:\\S+@\\S+$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Hasemail"
+                        },
+                        "hasURL": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^(https?|mailto):\\S+$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Hasurl"
+                        }
+                  },
+                  "required": [
+                        "@type"
+                  ],
+                  "title": "Kind",
+                  "type": "object"
+            },
+            "LegalResourceRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "LegalResource",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "LegalResourceRef",
+                  "type": "object"
+            },
+            "LinguisticSystemRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "LinguisticSystem",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "LinguisticSystemRef",
+                  "type": "object"
+            },
+            "LocationRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "Location",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "LocationRef",
+                  "type": "object"
+            },
+            "MediaTypeOrExtentRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "MediaTypeOrExtent",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "MediaTypeOrExtentRef",
+                  "type": "object"
+            },
+            "PeriodOfTime": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@type": {
+                              "const": "PeriodOfTime",
+                              "title": "@Type"
+                        },
+                        "startDate": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Startdate"
+                        },
+                        "endDate": {
+                              "anyOf": [
+                                    {
+                                          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Enddate"
+                        }
+                  },
+                  "required": [
+                        "@type"
+                  ],
+                  "title": "PeriodOfTime",
+                  "type": "object"
+            },
+            "ProvenanceStatement": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@type": {
+                              "const": "ProvenanceStatement",
+                              "title": "@Type"
+                        },
+                        "label": {
+                              "minLength": 1,
+                              "title": "Label",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "label"
+                  ],
+                  "title": "ProvenanceStatement",
+                  "type": "object"
+            },
+            "Purpose": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@type": {
+                              "const": "Purpose",
+                              "title": "@Type"
+                        },
+                        "description": {
+                              "minLength": 1,
+                              "title": "Description",
+                              "type": "string"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "description"
+                  ],
+                  "title": "Purpose",
+                  "type": "object"
+            },
+            "RightsStatementRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "RightsStatement",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "RightsStatementRef",
+                  "type": "object"
+            },
+            "StandardRef": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@id": {
+                              "pattern": "^(https?|mailto):\\S+$",
+                              "title": "@Id",
+                              "type": "string"
+                        },
+                        "@type": {
+                              "const": "Standard",
+                              "title": "@Type"
+                        }
+                  },
+                  "required": [
+                        "@id",
+                        "@type"
+                  ],
+                  "title": "StandardRef",
+                  "type": "object"
+            },
+            "Table": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@type": {
+                              "const": "Table",
+                              "title": "@Type"
+                        },
+                        "title": {
+                              "minLength": 1,
+                              "title": "Title",
+                              "type": "string"
+                        },
+                        "description": {
+                              "anyOf": [
+                                    {
+                                          "type": "string"
+                                    },
+                                    {
+                                          "type": "null"
+                                    }
+                              ],
+                              "default": null,
+                              "title": "Description"
+                        },
+                        "column": {
+                              "items": {
+                                    "$ref": "#/$defs/Column"
+                              },
+                              "minItems": 1,
+                              "title": "Column",
+                              "type": "array"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "title",
+                        "column"
+                  ],
+                  "title": "Table",
+                  "type": "object"
+            },
+            "TableGroup": {
+                  "additionalProperties": false,
+                  "properties": {
+                        "@type": {
+                              "const": "TableGroup",
+                              "title": "@Type"
+                        },
+                        "title": {
+                              "minLength": 1,
+                              "title": "Title",
+                              "type": "string"
+                        },
+                        "table": {
+                              "items": {
+                                    "$ref": "#/$defs/Table"
+                              },
+                              "minItems": 1,
+                              "title": "Table",
+                              "type": "array"
+                        }
+                  },
+                  "required": [
+                        "@type",
+                        "title",
+                        "table"
+                  ],
+                  "title": "TableGroup",
+                  "type": "object"
+            }
+      },
+      "additionalProperties": false,
+      "description": "A dcat:Dataset in HealthDCAT-AP Release 8, non-public profile, as compacted\nJSON-LD. Required fields follow the release's non-public SHACL shapes; the\nshapes stay the authority on conformance, this model only catches the\nstructural mistakes early.",
+      "properties": {
+            "@context": {
+                  "description": "Maps every key in this document to its HealthDCAT-AP IRI. Must equal HealthDCATAP/8/context.jsonld.",
+                  "title": "JSON-LD context",
+                  "type": "object"
+            },
+            "@id": {
+                  "description": "IRI of the dataset. The Gateway uses the dataset's landing page.",
+                  "pattern": "^(https?|mailto):\\S+$",
+                  "title": "Dataset IRI",
+                  "type": "string"
+            },
+            "@type": {
+                  "const": "Dataset",
+                  "description": "Always Dataset (dcat:Dataset).",
+                  "title": "Type"
+            },
+            "identifier": {
+                  "description": "dct:identifier. The Gateway persistent identifier, plus the DOI where there is one.",
+                  "items": {
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "minItems": 1,
+                  "title": "Identifier",
+                  "type": "array"
+            },
+            "title": {
+                  "description": "dct:title.",
+                  "minLength": 1,
+                  "title": "Title",
+                  "type": "string"
+            },
+            "alternative": {
+                  "anyOf": [
+                        {
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:alternative. Short title, when it differs from the title.",
+                  "title": "Alternative title"
+            },
+            "description": {
+                  "description": "dct:description.",
+                  "minLength": 1,
+                  "title": "Description",
+                  "type": "string"
+            },
+            "version": {
+                  "anyOf": [
+                        {
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dcat:version.",
+                  "title": "Version"
+            },
+            "issued": {
+                  "anyOf": [
+                        {
+                              "format": "date-time",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:issued, as xsd:dateTime.",
+                  "title": "Issued"
+            },
+            "modified": {
+                  "anyOf": [
+                        {
+                              "format": "date-time",
+                              "type": "string"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:modified, as xsd:dateTime.",
+                  "title": "Modified"
+            },
+            "landingPage": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/DocumentRef"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dcat:landingPage. The dataset's page on the Gateway.",
+                  "title": "Landing page"
+            },
+            "accessRights": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/RightsStatementRef"
+                        }
+                  ],
+                  "description": "dct:accessRights. Gateway datasets use the non-public profile, so this is access-right/NON_PUBLIC.",
+                  "title": "Access rights"
+            },
+            "applicableLegislation": {
+                  "description": "dcatap:applicableLegislation. Mandatory; legislation the dataset is processed under.",
+                  "items": {
+                        "$ref": "#/$defs/LegalResourceRef"
+                  },
+                  "minItems": 1,
+                  "title": "Applicable legislation",
+                  "type": "array"
+            },
+            "datasetType": {
+                  "description": "dct:type. Mandatory in the non-public profile; a concept from the EU dataset-type vocabulary.",
+                  "items": {
+                        "$ref": "#/$defs/ConceptRef"
+                  },
+                  "minItems": 1,
+                  "title": "Dataset type",
+                  "type": "array"
+            },
+            "theme": {
+                  "description": "dcat:theme. Mandatory; includes data-theme/HEAL.",
+                  "items": {
+                        "$ref": "#/$defs/ConceptRef"
+                  },
+                  "minItems": 1,
+                  "title": "Theme",
+                  "type": "array"
+            },
+            "healthCategory": {
+                  "description": "healthdcatap:healthCategory. Mandatory; EHDS category of electronic health data.",
+                  "items": {
+                        "$ref": "#/$defs/ConceptRef"
+                  },
+                  "minItems": 1,
+                  "title": "Health category",
+                  "type": "array"
+            },
+            "healthTheme": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/ConceptRef"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:healthTheme.",
+                  "title": "Health theme"
+            },
+            "keyword": {
+                  "description": "dcat:keyword. Mandatory in the non-public profile.",
+                  "items": {
+                        "minLength": 1,
+                        "type": "string"
+                  },
+                  "minItems": 1,
+                  "title": "Keywords",
+                  "type": "array"
+            },
+            "contactPoint": {
+                  "description": "dcat:contactPoint. Mandatory in the non-public profile.",
+                  "items": {
+                        "$ref": "#/$defs/Kind"
+                  },
+                  "minItems": 1,
+                  "title": "Contact point",
+                  "type": "array"
+            },
+            "publisher": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/HealthAgent"
+                        }
+                  ],
+                  "description": "dct:publisher. Exactly one cv:contactPoint.",
+                  "title": "Publisher"
+            },
+            "creator": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/Agent"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:creator.",
+                  "title": "Creator"
+            },
+            "custodian": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/HealthAgent"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "geodcatap:custodian. The data holder.",
+                  "title": "Custodian"
+            },
+            "hdab": {
+                  "allOf": [
+                        {
+                              "$ref": "#/$defs/HealthAgent"
+                        }
+                  ],
+                  "description": "healthdcatap:hdab. Mandatory; the body that grants access. The UK has no HDAB, so the Gateway uses the custodian.",
+                  "title": "Health data access body"
+            },
+            "temporal": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/PeriodOfTime"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:temporal.",
+                  "title": "Temporal coverage"
+            },
+            "accrualPeriodicity": {
+                  "anyOf": [
+                        {
+                              "$ref": "#/$defs/FrequencyRef"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:accrualPeriodicity, from the EU frequency vocabulary.",
+                  "title": "Frequency"
+            },
+            "spatial": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/LocationRef"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:spatial, from the EU country vocabulary.",
+                  "title": "Spatial coverage"
+            },
+            "language": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/LinguisticSystemRef"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:language, from the EU language vocabulary.",
+                  "title": "Language"
+            },
+            "conformsTo": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/StandardRef"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:conformsTo, from the HealthDCAT-AP standard vocabulary.",
+                  "title": "Conforms to"
+            },
+            "hasCodingSystem": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/StandardRef"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:hasCodingSystem, from the HealthDCAT-AP coding-system vocabulary.",
+                  "title": "Coding system"
+            },
+            "provenance": {
+                  "description": "dct:provenance. Mandatory in the non-public profile.",
+                  "items": {
+                        "$ref": "#/$defs/ProvenanceStatement"
+                  },
+                  "minItems": 1,
+                  "title": "Provenance",
+                  "type": "array"
+            },
+            "hasPurpose": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/Purpose"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dpv:hasPurpose.",
+                  "title": "Purpose"
+            },
+            "numberOfUniqueIndividuals": {
+                  "anyOf": [
+                        {
+                              "minimum": 0,
+                              "type": "integer"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:numberOfUniqueIndividuals.",
+                  "title": "Number of unique individuals"
+            },
+            "numberOfRecords": {
+                  "anyOf": [
+                        {
+                              "minimum": 0,
+                              "type": "integer"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:numberOfRecords.",
+                  "title": "Number of records"
+            },
+            "minTypicalAge": {
+                  "anyOf": [
+                        {
+                              "minimum": 0,
+                              "type": "integer"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:minTypicalAge.",
+                  "title": "Minimum typical age"
+            },
+            "maxTypicalAge": {
+                  "anyOf": [
+                        {
+                              "minimum": 0,
+                              "type": "integer"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:maxTypicalAge.",
+                  "title": "Maximum typical age"
+            },
+            "isReferencedBy": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "pattern": "^(https?|mailto):\\S+$",
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:isReferencedBy. Publications about or using the dataset.",
+                  "title": "Referenced by"
+            },
+            "isPartOf": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "pattern": "^(https?|mailto):\\S+$",
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:isPartOf.",
+                  "title": "Part of"
+            },
+            "relation": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "pattern": "^(https?|mailto):\\S+$",
+                                    "type": "string"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "dct:relation. Linked datasets.",
+                  "title": "Related resources"
+            },
+            "hasStructuredData": {
+                  "description": "healthdcatap:hasStructuredData. Mandatory; when true, hasVariables is required.",
+                  "title": "Has structured data",
+                  "type": "boolean"
+            },
+            "hasVariables": {
+                  "anyOf": [
+                        {
+                              "items": {
+                                    "$ref": "#/$defs/TableGroup"
+                              },
+                              "type": "array"
+                        },
+                        {
+                              "type": "null"
+                        }
+                  ],
+                  "default": null,
+                  "description": "healthdcatap:hasVariables. The dataset's tables and columns as a CSVW table group.",
+                  "title": "Variables"
+            },
+            "distribution": {
+                  "description": "dcat:distribution. Mandatory; one per format the data is released in.",
+                  "items": {
+                        "$ref": "#/$defs/Distribution"
+                  },
+                  "minItems": 1,
+                  "title": "Distributions",
+                  "type": "array"
+            }
+      },
+      "required": [
+            "@context",
+            "@id",
+            "@type",
+            "identifier",
+            "title",
+            "description",
+            "accessRights",
+            "applicableLegislation",
+            "datasetType",
+            "theme",
+            "healthCategory",
+            "keyword",
+            "contactPoint",
+            "publisher",
+            "hdab",
+            "provenance",
+            "hasStructuredData",
+            "distribution"
+      ],
+      "title": "HealthDcatAp8",
+      "type": "object"
+}
