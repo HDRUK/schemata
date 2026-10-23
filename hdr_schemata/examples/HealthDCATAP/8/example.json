@@ -1,0 +1,477 @@
+{
+  "@context": {
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "dcatap": "http://data.europa.eu/r5r/",
+    "healthdcatap": "http://healthdataportal.eu/ns/health#",
+    "dpv": "https://w3id.org/dpv#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "cv": "http://data.europa.eu/m8g/",
+    "geodcatap": "http://data.europa.eu/930/",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "@language": "en",
+    "Dataset": "dcat:Dataset",
+    "Distribution": "dcat:Distribution",
+    "Agent": "foaf:Agent",
+    "Kind": "vcard:Kind",
+    "ContactPoint": "cv:ContactPoint",
+    "PeriodOfTime": "dct:PeriodOfTime",
+    "ProvenanceStatement": "dct:ProvenanceStatement",
+    "Purpose": "dpv:Purpose",
+    "TableGroup": "csvw:TableGroup",
+    "Table": "csvw:Table",
+    "Column": "csvw:Column",
+    "Concept": "skos:Concept",
+    "LegalResource": "eli:LegalResource",
+    "RightsStatement": "dct:RightsStatement",
+    "Frequency": "dct:Frequency",
+    "LinguisticSystem": "dct:LinguisticSystem",
+    "Location": "dct:Location",
+    "Standard": "dct:Standard",
+    "MediaTypeOrExtent": "dct:MediaTypeOrExtent",
+    "Document": "foaf:Document",
+    "title": "dct:title",
+    "alternative": "dct:alternative",
+    "description": "dct:description",
+    "keyword": "dcat:keyword",
+    "name": "foaf:name",
+    "label": "rdfs:label",
+    "identifier": {
+      "@id": "dct:identifier",
+      "@language": null
+    },
+    "version": {
+      "@id": "dcat:version",
+      "@language": null
+    },
+    "issued": {
+      "@id": "dct:issued",
+      "@type": "xsd:dateTime"
+    },
+    "modified": {
+      "@id": "dct:modified",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "dcat:startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "dcat:endDate",
+      "@type": "xsd:date"
+    },
+    "accessRights": {
+      "@id": "dct:accessRights",
+      "@type": "@id"
+    },
+    "applicableLegislation": {
+      "@id": "dcatap:applicableLegislation",
+      "@type": "@id"
+    },
+    "datasetType": {
+      "@id": "dct:type",
+      "@type": "@id"
+    },
+    "theme": {
+      "@id": "dcat:theme",
+      "@type": "@id"
+    },
+    "language": {
+      "@id": "dct:language",
+      "@type": "@id"
+    },
+    "accrualPeriodicity": {
+      "@id": "dct:accrualPeriodicity",
+      "@type": "@id"
+    },
+    "spatial": {
+      "@id": "dct:spatial",
+      "@type": "@id"
+    },
+    "conformsTo": {
+      "@id": "dct:conformsTo",
+      "@type": "@id"
+    },
+    "format": {
+      "@id": "dct:format",
+      "@type": "@id"
+    },
+    "landingPage": {
+      "@id": "dcat:landingPage",
+      "@type": "@id"
+    },
+    "accessURL": {
+      "@id": "dcat:accessURL",
+      "@type": "@id"
+    },
+    "isReferencedBy": {
+      "@id": "dct:isReferencedBy",
+      "@type": "@id"
+    },
+    "isPartOf": {
+      "@id": "dct:isPartOf",
+      "@type": "@id"
+    },
+    "relation": {
+      "@id": "dct:relation",
+      "@type": "@id"
+    },
+    "hasEmail": {
+      "@id": "vcard:hasEmail",
+      "@type": "@id"
+    },
+    "hasURL": {
+      "@id": "vcard:hasURL",
+      "@type": "@id"
+    },
+    "email": {
+      "@id": "cv:email",
+      "@language": null
+    },
+    "contactPage": {
+      "@id": "cv:contactPage",
+      "@type": "@id"
+    },
+    "healthCategory": {
+      "@id": "healthdcatap:healthCategory",
+      "@type": "@id"
+    },
+    "healthTheme": {
+      "@id": "healthdcatap:healthTheme",
+      "@type": "@id"
+    },
+    "hasCodingSystem": {
+      "@id": "healthdcatap:hasCodingSystem",
+      "@type": "@id"
+    },
+    "hasStructuredData": {
+      "@id": "healthdcatap:hasStructuredData"
+    },
+    "minTypicalAge": {
+      "@id": "healthdcatap:minTypicalAge",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "maxTypicalAge": {
+      "@id": "healthdcatap:maxTypicalAge",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "numberOfRecords": {
+      "@id": "healthdcatap:numberOfRecords",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "numberOfUniqueIndividuals": {
+      "@id": "healthdcatap:numberOfUniqueIndividuals",
+      "@type": "xsd:nonNegativeInteger"
+    },
+    "publisher": {
+      "@id": "dct:publisher"
+    },
+    "creator": {
+      "@id": "dct:creator"
+    },
+    "hdab": {
+      "@id": "healthdcatap:hdab"
+    },
+    "custodian": {
+      "@id": "geodcatap:custodian"
+    },
+    "contactPoint": {
+      "@id": "dcat:contactPoint"
+    },
+    "contact": {
+      "@id": "cv:contactPoint"
+    },
+    "temporal": {
+      "@id": "dct:temporal"
+    },
+    "provenance": {
+      "@id": "dct:provenance"
+    },
+    "hasPurpose": {
+      "@id": "dpv:hasPurpose"
+    },
+    "distribution": {
+      "@id": "dcat:distribution"
+    },
+    "hasVariables": {
+      "@id": "healthdcatap:hasVariables"
+    },
+    "table": {
+      "@id": "csvw:table"
+    },
+    "column": {
+      "@id": "csvw:column"
+    },
+    "columnName": {
+      "@id": "csvw:name",
+      "@language": null
+    },
+    "columnTitle": {
+      "@id": "csvw:title"
+    },
+    "datatype": {
+      "@id": "csvw:datatype",
+      "@language": null
+    }
+  },
+  "@id": "https://healthdatagateway.org/en/dataset/1234",
+  "@type": "Dataset",
+  "identifier": [
+    "5f1c2b7e-0d4a-4e8b-9a61-3c2f0e9d7a10",
+    "https://doi.org/10.5555/example.epcdc"
+  ],
+  "title": "Example Primary Care Diabetes Cohort",
+  "alternative": "EPCDC",
+  "description": "Fictional dataset. Coded primary care records for adults with type 2 diabetes, linked to hospital admissions and community prescribing. Used only as a test fixture.",
+  "version": "2.1.0",
+  "issued": "2024-03-01T09:00:00.000Z",
+  "modified": "2026-09-15T14:22:10.000Z",
+  "landingPage": {
+    "@id": "https://healthdatagateway.org/en/dataset/1234",
+    "@type": "Document"
+  },
+  "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC",
+    "@type": "RightsStatement"
+  },
+  "applicableLegislation": [
+    {
+      "@id": "https://www.legislation.gov.uk/ukpga/2018/12",
+      "@type": "LegalResource"
+    }
+  ],
+  "datasetType": [
+    {
+      "@id": "http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL",
+      "@type": "Concept"
+    }
+  ],
+  "theme": [
+    {
+      "@id": "http://publications.europa.eu/resource/authority/data-theme/HEAL",
+      "@type": "Concept"
+    }
+  ],
+  "healthCategory": [
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/healthcategories/EHRS",
+      "@type": "Concept"
+    },
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/healthcategories/RQSH",
+      "@type": "Concept"
+    },
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/healthcategories/HRAD",
+      "@type": "Concept"
+    }
+  ],
+  "healthTheme": [
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/health-theme/NONCOMMUNICABLE_DISEASES",
+      "@type": "Concept"
+    }
+  ],
+  "keyword": [
+    "diabetes",
+    "primary care",
+    "prescribing",
+    "cohort"
+  ],
+  "contactPoint": [
+    {
+      "@type": "Kind",
+      "hasEmail": "mailto:data-access@example.org"
+    }
+  ],
+  "publisher": {
+    "@id": "https://ror.org/0abcdef12",
+    "@type": "Agent",
+    "name": "Example Health Data Trust",
+    "contact": {
+      "@type": "ContactPoint",
+      "email": "data-access@example.org"
+    }
+  },
+  "creator": [
+    {
+      "@type": "Agent",
+      "name": "Example Health Data Trust"
+    }
+  ],
+  "custodian": {
+    "@type": "Agent",
+    "name": "Example Health Data Trust",
+    "contact": {
+      "@type": "ContactPoint",
+      "email": "data-access@example.org"
+    }
+  },
+  "hdab": {
+    "@type": "Agent",
+    "name": "Example Health Data Trust",
+    "contact": {
+      "@type": "ContactPoint",
+      "email": "data-access@example.org"
+    }
+  },
+  "temporal": [
+    {
+      "@type": "PeriodOfTime",
+      "startDate": "2010-01-01",
+      "endDate": "2025-12-31"
+    }
+  ],
+  "accrualPeriodicity": {
+    "@id": "http://publications.europa.eu/resource/authority/frequency/QUARTERLY",
+    "@type": "Frequency"
+  },
+  "spatial": [
+    {
+      "@id": "http://publications.europa.eu/resource/authority/country/GBR",
+      "@type": "Location"
+    }
+  ],
+  "language": [
+    {
+      "@id": "http://publications.europa.eu/resource/authority/language/ENG",
+      "@type": "LinguisticSystem"
+    }
+  ],
+  "conformsTo": [
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/standard/OMOP-CDM",
+      "@type": "Standard"
+    }
+  ],
+  "hasCodingSystem": [
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/coding-system/SNOMED-CT",
+      "@type": "Standard"
+    },
+    {
+      "@id": "https://hdeu-dcat.data.health.europa.eu/resource/authority/coding-system/ICD-10",
+      "@type": "Standard"
+    }
+  ],
+  "provenance": [
+    {
+      "@type": "ProvenanceStatement",
+      "label": "Source: EPR. Collection setting: Primary care - Clinic, Prescribing - Community pharmacy. Original purpose: Care, Research cohort."
+    }
+  ],
+  "hasPurpose": [
+    {
+      "@type": "Purpose",
+      "description": "Data originally collected for: Care, Research cohort."
+    }
+  ],
+  "numberOfUniqueIndividuals": 48210,
+  "numberOfRecords": 1830450,
+  "minTypicalAge": 18,
+  "maxTypicalAge": 95,
+  "isReferencedBy": [
+    "https://doi.org/10.5555/example.paper.1",
+    "https://doi.org/10.5555/example.paper.2"
+  ],
+  "relation": [
+    "https://example.org/datasets/hospital-episodes"
+  ],
+  "hasStructuredData": true,
+  "hasVariables": [
+    {
+      "@type": "TableGroup",
+      "title": "Structural metadata for Example Primary Care Diabetes Cohort",
+      "table": [
+        {
+          "@type": "Table",
+          "title": "patients",
+          "description": "One row per patient.",
+          "column": [
+            {
+              "@type": "Column",
+              "columnName": "patient_id",
+              "columnTitle": "patient_id",
+              "description": "Pseudonymised patient identifier.",
+              "datatype": "string"
+            },
+            {
+              "@type": "Column",
+              "columnName": "year_of_birth",
+              "columnTitle": "year_of_birth",
+              "description": "year_of_birth",
+              "datatype": "integer"
+            }
+          ]
+        },
+        {
+          "@type": "Table",
+          "title": "prescriptions",
+          "description": "One row per community prescription.",
+          "column": [
+            {
+              "@type": "Column",
+              "columnName": "patient_id",
+              "columnTitle": "patient_id",
+              "description": "Pseudonymised patient identifier.",
+              "datatype": "string"
+            },
+            {
+              "@type": "Column",
+              "columnName": "issue_date",
+              "columnTitle": "issue_date",
+              "description": "Date the prescription was issued.",
+              "datatype": "date"
+            },
+            {
+              "@type": "Column",
+              "columnName": "dmd_code",
+              "columnTitle": "dmd_code",
+              "description": "dm+d product code.",
+              "datatype": "integer"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "Distribution",
+      "title": "Data access request (CSV)",
+      "description": "Data are accessed inside the Example Trusted Research Environment after approval by the Example Data Access Committee.",
+      "accessURL": "https://example.org/epcdc/terms",
+      "applicableLegislation": [
+        {
+          "@id": "https://www.legislation.gov.uk/ukpga/2018/12",
+          "@type": "LegalResource"
+        }
+      ],
+      "format": {
+        "@id": "http://publications.europa.eu/resource/authority/file-type/CSV",
+        "@type": "MediaTypeOrExtent"
+      }
+    },
+    {
+      "@type": "Distribution",
+      "title": "Data access request (PARQUET)",
+      "description": "Data are accessed inside the Example Trusted Research Environment after approval by the Example Data Access Committee.",
+      "accessURL": "https://example.org/epcdc/terms",
+      "applicableLegislation": [
+        {
+          "@id": "https://www.legislation.gov.uk/ukpga/2018/12",
+          "@type": "LegalResource"
+        }
+      ],
+      "format": {
+        "@id": "http://publications.europa.eu/resource/authority/file-type/PARQUET",
+        "@type": "MediaTypeOrExtent"
+      }
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+# HealthDCAT-AP Release 8 (https://data.health.europa.eu/healthdcat-ap/releases/release-8/)
+# as compacted JSON-LD. Each description names the RDF property the key expands
+# to through context.jsonld.
+
+context:
+  title: "JSON-LD context"
+  description: "Maps every key in this document to its HealthDCAT-AP IRI. Must equal HealthDCATAP/8/context.jsonld."
+id:
+  title: "Dataset IRI"
+  description: "IRI of the dataset. The Gateway uses the dataset's landing page."
+type:
+  title: "Type"
+  description: "Always Dataset (dcat:Dataset)."
+
+identifier:
+  title: "Identifier"
+  description: "dct:identifier. The Gateway persistent identifier, plus the DOI where there is one."
+title:
+  title: "Title"
+  description: "dct:title."
+alternative:
+  title: "Alternative title"
+  description: "dct:alternative. Short title, when it differs from the title."
+description:
+  title: "Description"
+  description: "dct:description."
+version:
+  title: "Version"
+  description: "dcat:version."
+issued:
+  title: "Issued"
+  description: "dct:issued, as xsd:dateTime."
+modified:
+  title: "Modified"
+  description: "dct:modified, as xsd:dateTime."
+landingPage:
+  title: "Landing page"
+  description: "dcat:landingPage. The dataset's page on the Gateway."
+accessRights:
+  title: "Access rights"
+  description: "dct:accessRights. Gateway datasets use the non-public profile, so this is access-right/NON_PUBLIC."
+applicableLegislation:
+  title: "Applicable legislation"
+  description: "dcatap:applicableLegislation. Mandatory; legislation the dataset is processed under."
+datasetType:
+  title: "Dataset type"
+  description: "dct:type. Mandatory in the non-public profile; a concept from the EU dataset-type vocabulary."
+theme:
+  title: "Theme"
+  description: "dcat:theme. Mandatory; includes data-theme/HEAL."
+healthCategory:
+  title: "Health category"
+  description: "healthdcatap:healthCategory. Mandatory; EHDS category of electronic health data."
+healthTheme:
+  title: "Health theme"
+  description: "healthdcatap:healthTheme."
+keyword:
+  title: "Keywords"
+  description: "dcat:keyword. Mandatory in the non-public profile."
+contactPoint:
+  title: "Contact point"
+  description: "dcat:contactPoint. Mandatory in the non-public profile."
+publisher:
+  title: "Publisher"
+  description: "dct:publisher. Exactly one cv:contactPoint."
+creator:
+  title: "Creator"
+  description: "dct:creator."
+custodian:
+  title: "Custodian"
+  description: "geodcatap:custodian. The data holder."
+hdab:
+  title: "Health data access body"
+  description: "healthdcatap:hdab. Mandatory; the body that grants access. The UK has no HDAB, so the Gateway uses the custodian."
+temporal:
+  title: "Temporal coverage"
+  description: "dct:temporal."
+accrualPeriodicity:
+  title: "Frequency"
+  description: "dct:accrualPeriodicity, from the EU frequency vocabulary."
+spatial:
+  title: "Spatial coverage"
+  description: "dct:spatial, from the EU country vocabulary."
+language:
+  title: "Language"
+  description: "dct:language, from the EU language vocabulary."
+conformsTo:
+  title: "Conforms to"
+  description: "dct:conformsTo, from the HealthDCAT-AP standard vocabulary."
+hasCodingSystem:
+  title: "Coding system"
+  description: "healthdcatap:hasCodingSystem, from the HealthDCAT-AP coding-system vocabulary."
+provenance:
+  title: "Provenance"
+  description: "dct:provenance. Mandatory in the non-public profile."
+hasPurpose:
+  title: "Purpose"
+  description: "dpv:hasPurpose."
+numberOfUniqueIndividuals:
+  title: "Number of unique individuals"
+  description: "healthdcatap:numberOfUniqueIndividuals."
+numberOfRecords:
+  title: "Number of records"
+  description: "healthdcatap:numberOfRecords."
+minTypicalAge:
+  title: "Minimum typical age"
+  description: "healthdcatap:minTypicalAge."
+maxTypicalAge:
+  title: "Maximum typical age"
+  description: "healthdcatap:maxTypicalAge."
+isReferencedBy:
+  title: "Referenced by"
+  description: "dct:isReferencedBy. Publications about or using the dataset."
+isPartOf:
+  title: "Part of"
+  description: "dct:isPartOf."
+relation:
+  title: "Related resources"
+  description: "dct:relation. Linked datasets."
+hasStructuredData:
+  title: "Has structured data"
+  description: "healthdcatap:hasStructuredData. Mandatory; when true, hasVariables is required."
+hasVariables:
+  title: "Variables"
+  description: "healthdcatap:hasVariables. The dataset's tables and columns as a CSVW table group."
+distribution:
+  title: "Distributions"
+  description: "dcat:distribution. Mandatory; one per format the data is released in."
