@@ -1,8 +1,9 @@
+import copy
 import json
 
 from pydantic import ValidationError
 
-from hdr_schemata.models.GWDM import Gwdm10, Gwdm22
+from hdr_schemata.models.GWDM import Gwdm10, Gwdm22, Gwdm23
 
 
 def get_metadata(model, version):
@@ -78,5 +79,60 @@ class TestGwdm22:
         try:
             Gwdm22(**metadata)
             assert False, "expected ValidationError for an unknown usage property"
+        except ValidationError:
+            pass
+
+
+class TestGwdm23:
+    metadata = get_metadata("GWDM", "2.3")
+    json_schema = get_schema("GWDM", "2.3")
+
+    def test_validation(self):
+        assert Gwdm23(**self.metadata) != None
+
+    def test_json_schema(self):
+        schema = Gwdm23.model_json_schema()
+        expected_keys = [
+            "$defs",
+            "additionalProperties",
+            "properties",
+            "required",
+            "title",
+            "type",
+        ]
+
+        assert list(schema.keys()) == expected_keys
+        assert schema == self.json_schema
+
+    def test_population_is_optional(self):
+        metadata = {k: v for k, v in self.metadata.items() if k != "population"}
+        assert Gwdm23(**metadata).population is None
+
+    def test_dataset_record_type_defaults_to_dataset(self):
+        dataset = Gwdm23(**self.metadata)
+        assert dataset.required.recordType.value == "dataset"
+        assert dataset.crocod is None
+
+
+class TestGwdm23CaseStudy:
+    metadata = json.load(open("../examples/GWDM/2.3/case_study.json"))
+
+    def test_validation(self):
+        assert Gwdm23(**self.metadata).required.recordType.value == "caseStudy"
+
+    def test_case_study_without_crocod_is_rejected(self):
+        metadata = {k: v for k, v in self.metadata.items() if k != "crocod"}
+        try:
+            Gwdm23(**metadata)
+            assert False, "expected ValidationError for a case study without crocod"
+        except ValidationError:
+            pass
+
+    def test_crocod_on_a_dataset_is_rejected(self):
+        metadata = copy.deepcopy(self.metadata)
+        metadata["required"]["recordType"] = "dataset"
+        try:
+            Gwdm23(**metadata)
+            assert False, "expected ValidationError for crocod on a dataset"
         except ValidationError:
             pass

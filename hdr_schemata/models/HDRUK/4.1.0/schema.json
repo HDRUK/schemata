@@ -1386,7 +1386,7 @@
                                     "LOCAL",
                                     "NHS DATA DICTIONARY"
                               ],
-                              "guidance": "- List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.\\n- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- [**British National Formulary (BNF) codes**](https://bnf.nice.org.uk/)\\n- [**HL7 FHIR**](https://www.hl7.org/fhir/)\\n- [**HL7 V2**](https://www.hl7.org/implement/standards/product_section.cfm?section=13)\\n- [**HL7 CDA**](https://www.hl7.org/implement/standards/product_section.cfm?section=10)\\n- [**HL7 CCOW**](https://www.hl7.org/implement/standards/product_section.cfm?section=16)\\n- [**DICOM**](https://www.dicomstandard.org/)\\n- [**I2B2**](https://www.i2b2.org/)\\n- [**IHE**](https://www.ihe.net/resources/profiles/)\\n- [**OMOP**](https://www.ohdsi.org/data-standardization/the-common-data-model/)\\n- [**openEHR**](https://www.openehr.org/)\\n- [**Sentinel**](https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model)\\n- [**PCORnet**](https://pcornet.org/data-driven-common-model/)\\n- [**CDISC**](https://www.cdisc.org/standards/data-exchange/odm)\\n- **Local**: In-house developed data model.\\n- **Other**: Other standardised data model.\\n- [**NHS Data Dictionary**](https://www.datadictionary.nhs.uk/)\\n- [**NHS Scotland Data Dictionary**](https://www.ndc.scot.nhs.uk/Data-Dictionary/)\\n- [**NHS Wales Data Dictionary**](https://www.datadictionary.wales.nhs.uk/)",
+                              "guidance": "- List standardised data models that the dataset has been stored in or transformed to, such as OMOP or FHIR.\\n- If the data is only available in a local format, please make that explicit. If you are using a standard that has not been included in the list, please use \u201cother\u201d and contact support desk to ask for an addition.\\n- [**British National Formulary (BNF) codes**](https://bnf.nice.org.uk/)\\n- [**HL7 FHIR**](https://www.hl7.org/fhir/)\\n- [**HL7 V2**](https://www.hl7.org/implement/standards/product_section.cfm?section=13)\\n- [**HL7 CDA**](https://www.hl7.org/implement/standards/product_section.cfm?section=10)\\n- [**HL7 CCOW**](https://www.hl7.org/implement/standards/product_section.cfm?section=16)\\n- [**LOINC**](https://loinc.org/)\\n- [**DDI**](https://ddialliance.org/)\\n- [**DCAT**](https://www.w3.org/TR/vocab-dcat-3/)\\n- [**DICOM**](https://www.dicomstandard.org/)\\n- [**I2B2**](https://www.i2b2.org/)\\n- [**IHE**](https://www.ihe.net/resources/profiles/)\\n- [**OMOP**](https://www.ohdsi.org/data-standardization/the-common-data-model/)\\n- [**openEHR**](https://www.openehr.org/)\\n- [**Sentinel**](https://www.sentinelinitiative.org/sentinel/data/distributed-database-common-data-model)\\n- [**PCORnet**](https://pcornet.org/data-driven-common-model/)\\n- [**CDISC**](https://www.cdisc.org/standards/data-exchange/odm)\\n- **Local**: In-house developed data model.\\n- **Other**: Other standardised data model.\\n- [**NHS Data Dictionary**](https://www.datadictionary.nhs.uk/)\\n- [**NHS Scotland Data Dictionary**](https://www.ndc.scot.nhs.uk/Data-Dictionary/)\\n- [**NHS Wales Data Dictionary**](https://www.datadictionary.wales.nhs.uk/)",
                               "items": {
                                     "$ref": "#/$defs/StandardisedDataModelsEnumV2"
                               },
@@ -2627,11 +2627,14 @@
             },
             "StandardisedDataModelsEnumV2": {
                   "enum": [
+                        "BNF",
                         "HL7 FHIR",
                         "HL7 V2",
                         "HL7 CDA",
                         "HL7 CCOW",
                         "LOINC",
+                        "DDI",
+                        "DCAT",
                         "DICOM",
                         "I2B2",
                         "IHE",
@@ -2640,14 +2643,11 @@
                         "SENTINEL",
                         "PCORNET",
                         "CDISC",
-                        "NHS DATA DICTIONARY",
-                        "NHS SCOTLAND DATA DICTIONARY",
-                        "NHS WALES DATA DICTIONARY",
                         "LOCAL",
                         "OTHER",
-                        "BNF",
-                        "DDI",
-                        "DCAT"
+                        "NHS DATA DICTIONARY",
+                        "NHS SCOTLAND DATA DICTIONARY",
+                        "NHS WALES DATA DICTIONARY"
                   ],
                   "title": "StandardisedDataModelsEnumV2",
                   "type": "string"

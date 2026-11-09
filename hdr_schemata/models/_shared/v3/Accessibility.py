@@ -10,7 +10,7 @@ from .annotations import annotations
 
 an = annotations.accessibility
 
-from hdr_schemata.models.HDRUK.v3_0_0.Accessibility import (
+from hdr_schemata.models._shared.v1.Accessibility import (
     Accessibility as BaseAccessibility,
 )
 

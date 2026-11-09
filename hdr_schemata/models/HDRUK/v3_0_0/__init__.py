@@ -4,17 +4,17 @@ from typing import Optional, List, Union
 from pydantic import Field, BaseModel
 from datetime import date, datetime
 
-from .Accessibility import Accessibility
-from .Coverage import Coverage
-from .DemographicFrequency import DemographicFrequency
-from .Documentation import Documentation
-from .EnrichmentAndLinkage import EnrichmentAndLinkage
-from .Observations import Observation
-from .Omics import Omics
-from .Provenance import Provenance
-from .Revision import Revision
-from .StructuralMetadata import StructuralMetadata
-from .Summary import Summary
+from hdr_schemata.models._shared.v1.Accessibility import Accessibility
+from hdr_schemata.models._shared.v1.Coverage import Coverage
+from hdr_schemata.models._shared.v1.DemographicFrequency import DemographicFrequency
+from hdr_schemata.models._shared.v1.Documentation import Documentation
+from hdr_schemata.models._shared.v1.EnrichmentAndLinkage import EnrichmentAndLinkage
+from hdr_schemata.models._shared.v1.Observations import Observation
+from hdr_schemata.models._shared.v1.Omics import Omics
+from hdr_schemata.models._shared.v1.Provenance import Provenance
+from hdr_schemata.models._shared.v1.Revision import Revision
+from hdr_schemata.models._shared.v1.StructuralMetadata import StructuralMetadata
+from hdr_schemata.models._shared.v1.Summary import Summary
 
 from .annotations import annotations as an
 

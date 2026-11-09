@@ -2,7 +2,7 @@ from hdr_schemata.models.HDRUK.v4_0_0 import Hdruk400
 import json
 from pydantic import Field
 
-from .Accessibility import Accessibility
+from hdr_schemata.models._shared.v3.Accessibility import Accessibility
 
 
 class Hdruk410(Hdruk400):

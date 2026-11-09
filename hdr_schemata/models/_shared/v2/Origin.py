@@ -1,5 +1,5 @@
 from hdr_schemata.definitions.HDRUK.DatasetType import EnvironmentAndEnergy, ImagingAreaOfTheBody, ImagingTypes, InformationAndCommunication, Lifestyle, MeasurementsTests, OmicsDataType, Politics, Registry, Socioeconomic
-from hdr_schemata.models.HDRUK.v3_0_0.Origin import Origin as BaseOrigin
+from hdr_schemata.models._shared.v1.Origin import Origin as BaseOrigin
 from typing import Optional, List, Union
 from pydantic import BaseModel, Field
 from hdr_schemata.definitions.HDRUK import *

@@ -1,0 +1,21 @@
+entityReference:
+  gatewayId:
+    title: "Gateway identifier"
+    description: "Identifier of the entity on the Gateway, as text, if it is listed there. Leave empty for entities that are not on the Gateway."
+  title:
+    title: "Title"
+    description: "Name of the entity, shown whether or not it is listed on the Gateway."
+  url:
+    title: "URL"
+    description: "Link to the entity, for entities that are not on the Gateway."
+
+learning:
+  tags:
+    title: "Tags"
+    description: "Short statements, displayed as ticked boxes."
+  summary:
+    title: "Summary"
+    description: "One-line summary of the learnings, displayed as a subheading."
+  content:
+    title: "Learnings"
+    description: "The learnings in full. May include formatting, block quotes and attributed quotes."

@@ -27,7 +27,9 @@ setuptools.setup(
         "PyYAML",
         "pandas",
         "tabulate",
-        "markdown",
+        # Pinned: clean_markdown_from_json output (HDRUK 3.0.0 guidance) changes
+        # between markdown releases - 3.11.2 leaves stray "*" from malformed bold.
+        "markdown==3.11.1",
         "beautifulsoup4"
     ],
     entry_points={
