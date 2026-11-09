@@ -57,8 +57,8 @@ def _snapshot(*families):
 
 
 def test_version_annotation_dirs_are_discovered():
-    names = {path.parent.name for path in VERSION_ANNOTATION_DIRS}
-    assert {"v1_0", "v2_1_2", "v4_1_0"} <= names
+    names = {path.parent.relative_to(MODELS_DIR).as_posix() for path in VERSION_ANNOTATION_DIRS}
+    assert {"GWDM/v1_0", "HDRUK/v2_1_2", "_shared/v3", "PRUK/v1_0_0"} <= names
 
 
 def test_stitching_does_not_mutate_the_shared_base():

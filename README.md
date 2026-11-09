@@ -62,7 +62,8 @@ the committed output does not match the models.
 > markdown and `form.json` depend on the interpreter's type-annotation reprs: on 3.9 the
 > generator drops whole field blocks from `form.json` and renders `typing.List[...]`
 > instead of `List`. Building on another version will produce a spurious diff that CI
-> then rejects.
+> then rejects. `markdown` is pinned in `setup.py` for the same reason: it cleans the
+> HDRUK 3.0.0 guidance text, and newer releases change that output.
 
 ## Docs
 

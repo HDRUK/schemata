@@ -1,24 +1,2 @@
-from typing import Optional, List
-from pydantic import BaseModel, Field, constr
-from hdr_schemata.definitions.HDRUK import *
-
-from .DataColumn import DataColumn
-
-from .annotations import annotations
-
-an = annotations.structuralMetadata.tables
-
-
-class DataTable(BaseModel):
-    class Config:
-        extra = "forbid"
-
-    name: Optional[constr(min_length=1, max_length=500)] = Field(
-        None, **an.name.__dict__
-    )
-    description: Optional[constr(min_length=1, max_length=20000)] = Field(
-        None, **an.description.__dict__
-    )
-    columns: List[DataColumn] = Field(
-        ..., title=an.columns._title, description=an.columns._description
-    )
+# Re-export kept for CRUK, which still imports from here. Remove once CRUK uses _shared.
+from hdr_schemata.models._shared.v1.DataTable import DataTable  # noqa: F401

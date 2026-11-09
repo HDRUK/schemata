@@ -7,7 +7,7 @@ from .DataUsePermissions import DataUsePermissions
 
 an = annotations.accessibility.usage
 
-from hdr_schemata.models.HDRUK.v3_0_0.Usage import Usage as BaseUsage
+from hdr_schemata.models._shared.v1.Usage import Usage as BaseUsage
 
 
 class Usage(BaseUsage):

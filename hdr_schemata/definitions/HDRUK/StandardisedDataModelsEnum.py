@@ -26,6 +26,7 @@ class StandardisedDataModelsEnum(Enum):
 
 
 class StandardisedDataModelsEnumV1_1(Enum):
+    BNF = "BNF"
     HL7_FHIR = "HL7 FHIR"
     HL7_V2 = "HL7 V2"
     HL7_CDA = "HL7 CDA"
@@ -39,20 +40,22 @@ class StandardisedDataModelsEnumV1_1(Enum):
     SENTINEL = "SENTINEL"
     PCORNET = "PCORNET"
     CDISC = "CDISC"
+    LOCAL = "LOCAL"
+    OTHER = "OTHER"
     NHS_DATA_DICTIONARY = "NHS DATA DICTIONARY"
     NHS_SCOTLAND_DATA_DICTIONARY = "NHS SCOTLAND DATA DICTIONARY"
     NHS_WALES_DATA_DICTIONARY = "NHS WALES DATA DICTIONARY"
-    LOCAL = "LOCAL"
-    OTHER = "OTHER"
-    BNF = "BNF"
 
 
 class StandardisedDataModelsEnumV2(Enum):
+    BNF = "BNF"
     HL7_FHIR = "HL7 FHIR"
     HL7_V2 = "HL7 V2"
     HL7_CDA = "HL7 CDA"
     HL7_CCOW = "HL7 CCOW"
     LOINC = "LOINC"
+    DDI = "DDI"
+    DCAT = "DCAT"
     DICOM = "DICOM"
     I2B2 = "I2B2"
     IHE = "IHE"
@@ -61,11 +64,8 @@ class StandardisedDataModelsEnumV2(Enum):
     SENTINEL = "SENTINEL"
     PCORNET = "PCORNET"
     CDISC = "CDISC"
+    LOCAL = "LOCAL"
+    OTHER = "OTHER"
     NHS_DATA_DICTIONARY = "NHS DATA DICTIONARY"
     NHS_SCOTLAND_DATA_DICTIONARY = "NHS SCOTLAND DATA DICTIONARY"
     NHS_WALES_DATA_DICTIONARY = "NHS WALES DATA DICTIONARY"
-    LOCAL = "LOCAL"
-    OTHER = "OTHER"
-    BNF = "BNF"
-    DDI = "DDI"
-    DCAT = "DCAT"
